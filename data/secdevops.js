@@ -1,0 +1,371 @@
+const secdevopsData = [
+    // Tema 1: Introducción a SecDevOps
+    {
+        tema: "Tema 1: Introducción a SecDevOps",
+        question: "¿Cuál es el objetivo principal del paradigma SecDevOps en comparación con el desarrollo tradicional?",
+        options: [
+            "Integrar la seguridad como un servicio más en la cadena de requisitos del cliente desde el inicio (diseño y desarrollo) y no como un paso final aislado.",
+            "Integrar la seguridad como una auditoría final en la cadena de requisitos del cliente después del desarrollo y antes del despliegue.",
+            "Integrar la seguridad como un proceso paralelo en la cadena de requisitos del cliente durante las pruebas finales.",
+            "Integrar la seguridad como un checkpoint obligatorio en la cadena de requisitos del cliente al finalizar cada sprint."
+        ],
+        answer: "Integrar la seguridad como un servicio más en la cadena de requisitos del cliente desde el inicio (diseño y desarrollo) y no como un paso final aislado.",
+        comment: "Tema: 1. Introducción - La profesora define SecDevOps como la integración de procesos de desarrollo, operaciones e ingenieros de seguridad, considerando la seguridad y conformidad desde el principio para satisfacer al cliente reduciendo riesgos."
+    },
+    {
+        tema: "Tema 1: Introducción a SecDevOps",
+        question: "En el contexto de seguridad en DevOps, ¿qué es una vulnerabilidad de 'Día 0' (Zero-Day)?",
+        options: [
+            "Una vulnerabilidad que se descubre y explota antes de que el fabricante tenga un parche o solución disponible.",
+            "Una vulnerabilidad que se descubre y reporta antes de que el fabricante lance la versión estable del software.",
+            "Una vulnerabilidad que se descubre y documenta antes de que el fabricante complete las pruebas de seguridad.",
+            "Una vulnerabilidad que se descubre y corrige antes de que el fabricante publique el código en producción."
+        ],
+        answer: "Una vulnerabilidad que se descubre y explota antes de que el fabricante tenga un parche o solución disponible.",
+        comment: "Tema: 1. Introducción (Seguridad en DevOps) - Se denomina 'Día 0' porque los desarrolladores han tenido cero días para arreglarla desde que se hace pública o se explota; el sistema es vulnerable hasta que se aplica la actualización."
+    },
+    {
+        tema: "Tema 1: Introducción a SecDevOps",
+        question: "¿En qué consiste la metodología TDD (Test-Driven Development) explicada como una buena práctica de seguridad?",
+        options: [
+            "Diseñar e implementar las pruebas primero, y luego desarrollar el código para que pase esas pruebas.",
+            "Diseñar e implementar las pruebas después, y luego validar el código para que cumpla esas pruebas.",
+            "Diseñar e implementar las pruebas en paralelo, y luego integrar el código para que ejecute esas pruebas.",
+            "Diseñar e implementar las pruebas al final, y luego refactorizar el código para que supere esas pruebas."
+        ],
+        answer: "Diseñar e implementar las pruebas primero, y luego desarrollar el código para que pase esas pruebas.",
+        comment: "Tema: 1. Introducción (Seguridad en DevOps) - TDD invierte el ciclo tradicional: las pruebas se implementan primero y luego se desarrolla la solución para que pase dichas pruebas, asegurando una cobertura cercana al 100% y un código más robusto."
+    },
+    {
+        tema: "Tema 1: Introducción a SecDevOps",
+        question: "¿Qué función principal tienen los sistemas EDR (Endpoint Detection Response)?",
+        options: [
+            "Monitorizar y responder a ataques en tiempo real en los dispositivos finales, detectando fraudes e intrusiones.",
+            "Servir como un antivirus estático que solo detecta malware conocido mediante firmas.",
+            "Gestionar políticas de acceso y autenticación de usuarios en Active Directory.",
+            "Optimizar el rendimiento del sistema mediante análisis de logs y telemetría."
+        ],
+        answer: "Monitorizar y responder a ataques en tiempo real en los dispositivos finales, detectando fraudes e intrusiones.",
+        comment: "Tema: 1. Introducción (Seguridad en DevOps) - Los EDR son vitales para prevenir y actuar rápidamente ante ataques, enfocándose en registro, detección de fraude, detección de intrusiones y respuesta a incidentes."
+    },
+    {
+        tema: "Tema 1: Introducción a SecDevOps",
+        question: "¿Qué concepto introduce el 'Green SecDevOps' mencionado como un añadido a las métricas tradicionales?",
+        options: [
+            "La inclusión de métricas de sostenibilidad (como el uso de energía o la elección de regiones de nube con energía limpia) en el ciclo de desarrollo.",
+            "La inclusión de métricas de rendimiento (como el uso de CPU o la elección de regiones de nube con baja latencia) en el ciclo de desarrollo.",
+            "La inclusión de métricas de disponibilidad (como el uptime o la elección de regiones de nube con alta redundancia) en el ciclo de desarrollo.",
+            "La inclusión de métricas de escalabilidad (como el uso de memoria o la elección de regiones de nube con autoescalado) en el ciclo de desarrollo."
+        ],
+        answer: "La inclusión de métricas de sostenibilidad (como el uso de energía o la elección de regiones de nube con energía limpia) en el ciclo de desarrollo.",
+        comment: "Tema: 1. Introducción - Se trata de añadir métricas de sostenibilidad al ciclo, como optimizar los builds, apagar entornos no usados o elegir regiones de nube eficientes energéticamente."
+    },
+    
+    // Tema 2: Fundamentos de Redes 1
+    {
+        tema: "Tema 2: Fundamentos de Redes 1 (Capa Física y Enlace)",
+        question: "¿Qué fenómeno físico en la transmisión de señales se define como 'la pérdida de potencia de la señal a medida que se transmite por el medio'?",
+        options: [
+            "Dispersión (spreading de la señal en el tiempo).",
+            "Interferencia (ruido electromagnético externo).",
+            "Atenuación (pérdida de potencia por resistencia del medio).",
+            "Jitter (variación del retardo en la transmisión)."
+        ],
+        answer: "Atenuación.",
+        comment: "Tema: 2. Fundamentos de Redes 1 (Capa Física) - La atenuación es el deterioro donde la potencia de la señal se reduce por el rozamiento o resistencia del medio físico durante la transmisión."
+    },
+    {
+        tema: "Tema 2: Fundamentos de Redes 1 (Capa Física y Enlace)",
+        question: "En la técnica de multiplexación, ¿cómo funciona el método FDMA (Frequency Division Multiple Access)?",
+        options: [
+            "Asigna turnos de tiempo (time slots) a cada usuario para transmitir secuencialmente.",
+            "Divide el canal en rangos de frecuencia distintos para que varios usuarios transmitan simultáneamente.",
+            "Asigna un código único (spreading code) a cada comunicación para separar señales.",
+            "Divide el canal en subportadoras ortogonales para transmisión paralela."
+        ],
+        answer: "Divide el canal en rangos de frecuencia distintos para que varios usuarios transmitan simultáneamente (como la radio).",
+        comment: "Tema: 2. Fundamentos de Redes 1 (Capa Física) - FDMA divide el espectro en rangos de frecuencia, asignando una frecuencia específica a cada comunicación para que no se solapen, similar a las emisoras de radio."
+    },
+    {
+        tema: "Tema 2: Fundamentos de Redes 1 (Capa Física y Enlace)",
+        question: "¿Cuál es la característica principal de la 'Conmutación de Circuitos' (como en la telefonía antigua)?",
+        options: [
+            "Los datos se dividen en paquetes que pueden tomar rutas diferentes según la congestión.",
+            "Se establece un canal exclusivo y dedicado antes de transmitir, que no se comparte mientras dura la conexión.",
+            "Se reserva ancho de banda dinámicamente según la demanda de cada usuario.",
+            "Se multiplexa el canal compartiendo el medio entre múltiples conexiones activas."
+        ],
+        answer: "Se establece un canal exclusivo y dedicado antes de transmitir, que no se comparte mientras dura la conexión.",
+        comment: "Tema: 2. Fundamentos de Redes 1 (Capa Física) - En la conmutación de circuitos, se establece una conexión física o lógica dedicada y exclusiva para esa comunicación hasta que se cierra (se cuelga)."
+    },
+    {
+        tema: "Tema 2: Fundamentos de Redes 1 (Capa Física y Enlace)",
+        question: "En la detección de errores, ¿qué limitación tiene el uso de un simple 'Bit de Paridad'?",
+        options: [
+            "Detecta errores, pero no puede corregirlos, y puede fallar si se alteran dos bits (la paridad se mantendría).",
+            "Detecta errores, pero no puede prevenirlos, y puede fallar si se alteran tres bits (la paridad cambiaría).",
+            "Detecta errores, pero no puede reportarlos, y puede fallar si se alteran múltiples bits (la paridad se invertiría).",
+            "Detecta errores, pero no puede validarlos, y puede fallar si se alteran bits consecutivos (la paridad se duplicaría)."
+        ],
+        answer: "Detecta errores, pero no puede corregirlos, y puede fallar si se alteran dos bits (la paridad se mantendría).",
+        comment: "Tema: 2. Fundamentos de Redes 1 (Capa de Enlace) - El bit de paridad solo indica si el número de unos es par o impar. Si cambian dos bits, la paridad sigue siendo la misma y el error pasa desapercibido. Además, no permite saber qué bit cambió para corregirlo."
+    },
+    {
+        tema: "Tema 2: Fundamentos de Redes 1 (Capa Física y Enlace)",
+        question: "¿Qué hacen los Códigos Hamming a diferencia del bit de paridad?",
+        options: [
+            "Solo detectan errores de un bit pero no pueden corregirlos automáticamente.",
+            "Permiten detectar y corregir el error (saber qué bit ha cambiado) añadiendo bits de redundancia.",
+            "Detectan errores múltiples pero requieren retransmisión para corregirlos.",
+            "Comprimen los datos antes de transmitir para reducir la probabilidad de error."
+        ],
+        answer: "Permiten detectar y corregir el error (saber qué bit ha cambiado) añadiendo bits de redundancia.",
+        comment: "Tema: 2. Fundamentos de Redes 1 (Capa de Enlace) - Los códigos Hamming añaden bits de corrección (redundancia) que permiten calcular la posición exacta del bit erróneo y corregirlo sin necesidad de reenvío."
+    },
+    {
+        tema: "Tema 2: Fundamentos de Redes 1 (Capa Física y Enlace)",
+        question: "En el control de flujo, ¿qué técnica permite enviar varias tramas antes de esperar una confirmación (ACK), mejorando la eficiencia?",
+        options: [
+            "Stop and Wait (espera ACK por cada trama enviada).",
+            "Sliding Window (Ventana Deslizante que permite múltiples tramas en tránsito).",
+            "Go-Back-N (retransmite desde la trama con error).",
+            "Selective Repeat (retransmite solo las tramas con error)."
+        ],
+        answer: "Sliding Window (Ventana Deslizante).",
+        comment: "Tema: 2. Fundamentos de Redes 1 (Capa de Enlace) - A diferencia de 'Stop and Wait' (esperar ACK por cada trama), la ventana deslizante permite enviar un grupo de tramas (definido por el tamaño de ventana) y recibir confirmaciones acumulativas."
+    },
+    
+    // Tema 3: Fundamentos de Redes 2
+    {
+        tema: "Tema 3: Fundamentos de Redes 2 (Capa de Red)",
+        question: "¿Cuál es la función principal de un Router en la Capa de Red?",
+        options: [
+            "Amplificar y regenerar la señal para extender el alcance de la red.",
+            "Conectar dispositivos en una misma red local usando direcciones MAC.",
+            "Enrutar paquetes entre diferentes redes utilizando tablas de enrutamiento y direcciones IP.",
+            "Segmentar dominios de colisión y filtrar tráfico broadcast."
+        ],
+        answer: "Enrutar paquetes entre diferentes redes utilizando tablas de enrutamiento y direcciones IP.",
+        comment: "Tema: 3. Fundamentos de Redes 2 - El router opera en la capa 3 y toma decisiones de encaminamiento para enviar paquetes desde una red origen a una red destino, saltando entre nodos."
+    },
+    {
+        tema: "Tema 3: Fundamentos de Redes 2 (Capa de Red)",
+        question: "¿Qué diferencia clave existe entre el algoritmo de enrutamiento 'Distance Vector' y 'Link State'?",
+        options: [
+            "'Distance Vector' conoce la topología completa y 'Link State' solo a sus vecinos.",
+            "'Link State' comparte información con todos los routers para construir un mapa completo de la topología, mientras que 'Distance Vector' solo comparte con vecinos (número de saltos).",
+            "'Link State' es más lento y antiguo.",
+            "No hay diferencia."
+        ],
+        answer: "'Link State' comparte información con todos los routers para construir un mapa completo de la topología, mientras que 'Distance Vector' solo comparte con vecinos (número de saltos).",
+        comment: "Tema: 3. Fundamentos de Redes 2 - En 'Link State', cada router recibe información de toda la topología y construye un mapa completo para calcular rutas óptimas (basado en costo), a diferencia de Distance Vector que se basa en saltos informados por vecinos."
+    },
+    {
+        tema: "Tema 3: Fundamentos de Redes 2 (Capa de Red)",
+        question: "¿Por qué el protocolo NAT (Network Address Translation) se considera una solución parche que 'rompe' la independencia de capas?",
+        options: [
+            "Porque un dispositivo de capa de red (Router) necesita leer/modificar puertos (Capa de Transporte) para identificar conexiones.",
+            "Porque modifica las direcciones IP en tránsito violando el principio end-to-end.",
+            "Porque requiere mantener estado de las conexiones en un dispositivo de capa 3.",
+            "Porque introduce latencia adicional al traducir direcciones en cada paquete."
+        ],
+        answer: "Porque un dispositivo de capa de red (Router) necesita leer/modificar puertos (Capa de Transporte) para identificar conexiones.",
+        comment: "Tema: 3. Fundamentos de Redes 2 - NAT permite reutilizar una IP pública para muchos equipos privados modificando los puertos. Esto obliga al router (Capa 3) a inspeccionar la Capa 4, rompiendo la separación teórica de funciones."
+    },
+    {
+        tema: "Tema 3: Fundamentos de Redes 2 (Capa de Red)",
+        question: "¿Cuál es la dirección IP de 'Loopback' en IPv4 y para qué sirve?",
+        options: [
+            "192.168.0.1/24, para identificar el gateway por defecto de la red local.",
+            "127.0.0.0/8, para que el equipo se envíe mensajes a sí mismo (pruebas locales).",
+            "169.254.0.0/16, para autoconfiguración cuando no hay DHCP disponible.",
+            "224.0.0.0/4, para direcciones multicast y comunicación de grupo."
+        ],
+        answer: "127.0.0.0/8, para que el equipo se envíe mensajes a sí mismo (pruebas locales).",
+        comment: "Tema: 3. Fundamentos de Redes 2 - La dirección 127.x.x.x se utiliza para que el host se refiera a sí mismo, útil para pruebas internas sin salir a la red física."
+    },
+    {
+        tema: "Tema 3: Fundamentos de Redes 2 (Capa de Red)",
+        question: "¿Qué función cumple el protocolo ARP (Address Resolution Protocol)?",
+        options: [
+            "Traducir nombres de dominio (DNS) a direcciones IP mediante consultas recursivas.",
+            "Asociar una dirección lógica (IP) conocida con su dirección física (MAC) correspondiente en una red local.",
+            "Resolver conflictos de direcciones IP duplicadas en la red mediante arbitraje.",
+            "Asignar direcciones IP dinámicamente a dispositivos que se conectan a la red."
+        ],
+        answer: "Asociar una dirección lógica (IP) conocida con su dirección física (MAC) correspondiente en una red local.",
+        comment: "Tema: 3. Fundamentos de Redes 2 - ARP permite que un host obtenga la dirección MAC de destino necesaria para crear la trama de enlace, preguntando a la red '¿Quién tiene esta IP?'."
+    },
+    {
+        tema: "Tema 3: Fundamentos de Redes 2 (Capa de Red)",
+        question: "¿Qué es un 'Túnel' en el contexto de redes (Tunneling)?",
+        options: [
+            "Un enlace físico dedicado de fibra óptica entre dos puntos geográficos.",
+            "Encapsular un protocolo de red dentro de otro (ej. IPv6 dentro de IPv4) para atravesar redes que no soportan el protocolo original.",
+            "Una técnica de compresión de datos para optimizar el ancho de banda disponible.",
+            "Un método de cifrado punto a punto que oculta el contenido de los paquetes."
+        ],
+        answer: "Encapsular un protocolo de red dentro de otro (ej. IPv6 dentro de IPv4) para atravesar redes que no soportan el protocolo original.",
+        comment: "Tema: 3. Fundamentos de Redes 2 - El tunneling permite conectar dos redes separadas o usar protocolos nuevos sobre infraestructuras antiguas encapsulando el paquete original dentro de otro protocolo de transporte."
+    },
+    
+    // Tema 4: Fundamentos de Redes 3
+    {
+        tema: "Tema 4: Fundamentos de Redes 3 (Transporte y Aplicación)",
+        question: "¿Qué es el '3-Way Handshake' en TCP?",
+        options: [
+            "Un protocolo de autenticación que verifica la identidad de tres entidades.",
+            "El proceso de establecimiento de conexión fiable: Cliente envía SYN, Servidor responde SYN-ACK, Cliente confirma con ACK.",
+            "Un método de cierre ordenado de conexión: FIN, FIN-ACK, ACK.",
+            "Una técnica de balanceo de carga entre tres servidores redundantes."
+        ],
+        answer: "El proceso de establecimiento de conexión fiable: Cliente envía SYN, Servidor responde SYN-ACK, Cliente confirma con ACK.",
+        comment: "Tema: 4. Fundamentos de Redes 3 (Capa de Transporte) - Es el procedimiento para iniciar una sesión TCP fiable, sincronizando números de secuencia antes de enviar datos."
+    },
+    {
+        tema: "Tema 4: Fundamentos de Redes 3 (Transporte y Aplicación)",
+        question: "¿Cuál es la principal ventaja del protocolo QUIC (desarrollado por Google) frente a TCP+TLS?",
+        options: [
+            "Utiliza cifrado más fuerte (AES-256) que TLS 1.3 estándar.",
+            "Utiliza UDP y realiza el establecimiento de conexión y el cifrado (TLS) en un solo paso (o incluso 0-RTT en reconexiones), reduciendo la latencia.",
+            "Implementa control de congestión más agresivo que TCP Cubic o BBR.",
+            "Elimina la necesidad de certificados digitales mediante autenticación por tokens."
+        ],
+        answer: "Utiliza UDP y realiza el establecimiento de conexión y el cifrado (TLS) en un solo paso (o incluso 0-RTT en reconexiones), reduciendo la latencia.",
+        comment: "Tema: 4. Fundamentos de Redes 3 (Capa de Transporte) - QUIC mejora la velocidad al combinar el handshake de transporte y el criptográfico en el primer mensaje, permitiendo envíos de datos mucho más rápidos que las múltiples idas y vueltas de TCP+TLS."
+    },
+    {
+        tema: "Tema 4: Fundamentos de Redes 3 (Transporte y Aplicación)",
+        question: "¿Qué diferencia fundamental existe entre TCP y UDP?",
+        options: [
+            "UDP garantiza entrega ordenada mediante números de secuencia, TCP no.",
+            "TCP es orientado a conexión, garantiza entrega y orden; UDP no tiene conexión, no garantiza entrega (best effort) y es más rápido.",
+            "TCP usa checksums para detección de errores, UDP no tiene verificación.",
+            "UDP implementa control de flujo y congestión, TCP solo control de errores."
+        ],
+        answer: "TCP es orientado a conexión, garantiza entrega y orden; UDP no tiene conexión, no garantiza entrega (best effort) y es más rápido.",
+        comment: "Tema: 4. Fundamentos de Redes 3 (Capa de Transporte) - TCP ofrece fiabilidad y control de flujo mediante conexión. UDP reduce la sobrecarga eliminando estas garantías, ideal para streaming o DNS donde la velocidad prima."
+    },
+    {
+        tema: "Tema 4: Fundamentos de Redes 3 (Transporte y Aplicación)",
+        question: "¿Qué es el 'Window Size' (Ventana) en la cabecera TCP?",
+        options: [
+            "El tamaño máximo del segmento (MSS) que puede transmitirse sin fragmentación.",
+            "Un mecanismo de control de flujo donde el receptor indica cuántos bytes puede recibir antes de necesitar enviar un ACK.",
+            "El número de conexiones simultáneas que el servidor puede mantener abiertas.",
+            "El tiempo máximo (timeout) antes de retransmitir un segmento no confirmado."
+        ],
+        answer: "Un mecanismo de control de flujo donde el receptor indica cuántos bytes puede recibir antes de necesitar enviar un ACK.",
+        comment: "Tema: 4. Fundamentos de Redes 3 (Capa de Transporte) - La ventana indica la cantidad de datos que se pueden enviar 'en vuelo' sin esperar confirmación, permitiendo gestionar el ancho de banda y la congestión."
+    },
+    {
+        tema: "Tema 4: Fundamentos de Redes 3 (Transporte y Aplicación)",
+        question: "En el protocolo DNS, ¿qué tipo de consulta realiza un servidor local cuando pregunta paso a paso (Raíz -> TLD -> Autoritativo) hasta encontrar la IP?",
+        options: [
+            "Consulta Recursiva (desde la vista del cliente), pero el servidor realiza consultas Iterativas.",
+            "Consulta Inversa (Reverse DNS) para obtener el nombre desde la IP.",
+            "Consulta Autoritativa directa al servidor primario de la zona.",
+            "Consulta Anycast distribuida entre múltiples servidores raíz."
+        ],
+        answer: "Consulta Recursiva (desde la vista del cliente), pero el servidor realiza consultas Iterativas.",
+        comment: "Tema: 4. Fundamentos de Redes 3 (Capa de Aplicación) - El cliente hace una petición recursiva ('dame la IP'), pero el servidor local resuelve esto haciendo peticiones iterativas a los distintos niveles jerárquicos (Raíz, .com, google.com)."
+    },
+    {
+        tema: "Tema 4: Fundamentos de Redes 3 (Transporte y Aplicación)",
+        question: "En el protocolo FTP, ¿por qué se dice que utiliza dos canales (puertos 20 y 21)?",
+        options: [
+            "Uno para modo activo (cliente inicia) y otro para modo pasivo (servidor inicia).",
+            "Uno para comandos/control (21) y otro para la transferencia de datos (20).",
+            "Uno para autenticación (cifrado) y otro para transferencia (sin cifrar).",
+            "Uno para archivos pequeños (<1MB) y otro para archivos grandes (>1MB)."
+        ],
+        answer: "Uno para comandos/control (21) y otro para la transferencia de datos (20).",
+        comment: "Tema: 4. Fundamentos de Redes 3 (Capa de Aplicación) - FTP separa la lógica de control (comandos, login) de la transferencia real de archivos, permitiendo gestionar la conexión mientras se transmiten datos."
+    },
+    {
+        tema: "Tema 4: Fundamentos de Redes 3 (Transporte y Aplicación)",
+        question: "En una transacción SMTP (correo electrónico), ¿cuál es el comando que inicia el diálogo?",
+        options: [
+            "MAIL FROM (especifica el remitente del mensaje).",
+            "RCPT TO (especifica el destinatario del mensaje).",
+            "HELO (o EHLO para identificarse ante el servidor).",
+            "AUTH (para autenticación SMTP antes de enviar)."
+        ],
+        answer: "HELO (o EHLO).",
+        comment: "Tema: 4. Fundamentos de Redes 3 (Capa de Aplicación) - La comunicación comienza con el cliente enviando HELO para identificarse ante el servidor antes de enviar remitentes o destinatarios."
+    },
+    
+    // Tema 5: Criptografía y Seguridad
+    {
+        tema: "Tema 5: Criptografía y Seguridad de Red",
+        question: "En la tríada de la seguridad (CIA), ¿qué garantiza la propiedad de 'Integridad'?",
+        options: [
+            "Que solo usuarios autorizados puedan acceder a la información (Confidencialidad).",
+            "Que los datos no han sido alterados o modificados sin autorización (usando Hashes).",
+            "Que el sistema esté operativo y accesible cuando se necesite (Disponibilidad).",
+            "Que se pueda verificar la identidad del usuario mediante autenticación multifactor."
+        ],
+        answer: "Que los datos no han sido alterados o modificados sin autorización (usando Hashes).",
+        comment: "Tema: 5. Criptografía y Seguridad - La integridad asegura que la información no se modifica en tránsito. Se suele verificar mediante funciones Hash que cambiarían si un solo bit del mensaje cambiara."
+    },
+    {
+        tema: "Tema 5: Criptografía y Seguridad de Red",
+        question: "En criptografía asimétrica, si quiero enviar un mensaje confidencial (que solo el destinatario pueda leer), ¿con qué clave debo encriptarlo?",
+        options: [
+            "Con mi clave privada (para que todos puedan verificar que fui yo).",
+            "Con mi clave pública (para que el destinatario verifique mi identidad).",
+            "Con la clave pública del destinatario (para que solo él pueda descifrarlo).",
+            "Con una clave simétrica compartida previamente mediante Diffie-Hellman."
+        ],
+        answer: "Con la clave pública del destinatario.",
+        comment: "Tema: 5. Criptografía y Seguridad - Al encriptar con la clave pública del destinatario, solo él podrá desencriptarlo usando su clave privada (que es secreta), garantizando así que nadie más lo lea."
+    },
+    {
+        tema: "Tema 5: Criptografía y Seguridad de Red",
+        question: "¿Qué garantiza el 'No Repudio' mediante firma digital?",
+        options: [
+            "Que el mensaje llegue íntegro sin modificaciones durante el tránsito.",
+            "Que el emisor no pueda negar haber enviado el mensaje, ya que fue firmado con su clave privada (que solo él posee).",
+            "Que el mensaje esté cifrado y solo el destinatario pueda leerlo.",
+            "Que la identidad del emisor sea verificada por una autoridad certificadora."
+        ],
+        answer: "Que el emisor no pueda negar haber enviado el mensaje, ya que fue firmado con su clave privada (que solo él posee).",
+        comment: "Tema: 5. Criptografía y Seguridad - El no repudio vincula la acción con la identidad de manera irrefutable, logrado mediante firmas digitales con la clave privada del emisor."
+    },
+    {
+        tema: "Tema 5: Criptografía y Seguridad de Red",
+        question: "¿Qué es un Certificado Digital y qué rol juega la Autoridad de Certificación (CA)?",
+        options: [
+            "Es un token de autenticación temporal generado por el servidor para sesiones HTTPS.",
+            "Es un documento que vincula una identidad con una clave pública, firmado digitalmente por una CA (tercero de confianza).",
+            "Es un archivo que contiene las claves privadas cifradas del usuario.",
+            "Es un protocolo de intercambio de claves simétricas entre cliente y servidor."
+        ],
+        answer: "Es un documento que vincula una identidad con una clave pública, firmado digitalmente por una CA (tercero de confianza).",
+        comment: "Tema: 5. Criptografía y Seguridad - El certificado soluciona el problema de confianza en la clave pública. La CA garantiza que esa clave pública pertenece realmente a la entidad que dice ser."
+    },
+    {
+        tema: "Tema 5: Criptografía y Seguridad de Red",
+        question: "¿Cuál es la diferencia principal entre un Firewall 'Packet Filter' simple y uno 'Stateful'?",
+        options: [
+            "El Stateful inspecciona el contenido de la capa de aplicación, el Packet Filter solo cabeceras.",
+            "El Packet Filter solo mira paquetes aislados; el Stateful mantiene una tabla de estado de las conexiones activas para saber si un paquete es respuesta legítima.",
+            "El Packet Filter opera en capa 2 (MAC), el Stateful en capa 3 (IP).",
+            "El Stateful requiere configuración manual de reglas, el Packet Filter aprende automáticamente."
+        ],
+        answer: "El Packet Filter solo mira paquetes aislados; el Stateful mantiene una tabla de estado de las conexiones activas para saber si un paquete es respuesta legítima.",
+        comment: "Tema: 5. Criptografía y Seguridad (Firewalls) - Los Stateful Packet Filters rastrean el estado (si es una conexión nueva, establecida, etc.) usando las banderas TCP, lo que ofrece mayor seguridad que filtrar paquetes aislados."
+    },
+    {
+        tema: "Tema 5: Criptografía y Seguridad de Red",
+        question: "¿Cuál es la diferencia teórica entre un Firewall y un Proxy?",
+        options: [
+            "El Firewall filtra a nivel de red/transporte (IP/Puerto) y el Proxy actúa como intermediario a nivel de aplicación.",
+            "El Firewall solo bloquea tráfico entrante, el Proxy solo tráfico saliente.",
+            "El Proxy cifra el tráfico automáticamente, el Firewall solo inspecciona.",
+            "El Firewall requiere hardware dedicado, el Proxy es siempre software."
+        ],
+        answer: "El Firewall filtra a nivel de red/transporte (IP/Puerto) y el Proxy actúa como intermediario a nivel de aplicación.",
+        comment: "Tema: 5. Criptografía y Seguridad (Firewalls) - Un firewall protege filtrando tráfico basado en reglas de capas bajas (3/4), mientras que un proxy actúa en capas superiores (aplicación), pudiendo inspeccionar contenido, cachear u ocultar IPs."
+    }
+];

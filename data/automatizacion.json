@@ -1,0 +1,362 @@
+[
+  {
+    "question": "¿Cuál es la función principal de la herramienta Vagrant en el contexto de la asignatura?",
+    "options": [
+      "Crear contenedores Docker para producción",
+      "Gestionar y automatizar la creación de máquinas virtuales mediante código",
+      "Es un editor de texto avanzado para Ruby",
+      "Monitorizar el tráfico de red en servidores físicos"
+    ],
+    "answer": "Gestionar y automatizar la creación de máquinas virtuales mediante código",
+    "explanation": "Vagrant permite definir la configuración de máquinas virtuales programáticamente (Infrastructure as Code) para tener entornos de prueba aislados y reproducibles.",
+    "topic": "Tema 00 - Entornos de pruebas"
+  },
+  {
+    "question": "Si deseas apagar una máquina virtual gestionada por Vagrant sin eliminarla (conservando su estado en disco), ¿qué comando debes usar?",
+    "options": [
+      "vagrant destroy",
+      "vagrant up",
+      "vagrant halt",
+      "vagrant provision"
+    ],
+    "answer": "vagrant halt",
+    "explanation": "vagrant halt apaga la máquina sin destruirla, mientras que destroy la elimina completamente.",
+    "topic": "Tema 00 - Entornos de pruebas"
+  },
+  {
+    "question": "¿Qué comando de Vagrant permite aplicar cambios en la configuración (como instalar nuevos paquetes) en una máquina que ya está encendida?",
+    "options": [
+      "vagrant status",
+      "vagrant reload",
+      "vagrant provision",
+      "vagrant init"
+    ],
+    "answer": "vagrant provision",
+    "explanation": "Con la máquina levantada, vagrant provision permite aprovisionar los paquetes o ejecutar los scripts de configuración nuevamente sin necesidad de eliminar la máquina.",
+    "topic": "Tema 00 - Entornos de pruebas"
+  },
+  {
+    "question": "¿Qué es WSL (Windows Subsystem for Linux)?",
+    "options": [
+      "Una máquina virtual tradicional que consume muchos recursos",
+      "Una característica de Windows que permite ejecutar un entorno Linux directamente sobre Windows sin ser una máquina virtual completa",
+      "Un sistema operativo exclusivo para servidores Mac",
+      "Un plugin de VirtualBox para gestionar redes"
+    ],
+    "answer": "Una característica de Windows que permite ejecutar un entorno Linux directamente sobre Windows sin ser una máquina virtual completa",
+    "explanation": "WSL no es una máquina virtual tradicional, sino que proporciona una forma de interactuar con el sistema de archivos y ejecutar aplicaciones Linux directamente en Windows.",
+    "topic": "Tema 00 - Entornos de pruebas"
+  },
+  {
+    "question": "Puppet utiliza un lenguaje \"declarativo\". ¿Qué significa esto?",
+    "options": [
+      "Que debes escribir paso a paso cada comando que el sistema debe ejecutar (imperativo)",
+      "Que solo funciona mediante comandos de voz",
+      "Que defines el estado deseado de la configuración y la herramienta se encarga de cómo lograrlo",
+      "Que se declaran variables globales al inicio de cada script obligatoriamente"
+    ],
+    "answer": "Que defines el estado deseado de la configuración y la herramienta se encarga de cómo lograrlo",
+    "explanation": "Con Puppet se declara el estado deseado (ej. \"este paquete debe estar instalado\"), al contrario que los scripts imperativos que indican las operaciones concretas a realizar.",
+    "topic": "Tema 01 - Puppet: Introducción"
+  },
+  {
+    "question": "¿Qué extensión de archivo utilizan los \"manifiestos\" en Puppet?",
+    "options": [
+      ".xml",
+      ".yml",
+      ".rb",
+      ".pp"
+    ],
+    "answer": ".pp",
+    "explanation": "Los ficheros para la configuración en Puppet son manifiestos y tienen extensión .pp.",
+    "topic": "Tema 01 - Puppet: Introducción"
+  },
+  {
+    "question": "¿Qué concepto clave en Puppet (y otras herramientas DevOps) garantiza que aplicar una configuración múltiples veces produce el mismo resultado sin errores?",
+    "options": [
+      "Latencia",
+      "Idempotencia",
+      "Redundancia",
+      "Concurrencia"
+    ],
+    "answer": "Idempotencia",
+    "explanation": "La idempotencia es la propiedad que asegura que crear configuraciones y aplicarlas repetidamente dará lugar a los mismos resultados, sin romper nada si ya estaba configurado.",
+    "topic": "Tema 01 - Puppet: Introducción"
+  },
+  {
+    "question": "¿Cómo se llama la herramienta interna de Puppet que recopila información del sistema (inventario) como la IP, memoria o sistema operativo?",
+    "options": [
+      "Gatherer",
+      "Facter",
+      "InventoryPro",
+      "SystemInfo"
+    ],
+    "answer": "Facter",
+    "explanation": "Facter es la herramienta para obtener inventario (facts) como nombre, IP, SO, etc., que luego se pueden usar como variables.",
+    "topic": "Tema 01 - Puppet: Introducción"
+  },
+  {
+    "question": "En la arquitectura cliente-servidor de Puppet, ¿cómo se denominan el servidor central y las máquinas gestionadas?",
+    "options": [
+      "Puppet King y Puppet Subject",
+      "Chef Server y Chef Client",
+      "Puppet Master y Agente (Nodo)",
+      "Ansible Tower y Minion"
+    ],
+    "answer": "Puppet Master y Agente (Nodo)",
+    "explanation": "El servidor recibe el nombre de Puppet Master, y el cliente que se ejecuta en las máquinas gestionadas se llama agente.",
+    "topic": "Tema 01 - Puppet: Introducción"
+  },
+  {
+    "question": "¿Cuál es el archivo principal que debe existir dentro de la carpeta manifests de un módulo de Puppet para que funcione?",
+    "options": [
+      "main.rb",
+      "config.xml",
+      "init.pp",
+      "module.conf"
+    ],
+    "answer": "init.pp",
+    "explanation": "El archivo init.pp es el núcleo del módulo y define la clase principal del mismo dentro del directorio manifests.",
+    "topic": "Tema 02 - Puppet: Utilización"
+  },
+  {
+    "question": "En el lenguaje de Puppet, ¿qué símbolo se utiliza para declarar una variable?",
+    "options": [
+      "%",
+      "#",
+      "@",
+      "$"
+    ],
+    "answer": "$",
+    "explanation": "Las variables en Puppet se definen con el signo dólar $ seguido del identificador.",
+    "topic": "Tema 02 - Puppet: Utilización"
+  },
+  {
+    "question": "Si quieres asegurar que un paquete esté instalado usando un recurso package en Puppet, ¿qué atributo y valor debes usar?",
+    "options": [
+      "status => installed",
+      "ensure => present",
+      "action => install",
+      "check => true"
+    ],
+    "answer": "ensure => present",
+    "explanation": "Se utiliza el atributo ensure con el valor present para indicar que el recurso debe existir/estar instalado.",
+    "topic": "Tema 01 - Puppet: Introducción"
+  },
+  {
+    "question": "En la terminología de Chef, ¿cómo se llama al contenedor que agrupa recetas, atributos y archivos para configurar una aplicación o servicio específico?",
+    "options": [
+      "Cookbook (Libro de cocina)",
+      "Menu",
+      "Playbook",
+      "Manifest"
+    ],
+    "answer": "Cookbook (Libro de cocina)",
+    "explanation": "Un Cookbook contiene todos los recursos e instrucciones (recetas) necesarios para configurar nodos y pueden ser reutilizados.",
+    "topic": "Tema 03 - Chef: Introducción"
+  },
+  {
+    "question": "¿Qué es una \"Recipe\" (Receta) en Chef?",
+    "options": [
+      "Un archivo de configuración del servidor web",
+      "Un conjunto de recursos e instrucciones escritas en Ruby que configuran un nodo",
+      "La lista de usuarios autorizados en el sistema",
+      "El informe final de la ejecución"
+    ],
+    "answer": "Un conjunto de recursos e instrucciones escritas en Ruby que configuran un nodo",
+    "explanation": "Una receta consiste en un conjunto de recursos que configuran un nodo, siendo una parte fundamental de Chef.",
+    "topic": "Tema 03 - Chef: Introducción"
+  },
+  {
+    "question": "¿Cuál es la función de la herramienta de línea de comandos llamada \"Knife\" (Cuchillo) en Chef?",
+    "options": [
+      "Cortar la conexión con el servidor en caso de emergencia",
+      "Interactuar con el servidor Chef para cargar cookbooks y gestionar nodos",
+      "Es un editor de texto para escribir código Ruby",
+      "Ejecutar pruebas unitarias en local"
+    ],
+    "answer": "Interactuar con el servidor Chef para cargar cookbooks y gestionar nodos",
+    "explanation": "Knife es la herramienta de línea de comandos que utilizan los usuarios para cargar ficheros al servidor Chef e interactuar con los nodos.",
+    "topic": "Tema 03 - Chef: Introducción"
+  },
+  {
+    "question": "¿Qué herramienta de Chef permite ejecutar cookbooks de forma independiente (standalone) sin necesidad de un servidor centralizado?",
+    "options": [
+      "Chef Server",
+      "Chef Solo",
+      "Chef Master",
+      "Chef Agent"
+    ],
+    "answer": "Chef Solo",
+    "explanation": "Chef Solo es una herramienta que permite ejecutar cookbooks independientemente sin conectarse a un servidor Chef.",
+    "topic": "Tema 03 - Chef: Introducción"
+  },
+  {
+    "question": "Para realizar pruebas unitarias en los cookbooks de Chef (simulando la ejecución sin aplicar cambios reales), ¿qué framework se utiliza?",
+    "options": [
+      "JUnit",
+      "Test Kitchen",
+      "ChefSpec",
+      "PyTest"
+    ],
+    "answer": "ChefSpec",
+    "explanation": "ChefSpec es el framework utilizado para pruebas unitarias, construido sobre RSpec, que verifica la lógica sin necesidad de levantar máquinas virtuales.",
+    "topic": "Tema 04 - Chef: Pruebas"
+  },
+  {
+    "question": "¿Qué herramienta se utiliza en Chef para realizar pruebas de integración, creando máquinas virtuales reales y verificando que la configuración funciona?",
+    "options": [
+      "ChefSpec",
+      "Facter",
+      "Test Kitchen",
+      "Puppet Master"
+    ],
+    "answer": "Test Kitchen",
+    "explanation": "Test Kitchen es el ejecutor de máquinas virtuales (usando Vagrant/VirtualBox) para probar automáticamente los cookbooks en un entorno real.",
+    "topic": "Tema 04 - Chef: Pruebas"
+  },
+  {
+    "question": "En las pruebas de integración con Test Kitchen, ¿qué hace el comando kitchen verify?",
+    "options": [
+      "Borra la máquina virtual",
+      "Ejecuta los tests (usando herramientas como Serverspec) sobre la instancia creada para comprobar que cumple los requisitos",
+      "Crea la máquina virtual pero no instala nada",
+      "Sube el código a la nube"
+    ],
+    "answer": "Ejecuta los tests (usando herramientas como Serverspec) sobre la instancia creada para comprobar que cumple los requisitos",
+    "explanation": "kitchen verify ejecuta las pruebas definidas (por ejemplo con Serverspec) sobre la instancia para validar la configuración.",
+    "topic": "Tema 04 - Chef: Pruebas"
+  },
+  {
+    "question": "¿En qué carpeta de un cookbook de Chef deben alojarse las pruebas de integración por defecto?",
+    "options": [
+      "spec/unit",
+      "test/integration",
+      "manifests/tests",
+      "recipes/check"
+    ],
+    "answer": "test/integration",
+    "explanation": "Para escribir pruebas con Serverspec (integración), es necesario usar el subdirectorio test/integration dentro del cookbook.",
+    "topic": "Tema 04 - Chef: Pruebas"
+  },
+  {
+    "question": "¿Cuál es una diferencia fundamental de arquitectura entre Ansible y herramientas como Puppet o Chef?",
+    "options": [
+      "Ansible es mucho más caro",
+      "Ansible requiere instalar un agente complejo en cada nodo",
+      "Ansible es \"Agentless\" (sin agentes) y usa SSH",
+      "Ansible solo funciona en Windows"
+    ],
+    "answer": "Ansible es \"Agentless\" (sin agentes) y usa SSH",
+    "explanation": "Ansible es agentless (no requiere instalar agentes en los clientes) y aprovecha el protocolo SSH para ejecutar comandos remotamente.",
+    "topic": "Tema 05 - Ansible: Introducción"
+  },
+  {
+    "question": "¿Qué lenguaje de marcado utiliza Ansible para sus ficheros de configuración (Playbooks)?",
+    "options": [
+      "XML",
+      "JSON",
+      "YAML",
+      "HTML"
+    ],
+    "answer": "YAML",
+    "explanation": "Ansible utiliza ficheros en formato YAML, que son sensibles a la indentación y espacios en blanco.",
+    "topic": "Tema 05 - Ansible: Introducción"
+  },
+  {
+    "question": "¿Cómo se llama el archivo donde se define el estado deseado y la lista de tareas a ejecutar en Ansible?",
+    "options": [
+      "Cookbook",
+      "Manifest",
+      "Recipe",
+      "Playbook"
+    ],
+    "answer": "Playbook",
+    "explanation": "Los ficheros donde se define el estado de la configuración y las tareas en Ansible se denominan Playbooks.",
+    "topic": "Tema 05 - Ansible: Introducción"
+  },
+  {
+    "question": "¿En qué lenguaje de programación está escrito Ansible?",
+    "options": [
+      "Java",
+      "Python",
+      "C++",
+      "Ruby"
+    ],
+    "answer": "Python",
+    "explanation": "Ansible está escrito en Python, lo que facilita su instalación ya que no suele requerir dependencias extrañas en Linux.",
+    "topic": "Tema 05 - Ansible: Introducción"
+  },
+  {
+    "question": "En un Playbook de Ansible, ¿qué directiva se usa para escalar privilegios (ejecutar como root/sudo)?",
+    "options": [
+      "admin: true",
+      "sudo: on",
+      "root: yes",
+      "become: true"
+    ],
+    "answer": "become: true",
+    "explanation": "Se recomienda añadir become: true para ejecutar los comandos con permisos de administrador (como sudo).",
+    "topic": "Tema 05 - Ansible: Introducción"
+  },
+  {
+    "question": "¿Qué protocolo de comunicación utiliza Ansible por defecto para conectarse a los nodos Linux?",
+    "options": [
+      "FTP",
+      "HTTP/HTTPS",
+      "Telnet",
+      "SSH"
+    ],
+    "answer": "SSH",
+    "explanation": "El aspecto más importante de Ansible es la comunicación con los nodos mediante el protocolo SSH.",
+    "topic": "Tema 05 - Ansible: Introducción"
+  },
+  {
+    "question": "En Ansible, ¿qué módulo NO garantiza por sí solo la idempotencia y requiere cuidado al usarse?",
+    "options": [
+      "apt",
+      "yum",
+      "service",
+      "command o shell"
+    ],
+    "answer": "command o shell",
+    "explanation": "Los módulos command o shell siempre se ejecutarán al procesar el playbook, por lo que no son idempotentes por defecto a menos que se añadan condiciones (como when).",
+    "topic": "Tema 05 - Ansible: Introducción"
+  },
+  {
+    "question": "¿Qué significa el concepto \"Infraestructura como Código\" (IaC) mencionado recurrentemente en la asignatura?",
+    "options": [
+      "Convertir servidores físicos en software",
+      "Gestionar y aprovisionar la infraestructura a través de archivos de definición legibles por máquina, en lugar de configuración manual de hardware",
+      "Escribir código en binario para optimizar la CPU",
+      "Usar solo terminales de texto, sin interfaz gráfica"
+    ],
+    "answer": "Gestionar y aprovisionar la infraestructura a través de archivos de definición legibles por máquina, en lugar de configuración manual de hardware",
+    "explanation": "Se refiere a la escritura de código descriptivo para el control y aprovisionamiento de servidores, permitiendo usar control de versiones y tratar la infraestructura como si fuera software.",
+    "topic": "Tema 03 - Conceptos generales (aplicable a todos)"
+  },
+  {
+    "question": "En el contexto de Puppet, Chef y Ansible, ¿qué modelo de comunicación utiliza Ansible (Push vs Pull)?",
+    "options": [
+      "Pull (los nodos piden la configuración)",
+      "Push (el servidor empuja la configuración a los nodos)",
+      "Híbrido aleatorio",
+      "Ninguno, usa telepatía"
+    ],
+    "answer": "Push (el servidor empuja la configuración a los nodos)",
+    "explanation": "Ansible es un sistema tipo \"Push\", donde los cambios se empujan desde el controlador a los nodos, a diferencia de Puppet/Chef que suelen ser \"Pull\" (el agente pide).",
+    "topic": "Tema 05 - Ansible / Comparativa"
+  },
+  {
+    "question": "Si estás instalando paquetes en un sistema Linux diferente (ej. RedHat vs Ubuntu), ¿por qué es ventajoso usar un recurso de \"package\" (en Puppet/Chef/Ansible) en lugar de un comando directo de shell?",
+    "options": [
+      "Porque es más lento y seguro",
+      "Porque la herramienta abstrae la complejidad y elige automáticamente el gestor adecuado (yum, apt, dnf) según el sistema operativo detectado",
+      "Porque los comandos de shell no funcionan en Linux",
+      "No hay ninguna ventaja"
+    ],
+    "answer": "Porque la herramienta abstrae la complejidad y elige automáticamente el gestor adecuado (yum, apt, dnf) según el sistema operativo detectado",
+    "explanation": "Las herramientas de gestión de configuración conocen cómo cada recurso es gestionado en distintas plataformas; por ejemplo, Puppet elige yum o apt automáticamente gracias a la capa de abstracción.",
+    "topic": "Conceptos generales"
+  }
+]

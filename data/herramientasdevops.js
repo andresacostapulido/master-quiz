@@ -1,0 +1,373 @@
+// Herramientas DevOps - 30 preguntas
+
+const herramientasdevopsQuestions = [
+    // Tema 1: Ciclo de Vida DevOps (3 preguntas)
+    {
+        tema: "Tema 1: Ciclo de Vida DevOps",
+        question: "Según el ciclo de DevOps, ¿cuál es el objetivo principal de fusionar los equipos de desarrollo (Dev) y operaciones (Ops)?",
+        options: [
+            "Eliminar al equipo de QA para reducir costes",
+            "Que los ingenieros trabajen en todo el ciclo de vida, desde el desarrollo hasta la operación, desarrollando una variedad de habilidades",
+            "Que el equipo de operaciones escriba el código de la aplicación",
+            "Separar las responsabilidades para que si algo falla, se sepa de quién es la culpa"
+        ],
+        answer: "Que los ingenieros trabajen en todo el ciclo de vida, desde el desarrollo hasta la operación, desarrollando una variedad de habilidades",
+        comment: "Tema 1: Ciclo de Vida DevOps - La idea es que los equipos no estén aislados, sino que se fusionen y los ingenieros trabajen en el ciclo de vida completo."
+    },
+    {
+        tema: "Tema 1: Ciclo de Vida DevOps",
+        question: "¿Qué significa el concepto de \"arquitectura inmutable\" en el diseño DevOps?",
+        options: [
+            "Que nunca se puede actualizar el software una vez desplegado",
+            "Que se entra al servidor a actualizar paquetes manualmente",
+            "Que no se modifica lo actual; se generan versiones nuevas completas (módulos) y se despliegan desde cero si hay cambios",
+            "Que la arquitectura no puede escalar"
+        ],
+        answer: "Que no se modifica lo actual; se generan versiones nuevas completas (módulos) y se despliegan desde cero si hay cambios",
+        comment: "Tema 1: Ciclo de Vida DevOps - En una arquitectura inmutable no modificamos lo que tenemos; cuando hacemos un despliegue, generamos una versión nueva completa."
+    },
+    {
+        tema: "Tema 1: Ciclo de Vida DevOps",
+        question: "¿Qué metodología se describe como un subconjunto de Agile que es un marco de trabajo simple y flexible para proyectos de software?",
+        options: [
+            "Cascada (Waterfall)",
+            "ITIL",
+            "Scrum",
+            "Prince2"
+        ],
+        answer: "Scrum",
+        comment: "Tema 1: Ciclo de Vida DevOps - Scrum es descrito como un subconjunto de Agile, un marco de trabajo simple y flexible para el desarrollo de proyectos de software."
+    },
+
+    // Tema 2: Componentes de Aplicaciones (5 preguntas)
+    {
+        tema: "Tema 2: Componentes de Aplicaciones",
+        question: "¿Cuál es la característica definitoria de un componente \"con estado\" (stateful)?",
+        options: [
+            "Siempre da la misma respuesta a la misma pregunta",
+            "Su respuesta puede variar ante una misma pregunta dependiendo de la información interna o interacciones previas",
+            "Es un componente que no consume memoria",
+            "Es exclusivo de arquitecturas sin servidor (Serverless)"
+        ],
+        answer: "Su respuesta puede variar ante una misma pregunta dependiendo de la información interna o interacciones previas",
+        comment: "Tema 2: Componentes de Aplicaciones - Los componentes con estado pueden variar su respuesta ante una misma pregunta porque gestionan información interna que cambia con el tiempo."
+    },
+    {
+        tema: "Tema 2: Componentes de Aplicaciones",
+        question: "¿Cuál de los siguientes es un ejemplo de componente SIN estado (stateless)?",
+        options: [
+            "Una base de datos MySQL",
+            "Una infraestructura como servicio (IaaS) o plataforma (PaaS) pura",
+            "Una cola de mensajes RabbitMQ",
+            "Una caché de sesión de usuario"
+        ],
+        answer: "Una infraestructura como servicio (IaaS) o plataforma (PaaS) pura",
+        comment: "Tema 2: Componentes de Aplicaciones - Infraestructuras como IaaS, PaaS y CaaS son componentes sin estado; su respuesta no debe variar independientemente de lo que se modifique en el aplicativo."
+    },
+    {
+        tema: "Tema 2: Componentes de Aplicaciones",
+        question: "¿En qué consiste el \"escalado vertical\"?",
+        options: [
+            "Aumentar el número de servidores (poner más máquinas)",
+            "Distribuir la carga entre varias regiones geográficas",
+            "Aumentar los recursos (CPU, RAM, Disco) de un mismo servidor",
+            "Reducir el tamaño de la base de datos"
+        ],
+        answer: "Aumentar los recursos (CPU, RAM, Disco) de un mismo servidor",
+        comment: "Tema 2: Componentes de Aplicaciones - El escalado vertical se consigue aumentando los recursos del servidor (procesamiento, memoria, almacenamiento)."
+    },
+    {
+        tema: "Tema 2: Componentes de Aplicaciones",
+        question: "¿Qué diferencia existe entre Gestión de Configuración y Gestión de Cambios?",
+        options: [
+            "Son sinónimos",
+            "La Gestión de Configuración se ocupa del estado en un momento dado; la de Cambios se ocupa del proceso de proponer e implementar cambios",
+            "La Gestión de Configuración es solo para hardware",
+            "La Gestión de Cambios es automática y la de Configuración es manual"
+        ],
+        answer: "La Gestión de Configuración se ocupa del estado en un momento dado; la de Cambios se ocupa del proceso de proponer e implementar cambios",
+        comment: "Tema 2: Componentes de Aplicaciones - La gestión de configuración mira el estado en un momento determinado, mientras que la gestión del cambio es el proceso de proponer, revisar e implementar dichos cambios."
+    },
+    {
+        tema: "Tema 2: Componentes de Aplicaciones",
+        question: "¿Qué servicio de computación se describe como \"contenedores efímeros que se crean en el momento necesario\" (Function as a Service)?",
+        options: [
+            "AWS EC2",
+            "Kubernetes",
+            "VMware vSphere",
+            "AWS Lambda"
+        ],
+        answer: "AWS Lambda",
+        comment: "Tema 2: Componentes de Aplicaciones - FaaS (como Lambda) utiliza contenedores efímeros que se crean solo en el momento de utilización y se volatilizan al terminar."
+    },
+
+    // Tema 3: Arquitectura de Aplicaciones (4 preguntas)
+    {
+        tema: "Tema 3: Arquitectura de Aplicaciones",
+        question: "¿Cuál es una característica principal de una arquitectura monolítica?",
+        options: [
+            "Está compuesta por cientos de microservicios independientes",
+            "La aplicación es autosuficiente y se compila/empaqueta en una sola pieza (un todo)",
+            "Si falla un módulo, el resto del sistema sigue funcionando perfectamente",
+            "Es la arquitectura más recomendada para sistemas distribuidos modernos"
+        ],
+        answer: "La aplicación es autosuficiente y se compila/empaqueta en una sola pieza (un todo)",
+        comment: "Tema 3: Arquitectura de Aplicaciones - Consiste en crear una aplicación autosuficiente donde todos los módulos se empaquetan en una sola pieza."
+    },
+    {
+        tema: "Tema 3: Arquitectura de Aplicaciones",
+        question: "En una arquitectura multicapa de tres niveles, ¿cuál es la regla de comunicación?",
+        options: [
+            "La capa de presentación habla directamente con la base de datos",
+            "Todas las capas pueden hablar con todas sin restricciones",
+            "La capa de presentación y la de datos nunca se comunican directamente; deben pasar por la capa de aplicación",
+            "No existen capas, todo está mezclado"
+        ],
+        answer: "La capa de presentación y la de datos nunca se comunican directamente; deben pasar por la capa de aplicación",
+        comment: "Tema 3: Arquitectura de Aplicaciones - Los niveles de presentación y de datos no se pueden comunicar entre sí directamente; siempre tienen que tener la capa de aplicación entre medias."
+    },
+    {
+        tema: "Tema 3: Arquitectura de Aplicaciones",
+        question: "¿Qué ventaja principal ofrece la arquitectura de Microservicios ante un fallo?",
+        options: [
+            "Si falla uno, falla todo el sistema (efecto dominó)",
+            "Descentralización y aislamiento de fallos (si uno falla, los otros siguen funcionando)",
+            "Requiere reiniciar todo el servidor para arreglar un servicio",
+            "No permite el uso de contenedores"
+        ],
+        answer: "Descentralización y aislamiento de fallos (si uno falla, los otros siguen funcionando)",
+        comment: "Tema 3: Arquitectura de Aplicaciones - Permite descentralización y si, por ejemplo, una rama deja de funcionar, el resto de servicios independientes siguen funcionando."
+    },
+    {
+        tema: "Tema 3: Arquitectura de Aplicaciones",
+        question: "¿Qué es una \"Service Mesh\" (Malla de Servicios)?",
+        options: [
+            "Una base de datos en malla",
+            "Una capa de infraestructura para manejar la comunicación flexible, confiable y rápida entre microservicios",
+            "Un protocolo antiguo de internet",
+            "Un tipo de cableado físico para servidores"
+        ],
+        answer: "Una capa de infraestructura para manejar la comunicación flexible, confiable y rápida entre microservicios",
+        comment: "Tema 3: Arquitectura de Aplicaciones - Es una capa de infraestructura dedicada a manejar la comunicación entre microservicios, proporcionando equilibrio de carga, cifrado y autenticación."
+    },
+
+    // Tema 4: Packer (6 preguntas)
+    {
+        tema: "Tema 4: Packer: compilación de imágenes",
+        question: "¿Cuál es la función principal de la herramienta Packer?",
+        options: [
+            "Gestionar proyectos con metodologías ágiles",
+            "Monitorizar el rendimiento de la red",
+            "Crear imágenes de máquinas virtuales idénticas para múltiples plataformas desde una única configuración",
+            "Sustituir completamente a Ansible y Terraform"
+        ],
+        answer: "Crear imágenes de máquinas virtuales idénticas para múltiples plataformas desde una única configuración",
+        comment: "Tema 4: Packer: compilación de imágenes - Es una herramienta para crear imágenes de máquinas virtuales idénticas para múltiples plataformas (AWS, Azure, Google, etc.) desde un mismo origen."
+    },
+    {
+        tema: "Tema 4: Packer: compilación de imágenes",
+        question: "En un template de Packer, ¿qué define la sección \"Builders\"?",
+        options: [
+            "Qué software se va a instalar dentro de la máquina",
+            "Dónde y cómo se va a crear la imagen (ej: Amazon EBS, Azure ARM)",
+            "Las variables de entorno del sistema operativo local",
+            "Qué hacer con la imagen una vez creada (comprimirla)"
+        ],
+        answer: "Dónde y cómo se va a crear la imagen (ej: Amazon EBS, Azure ARM)",
+        comment: "Tema 4: Packer: compilación de imágenes - Los builders son los constructores que leen la configuración y generan la imagen en la plataforma específica (dónde vamos a desplegar)."
+    },
+    {
+        tema: "Tema 4: Packer: compilación de imágenes",
+        question: "¿Qué sección de Packer se encarga de instalar software y configurar el sistema (ej: instalar Apache)?",
+        options: [
+            "Builders",
+            "Post-processors",
+            "Provisioners",
+            "Variables"
+        ],
+        answer: "Provisioners",
+        comment: "Tema 4: Packer: compilación de imágenes - Los provisioners instalan y configuran el software dentro de la máquina antes de que se convierta en una imagen."
+    },
+    {
+        tema: "Tema 4: Packer: compilación de imágenes",
+        question: "¿Para qué sirve el comando packer validate?",
+        options: [
+            "Para desplegar la imagen en producción",
+            "Para destruir la imagen creada",
+            "Para comprobar que la sintaxis del template es correcta y no tiene errores",
+            "Para ver un resumen de los componentes del template"
+        ],
+        answer: "Para comprobar que la sintaxis del template es correcta y no tiene errores",
+        comment: "Tema 4: Packer: compilación de imágenes - Validate revisa el template y dice si hay errores de sintaxis o configuración antes de ejecutarlo."
+    },
+    {
+        tema: "Tema 4: Packer: compilación de imágenes",
+        question: "Packer permite crear infraestructuras inmutables. ¿Qué significa esto en la práctica?",
+        options: [
+            "Que entramos al servidor a actualizar paquetes manualmente cada semana",
+            "Que si hay un cambio, modificamos el template, creamos una imagen nueva completa y reemplazamos la anterior",
+            "Que la infraestructura nunca se puede borrar",
+            "Que solo funciona en servidores físicos"
+        ],
+        answer: "Que si hay un cambio, modificamos el template, creamos una imagen nueva completa y reemplazamos la anterior",
+        comment: "Tema 4: Packer: compilación de imágenes - Se basa en cambiar un todo o un nada; no se hacen pequeñas configuraciones manuales, si algo cambia, se regenera la imagen por completo."
+    },
+    {
+        tema: "Tema 4: Packer: compilación de imágenes",
+        question: "¿Qué comando de Packer usarías para obtener un resumen de los componentes definidos en tu plantilla sin ejecutarla?",
+        options: [
+            "packer build",
+            "packer inspect",
+            "packer fix",
+            "packer console"
+        ],
+        answer: "packer inspect",
+        comment: "Tema 4: Packer: compilación de imágenes - Inspect toma una plantilla y muestra los distintos componentes que la definen, haciendo un resumen de qué hace la plantilla."
+    },
+
+    // Tema 5 y 6: Terraform (12 preguntas)
+    {
+        tema: "Tema 5: Terraform: Infraestructura como código",
+        question: "¿Qué es Terraform principalmente?",
+        options: [
+            "Un sistema de monitorización de logs",
+            "Una herramienta de Infraestructura como Código (IaC) para aprovisionar y gestionar infraestructura",
+            "Un lenguaje de programación para crear páginas web",
+            "Una base de datos NoSQL"
+        ],
+        answer: "Una herramienta de Infraestructura como Código (IaC) para aprovisionar y gestionar infraestructura",
+        comment: "Tema 5: Terraform: Infraestructura como código - Terraform es una herramienta de IaC que permite construir, cambiar y versionar infraestructura de manera segura y eficiente."
+    },
+    {
+        tema: "Tema 5: Terraform: Infraestructura como código",
+        question: "¿Qué comando de Terraform se utiliza para ver qué cambios se realizarán antes de aplicarlos realmente?",
+        options: [
+            "terraform init",
+            "terraform apply",
+            "terraform destroy",
+            "terraform plan"
+        ],
+        answer: "terraform plan",
+        comment: "Tema 5: Terraform: Infraestructura como código - terraform plan genera un plan de ejecución y muestra qué acciones son necesarias para lograr el estado deseado, evitando sorpresas."
+    },
+    {
+        tema: "Tema 5: Terraform: Infraestructura como código",
+        question: "¿Qué función cumple el fichero de estado (terraform.tfstate)?",
+        options: [
+            "Guardar las contraseñas en texto plano",
+            "Mantener un registro de la infraestructura construida para mapear los recursos reales con la configuración",
+            "Es el fichero donde se escribe el código de la infraestructura",
+            "No sirve para nada, se puede borrar"
+        ],
+        answer: "Mantener un registro de la infraestructura construida para mapear los recursos reales con la configuración",
+        comment: "Tema 5: Terraform: Infraestructura como código - Terraform es una aplicación con estado; el fichero de estado guarda la configuración de la infraestructura en cada momento para detectar cambios."
+    },
+    {
+        tema: "Tema 5: Terraform: Infraestructura como código",
+        question: "¿Cuál es la diferencia entre un provisioner local-exec y un remote-exec en Terraform?",
+        options: [
+            "No hay diferencia",
+            "local-exec es solo para Windows y remote-exec para Linux",
+            "local-exec ejecuta un comando en la máquina donde corre Terraform; remote-exec lo hace en el recurso creado",
+            "remote-exec se usa para borrar recursos"
+        ],
+        answer: "local-exec ejecuta un comando en la máquina donde corre Terraform; remote-exec lo hace en el recurso creado",
+        comment: "Tema 5: Terraform: Infraestructura como código - local-exec ejecuta en la máquina propia (donde se lanza Terraform), mientras que remote-exec invoca scripts en el recurso remoto tras su creación."
+    },
+    {
+        tema: "Tema 5: Terraform: Infraestructura como código",
+        question: "¿Cómo recomienda el profesor gestionar las variables sensibles (como contraseñas) en Terraform?",
+        options: [
+            "Escribirlas directamente en el archivo main.tf",
+            "Usar ficheros .tfvars descentralizados o variables de entorno, evitando ponerlas en el template principal",
+            "Escribirlas en un papel",
+            "Terraform no permite usar variables"
+        ],
+        answer: "Usar ficheros .tfvars descentralizados o variables de entorno, evitando ponerlas en el template principal",
+        comment: "Tema 5: Terraform: Infraestructura como código - Se recomienda descentralizar las contraseñas y configuración usando ficheros .tfvars o variables de entorno, nunca valores fijos en el template por seguridad."
+    },
+    {
+        tema: "Tema 6: Terraform: casos de uso avanzado",
+        question: "Si ejecutamos terraform apply y un recurso falla durante el aprovisionamiento, ¿qué hace Terraform?",
+        options: [
+            "Lo marca como \"contaminado\" (tainted) y lo destruirá/recreará en la próxima ejecución",
+            "Lo deja como \"válido\" y sigue adelante",
+            "Apaga el ordenador automáticamente",
+            "Repara el error mágicamente sin intervención"
+        ],
+        answer: "Lo marca como \"contaminado\" (tainted) y lo destruirá/recreará en la próxima ejecución",
+        comment: "Tema 6: Terraform: casos de uso avanzado - Si falla el aprovisionamiento, Terraform marca el recurso como contaminado (tainted). En la próxima ejecución, intentará destruirlo y crearlo de nuevo."
+    },
+    {
+        tema: "Tema 6: Terraform: casos de uso avanzado",
+        question: "¿Qué nos permite hacer la \"Modularización\" en Terraform?",
+        options: [
+            "Hacer que el código sea más lento",
+            "Evitar el uso de proveedores de nube",
+            "Encapsular grupos de recursos para reutilizarlos y simplificar los despliegues complejos",
+            "Convertir el código HCL a JSON obligatoriamente"
+        ],
+        answer: "Encapsular grupos de recursos para reutilizarlos y simplificar los despliegues complejos",
+        comment: "Tema 6: Terraform: casos de uso avanzado - La modularización permite pasar de despliegues complejos a simples, encapsulando configuraciones para ser reutilizadas y llamadas desde un archivo raíz."
+    },
+    {
+        tema: "Tema 6: Terraform: casos de uso avanzado",
+        question: "En Terraform, ¿qué define el bloque output?",
+        options: [
+            "Las variables de entrada",
+            "Los valores que se mostrarán al finalizar el despliegue (ej: la IP pública de una instancia)",
+            "Sirve para borrar recursos",
+            "Configura el proveedor de nube"
+        ],
+        answer: "Los valores que se mostrarán al finalizar el despliegue (ej: la IP pública de una instancia)",
+        comment: "Tema 6: Terraform: casos de uso avanzado - Los output permiten definir qué datos recibir al terminar el despliegue, como una IP o una URL."
+    },
+    {
+        tema: "Tema 5: Terraform: Infraestructura como código",
+        question: "¿Qué comando se utiliza para inicializar el directorio de trabajo y descargar los plugins del proveedor?",
+        options: [
+            "terraform plan",
+            "terraform apply",
+            "terraform init",
+            "terraform graph"
+        ],
+        answer: "terraform init",
+        comment: "Tema 5: Terraform: Infraestructura como código - init inicializa el directorio de trabajo y descarga los binarios de los plugins/proveedores necesarios."
+    },
+    {
+        tema: "Tema 6: Terraform: casos de uso avanzado",
+        question: "¿Cuál es el orden lógico en el que Terraform despliega una arquitectura multicapa (ej: BBDD, App, Front)?",
+        options: [
+            "Aleatorio",
+            "Alfabético por nombre del recurso",
+            "Orden natural de dependencias (ej: primero BBDD, luego App, luego Front)",
+            "Siempre empieza por el Frontend"
+        ],
+        answer: "Orden natural de dependencias (ej: primero BBDD, luego App, luego Front)",
+        comment: "Tema 6: Terraform: casos de uso avanzado - Terraform realiza el despliegue de forma lógica, respetando las dependencias; nunca creará la capa de presentación antes que la de datos si dependen entre sí."
+    },
+    {
+        tema: "Tema 6: Terraform: casos de uso avanzado",
+        question: "¿Qué ventaja tiene Terraform respecto a herramientas nativas como CloudFormation (AWS)?",
+        options: [
+            "Es propiedad de Amazon",
+            "Es agnóstico a la nube (multi-cloud), permitiendo gestionar AWS, Azure y Google",
+            "Es más difícil de aprender",
+            "No permite usar control de versiones"
+        ],
+        answer: "Es agnóstico a la nube (multi-cloud), permitiendo gestionar AWS, Azure y Google",
+        comment: "Tema 6: Terraform: casos de uso avanzado - Terraform es portable y evita el vendor locking (bloqueo de proveedor), a diferencia de CloudFormation que limita a AWS."
+    },
+    {
+        tema: "Tema 6: Terraform: casos de uso avanzado",
+        question: "Si tenemos una variable de tipo \"map\" en Terraform, ¿qué función podemos usar para búsqueda dinámica de valores?",
+        options: [
+            "search()",
+            "lookup()",
+            "find()",
+            "map_get()"
+        ],
+        answer: "lookup()",
+        comment: "Tema 6: Terraform: casos de uso avanzado - La función lookup permite realizar una búsqueda dinámica a partir de una clave dentro de un mapa de variables."
+    }
+];
