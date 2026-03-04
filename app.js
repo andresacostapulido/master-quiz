@@ -769,3 +769,54 @@ async function viewStats() {
 function closeStats() {
     document.getElementById('stats-modal').classList.add('hidden');
 }
+
+// --- Práctica de Scripts ---
+let scriptsData = [];
+let scriptActualIndex = 0;
+
+async function startScriptPractice() {
+    const tipo = document.getElementById('script-tipo').value;
+    try {
+        const res = await fetch('data/scripts.json');
+        const todos = await res.json();
+        scriptsData = tipo === 'todos' ? todos : todos.filter(s => s.tipo === tipo);
+        scriptsData = scriptsData.sort(() => Math.random() - 0.5);
+        scriptActualIndex = 0;
+        mostrarScript();
+    } catch (e) {
+        alert('Error cargando ejercicios de scripts');
+    }
+}
+
+function mostrarScript() {
+    const s = scriptsData[scriptActualIndex];
+    const badge = document.getElementById('script-tipo-badge');
+    badge.textContent = s.tipo === 'bash' ? 'BASH' : 'POWERSHELL';
+    badge.style.backgroundColor = s.tipo === 'bash' ? '#0d9488' : '#2563eb';
+    document.getElementById('script-contador').textContent = `Ejercicio ${scriptActualIndex + 1} de ${scriptsData.length}`;
+    document.getElementById('script-titulo').textContent = s.titulo;
+    document.getElementById('script-enunciado').textContent = s.enunciado;
+    document.getElementById('script-respuesta').value = '';
+    document.getElementById('script-solucion').classList.add('hidden');
+    document.getElementById('btn-ver-solucion').disabled = false;
+    document.getElementById('script-modal').classList.remove('hidden');
+}
+
+function verSolucionScript() {
+    const s = scriptsData[scriptActualIndex];
+    const div = document.getElementById('script-solucion');
+    div.classList.remove('hidden');
+    div.querySelector('pre').textContent = s.solucion;
+    const ul = document.getElementById('script-puntos');
+    ul.innerHTML = s.puntos_clave.map(p => `<li>• ${p}</li>`).join('');
+    document.getElementById('btn-ver-solucion').disabled = true;
+}
+
+function siguienteScript() {
+    scriptActualIndex = (scriptActualIndex + 1) % scriptsData.length;
+    mostrarScript();
+}
+
+function closeScriptModal() {
+    document.getElementById('script-modal').classList.add('hidden');
+}

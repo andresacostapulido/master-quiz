@@ -1,0 +1,116 @@
+[
+  {
+    "id": 1,
+    "tipo": "bash",
+    "titulo": "Menú interactivo de gestión de archivos",
+    "enunciado": "Crea un script Bash que reciba como parámetro obligatorio un directorio (-d). El script debe mostrar un menú interactivo con 3 opciones: 1) Listar archivos .log, 2) Copiar todos los .log a /tmp/backup/, 3) Salir. Debe validar que el directorio existe y gestionar parámetros con getopts.",
+    "solucion": "#!/bin/bash\n# Script: menu_logs.sh\n# Uso: ./menu_logs.sh -d /ruta/directorio\n\n# --- Gestión de parámetros ---\nwhile getopts \"d:\" opt; do\n  case $opt in\n    d) DIRECTORIO=$OPTARG ;;\n    *) echo \"Uso: $0 -d directorio\"; exit 1 ;;\n  esac\ndone\n\n# --- Validación ---\nif [ -z \"$DIRECTORIO\" ]; then\n  echo \"Error: parámetro -d obligatorio\"\n  exit 1\nfi\n\nif [ ! -d \"$DIRECTORIO\" ]; then\n  echo \"Error: el directorio '$DIRECTORIO' no existe\"\n  exit 1\nfi\n\n# --- Menú principal ---\nwhile true; do\n  echo \"\\n=== MENÚ ===\"\n  echo \"1) Listar archivos .log\"\n  echo \"2) Copiar .log a /tmp/backup/\"\n  echo \"3) Salir\"\n  read -p \"Opción: \" opcion\n\n  case $opcion in\n    1)\n      echo \"Archivos .log en $DIRECTORIO:\"\n      ls \"$DIRECTORIO\"/*.log 2>/dev/null || echo \"No hay archivos .log\"\n      ;;\n    2)\n      mkdir -p /tmp/backup\n      cp \"$DIRECTORIO\"/*.log /tmp/backup/ 2>/dev/null && echo \"Copiados\" || echo \"No hay .log para copiar\"\n      ;;\n    3)\n      echo \"Saliendo...\"\n      exit 0\n      ;;\n    *)\n      echo \"Opción inválida\"\n      ;;\n  esac\ndone",
+    "puntos_clave": [
+      "getopts para parsear -d",
+      "Validar que el directorio existe con [ ! -d ]",
+      "Bucle while true con read para el menú",
+      "case para las opciones del menú",
+      "mkdir -p para crear backup si no existe"
+    ]
+  },
+  {
+    "id": 2,
+    "tipo": "bash",
+    "titulo": "Backup de archivos con filtro por extensión",
+    "enunciado": "Crea un script Bash que acepte dos parámetros: -s (directorio fuente) y -e (extensión, ej: txt). El script debe copiar todos los archivos con esa extensión a un directorio de backup llamado backup_YYYYMMDD (con la fecha actual). Debe mostrar cuántos archivos copió al final.",
+    "solucion": "#!/bin/bash\n# Script: backup_ext.sh\n# Uso: ./backup_ext.sh -s /fuente -e txt\n\n# --- Parámetros ---\nwhile getopts \"s:e:\" opt; do\n  case $opt in\n    s) FUENTE=$OPTARG ;;\n    e) EXTENSION=$OPTARG ;;\n    *) echo \"Uso: $0 -s directorio -e extension\"; exit 1 ;;\n  esac\ndone\n\n# --- Validación ---\nif [ -z \"$FUENTE\" ] || [ -z \"$EXTENSION\" ]; then\n  echo \"Error: -s y -e son obligatorios\"\n  exit 1\nfi\n\nif [ ! -d \"$FUENTE\" ]; then\n  echo \"Error: directorio fuente no existe\"\n  exit 1\nfi\n\n# --- Crear directorio de backup con fecha ---\nFECHA=$(date +%Y%m%d)\nBACKUP_DIR=\"backup_$FECHA\"\nmkdir -p \"$BACKUP_DIR\"\n\n# --- Copiar archivos ---\nCONTADOR=0\nfor archivo in \"$FUENTE\"/*.$EXTENSION; do\n  if [ -f \"$archivo\" ]; then\n    cp \"$archivo\" \"$BACKUP_DIR/\"\n    CONTADOR=$((CONTADOR + 1))\n  fi\ndone\n\necho \"Backup completado: $CONTADOR archivos .$EXTENSION copiados a $BACKUP_DIR\"",
+    "puntos_clave": [
+      "getopts con dos parámetros -s y -e",
+      "date +%Y%m%d para la fecha en el nombre",
+      "for con glob *.EXTENSION para iterar",
+      "Contador de archivos con $((CONTADOR + 1))",
+      "Validar con [ -f ] que es un archivo regular"
+    ]
+  },
+  {
+    "id": 3,
+    "tipo": "bash",
+    "titulo": "Gestión de usuarios desde fichero",
+    "enunciado": "Crea un script Bash que lea un fichero CSV (-f usuarios.csv) con formato 'nombre,grupo' y cree cada usuario en el sistema añadiéndolo a su grupo. Si el usuario ya existe, debe mostrar un aviso y continuar. Al final muestra un resumen de cuántos usuarios se crearon y cuántos ya existían.",
+    "solucion": "#!/bin/bash\n# Script: crear_usuarios.sh\n# Uso: ./crear_usuarios.sh -f usuarios.csv\n# Formato CSV: nombre,grupo\n\n# --- Parámetros ---\nwhile getopts \"f:\" opt; do\n  case $opt in\n    f) FICHERO=$OPTARG ;;\n    *) echo \"Uso: $0 -f fichero.csv\"; exit 1 ;;\n  esac\ndone\n\nif [ -z \"$FICHERO\" ] || [ ! -f \"$FICHERO\" ]; then\n  echo \"Error: fichero no encontrado\"\n  exit 1\nfi\n\n# --- Procesar CSV ---\nCREADOS=0\nEXISTENTES=0\n\nwhile IFS=',' read -r nombre grupo; do\n  # Saltar línea de cabecera si existe\n  [ \"$nombre\" = \"nombre\" ] && continue\n\n  if id \"$nombre\" &>/dev/null; then\n    echo \"Aviso: usuario '$nombre' ya existe\"\n    EXISTENTES=$((EXISTENTES + 1))\n  else\n    useradd -m -G \"$grupo\" \"$nombre\"\n    echo \"Creado: $nombre (grupo: $grupo)\"\n    CREADOS=$((CREADOS + 1))\n  fi\ndone < \"$FICHERO\"\n\necho \"\\nResumen: $CREADOS creados, $EXISTENTES ya existían\"",
+    "puntos_clave": [
+      "while IFS=',' read -r para leer CSV",
+      "id usuario para comprobar si existe",
+      "useradd -m -G para crear con grupo",
+      "Redirigir done < fichero para leer el archivo",
+      "Contadores separados para creados y existentes"
+    ]
+  },
+  {
+    "id": 4,
+    "tipo": "bash",
+    "titulo": "Monitor de espacio en disco con alerta",
+    "enunciado": "Crea un script Bash que reciba un umbral de uso en % (-u 80). El script debe revisar todas las particiones montadas y mostrar una alerta para las que superen ese umbral. Debe usar Heredoc para escribir un informe en /tmp/informe_disco.txt con los resultados.",
+    "solucion": "#!/bin/bash\n# Script: monitor_disco.sh\n# Uso: ./monitor_disco.sh -u 80\n\n# --- Parámetros ---\nwhile getopts \"u:\" opt; do\n  case $opt in\n    u) UMBRAL=$OPTARG ;;\n    *) echo \"Uso: $0 -u umbral_porcentaje\"; exit 1 ;;\n  esac\ndone\n\nUMBRAL=${UMBRAL:-80}  # Valor por defecto: 80\n\n# --- Revisar particiones ---\nALERTAS=\"\"\nwhile read -r linea; do\n  uso=$(echo \"$linea\" | awk '{print $5}' | tr -d '%')\n  particion=$(echo \"$linea\" | awk '{print $6}')\n\n  if [ \"$uso\" -gt \"$UMBRAL\" ] 2>/dev/null; then\n    ALERTAS=\"$ALERTAS\\n  ⚠️  $particion: ${uso}% (supera umbral $UMBRAL%)\"\n    echo \"ALERTA: $particion al ${uso}%\"\n  fi\ndone < <(df -h | tail -n +2)\n\n# --- Escribir informe con Heredoc ---\ncat <<EOF > /tmp/informe_disco.txt\nInforme de disco - $(date)\nUmbral configurado: $UMBRAL%\n\nParticiones que superan el umbral:\n$ALERTAS\n\nEstado completo:\n$(df -h)\nEOF\n\necho \"Informe guardado en /tmp/informe_disco.txt\"",
+    "puntos_clave": [
+      "Valor por defecto con ${UMBRAL:-80}",
+      "df -h | tail -n +2 para saltar cabecera",
+      "awk y tr para extraer el porcentaje",
+      "Heredoc (cat <<EOF) para escribir el informe",
+      "$(date) y $(df -h) dentro del Heredoc"
+    ]
+  },
+  {
+    "id": 5,
+    "tipo": "powershell",
+    "titulo": "Menú interactivo de gestión de servicios",
+    "enunciado": "Crea un script PowerShell que reciba como parámetro obligatorio un nombre de servicio (-Servicio). Muestre un menú con 3 opciones: 1) Ver estado, 2) Reiniciar, 3) Salir. Debe validar que el servicio existe antes de operar y usar SecureString si pide credenciales.",
+    "solucion": "# Script: menu_servicio.ps1\n# Uso: .\\menu_servicio.ps1 -Servicio \"wuauserv\"\n\nparam(\n    [Parameter(Mandatory=$true)]\n    [string]$Servicio\n)\n\n# --- Validación ---\nif (-not (Get-Service -Name $Servicio -ErrorAction SilentlyContinue)) {\n    Write-Error \"El servicio '$Servicio' no existe\"\n    exit 1\n}\n\n# --- Menú principal ---\ndo {\n    Write-Host \"`n=== MENÚ: $Servicio ===\"\n    Write-Host \"1) Ver estado\"\n    Write-Host \"2) Reiniciar servicio\"\n    Write-Host \"3) Salir\"\n    $opcion = Read-Host \"Opción\"\n\n    switch ($opcion) {\n        \"1\" {\n            $svc = Get-Service -Name $Servicio\n            Write-Host \"Estado: $($svc.Status)\"\n        }\n        \"2\" {\n            Restart-Service -Name $Servicio\n            Write-Host \"Servicio reiniciado correctamente\"\n        }\n        \"3\" {\n            Write-Host \"Saliendo...\"\n        }\n        default {\n            Write-Host \"Opción inválida\"\n        }\n    }\n} while ($opcion -ne \"3\")",
+    "puntos_clave": [
+      "param() con [Parameter(Mandatory=$true)]",
+      "Get-Service con -ErrorAction SilentlyContinue para validar",
+      "Bucle do...while con condición de salida",
+      "switch para las opciones del menú",
+      "Read-Host para entrada del usuario"
+    ]
+  },
+  {
+    "id": 6,
+    "tipo": "powershell",
+    "titulo": "Backup de archivos con log",
+    "enunciado": "Crea un script PowerShell que reciba -Origen (ruta), -Destino (ruta) y -Extension (ej: log). Debe copiar todos los archivos con esa extensión al destino, crear el destino si no existe, y escribir un log en C:\\temp\\backup.log con fecha, archivo copiado y resultado (OK/ERROR).",
+    "solucion": "# Script: backup_archivos.ps1\n# Uso: .\\backup_archivos.ps1 -Origen C:\\datos -Destino C:\\backup -Extension log\n\nparam(\n    [Parameter(Mandatory=$true)]\n    [string]$Origen,\n\n    [Parameter(Mandatory=$true)]\n    [string]$Destino,\n\n    [string]$Extension = \"log\"\n)\n\n# --- Validación ---\nif (-not (Test-Path $Origen)) {\n    Write-Error \"Directorio origen no existe: $Origen\"\n    exit 1\n}\n\n# --- Crear destino si no existe ---\nif (-not (Test-Path $Destino)) {\n    New-Item -ItemType Directory -Path $Destino | Out-Null\n    Write-Host \"Directorio creado: $Destino\"\n}\n\n$LogFile = \"C:\\temp\\backup.log\"\nNew-Item -ItemType Directory -Path \"C:\\temp\" -Force | Out-Null\n\n# --- Copiar archivos ---\n$archivos = Get-ChildItem -Path $Origen -Filter \"*.$Extension\"\n\nforeach ($archivo in $archivos) {\n    try {\n        Copy-Item -Path $archivo.FullName -Destination $Destino -ErrorAction Stop\n        $linea = \"$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') | OK    | $($archivo.Name)\"\n    } catch {\n        $linea = \"$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') | ERROR | $($archivo.Name) - $($_.Exception.Message)\"\n    }\n    Add-Content -Path $LogFile -Value $linea\n    Write-Host $linea\n}\n\nWrite-Host \"`nProceso completado. Log en: $LogFile\"",
+    "puntos_clave": [
+      "param() con valor por defecto para -Extension",
+      "Test-Path para validar rutas",
+      "New-Item -ItemType Directory para crear directorios",
+      "Get-ChildItem -Filter para filtrar por extensión",
+      "try/catch para capturar errores por archivo",
+      "Add-Content para escribir el log línea a línea"
+    ]
+  },
+  {
+    "id": 7,
+    "tipo": "powershell",
+    "titulo": "Gestión de usuarios locales",
+    "enunciado": "Crea un script PowerShell que lea un CSV (-Fichero usuarios.csv) con columnas Nombre y Grupo. Para cada fila debe crear el usuario local si no existe (con contraseña segura usando SecureString), añadirlo al grupo indicado, y mostrar un resumen final de creados vs existentes.",
+    "solucion": "# Script: crear_usuarios.ps1\n# Uso: .\\crear_usuarios.ps1 -Fichero usuarios.csv\n# CSV: Nombre,Grupo\n\nparam(\n    [Parameter(Mandatory=$true)]\n    [string]$Fichero\n)\n\nif (-not (Test-Path $Fichero)) {\n    Write-Error \"Fichero no encontrado: $Fichero\"\n    exit 1\n}\n\n$creados = 0\n$existentes = 0\n\n# --- Contraseña por defecto segura ---\n$passwordSegura = ConvertTo-SecureString \"Temporal@2024\" -AsPlainText -Force\n\n$usuarios = Import-Csv -Path $Fichero\n\nforeach ($fila in $usuarios) {\n    $nombre = $fila.Nombre\n    $grupo  = $fila.Grupo\n\n    if (Get-LocalUser -Name $nombre -ErrorAction SilentlyContinue) {\n        Write-Host \"Aviso: '$nombre' ya existe\"\n        $existentes++\n    } else {\n        New-LocalUser -Name $nombre -Password $passwordSegura -FullName $nombre\n        Add-LocalGroupMember -Group $grupo -Member $nombre\n        Write-Host \"Creado: $nombre (grupo: $grupo)\"\n        $creados++\n    }\n}\n\nWrite-Host \"`nResumen: $creados creados, $existentes ya existían\"",
+    "puntos_clave": [
+      "Import-Csv para leer el fichero CSV directamente",
+      "ConvertTo-SecureString para la contraseña (nunca texto plano)",
+      "Get-LocalUser con -ErrorAction SilentlyContinue para comprobar existencia",
+      "New-LocalUser + Add-LocalGroupMember para crear y asignar grupo",
+      "Contadores $creados y $existentes con ++"
+    ]
+  },
+  {
+    "id": 8,
+    "tipo": "powershell",
+    "titulo": "Inventario del sistema con Jobs en background",
+    "enunciado": "Crea un script PowerShell que recopile en paralelo (usando Jobs): 1) Lista de procesos con más de 100MB de RAM, 2) Servicios detenidos. Debe esperar a que ambos jobs terminen (Wait-Job), mostrar los resultados y guardarlos en C:\\temp\\inventario.txt.",
+    "solucion": "# Script: inventario.ps1\n# Recopila información del sistema en paralelo con Jobs\n\n# --- Lanzar jobs en background ---\n$jobProcesos = Start-Job -ScriptBlock {\n    Get-Process | Where-Object { $_.WorkingSet64 -gt 100MB } |\n        Select-Object Name, @{N='RAM_MB';E={[math]::Round($_.WorkingSet64/1MB,1)}}\n}\n\n$jobServicios = Start-Job -ScriptBlock {\n    Get-Service | Where-Object { $_.Status -eq 'Stopped' } |\n        Select-Object Name, DisplayName\n}\n\nWrite-Host \"Recopilando información en background...\"\n\n# --- Esperar a que terminen ambos jobs ---\nWait-Job -Job $jobProcesos, $jobServicios | Out-Null\n\n# --- Obtener resultados ---\n$procesos  = Receive-Job -Job $jobProcesos\n$servicios = Receive-Job -Job $jobServicios\n\n# --- Limpiar jobs ---\nRemove-Job -Job $jobProcesos, $jobServicios\n\n# --- Mostrar y guardar ---\n$salida = @\"\nInventario del sistema - $(Get-Date)\n\n=== Procesos con más de 100MB RAM ===\n$($procesos | Format-Table | Out-String)\n\n=== Servicios detenidos ===\n$($servicios | Format-Table | Out-String)\n\"@\n\nWrite-Host $salida\n\nNew-Item -ItemType Directory -Path \"C:\\temp\" -Force | Out-Null\n$salida | Out-File -FilePath \"C:\\temp\\inventario.txt\"\nWrite-Host \"Guardado en C:\\temp\\inventario.txt\"",
+    "puntos_clave": [
+      "Start-Job -ScriptBlock para lanzar en background",
+      "Wait-Job para esperar a que terminen ambos",
+      "Receive-Job para obtener los resultados",
+      "Remove-Job para limpiar después",
+      "Here-string (@\" \"@) para formatear la salida",
+      "Out-File para guardar en fichero"
+    ]
+  }
+]

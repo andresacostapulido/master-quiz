@@ -1,449 +1,362 @@
 const adminsistemasData = [
-    // Tema 1: Introducción, Paradigmas Cloud y Soporte
-    {
-        tema: "Tema 1: Introducción a la Administración de Sistemas",
-        question: "En la gestión moderna de soporte TI, ¿qué objetivo persigue la regla '90-8-2'?",
-        options: [
-            "Que el 90% de las incidencias las resuelva el usuario (autoservicio), el 8% soporte nivel 2, y solo el 2% llegue al administrador.",
-            "Que el 90% de las incidencias las resuelva el soporte nivel 1, el 8% el usuario (autoservicio), y solo el 2% llegue al administrador.",
-            "Que el 90% de las incidencias las resuelva el administrador, el 8% soporte nivel 2, y solo el 2% el usuario (autoservicio).",
-            "Que el 90% de las incidencias las resuelva soporte nivel 2, el 8% el administrador, y solo el 2% el usuario (autoservicio)."
-        ],
-        answer: "Que el 90% de las incidencias las resuelva el usuario (autoservicio), el 8% soporte nivel 2, y solo el 2% llegue al administrador.",
-        comment: "Tema 1: Introducción a la Administración de Sistemas - El objetivo es la eficiencia: documentar soluciones en una Knowledge Base para que el usuario sea autosuficiente y el administrador (nivel 3) solo atienda problemas críticos o nuevos."
-    },
-    {
-        tema: "Tema 1: Introducción a la Administración de Sistemas",
-        question: "¿Cuál es la diferencia fundamental en el paradigma de 'Mascotas vs. Ganado' (Pets vs. Cattle) al administrar servidores en la nube?",
-        options: [
-            "Las mascotas se reparan y cuidan individualmente; el ganado se reemplaza y elimina automáticamente si falla.",
-            "Las mascotas tienen nombres únicos y configuración manual; el ganado usa plantillas y se escala horizontalmente.",
-            "Las mascotas requieren backups incrementales; el ganado usa snapshots inmutables y versionado.",
-            "Las mascotas se monitorean con alertas personalizadas; el ganado usa métricas agregadas y auto-healing."
-        ],
-        answer: "Las mascotas se reparan y cuidan individualmente; el ganado se reemplaza y elimina automáticamente si falla.",
-        comment: "Tema 1: Introducción a la Administración de Sistemas - En la nube no se reparan servidores individuales (mascotas) con nombres propios 'cariñosos'; si una instancia falla, se elimina (sacrifica) y se despliega una nueva automáticamente."
-    },
-    {
-        tema: "Tema 1: Introducción a la Administración de Sistemas",
-        question: "¿Cómo se comporta el modelo de costos de infraestructura en la nube en comparación con un CPD tradicional?",
-        options: [
-            "Es un costo dinámico (pago por uso), permitiendo apagar entornos para ahorrar.",
-            "Es un costo fijo con reservas (Reserved Instances) que reduce el precio por compromiso anual.",
-            "Es un modelo híbrido CAPEX/OPEX con amortización de licencias perpetuas.",
-            "Es un costo escalonado por niveles (tiers) según el volumen de recursos consumidos."
-        ],
-        answer: "Es un costo dinámico (pago por uso), permitiendo apagar entornos para ahorrar.",
-        comment: "Tema 1: Introducción a la Administración de Sistemas - En la nube los costos son dinámicos. Se paga por uso, permitiendo apagar entornos (como los de testing) cuando no se usan, a diferencia del costo fijo de servidores físicos."
-    },
-    {
-        tema: "Tema 1: Introducción a la Administración de Sistemas",
-        question: "¿Qué define a un entorno 'Híbrido' en la administración de sistemas?",
-        options: [
-            "La convivencia de infraestructura en la nube pública con infraestructura física local (On-premise).",
-            "La combinación de múltiples proveedores cloud (multi-cloud) para evitar vendor lock-in.",
-            "La integración de contenedores y máquinas virtuales en la misma plataforma de orquestación.",
-            "La mezcla de arquitecturas monolíticas legacy con microservicios modernos."
-        ],
-        answer: "La convivencia de infraestructura en la nube pública con infraestructura física local (On-premise).",
-        comment: "Tema 1: Introducción a la Administración de Sistemas - Un entorno híbrido implica que parte de la infraestructura está en la nube y otra parte se mantiene en servidores físicos o virtualizados locales."
-    },
-
-    // Tema 2: Administración Linux y Acceso Remoto
-    {
-        tema: "Tema 2: Administración de servidores Linux",
-        question: "¿Cuáles son los dos componentes principales que definen técnicamente una 'Distribución' de Linux?",
-        options: [
-            "El núcleo (Kernel) y un paquete de aplicaciones/herramientas.",
-            "El sistema (Core) y un conjunto de librerías/utilidades.",
-            "El motor (Engine) y una colección de servicios/demonios.",
-            "El framework (Base) y un grupo de módulos/extensiones."
-        ],
-        answer: "El núcleo (Kernel) y un paquete de aplicaciones/herramientas.",
-        comment: "Tema 2: Administración de servidores Linux - Una distribución se define por tener el núcleo del sistema operativo (kernel) y una colección de paquetes o aplicaciones instaladas sobre él."
-    },
-    {
-        tema: "Tema 2: Administración de servidores Linux",
-        question: "¿Por qué está totalmente desaconsejado el uso de Telnet para la administración remota?",
-        options: [
-            "Porque la información (incluidas contraseñas) viaja en texto plano sin cifrar.",
-            "Porque usa el puerto 23 que suele estar bloqueado por firewalls corporativos.",
-            "Porque no soporta autenticación multifactor ni integración con LDAP/AD.",
-            "Porque tiene vulnerabilidades conocidas (CVEs) sin parches disponibles."
-        ],
-        answer: "Porque la información (incluidas contraseñas) viaja en texto plano sin cifrar.",
-        comment: "Tema 2: Administración de servidores Linux - Telnet envía toda la información en plano. Un sniffer podría capturar el tráfico y leer las credenciales de administración."
-    },
-    {
-        tema: "Tema 2: Administración de servidores Linux",
-        question: "En una autenticación SSH con par de claves, ¿dónde debe almacenarse y custodiarse la Clave Privada?",
-        options: [
-            "En el equipo del cliente (administrador) protegida con passphrase.",
-            "En el servidor dentro de ~/.ssh/authorized_keys para validación.",
-            "En un gestor de secretos centralizado (Vault, AWS Secrets Manager).",
-            "En un HSM (Hardware Security Module) para máxima seguridad."
-        ],
-        answer: "En el equipo del cliente (administrador).",
-        comment: "Tema 2: Administración de servidores Linux - La clave pública está en el servidor. La clave privada es secreta y debe permanecer únicamente en el equipo del administrador que se va a conectar."
-    },
-    {
-        tema: "Tema 2: Administración de servidores Linux",
-        question: "¿Qué comando se utiliza para recargar la configuración del servicio SSH sin detener las conexiones activas?",
-        options: [
-            "service ssh reload (o systemctl reload sshd).",
-            "service ssh restart (cierra conexiones y reinicia el demonio).",
-            "service ssh graceful (reinicio suave con espera de conexiones).",
-            "killall -HUP sshd (envía señal SIGHUP al proceso)."
-        ],
-        answer: "service ssh reload",
-        comment: "Tema 2: Administración de servidores Linux - El comando reload fuerza al demonio a releer sus archivos de configuración (sshd_config) para aplicar cambios sin detener el servicio."
-    },
-    {
-        tema: "Tema 2: Administración de servidores Linux",
-        question: "Si deseas conectarte por SSH especificando un archivo de clave privada concreto, ¿qué flag debes usar?",
-        options: [
-            "-i (identity file, especifica la ruta de la clave privada).",
-            "-k (key file, para autenticación con Kerberos).",
-            "-p (port, para especificar un puerto diferente al 22).",
-            "-c (cipher, para seleccionar el algoritmo de cifrado)."
-        ],
-        answer: "-i (identity file)",
-        comment: "Tema 2: Administración de servidores Linux - El parámetro -i permite indicar la ruta del archivo de identidad (clave privada .pem o similar) que se usará para la autenticación."
-    },
-
-    // Tema 3: Scripting en BASH
-    {
-        tema: "Tema 3: Guía de estudio de bash",
-        question: "¿Qué indica la primera línea de un script #!/bin/bash (conocida como Shebang)?",
-        options: [
-            "Indica la ruta del intérprete que ejecutará el script.",
-            "Indica el nivel de privilegios requerido (root o usuario normal).",
-            "Indica la versión mínima de Bash necesaria para ejecutar el script.",
-            "Indica el encoding del archivo (UTF-8, ASCII, ISO-8859-1)."
-        ],
-        answer: "Indica la ruta del intérprete que ejecutará el script.",
-        comment: "Tema 3: Guía de estudio de bash - El Shebang (#!) seguido de la ruta (/bin/bash) le dice al sistema qué intérprete debe usar para ejecutar el código del fichero."
-    },
-    {
-        tema: "Tema 3: Guía de estudio de bash",
-        question: "Para comprobar el código de salida (éxito o error) del último comando ejecutado en Bash, se utiliza la variable especial:",
-        options: [
-            "$? (exit status del último comando, 0=éxito).",
-            "$! (PID del último proceso en background).",
-            "$$ (PID del shell actual).",
-            "$# (número de argumentos pasados al script)."
-        ],
-        answer: "$?",
-        comment: "Tema 3: Guía de estudio de bash - La variable $? almacena el valor de retorno del último comando. Generalmente, 0 es éxito y otro número indica error."
-    },
-    {
-        tema: "Tema 3: Guía de estudio de bash",
-        question: "¿Cuál es la diferencia entre los operadores de redirección > y >>?",
-        options: [
-            "> sobrescribe el fichero y >> añade contenido al final (append).",
-            "> añade contenido al inicio y >> sobrescribe el fichero (overwrite).",
-            "> crea un nuevo fichero y >> duplica el contenido existente (duplicate).",
-            "> reemplaza líneas específicas y >> inserta contenido intermedio (insert)."
-        ],
-        answer: "> sobrescribe el fichero y >> añade contenido al final (append).",
-        comment: "Tema 3: Guía de estudio de bash - Un solo mayor que (>) sobrescribe el contenido anterior. Dos mayores que (>>) agregan el nuevo contenido al final sin borrar lo previo."
-    },
-    {
-        tema: "Tema 3: Guía de estudio de bash",
-        question: "¿Qué comando utilizarías para dar permisos de ejecución a un script llamado script.sh?",
-        options: [
-            "chmod +x script.sh (añade permiso de ejecución).",
-            "chmod +r script.sh (añade permiso de lectura).",
-            "chmod +w script.sh (añade permiso de escritura).",
-            "chmod 755 script.sh (establece rwxr-xr-x)."
-        ],
-        answer: "chmod +x script.sh",
-        comment: "Tema 3: Guía de estudio de bash - chmod (Change Mode) se usa para cambiar permisos. El flag +x añade el permiso de ejecución (eXecute)."
-    },
-    {
-        tema: "Tema 3: Guía de estudio de bash",
-        question: "¿Qué función cumple el operador lógico && entre dos comandos (ej: comando1 && comando2)?",
-        options: [
-            "Ejecuta el segundo comando solo si el primero tiene éxito (exit code 0).",
-            "Ejecuta el segundo comando solo si el primero tiene error (exit code 1).",
-            "Ejecuta el segundo comando solo si el primero está pendiente (exit code 2).",
-            "Ejecuta el segundo comando solo si el primero está pausado (exit code 3)."
-        ],
-        answer: "Ejecuta el segundo comando solo si el primero tiene éxito (exit code 0).",
-        comment: "Tema 3: Guía de estudio de bash - Es un operador AND. El segundo comando se ejecuta únicamente si el primero terminó correctamente."
-    },
-    {
-        tema: "Tema 3: Guía de estudio de bash",
-        question: "En un script complejo, ¿para qué se suele utilizar el comando getopts?",
-        options: [
-            "Para 'parsear' (analizar) los argumentos pasados al script (ej: -u usuario).",
-            "Para 'validar' (verificar) los parámetros enviados al script (ej: -u usuario).",
-            "Para 'procesar' (ejecutar) las opciones definidas en el script (ej: -u usuario).",
-            "Para 'interpretar' (traducir) las banderas incluidas en el script (ej: -u usuario)."
-        ],
-        answer: "Para 'parsear' (analizar) los argumentos pasados al script (ej: -u usuario).",
-        comment: "Tema 3: Guía de estudio de bash - getopts se utiliza para gestionar las banderas y argumentos que se introducen en la línea de comandos al ejecutar el script."
-    },
-    {
-        tema: "Tema 3: Guía de estudio de bash",
-        question: "¿Qué hace el comando ls | grep .txt?",
-        options: [
-            "Lista los archivos y filtra la salida para mostrar solo los que contienen '.txt'.",
-            "Lista los archivos y ordena la salida para mostrar primero los que contienen '.txt'.",
-            "Lista los archivos y agrupa la salida para separar solo los que contienen '.txt'.",
-            "Lista los archivos y cuenta la salida para enumerar solo los que contienen '.txt'."
-        ],
-        answer: "Lista los archivos y filtra la salida para mostrar solo los que contienen '.txt'.",
-        comment: "Tema 3: Guía de estudio de bash - El pipe (|) toma la salida del ls y la usa como entrada para grep, que filtra el texto buscando el patrón indicado."
-    },
-
-    // Tema 4: Automatización y Despliegue en Cloud
-    {
-        tema: "Tema 4: Automatización de instalación y configuración en Linux",
-        question: "Al desplegar una instancia en la nube (como AWS EC2), ¿para qué sirve el campo User Data?",
-        options: [
-            "Para ejecutar scripts automáticamente durante el primer arranque (boot).",
-            "Para ejecutar scripts manualmente durante el último apagado (shutdown).",
-            "Para ejecutar scripts periódicamente durante cada reinicio (reboot).",
-            "Para ejecutar scripts condicionalmente durante la hibernación (suspend)."
-        ],
-        answer: "Para ejecutar scripts automáticamente durante el primer arranque (boot).",
-        comment: "Tema 4: Automatización de instalación y configuración en Linux - El campo User Data permite inyectar scripts (Bash o Cloud-init) que se ejecutarán automáticamente cuando la instancia se despliega."
-    },
-    {
-        tema: "Tema 4: Automatización de instalación y configuración en Linux",
-        question: "¿Para qué se utiliza la técnica de Heredoc (ej: cat <<EOF > archivo.conf) en un script?",
-        options: [
-            "Para insertar bloques de texto multilínea en un archivo manteniendo el formato.",
-            "Para insertar bloques de código multilínea en un archivo validando la sintaxis.",
-            "Para insertar bloques de datos multilínea en un archivo comprimiendo el contenido.",
-            "Para insertar bloques de comandos multilínea en un archivo cifrando la información."
-        ],
-        answer: "Para insertar bloques de texto multilínea en un archivo manteniendo el formato.",
-        comment: "Tema 4: Automatización de instalación y configuración en Linux - Heredoc permite meter bloques de texto completos, respetando saltos de línea y espacios, dentro de ficheros de configuración."
-    },
-    {
-        tema: "Tema 4: Automatización de instalación y configuración en Linux",
-        question: "¿Por qué se recomienda usar set -e al inicio de un script de instalación?",
-        options: [
-            "Para que el script se detenga inmediatamente si ocurre un error.",
-            "Para que el script se acelere inmediatamente si ocurre un acierto.",
-            "Para que el script se pause inmediatamente si ocurre una advertencia.",
-            "Para que el script se reinicie inmediatamente si ocurre una excepción."
-        ],
-        answer: "Para que el script se detenga inmediatamente si ocurre un error.",
-        comment: "Tema 4: Automatización de instalación y configuración en Linux - Usar set -e hace que el script termine si algún comando falla, evitando instalaciones parciales o corruptas."
-    },
-    {
-        tema: "Tema 10: Instalación y administración en cloud",
-        question: "¿Qué es Cloud-init?",
-        options: [
-            "Un estándar basado en directivas para personalizar instancias durante el arranque.",
-            "Un protocolo basado en comandos para configurar instancias durante la ejecución.",
-            "Un framework basado en plantillas para automatizar instancias durante el despliegue.",
-            "Un servicio basado en políticas para gestionar instancias durante la operación."
-        ],
-        answer: "Un estándar basado en directivas para personalizar instancias durante el arranque.",
-        comment: "Tema 10: Instalación y administración en cloud - Es una alternativa al script Bash puro en User Data. Usa un formato YAML con directivas específicas para configurar instancias de forma declarativa."
-    },
-    {
-        tema: "Tema 4: Automatización de instalación y configuración en Linux",
-        question: "Si quieres que un script de instalación funcione tanto en RedHat como en Ubuntu, ¿cuál es la mejor estrategia?",
-        options: [
-            "Detectar la distribución dentro del script (ej. leyendo /etc/os-release) y usar condicionales.",
-            "Detectar la arquitectura dentro del script (ej. leyendo /proc/cpuinfo) y usar variables.",
-            "Detectar el kernel dentro del script (ej. leyendo /proc/version) y usar funciones.",
-            "Detectar el hardware dentro del script (ej. leyendo /sys/devices) y usar módulos."
-        ],
-        answer: "Detectar la distribución dentro del script (ej. leyendo /etc/os-release) y usar condicionales.",
-        comment: "Tema 4: Automatización de instalación y configuración en Linux - Para hacer scripts multiplataforma, se detecta el SO al inicio y se bifurca la lógica para usar los gestores de paquetes o rutas correctas según la distro."
-    },
-
-    // Tema 5: Administración del Sistema (Permisos, Procesos, Cron)
-    {
-        tema: "Tema 5: Administración básica de sistema operativo en Linux",
-        question: "En Linux, si un archivo tiene los permisos rwxr-x--- (750 en octal), ¿qué significa?",
-        options: [
-            "El dueño tiene control total, el grupo lee y ejecuta, y otros no tienen acceso.",
-            "El dueño tiene control parcial, el grupo escribe y ejecuta, y otros tienen acceso limitado.",
-            "El dueño tiene control compartido, el grupo lee y escribe, y otros tienen acceso completo.",
-            "El dueño tiene control restringido, el grupo ejecuta solamente, y otros tienen acceso de lectura."
-        ],
-        answer: "El dueño tiene control total, el grupo lee y ejecuta, y otros no tienen acceso.",
-        comment: "Tema 5: Administración básica de sistema operativo en Linux - El primer trío (rwx) es para el usuario/dueño. El segundo (r-x) es para el grupo. El tercero (---) es para el resto."
-    },
-    {
-        tema: "Tema 5: Administración básica de sistema operativo en Linux",
-        question: "¿Qué señal envía el comando kill -9 a un proceso?",
-        options: [
-            "Un cierre forzado e inmediato (SIGKILL).",
-            "Un cierre gradual y controlado (SIGTERM).",
-            "Un cierre suave y programado (SIGQUIT).",
-            "Un cierre temporal y reversible (SIGSTOP)."
-        ],
-        answer: "Un cierre forzado e inmediato (SIGKILL).",
-        comment: "Tema 5: Administración básica de sistema operativo en Linux - kill -9 envía SIGKILL, que termina el proceso de manera forzada e inmediata ('sí o sí'), a diferencia del -15 que es más amable."
-    },
-    {
-        tema: "Tema 5: Administración básica de sistema operativo en Linux",
-        question: "¿Cuál es el orden correcto de los 5 asteriscos en la sintaxis de CRON?",
-        options: [
-            "Minuto, Hora, Día del mes, Mes, Día de la semana.",
-            "Hora, Minuto, Mes, Día del mes, Día de la semana.",
-            "Día del mes, Mes, Minuto, Hora, Día de la semana.",
-            "Mes, Día de la semana, Hora, Minuto, Día del mes."
-        ],
-        answer: "Minuto, Hora, Día del mes, Mes, Día de la semana.",
-        comment: "Tema 5: Administración básica de sistema operativo en Linux - La sintaxis estándar de Cron es: 1. Minutos, 2. Horas, 3. Día del mes, 4. Mes, 5. Día de la semana."
-    },
-    {
-        tema: "Tema 5: Administración básica de sistema operativo en Linux",
-        question: "¿Qué sucede con un Enlace Simbólico (soft link) si borras el archivo original al que apunta?",
-        options: [
-            "El enlace se rompe y deja de funcionar (apunta a nada).",
-            "El enlace se mantiene y sigue funcionando (copia los datos).",
-            "El enlace se actualiza y redirige automáticamente (busca alternativa).",
-            "El enlace se convierte y se transforma permanentemente (cambia a hard link)."
-        ],
-        answer: "El enlace se rompe y deja de funcionar (apunta a nada).",
-        comment: "Tema 5: Administración básica de sistema operativo en Linux - Un enlace simbólico es un puntero a una ruta. Si el destino desaparece, el enlace queda 'roto'. A diferencia del enlace fuerte (hard link) que apunta a los datos físicos."
-    },
-    {
-        tema: "Tema 5: Administración básica de sistema operativo en Linux",
-        question: "¿Qué comando se debe utilizar para editar de forma segura el archivo /etc/sudoers?",
-        options: [
-            "visudo",
-            "viedit",
-            "sudoedit",
-            "securedit"
-        ],
-        answer: "visudo",
-        comment: "Tema 5: Administración básica de sistema operativo en Linux - visudo bloquea el archivo y verifica la sintaxis antes de guardar, evitando errores que podrían dejar sin acceso administrativo al sistema."
-    },
-    {
-        tema: "Tema 5: Administración básica de sistema operativo en Linux",
-        question: "¿Qué comando muestra los procesos en ejecución y el consumo de CPU/Memoria en tiempo real?",
-        options: [
-            "top",
-            "htop",
-            "ps",
-            "proc"
-        ],
-        answer: "top",
-        comment: "Tema 5: Administración básica de sistema operativo en Linux - top muestra una lista dinámica de procesos ordenados por consumo de recursos (CPU, Memoria)."
-    },
-    {
-        tema: "Tema 5: Administración básica de sistema operativo en Linux",
-        question: "Si deseas programar una tarea para que se ejecute una sola vez en el futuro (no recurrente), ¿qué herramienta usarías?",
-        options: [
-            "at",
-            "cron",
-            "schedule",
-            "timer"
-        ],
-        answer: "at",
-        comment: "Tema 5: Administración básica de sistema operativo en Linux - cron es para tareas repetitivas. El comando at permite programar una ejecución única en un momento específico futuro."
-    },
-    {
-        tema: "Tema 5: Administración básica de sistema operativo en Linux",
-        question: "¿Qué información contiene el directorio especial /proc en Linux?",
-        options: [
-            "Información sobre el estado del sistema, kernel y procesos en ejecución.",
-            "Información sobre el historial del sistema, logs y eventos registrados.",
-            "Información sobre la configuración del sistema, servicios y aplicaciones instaladas.",
-            "Información sobre los usuarios del sistema, permisos y grupos asignados."
-        ],
-        answer: "Información sobre el estado del sistema, kernel y procesos en ejecución.",
-        comment: "Tema 5: Administración básica de sistema operativo en Linux - /proc es un sistema de archivos virtual que contiene información en tiempo real sobre el hardware, la memoria y los procesos del sistema."
-    },
-    {
-        tema: "Tema 5: Administración básica de sistema operativo en Linux",
-        question: "Al listar archivos con ls -l, si el primer carácter de la línea es una d (ej: drwxr-xr-x), ¿qué tipo de archivo es?",
-        options: [
-            "Un directorio.",
-            "Un dispositivo.",
-            "Un enlace dinámico.",
-            "Un descriptor."
-        ],
-        answer: "Un directorio.",
-        comment: "Tema 5: Administración básica de sistema operativo en Linux - El primer carácter indica el tipo de archivo: - es archivo normal, d es directorio, l es enlace simbólico."
-    },
-
-    // Preguntas adicionales - Administración y Conceptos Base de Linux
-    {
-        tema: "Tema 2: Administración de servidores Linux",
-        question: "Según la teoría explicada en el curso, ¿cuál es la definición técnica de una Shell?",
-        options: [
-            "Es un componente formado por un macroprocesador y un intérprete de comandos situado entre el usuario y el kernel.",
-            "Es un componente formado por un compilador y un validador de comandos situado entre el usuario y el kernel.",
-            "Es un componente formado por un gestor y un ejecutor de comandos situado entre el usuario y el kernel.",
-            "Es un componente formado por un analizador y un procesador de comandos situado entre el usuario y el kernel."
-        ],
-        answer: "Es un componente formado por un macroprocesador y un intérprete de comandos situado entre el usuario y el kernel.",
-        comment: "Tema 2: Administración de servidores Linux - La shell se define específicamente como un componente con dos partes (macroprocesador e intérprete) que interactúa entre el usuario y el kernel."
-    },
-    {
-        tema: "Tema 2: Administración de servidores Linux",
-        question: "¿Qué concepto fundamental de 'cultura general' define cómo el sistema operativo Linux trata a los objetos (directorios, dispositivos, documentos)?",
-        options: [
-            "Todo es un archivo (Everything is a file).",
-            "Todo es un proceso (Everything is a process).",
-            "Todo es un servicio (Everything is a service).",
-            "Todo es un módulo (Everything is a module)."
-        ],
-        answer: "Todo es un archivo (Everything is a file).",
-        comment: "Tema 2: Administración de servidores Linux - En Linux 'todos los objetos son archivos', y la única diferencia entre un documento y un dispositivo es el 'tipo de archivo'."
-    },
-    {
-        tema: "Tema 2: Administración de servidores Linux",
-        question: "¿Qué son las Utilidades GNU dentro de una distribución Linux?",
-        options: [
-            "Es el framework o conjunto de herramientas que permite administrar el servidor (manipular ficheros, ver info del sistema).",
-            "Es el conjunto o paquete de aplicaciones que permite configurar el servidor (instalar paquetes, ver logs del sistema).",
-            "Es la colección o grupo de utilidades que permite monitorear el servidor (analizar procesos, ver métricas del sistema).",
-            "Es la suite o biblioteca de comandos que permite optimizar el servidor (gestionar memoria, ver rendimiento del sistema)."
-        ],
-        answer: "Es el framework o conjunto de herramientas que permite administrar el servidor (manipular ficheros, ver info del sistema).",
-        comment: "Tema 2: Administración de servidores Linux - Una distribución es Kernel + Paquetes. Las utilidades GNU son el framework necesario para administrar el servidor (trabajar con ficheros, ver información de sesión, etc.)."
-    },
-
-    // Scripting y Automatización
-    {
-        tema: "Tema 4: Automatización de instalación y configuración en Linux",
-        question: "Al programar scripts de automatización, ¿por qué se recomienda sustituir una espera pasiva (ej: sleep 15) por una espera activa?",
-        options: [
-            "Porque la espera activa verifica si el servicio realmente ha arrancado antes de continuar, evitando errores y tiempos muertos innecesarios.",
-            "Porque la espera activa confirma si el servicio realmente ha iniciado antes de continuar, evitando fallos y demoras innecesarias.",
-            "Porque la espera activa comprueba si el servicio realmente ha cargado antes de continuar, evitando problemas y pausas innecesarias.",
-            "Porque la espera activa valida si el servicio realmente ha arrancado antes de continuar, evitando interrupciones y retrasos innecesarios."
-        ],
-        answer: "Porque la espera activa verifica si el servicio realmente ha arrancado antes de continuar, evitando errores y tiempos muertos innecesarios.",
-        comment: "Tema 4: Automatización de instalación y configuración en Linux - Basarse en el tiempo (sleep) es ineficiente. Lo correcto es comprobar mediante una acción (espera activa) si el servicio (como una base de datos) ya está levantado para continuar la ejecución."
-    },
-    {
-        tema: "Tema 3: Guía de estudio de bash",
-        question: "En el contexto de Bash, el profesor menciona que es importante distinguir entre dos pares de modos de ejecución. ¿Cuáles son?",
-        options: [
-            "Modo Interactivo y No Interactivo / Modo Síncrono y Asíncrono.",
-            "Modo Manual y Automático / Modo Secuencial y Paralelo.",
-            "Modo Directo y Diferido / Modo Bloqueante y No Bloqueante.",
-            "Modo Local y Remoto / Modo Inmediato y Programado."
-        ],
-        answer: "Modo Interactivo y No Interactivo / Modo Síncrono y Asíncrono.",
-        comment: "Tema 3: Guía de estudio de bash - Hay que saber los modos interactivo y no interactivo, y el síncrono y no síncrono, especialmente para entender cómo corren los scripts."
-    },
-
-    // Herramientas del Sistema
-    {
-        tema: "Tema 5: Administración básica de sistema operativo en Linux",
-        question: "Además de top y uptime, ¿para qué sirve específicamente el comando df que se debe conocer para el examen?",
-        options: [
-            "Para ver el espacio disponible en las unidades de disco montadas.",
-            "Para ver el espacio utilizado en las particiones de disco configuradas.",
-            "Para ver el espacio total en los volúmenes de disco asignados.",
-            "Para ver el espacio libre en los sistemas de disco conectados."
-        ],
-        answer: "Para ver el espacio disponible en las unidades de disco montadas.",
-        comment: "Tema 5: Administración básica de sistema operativo en Linux - El comando df muestra el espacio disponible que tenemos en las unidades montadas."
-    }
+  {
+    tema: "Bloque 1: Paradigmas Cloud y Conceptos Base",
+    question: "En la gestión moderna de TI, ¿qué persigue exactamente el objetivo o regla '90-8-2'?",
+    options: [
+      "Que el 90% del tiempo se dedique a desarrollo, 8% a pruebas y 2% a despliegue.",
+      "Que los usuarios resuelvan el 90% de incidencias (autoservicio/Knowledge Base), el 8% el soporte Nivel 2, y solo el 2% llegue al administrador (Nivel 3).",
+      "Que el 90% de la infraestructura esté en la nube, 8% on-premise y 2% en backup.",
+      "Que el 90% de los scripts sean en Bash, 8% en PowerShell y 2% en Python."
+    ],
+    answer: "Que los usuarios resuelvan el 90% de incidencias (autoservicio/Knowledge Base), el 8% el soporte Nivel 2, y solo el 2% llegue al administrador (Nivel 3).",
+    comment: "El profesor señala que este objetivo hay que entenderlo como una base importante de la comunicación en los equipos para que el usuario sea autosuficiente."
+  },
+  {
+    tema: "Bloque 1: Paradigmas Cloud y Conceptos Base",
+    question: "¿Cuál es la diferencia principal en el paradigma de 'Mascotas vs. Ganado' (Pets vs. Cattle)?",
+    options: [
+      "Las mascotas son servidores Windows y el ganado son servidores Linux.",
+      "Las mascotas son más baratas de mantener que el ganado.",
+      "Las mascotas se reparan y cuidan individualmente con nombres propios; el ganado si falla se reemplaza y elimina de forma automatizada.",
+      "El ganado requiere atención manual constante mientras que las mascotas se autogestionan."
+    ],
+    answer: "Las mascotas se reparan y cuidan individualmente con nombres propios; el ganado si falla se reemplaza y elimina de forma automatizada.",
+    comment: "En la nube, las instancias no son únicas, no se 'curan' si fallan, sino que se eliminan y se levanta una nueva automáticamente."
+  },
+  {
+    tema: "Bloque 2: Ecosistema Linux y Bash",
+    question: "¿Cuáles son los dos componentes fundamentales que definen una 'Distribución' de Linux?",
+    options: [
+      "El entorno gráfico y el navegador web.",
+      "El sistema de archivos y el antivirus.",
+      "El núcleo (Kernel) y una colección de paquetes o aplicaciones.",
+      "La consola de comandos y el gestor de arranque."
+    ],
+    answer: "El núcleo (Kernel) y una colección de paquetes o aplicaciones.",
+    comment: "Una distro es un paquete formado por el kernel y aplicaciones/funcionalidades específicas."
+  },
+  {
+    tema: "Bloque 2: Ecosistema Linux y Bash",
+    question: "Dentro de Linux, ¿qué son las utilidades GNU?",
+    options: [
+      "Son los juegos instalados por defecto.",
+      "Es el framework de herramientas en línea de comandos que permite administrar el servidor (ficheros, información del sistema, etc.).",
+      "Son las herramientas exclusivas para compilar código fuente.",
+      "Son los drivers propietarios del hardware."
+    ],
+    answer: "Es el framework de herramientas en línea de comandos que permite administrar el servidor (ficheros, información del sistema, etc.).",
+    comment: "Es un punto marcado como importante para entender con qué interactuamos al administrar servidores."
+  },
+  {
+    tema: "Bloque 2: Ecosistema Linux y Bash",
+    question: "Según la teoría vista en clase, ¿cuál es la definición técnica de una Shell?",
+    options: [
+      "Un editor de texto gráfico avanzado.",
+      "Un programa antivirus integrado en el kernel.",
+      "El sistema de ventanas de Ubuntu.",
+      "Un componente intermedio entre el usuario y el kernel, que actúa como macroprocesador e intérprete de comandos."
+    ],
+    answer: "Un componente intermedio entre el usuario y el kernel, que actúa como macroprocesador e intérprete de comandos.",
+    comment: "Hay que saber lo que es una shell y que se encuentra entre medias del usuario y el kernel."
+  },
+  {
+    tema: "Bloque 2: Ecosistema Linux y Bash",
+    question: "Para la edición del archivo /etc/sudoers de forma segura, ¿qué comando específico se debe utilizar?",
+    options: [
+      "nano /etc/sudoers",
+      "visudo",
+      "edit sudo",
+      "vim sudoers"
+    ],
+    answer: "visudo",
+    comment: "Concepto clave de administración de usuarios. visudo bloquea el archivo y verifica la sintaxis antes de guardar."
+  },
+  {
+    tema: "Bloque 2: Ecosistema Linux y Bash",
+    question: "En los scripts de Bash, ¿para qué sirve la herramienta o estructura Heredocs (<<)?",
+    options: [
+      "Para comprimir múltiples archivos en un .zip.",
+      "Para descargar documentación de internet.",
+      "Para insertar bloques de texto multilínea en ficheros o salidas, respetando espacios y saltos de línea.",
+      "Para ejecutar procesos en segundo plano."
+    ],
+    answer: "Para insertar bloques de texto multilínea en ficheros o salidas, respetando espacios y saltos de línea.",
+    comment: "Comando calificado como 'super importante'. Se usa para inyectar bloques de configuración completos en archivos."
+  },
+  {
+    tema: "Bloque 2: Ecosistema Linux y Bash",
+    question: "En el campo 'User Data' al desplegar una instancia en AWS, ¿qué dos lenguajes/formatos principales se pueden usar para automatizar la configuración inicial?",
+    options: [
+      "HTML y CSS.",
+      "C++ y Java.",
+      "Scripts de Bash puro o directivas de Cloud-init.",
+      "Scripts de PowerShell y código SQL."
+    ],
+    answer: "Scripts de Bash puro o directivas de Cloud-init.",
+    comment: "Hay que saber que se puede utilizar Cloud-init o un Script bash para configurar la instancia durante el arranque."
+  },
+  {
+    tema: "Bloque 3: Administración y Procesos en Linux",
+    question: "Si hacemos un ls -l y los permisos de un archivo se muestran como rwx r-x --- (750 en octal), ¿qué significa?",
+    options: [
+      "Todo el mundo tiene acceso total.",
+      "El usuario tiene control total, el grupo lectura/ejecución, y el resto no tiene permisos.",
+      "Solo el usuario dueño puede leerlo.",
+      "El archivo está bloqueado por el sistema."
+    ],
+    answer: "El usuario tiene control total, el grupo lectura/ejecución, y el resto no tiene permisos.",
+    comment: "El sistema de permisos hay que conocerlo porque es fundamental. El primer trío es usuario, el segundo grupo y el tercero el resto."
+  },
+  {
+    tema: "Bloque 3: Administración y Procesos en Linux",
+    question: "¿Cuál es la diferencia fundamental entre un enlace simbólico y un enlace fuerte en Linux?",
+    options: [
+      "El fuerte usa más memoria RAM.",
+      "Si borras el archivo original, el enlace simbólico se rompe, pero el fuerte sigue manteniendo los datos porque apunta directamente al inodo.",
+      "El simbólico solo funciona en redes, el fuerte en local.",
+      "No hay diferencia, son sinónimos."
+    ],
+    answer: "Si borras el archivo original, el enlace simbólico se rompe, pero el fuerte sigue manteniendo los datos porque apunta directamente al inodo.",
+    comment: "El simbólico es como un acceso directo de Windows; el fuerte mantiene el contenido aunque se elimine la referencia original."
+  },
+  {
+    tema: "Bloque 3: Administración y Procesos en Linux",
+    question: "Si queremos terminar un proceso en Linux de forma forzada y abrupta ('sí o sí'), ¿qué señal debemos enviarle mediante el comando kill?",
+    options: [
+      "-15 (SIGTERM)",
+      "-1 (SIGHUP)",
+      "-9 (SIGKILL)",
+      "-0 (SIGZERO)"
+    ],
+    answer: "-9 (SIGKILL)",
+    comment: "La -9 es la más brusca (desaparece), la -15 es 'educada' y la -1 es para recargar configuración."
+  },
+  {
+    tema: "Bloque 3: Administración y Procesos en Linux",
+    question: "¿Qué información en tiempo real se aloja en el directorio virtual /proc?",
+    options: [
+      "Las copias de seguridad de las bases de datos.",
+      "Los logs de errores de Apache.",
+      "Información del hardware, estado del sistema operativo y procesos en ejecución.",
+      "Los correos electrónicos de los usuarios."
+    ],
+    answer: "Información del hardware, estado del sistema operativo y procesos en ejecución.",
+    comment: "Es un directorio especial del sistema de archivo de procesos con información sobre el SO en vivo."
+  },
+  {
+    tema: "Bloque 3: Administración y Procesos en Linux",
+    question: "De las siguientes herramientas de sistema, ¿cuál se utiliza para ver el consumo de CPU y memoria de los procesos ordenados dinámicamente?",
+    options: [
+      "df",
+      "top",
+      "uptime",
+      "vmstat"
+    ],
+    answer: "top",
+    comment: "top muestra procesos y CPU, uptime el tiempo de sesión, df el espacio en disco."
+  },
+  {
+    tema: "Bloque 3: Administración y Procesos en Linux",
+    question: "¿Cuál es la diferencia de uso entre las herramientas de programación at y cron?",
+    options: [
+      "at se usa para comandos gráficos, cron para consola.",
+      "at es para programar tareas una sola vez en el futuro, cron es para tareas recurrentes (periódicas).",
+      "at requiere permisos root, cron no.",
+      "No hay diferencia, hacen exactamente lo mismo."
+    ],
+    answer: "at es para programar tareas una sola vez en el futuro, cron es para tareas recurrentes (periódicas).",
+    comment: "at es de un solo uso; cron es infinito y recurrente."
+  },
+  {
+    tema: "Bloque 3: Administración y Procesos en Linux",
+    question: "¿Cuál es el orden correcto de los cinco dígitos de programación en la sintaxis de un Crontab?",
+    options: [
+      "Hora, Minuto, Segundo, Día, Mes.",
+      "Día de la semana, Mes, Día del mes, Hora, Minuto.",
+      "Minuto, Hora, Día del mes, Mes, Día de la semana.",
+      "Año, Mes, Día, Hora, Minuto."
+    ],
+    answer: "Minuto, Hora, Día del mes, Mes, Día de la semana.",
+    comment: "El truco es recordarlo de más pequeño a más grande (minuto -> hora -> día -> mes), terminando siempre con el día de la semana."
+  },
+  {
+    tema: "Bloque 4: Windows, Directorio Activo y PowerShell",
+    question: "En Windows Server, ¿qué modos de ejecución e instalación existen que debemos conocer?",
+    options: [
+      "Modo Fácil, Medio y Difícil.",
+      "Modo Escritorio (con GUI), Modo Core y Modo Nano.",
+      "Modo Desarrollo, Producción y Testing.",
+      "Modo Gráfico y Modo MS-DOS."
+    ],
+    answer: "Modo Escritorio (con GUI), Modo Core y Modo Nano.",
+    comment: "Hay que saber los modos de ejecución: qué es el modo escritorio, el modo core y el modo nano."
+  },
+  {
+    tema: "Bloque 4: Windows, Directorio Activo y PowerShell",
+    question: "¿Qué protocolos principales utiliza el Directorio Activo (Active Directory) para su funcionamiento y autenticación?",
+    options: [
+      "HTTP y FTP.",
+      "DNS y Kerberos.",
+      "SSH y Telnet.",
+      "SMTP y POP3."
+    ],
+    answer: "DNS y Kerberos.",
+    comment: "Hay que saber qué es el Directorio Activo, qué elementos tiene y qué protocolos utiliza: DNS y Kerberos."
+  },
+  {
+    tema: "Bloque 4: Windows, Directorio Activo y PowerShell",
+    question: "A diferencia de Bash (que trata con texto y flujos de caracteres), ¿sobre qué framework está basado PowerShell y con qué tipo de elementos trabaja en las tuberías?",
+    options: [
+      "Basado en Java, trabaja con Applets.",
+      "Basado en C++, trabaja con punteros de memoria.",
+      "Basado en .NET, trabaja pasando 'Objetos' completos (con propiedades y métodos).",
+      "Basado en Python, trabaja con Diccionarios."
+    ],
+    answer: "Basado en .NET, trabaja pasando 'Objetos' completos (con propiedades y métodos).",
+    comment: "PowerShell está basado en .NET, lo que significa que trabaja con objetos."
+  },
+  {
+    tema: "Bloque 4: Windows, Directorio Activo y PowerShell",
+    question: "Si deseas asegurarte de que en tu servidor de Windows solo se puedan ejecutar scripts de PowerShell que tengan una firma digital válida, ¿qué Política de Ejecución (Execution Policy) debes configurar?",
+    options: [
+      "Restricted",
+      "Unrestricted",
+      "AllSigned",
+      "RemoteSigned"
+    ],
+    answer: "AllSigned",
+    comment: "Existen 4 modos, de más a menos restrictivo. AllSigned exige firma para todos los scripts, RemoteSigned solo para los descargados."
+  },
+  {
+    tema: "Bloque 4: Windows, Directorio Activo y PowerShell",
+    question: "En PowerShell, ¿para qué sirve el concepto de 'Dot Sourcing' (ejecutar un script precedido de un punto . )?",
+    options: [
+      "Para ocultar el código fuente del script.",
+      "Para ejecutar el script dentro del ámbito local de la sesión, en lugar de crear un sub-ámbito, manteniendo vivas sus variables y funciones al terminar.",
+      "Para ejecutar el script como Administrador.",
+      "Para compilar el script en un archivo .exe."
+    ],
+    answer: "Para ejecutar el script dentro del ámbito local de la sesión, en lugar de crear un sub-ámbito, manteniendo vivas sus variables y funciones al terminar.",
+    comment: "El ámbito de los scripts: el dotsourcing hace que lo que se cree se añada a la sesión de trabajo actual."
+  },
+  {
+    tema: "Bloque 4: Windows, Directorio Activo y PowerShell",
+    question: "Al configurar scripts que utilicen credenciales en PowerShell, ¿por qué es crítico utilizar el CMDLet ConvertTo-SecureString?",
+    options: [
+      "Porque comprime la contraseña para ahorrar espacio.",
+      "Porque cifra la contraseña en un objeto seguro, evitando que se lea en texto plano o salte en auditorías de código (ej. GitHub).",
+      "Porque traduce la contraseña a otro idioma.",
+      "Porque permite saltarse el doble factor de autenticación."
+    ],
+    answer: "Porque cifra la contraseña en un objeto seguro, evitando que se lea en texto plano o salte en auditorías de código (ej. GitHub).",
+    comment: "En general no se utiliza un stream normal para contraseñas, sino que se securiza para evitar bloqueos por secrets expuestos."
+  },
+  {
+    tema: "Bloque 4: Windows, Directorio Activo y PowerShell",
+    question: "¿Cuál es la función principal de crear 'Jobs' (ej: Start-Job) en PowerShell?",
+    options: [
+      "Actualizar el sistema operativo en segundo plano.",
+      "Crear tareas visuales en el Escritorio.",
+      "Ejecutar un bloque de código o proceso en segundo plano (background) mientras el script principal continúa o espera (Wait-Job).",
+      "Instalar el Directorio Activo automáticamente."
+    ],
+    answer: "Ejecutar un bloque de código o proceso en segundo plano (background) mientras el script principal continúa o espera (Wait-Job).",
+    comment: "Cuando se arranca un proceso en background, se ejecuta y si se pone Wait-Job, el script se para esperando a que termine."
+  },
+  {
+    tema: "Bloque 5: Directivas de Grupo (GPO) y Despliegue en Cloud",
+    question: "¿A qué tipo de objetos dentro del Directorio Activo se aplican las Directivas de Grupo (GPO)?",
+    options: [
+      "Solo a impresoras y escáneres.",
+      "A usuarios y equipos informáticos (servidores/estaciones).",
+      "A las bases de datos de la nube pública.",
+      "A los switches y routers físicos exclusivamente."
+    ],
+    answer: "A usuarios y equipos informáticos (servidores/estaciones).",
+    comment: "Las GPO aplican a un grupo de objetos conectados al directorio activo, fundamentalmente usuarios y equipos."
+  },
+  {
+    tema: "Bloque 5: Directivas de Grupo (GPO) y Despliegue en Cloud",
+    question: "Dentro de la configuración de un elemento individual en una Directiva de Grupo, ¿cuáles son los tres estados posibles ('triestado')?",
+    options: [
+      "Público, Privado y Oculto.",
+      "Lectura, Escritura y Ejecución.",
+      "Habilitado (Enabled), Deshabilitado (Disabled) o No Configurado (Not Configured).",
+      "Activo, Pausado y Destruido."
+    ],
+    answer: "Habilitado (Enabled), Deshabilitado (Disabled) o No Configurado (Not Configured).",
+    comment: "Hay que saber el triestado: que puede estar habilitado un ítem en concreto, deshabilitado o simplemente no configurado."
+  },
+  {
+    tema: "Bloque 5: Directivas de Grupo (GPO) y Despliegue en Cloud",
+    question: "En una arquitectura de Directorio Activo, las GPOs se aplican en el orden LSDU. Si hay contradicciones entre ellas, ¿cuál tiene la prioridad final (la que prevalece)?",
+    options: [
+      "Las directivas Locales (Local).",
+      "Las directivas de Sitio (Site).",
+      "Las directivas de Dominio (Domain).",
+      "Las directivas de Unidad Organizativa (OU)."
+    ],
+    answer: "Las directivas de Unidad Organizativa (OU).",
+    comment: "Los niveles de prioridad de procesamiento son LSDU. Si existen contradicciones, prevalece la última, que es la de la unidad organizativa."
+  },
+  {
+    tema: "Bloque 5: Directivas de Grupo (GPO) y Despliegue en Cloud",
+    question: "Si un administrador quiere abrir una sesión interactiva en PowerShell contra un servidor remoto (similar a cómo funcionaría SSH), ¿qué CMDLet debe utilizar?",
+    options: [
+      "Connect-RemoteServer",
+      "Enter-PSSession",
+      "Start-RemoteDesktop",
+      "Invoke-Terminal"
+    ],
+    answer: "Enter-PSSession",
+    comment: "En la PowerShell remota se diferencia entre mandar un comando suelto (ComputerName) o abrir una sesión interactiva con Enter-PSSession."
+  },
+  {
+    tema: "Bloque 5: Directivas de Grupo (GPO) y Despliegue en Cloud",
+    question: "Entre las herramientas del sistema de Windows, ¿para qué sirve la herramienta de Sysinternals llamada BGInfo?",
+    options: [
+      "Para monitorizar el consumo de la tarjeta gráfica.",
+      "Para poner en el fondo de escritorio la información crítica del sistema (IP, Dominio, Hostname) y facilitar la administración remota por RDP.",
+      "Para ver las conexiones TCP abiertas.",
+      "Para programar copias de seguridad a medianoche."
+    ],
+    answer: "Para poner en el fondo de escritorio la información crítica del sistema (IP, Dominio, Hostname) y facilitar la administración remota por RDP.",
+    comment: "BGInfo sirve para poner en el fondo de escritorio los datos de IP y DNS del servidor."
+  },
+  {
+    tema: "Bloque 5: Directivas de Grupo (GPO) y Despliegue en Cloud",
+    question: "¿Cuál es la diferencia entre actualizar una aplicación mediante un 'Despliegue basado en Instancias' frente a un 'Despliegue basado en Imágenes'?",
+    options: [
+      "En instancias se cambian los discos duros físicos; en imágenes se cambian los monitores.",
+      "En instancias se cambia el script de inicio de la máquina existente (User Data); en imágenes se crea una plantilla nueva desde cero con la aplicación ya instalada.",
+      "Las instancias solo se usan en AWS, las imágenes solo en Azure.",
+      "No hay diferencia, ambos procesos requieren apagar el centro de datos completo."
+    ],
+    answer: "En instancias se cambia el script de inicio de la máquina existente (User Data); en imágenes se crea una plantilla nueva desde cero con la aplicación ya instalada.",
+    comment: "Basado en instancias modifica el script para descargar la nueva versión. Basado en imágenes arranca una máquina, configura todo y crea un snapshot maestro inmutable para desplegar."
+  },
+  {
+    tema: "Bloque 5: Directivas de Grupo (GPO) y Despliegue en Cloud",
+    question: "El concepto de 'Inmutabilidad de la aplicación' en entornos de servidores en la nube (Servidores Ganado) significa que:",
+    options: [
+      "La aplicación no puede ser borrada nunca.",
+      "Cada vez que se despliega una nueva versión, el servidor no se parchea, sino que se reemplaza por uno nuevo con estado conocido, evitando la 'deriva de la configuración'.",
+      "Las contraseñas de los usuarios no pueden ser modificadas.",
+      "Las máquinas virtuales no pueden cambiar de zona de disponibilidad."
+    ],
+    answer: "Cada vez que se despliega una nueva versión, el servidor no se parchea, sino que se reemplaza por uno nuevo con estado conocido, evitando la 'deriva de la configuración'.",
+    comment: "Usar servidores en modo ganado en vez de mascota evita la deriva de configuración (configuration drift)."
+  },
+  {
+    tema: "Bloque 5: Directivas de Grupo (GPO) y Despliegue en Cloud",
+    question: "Al crear una imagen maestra en Windows para la nube, se ejecuta la herramienta Sysprep. ¿Por qué es fundamental usar el parámetro /generalize en este proceso?",
+    options: [
+      "Para borrar todos los programas instalados y dejarlo de fábrica.",
+      "Para generar aleatoriamente identificadores únicos (como el nombre del equipo y el SID) y evitar colisiones de red al clonar la imagen múltiples veces.",
+      "Para subir la imagen a internet de forma pública y general.",
+      "Para instalar automáticamente Microsoft Office."
+    ],
+    answer: "Para generar aleatoriamente identificadores únicos (como el nombre del equipo y el SID) y evitar colisiones de red al clonar la imagen múltiples veces.",
+    comment: "El /generalize generaliza los parámetros o IDs que tienen que ser diferentes para que no haya colisiones en la red."
+  }
 ];

@@ -225,6 +225,22 @@
                 <button onclick="selectSubject('automatizacion')" class="mt-auto w-full bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-orange-700">Comenzar Quiz</button>
             </div>
             
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
+                <i class="fas fa-terminal text-4xl text-teal-600 mb-3"></i>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Práctica de Scripts</h3>
+                <p class="text-sm text-gray-600 mb-4">Bash y PowerShell - Parte práctica del examen</p>
+                <div class="flex-grow"></div>
+                <div class="mt-4">
+                    <label class="block text-sm font-medium mb-2">Tipo:</label>
+                    <select id="script-tipo" class="w-full p-2 border rounded">
+                        <option value="todos">Todos (Bash + PowerShell)</option>
+                        <option value="bash">Solo Bash</option>
+                        <option value="powershell">Solo PowerShell</option>
+                    </select>
+                </div>
+                <button onclick="startScriptPractice()" class="mt-4 w-full bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-teal-700">Practicar Scripts</button>
+            </div>
+
             <button onclick="viewStats()" class="bg-purple-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
                 <i class="fas fa-chart-line text-4xl text-purple-600 mb-3"></i>
                 <h3 class="text-xl font-bold mb-2 text-gray-900">Estadísticas</h3>
@@ -281,6 +297,34 @@
             <button onclick="viewHistory()" class="ml-3 bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-green-700">
                 <i class="fas fa-history"></i> Ver Historial
             </button>
+        </div>
+    </div>
+
+    <!-- Modal Práctica Scripts -->
+    <div id="script-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onclick="closeScriptModal()">
+        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-4">
+                <div>
+                    <span id="script-tipo-badge" class="text-xs font-bold px-2 py-1 rounded text-white"></span>
+                    <span id="script-contador" class="ml-2 text-sm text-gray-500"></span>
+                </div>
+                <button onclick="closeScriptModal()" class="text-2xl text-gray-500 hover:text-gray-800">&times;</button>
+            </div>
+            <h2 id="script-titulo" class="text-xl font-bold mb-3"></h2>
+            <div id="script-enunciado" class="bg-gray-50 p-4 rounded-lg mb-4 text-sm text-gray-700 leading-relaxed"></div>
+            <textarea id="script-respuesta" rows="12" placeholder="Escribe tu solución aquí... (puedes usar pseudocódigo si no recuerdas la sintaxis exacta)" class="w-full p-3 border-2 border-gray-300 rounded-lg font-mono text-sm focus:border-teal-500 focus:outline-none"></textarea>
+            <div id="script-solucion" class="hidden mt-4">
+                <h3 class="font-bold text-green-700 mb-2">✅ Solución modelo:</h3>
+                <pre class="bg-gray-900 text-green-400 p-4 rounded-lg text-xs overflow-x-auto whitespace-pre-wrap"></pre>
+                <div class="mt-3 bg-blue-50 p-3 rounded-lg">
+                    <p class="font-bold text-blue-800 mb-2">🎯 Puntos clave a recordar:</p>
+                    <ul id="script-puntos" class="text-sm text-blue-700 space-y-1"></ul>
+                </div>
+            </div>
+            <div class="flex gap-3 mt-4">
+                <button onclick="verSolucionScript()" id="btn-ver-solucion" class="flex-1 bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700">Ver Solución</button>
+                <button onclick="siguienteScript()" class="flex-1 bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-teal-700">Siguiente Ejercicio</button>
+            </div>
         </div>
     </div>
 
