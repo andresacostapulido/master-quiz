@@ -1,4 +1,10 @@
+// Registrar Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js');
+}
+
 let currentUser = null;
+let offlineMode = false;
 let currentSubject = null;
 let quizData = [];
 let currentQuestionIndex = 0;
@@ -25,19 +31,25 @@ async function loadQuestions(subject) {
     }
 }
 
-// Autenticación Firebase
-auth.onAuthStateChanged(user => {
+// Autenticación Firebase con fallback offline
+try {
+  auth.onAuthStateChanged(user => {
     currentUser = user;
     updateAuthUI();
-    if (user) {
-        loadQuestionHistory();
-    }
-});
+    if (user) loadQuestionHistory();
+  });
+} catch(e) {
+  offlineMode = true;
+  updateAuthUI();
+}
 
 function updateAuthUI() {
     const userInfo = document.getElementById('user-info');
     if (!userInfo) return;
-    
+    if (offlineMode) {
+        userInfo.innerHTML = `<span class="text-sm bg-yellow-100 text-yellow-800 px-3 py-1 rounded-lg">✈️ Modo Offline — progreso guardado localmente</span>`;
+        return;
+    }
     if (currentUser) {
         const userName = currentUser.displayName || currentUser.email?.split('@')[0] || 'Usuario';
         userInfo.innerHTML = `
@@ -81,7 +93,7 @@ if (themeToggle) {
 }
 
 async function selectSubject(subject) {
-    if (!currentUser) {
+    if (!currentUser && !offlineMode) {
         alert('⚠️ Debes iniciar sesión con Google primero para guardar tu progreso');
         return;
     }
@@ -192,6 +204,15 @@ async function loadQuestionHistory() {
 }
 
 async function saveQuestionResult(question, userAnswer, isCorrect) {
+    if (offlineMode) {
+        // Guardar en localStorage
+        const key = 'quiz_stats_offline';
+        const stats = JSON.parse(localStorage.getItem(key) || '{"total":0,"correct":0}');
+        stats.total++;
+        if (isCorrect) stats.correct++;
+        localStorage.setItem(key, JSON.stringify(stats));
+        return;
+    }
     if (!currentUser) return;
     try {
         const timestamp = Date.now();
@@ -488,6 +509,12 @@ function restartGame() {
 }
 
 async function viewHistory() {
+    if (offlineMode) {
+        const stats = JSON.parse(localStorage.getItem('quiz_stats_offline') || '{"total":0,"correct":0}');
+        document.getElementById('history-content').innerHTML = `<p class="text-center">✈️ Modo Offline<br><br>Preguntas respondidas: <strong>${stats.total}</strong><br>Correctas: <strong>${stats.correct}</strong><br>Precisión: <strong>${stats.total ? Math.round(stats.correct/stats.total*100) : 0}%</strong></p>`;
+        document.getElementById('history-modal').classList.remove('hidden');
+        return;
+    }
     if (!currentUser) {
         alert('Debes iniciar sesión para ver el historial');
         return;
@@ -571,6 +598,12 @@ function closeHistory() {
 }
 
 async function viewStats() {
+    if (offlineMode) {
+        const stats = JSON.parse(localStorage.getItem('quiz_stats_offline') || '{"total":0,"correct":0}');
+        document.getElementById('stats-content').innerHTML = `<p class="text-center text-lg">✈️ Modo Offline<br><br>Preguntas respondidas: <strong>${stats.total}</strong><br>Correctas: <strong>${stats.correct}</strong><br>Precisión: <strong>${stats.total ? Math.round(stats.correct/stats.total*100) : 0}%</strong></p>`;
+        document.getElementById('stats-modal').classList.remove('hidden');
+        return;
+    }
     if (!currentUser) {
         alert('Debes iniciar sesión para ver estadísticas');
         return;

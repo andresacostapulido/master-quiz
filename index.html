@@ -356,6 +356,15 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     <script src="firebase-config.js"></script>
     <script>
+        // Si Firebase no cargó (offline), crear stubs para que app.js no rompa
+        if (typeof firebase === 'undefined') {
+            window.auth = { onAuthStateChanged: () => {} };
+            window.db = { ref: () => ({ once: () => Promise.resolve({val:()=>null}), push: () => Promise.resolve(), set: () => Promise.resolve(), remove: () => Promise.resolve(), limitToLast: function(){ return this; } }) };
+            window.PROJECT_NAME = 'master-quiz';
+            window.offlineMode = true;
+        }
+    </script>
+    <script>
         // Mostrar/ocultar selector de tema
         document.addEventListener('DOMContentLoaded', () => {
             const modeSelect = document.getElementById('quiz-mode');
