@@ -358,5 +358,173 @@
     ],
     "answer": "Buscar la perfección desde el día uno en lugar de una mejora iterativa",
     "explanation": "Tema 5: Casos de Uso y Estrategias - Un error común es querer que el sistema sea perfecto antes de lanzarlo. Es mejor que \"funcione y mejore la situación actual\" e ir iterando (mejora continua)."
+  },
+  {
+    "tema": "Simulacro Oficial del Profesor",
+    "question": "El término 'Shift Left' hace alusión a:",
+    "options": [
+      "El trabajo en entornos similares a producción durante el desarrollo de software y la ejecución de pruebas.",
+      "La automatización de las pruebas antes del pase a producción.",
+      "El trabajo denominado pair programming (programación en parejas).",
+      "Ninguna de las anteriores."
+    ],
+    "answer": "El trabajo en entornos similares a producción durante el desarrollo de software y la ejecución de pruebas.",
+    "explanation": "Significa 'mover a la izquierda' (hacia las fases iniciales del desarrollo) las pruebas y configuraciones de producción para detectar errores tempranamente."
+  },
+  {
+    "tema": "Simulacro Oficial del Profesor",
+    "question": "En el ciclo de vida DevOps intervienen los siguientes procesos:",
+    "options": [
+      "Establecimiento de los objetivos de negocio y casos de uso, comunicación al equipo y desarrollo automatizado.",
+      "La integración y entrega continuas.",
+      "Las pruebas y despliegues automatizados y la monitorización continua.",
+      "Todas las anteriores."
+    ],
+    "answer": "Todas las anteriores.",
+    "explanation": "DevOps abarca todo el ciclo de vida de la aplicación, desde la planificación y el código, hasta el testing, release, despliegue y monitorización."
+  },
+  {
+    "tema": "Simulacro Oficial del Profesor",
+    "question": "Selecciona la afirmación que mejor describa un 'mapa de calor' (Heat map):",
+    "options": [
+      "Es una herramienta que permite saber la temperatura física de los servidores.",
+      "Es extremadamente útil en el caso de querer representar información proveniente de histogramas.",
+      "El mapa de calor está definido sobre Open Tracing.",
+      "A y C son correctas."
+    ],
+    "answer": "Es extremadamente útil en el caso de querer representar información proveniente de histogramas.",
+    "explanation": "A nivel general, el mapa de calor sirve para representar visualmente mediante gradientes de color información compleja agrupada, como despliegues o métricas DORA."
+  },
+  {
+    "tema": "Simulacro Oficial del Profesor",
+    "question": "Selecciona la afirmación que mejor se corresponda con la descripción de KVM:",
+    "options": [
+      "Es el Keyboard Virtual Module.",
+      "Es el sistema de virtualización incorporado a la mayoría de los sistemas Linux.",
+      "Es un producto de virtualización de VMware.",
+      "Ninguna de las anteriores."
+    ],
+    "answer": "Es el sistema de virtualización incorporado a la mayoría de los sistemas Linux.",
+    "explanation": "KVM (Kernel-based Virtual Machine) es la tecnología de hipervisor integrada directamente en el núcleo de Linux."
+  },
+  {
+    "tema": "Simulacro Oficial del Profesor",
+    "question": "Señala la opción que se corresponde con el significado de POC:",
+    "options": [
+      "Prueba de concepto (Proof of Concept).",
+      "Push to talk over cellular.",
+      "Power on connectivity.",
+      "Ninguna de las anteriores."
+    ],
+    "answer": "Prueba de concepto (Proof of Concept).",
+    "explanation": "Una POC es un ejercicio para demostrar que un diseño o idea teórica es factible en la práctica."
+  },
+  {
+    "tema": "Simulacro Oficial del Profesor",
+    "question": "¿Qué tecnología facilita el aprovisionamiento y configuración de un entorno de producción?",
+    "options": [
+      "La nube pública.",
+      "La nube privada.",
+      "La nube híbrida.",
+      "Cualquiera de las anteriores."
+    ],
+    "answer": "Cualquiera de las anteriores.",
+    "explanation": "Todas las opciones de Cloud (pública, privada o híbrida) se fundamentan en el aprovisionamiento y configuración automática, facilitando la creación de entornos."
+  },
+  {
+    "tema": "Simulacro Oficial del Profesor",
+    "question": "¿Por qué es importante AWS IAM?",
+    "options": [
+      "Permite visualizar nuestros perfiles de AWS.",
+      "Porque sin IAM no tenemos acceso a la red.",
+      "Porque con AWS IAM gestionamos usuarios, grupos, autorizaciones y accesos de forma centralizada.",
+      "Ninguna de las anteriores."
+    ],
+    "answer": "Porque con AWS IAM gestionamos usuarios, grupos, autorizaciones y accesos de forma centralizada.",
+    "explanation": "IAM (Identity and Access Management) es el servicio dedicado exclusivamente a la seguridad, identidades y control de permisos en AWS."
+  },
+  {
+    "tema": "Simulacro Oficial del Profesor",
+    "question": "Selecciona la definición correcta de 'Observabilidad':",
+    "options": [
+      "Característica que permite estimar un estado particular de un sistema basado en una salida (o entradas/salidas).",
+      "Capacidad que facilita la visión de los datos.",
+      "Facilidad de encontrar la información en la herramienta.",
+      "Ninguna de las anteriores."
+    ],
+    "answer": "Característica que permite estimar un estado particular de un sistema basado en una salida (o entradas/salidas).",
+    "explanation": "Proviene de la teoría de control: es la capacidad de entender la salud y el estado de un sistema complejo a través de sus salidas (logs, métricas y trazas)."
+  },
+  {
+    "tema": "Tema 6: Cloud Computing",
+    "question": "¿Qué nivel de servicio de Cloud Computing es aquel donde el proveedor te da la red, el almacenamiento y la virtualización, pero TÚ debes encargarte del sistema operativo, el runtime y la aplicación?",
+    "options": [
+      "PaaS (Plataforma como Servicio).",
+      "SaaS (Software como Servicio).",
+      "IaaS (Infraestructura como Servicio).",
+      "FaaS (Función como Servicio)."
+    ],
+    "answer": "IaaS (Infraestructura como Servicio).",
+    "explanation": "En IaaS (ej. máquinas virtuales puras), tú debes gestionar el SO y todo lo que va por encima. En PaaS se te da el entorno listo para tu código, y en SaaS el proveedor gestiona todo."
+  },
+  {
+    "tema": "Tema 8: Infraestructura como Código",
+    "question": "¿Qué característica matemática de la Infraestructura como Código garantiza que, sin importar cuántas veces se ejecute un script de despliegue, el resultado será el mismo y no se duplicarán los recursos?",
+    "options": [
+      "Atomicidad.",
+      "Declaratividad.",
+      "Idempotencia.",
+      "Herencia."
+    ],
+    "answer": "Idempotencia.",
+    "explanation": "La idempotencia permite ejecutar la plantilla varias veces obteniendo siempre el mismo resultado; si el recurso ya existe, no hace nada."
+  },
+  {
+    "tema": "Tema 8: Infraestructura como Código",
+    "question": "Según el profesor, ¿cuál es un error 'supertípico' que rompe los beneficios de utilizar herramientas como CloudFormation o Terraform?",
+    "options": [
+      "No usar Jenkins.",
+      "Hacer intervenciones y cambios manuales directamente en la consola en lugar de modificar el código.",
+      "Usar el formato JSON en lugar de YAML.",
+      "Usar parámetros de entrada en las plantillas."
+    ],
+    "answer": "Hacer intervenciones y cambios manuales directamente en la consola en lugar de modificar el código.",
+    "explanation": "Si cambias algo a mano, se genera una discrepancia entre el estado real de la infraestructura y tu código fuente, lo que provocará fallos graves en el siguiente despliegue."
+  },
+  {
+    "tema": "Tema 9: Monitorización",
+    "question": "En la metodología de RCA (Root Cause Analysis), ¿qué lección fundamental deja la anécdota del videojuego del 'Rey León'?",
+    "options": [
+      "Que los juegos de consola siempre son mejores.",
+      "Que no se debe asumir que las pruebas en un entorno (como consolas) garantizan que funcione en un entorno de alta variabilidad de hardware (como los PCs con Windows).",
+      "Que las devoluciones de software no se pueden medir.",
+      "Que la culpa siempre es del desarrollador de Windows."
+    ],
+    "answer": "Que no se debe asumir que las pruebas en un entorno (como consolas) garantizan que funcione en un entorno de alta variabilidad de hardware (como los PCs con Windows).",
+    "explanation": "La causa raíz fue que no tuvieron en cuenta la extrema variabilidad de tarjetas, drivers y hardware del ecosistema Windows a la hora de hacer las pruebas."
+  },
+  {
+    "tema": "Tema 9: Monitorización",
+    "question": "¿Qué error común se advierte constantemente al hacer un RCA (Análisis de Causa Raíz) tras una caída del sistema?",
+    "options": [
+      "Investigar las dependencias.",
+      "Buscar y señalar a un culpable humano (pointing fingers) en lugar de buscar cómo falló el proceso.",
+      "Crear gráficos de tiempo.",
+      "Preguntar 'Por qué' múltiples veces."
+    ],
+    "answer": "Buscar y señalar a un culpable humano (pointing fingers) en lugar de buscar cómo falló el proceso.",
+    "explanation": "La cultura DevOps fomenta el 'No blame'. Si durante un incidente se dedican a buscar culpables, la gente se pone a la defensiva y no se llega a la causa real del fallo."
+  },
+  {
+    "tema": "Tema 10: Visualización y Alarmas",
+    "question": "Basado en el cuento de 'Pedrito y el lobo', ¿cuál es la regla de oro para configurar las alarmas en un sistema?",
+    "options": [
+      "Deben sonar ante cualquier advertencia por mínima que sea.",
+      "Deben ser muchas y automáticas para registrar todo.",
+      "Deben ser pocas y significativas, solo para estados realmente negativos.",
+      "Deben llegar siempre al director general."
+    ],
+    "answer": "Deben ser pocas y significativas, solo para estados realmente negativos.",
+    "explanation": "Si un sistema genera cientos de alarmas que no requieren acción (falsos positivos), los administradores dejarán de prestarles atención. Cuando ocurra un fallo real, lo ignorarán igual que a 'Pedrito y el lobo'."
   }
 ]
