@@ -358,5 +358,53 @@
     ],
     "answer": "Para generar aleatoriamente identificadores únicos (como el nombre del equipo y el SID) y evitar colisiones de red al clonar la imagen múltiples veces.",
     "explanation": "El /generalize generaliza los parámetros o IDs que tienen que ser diferentes para que no haya colisiones en la red."
+  },
+  {
+    "tema": "Bloque 4: Windows, Directorio Activo y PowerShell",
+    "question": "En PowerShell, ¿cuál es el modo de la Política de Ejecución (Execution Policy) más restrictivo, en el que no se permite ejecutar ningún script bajo ninguna circunstancia?",
+    "options": [
+      "RemoteSigned",
+      "AllSigned",
+      "Unrestricted",
+      "Restricted"
+    ],
+    "answer": "Restricted",
+    "explanation": "Los 4 modos van de más a menos restrictivo: Restricted (ningún script), AllSigned (solo firmados), RemoteSigned (firmados si son remotos), Unrestricted (todos permitidos, máximo riesgo)."
+  },
+  {
+    "tema": "Bloque 4: Windows, Directorio Activo y PowerShell",
+    "question": "Al pasar objetos a través de tuberías (pipes) en PowerShell, ¿cuáles son los tres CMDLets fundamentales para ordenar, filtrar por condición y seleccionar propiedades?",
+    "options": [
+      "Get-Item, Set-Item, Copy-Item",
+      "Sort-Object, Where-Object, Select-Object",
+      "Start-Process, Stop-Process, Wait-Process",
+      "Read-Host, Write-Host, Clear-Host"
+    ],
+    "answer": "Sort-Object, Where-Object, Select-Object",
+    "explanation": "Sort-Object ordena, Where-Object filtra por condición y Select-Object selecciona propiedades concretas del objeto. Son los tres fundamentales para trabajar con tuberías."
+  },
+  {
+    "tema": "Bloque 4: Windows, Directorio Activo y PowerShell",
+    "question": "¿Qué es un 'Alias' en PowerShell y qué particularidad tiene respecto a su persistencia?",
+    "options": [
+      "Son nombres alternativos para comandos y se guardan permanentemente en el disco duro por defecto.",
+      "Son usuarios temporales para ejecutar scripts de forma anónima.",
+      "Son nombres alternativos (atajos) para invocar comandos, pero no son permanentes y desaparecen al cerrar la sesión salvo que se exporten/importen con Export-Alias e Import-Alias.",
+      "Son comandos nativos de Bash que PowerShell emula."
+    ],
+    "answer": "Son nombres alternativos (atajos) para invocar comandos, pero no son permanentes y desaparecen al cerrar la sesión salvo que se exporten/importen con Export-Alias e Import-Alias.",
+    "explanation": "Los alias son atajos para ahorrar trabajo, pero no son permanentes. Hay que usar Export-Alias e Import-Alias para mantenerlos entre sesiones."
+  },
+  {
+    "tema": "Bloque 4: Windows, Directorio Activo y PowerShell",
+    "question": "Para ejecutar un proceso en segundo plano (background) en PowerShell, esperar a que termine y luego recuperar su resultado, ¿qué secuencia de CMDLets se debe usar?",
+    "options": [
+      "Run-Job y End-Job",
+      "Start-Job, Wait-Job y Receive-Job",
+      "Begin-Process y Stop-Process",
+      "Create-Task y Monitor-Task"
+    ],
+    "answer": "Start-Job, Wait-Job y Receive-Job",
+    "explanation": "Start-Job arranca el proceso en background, Wait-Job pausa el script esperando a que termine, y Receive-Job devuelve el resultado obtenido."
   }
 ]
