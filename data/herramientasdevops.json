@@ -358,5 +358,245 @@
     ],
     "answer": "Una tecnología de Service Mesh",
     "explanation": "Tema 3: Arquitectura de aplicaciones - Istio es una de las implementaciones más populares de Service Mesh para Kubernetes."
+  },
+  {
+    "tema": "Tema 4: Packer: compilación de imágenes",
+    "question": "¿Qué es Packer?",
+    "options": [
+      "Una herramienta de despliegue de infraestructura",
+      "Una herramienta de monitorización",
+      "Una metodología de componentes inmutables",
+      "Una herramienta de creación de imágenes"
+    ],
+    "answer": "Una herramienta de creación de imágenes",
+    "explanation": "Tema 4: Packer - Packer es una herramienta para la creación de imágenes Open Source que soporta múltiples nubes y sistemas de virtualización."
+  },
+  {
+    "tema": "Tema 4: Packer: compilación de imágenes",
+    "question": "¿Es posible crear una imagen para varias nubes con Packer?",
+    "options": [
+      "No, ya que Packer solo soporta un sistema de virtualización",
+      "Sí, pero siempre mediante distintos ficheros de template",
+      "Sí, usando los provisioner",
+      "Sí, usando los builders"
+    ],
+    "answer": "Sí, usando los builders",
+    "explanation": "Tema 4: Packer - Los builders definen dónde se va a crear la imagen y es posible especificar más de uno."
+  },
+  {
+    "tema": "Tema 4: Packer: compilación de imágenes",
+    "question": "¿Soporta Packer las variables?",
+    "options": [
+      "Sí, existe una sección de variables en el fichero de template",
+      "No, Packer no puede parametrizarse",
+      "Sí, se puede poner cualquier variable que deseemos sin declararla",
+      "No, ya que Packer varía en cada ejecución"
+    ],
+    "answer": "Sí, existe una sección de variables en el fichero de template",
+    "explanation": "Tema 4: Packer - Las variables en Packer se declaran en la sección variables del fichero de template en formato json."
+  },
+  {
+    "tema": "Tema 4: Packer: compilación de imágenes",
+    "question": "¿Qué son los communicators?",
+    "options": [
+      "C y D son correctas",
+      "Depende del contexto, pero no son un concepto de Packer",
+      "Definen la forma en la que los provisioners se pueden conectar",
+      "Se definen asociados a un builder"
+    ],
+    "answer": "C y D son correctas",
+    "explanation": "Tema 4: Packer - Los communicators son diferentes formas de que los provisioners se conecten durante la creación de imagen y se especifican en el builder."
+  },
+  {
+    "tema": "Tema 4: Packer: compilación de imágenes",
+    "question": "¿Qué hace el flag-parallel?",
+    "options": [
+      "Permite que cada builder se ejecute en paralelo, pero los provisioners se ejecutarán en orden",
+      "Permite que los provisioners se ejecuten en paralelo",
+      "Permite que tanto los builders como los provisioners se ejecuten en paralelo",
+      "Activa el flag parallel, ya que el valor por defecto es false"
+    ],
+    "answer": "Permite que cada builder se ejecute en paralelo, pero los provisioners se ejecutarán en orden",
+    "explanation": "Tema 4: Packer - Por defecto, los builders se ejecutan en paralelo y este flag hace que se ejecuten en serie. Los provisioners siempre ejecutan en serie."
+  },
+  {
+    "tema": "Tema 4: Packer: compilación de imágenes",
+    "question": "¿Qué hace el flag-only?",
+    "options": [
+      "Hace que solo se ejecute uno de los provisioners",
+      "Hace que solo se ejecute uno de los post-processors",
+      "Hace que solo se ejecute uno de los builders",
+      "Solo puede recibir un único valor"
+    ],
+    "answer": "Hace que solo se ejecute uno de los builders",
+    "explanation": "Tema 4: Packer - El flag only afecta a los builders y permite varios valores separados por comas."
+  },
+  {
+    "tema": "Tema 4: Packer: compilación de imágenes",
+    "question": "La opción -on-error:",
+    "options": [
+      "Con el valor abort permite que cuando haya un error podamos mirar los ficheros temporales",
+      "Con el valor ask nos pregunta que queremos hacer",
+      "Con el valor cleanup limpia todos los datos temporales",
+      "Todas las otras respuestas son correctas"
+    ],
+    "answer": "Todas las otras respuestas son correctas",
+    "explanation": "Tema 4: Packer - La opción -on-error puede tomar los valores cleanup, abort y ask."
+  },
+  {
+    "tema": "Tema 4: Packer: compilación de imágenes",
+    "question": "Las variables en Packer se pasan mediante:",
+    "options": [
+      "La B y la C",
+      "El parámetro -var",
+      "El parámetro -var-file, dando un json con las variables",
+      "El parámetro -with"
+    ],
+    "answer": "La B y la C",
+    "explanation": "Tema 4: Packer - Tanto -var como -var-file están soportadas en Packer."
+  },
+  {
+    "tema": "Tema 4: Packer: compilación de imágenes",
+    "question": "Si queremos cambiar un fichero además de enviarlo podemos:",
+    "options": [
+      "Ejecutar un provisioner local-shell para cambiarlo y luego subirlo con file",
+      "Ejecutar un provisioner file y luego cambiarlo en el sistema de destino con Shell",
+      "Ejecutar un sistema de configuración tipo Ansible, Chef o Puppet",
+      "Todas las otras respuestas son correctas"
+    ],
+    "answer": "Todas las otras respuestas son correctas",
+    "explanation": "Tema 4: Packer - Las anteriores opciones permiten modificar el fichero y que acabe en el sistema de destino."
+  },
+  {
+    "tema": "Tema 4: Packer: compilación de imágenes",
+    "question": "Las variables en Packer:",
+    "options": [
+      "Solo las variables de entorno están disponibles",
+      "Solo las variables de línea de comando están disponibles",
+      "Los providers no pueden proveer variables adicionales",
+      "Ninguna de las otras respuestas es correcta"
+    ],
+    "answer": "Ninguna de las otras respuestas es correcta",
+    "explanation": "Tema 4: Packer - Existen muchos tipos de variables como las provistas por los providers, las de línea de comandos, las de entorno y además muchas incluidas por Packer por defecto."
+  },
+  {
+    "tema": "Tema 5: Terraform: Infraestructura como código",
+    "question": "Terraform es una herramienta de:",
+    "options": [
+      "Infraestructura como código",
+      "Balanceo de carga",
+      "Creación de imágenes inmutables",
+      "Monitorización de sistemas"
+    ],
+    "answer": "Infraestructura como código",
+    "explanation": "Tema 5: Terraform - Terraform es una herramienta de despliegue y configuración de infraestructura donde definimos la infraestructura de forma principalmente declarativa."
+  },
+  {
+    "tema": "Tema 5: Terraform: Infraestructura como código",
+    "question": "Las dependencias en Terraform:",
+    "options": [
+      "Tienen que ser definidas explícitamente con depends_on",
+      "Solo se definen de forma implícita mediante referencias a variables",
+      "Pueden ser definidas explícita o implícitamente",
+      "Solo se usan como documentación"
+    ],
+    "answer": "Pueden ser definidas explícita o implícitamente",
+    "explanation": "Tema 5: Terraform - Terraform utiliza tanto dependencias explícitas como implícitas al decidir el orden de los despliegues."
+  },
+  {
+    "tema": "Tema 5: Terraform: Infraestructura como código",
+    "question": "Un caso de uso típico de Terraform es:",
+    "options": [
+      "La configuración de un servidor desplegado con otra herramienta",
+      "El despliegue de infraestructura física mediante netboot",
+      "El despliegue de infraestructura virtual en una o varias nubes",
+      "El despliegue de infraestructura virtual pero siempre en una nube"
+    ],
+    "answer": "El despliegue de infraestructura virtual en una o varias nubes",
+    "explanation": "Tema 5: Terraform - Terraform permite desplegar muchos tipos de recursos, principalmente infraestructura virtual en diferentes nubes."
+  },
+  {
+    "tema": "Tema 5: Terraform: Infraestructura como código",
+    "question": "Terraform interactúa con las redes:",
+    "options": [
+      "Ya que permite enrutar en tráfico entre piezas de la infraestructura a través de su binario al estar programado en Go",
+      "Ya que puede configurar redes virtuales de varios proveedores de nubes",
+      "Terraform no puede configurar redes",
+      "A y B son correctas"
+    ],
+    "answer": "Ya que puede configurar redes virtuales de varios proveedores de nubes",
+    "explanation": "Tema 5: Terraform - Terraform permite configurar redes virtuales en muchos proveedores como por ejemplo AWS VPC, pero no permite enrutar tráfico ya que Terraform solo aplica durante el despliegue y configuración."
+  },
+  {
+    "tema": "Tema 5: Terraform: Infraestructura como código",
+    "question": "Si queremos desplegar una máquina dejándola configurada con Terraform podemos:",
+    "options": [
+      "Crear una imagen ya configurada con Packer y desplegarla con Terraform",
+      "Todas las otras respuestas son correctas",
+      "Aprovisionar la configuración con una de las integraciones de Terraform con Chef, Puppet o Ansible",
+      "Usar scripts nativos de la nube como Cloud Init configurados desde Terraform"
+    ],
+    "answer": "Todas las otras respuestas son correctas",
+    "explanation": "Tema 5: Terraform - Existen diferentes técnicas para configurar máquinas virtuales con Terraform y todas las expresadas aquí son válidas."
+  },
+  {
+    "tema": "Tema 5: Terraform: Infraestructura como código",
+    "question": "El recurso aws_eip:",
+    "options": [
+      "Despliega una máquina virtual con conexión IP",
+      "No existe en el provider de aws",
+      "Reserva una IP elástica",
+      "Crea un pool de IP que auto escalan elásticamente"
+    ],
+    "answer": "Reserva una IP elástica",
+    "explanation": "Tema 5: Terraform - El recurso aws_eip reserva una IP elástica, que es una IP que puede asignarse a una máquina y moverse posteriormente."
+  },
+  {
+    "tema": "Tema 5: Terraform: Infraestructura como código",
+    "question": "El comando terraform show:",
+    "options": [
+      "Refresca el estado con los recursos desplegados y muestra sus valores",
+      "Refresca el estado con los recursos desplegados",
+      "Muestra la versión de Terraform",
+      "Muestra los valores del estado"
+    ],
+    "answer": "Muestra los valores del estado",
+    "explanation": "Tema 5: Terraform - El comando terraform show muestra los valores del estado que tenemos ahí pero no los refresca con el estado actual en la nube."
+  },
+  {
+    "tema": "Tema 5: Terraform: Infraestructura como código",
+    "question": "El comando terraform apply:",
+    "options": [
+      "Permite aplicar cambios de configuración a los componentes pero no puede crearlos ni eliminarlos",
+      "Permite aplicar cambios de configuración, crear y eliminar componentes",
+      "Permite aplicar cambios de configuración y crear componentes pero no eliminarlos",
+      "Permite crear y eliminar componentes pero no aplicar cambios de configuración"
+    ],
+    "answer": "Permite aplicar cambios de configuración, crear y eliminar componentes",
+    "explanation": "Tema 5: Terraform - Terraform apply puede crear y eliminar componentes y en algunos casos cambiar la configuración de algunos ya existentes."
+  },
+  {
+    "tema": "Tema 5: Terraform: Infraestructura como código",
+    "question": "El comando terraform init:",
+    "options": [
+      "Realiza el primer despliegue de las configuraciones que tenemos",
+      "Inicializa el proyecto actual y se asegura que tengamos las últimas versiones de los plugins",
+      "Inicializa el proyecto actual, se asegura que tengamos las versiones apropiadas de los plugins y realiza el primer despliegue de las configuraciones que tenemos",
+      "Inicializa el proyecto actual y se asegura que tengamos las versiones apropiadas de los plugins"
+    ],
+    "answer": "Inicializa el proyecto actual y se asegura que tengamos las versiones apropiadas de los plugins",
+    "explanation": "Tema 5: Terraform - Terraform init descarga las versiones seleccionadas, o las últimas si no hemos elegido versión, pero no realiza acciones sobre la infraestructura."
+  },
+  {
+    "tema": "Tema 5: Terraform: Infraestructura como código",
+    "question": "Terraform está escrito en:",
+    "options": [
+      "Go",
+      "Python",
+      "Javascript",
+      "Bash"
+    ],
+    "answer": "Go",
+    "explanation": "Tema 5: Terraform - Terraform está escrito en el lenguaje de programación Go."
   }
 ]
