@@ -1,1 +1,242 @@
-[]
+[
+  {
+    "tema": "Tema 1: Ciclo de vida DevOps",
+    "question": "¿Qué es el blast radius en un contexto DevOps?",
+    "options": [
+      "El radio de infección de un virus informático",
+      "El radio de influencia en caso de error de un componente",
+      "Todas las respuestas son correctas",
+      "La distancia que es necesario dejar entre servidores"
+    ],
+    "answer": "El radio de influencia en caso de error de un componente",
+    "explanation": "Tema 1: Ciclo de vida DevOps - El blast radius se refiere al alcance del impacto cuando un componente falla."
+  },
+  {
+    "tema": "Tema 1: Ciclo de vida DevOps",
+    "question": "El mantenimiento en DevOps",
+    "options": [
+      "Es una fase realizada únicamente cuando se han finalizado las mejoras iterativas y no se esperan más cambios",
+      "Es una fase consistente en mantener el sistema operando y funcionando con respecto a nuestro Service Level Objetive, obteniendo datos para informar las mejorar que podríamos realizar",
+      "No es una fase de DevOps ya que el mantenimiento corre a cargo de otro equipo",
+      "A y B son correctas"
+    ],
+    "answer": "Es una fase consistente en mantener el sistema operando y funcionando con respecto a nuestro Service Level Objetive, obteniendo datos para informar las mejorar que podríamos realizar",
+    "explanation": "Tema 1: Ciclo de vida DevOps - El mantenimiento es continuo y se enfoca en mantener el sistema operativo según los SLO."
+  },
+  {
+    "tema": "Tema 2: Componentes de aplicaciones",
+    "question": "¿Cuáles son los dos patrones más frecuentes de las colas de mensajería?",
+    "options": [
+      "Pub/Sub y consistencia eventual",
+      "ACID y colas de trabajo",
+      "Pub/Sub y colas de trabajo",
+      "ACID y consistencia eventual"
+    ],
+    "answer": "Pub/Sub y colas de trabajo",
+    "explanation": "Tema 2: Componentes de aplicaciones - Los patrones más comunes son Pub/Sub (publicación/suscripción) y colas de trabajo."
+  },
+  {
+    "tema": "Tema 2: Componentes de aplicaciones",
+    "question": "¿Cómo podemos repartir la carga entre varios nodos de cómputo para aumentar la capacidad del sistema?",
+    "options": [
+      "Con una cola de tareas",
+      "Con un sistema Pub/Sub",
+      "Con un balanceador de carga",
+      "A y C son correctas"
+    ],
+    "answer": "A y C son correctas",
+    "explanation": "Tema 2: Componentes de aplicaciones - Tanto las colas de tareas como los balanceadores de carga permiten distribuir la carga."
+  },
+  {
+    "tema": "Tema 3: Arquitectura de aplicaciones",
+    "question": "La ley de Conway...",
+    "options": [
+      "Postula que el consumo de energía por unidad de superficie en los procesadores se mantiene constante",
+      "Postula que deberíamos organizar la arquitectura en microservicios para seguir la organización de empresas más común",
+      "Postula que la arquitectura de un sistema en una organización sigue los patrones de comunicación de la organización",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Postula que la arquitectura de un sistema en una organización sigue los patrones de comunicación de la organización",
+    "explanation": "Tema 3: Arquitectura de aplicaciones - La ley de Conway establece que los sistemas reflejan la estructura de comunicación de la organización."
+  },
+  {
+    "tema": "Tema 3: Arquitectura de aplicaciones",
+    "question": "Las aplicaciones multicapa...",
+    "options": [
+      "Se componen de diferentes capas con un orden donde solo se puede llamar a capas posteriores",
+      "Se componen de un único componente con muchas capas y no pueden estar distribuidas entre varios componentes",
+      "Se componen de diferentes capas donde todas pueden llamarse entre sí",
+      "Se componen de capas donde cada capa solo puede llamar a su capa anterior y posterior"
+    ],
+    "answer": "Se componen de diferentes capas con un orden donde solo se puede llamar a capas posteriores",
+    "explanation": "Tema 3: Arquitectura de aplicaciones - Las aplicaciones multicapa tienen un orden jerárquico donde cada capa solo puede llamar a las capas posteriores."
+  },
+  {
+    "tema": "Tema 4: Packer: compilación de imágenes",
+    "question": "¿Es posible crear una imagen para varias nubes con Packer?",
+    "options": [
+      "No, ya que Packer solo soporta un sistema de virtualización",
+      "Sí, pero siempre mediante distintos ficheros de Template",
+      "Sí, usando los provisioner",
+      "Sí, usando los builders"
+    ],
+    "answer": "Sí, usando los builders",
+    "explanation": "Tema 4: Packer - Los builders permiten crear imágenes para múltiples plataformas de nube."
+  },
+  {
+    "tema": "Tema 4: Packer: compilación de imágenes",
+    "question": "¿Qué son los comunicators?",
+    "options": [
+      "Depende del contexto, pero no son un concepto de Packer",
+      "Definen la forma en la que los provisioners se pueden conectar",
+      "Se definen asociados a un builder",
+      "B y C son correctas"
+    ],
+    "answer": "B y C son correctas",
+    "explanation": "Tema 4: Packer - Los comunicators definen cómo los provisioners se conectan y se asocian a un builder."
+  },
+  {
+    "tema": "Tema 5: Terraform: Infraestructura como código",
+    "question": "Un caso de uso típico de Terraform es...",
+    "options": [
+      "La configuración de un servidor desplegado con otra herramienta",
+      "El despliegue de infraestructura física mediante netboot",
+      "El despliegue de infraestructura virtual en una o varias nubes",
+      "El despliegue de infraestructura virtual pero siempre en una nube"
+    ],
+    "answer": "El despliegue de infraestructura virtual en una o varias nubes",
+    "explanation": "Tema 5: Terraform - Terraform se utiliza principalmente para desplegar infraestructura virtual en múltiples nubes."
+  },
+  {
+    "tema": "Tema 5: Terraform: Infraestructura como código",
+    "question": "Si queremos desplegar una máquina dejándola configurada con Terraform podemos:",
+    "options": [
+      "Crear una imagen ya configurada con Packer y desplegarla con Terraform",
+      "Todas las otras respuestas son correctas",
+      "Aprovisionar la configuración con una de las integraciones de Terraform con Chef, Puppet o Ansible",
+      "Usar scripts nativos de la nube como Cloud Init configurados desde Terraform"
+    ],
+    "answer": "Todas las otras respuestas son correctas",
+    "explanation": "Tema 5: Terraform - Todas las opciones son válidas para configurar una máquina con Terraform."
+  },
+  {
+    "tema": "Tema 6: Terraform: casos de uso avanzado",
+    "question": "Un fallo en un provisioner...",
+    "options": [
+      "Destruirá el recurso sobre el que falló ya que este es invalido",
+      "Deja el recurso marcado como contaminado",
+      "B y D son correctas",
+      "La próxima vez que se ejecute un plan terraform planificará destruirlo"
+    ],
+    "answer": "B y D son correctas",
+    "explanation": "Tema 6: Terraform - Un fallo en un provisioner marca el recurso como contaminado y Terraform planificará destruirlo en la próxima ejecución."
+  },
+  {
+    "tema": "Tema 6: Terraform: casos de uso avanzado",
+    "question": "¿Cuál orden se utiliza para el valor de variables en terraform si hay más de uno definido?",
+    "options": [
+      "Variables desde un archivo, variables de entorno, variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable",
+      "Variables de entorno, variables desde un archivo, variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable",
+      "Variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable y variables de entorno",
+      "Las variables solo pueden asignarse en su definición"
+    ],
+    "answer": "Variables de entorno, variables desde un archivo, variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable",
+    "explanation": "Tema 6: Terraform - El orden de precedencia es: variables de entorno, archivo, entrada interactiva, valores por defecto."
+  },
+  {
+    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
+    "question": "ElasticSearch almacena los datos en:",
+    "options": [
+      "Tablas",
+      "Colecciones",
+      "Índices",
+      "Grafos"
+    ],
+    "answer": "Índices",
+    "explanation": "Tema 7: ElasticSearch - Los datos se almacenan en índices, que son la estructura básica de almacenamiento."
+  },
+  {
+    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
+    "question": "Las agregaciones en ElasticSearch son de tipo:",
+    "options": [
+      "Métricas",
+      "De Matriz",
+      "De pipeline",
+      "Todas las otras respuestas son correctas"
+    ],
+    "answer": "Todas las otras respuestas son correctas",
+    "explanation": "Tema 7: ElasticSearch - Las agregaciones pueden ser de métricas, matriz y pipeline."
+  },
+  {
+    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
+    "question": "¿Cuál de los siguientes patrones de comunicación son comúnmente utilizados?",
+    "options": [
+      "Filebeats -> Logstash -> ElasticSearch",
+      "Logstash -> Metricbeats -> ElasticSearch",
+      "Metricbeats -> ElasticSearch",
+      "A y C son correctas"
+    ],
+    "answer": "A y C son correctas",
+    "explanation": "Tema 8: Beats - Los patrones comunes incluyen Filebeats->Logstash->ElasticSearch y Metricbeats->ElasticSearch."
+  },
+  {
+    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
+    "question": "Los beats se configuran mediante:",
+    "options": [
+      "Una serie de ficheros en disco",
+      "Un único fichero YAML",
+      "Un único fichero XML",
+      "Un único fichero TOML"
+    ],
+    "answer": "Un único fichero YAML",
+    "explanation": "Tema 8: Beats - Los beats se configuran usando un único archivo YAML."
+  },
+  {
+    "tema": "Tema 9: Dashboards con Kibana",
+    "question": "La funcionalidad de Discovery se usa principalmente para:",
+    "options": [
+      "Buscar datos filtrando resultados de búsqueda",
+      "Ver eventos que ocurrieron justo antes o después de un documento",
+      "Todas las respuestas son correctas",
+      "Obtener detalles de los campos que coinciden con una búsqueda"
+    ],
+    "answer": "Todas las respuestas son correctas",
+    "explanation": "Tema 9: Kibana - Discovery permite buscar, ver eventos relacionados y obtener detalles de campos."
+  },
+  {
+    "tema": "Tema 9: Dashboards con Kibana",
+    "question": "En Kibana:",
+    "options": [
+      "Es posible habilitar un análisis de anomalías",
+      "Se pueden habilitar diferentes aplicaciones dependiendo de los casos de usos que necesitemos",
+      "Todas las respuestas son correctas",
+      "Es posible monitorizar contenedores si lo combinamos con el Beat correcto"
+    ],
+    "answer": "Todas las respuestas son correctas",
+    "explanation": "Tema 9: Kibana - Kibana permite análisis de anomalías, diferentes aplicaciones y monitorización de contenedores."
+  },
+  {
+    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
+    "question": "Es necesario un servidor APM:",
+    "options": [
+      "Sí, ya que el servidor APM almacena los datos que luego son servidos desde Kibana APM",
+      "Sí, ya que los datos son recopilados por el APM server accediendo a las aplicaciones desde el",
+      "Sí, ya que recopila los datos enviados al mismo mediante la librería de APM y luego los envía a ElasticSearch",
+      "No es necesario"
+    ],
+    "answer": "Sí, ya que recopila los datos enviados al mismo mediante la librería de APM y luego los envía a ElasticSearch",
+    "explanation": "Tema 10: APM - El servidor APM recopila datos de las librerías APM y los envía a ElasticSearch."
+  },
+  {
+    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
+    "question": "¿Qué es el componente Watcher?",
+    "options": [
+      "Un componente que permite enviar alertas a otros sistemas cuando se cumplen condiciones específicas",
+      "Un componente que monitoriza la performance de ElasticSearch respecto a consultas",
+      "Un componente dentro de Beats, WatcherBeats, que vigila a los vigilantes",
+      "Un componente que comprueba que los Beats están funcionando, enviándoles mensajes"
+    ],
+    "answer": "Un componente que permite enviar alertas a otros sistemas cuando se cumplen condiciones específicas",
+    "explanation": "Tema 10: APM - Watcher permite configurar alertas basadas en condiciones específicas."
+  }
+]
