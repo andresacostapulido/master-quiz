@@ -1,6 +1,18 @@
 [
   {
     "tema": "Tema 1: Ciclo de vida DevOps",
+    "question": "¿Cuáles de las siguientes fases pertenecen a la definición del ciclo DevOps?",
+    "options": [
+      "Análisis de viabilidad del proyecto",
+      "Pentesting",
+      "Monitorización",
+      "A y B son correctas"
+    ],
+    "answer": "Monitorización",
+    "explanation": "Tema 1: Ciclo de vida DevOps - La monitorización es una de las partes y fases del ciclo DevOps."
+  },
+  {
+    "tema": "Tema 1: Ciclo de vida DevOps",
     "question": "¿Qué es el blast radius en un contexto DevOps?",
     "options": [
       "El radio de infección de un virus informático",
@@ -9,19 +21,127 @@
       "La distancia que es necesario dejar entre servidores"
     ],
     "answer": "El radio de influencia en caso de error de un componente",
-    "explanation": "Tema 1: Ciclo de vida DevOps - El blast radius se refiere al alcance del impacto cuando un componente falla."
+    "explanation": "Tema 1: Ciclo de vida DevOps - En DevOps, el blast radius se define como el impacto de un problema en un componente."
   },
   {
     "tema": "Tema 1: Ciclo de vida DevOps",
-    "question": "El mantenimiento en DevOps",
+    "question": "La infraestructura inmutable:",
+    "options": [
+      "Consiste en piezas de infraestructura que no pueden cambiar bajo cortes de suministro o acceso",
+      "Consiste en piezas de infraestructura que no pueden cambiar por limitaciones propias de los componentes, como la región en muchos servicios de nube",
+      "Consiste en piezas de infraestructura que no pueden cambiar o bien por limitación de la tecnología o por política propia",
+      "Consiste en piezas de infraestructura que pueden cambiar y se modifican internamente, pero con ciertas facetas que se mantienen estables, como un servidor cuyo tipo no cambia, pero sus paquetes sí son actualizados y configurados"
+    ],
+    "answer": "Consiste en piezas de infraestructura que no pueden cambiar o bien por limitación de la tecnología o por política propia",
+    "explanation": "Tema 1: Ciclo de vida DevOps - La infraestructura inmutable consiste en la técnica de evitar modificar los componentes y optar por reemplazarlos en la medida de lo posible para evitar diferencias entre los distintos nodos debido a su historia."
+  },
+  {
+    "tema": "Tema 1: Ciclo de vida DevOps",
+    "question": "La infraestructura como código:",
+    "options": [
+      "Consiste en definir la infraestructura de forma encriptada",
+      "Consiste en definir la infraestructura en forma de código frecuentemente declarativo",
+      "Consiste en usar imágenes codificadas de máquinas virtuales en lugar de configurarlas",
+      "Consiste en definir la infraestructura en forma de código exclusivamente imperativo"
+    ],
+    "answer": "Consiste en definir la infraestructura en forma de código frecuentemente declarativo",
+    "explanation": "Tema 1: Ciclo de vida DevOps - La infraestructura como código define la infraestructura usando códigos declarativos o principalmente declarativos."
+  },
+  {
+    "tema": "Tema 1: Ciclo de vida DevOps",
+    "question": "CloudFormation es el sistema de infraestructura como código:",
+    "options": [
+      "De la nube pública de Google, GCP",
+      "De la nube pública de Amazon, AWS",
+      "De la nube pública de Microsoft, Azure",
+      "Soportando múltiples nubes siendo generado por una compañía independiente"
+    ],
+    "answer": "De la nube pública de Amazon, AWS",
+    "explanation": "Tema 1: Ciclo de vida DevOps - CloudFormation ha sido generado por Amazon."
+  },
+  {
+    "tema": "Tema 1: Ciclo de vida DevOps",
+    "question": "Resource Manager es el sistema de infraestructura como código:",
+    "options": [
+      "De la nube pública de Google, GCP",
+      "De la nube pública de Amazon, AWS",
+      "De la nube pública de Microsoft, Azure",
+      "Soportando múltiples nubes siendo generado por una compañía independiente"
+    ],
+    "answer": "De la nube pública de Microsoft, Azure",
+    "explanation": "Tema 1: Ciclo de vida DevOps - Resource Manager ha sido generado por Microsoft para Azure."
+  },
+  {
+    "tema": "Tema 1: Ciclo de vida DevOps",
+    "question": "Deployment Manager es el sistema de infraestructura como código:",
+    "options": [
+      "De la nube pública de Google, GCP",
+      "De la nube pública de Amazon, AWS",
+      "De la nube pública de Microsoft, Azure",
+      "Soportando múltiples nubes siendo generado por una compañía independiente"
+    ],
+    "answer": "De la nube pública de Google, GCP",
+    "explanation": "Tema 1: Ciclo de vida DevOps - Deployment Manager ha sido generado por Google para GCP."
+  },
+  {
+    "tema": "Tema 1: Ciclo de vida DevOps",
+    "question": "Service Level Objectives:",
+    "options": [
+      "Consiste en el nivel de servicio que objetivamente se percibe del servicio",
+      "Consiste en el nivel de servicio que se busca proveer a los clientes",
+      "Consiste en el nivel de servicio que es necesario proveer por motivos contractuales con al menos uno de los clientes",
+      "Todas las respuestas son incorrectas"
+    ],
+    "answer": "Consiste en el nivel de servicio que es necesario proveer por motivos contractuales con al menos uno de los clientes",
+    "explanation": "Tema 1: Ciclo de vida DevOps - Service Level Objectives es el nivel de servicio que objetivamente se percibe del servicio."
+  },
+  {
+    "tema": "Tema 1: Ciclo de vida DevOps",
+    "question": "Service Level Agreement:",
+    "options": [
+      "Consiste en el nivel de servicio que objetivamente se percibe del servicio",
+      "Consiste en el nivel de servicio que se busca proveer a los clientes",
+      "Consiste en el nivel de servicio que es necesario proveer por motivos contractuales con al menos uno de los clientes",
+      "Todas las respuestas son incorrectas"
+    ],
+    "answer": "Consiste en el nivel de servicio que es necesario proveer por motivos contractuales con al menos uno de los clientes",
+    "explanation": "Tema 1: Ciclo de vida DevOps - Service Level Agreement es el nivel de servicio que se contrata y que debe mantenerse para evitar las penalizaciones contempladas en el contrato."
+  },
+  {
+    "tema": "Tema 1: Ciclo de vida DevOps",
+    "question": "El mantenimiento en DevOps:",
     "options": [
       "Es una fase realizada únicamente cuando se han finalizado las mejoras iterativas y no se esperan más cambios",
-      "Es una fase consistente en mantener el sistema operando y funcionando con respecto a nuestro Service Level Objetive, obteniendo datos para informar las mejorar que podríamos realizar",
-      "No es una fase de DevOps ya que el mantenimiento corre a cargo de otro equipo",
+      "Es una fase consistente en mantener el sistema operando y funcionando con respecto a nuestro Service Level Objetivo, obteniendo datos para informar las mejorar que podríamos realizar",
+      "No es una fase de DevOps, ya que el mantenimiento corre a cargo de otro equipo",
       "A y B son correctas"
     ],
-    "answer": "Es una fase consistente en mantener el sistema operando y funcionando con respecto a nuestro Service Level Objetive, obteniendo datos para informar las mejorar que podríamos realizar",
-    "explanation": "Tema 1: Ciclo de vida DevOps - El mantenimiento es continuo y se enfoca en mantener el sistema operativo según los SLO."
+    "answer": "Es una fase consistente en mantener el sistema operando y funcionando con respecto a nuestro Service Level Objetivo, obteniendo datos para informar las mejorar que podríamos realizar",
+    "explanation": "Tema 1: Ciclo de vida DevOps - El mantenimiento en DevOps es una fase continuada y parcialmente iterativa, ya que informa de datos para poder realizar la siguiente iteración de una forma correcta."
+  },
+  {
+    "tema": "Tema 2: Componentes de aplicaciones",
+    "question": "CDN es:",
+    "options": [
+      "Caché Delivery Namespace, una tecnología que permite ofrecer namespaces",
+      "Una tecnología de caché para almacenar resultados parciales por un tiempo corto",
+      "Una tecnología para servir contenido estático o cacheado desde múltiples localizaciones en el mundo",
+      "Un tipo de appliance que se despliega localmente"
+    ],
+    "answer": "Una tecnología para servir contenido estático o cacheado desde múltiples localizaciones en el mundo",
+    "explanation": "Tema 2: Componentes de aplicaciones - CDN significa Content Delivery Network, un tipo de solución que permite servir contenido, frecuentemente estático o cacheado, y que ofrece una red de servidores disponibles en todo el mundo para servir la información."
+  },
+  {
+    "tema": "Tema 2: Componentes de aplicaciones",
+    "question": "¿Cuál es la principal desventaja de los sistemas de configuración dinámicos durante la ejecución?",
+    "options": [
+      "Es imposible que puedan reaccionar a cambios de configuración fuera de la ventana de despliegues",
+      "Pueden convertirse es un punto de fallo único si no se gestionan cuidadosamente y requieren monitorización",
+      "Siguen el mismo ciclo de vida de despliegue",
+      "B y C son correctas"
+    ],
+    "answer": "Pueden convertirse es un punto de fallo único si no se gestionan cuidadosamente y requieren monitorización",
+    "explanation": "Tema 2: Componentes de aplicaciones - Al ser un sistema de configuración dinámico durante la ejecución es posible cambiar el valor en cualquier momento no necesariamente durante el despliegue, aunque si no estuvieran disponibles las aplicaciones podrían fallar al no obtener valores necesarios para su funcionamiento."
   },
   {
     "tema": "Tema 2: Componentes de aplicaciones",
@@ -33,7 +153,67 @@
       "ACID y consistencia eventual"
     ],
     "answer": "Pub/Sub y colas de trabajo",
-    "explanation": "Tema 2: Componentes de aplicaciones - Los patrones más comunes son Pub/Sub (publicación/suscripción) y colas de trabajo."
+    "explanation": "Tema 2: Componentes de aplicaciones - ACID es un tipo de garantía de las bases de datos y Consistencia eventual también. Pub/Sub y las colas de trabajo son patrones de consumo en las colas de mensajería."
+  },
+  {
+    "tema": "Tema 2: Componentes de aplicaciones",
+    "question": "Las bases de datos OLAP son:",
+    "options": [
+      "Bases de datos que responden a peticiones en vivo sobre el estado actual",
+      "Bases de datos para procesamiento masivo sobre información histórica",
+      "Bases de datos principalmente NoSQL",
+      "Bases de datos que almacenan datos organizándolos en el paradigma OLAP"
+    ],
+    "answer": "Bases de datos que responden a peticiones en vivo sobre el estado actual",
+    "explanation": "Tema 2: Componentes de aplicaciones - OLAP significa Online Analytical Processing y es una categoría de las bases de datos por su finalidad, no una forma de almacenar los datos, y se basa en responder las peticiones rápidamente."
+  },
+  {
+    "tema": "Tema 2: Componentes de aplicaciones",
+    "question": "¿Cuál es la principal diferencia entre las bases de datos orientadas a documento y a columna?",
+    "options": [
+      "Las bases de datos columnares almacenan cada columna junta en lugar de almacenar por filas",
+      "Las bases de datos orientadas a documento permiten almacenar documentos con un número distinto de campos",
+      "Las bases de datos columnares son muy utilizadas con tipos de algoritmos como MapReduce",
+      "Todas las respuestas anteriores son correctas"
+    ],
+    "answer": "Todas las respuestas anteriores son correctas",
+    "explanation": "Tema 2: Componentes de aplicaciones - Estas bases de datos son dos tipos de bases de datos que almacenan los documentos complejos por columnas o bien como un documento frecuentemente compuesto."
+  },
+  {
+    "tema": "Tema 2: Componentes de aplicaciones",
+    "question": "¿Son todos los componentes reusables con estado?",
+    "options": [
+      "Sí, porque un componente reusable debe tener una lógica no especializada a nuestro problema y los componentes sin estado no se pueden configurar",
+      "Sí, porque los componentes reusables son bases de datos y cachés",
+      "No, porque existen funcionalidades comunes frecuentes como pueden ser los proxies reversos o algoritmos de datos",
+      "No, porque todos los componentes deben ser sin estado sean reusables o no"
+    ],
+    "answer": "No, porque existen funcionalidades comunes frecuentes como pueden ser los proxies reversos o algoritmos de datos",
+    "explanation": "Tema 2: Componentes de aplicaciones - Los proxies reversos o algoritmos de datos complejos como algunos de aprendizaje automático son ejemplos de componentes reusable con estado."
+  },
+  {
+    "tema": "Tema 2: Componentes de aplicaciones",
+    "question": "FaaS es:",
+    "options": [
+      "Un tipo de base de datos con procedimientos almacenados",
+      "Un tipo de despliegue de componentes de cómputo",
+      "Exclusiva de AWS con Lambda",
+      "Un tipo de despliegue que nunca puede escalar hasta cero"
+    ],
+    "answer": "Un tipo de despliegue de componentes de cómputo",
+    "explanation": "Tema 2: Componentes de aplicaciones - Function as a Service es una técnica de desplegar funciones como nuestro pase de componente de cómputo."
+  },
+  {
+    "tema": "Tema 2: Componentes de aplicaciones",
+    "question": "¿Cuáles de las siguientes son correctas?",
+    "options": [
+      "La B y la D",
+      "El escalado vertical, usando un componente con más recursos",
+      "El escalado horizontal, solo disponible para componentes sin estado",
+      "El escalado horizontal, por ejemplo, como Replica Sets para componentes con estado"
+    ],
+    "answer": "La B y la D",
+    "explanation": "Tema 2: Componentes de aplicaciones - El escalado horizontal puede realizarse mediante técnicas como los Replica set y el escalado vertical consiste en dar más recursos a un componente."
   },
   {
     "tema": "Tema 2: Componentes de aplicaciones",
@@ -45,23 +225,59 @@
       "A y C son correctas"
     ],
     "answer": "A y C son correctas",
-    "explanation": "Tema 2: Componentes de aplicaciones - Tanto las colas de tareas como los balanceadores de carga permiten distribuir la carga."
+    "explanation": "Tema 2: Componentes de aplicaciones - Pub/Sub permite repartir la carga entre varios nodos pero no aumenta la capacidad del sistema, ya que todos ellos reciben el evento y este no se reparte."
   },
   {
-    "tema": "Tema 3: Arquitectura de aplicaciones",
-    "question": "La ley de Conway...",
+    "tema": "Tema 2: Componentes de aplicaciones",
+    "question": "¿Cuáles son bases de datos persistentes?",
     "options": [
-      "Postula que el consumo de energía por unidad de superficie en los procesadores se mantiene constante",
-      "Postula que deberíamos organizar la arquitectura en microservicios para seguir la organización de empresas más común",
-      "Postula que la arquitectura de un sistema en una organización sigue los patrones de comunicación de la organización",
-      "Ninguna de las anteriores"
+      "MongoDB, Spring Boot, Memcachéd",
+      "MariaDB, PostgreSQL, Memcachéd",
+      "MongoDB, PostgreSQL, MySQL",
+      "PostgreSQL, IaaS, Varnish"
     ],
-    "answer": "Postula que la arquitectura de un sistema en una organización sigue los patrones de comunicación de la organización",
-    "explanation": "Tema 3: Arquitectura de aplicaciones - La ley de Conway establece que los sistemas reflejan la estructura de comunicación de la organización."
+    "answer": "MongoDB, PostgreSQL, MySQL",
+    "explanation": "Tema 2: Componentes de aplicaciones - Ni Spring Boot ni Varnish son bases de datos. Memcachéd puede almacenar datos, pero al no poder persistirlos en disco no se utiliza como base de datos persistentes."
   },
   {
     "tema": "Tema 3: Arquitectura de aplicaciones",
-    "question": "Las aplicaciones multicapa...",
+    "question": "El coste de actualizar afecta al ciclo DevOps y la arquitectura porque:",
+    "options": [
+      "Los errores afectan durante más tiempo, lo que implica que la arquitectura tiene que fomentar la predictibilidad",
+      "La reproducibilidad de los entornos se convierte en esencial, ya que descubrir un problema después de liberarlo es muy costoso",
+      "Todas las otras respuestas son correctas",
+      "No es tan fácil probar el valor de negocio de una actualización con los usuarios"
+    ],
+    "answer": "Todas las otras respuestas son correctas",
+    "explanation": "Tema 3: Arquitectura de aplicaciones - Un alto coste de actualización intrínseco afecta a todas las fases DevOps y debe traducirse en una arquitectura adaptada al problema."
+  },
+  {
+    "tema": "Tema 3: Arquitectura de aplicaciones",
+    "question": "Las aplicaciones de navegador son siempre de cliente pesado:",
+    "options": [
+      "No siempre, por ejemplo, las aplicaciones de una única página regidas por JavaScript (SPA) son de cliente ligero",
+      "No, es posible que sean ejecutadas con un navegador ligero como puede ser Safari o Firefox",
+      "No, las aplicaciones que no implementan la lógica en el navegador (poca cantidad de JavaScript) se asemejan filosóficamente a los denominados clientes ligeros quedando en un lugar intermedio",
+      "Sí, los navegadores modernos son necesariamente pesados"
+    ],
+    "answer": "No, las aplicaciones que no implementan la lógica en el navegador (poca cantidad de JavaScript) se asemejan filosóficamente a los denominados clientes ligeros quedando en un lugar intermedio",
+    "explanation": "Tema 3: Arquitectura de aplicaciones - La clasificación de cliente ligero surge en un contexto distinto, pero, traduciéndola a la actualidad, un cliente en el cual cada página es solo de presentación y toda interacción resulta en una petición al servidor se asemeja a un cliente ligero."
+  },
+  {
+    "tema": "Tema 3: Arquitectura de aplicaciones",
+    "question": "Las aplicaciones monolíticas:",
+    "options": [
+      "Frecuentemente tienen el estado integrado",
+      "Es sencillo mantenerlas operando sin cortes de servicio mientras actualizamos",
+      "Es conveniente mantener los datos lo más segregados posible para la mantenibilidad a largo plazo",
+      "A y C son correctas"
+    ],
+    "answer": "A y C son correctas",
+    "explanation": "Tema 3: Arquitectura de aplicaciones - En las aplicaciones monolíticas es difícil no tener cortes de servicio en todas las actualizaciones, aunque se puede mitigar su impacto con buenas prácticas para muchas de las actualizaciones."
+  },
+  {
+    "tema": "Tema 3: Arquitectura de aplicaciones",
+    "question": "Las aplicaciones multicapa:",
     "options": [
       "Se componen de diferentes capas con un orden donde solo se puede llamar a capas posteriores",
       "Se componen de un único componente con muchas capas y no pueden estar distribuidas entre varios componentes",
@@ -69,174 +285,78 @@
       "Se componen de capas donde cada capa solo puede llamar a su capa anterior y posterior"
     ],
     "answer": "Se componen de diferentes capas con un orden donde solo se puede llamar a capas posteriores",
-    "explanation": "Tema 3: Arquitectura de aplicaciones - Las aplicaciones multicapa tienen un orden jerárquico donde cada capa solo puede llamar a las capas posteriores."
+    "explanation": "Tema 3: Arquitectura de aplicaciones - Las capas son llamadas desde capas anteriores y pueden llamar a capas posteriores, es decir, no pueden llamar a la anterior o anteriores y pueden estar desplegadas en componentes distintos."
   },
   {
-    "tema": "Tema 4: Packer: compilación de imágenes",
-    "question": "¿Es posible crear una imagen para varias nubes con Packer?",
+    "tema": "Tema 3: Arquitectura de aplicaciones",
+    "question": "La ley de Conway:",
     "options": [
-      "No, ya que Packer solo soporta un sistema de virtualización",
-      "Sí, pero siempre mediante distintos ficheros de Template",
-      "Sí, usando los provisioner",
-      "Sí, usando los builders"
+      "Postula que el consumo de energía por unidad de superficie en los procesadores se mantiene constante",
+      "Postula que deberíamos organizar la arquitectura en microservicios para seguir la organización de empresas más común",
+      "Postula que la arquitectura de un sistema en una organización sigue los patrones de comunicación de la organización",
+      "Postula que las arquitecturas de microservicios no pueden funcionar salvo en empresas con un solo equipo"
     ],
-    "answer": "Sí, usando los builders",
-    "explanation": "Tema 4: Packer - Los builders permiten crear imágenes para múltiples plataformas de nube."
+    "answer": "Postula que la arquitectura de un sistema en una organización sigue los patrones de comunicación de la organización",
+    "explanation": "Tema 3: Arquitectura de aplicaciones - La ley de Conway postula que las conexiones entre componentes implican comunicación entre equipos, por tanto, las conexiones seguirán los patrones de comunicación de una organización."
   },
   {
-    "tema": "Tema 4: Packer: compilación de imágenes",
-    "question": "¿Qué son los comunicators?",
+    "tema": "Tema 3: Arquitectura de aplicaciones",
+    "question": "Las mallas de servicios:",
     "options": [
-      "Depende del contexto, pero no son un concepto de Packer",
-      "Definen la forma en la que los provisioners se pueden conectar",
-      "Se definen asociados a un builder",
-      "B y C son correctas"
+      "No puede usarse en una arquitectura de capas",
+      "Son un tipo de arquitectura opuesta a los microservicios",
+      "Son un tipo de componente que se despliega separadamente al resto de componentes del sistema",
+      "Es una técnica para gestionar la comunicación de componentes"
     ],
-    "answer": "B y C son correctas",
-    "explanation": "Tema 4: Packer - Los comunicators definen cómo los provisioners se conectan y se asocian a un builder."
+    "answer": "Es una técnica para gestionar la comunicación de componentes",
+    "explanation": "Tema 3: Arquitectura de aplicaciones - La malla de servicios de una técnica de arquitectura que habilita un tipo de comunicación concreto para aumentar la comunicación, frecuentemente utilizado en sistemas de microservicios."
   },
   {
-    "tema": "Tema 5: Terraform: Infraestructura como código",
-    "question": "Un caso de uso típico de Terraform es...",
+    "tema": "Tema 3: Arquitectura de aplicaciones",
+    "question": "Las aplicaciones web servidas como SaaS son un ejemplo de:",
     "options": [
-      "La configuración de un servidor desplegado con otra herramienta",
-      "El despliegue de infraestructura física mediante netboot",
-      "El despliegue de infraestructura virtual en una o varias nubes",
-      "El despliegue de infraestructura virtual pero siempre en una nube"
+      "Aplicaciones difíciles de actualizar, ya que son muy propensas a romperse",
+      "Aplicaciones con un entorno muy controlado",
+      "Aplicaciones de fácil actualización, pero con un entorno sin control",
+      "Aplicaciones de fácil actualización y entorno con alto control"
     ],
-    "answer": "El despliegue de infraestructura virtual en una o varias nubes",
-    "explanation": "Tema 5: Terraform - Terraform se utiliza principalmente para desplegar infraestructura virtual en múltiples nubes."
+    "answer": "Aplicaciones de fácil actualización, pero con un entorno sin control",
+    "explanation": "Tema 3: Arquitectura de aplicaciones - En las aplicaciones web en general no controlamos la versión del navegador, pero al ejecutar desde nuestros servidores podemos controlar que versión servimos."
   },
   {
-    "tema": "Tema 5: Terraform: Infraestructura como código",
-    "question": "Si queremos desplegar una máquina dejándola configurada con Terraform podemos:",
+    "tema": "Tema 3: Arquitectura de aplicaciones",
+    "question": "Los appliances que distribuimos a clientes son:",
     "options": [
-      "Crear una imagen ya configurada con Packer y desplegarla con Terraform",
-      "Todas las otras respuestas son correctas",
-      "Aprovisionar la configuración con una de las integraciones de Terraform con Chef, Puppet o Ansible",
-      "Usar scripts nativos de la nube como Cloud Init configurados desde Terraform"
-    ],
-    "answer": "Todas las otras respuestas son correctas",
-    "explanation": "Tema 5: Terraform - Todas las opciones son válidas para configurar una máquina con Terraform."
-  },
-  {
-    "tema": "Tema 6: Terraform: casos de uso avanzado",
-    "question": "Un fallo en un provisioner...",
-    "options": [
-      "Destruirá el recurso sobre el que falló ya que este es invalido",
-      "Deja el recurso marcado como contaminado",
-      "B y D son correctas",
-      "La próxima vez que se ejecute un plan terraform planificará destruirlo"
-    ],
-    "answer": "B y D son correctas",
-    "explanation": "Tema 6: Terraform - Un fallo en un provisioner marca el recurso como contaminado y Terraform planificará destruirlo en la próxima ejecución."
-  },
-  {
-    "tema": "Tema 6: Terraform: casos de uso avanzado",
-    "question": "¿Cuál orden se utiliza para el valor de variables en terraform si hay más de uno definido?",
-    "options": [
-      "Variables desde un archivo, variables de entorno, variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable",
-      "Variables de entorno, variables desde un archivo, variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable",
-      "Variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable y variables de entorno",
-      "Las variables solo pueden asignarse en su definición"
-    ],
-    "answer": "Variables de entorno, variables desde un archivo, variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable",
-    "explanation": "Tema 6: Terraform - El orden de precedencia es: variables de entorno, archivo, entrada interactiva, valores por defecto."
-  },
-  {
-    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
-    "question": "ElasticSearch almacena los datos en:",
-    "options": [
-      "Tablas",
-      "Colecciones",
-      "Índices",
-      "Grafos"
-    ],
-    "answer": "Índices",
-    "explanation": "Tema 7: ElasticSearch - Los datos se almacenan en índices, que son la estructura básica de almacenamiento."
-  },
-  {
-    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
-    "question": "Las agregaciones en ElasticSearch son de tipo:",
-    "options": [
-      "Métricas",
-      "De Matriz",
-      "De pipeline",
-      "Todas las otras respuestas son correctas"
-    ],
-    "answer": "Todas las otras respuestas son correctas",
-    "explanation": "Tema 7: ElasticSearch - Las agregaciones pueden ser de métricas, matriz y pipeline."
-  },
-  {
-    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
-    "question": "¿Cuál de los siguientes patrones de comunicación son comúnmente utilizados?",
-    "options": [
-      "Filebeats -> Logstash -> ElasticSearch",
-      "Logstash -> Metricbeats -> ElasticSearch",
-      "Metricbeats -> ElasticSearch",
-      "A y C son correctas"
-    ],
-    "answer": "A y C son correctas",
-    "explanation": "Tema 8: Beats - Los patrones comunes incluyen Filebeats->Logstash->ElasticSearch y Metricbeats->ElasticSearch."
-  },
-  {
-    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
-    "question": "Los beats se configuran mediante:",
-    "options": [
-      "Una serie de ficheros en disco",
-      "Un único fichero YAML",
-      "Un único fichero XML",
-      "Un único fichero TOML"
-    ],
-    "answer": "Un único fichero YAML",
-    "explanation": "Tema 8: Beats - Los beats se configuran usando un único archivo YAML."
-  },
-  {
-    "tema": "Tema 9: Dashboards con Kibana",
-    "question": "La funcionalidad de Discovery se usa principalmente para:",
-    "options": [
-      "Buscar datos filtrando resultados de búsqueda",
-      "Ver eventos que ocurrieron justo antes o después de un documento",
+      "Aplicaciones que frecuentemente son despliegues monolíticos para facilitar la forma de desplegar a los clientes",
       "Todas las respuestas son correctas",
-      "Obtener detalles de los campos que coinciden con una búsqueda"
+      "Aplicaciones difíciles de actualizar, ya que los clientes suelen tener control sobre el ciclo de actualizaciones",
+      "Un tipo de aplicaciones compuestas por un único componente, frecuentemente desplegadas para realizar una función concreta en un datacenter físico o virtual"
     ],
     "answer": "Todas las respuestas son correctas",
-    "explanation": "Tema 9: Kibana - Discovery permite buscar, ver eventos relacionados y obtener detalles de campos."
+    "explanation": "Tema 3: Arquitectura de aplicaciones - Los appliances son frecuentemente utilizados por clientes en que tengamos acceso a su infraestructura, lo que influye en su facilidad para desplegar, pero en nuestro poco control sobre la actualización."
   },
   {
-    "tema": "Tema 9: Dashboards con Kibana",
-    "question": "En Kibana:",
+    "tema": "Tema 3: Arquitectura de aplicaciones",
+    "question": "Las bases de datos:",
     "options": [
-      "Es posible habilitar un análisis de anomalías",
-      "Se pueden habilitar diferentes aplicaciones dependiendo de los casos de usos que necesitemos",
-      "Todas las respuestas son correctas",
-      "Es posible monitorizar contenedores si lo combinamos con el Beat correcto"
+      "No pueden formar parte de una arquitectura de microservicios",
+      "Son frecuentemente compartidas por varios microservicios",
+      "Ninguna de las otras respuestas es correcta",
+      "No pueden usarse en monolitos, ya que las bases de datos son siempre un componente desplegable separado"
     ],
-    "answer": "Todas las respuestas son correctas",
-    "explanation": "Tema 9: Kibana - Kibana permite análisis de anomalías, diferentes aplicaciones y monitorización de contenedores."
+    "answer": "Ninguna de las otras respuestas es correcta",
+    "explanation": "Tema 3: Arquitectura de aplicaciones - Las bases de datos son una pieza de software reusable que puede ser un componente o parte de uno y como componente puede estar dentro de un microservicio, pero no compartido entre ellos."
   },
   {
-    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
-    "question": "Es necesario un servidor APM:",
+    "tema": "Tema 3: Arquitectura de aplicaciones",
+    "question": "Istio es:",
     "options": [
-      "Sí, ya que el servidor APM almacena los datos que luego son servidos desde Kibana APM",
-      "Sí, ya que los datos son recopilados por el APM server accediendo a las aplicaciones desde el",
-      "Sí, ya que recopila los datos enviados al mismo mediante la librería de APM y luego los envía a ElasticSearch",
-      "No es necesario"
+      "Un balanceador de carga",
+      "Un sistema de caché",
+      "Una implementación de bases de datos NoSQL",
+      "Una tecnología de Service Mesh"
     ],
-    "answer": "Sí, ya que recopila los datos enviados al mismo mediante la librería de APM y luego los envía a ElasticSearch",
-    "explanation": "Tema 10: APM - El servidor APM recopila datos de las librerías APM y los envía a ElasticSearch."
-  },
-  {
-    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
-    "question": "¿Qué es el componente Watcher?",
-    "options": [
-      "Un componente que permite enviar alertas a otros sistemas cuando se cumplen condiciones específicas",
-      "Un componente que monitoriza la performance de ElasticSearch respecto a consultas",
-      "Un componente dentro de Beats, WatcherBeats, que vigila a los vigilantes",
-      "Un componente que comprueba que los Beats están funcionando, enviándoles mensajes"
-    ],
-    "answer": "Un componente que permite enviar alertas a otros sistemas cuando se cumplen condiciones específicas",
-    "explanation": "Tema 10: APM - Watcher permite configurar alertas basadas en condiciones específicas."
+    "answer": "Una tecnología de Service Mesh",
+    "explanation": "Tema 3: Arquitectura de aplicaciones - Istio es una de las implementaciones más populares de Service Mesh para Kubernetes."
   }
 ]
