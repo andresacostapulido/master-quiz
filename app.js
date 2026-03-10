@@ -98,70 +98,16 @@ async function selectSubject(subject) {
         return;
     }
     
-    if (subject === 'secdevops') {
-        numQuestions = parseInt(document.getElementById('num-questions').value);
-        mode = document.getElementById('quiz-mode').value;
-        quizTitle = 'SecDevOps y Administración de Redes';
-        
-        if (mode === 'tema') {
-            const selectedTema = document.getElementById('tema-select').value;
-            allQuestions = allQuestions.filter(q => q.tema.includes(selectedTema));
-            if (allQuestions.length === 0) {
-                alert('No hay preguntas para este tema');
-                return;
-            }
-        }
-    } else if (subject === 'adminsistemas') {
-        numQuestions = parseInt(document.getElementById('num-questions-admin').value);
-        mode = document.getElementById('quiz-mode-admin').value;
-        quizTitle = 'Administración de Sistemas Cloud';
-        
-        if (mode === 'tema') {
-            const selectedTema = document.getElementById('tema-select-admin').value;
-            allQuestions = allQuestions.filter(q => q.tema.includes(selectedTema));
-            if (allQuestions.length === 0) {
-                alert('No hay preguntas para este tema');
-                return;
-            }
-        }
-    } else if (subject === 'clouddevops') {
-        numQuestions = parseInt(document.getElementById('num-questions-cloud').value);
-        mode = document.getElementById('quiz-mode-cloud').value;
-        quizTitle = 'Cloud Computing, DevOps y Cultura DevOps';
-        
-        if (mode === 'tema') {
-            const selectedTema = document.getElementById('tema-select-cloud').value;
-            allQuestions = allQuestions.filter(q => q.tema.includes(selectedTema));
-            if (allQuestions.length === 0) {
-                alert('No hay preguntas para este tema');
-                return;
-            }
-        }
-    } else if (subject === 'herramientasdevops') {
-        numQuestions = parseInt(document.getElementById('num-questions-herramientas').value);
-        mode = document.getElementById('quiz-mode-herramientas').value;
-        quizTitle = 'Herramientas DevOps';
-        
-        if (mode === 'tema') {
-            const selectedTema = document.getElementById('tema-select-herramientas').value;
-            allQuestions = allQuestions.filter(q => q.tema.includes(selectedTema));
-            if (allQuestions.length === 0) {
-                alert('No hay preguntas para este tema');
-                return;
-            }
-        }
-    } else if (subject === 'automatizacion') {
-        numQuestions = parseInt(document.getElementById('num-questions-automatizacion').value);
-        mode = document.getElementById('quiz-mode-automatizacion').value;
-        quizTitle = 'Herramientas de Automatización de Despliegues';
-        
-        if (mode === 'tema') {
-            const selectedTema = document.getElementById('tema-select-automatizacion').value;
-            allQuestions = allQuestions.filter(q => q.topic && q.topic.includes(selectedTema));
-            if (allQuestions.length === 0) {
-                alert('No hay preguntas para este tema');
-                return;
-            }
+    numQuestions = parseInt(document.getElementById('num-questions-herramientas').value);
+    mode = document.getElementById('quiz-mode-herramientas').value;
+    quizTitle = 'Herramientas DevOps';
+    
+    if (mode === 'tema') {
+        const selectedTema = document.getElementById('tema-select-herramientas').value;
+        allQuestions = allQuestions.filter(q => q.tema.includes(selectedTema));
+        if (allQuestions.length === 0) {
+            alert('No hay preguntas para este tema');
+            return;
         }
     }
     

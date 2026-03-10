@@ -30,129 +30,16 @@
     <!-- Selector de Asignatura -->
     <div id="subject-selector" class="max-w-4xl mx-auto">
         <header class="mb-8 text-center">
-            <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">Quiz Magister DevOps</h1>
-            <p class="text-gray-600">Selecciona una asignatura para comenzar</p>
+            <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">Quiz Herramientas DevOps</h1>
+            <p class="text-gray-600">Prepárate para tu examen</p>
             <div id="user-info" class="mt-4"></div>
         </header>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
             <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
-                <i class="fas fa-shield-alt text-4xl text-blue-600 mb-3"></i>
-                <h3 class="text-xl font-bold mb-2 text-gray-900">SecDevOps y Administración de Redes</h3>
-                <p class="text-sm text-gray-600 mb-4">30 preguntas disponibles</p>
-                
-                <div class="flex-grow"></div>
-                
-                <div class="mt-4">
-                    <label class="block text-sm font-medium mb-2">Modo:</label>
-                    <select id="quiz-mode" class="w-full p-2 border rounded mb-3">
-                        <option value="normal">Normal - Todos los temas</option>
-                        <option value="tema">Repaso por Tema</option>
-                    </select>
-                </div>
-                
-                <div id="tema-selector" class="mt-3 hidden">
-                    <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
-                    <select id="tema-select" class="w-full p-2 border rounded">
-                        <option value="Introducción a SecDevOps">Tema 1: Introducción</option>
-                        <option value="Fundamentos de Redes 1">Tema 2: Fundamentos de redes 1</option>
-                        <option value="Fundamentos de Redes 2">Tema 3: Fundamentos de redes 2</option>
-                        <option value="Fundamentos de Redes 3">Tema 4: Fundamentos de redes 3</option>
-                        <option value="Firewalls y VPN">Tema 5: Firewalls y VPN</option>
-                        <option value="Administración de redes en cloud">Tema 6: Administración de redes en cloud</option>
-                        <option value="Herramientas de seguridad en la nube">Tema 7: Herramientas de seguridad en la nube</option>
-                        <option value="Redes y seguridad en Kubernetes">Tema 8: Redes y seguridad en Kubernetes</option>
-                        <option value="Seguridad DevOps">Tema 9: Seguridad DevOps</option>
-                    </select>
-                </div>
-                
-                <div class="mt-4">
-                    <label class="block text-sm font-medium mb-2">Cantidad de preguntas:</label>
-                    <input type="number" id="num-questions" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
-                </div>
-                <button onclick="selectSubject('secdevops')" class="mt-auto w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700">Comenzar Quiz</button>
-            </div>
-            
-            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
-                <i class="fas fa-cloud text-4xl text-green-600 mb-3"></i>
-                <h3 class="text-xl font-bold mb-2 text-gray-900">Administración de Sistemas Cloud</h3>
-                <p class="text-sm text-gray-600 mb-4">30 preguntas disponibles</p>
-                
-                <div class="flex-grow"></div>
-                
-                <div class="mt-4">
-                    <label class="block text-sm font-medium mb-2">Modo:</label>
-                    <select id="quiz-mode-admin" class="w-full p-2 border rounded mb-3">
-                        <option value="normal">Normal - Todos los temas</option>
-                        <option value="tema">Repaso por Tema</option>
-                    </select>
-                </div>
-                
-                <div id="tema-selector-admin" class="mt-3 hidden">
-                    <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
-                    <select id="tema-select-admin" class="w-full p-2 border rounded">
-                        <option value="Tema 1">Tema 1: Introducción a la Administración de Sistemas</option>
-                        <option value="Tema 2">Tema 2: Administración de servidores Linux</option>
-                        <option value="Tema 3">Tema 3: Guía de estudio de bash</option>
-                        <option value="Tema 4">Tema 4: Automatización de instalación y configuración en Linux</option>
-                        <option value="Tema 5">Tema 5: Administración básica de sistema operativo en Linux</option>
-                        <option value="Tema 6">Tema 6: Administración de servidores Windows</option>
-                        <option value="Tema 7">Tema 7: Guía de estudio de PowerShell</option>
-                        <option value="Tema 8">Tema 8: Automatización de instalación y configuración en Windows</option>
-                        <option value="Tema 9">Tema 9: Administración básica de sistema operativo en Windows</option>
-                        <option value="Tema 10">Tema 10: Instalación y administración en cloud</option>
-                    </select>
-                </div>
-                
-                <div class="mt-4">
-                    <label class="block text-sm font-medium mb-2">Cantidad de preguntas:</label>
-                    <input type="number" id="num-questions-admin" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
-                </div>
-                <button onclick="selectSubject('adminsistemas')" class="mt-auto w-full bg-green-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-green-700">Comenzar Quiz</button>
-            </div>
-            
-            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
-                <i class="fas fa-cloud-upload-alt text-4xl text-purple-600 mb-3"></i>
-                <h3 class="text-xl font-bold mb-2 text-gray-900">Cloud Computing, DevOps y Cultura DevOps</h3>
-                <p class="text-sm text-gray-600 mb-4">30 preguntas disponibles</p>
-                
-                <div class="flex-grow"></div>
-                
-                <div class="mt-4">
-                    <label class="block text-sm font-medium mb-2">Modo:</label>
-                    <select id="quiz-mode-cloud" class="w-full p-2 border rounded mb-3">
-                        <option value="normal">Normal - Todos los temas</option>
-                        <option value="tema">Repaso por Tema</option>
-                    </select>
-                </div>
-                
-                <div id="tema-selector-cloud" class="mt-3 hidden">
-                    <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
-                    <select id="tema-select-cloud" class="w-full p-2 border rounded">
-                        <option value="Tema 1">Tema 1: ¿Qué es DevOps?</option>
-                        <option value="Tema 2">Tema 2: Cultura de la Colaboración</option>
-                        <option value="Tema 3">Tema 3: DevOps Dojos</option>
-                        <option value="Tema 4">Tema 4: Tecnologías de Virtualización</option>
-                        <option value="Tema 5">Tema 5: Casos de Uso de Virtualización</option>
-                        <option value="Tema 6">Tema 6: Cloud Computing</option>
-                        <option value="Tema 7">Tema 7: Amazon Web Services</option>
-                        <option value="Tema 8">Tema 8: Infraestructura como Código</option>
-                        <option value="Tema 9">Tema 9: Monitorización</option>
-                        <option value="Tema 10">Tema 10: Visualización y Alarmas</option>
-                    </select>
-                </div>
-                
-                <div class="mt-4">
-                    <label class="block text-sm font-medium mb-2">Cantidad de preguntas:</label>
-                    <input type="number" id="num-questions-cloud" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
-                </div>
-                <button onclick="selectSubject('clouddevops')" class="mt-auto w-full bg-purple-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-purple-700">Comenzar Quiz</button>
-            </div>
-            
-            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
                 <i class="fas fa-cogs text-4xl text-indigo-600 mb-3"></i>
                 <h3 class="text-xl font-bold mb-2 text-gray-900">Herramientas DevOps</h3>
-                <p class="text-sm text-gray-600 mb-4">30 preguntas disponibles</p>
+                <p class="text-sm text-gray-600 mb-4">0 preguntas disponibles</p>
                 
                 <div class="flex-grow"></div>
                 
@@ -185,44 +72,6 @@
                     <input type="number" id="num-questions-herramientas" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
                 </div>
                 <button onclick="selectSubject('herramientasdevops')" class="mt-auto w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700">Comenzar Quiz</button>
-            </div>
-            
-            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
-                <i class="fas fa-robot text-4xl text-orange-600 mb-3"></i>
-                <h3 class="text-xl font-bold mb-2 text-gray-900">Herramientas de Automatización de Despliegues</h3>
-                <p class="text-sm text-gray-600 mb-4">30 preguntas disponibles</p>
-                
-                <div class="flex-grow"></div>
-                
-                <div class="mt-4">
-                    <label class="block text-sm font-medium mb-2">Modo:</label>
-                    <select id="quiz-mode-automatizacion" class="w-full p-2 border rounded mb-3">
-                        <option value="normal">Normal - Todos los temas</option>
-                        <option value="tema">Repaso por Tema</option>
-                    </select>
-                </div>
-                
-                <div id="tema-selector-automatizacion" class="mt-3 hidden">
-                    <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
-                    <select id="tema-select-automatizacion" class="w-full p-2 border rounded">
-                        <option value="Tema 00">Tema 00: Entornos de pruebas (Vagrant, WSL)</option>
-                        <option value="Tema 01">Tema 01: Puppet - Introducción e instalación</option>
-                        <option value="Tema 02">Tema 02: Puppet - Utilización</option>
-                        <option value="Tema 03">Tema 03: Chef - Introducción e instalación</option>
-                        <option value="Tema 04">Tema 04: Chef - Pruebas unitarias y de integración</option>
-                        <option value="Tema 05">Tema 05: Ansible - Introducción e instalación</option>
-                        <option value="Tema 06">Tema 06: Ansible - Inventario</option>
-                        <option value="Tema 07">Tema 07: Ansible - Instalación de WordPress</option>
-                        <option value="Tema 08">Tema 08: Roles de Ansible</option>
-                        <option value="Tema 09">Tema 09: Variables de Ansible</option>
-                    </select>
-                </div>
-                
-                <div class="mt-4">
-                    <label class="block text-sm font-medium mb-2">Cantidad de preguntas:</label>
-                    <input type="number" id="num-questions-automatizacion" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
-                </div>
-                <button onclick="selectSubject('automatizacion')" class="mt-auto w-full bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-orange-700">Comenzar Quiz</button>
             </div>
             
             <button onclick="viewStats()" class="bg-purple-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
