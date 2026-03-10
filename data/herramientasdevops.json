@@ -598,5 +598,605 @@
     ],
     "answer": "Go",
     "explanation": "Tema 5: Terraform - Terraform está escrito en el lenguaje de programación Go."
+  },
+  {
+    "tema": "Tema 6: Terraform: casos de uso avanzado",
+    "question": "El estado de Terraform:",
+    "options": [
+      "No existe, ya que es un único binario y no puede guardar estado",
+      "C y D son correctas",
+      "Es configurable y permite diferentes backends",
+      "Por defecto usa ficheros en disco de la máquina"
+    ],
+    "answer": "C y D son correctas",
+    "explanation": "Tema 6: Terraform - El estado de Terraform es configurable y por defecto usa ficheros locales."
+  },
+  {
+    "tema": "Tema 6: Terraform: casos de uso avanzado",
+    "question": "El recurso aws_instance:",
+    "options": [
+      "Puede utilizarse solo con un único provider de Amazon",
+      "Puede utilizarse con varios providers porque terraform es multicloud",
+      "Puede utilizarse con un provider del tipo aws asignado por defecto o asociarlo a otro provider por nombre",
+      "Ninguna de las respuestas es correcta"
+    ],
+    "answer": "Puede utilizarse con un provider del tipo aws asignado por defecto o asociarlo a otro provider por nombre",
+    "explanation": "Tema 6: Terraform - El recurso aws_instance está asociado a AWS y utiliza el provider por defecto si no se enlaza a una explícitamente."
+  },
+  {
+    "tema": "Tema 6: Terraform: casos de uso avanzado",
+    "question": "Los provisioners:",
+    "options": [
+      "Se asocian a un provider",
+      "Son lo mismo que los providers",
+      "Se utilizan a nivel superior del fichero",
+      "Se asocian a un recurso"
+    ],
+    "answer": "Se asocian a un recurso",
+    "explanation": "Tema 6: Terraform - Los provisioners (no confundir con providers) se definen dentro de un recurso."
+  },
+  {
+    "tema": "Tema 6: Terraform: casos de uso avanzado",
+    "question": "Un fallo en un provisioner:",
+    "options": [
+      "Destruirá el recurso sobre el que falló ya que este es invalido",
+      "Deja el recurso marcado como contaminado",
+      "B y D son correctas",
+      "La próxima vez que se ejecute un plan terraform planificará destruirlo"
+    ],
+    "answer": "B y D son correctas",
+    "explanation": "Tema 6: Terraform - Los fallos en los provisioner dejan el recurso como contaminado, pero no lo destruyen, ya que no estaba en el plan. La próxima ejecución planificará destruirlo."
+  },
+  {
+    "tema": "Tema 6: Terraform: casos de uso avanzado",
+    "question": "Los archivos terraform.tfvars:",
+    "options": [
+      "Permiten definir el tipo de variables que luego serán pasadas por la línea de comandos individualmente",
+      "C y D son correctas",
+      "Son cargados automáticamente por Terraform",
+      "Definen los valores de variables"
+    ],
+    "answer": "C y D son correctas",
+    "explanation": "Tema 6: Terraform - Los ficheros con el nombre terraform.tfvars o el patrón *.auto.tfvars son cargados automáticamente y contienen asignaciones de valores de variables."
+  },
+  {
+    "tema": "Tema 6: Terraform: casos de uso avanzado",
+    "question": "¿Qué orden se utiliza para el valor de variables en terraform si hay más de uno definido (aplica el primero que se encuentra)?",
+    "options": [
+      "Variables desde un archivo, variables de entorno, variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable",
+      "Variables de entorno, variables desde un archivo, variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable",
+      "Variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable y variables de entorno",
+      "Las variables solo pueden asignarse en su definición"
+    ],
+    "answer": "Variables de entorno, variables desde un archivo, variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable",
+    "explanation": "Tema 6: Terraform - El orden está definido por Terraform y lo aplicará automáticamente."
+  },
+  {
+    "tema": "Tema 6: Terraform: casos de uso avanzado",
+    "question": "Los tipos de variable compuestos de Terraform son:",
+    "options": [
+      "El recurso, provider y provisioner",
+      "La lista (list) y el mapa (map)",
+      "El fichero y el módulo",
+      "La cadena de texto y el número"
+    ],
+    "answer": "La lista (list) y el mapa (map)",
+    "explanation": "Tema 6: Terraform - Terraform permite, además de los tipos básicos, tipos compuestos como list y map."
+  },
+  {
+    "tema": "Tema 6: Terraform: casos de uso avanzado",
+    "question": "Terraform soporta nativamente los ficheros de configuración como:",
+    "options": [
+      "Ficheros en formato .tf",
+      "Ficheros en formato .json",
+      "Ficheros en formato.tf y en formato .json",
+      "Ficheros en formato .md"
+    ],
+    "answer": "Ficheros en formato.tf y en formato .json",
+    "explanation": "Tema 6: Terraform - Terraform soporta tanto el lenguaje de Terraform como .json."
+  },
+  {
+    "tema": "Tema 6: Terraform: casos de uso avanzado",
+    "question": "Los módulos:",
+    "options": [
+      "Deben definir variables de entrada",
+      "Contienen el atributo source, que especifica de dónde recuperar el módulo",
+      "Los módulos no pueden definir salidas",
+      "Todas las respuestas son correctas"
+    ],
+    "answer": "Contienen el atributo source, que especifica de dónde recuperar el módulo",
+    "explanation": "Tema 6: Terraform - Las variables de entrada son opcionales, se pueden definir salidas y el atributo source es requerido."
+  },
+  {
+    "tema": "Tema 6: Terraform: casos de uso avanzado",
+    "question": "Los backends remotos:",
+    "options": [
+      "Permiten almacenar que recursos se han desplegado por Terraform para poder aplicar actualizaciones",
+      "No soportan Consul o AWS S3",
+      "Sirven principalmente para obtener ficheros de configuración que subir a máquinas virtuales",
+      "No se pueden consultar desde la línea de comandos de Terraform"
+    ],
+    "answer": "Permiten almacenar que recursos se han desplegado por Terraform para poder aplicar actualizaciones",
+    "explanation": "Tema 6: Terraform - Los backend remotos almacenan la información que se ha recopilado sobre el estado de los despliegues incluyendo valores dinámicos y los recursos contaminados."
+  },
+  {
+    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
+    "question": "¿Qué tipo de herramienta es ElasticSearch?",
+    "options": [
+      "Una base de datos transaccional",
+      "Un almacén de datos especializado en el tratamiento de logs y filtros por claves específicas",
+      "Un motor de búsqueda de propósito general frecuentemente usado para logs",
+      "Un procesador de logs"
+    ],
+    "answer": "Un motor de búsqueda de propósito general frecuentemente usado para logs",
+    "explanation": "Tema 7: ElasticSearch - ElasticSearch es un motor de búsqueda que, aunque es muy utilizado para logs, también es usado como motor de búsqueda general."
+  },
+  {
+    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
+    "question": "ElasticSearch almacena los datos en:",
+    "options": [
+      "Tablas",
+      "Colecciones",
+      "Índices",
+      "Grafos"
+    ],
+    "answer": "Índices",
+    "explanation": "Tema 7: ElasticSearch - Los documentos en ElasticSearch se añaden a índices que permiten la búsqueda rápida de estos datos."
+  },
+  {
+    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
+    "question": "ElasticSearch se utiliza para los siguientes casos de uso:",
+    "options": [
+      "Soportar la búsqueda en aplicaciones web",
+      "Almacenar y procesar logs y otra información telemétrica",
+      "Todas las otras respuestas son correctas",
+      "Almacenamiento de datos geográficos"
+    ],
+    "answer": "Todas las otras respuestas son correctas",
+    "explanation": "Tema 7: ElasticSearch - ElasticSearch tiene muchas capacidades y es utilizado en todos estos dominios."
+  },
+  {
+    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
+    "question": "Cada documento almacenado en ElasticSearch:",
+    "options": [
+      "Tiene una serie de campos simples correspondientes a las columnas definidos en el índice",
+      "Está representado por un documento JSON soportando valores anidados",
+      "Cada campo puede tener un único valor",
+      "Por defecto, ningún campo se indexa"
+    ],
+    "answer": "Está representado por un documento JSON soportando valores anidados",
+    "explanation": "Tema 7: ElasticSearch - ElasticSearch almacena documentos JSON en sus documentos y por defecto indexa cada uno de los campos, que pueden tener varios valores almacenando una lista."
+  },
+  {
+    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
+    "question": "¿Para qué sirve Rollup?",
+    "options": [
+      "Para agrupar resultados de documentos en una Query",
+      "Para condensar valores históricos reduciendo su consumo",
+      "Para agrupar resultados de campos en una Query",
+      "Rollup no es una funcionalidad de ElasticSearch"
+    ],
+    "answer": "Para condensar valores históricos reduciendo su consumo",
+    "explanation": "Tema 7: ElasticSearch - Rollup permite agrupar valores históricos y proporcionar una forma de hacer queries sobre ellos transparente."
+  },
+  {
+    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
+    "question": "¿Qué son los índices congelados o frozen indexes?",
+    "options": [
+      "Una feature promocional realizada junto con Disney para conmemorar la segunda película",
+      "Una forma de liberar los índices en memoria casi completamente sin perder la opción de poder recuperar los datos",
+      "Una forma de liberar los índices en memoria sin afectar a la velocidad de las consultas",
+      "Los índices congelados no existen, solo los campos congelados"
+    ],
+    "answer": "Una forma de liberar los índices en memoria casi completamente sin perder la opción de poder recuperar los datos",
+    "explanation": "Tema 7: ElasticSearch - Los índices congelados permiten liberar recursos de memoria para índices que no se acceden frecuentemente a cambio de ralentizar las consultas y obligar a los datos a ser cargados cuando se consultan."
+  },
+  {
+    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
+    "question": "¿Cómo se crea un índice?",
+    "options": [
+      "Se crea únicamente mediante la UI de Kibana",
+      "Se crea mediante una petición GET a /elasticsearch/docs/indexes/newIndex",
+      "Se puede crear simplemente añadiendo un documento al índice mediante PUT /index_name/_doc/ID",
+      "Solo se puede crear adjuntando el tipo de esquema para todos los campos"
+    ],
+    "answer": "Se puede crear simplemente añadiendo un documento al índice mediante PUT /index_name/_doc/ID",
+    "explanation": "Tema 7: ElasticSearch - Los índices en ElasticSearch se pueden crear dinámicamente simplemente insertando un documento."
+  },
+  {
+    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
+    "question": "¿Cómo se obtiene el valor de un valor en ElasticSearch mediante su índice?",
+    "options": [
+      "No se puede, ya que en ElasticSearch todas las consultas deben ser de texto",
+      "Mediante GET /getDocumentByKey/document_id/index_id",
+      "Mediante GET /index_name/_doc/id",
+      "Mediante Kibana exclusivamente"
+    ],
+    "answer": "Mediante GET /index_name/_doc/id",
+    "explanation": "Tema 7: ElasticSearch - Esta es la consulta correcta."
+  },
+  {
+    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
+    "question": "En ElasticSearch los documentos se pueden incluir:",
+    "options": [
+      "Individualmente realizando un PUT mediante su document Id",
+      "En batches realizando un POST al endpoint _bulk del índice",
+      "Mediante otras herramientas como Beats",
+      "Todas las otras respuestas son correctas"
+    ],
+    "answer": "Todas las otras respuestas son correctas",
+    "explanation": "Tema 7: ElasticSearch - Todas las respuestas documentan formas explicadas en la lección sobre cómo enviar documentos a ElasticSearch."
+  },
+  {
+    "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
+    "question": "Las agregaciones en ElasticSearch son de tipo:",
+    "options": [
+      "Métricas",
+      "De Matriz",
+      "De pipeline",
+      "Todas las otras respuestas son correctas"
+    ],
+    "answer": "Todas las otras respuestas son correctas",
+    "explanation": "Tema 7: ElasticSearch - Estos son los tipos principales de agregaciones en ElasticSearch."
+  },
+  {
+    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
+    "question": "¿Cuáles son las principales ventajas de Beats frente a Logstash?",
+    "options": [
+      "Su menor consumo de recursos y su fácil mantenimiento",
+      "Su gran capacidad para procesar los datos en el propio proceso antes de enviarlos",
+      "Su capacidad para enviar a muchos más destinos que Logstash",
+      "El estar escritos en Java frente a Go utilizado para Logstash"
+    ],
+    "answer": "Su menor consumo de recursos y su fácil mantenimiento",
+    "explanation": "Tema 8: Beats - Beats tienen un menor consumo de recursos, especialmente de memoria, frente a otras soluciones."
+  },
+  {
+    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
+    "question": "¿Cuál de los siguientes patrones de comunicación son comúnmente utilizados?",
+    "options": [
+      "Filebeats -> Logstash -> ElasticSearch",
+      "Logstash -> Metricbeats -> ElasticSearch",
+      "Metricbeats -> ElasticSearch",
+      "A y C son correctas"
+    ],
+    "answer": "A y C son correctas",
+    "explanation": "Tema 8: Beats - Beats es frecuentemente utilizado para enviar datos tanto con ElasticSearch como con Logstash pero no son utilizados para recibir datos desde la red."
+  },
+  {
+    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
+    "question": "AuditBeat:",
+    "options": [
+      "C y D son correctas",
+      "Permite obtener información de audio",
+      "Permite auditar que los ficheros del sistema no han sido modificados",
+      "Es frecuentemente utilizado para detectar intrusiones"
+    ],
+    "answer": "C y D son correctas",
+    "explanation": "Tema 8: Beats - AuditBeat comprueba el contenido de ficheros esenciales del sistema."
+  },
+  {
+    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
+    "question": "Algunos componentes de Beats son:",
+    "options": [
+      "PacketBeat, que permite analizar el tráfico de red inspeccionando paquetes",
+      "WinlogBeat, que permite capturar logs del sistema en equipos Windows",
+      "HeartBeat, que permite enviar mensajes periódicamente para asegurarse de que la conectividad es correcta",
+      "Todos los anteriores son correctos"
+    ],
+    "answer": "Todos los anteriores son correctos",
+    "explanation": "Tema 8: Beats - Todos los anteriores son Beats oficiales de Elastic.co."
+  },
+  {
+    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
+    "question": "Los beats se configuran mediante:",
+    "options": [
+      "Una serie de ficheros en disco",
+      "Un único fichero YAML",
+      "Un único fichero XLM",
+      "Un único fichero TOML"
+    ],
+    "answer": "Un único fichero YAML",
+    "explanation": "Tema 8: Beats - Beats utiliza un fichero YAML para su configuración."
+  },
+  {
+    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
+    "question": "El formato YAML:",
+    "options": [
+      "B y C son correctas",
+      "La indentación permite hacer más fácil de leer YAML, pero no es considerada para parsear el formato",
+      "Permite expresar todos los tipos de JSON como las listas y los objetos",
+      "Es más fácil de leer y escribir por humanos que JSON"
+    ],
+    "answer": "B y C son correctas",
+    "explanation": "Tema 8: Beats - YAML considera la indentación de forma semántica."
+  },
+  {
+    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
+    "question": "En un fichero de YAML para beats:",
+    "options": [
+      "off sin comillas es interpretado como el boolean false",
+      "6ms representa 6 milisegundos en muchos parámetros",
+      "yes es interpretado como el boolean true",
+      "Todas las respuestas son correctas"
+    ],
+    "answer": "Todas las respuestas son correctas",
+    "explanation": "Tema 8: Beats - Todos estos son patrones que vienen o bien de YAML 1.1 o de convenciones en Beats."
+  },
+  {
+    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
+    "question": "Si necesitamos utilizar el valor de una variable de entorno en el fichero de configuración de Beats:",
+    "options": [
+      "B y D son correctas",
+      "Podemos usar %{ENVIRONMENT_VARIABLE} para usar ese valor en strings",
+      "Necesitaríamos preprocesar el YAML con otro programa, ya que Beats no soporta variables de entorno",
+      "Es recomendable dar un valor por defecto dentro del fichero de configuración mediante %{ENVIRONMENT_VARIABLE:valor por defecto}"
+    ],
+    "answer": "B y D son correctas",
+    "explanation": "Tema 8: Beats - Es posible utilizar variables de entorno, aunque es conveniente darles un valor por defecto."
+  },
+  {
+    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
+    "question": "Si necesitamos cambiar el valor de una variable sin cambiar el fichero de configuración:",
+    "options": [
+      "Podemos modificar parte mediante el argumento -e",
+      "Si utilizamos el nombre correcto de la variable de entorno podemos cambiar cualquier valor de configuración",
+      "Si utiliza interpolación de variables de entorno, podemos cambiarlo pasando esa variable de entorno",
+      "A y C son correctos"
+    ],
+    "answer": "A y C son correctos",
+    "explanation": "Tema 8: Beats - El argumento -e se utiliza frecuentemente cuando estamos realizando pruebas y podemos utilizar la interpolación de variable o cambiar el valor en el fichero para un uso más permanente."
+  },
+  {
+    "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
+    "question": "¿Cuál de las siguientes afirmaciones sobre Filebeats es más correcta?",
+    "options": [
+      "Procesa los ficheros indicados enviando un mensaje por cada línea",
+      "Procesa los ficheros indicados enviando un mensaje por cada línea, a no ser que se utilice la opción multiline",
+      "Procesa los ficheros indicados mediante el tipo log enviando un mensaje por cada línea, a no ser que se utilice la opción multiline",
+      "Procesa los ficheros por TCP indicados mediante el tipo de log enviando un mensaje por cada línea, a no ser que se utilice la opción multiline"
+    ],
+    "answer": "Procesa los ficheros indicados mediante el tipo log enviando un mensaje por cada línea, a no ser que se utilice la opción multiline",
+    "explanation": "Tema 8: Beats - Es correcto, pero los ficheros se leen de disco con la opción log, no por TCP."
+  },
+  {
+    "tema": "Tema 9: Dashboards con Kibana",
+    "question": "¿Cuál de los siguientes NO es un caso de uso frecuente para Kibana?",
+    "options": [
+      "Exploración de datos almacenados en ElasticSearch",
+      "Análisis de datos de logs",
+      "Creación de imágenes para el despliegue de instancias",
+      "Gestión de una instalación de Elastic Stack"
+    ],
+    "answer": "Creación de imágenes para el despliegue de instancias",
+    "explanation": "Tema 9: Kibana - Este caso de uso no se resuelve con Kibana."
+  },
+  {
+    "tema": "Tema 9: Dashboards con Kibana",
+    "question": "Los Spaces:",
+    "options": [
+      "Es el nombre que reciben los índices de ElasticSearch en Kibana",
+      "Permite separar las vistas, paneles y el acceso a diferentes índices",
+      "Deben ser configurados en Beats",
+      "Definen cuanto espacio va a consumir Kibana en los índices"
+    ],
+    "answer": "Permite separar las vistas, paneles y el acceso a diferentes índices",
+    "explanation": "Tema 9: Kibana - Spaces permiten separar las vistas, paneles y diferentes índices."
+  },
+  {
+    "tema": "Tema 9: Dashboards con Kibana",
+    "question": "La funcionalidad de Discovery se usa principalmente para:",
+    "options": [
+      "Buscar datos filtrando resultados de búsqueda",
+      "Ver eventos que ocurrieron justo antes o después de un documento",
+      "Todas las respuestas son correctas",
+      "Obtener detalles de los campos que coinciden con una búsqueda"
+    ],
+    "answer": "Todas las respuestas son correctas",
+    "explanation": "Tema 9: Kibana - Kibana soporta todos estos casos de uso con Discovery."
+  },
+  {
+    "tema": "Tema 9: Dashboards con Kibana",
+    "question": "La función de Visualize:",
+    "options": [
+      "Está diseñada para visualizar los diferentes nodos de ElasticSearch y cómo se comunican entre ellos",
+      "Permite visualizar datos en gráficos basados en una consulta",
+      "Está diseñada para visualizar los diferentes nodos de Beats y Logstash y cómo se conectan con Kibana",
+      "Está pensada para mostrar cómo se conectan los nodos de Beats entre ellos y con Kibana"
+    ],
+    "answer": "Permite visualizar datos en gráficos basados en una consulta",
+    "explanation": "Tema 9: Kibana - Visualize permite generar gráficos basados en agregaciones sobre los resultados de una consulta."
+  },
+  {
+    "tema": "Tema 9: Dashboards con Kibana",
+    "question": "Los siguientes son gráficos soportados por Visualize:",
+    "options": [
+      "Todas las respuestas son correctas",
+      "Mapas de calor",
+      "Tablas de datos",
+      "Series temporales"
+    ],
+    "answer": "Todas las respuestas son correctas",
+    "explanation": "Tema 9: Kibana - Visualize soporta gran cantidad de gráficos distintos incluyendo los que están en las respuestas."
+  },
+  {
+    "tema": "Tema 9: Dashboards con Kibana",
+    "question": "Es posible utilizar una visualización generada por Visualize mediante:",
+    "options": [
+      "Su inclusión en un Dashboard",
+      "La generación de un informe en PDF",
+      "A y B son correctas",
+      "Su incrustación en una página web con su propia autenticación distinta a la de Kibana"
+    ],
+    "answer": "A y B son correctas",
+    "explanation": "Tema 9: Kibana - Se puede incrustar en una página web pero utiliza la misma autenticación que Kibana."
+  },
+  {
+    "tema": "Tema 9: Dashboards con Kibana",
+    "question": "La aplicación de métricas:",
+    "options": [
+      "Permite mostrar todo tipo de métricas, centrándose en las métricas derivadas de una señal como puede ser la desviación típica o varianza",
+      "Se centra en inspeccionar las métricas básicas para servidores, contenedores y otros servicios comunes",
+      "Permite analizar el detalle de una métrica para un servidor concreto",
+      "B y C son correctos"
+    ],
+    "answer": "Se centra en inspeccionar las métricas básicas para servidores, contenedores y otros servicios comunes",
+    "explanation": "Tema 9: Kibana - La aplicación de métricas se centra en mostrar una representación más compacta y en vivo de los eventos de logs. Discovery puede mostrar también los logs sin problema y es usada para esto también."
+  },
+  {
+    "tema": "Tema 9: Dashboards con Kibana",
+    "question": "¿Cuáles son las principales diferencias de la aplicación de logs respecto a Discovery?",
+    "options": [
+      "La aplicación de logs solo muestra logs, mientras la aplicación de Discovery solo muestra eventos. Muestran distintos datos",
+      "A y C son correctos",
+      "La aplicación de logs muestra eventos de logs pero en una representación más compacta y hace cómodo mantener una transmisión en vivo frente a Discovery",
+      "Discovery no muestra los logs a no ser que sobrescribamos los índices en Beats"
+    ],
+    "answer": "La aplicación de logs muestra eventos de logs pero en una representación más compacta y hace cómodo mantener una transmisión en vivo frente a Discovery",
+    "explanation": "Tema 9: Kibana - La aplicación de logs se centra en mostrar una representación más compacta y en vivo de los eventos de logs. Discovery puede mostrar también los logs sin problema y es usada para esto también."
+  },
+  {
+    "tema": "Tema 9: Dashboards con Kibana",
+    "question": "En Kibana:",
+    "options": [
+      "Es posible habilitar un análisis de anomalías",
+      "Se pueden habilitar diferentes aplicaciones dependiendo de los casos de usos que necesitemos",
+      "Todas las respuestas son correctas",
+      "Es posible monitorizar contenedores si lo combinamos con el Beat correcto"
+    ],
+    "answer": "Todas las respuestas son correctas",
+    "explanation": "Tema 9: Kibana - Todas las anteriores son capacidades de Kibana."
+  },
+  {
+    "tema": "Tema 9: Dashboards con Kibana",
+    "question": "En la aplicación de logs:",
+    "options": [
+      "No es posible especificar la hora u fecha, siempre veremos los últimos datos. Para datos históricos es necesario usar Discovery",
+      "Todas las otras respuestas son incorrectas",
+      "Si necesitamos añadir algún campo adicional deberemos utilizar la función de Discovery",
+      "Si queremos inspeccionar los detalles de un log, es necesario copiar su identificador e ir a Discovery o ElasticSearch para ver más detalles"
+    ],
+    "answer": "Todas las otras respuestas son incorrectas",
+    "explanation": "Tema 9: Kibana - Es posible especificar un rango de tiempo, configurar los campos por defecto y ver los detalles de un evento mediante un menú desplegable."
+  },
+  {
+    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
+    "question": "Los datos de APM se recopilan mediante:",
+    "options": [
+      "Logstash",
+      "Filebeat",
+      "Metricbeat",
+      "La librería de agentes de APM"
+    ],
+    "answer": "La librería de agentes de APM",
+    "explanation": "Tema 10: APM - Los datos se recopilan dentro de los procesos mediante la librería de agentes."
+  },
+  {
+    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
+    "question": "Es necesario un servidor APM:",
+    "options": [
+      "Sí, ya que el servidor APM almacena los datos que luego son servidos desde Kibana APM",
+      "Sí, ya que los datos son recopilados por el APM server accediendo a las aplicaciones desde el",
+      "Sí, ya que recopila los datos enviados al mismo mediante la librería de APM y luego los envía a ElasticSearch",
+      "No, ya que los datos son recopilados por el agente de APM y enviados directamente a Kibana"
+    ],
+    "answer": "Sí, ya que recopila los datos enviados al mismo mediante la librería de APM y luego los envía a ElasticSearch",
+    "explanation": "Tema 10: APM - Los datos son recopilados por la librería para agentes de APM y enviados al servidor de APM, que luego los almacena en ElasticSearch."
+  },
+  {
+    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
+    "question": "Los filtros contextuales:",
+    "options": [
+      "Se siguen aplicando aun cuando nos movemos por las diferentes funcionalidades siempre",
+      "Son diferentes a los filtros globales que siempre se mueven con nosotros",
+      "La B y D son correctas",
+      "Se mueven con nosotros pero solo cuando siguen aplicando en la nueva página"
+    ],
+    "answer": "La B y D son correctas",
+    "explanation": "Tema 10: APM - Los filtros contextuales se mueven con nosotros pero solo cuando siguen aplicando en la nueva página."
+  },
+  {
+    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
+    "question": "Los Servicios:",
+    "options": [
+      "Representan una petición servida a un cliente",
+      "Nos permiten analizar el tiempo de respuesta de una transacción en concreto fácilmente",
+      "Nos permiten analizar el tiempo de respeta, transacciones y errores que pasan por ese componente o servicio",
+      "Todas las respuestas son correctas"
+    ],
+    "answer": "Nos permiten analizar el tiempo de respeta, transacciones y errores que pasan por ese componente o servicio",
+    "explanation": "Tema 10: APM - Los servicios no representan una petición, aunque analizan todas las transacciones que pasan por el servicio en agregado."
+  },
+  {
+    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
+    "question": "Cuando analizamos una traza específica en APM:",
+    "options": [
+      "Podemos ver cuánto tiempo consume en cada una de las transacciones que ha generado",
+      "Podemos ver los diferentes servicios o Spans que ha recorrido",
+      "Todas las respuestas son correctas",
+      "Podemos ver tanto las partes que se han ejecutado en paralelo como de forma anidada"
+    ],
+    "answer": "Todas las respuestas son correctas",
+    "explanation": "Tema 10: APM - Las trazas permiten agregar transacciones en diferentes servicios y visualizar cuánto tiempo ha consumido cada parte."
+  },
+  {
+    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
+    "question": "La vista de transacciones:",
+    "options": [
+      "Permite ver los errores categorizados por tipo de error para ver su impacto en la aplicación",
+      "Son una parte de Kibana Discovery y no de APM",
+      "Nos permite analizar las transacciones en agregado para ver las que se están llamando más frecuentemente y las que duran más",
+      "Todas las respuestas anteriores son correctas"
+    ],
+    "answer": "Nos permite analizar las transacciones en agregado para ver las que se están llamando más frecuentemente y las que duran más",
+    "explanation": "Tema 10: APM - La página de transacciones nos permite ver agregados de las diferentes transacciones."
+  },
+  {
+    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
+    "question": "¿Qué es SLO?",
+    "options": [
+      "Sistema Logístico Ortogonal",
+      "Service Level Objetive, objetivo a nivel de servicio",
+      "System Logical Objectives, sistema de objetivos lógicos",
+      "Survey Linguistic Oriented, encuesta lingüística orientada"
+    ],
+    "answer": "Service Level Objetive, objetivo a nivel de servicio",
+    "explanation": "Tema 10: APM - Es Service Level Objective, nuestro objetivo de nivel de servicio."
+  },
+  {
+    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
+    "question": "¿Es posible monitorizar un proceso Java?",
+    "options": [
+      "Sí, desde fuera analizando el consumo de CPU y Memoria general en la máquina",
+      "Todas las respuestas son correctas",
+      "Sí, obteniendo métricas propias de la JVM como Heap Memory o GC por minuto",
+      "Sí, analizando las transacciones que cruzan el sistema para ver como esto operando"
+    ],
+    "answer": "Todas las respuestas son correctas",
+    "explanation": "Tema 10: APM - Todas las respuestas muestran diferentes facetas que se pueden utilizar para monitorizar procesos y componentes Java."
+  },
+  {
+    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
+    "question": "¿Qué es el componente Watcher?",
+    "options": [
+      "Un componente que permite enviar alertas a otros sistemas cuando se cumplen condiciones específicadas",
+      "Un componente que monitoriza la performance de ElasticSearch respecto a consultas",
+      "Un componente dentro de Beats, WatcherBeats, que vigila a los vigilantes",
+      "Un componente que comprueba que los Beats están funcionando, enviándoles mensajes"
+    ],
+    "answer": "Un componente que permite enviar alertas a otros sistemas cuando se cumplen condiciones específicadas",
+    "explanation": "Tema 10: APM - Watcher es un componente no Open Source de la suite de Elastic que permite enviar alerta reaccionando a ciertos eventos y reglas."
+  },
+  {
+    "tema": "Tema 10: Monitorización del rendimiento de aplicaciones con APM",
+    "question": "¿Qué es RUM?",
+    "options": [
+      "Runtime Update Management, un tipo de actualización de configuración de Beats en vivo",
+      "Real User Monitoring, un tipo de agente y dashboard para clientes JavaScript en el navegador",
+      "Realtime Unknown Model, un tipo de aprendizaje automático no asistido",
+      "Round Urgent Monitoring, un tipo de monitorización para alertas urgentes"
+    ],
+    "answer": "Real User Monitoring, un tipo de agente y dashboard para clientes JavaScript en el navegador",
+    "explanation": "Tema 10: APM - Real User Monitoring es un tipo de monitorización pasiva para agentes web y en Elastic un tipo de agente y dashboard para ese tipo de monitorización."
   }
 ]
