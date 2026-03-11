@@ -715,3 +715,107 @@ async function viewStats() {
 function closeStats() {
     document.getElementById('stats-modal').classList.add('hidden');
 }
+
+// Funciones para Pregunta Práctica
+function startPracticalQuestion() {
+    if (!currentUser) {
+        alert('⚠️ Debes iniciar sesión con Google primero para guardar tu respuesta');
+        return;
+    }
+    
+    document.getElementById('subject-selector').classList.add('hidden');
+    document.getElementById('practical-question-content').classList.remove('hidden');
+    
+    // Cargar respuesta guardada si existe
+    loadPracticalAnswer();
+}
+
+async function loadPracticalAnswer() {
+    if (!currentUser) return;
+    
+    try {
+        const snapshot = await get(ref(database, `users/${currentUser.uid}/practicalAnswer`));
+        if (snapshot.exists()) {
+            const answers = snapshot.val();
+            for (let i = 1; i <= 6; i++) {
+                const textarea = document.getElementById(`answer-${i}`);
+                if (textarea && answers[`answer${i}`]) {
+                    textarea.value = answers[`answer${i}`];
+                }
+            }
+        }
+    } catch (error) {
+        console.error('Error cargando respuesta:', error);
+    }
+}
+
+async function savePracticalAnswer() {
+    if (!currentUser) {
+        alert('⚠️ Debes iniciar sesión para guardar');
+        return;
+    }
+    
+    const answers = {};
+    for (let i = 1; i <= 6; i++) {
+        const textarea = document.getElementById(`answer-${i}`);
+        if (textarea) {
+            answers[`answer${i}`] = textarea.value;
+        }
+    }
+    
+    answers.lastSaved = new Date().toISOString();
+    
+    try {
+        await set(ref(database, `users/${currentUser.uid}/practicalAnswer`), answers);
+        
+        const statusDiv = document.getElementById('save-status');
+        statusDiv.classList.remove('hidden');
+        setTimeout(() => statusDiv.classList.add('hidden'), 3000);
+    } catch (error) {
+        alert('Error guardando respuesta: ' + error.message);
+    }
+}
+
+function exportPracticalAnswer() {
+    const answers = {};
+    for (let i = 1; i <= 6; i++) {
+        const textarea = document.getElementById(`answer-${i}`);
+        if (textarea) {
+            answers[`Criterio ${i}`] = textarea.value;
+        }
+    }
+    
+    const criterios = [
+        'Fases del Ciclo de vida DevOps para CI/CD',
+        'Explicación de las herramientas a utilizar y justificación',
+        'Orden del despliegue de la solución',
+        'Ejemplo de los ficheros de cada herramienta y cómo se complementan',
+        'Configuraciones necesarias en las diferentes nubes',
+        'Propuesta de mejoras a realizar'
+    ];
+    
+    let content = '# Pregunta Práctica - CI/CD con Packer\n\n';
+    content += '## Enunciado\n';
+    content += 'Basándose en lo visto durante la impartición de la asignatura y en las fases del ciclo de vida DevOps, ';
+    content += 'desarrolle la creación de una template de Packer que despliega simultáneamente en dos nubes públicas ';
+    content += 'para una aplicación con stack MEAN para desplegar una aplicación PHP.\n\n';
+    content += '---\n\n';
+    
+    for (let i = 1; i <= 6; i++) {
+        content += `## ${i}. ${criterios[i-1]}\n\n`;
+        content += answers[`Criterio ${i}`] || '(Sin respuesta)\n';
+        content += '\n---\n\n';
+    }
+    
+    content += `\n*Exportado el: ${new Date().toLocaleString('es-ES')}*\n`;
+    
+    const blob = new Blob([content], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `pregunta-practica-${currentUser.email}-${Date.now()}.md`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}

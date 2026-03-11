@@ -74,11 +74,120 @@
                 <button onclick="selectSubject('herramientasdevops')" class="mt-auto w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700">Comenzar Quiz</button>
             </div>
             
+            <button onclick="startPracticalQuestion()" class="bg-green-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
+                <i class="fas fa-file-code text-4xl text-green-600 mb-3"></i>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Pregunta Práctica</h3>
+                <p class="text-sm text-gray-600">Desarrollo CI/CD con Packer (5 puntos)</p>
+            </button>
+            
             <button onclick="viewStats()" class="bg-purple-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
                 <i class="fas fa-chart-line text-4xl text-purple-600 mb-3"></i>
                 <h3 class="text-xl font-bold mb-2 text-gray-900">Estadísticas</h3>
                 <p class="text-sm text-gray-600">Ver mi progreso</p>
             </button>
+        </div>
+    </div>
+
+    <!-- Pregunta Práctica Container -->
+    <div class="max-w-6xl mx-auto hidden" id="practical-question-content">
+        <header class="mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex items-center gap-4">
+                    <button onclick="backToSubjects()" class="bg-gray-200 p-2 rounded-full hover:bg-gray-300">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div>
+                        <h1 class="text-2xl sm:text-3xl font-bold text-green-600">Pregunta Práctica - CI/CD con Packer</h1>
+                        <p class="text-sm text-gray-500 font-medium">Valor: 5 puntos</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+            <h2 class="text-xl font-bold text-gray-900 mb-4">Enunciado</h2>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
+                <p class="text-gray-700 mb-3">
+                    Basándose en lo visto durante la impartición de la asignatura y en las fases del ciclo de vida DevOps, 
+                    desarrolle la creación de una template de Packer que despliega simultáneamente en dos nubes públicas 
+                    para una aplicación con stack MEAN para desplegar una aplicación PHP.
+                </p>
+            </div>
+
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">Criterios de Evaluación:</h3>
+            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                <li>Fases del Ciclo de vida DevOps para CI/CD</li>
+                <li>Explicación de las herramientas a utilizar y justificación de las mismas</li>
+                <li>Orden del despliegue de la solución</li>
+                <li>Ejemplo de los ficheros de cada herramienta y cómo se complementan</li>
+                <li>Configuraciones necesarias a realizar en las diferentes nubes</li>
+                <li>Propuesta de mejoras a realizar</li>
+            </ol>
+
+            <div class="space-y-6">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">
+                        1. Fases del Ciclo de vida DevOps para CI/CD
+                    </label>
+                    <textarea id="answer-1" class="w-full p-3 border rounded-lg h-32 focus:ring-2 focus:ring-green-500" 
+                        placeholder="Describe las fases del ciclo DevOps aplicadas a este proyecto..."></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">
+                        2. Explicación de las herramientas a utilizar y justificación
+                    </label>
+                    <textarea id="answer-2" class="w-full p-3 border rounded-lg h-32 focus:ring-2 focus:ring-green-500" 
+                        placeholder="Explica qué herramientas usarías y por qué..."></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">
+                        3. Orden del despliegue de la solución
+                    </label>
+                    <textarea id="answer-3" class="w-full p-3 border rounded-lg h-32 focus:ring-2 focus:ring-green-500" 
+                        placeholder="Describe el orden paso a paso del despliegue..."></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">
+                        4. Ejemplo de los ficheros de cada herramienta y cómo se complementan
+                    </label>
+                    <textarea id="answer-4" class="w-full p-3 border rounded-lg h-48 focus:ring-2 focus:ring-green-500 font-mono text-sm" 
+                        placeholder="Proporciona ejemplos de código/configuración..."></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">
+                        5. Configuraciones necesarias en las diferentes nubes
+                    </label>
+                    <textarea id="answer-5" class="w-full p-3 border rounded-lg h-32 focus:ring-2 focus:ring-green-500" 
+                        placeholder="Detalla las configuraciones específicas para cada nube..."></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">
+                        6. Propuesta de mejoras a realizar
+                    </label>
+                    <textarea id="answer-6" class="w-full p-3 border rounded-lg h-32 focus:ring-2 focus:ring-green-500" 
+                        placeholder="Propón mejoras y optimizaciones..."></textarea>
+                </div>
+            </div>
+
+            <div class="mt-6 flex gap-4">
+                <button onclick="savePracticalAnswer()" class="flex-1 bg-green-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700">
+                    <i class="fas fa-save mr-2"></i>Guardar Respuesta
+                </button>
+                <button onclick="exportPracticalAnswer()" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700">
+                    <i class="fas fa-download mr-2"></i>Exportar
+                </button>
+            </div>
+
+            <div id="save-status" class="mt-4 hidden">
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+                    <i class="fas fa-check-circle mr-2"></i>Respuesta guardada exitosamente
+                </div>
+            </div>
         </div>
     </div>
 
