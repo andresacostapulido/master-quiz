@@ -819,3 +819,152 @@ function exportPracticalAnswer() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 }
+
+// Modo Estudio - Flashcards
+const studyCards = [
+    {
+        question: "1. Fases del Ciclo de Vida DevOps para CI/CD",
+        answer: `<p><strong>El ciclo de vida DevOps:</strong> Plan → Code → Build → Test → Release → Deploy → Operate → Monitor</p>
+        <p class="mt-3"><strong>Fases clave para CI/CD:</strong></p>
+        <ul class="list-disc list-inside space-y-2 mt-2">
+            <li><strong>Build:</strong> Packer empaqueta y crea imágenes con el stack MEAN y PHP preinstalado</li>
+            <li><strong>Test:</strong> Smoke tests a las imágenes para verificar conexiones y funciones básicas</li>
+            <li><strong>Deploy:</strong> Despliegue de la imagen inmutable en las nubes (AWS, GCP, Azure)</li>
+        </ul>`
+    },
+    {
+        question: "2. Herramientas a utilizar y justificación",
+        answer: `<p><strong>Packer:</strong> Automatiza la creación de imágenes idénticas para múltiples plataformas</p>
+        <ul class="list-disc list-inside space-y-2 mt-2">
+            <li>✅ Agnóstico a la nube (evita vendor locking)</li>
+            <li>✅ Compilación paralela en múltiples proveedores</li>
+            <li>✅ Arquitectura inmutable (imagen nueva vs parchear)</li>
+        </ul>
+        <p class="mt-3"><strong>Provisionadores (Shell/Ansible):</strong> Instalan MongoDB, Express, Angular, Node.js y PHP</p>
+        <p class="mt-3"><strong>Terraform:</strong> IaC para crear infraestructura (red, seguridad, servidores) donde vivirá la imagen</p>`
+    },
+    {
+        question: "3. Orden del despliegue de la solución",
+        answer: `<ol class="list-decimal list-inside space-y-2">
+            <li><strong>Definición:</strong> Configurar variables, constructores y provisionadores en la plantilla</li>
+            <li><strong>Building:</strong> Packer crea instancias temporales simultáneamente en ambas nubes</li>
+            <li><strong>Provisioning:</strong> Conexión SSH para ejecutar scripts e instalar el stack MEAN y PHP</li>
+            <li><strong>Post-processing:</strong> Apagar instancias, guardar imágenes (AMIs) y devolver IDs</li>
+            <li><strong>Despliegue Final:</strong> Terraform o CLI nativas levantan instancias usando los IDs generados</li>
+        </ol>`
+    },
+    {
+        question: "4. Ejemplo de ficheros y complementación",
+        answer: `<p><strong>Template de Packer (JSON/HCL2):</strong></p>
+        <pre class="bg-gray-100 p-3 rounded text-sm mt-2 overflow-x-auto">
+{
+  "variables": { "aws_access_key": "{{env 'AWS_ACCESS_KEY'}}" },
+  "builders": [
+    { "type": "amazon-ebs", "region": "us-east-1", ... },
+    { "type": "googlecompute", "zone": "europe-west1-b", ... }
+  ],
+  "provisioners": [
+    { "type": "shell", "inline": ["apt-get install nodejs..."] }
+  ]
+}</pre>
+        <p class="mt-3"><strong>Complementación:</strong></p>
+        <ul class="list-disc list-inside space-y-1 mt-2">
+            <li>Variables: Inyectan credenciales sin texto plano</li>
+            <li>Builders: Indican dónde y cómo construir en cada nube</li>
+            <li>Provisioners: Código universal para instalar en ambas nubes</li>
+        </ul>`
+    },
+    {
+        question: "5. Configuraciones necesarias en las nubes",
+        answer: `<p><strong>AWS (amazon-ebs):</strong></p>
+        <ul class="list-disc list-inside space-y-1 mt-2">
+            <li>access_key y secret_key (credenciales)</li>
+            <li>region (región de despliegue)</li>
+            <li>source_ami (imagen base)</li>
+            <li>instance_type (tamaño de máquina temporal)</li>
+        </ul>
+        <p class="mt-3"><strong>GCP (googlecompute):</strong></p>
+        <ul class="list-disc list-inside space-y-1 mt-2">
+            <li>project_id (identificador del proyecto)</li>
+            <li>account_file (JSON con credenciales)</li>
+            <li>zone (zona de despliegue)</li>
+            <li>source_image (imagen origen)</li>
+        </ul>
+        <p class="mt-3"><strong>Ejecución paralela:</strong> Por defecto, Packer ejecuta ambos builders simultáneamente</p>`
+    },
+    {
+        question: "6. Propuesta de mejoras",
+        answer: `<ul class="list-disc list-inside space-y-2">
+            <li><strong>Terraform + Modularización:</strong> Orquestar red (VPC, Subnets) y seguridad, inyectando imágenes de Packer como variables</li>
+            <li><strong>Stack ELK + APM:</strong> Instalar Filebeat, Metricbeat y Elastic APM en provisionadores para monitorización en tiempo real con Kibana</li>
+            <li><strong>CI/CD Automatizado:</strong> Integrar con Jenkins para compilación y despliegue automático ante push de código</li>
+            <li><strong>Backends Remotos:</strong> Usar S3 para terraform.tfstate, mejorando seguridad y trabajo colaborativo</li>
+        </ul>`
+    }
+];
+
+let currentCardIndex = 0;
+let isFlipped = false;
+
+function startStudyMode() {
+    document.getElementById('subject-selector').classList.add('hidden');
+    document.getElementById('study-mode-content').classList.remove('hidden');
+    currentCardIndex = 0;
+    isFlipped = false;
+    showCard();
+}
+
+function showCard() {
+    const card = studyCards[currentCardIndex];
+    document.getElementById('card-question').textContent = card.question;
+    document.getElementById('card-answer').innerHTML = card.answer;
+    document.getElementById('current-card').textContent = currentCardIndex + 1;
+    
+    // Reset flip
+    document.getElementById('card-front').classList.remove('hidden');
+    document.getElementById('card-back').classList.add('hidden');
+    isFlipped = false;
+    
+    // Update progress
+    const progress = ((currentCardIndex + 1) / studyCards.length) * 100;
+    document.getElementById('study-progress-bar').style.width = progress + '%';
+    
+    // Update buttons
+    document.getElementById('prev-btn').disabled = currentCardIndex === 0;
+    document.getElementById('next-btn').textContent = currentCardIndex === studyCards.length - 1 ? 'Finalizar' : 'Siguiente';
+}
+
+function flipCard() {
+    const front = document.getElementById('card-front');
+    const back = document.getElementById('card-back');
+    
+    if (isFlipped) {
+        front.classList.remove('hidden');
+        back.classList.add('hidden');
+    } else {
+        front.classList.add('hidden');
+        back.classList.remove('hidden');
+    }
+    isFlipped = !isFlipped;
+}
+
+function nextCard() {
+    if (currentCardIndex < studyCards.length - 1) {
+        currentCardIndex++;
+        showCard();
+    } else {
+        if (confirm('¡Has completado todas las tarjetas! ¿Quieres volver al inicio?')) {
+            currentCardIndex = 0;
+            showCard();
+        } else {
+            backToSubjects();
+        }
+    }
+}
+
+function previousCard() {
+    if (currentCardIndex > 0) {
+        currentCardIndex--;
+        showCard();
+    }
+}
