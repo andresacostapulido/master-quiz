@@ -1,0 +1,26 @@
+[
+  {
+    "tema": "Tema 1: Fundamentos de gestión de proyectos",
+    "question": "¿Cuál es la principal diferencia entre un proyecto y una operación?",
+    "options": [
+      "Un proyecto es temporal y produce un resultado único, una operación es continua y repetitiva",
+      "Un proyecto no tiene presupuesto, una operación sí",
+      "Un proyecto siempre usa metodología ágil, una operación usa cascada",
+      "No hay diferencia, son sinónimos"
+    ],
+    "answer": "Un proyecto es temporal y produce un resultado único, una operación es continua y repetitiva",
+    "explanation": "Tema 1: Un proyecto se caracteriza por ser temporal (tiene inicio y fin definidos) y producir un entregable único, mientras que las operaciones son actividades continuas y repetitivas."
+  },
+  {
+    "tema": "Tema 1: Fundamentos de gestión de proyectos",
+    "question": "¿Qué es el triángulo de hierro en gestión de proyectos?",
+    "options": [
+      "La relación entre stakeholders, equipo y cliente",
+      "La restricción triple: alcance, tiempo y costo",
+      "Los tres roles principales: PM, Scrum Master y Product Owner",
+      "Las tres fases: inicio, ejecución y cierre"
+    ],
+    "answer": "La restricción triple: alcance, tiempo y costo",
+    "explanation": "Tema 1: El triángulo de hierro (o restricción triple) establece que alcance, tiempo y costo están interrelacionados: modificar uno afecta a los demás."
+  }
+]

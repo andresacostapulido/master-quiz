@@ -1,0 +1,1081 @@
+[
+  {
+    "tema": "Tema 1: Introducción a Docker",
+    "question": "Los registros de Docker sirven para:",
+    "options": [
+      "Mantener un control de los contenedores en ejecución",
+      "Almacenar y distribuir imágenes de Docker",
+      "Permitir la comunicación entre dos contenedores Docker",
+      "Instalar host de Docker remotos"
+    ],
+    "answer": "Almacenar y distribuir imágenes de Docker",
+    "explanation": "Un registro de Docker nos permite almacenar de manera centralizada las imágenes que utilizará nuestro sistema. Las imágenes se descargarán automáticamente del registro cuando se necesiten y no estén disponibles localmente."
+  },
+  {
+    "tema": "Tema 1: Introducción a Docker",
+    "question": "¿Qué es Docker Hub?",
+    "options": [
+      "Una herramienta para crear servidores Docker remotos",
+      "Proceso que ejecuta los contenedores Docker",
+      "Un registro público de imágenes Docker",
+      "El formato de contenedor utilizado por Docker"
+    ],
+    "answer": "Un registro público de imágenes Docker",
+    "explanation": "Docker Hub es un registro público de imágenes en la nube mantenido por Docker. Los usuarios pueden crear sus propios repositorios para subir y compartir imágenes con otros usuarios. Además, ofrece multitud de imágenes gratuitas publicadas por terceros."
+  },
+  {
+    "tema": "Tema 1: Introducción a Docker",
+    "question": "¿Qué es Docker Desktop?",
+    "options": [
+      "Un registro público de imágenes Docker",
+      "Herramienta oficial de Docker para su instalación en Linux",
+      "Aplicación para instalar Docker en Windows y Mac OS",
+      "Herramienta para gestionar instalaciones de Docker remotas"
+    ],
+    "answer": "Aplicación para instalar Docker en Windows y Mac OS",
+    "explanation": "El demonio de Docker no es compatible de forma nativa ni en Windows, ni Mac OS, por lo que deberemos utilizar el instalador Docker Desktop que proporciona de manera transparente una virtualización necesaria para la ejecución de los contenedores."
+  },
+  {
+    "tema": "Tema 1: Introducción a Docker",
+    "question": "Los contenedores de Docker:",
+    "options": [
+      "Permiten aprovechar mejor el hardware de la máquina host",
+      "Son más pesados en tamaño que las máquinas virtuales",
+      "No son convenientes para trabajar con microservicios",
+      "Se inician más lento que las máquinas virtuales, pero son más seguros"
+    ],
+    "answer": "Permiten aprovechar mejor el hardware de la máquina host",
+    "explanation": "Los contenedores son más ligeros y rápidos al desplegarse que las máquinas virtuales, lo que nos permite ejecutar más cargas de trabajo en el mismo hardware."
+  },
+  {
+    "tema": "Tema 1: Introducción a Docker",
+    "question": "Los espacios de nombres (o namespaces):",
+    "options": [
+      "Proporcionan capas de aislamiento a los contenedores",
+      "Se utilizan para dar nombre a las imágenes Docker",
+      "Son sistemas de archivos compartidos",
+      "Sirven para clasificar imágenes Docker"
+    ],
+    "answer": "Proporcionan capas de aislamiento a los contenedores",
+    "explanation": "Los namespaces proporcionan una capa de aislamiento al contenedor. Cada aspecto de un contenedor se ejecuta en un espacio de nombres separado y su acceso está limitado a ese espacio de nombres."
+  },
+  {
+    "tema": "Tema 1: Introducción a Docker",
+    "question": "Relacione: namespaces, libcontainer, cgroups y unionfs con sus funciones correctas:",
+    "options": [
+      "namespaces=aislamiento, libcontainer=formato de contenedor, cgroups=límites de recursos, unionfs=sistema de archivos por capas",
+      "namespaces=límites de recursos, libcontainer=aislamiento, cgroups=formato de contenedor, unionfs=sistema de archivos por capas",
+      "namespaces=aislamiento, libcontainer=sistema de archivos por capas, cgroups=formato de contenedor, unionfs=límites de recursos",
+      "namespaces=formato de contenedor, libcontainer=aislamiento, cgroups=sistema de archivos por capas, unionfs=límites de recursos"
+    ],
+    "answer": "namespaces=aislamiento, libcontainer=formato de contenedor, cgroups=límites de recursos, unionfs=sistema de archivos por capas",
+    "explanation": "namespaces: crea capas de aislamiento a los contenedores. libcontainer: formato de contenedor predeterminado de Docker. cgroups: impone límites y restricciones a los recursos. unionfs: monta un sistema de archivos formado por la unión de otros (capas de imagen)."
+  },
+  {
+    "tema": "Tema 1: Introducción a Docker",
+    "question": "¿En qué lenguaje de programación está escrito Docker?",
+    "options": [
+      "Go",
+      "Python",
+      "Java",
+      "C++"
+    ],
+    "answer": "Go",
+    "explanation": "Docker está escrito en el lenguaje de programación Go (Golang), creado por Google, elegido por su rendimiento y facilidad para compilar binarios estáticos multiplataforma."
+  },
+  {
+    "tema": "Tema 1: Introducción a Docker",
+    "question": "¿Cómo podemos indicarle a Docker Machine las credenciales de nuestro proveedor de la nube?",
+    "options": [
+      "Utilizando variables de entorno",
+      "Mediante parámetros del comando docker-machine",
+      "Creando un fichero de configuración",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Todos los métodos son válidos. El nombre de las variables, parámetros y fichero variará según el proveedor, pero podremos utilizar el método más conveniente según nuestras necesidades."
+  },
+  {
+    "tema": "Tema 1: Introducción a Docker",
+    "question": "¿Cómo se comunica el cliente de Docker con el demonio de Docker?",
+    "options": [
+      "Mediante memoria compartida",
+      "Mediante un API REST",
+      "Utilizando un sistema de cola de mensajes",
+      "Todas las anteriores"
+    ],
+    "answer": "Mediante un API REST",
+    "explanation": "El cliente Docker y el demonio de Docker se comunican mediante un API REST, ya sea a través de sockets UNIX o mediante una interfaz de red."
+  },
+  {
+    "tema": "Tema 1: Introducción a Docker",
+    "question": "Los contenedores de Docker comparten:",
+    "options": [
+      "Tienen su propio sistema operativo completo",
+      "Requieren más recursos que las máquinas virtuales",
+      "Comparten el kernel o núcleo del sistema operativo host",
+      "Todas las anteriores"
+    ],
+    "answer": "Comparten el kernel o núcleo del sistema operativo host",
+    "explanation": "Los contenedores comparten el kernel del sistema operativo host, a diferencia de las máquinas virtuales que requieren su propio sistema operativo completo. Esto los hace más ligeros y eficientes en recursos."
+  },
+  {
+    "tema": "Tema 2: Creación y distribución de imágenes",
+    "question": "¿Cómo podemos guardar el estado actual de un contenedor como imagen?",
+    "options": [
+      "Utilizando el comando docker commit",
+      "Utilizando el comando docker build",
+      "Utilizando la instrucción WORKDIR en el fichero Dockerfile",
+      "La imagen utilizada se actualiza automáticamente con el estado actual del contenedor"
+    ],
+    "answer": "Utilizando el comando docker commit",
+    "explanation": "El comando docker commit guarda el estado actual del contenedor en una nueva imagen, devolviendo el identificador de esta."
+  },
+  {
+    "tema": "Tema 2: Creación y distribución de imágenes",
+    "question": "¿Qué hace la instrucción COPY package.tar . definida en un fichero Dockerfile al construir la imagen?",
+    "options": [
+      "Copia el fichero package.tar en el directorio de trabajo",
+      "Descomprime los ficheros y los copia en el directorio de trabajo",
+      "Comprime los ficheros del directorio de trabajo",
+      "Genera un error, no se pueden copiar ficheros tar con COPY"
+    ],
+    "answer": "Copia el fichero package.tar en el directorio de trabajo",
+    "explanation": "La instrucción COPY copia ficheros o directorios a la localización especificada. A diferencia de ADD, COPY no descomprime archivos tar automáticamente."
+  },
+  {
+    "tema": "Tema 2: Creación y distribución de imágenes",
+    "question": "¿Qué formato tienen los ficheros Dockerfile?",
+    "options": [
+      "YAML",
+      "JSON",
+      "Texto",
+      "XML"
+    ],
+    "answer": "Texto",
+    "explanation": "Un fichero Dockerfile es un archivo de texto que contiene las instrucciones que se usarán para generar una imagen de Docker con el comando docker build."
+  },
+  {
+    "tema": "Tema 2: Creación y distribución de imágenes",
+    "question": "¿Cómo podemos crear un registro Docker local?",
+    "options": [
+      "Utilizando el comando docker registry create",
+      "Utilizando la imagen pública registry de Docker Hub",
+      "Descargando la aplicación Docker Registry",
+      "No es posible, los registros Docker solo tienen sentido en la nube"
+    ],
+    "answer": "Utilizando la imagen pública registry de Docker Hub",
+    "explanation": "La imagen oficial de Docker para crear registros se llama registry y está disponible de manera pública en Docker Hub."
+  },
+  {
+    "tema": "Tema 2: Creación y distribución de imágenes",
+    "question": "El comando docker pull nginx:",
+    "options": [
+      "Descarga todas las imágenes nginx sea cual sea su etiqueta",
+      "Descarga la imagen nginx etiquetada como latest",
+      "Descarga la imagen nginx que no esté etiquetada",
+      "Genera un error, es obligatorio indicar la etiqueta"
+    ],
+    "answer": "Descarga la imagen nginx etiquetada como latest",
+    "explanation": "Si no se especifica etiqueta, el comando docker pull utilizará la etiqueta latest por defecto."
+  },
+  {
+    "tema": "Tema 2: Creación y distribución de imágenes",
+    "question": "¿Qué comando de Docker nos permite generar una imagen?",
+    "options": [
+      "docker rebuild",
+      "docker create",
+      "docker compile",
+      "docker build"
+    ],
+    "answer": "docker build",
+    "explanation": "El comando docker build genera una imagen a partir de un fichero Dockerfile."
+  },
+  {
+    "tema": "Tema 2: Creación y distribución de imágenes",
+    "question": "Hemos empaquetado todo el sistema de ficheros de una máquina virtual existente en un fichero TAR y queremos crear una imagen Docker a partir de él. ¿Cuál sería la primera instrucción de nuestro Dockerfile?",
+    "options": [
+      "FROM empty",
+      "FROM scratch",
+      "ADD filesystem.tar /",
+      "No es posible con ficheros Dockerfile"
+    ],
+    "answer": "FROM scratch",
+    "explanation": "Docker nos permite crear nuestras imágenes desde cero, partiendo como base de una imagen oficial de Docker llamada scratch, publicada expresamente para este propósito. Cuando utilizamos la instrucción FROM scratch en nuestro Dockerfile, esta no creará ninguna capa de imagen, sino que será la segunda instrucción la utilizada para crear la primera capa."
+  },
+  {
+    "tema": "Tema 2: Creación y distribución de imágenes",
+    "question": "El comando docker rmi myimage:",
+    "options": [
+      "Elimina todas las imágenes del repositorio «myimage», sea cual sea su etiqueta",
+      "Elimina la imagen llamada «myimage» sin etiquetar o con etiqueta vacía",
+      "Elimina la imagen del repositorio «myimage» etiquetada como latest",
+      "Genera un error, es obligatorio indicar la etiqueta"
+    ],
+    "answer": "Elimina la imagen del repositorio «myimage» etiquetada como latest",
+    "explanation": "Si no se especifica etiqueta, el comando docker rmi buscará la imagen etiquetada como latest y si existe la eliminará. Si hubiera otras imágenes referenciando al mismo identificador de imagen, estas no se verán afectadas."
+  },
+  {
+    "tema": "Tema 2: Creación y distribución de imágenes",
+    "question": "¿Para qué sirve la instrucción ONBUILD en un fichero Dockerfile?",
+    "options": [
+      "Permite indicar un registro en el cual se publicará automáticamente la imagen generada",
+      "Define una condición que debe cumplirse para poder generar la imagen",
+      "Ejecuta un comando en el host",
+      "Permite añadir a la imagen un comando que se ejecutará más adelante, al usar la imagen generada como base en otra construcción"
+    ],
+    "answer": "Permite añadir a la imagen un comando que se ejecutará más adelante, al usar la imagen generada como base en otra construcción",
+    "explanation": "La instrucción ONBUILD nos permite incluir, en la imagen que usaremos como plantilla o base, un comando que será ejecutado más adelante, cuando la imagen que estamos generando sea usada posteriormente como imagen base de otra referenciándola con la instrucción FROM."
+  },
+  {
+    "tema": "Tema 2: Creación y distribución de imágenes",
+    "question": "¿Qué comando de Docker nos permite listar las capas que componen una imagen?",
+    "options": [
+      "docker images stacks",
+      "docker image details",
+      "docker search",
+      "docker image history"
+    ],
+    "answer": "docker image history",
+    "explanation": "El comando docker image history, o simplemente docker history, nos lista las diferentes capas que componen una imagen."
+  },
+  {
+    "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
+    "question": "¿Con qué comando podemos copiar ficheros de un contenedor al sistema de ficheros local?",
+    "options": [
+      "docker extract",
+      "docker cp",
+      "No hace falta, el sistema de ficheros del contenedor siempre está montado en el sistema de ficheros local",
+      "No es posible"
+    ],
+    "answer": "docker cp",
+    "explanation": "El comando docker cp nos permite copiar ficheros y directorios entre el sistema de ficheros local y el del contenedor."
+  },
+  {
+    "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
+    "question": "¿En qué estado queda un contenedor cuando finaliza su ejecución?",
+    "options": [
+      "Finalized",
+      "Stopped",
+      "Removed",
+      "Exited"
+    ],
+    "answer": "Exited",
+    "explanation": "El estado Exited indica que la ejecución del contenedor ha finalizado."
+  },
+  {
+    "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
+    "question": "¿Cuál es el controlador de red por defecto cuando creamos una red?",
+    "options": [
+      "Host",
+      "None",
+      "Bridge",
+      "Macvlan"
+    ],
+    "answer": "Bridge",
+    "explanation": "El controlador de red por defecto es bridge. Si no se especifica ninguno se creará una red de este tipo."
+  },
+  {
+    "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
+    "question": "Relacione los drivers de red: Overlay, Host, Bridge y None con sus funciones correctas:",
+    "options": [
+      "Overlay=conecta contenedores en diferentes nodos, Host=elimina aislamiento de red, Bridge=conecta contenedores en un mismo host, None=deshabilita redes",
+      "Overlay=elimina aislamiento de red, Host=conecta contenedores en diferentes nodos, Bridge=deshabilita redes, None=conecta contenedores en un mismo host",
+      "Overlay=conecta contenedores en un mismo host, Host=deshabilita redes, Bridge=conecta contenedores en diferentes nodos, None=elimina aislamiento de red",
+      "Overlay=deshabilita redes, Host=conecta contenedores en un mismo host, Bridge=elimina aislamiento de red, None=conecta contenedores en diferentes nodos"
+    ],
+    "answer": "Overlay=conecta contenedores en diferentes nodos, Host=elimina aislamiento de red, Bridge=conecta contenedores en un mismo host, None=deshabilita redes",
+    "explanation": "Overlay: conecta servicios y contenedores en diferentes nodos (Docker Swarm). Host: elimina el aislamiento de red entre host y contenedor. Bridge: permite conectar contenedores en un mismo host. None: deshabilita las redes del contenedor."
+  },
+  {
+    "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
+    "question": "¿Qué comando nos permite eliminar las redes que no están en uso?",
+    "options": [
+      "docker network purge",
+      "docker network prune",
+      "docker network clean",
+      "docker network rm --unused"
+    ],
+    "answer": "docker network prune",
+    "explanation": "El comando docker network prune nos permite eliminar todas las redes que no están siendo utilizadas."
+  },
+  {
+    "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
+    "question": "Si ejecutamos: docker run --name B --link A:aliasA appimage, ¿qué ocurre?",
+    "options": [
+      "El contenedor B podrá llegar al A por su nombre y alias, pero no por su IP",
+      "El contenedor B podrá llegar al A por su IP, nombre y alias",
+      "El contenedor B solo podrá llegar al A si este último también está enlazado explícitamente con el primero",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "El contenedor B podrá llegar al A por su IP, nombre y alias",
+    "explanation": "Al enlazar el contenedor se crea una entrada en el fichero /etc/hosts que permite referenciar al contenedor por el nombre y, opcionalmente, también por el alias especificado."
+  },
+  {
+    "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
+    "question": "¿Cómo conectamos un contenedor en ejecución a una red ya existente?",
+    "options": [
+      "docker network connect miRed miContenedor",
+      "docker network link miContenedor miRed",
+      "Todas las anteriores",
+      "No es posible, el contenedor ya está en ejecución"
+    ],
+    "answer": "docker network connect miRed miContenedor",
+    "explanation": "El comando docker network connect permite conectar una red a un contenedor. Si quisiéramos conectar un contenedor a una red cuando lo ejecutamos con docker run utilizaríamos la opción --network. El comando docker network link no existe."
+  },
+  {
+    "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
+    "question": "Relacione: Volumes, Bind mounts (x2) y Tmpfs mounts con sus características:",
+    "options": [
+      "Volumes=gestionado por Docker solo accesible por comandos Docker, Bind mounts=procesos del host pueden modificarlos + almacenamiento en cualquier parte del filesystem del host, Tmpfs mounts=almacenamiento en memoria del host",
+      "Volumes=almacenamiento en cualquier parte del filesystem, Bind mounts=gestionado por Docker + en memoria del host, Tmpfs mounts=procesos del host pueden modificarlos",
+      "Volumes=en memoria del host, Bind mounts=gestionado por Docker solo accesible por comandos Docker + procesos del host pueden modificarlos, Tmpfs mounts=en cualquier parte del filesystem",
+      "Volumes=procesos del host pueden modificarlos, Bind mounts=en memoria del host + gestionado por Docker, Tmpfs mounts=en cualquier parte del filesystem"
+    ],
+    "answer": "Volumes=gestionado por Docker solo accesible por comandos Docker, Bind mounts=procesos del host pueden modificarlos + almacenamiento en cualquier parte del filesystem del host, Tmpfs mounts=almacenamiento en memoria del host",
+    "explanation": "Volumes: gestionados por Docker, solo accesibles desde el host por comandos de Docker. Bind mounts: los procesos del sistema anfitrión pueden modificarlos Y el almacenamiento se encuentra en cualquier parte del sistema de ficheros del host. Tmpfs mounts: el almacenamiento se encuentra en la memoria del host."
+  },
+  {
+    "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
+    "question": "Si ejecutamos: docker run --mount source=mis-datos,target=/datos appimagen, ¿qué ocurre?",
+    "options": [
+      "Montará el volumen de Docker llamado «mis-datos» en la ruta /datos del contenedor",
+      "Montará el bind mount llamado «mis-datos» en la ruta /datos del host",
+      "Creará un tmpfs mount llamado «mis-datos» y lo montará en la ruta /datos del host",
+      "Dará un error por no haber indicado el tipo de almacenamiento"
+    ],
+    "answer": "Montará el volumen de Docker llamado «mis-datos» en la ruta /datos del contenedor",
+    "explanation": "Ejecutará un contenedor montando un volumen de Docker llamado mis-datos en la ruta /datos del contenedor. Si el volumen no existe, creará uno vacío."
+  },
+  {
+    "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
+    "question": "¿Qué comando podríamos utilizar para obtener información sobre los procesos en ejecución de un contenedor?",
+    "options": [
+      "docker top",
+      "docker stats",
+      "docker exec",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "docker top muestra los procesos en ejecución en un contenedor. docker stats muestra en vivo el uso de recursos de los contenedores, incluyendo el número de procesos. docker exec podría utilizarse para ejecutar un comando que muestre información de los procesos, por ejemplo: docker exec <contenedor> ps."
+  },
+  {
+    "tema": "Tema 4: Compose, DevOps y SDKs",
+    "question": "¿Qué hace el comando docker export?",
+    "options": [
+      "Exporta la imagen base de un contenedor a un fichero TAR",
+      "Exporta una imagen a un fichero TAR",
+      "Exporta el sistema de ficheros de un contenedor a un fichero TAR",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Exporta el sistema de ficheros de un contenedor a un fichero TAR",
+    "explanation": "El comando docker export envía a un fichero TAR todo el sistema de ficheros de un contenedor."
+  },
+  {
+    "tema": "Tema 4: Compose, DevOps y SDKs",
+    "question": "¿Qué opción de configuración de Compose permite publicar puertos del servicio al host?",
+    "options": [
+      "expose",
+      "ports",
+      "publish",
+      "Todas las anteriores"
+    ],
+    "answer": "ports",
+    "explanation": "En Compose la opción ports permite publicar al host puertos del contenedor. Admite sintaxis corta especificando puerto_host:puerto_contenedor, y sintaxis larga soportando opciones adicionales."
+  },
+  {
+    "tema": "Tema 4: Compose, DevOps y SDKs",
+    "question": "¿Cuál de las siguientes afirmaciones sobre Docker Hub es correcta?",
+    "options": [
+      "Permite construir imágenes automáticamente cada vez que actualicemos un repositorio Git configurado",
+      "Actualmente solo soporta repositorios de GitHub y BitBucket",
+      "Los webhooks disparan un servicio externo en respuesta a un evento del repositorio Git configurado",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Podemos configurar Docker Hub para generar imágenes a partir de cambios en repositorios Git según reglas predefinidas. Actualmente solo soporta GitHub y BitBucket. Los webhooks permiten configurar un servicio externo que será invocado con una llamada POST al producirse cambios en el repositorio."
+  },
+  {
+    "tema": "Tema 4: Compose, DevOps y SDKs",
+    "question": "Relacione: docker export, docker import, docker save y docker load con sus acciones:",
+    "options": [
+      "export=genera TAR del filesystem de un contenedor, import=crea imagen desde TAR de filesystem, save=genera TAR de una imagen, load=crea imagen desde TAR de una imagen",
+      "export=genera TAR de una imagen, import=crea imagen desde TAR de una imagen, save=genera TAR del filesystem de un contenedor, load=crea imagen desde TAR de filesystem",
+      "export=crea imagen desde TAR de filesystem, import=genera TAR del filesystem de un contenedor, save=crea imagen desde TAR de una imagen, load=genera TAR de una imagen",
+      "export=genera TAR del filesystem de un contenedor, import=genera TAR de una imagen, save=crea imagen desde TAR de filesystem, load=crea imagen desde TAR de una imagen"
+    ],
+    "answer": "export=genera TAR del filesystem de un contenedor, import=crea imagen desde TAR de filesystem, save=genera TAR de una imagen, load=crea imagen desde TAR de una imagen",
+    "explanation": "docker export: genera un TAR a partir del sistema de ficheros de un contenedor. docker import: crea una imagen a partir de un TAR del sistema de ficheros de un contenedor. docker save: genera un TAR a partir de una imagen. docker load: crea una imagen a partir de un TAR de una imagen."
+  },
+  {
+    "tema": "Tema 4: Compose, DevOps y SDKs",
+    "question": "¿Qué acciones puede realizar el comando docker-compose build?",
+    "options": [
+      "Genera imágenes a partir de ficheros Dockerfile referenciados con build en Compose",
+      "Descarga de un registro las imágenes referenciadas con image en Compose",
+      "Crear los contenedores de los servicios sin ejecutarlos",
+      "Todas las anteriores"
+    ],
+    "answer": "Genera imágenes a partir de ficheros Dockerfile referenciados con build en Compose",
+    "explanation": "Para generar las imágenes de los servicios definidos en Compose, ejecutaremos docker-compose build. Cada vez que hagamos algún cambio en el código podemos ejecutarlo de nuevo para reconstruir las imágenes. Para aquellos servicios que no necesitan generar imágenes, simplemente los ignora, pero no las descarga."
+  },
+  {
+    "tema": "Tema 4: Compose, DevOps y SDKs",
+    "question": "¿Qué sección a nivel raíz de Compose nos permite definir volúmenes con nombre para ser referenciados en los servicios?",
+    "options": [
+      "storage",
+      "data",
+      "volumes",
+      "mount"
+    ],
+    "answer": "volumes",
+    "explanation": "La sección volumes a nivel raíz del fichero de Compose permite la definición de volúmenes asignándoles un nombre para poder ser referenciados en los servicios definidos."
+  },
+  {
+    "tema": "Tema 4: Compose, DevOps y SDKs",
+    "question": "¿Cuál de las siguientes afirmaciones sobre Portainer es correcta?",
+    "options": [
+      "Se despliega en contenedores",
+      "Ofrece una interfaz web de administración de Docker",
+      "Permite conectarse a un demonio de Docker tanto local como remoto",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Portainer se despliega en contenedores de Docker utilizando la imagen publicada en Docker Hub. Ofrece una interfaz web para gestionar hosts de Docker, expuesta en el puerto 9000. Permite gestionar un demonio local montando el socket de Linux de Docker, o cualquier otro host remoto mediante autenticación."
+  },
+  {
+    "tema": "Tema 4: Compose, DevOps y SDKs",
+    "question": "¿Qué hace el comando docker-compose down?",
+    "options": [
+      "Detiene un servicio, parando sus contenedores",
+      "Elimina un servicio, el cual debe haber sido parado previamente",
+      "Pausa los contenedores asociados al servicio",
+      "Detiene y elimina un servicio, parando y eliminando los recursos asociados"
+    ],
+    "answer": "Detiene y elimina un servicio, parando y eliminando los recursos asociados",
+    "explanation": "El comando docker-compose down detiene y elimina un servicio, parando y eliminando los recursos asociados (contenedores, redes, imágenes, volúmenes)."
+  },
+  {
+    "tema": "Tema 4: Compose, DevOps y SDKs",
+    "question": "¿Para qué lenguajes de programación Docker ofrece de manera oficial un SDK?",
+    "options": [
+      "Go y Java",
+      "Go y Python",
+      "Go y Ruby",
+      "Docker no ofrece oficialmente ningún SDK"
+    ],
+    "answer": "Go y Python",
+    "explanation": "Docker ofrece SDKs para los lenguajes Go y Python, que permiten hacer en nuestras aplicaciones todo lo que podemos hacer con el comando docker. Además, existen multitud de librerías no oficiales para otros lenguajes."
+  },
+  {
+    "tema": "Tema 4: Compose, DevOps y SDKs",
+    "question": "¿Qué opciones de configuración de Compose permiten pasar variables de entorno a los servicios?",
+    "options": [
+      "environment y envfile",
+      "variable y varfile",
+      "argument y argfile",
+      "Ninguna. Deben ser definidas en el Dockerfile de la imagen"
+    ],
+    "answer": "environment y envfile",
+    "explanation": "En Compose la opción environment permite indicar una lista de variables de entorno que serán pasadas a los contenedores del servicio. Además, con la opción env_file podemos pasar múltiples variables de entorno definidas en un fichero externo."
+  },
+  {
+    "tema": "Tema 5: Orquestación con el modo Swarm",
+    "question": "¿Qué nodos pueden ejecutar tareas en el modo Swarm?",
+    "options": [
+      "Solo los nodos tipo worker",
+      "Solo los nodos tipo mánager",
+      "Todos los nodos del clúster siempre podrán ejecutar tareas",
+      "Todos los nodos del clúster, siempre que no tengan disponibilidad drain"
+    ],
+    "answer": "Todos los nodos del clúster, siempre que no tengan disponibilidad drain",
+    "explanation": "Los nodos mánager, además de realizar funciones de administración, también actuarán como los nodos worker ejecutando tareas de los servicios. Sin embargo, cualquier nodo cuya disponibilidad sea drain no ejecutará ninguna tarea de los servicios del clúster."
+  },
+  {
+    "tema": "Tema 5: Orquestación con el modo Swarm",
+    "question": "¿Qué ocurre con las tareas en ejecución de un nodo cuando ponemos su disponibilidad a drain?",
+    "options": [
+      "Las tareas en ejecución de servicios replicados se paran y se planifican en otros nodos. Las tareas de servicios globales siguen ejecutándose",
+      "Todas las tareas continúan su ejecución, pero el nodo no admitirá más tareas del planificador",
+      "Las tareas son pausadas, pero no se planifican en otros nodos. Se reanudarán cuando el nodo vuelva a estar activo",
+      "Las tareas en ejecución de servicios replicados se paran y se planifican en otros nodos. Las tareas de servicios globales simplemente se paran"
+    ],
+    "answer": "Las tareas en ejecución de servicios replicados se paran y se planifican en otros nodos. Las tareas de servicios globales simplemente se paran",
+    "explanation": "Cuando se cambia la disponibilidad a drenaje, el administrador detendrá las tareas ejecutándose en el nodo y ejecutará nuevas réplicas en los nodos que estén activos. Las tareas de los servicios globales también se pararán en el nodo."
+  },
+  {
+    "tema": "Tema 5: Orquestación con el modo Swarm",
+    "question": "¿Cómo se transmiten entre los nodos de un clúster en modo Swarm los objetos config y secret?",
+    "options": [
+      "Los objetos config se transmiten en claro, los secret encriptados",
+      "Los objetos config se transmiten encriptados, pero los secret solo existen en el nodo donde se crearon y no pueden enviarse",
+      "Tanto los objetos config como los secret se transmiten encriptados",
+      "Ninguno de ellos pueden enviarse entre los nodos"
+    ],
+    "answer": "Tanto los objetos config como los secret se transmiten encriptados",
+    "explanation": "Los clústeres Swarm utilizan TLS para autenticar, autorizar y encriptar las comunicaciones entre los nodos."
+  },
+  {
+    "tema": "Tema 5: Orquestación con el modo Swarm",
+    "question": "¿Qué ocurre si definimos opciones de configuración build para un servicio en un fichero docker-compose.yaml y lo desplegamos con docker stack deploy?",
+    "options": [
+      "Se construirán las imágenes y se publicarán automáticamente en el registro antes de hacer el despliegue",
+      "Las imágenes no se construirán, pero si existen se publicarán automáticamente en el registro antes de hacer el despliegue",
+      "Dará un error porque la configuración build no está soportada por docker stack",
+      "Mostrará un mensaje avisando que al no estar soportada la configuración build será ignorada, y continuará con el despliegue"
+    ],
+    "answer": "Mostrará un mensaje avisando que al no estar soportada la configuración build será ignorada, y continuará con el despliegue",
+    "explanation": "Tanto docker-compose como docker stack ignoran las opciones no soportadas, pero no darán error. Esto quiere decir que podríamos preparar nuestros ficheros YAML para funcionar con ambos."
+  },
+  {
+    "tema": "Tema 5: Orquestación con el modo Swarm",
+    "question": "¿Cómo podemos convertir un nodo worker de un clúster en modo Swarm a nodo mánager?",
+    "options": [
+      "Con el comando docker node upgrade",
+      "Con el comando docker node promote",
+      "Con el comando docker swarm update",
+      "No es posible convertirlo, habría que eliminarlo del clúster y volver a añadirlo"
+    ],
+    "answer": "Con el comando docker node promote",
+    "explanation": "El comando docker node promote promueve un nodo a mánager. De igual manera, docker node demote degrada un nodo a worker. Ambos comandos deben ser ejecutados desde un nodo mánager."
+  },
+  {
+    "tema": "Tema 5: Orquestación con el modo Swarm",
+    "question": "¿Cuál de las siguientes afirmaciones NO es correcta sobre Docker Swarm?",
+    "options": [
+      "Podríamos tener un clúster en modo Swarm sin nodos worker",
+      "El modo Swarm está integrado en Docker Engine a partir de la versión 1.12",
+      "Se ejecutará una tarea de los servicios globales en cada nodo activo del clúster, ya sea mánager o worker",
+      "Todos los nodos del clúster pueden atender llamadas al API de Swarm"
+    ],
+    "answer": "Todos los nodos del clúster pueden atender llamadas al API de Swarm",
+    "explanation": "Solamente los nodos mánager atenderán llamadas al API de Swarm. Igualmente, los comandos para gestionar el clúster deberán ser ejecutados desde un nodo mánager."
+  },
+  {
+    "tema": "Tema 5: Orquestación con el modo Swarm",
+    "question": "¿Qué comando debemos ejecutar en una máquina con Docker instalado para añadirlo como nodo worker a un clúster de Swarm?",
+    "options": [
+      "docker swarm join --manager worker",
+      "docker swarm join-worker",
+      "El comando lo obtendremos al ejecutar docker swarm join worker en cualquier nodo del clúster",
+      "El comando lo obtendremos al ejecutar docker swarm join-token worker en un nodo mánager"
+    ],
+    "answer": "El comando lo obtendremos al ejecutar docker swarm join-token worker en un nodo mánager",
+    "explanation": "Ejecutando docker swarm join-token worker en un nodo mánager obtendremos el comando necesario para añadir nuevos nodos worker, que incluirá el token y la dirección del manager."
+  },
+  {
+    "tema": "Tema 5: Orquestación con el modo Swarm",
+    "question": "¿Qué comando nos permite desplegar en un clúster en modo Swarm una aplicación definida en un fichero docker-compose.yaml?",
+    "options": [
+      "docker-compose up --stack-file docker-compose.yml",
+      "docker-compose deploy --stack-file docker-compose.yml",
+      "docker stack up --compose-file docker-compose.yml",
+      "docker stack deploy --compose-file docker-compose.yml"
+    ],
+    "answer": "docker stack deploy --compose-file docker-compose.yml",
+    "explanation": "El comando docker stack deploy despliega una stack en un clúster en modo Swarm a partir de un fichero en formato Compose."
+  },
+  {
+    "tema": "Tema 5: Orquestación con el modo Swarm",
+    "question": "¿Cómo podemos añadir un objeto secret a un servicio existente en un clúster en modo Swarm?",
+    "options": [
+      "docker secret add --secret my-secret my-service",
+      "docker service update --secret-add my-secret my-service",
+      "docker stack update --secret-add my-secret my-service",
+      "No es posible añadir secrets a un servicio ya creado"
+    ],
+    "answer": "docker service update --secret-add my-secret my-service",
+    "explanation": "Para añadir un objeto secret de Docker a un servicio existente, lo actualizaremos de la siguiente manera: docker service update --secret-add my-secret my-service."
+  },
+  {
+    "tema": "Tema 5: Orquestación con el modo Swarm",
+    "question": "¿Cuál de las siguientes afirmaciones NO es correcta sobre nodos en Swarm?",
+    "options": [
+      "Un clúster con N nodos mánager tolera fallos de (N-1)/2 managers como máximo",
+      "Los servicios globales se ejecutan en todos los nodos del clúster, ya sean mánager o worker",
+      "Los clústeres Swarm utilizan TLS para las comunicaciones entre los nodos",
+      "Un nodo que pertenece a un clúster no puede ejecutar contenedores independientes fuera del clúster"
+    ],
+    "answer": "Un nodo que pertenece a un clúster no puede ejecutar contenedores independientes fuera del clúster",
+    "explanation": "Un nodo, ya sea mánager o worker, que forma parte de un clúster en modo Swarm, aún puede ejecutar contenedores independientes. Sin embargo, estos contenedores no serán administrados por los managers, sino que seguirán su ciclo de vida normal."
+  },
+  {
+    "tema": "Tema 6: Introducción a Kubernetes",
+    "question": "¿Cuál de los siguientes componentes de Kubernetes pertenecen a un nodo máster?",
+    "options": [
+      "Kubelet",
+      "Kube-proxy",
+      "Container Runtime",
+      "Controller Manager"
+    ],
+    "answer": "Controller Manager",
+    "explanation": "El proceso Controller Manager incluye varios servicios de gestión, entre ellos los siguientes controladores: Replication controller, Endpoint controller, Node controller, Service controller."
+  },
+  {
+    "tema": "Tema 6: Introducción a Kubernetes",
+    "question": "¿Cuál de los siguientes componentes de Kubernetes pertenecen a un nodo worker?",
+    "options": [
+      "Kubelet",
+      "Controller Manager",
+      "Scheduler",
+      "API server"
+    ],
+    "answer": "Kubelet",
+    "explanation": "En cada uno de los nodos worker tendremos un servicio llamado Kubelet que será el encargado de comunicarse con el nodo máster, obteniendo la configuración de los Pods y garantizando su correcta ejecución."
+  },
+  {
+    "tema": "Tema 6: Introducción a Kubernetes",
+    "question": "¿Cuál de las siguientes afirmaciones NO es cierta?",
+    "options": [
+      "Los Namespaces permiten crear diferentes entornos de ejecución en el clúster",
+      "Los servicios permiten la comunicación con los Pods desde fuera del clúster",
+      "Cada Pod ejecutará un único contenedor",
+      "El algoritmo de consenso necesita que el número de nodos máster sea impar"
+    ],
+    "answer": "Cada Pod ejecutará un único contenedor",
+    "explanation": "En un clúster de Kubernetes, los Pods serán la unidad más básica de ejecución, el cual estará compuesto por uno o varios contenedores."
+  },
+  {
+    "tema": "Tema 6: Introducción a Kubernetes",
+    "question": "Relacione: Servicio, Pod, etcd y Scheduler con sus definiciones en Kubernetes:",
+    "options": [
+      "Servicio=punto de acceso para Pods, Pod=unidad básica de uno o varios contenedores, etcd=almacén clave-valor de configuración, Scheduler=asigna peticiones a nodos worker",
+      "Servicio=almacén clave-valor, Pod=asigna peticiones a nodos worker, etcd=punto de acceso para Pods, Scheduler=unidad básica de contenedores",
+      "Servicio=unidad básica de contenedores, Pod=punto de acceso para Pods, etcd=asigna peticiones a nodos worker, Scheduler=almacén clave-valor",
+      "Servicio=asigna peticiones a nodos worker, Pod=almacén clave-valor, etcd=unidad básica de contenedores, Scheduler=punto de acceso para Pods"
+    ],
+    "answer": "Servicio=punto de acceso para Pods, Pod=unidad básica de uno o varios contenedores, etcd=almacén clave-valor de configuración, Scheduler=asigna peticiones a nodos worker",
+    "explanation": "Servicio: define un único punto de acceso para un conjunto de Pods. Pod: unidad básica de ejecución compuesta por uno o varios contenedores. etcd: almacén de datos clave-valor distribuido que guarda la configuración del clúster. Scheduler: atiende las peticiones del API server y las asigna a los nodos worker."
+  },
+  {
+    "tema": "Tema 6: Introducción a Kubernetes",
+    "question": "Relacione: DaemonSets, StatefulSets, Deployments y CronJobs con sus funciones en Kubernetes:",
+    "options": [
+      "DaemonSets=Pod en cada nodo, StatefulSets=apps con estado, Deployments=apps sin estado, CronJobs=tareas periódicas",
+      "DaemonSets=apps sin estado, StatefulSets=tareas periódicas, Deployments=Pod en cada nodo, CronJobs=apps con estado",
+      "DaemonSets=tareas periódicas, StatefulSets=Pod en cada nodo, Deployments=apps con estado, CronJobs=apps sin estado",
+      "DaemonSets=apps con estado, StatefulSets=apps sin estado, Deployments=tareas periódicas, CronJobs=Pod en cada nodo"
+    ],
+    "answer": "DaemonSets=Pod en cada nodo, StatefulSets=apps con estado, Deployments=apps sin estado, CronJobs=tareas periódicas",
+    "explanation": "DaemonSets: permite ejecutar un Pod en cada uno de los nodos del clúster. StatefulSets: gestionan el despliegue y escalado de aplicaciones con estado. Deployments: gestionan el despliegue y escalado de aplicaciones sin estado. CronJobs: programan el despliegue de Pods para realizar tareas periódicas o planificadas."
+  },
+  {
+    "tema": "Tema 6: Introducción a Kubernetes",
+    "question": "¿Qué controlador de Kubernetes está pensado para aplicaciones con estado?",
+    "options": [
+      "Deployments",
+      "StatefulSets",
+      "DaemonSet",
+      "CronJob"
+    ],
+    "answer": "StatefulSets",
+    "explanation": "Los StatefulSets se utilizan para aplicaciones con estado, como puede ser una base de datos. Toda la información asociada al estado de los Pods gestionados por los StatefulSets será almacenada en un volumen asociado."
+  },
+  {
+    "tema": "Tema 6: Introducción a Kubernetes",
+    "question": "¿Qué sistema operativo soporta Minikube?",
+    "options": [
+      "Windows",
+      "Linux",
+      "OSX",
+      "Todos los anteriores"
+    ],
+    "answer": "Todos los anteriores",
+    "explanation": "Minikube permite desplegar un clúster de Kubernetes de un solo nodo de forma local o en una máquina virtual. Soportado en diferentes sistemas operativos (Linux, Windows, OSX) e hypervisores (VirtualBox, VMware Fusion, Hyper-V, etc)."
+  },
+  {
+    "tema": "Tema 6: Introducción a Kubernetes",
+    "question": "¿Cuál de las siguientes afirmaciones es falsa sobre Kubernetes?",
+    "options": [
+      "Los Namespaces permiten crear diferentes entornos de ejecución en el clúster",
+      "Los servicios permiten la comunicación con los Pods desde fuera del clúster",
+      "Cada Pod ejecutará un único contenedor",
+      "El algoritmo de consenso necesita que el número de nodos máster sea impar"
+    ],
+    "answer": "Cada Pod ejecutará un único contenedor",
+    "explanation": "En un clúster de Kubernetes, los Pods serán la unidad más básica de ejecución, el cual estará compuesto por uno o varios contenedores."
+  },
+  {
+    "tema": "Tema 6: Introducción a Kubernetes",
+    "question": "¿Cuál es la herramienta de línea de comandos de Kubernetes?",
+    "options": [
+      "Kubeadm",
+      "Kops",
+      "Kubectl",
+      "Kubespray"
+    ],
+    "answer": "Kubectl",
+    "explanation": "Kubectl es la herramienta de línea de comandos de Kubernetes. Ejecuta los comandos realizando peticiones al API Server, permitiendo así el despliegue y gestión de aplicaciones en el clúster."
+  },
+  {
+    "tema": "Tema 6: Introducción a Kubernetes",
+    "question": "¿Cuál es la principal función de un ReplicaSet?",
+    "options": [
+      "Garantizar que nuestra aplicación tiene el número deseado de Pods",
+      "Permitir la ejecución periódica de Pods",
+      "Ejecutar un determinado Pod en todos los nodos del clúster",
+      "Todas las anteriores"
+    ],
+    "answer": "Garantizar que nuestra aplicación tiene el número deseado de Pods",
+    "explanation": "Los ReplicaSets garantizan que nuestra aplicación tiene el número deseado de Pods, creándolos y escalando según los disparadores configurados. Además, creará un nuevo Pod en caso de que uno de los Pods en ejecución muera o se detenga por algún motivo."
+  },
+  {
+    "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
+    "question": "¿Cuál de las siguientes afirmaciones NO es correcta sobre Pods?",
+    "options": [
+      "Los contenedores de un Pod deben estar en el mismo nodo",
+      "Un Pod puede alojar uno o más contenedores",
+      "Por defecto, todos los Pods pueden comunicarse a través de su dirección IP interna",
+      "Cada contenedor de un mismo Pod tendrá su propia dirección IP"
+    ],
+    "answer": "Cada contenedor de un mismo Pod tendrá su propia dirección IP",
+    "explanation": "Un Pod se desplegará por completo en un mismo nodo y todos sus contenedores compartirán la misma dirección IP y puertos, estando asociados al mismo hostname."
+  },
+  {
+    "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
+    "question": "Relacione: Pod, Label, Annotation y Namespace con sus definiciones en Kubernetes:",
+    "options": [
+      "Pod=unidad mínima de contenedores y volúmenes, Label=pares clave/valor para seleccionar objetos, Annotation=información adicional no estructurada, Namespace=divide clúster en clústeres virtuales",
+      "Pod=pares clave/valor para seleccionar objetos, Label=unidad mínima de contenedores, Annotation=divide clúster en clústeres virtuales, Namespace=información adicional no estructurada",
+      "Pod=divide clúster en clústeres virtuales, Label=información adicional no estructurada, Annotation=unidad mínima de contenedores, Namespace=pares clave/valor para seleccionar objetos",
+      "Pod=información adicional no estructurada, Label=divide clúster en clústeres virtuales, Annotation=pares clave/valor para seleccionar objetos, Namespace=unidad mínima de contenedores"
+    ],
+    "answer": "Pod=unidad mínima de contenedores y volúmenes, Label=pares clave/valor para seleccionar objetos, Annotation=información adicional no estructurada, Namespace=divide clúster en clústeres virtuales",
+    "explanation": "Pod: unidad mínima de despliegue formada por una colección de contenedores más sus volúmenes. Label: pares clave/valor asociadas a un recurso, se utilizan para seleccionar colecciones de objetos. Annotation: añaden información adicional a los recursos del clúster, no necesariamente estructurada. Namespace: abstracción que permite dividir un clúster en múltiples clústeres virtuales."
+  },
+  {
+    "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
+    "question": "¿Para qué sirven los selectores en Kubernetes?",
+    "options": [
+      "Abstracción que permite dividir un clúster de Kubernetes en múltiples clústeres virtuales",
+      "Permitir filtrar objetos del clúster en base a un conjunto de etiquetas",
+      "Permiten seleccionar el Namespace por defecto",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Permitir filtrar objetos del clúster en base a un conjunto de etiquetas",
+    "explanation": "Los selectores, formados por una serie de condiciones booleanas basadas en las etiquetas o labels, nos van a permitir filtrar objetos del clúster."
+  },
+  {
+    "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
+    "question": "¿Cuál de los siguientes Namespaces se crean por defecto en un clúster de Kubernetes?",
+    "options": [
+      "default",
+      "kube-system",
+      "kube-public",
+      "Todos los anteriores"
+    ],
+    "answer": "Todos los anteriores",
+    "explanation": "Cuando creamos un clúster de Kubernetes este comienza con tres Namespaces: default, kube-system y kube-public. Aunque dependiendo de la instalación podría tener inicialmente alguno más."
+  },
+  {
+    "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
+    "question": "¿En qué Namespace se crean los objetos del propio sistema de Kubernetes?",
+    "options": [
+      "default",
+      "kube-service",
+      "kube-context",
+      "kube-system"
+    ],
+    "answer": "kube-system",
+    "explanation": "kube-system es el Namespace para los objetos que han sido creados por el propio sistema de Kubernetes. Los usuarios no deberían desplegar aplicaciones en él."
+  },
+  {
+    "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
+    "question": "Relacione las propiedades YAML de spec.containers: livenessProbe.exec, resources.limits, resources.requests y ports.containerPort:",
+    "options": [
+      "livenessProbe.exec=prueba de vida del contenedor, resources.limits=limita uso de recursos, resources.requests=recursos mínimos requeridos, ports.containerPort=puertos expuestos",
+      "livenessProbe.exec=puertos expuestos, resources.limits=recursos mínimos requeridos, resources.requests=prueba de vida, ports.containerPort=limita uso de recursos",
+      "livenessProbe.exec=limita uso de recursos, resources.limits=prueba de vida, resources.requests=puertos expuestos, ports.containerPort=recursos mínimos requeridos",
+      "livenessProbe.exec=recursos mínimos requeridos, resources.limits=puertos expuestos, resources.requests=limita uso de recursos, ports.containerPort=prueba de vida"
+    ],
+    "answer": "livenessProbe.exec=prueba de vida del contenedor, resources.limits=limita uso de recursos, resources.requests=recursos mínimos requeridos, ports.containerPort=puertos expuestos",
+    "explanation": "livenessProbe.exec: comando utilizado para la prueba de vida del contenedor. resources.limits: limita el uso de recursos por parte del contenedor. resources.requests: establece los recursos mínimos requeridos por el contenedor. ports.containerPort: puertos expuestos en el contenedor."
+  },
+  {
+    "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
+    "question": "En Kubernetes, ¿cuál de los siguientes NO es un método válido de liveness probe?",
+    "options": [
+      "Mediante la ejecución de un comando (exec)",
+      "Realizando una llamada HTTP (httpGet)",
+      "Conectándose por SSH (sshConnect)",
+      "Conectándose a un socket TCP (tcpSocket)"
+    ],
+    "answer": "Conectándose por SSH (sshConnect)",
+    "explanation": "Los métodos válidos son solamente mediante ejecución de comando (exec), con una llamada HTTP (httpGet) y con la conexión a un socket TCP (tcpSocket)."
+  },
+  {
+    "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
+    "question": "Relacione: kubectl cp, kubectl exec, kubectl logs y kubectl port-forward con sus funciones:",
+    "options": [
+      "cp=copia ficheros desde/hacia contenedores, exec=ejecuta comando en contenedor, logs=recupera logs del contenedor, port-forward=redirige puertos locales a un Pod",
+      "cp=ejecuta comando en contenedor, exec=copia ficheros, logs=redirige puertos locales, port-forward=recupera logs",
+      "cp=recupera logs del contenedor, exec=redirige puertos locales, logs=copia ficheros, port-forward=ejecuta comando en contenedor",
+      "cp=redirige puertos locales, exec=recupera logs, logs=ejecuta comando en contenedor, port-forward=copia ficheros"
+    ],
+    "answer": "cp=copia ficheros desde/hacia contenedores, exec=ejecuta comando en contenedor, logs=recupera logs del contenedor, port-forward=redirige puertos locales a un Pod",
+    "explanation": "kubectl cp: copia ficheros y directorios desde y hacia los contenedores del Pod. kubectl exec: ejecuta un comando en uno de los contenedores del Pod. kubectl logs: recupera los logs de un contenedor del Pod. kubectl port-forward: redirige uno o varios puertos locales a un Pod."
+  },
+  {
+    "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
+    "question": "En Kubernetes, ¿cuál de la siguiente información NO define un contexto?",
+    "options": [
+      "URL del API del clúster",
+      "Selector de etiquetas",
+      "Credenciales del usuario del clúster",
+      "Namespace"
+    ],
+    "answer": "Selector de etiquetas",
+    "explanation": "En Kubernetes los contextos están formados por tres elementos: el clúster (URL al API), un usuario (credenciales) y el Namespace a utilizar. Los selectores de etiquetas no forman parte de la definición de un contexto."
+  },
+  {
+    "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
+    "question": "En Kubernetes, ¿qué comando nos permite crear un contexto?",
+    "options": [
+      "kubectl create context",
+      "kubectl config set-context",
+      "kubectl init context",
+      "kubectl apply context"
+    ],
+    "answer": "kubectl config set-context",
+    "explanation": "Podemos definir nuevos contextos con el comando kubectl config set-context, indicando el clúster, el usuario y el Namespace."
+  },
+  {
+    "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
+    "question": "Al eliminar un ReplicaSet de Kubernetes, ¿cómo podemos evitar que los Pods gestionados por él sean borrados?",
+    "options": [
+      "Por defecto no se eliminan los Pods al eliminar el ReplicaSet",
+      "No es posible, la vida de los Pods está ligada a la del ReplicaSet",
+      "Con la opción --cascade=false del Cliente kubectl",
+      "Escalando el ReplicaSet a cero réplicas"
+    ],
+    "answer": "Con la opción --cascade=false del Cliente kubectl",
+    "explanation": "Al eliminar un ReplicaSet por defecto también serán eliminados los Pods gestionados por él. En caso de que no queramos que se eliminen sus Pods deberemos utilizar la opción --cascade=false."
+  },
+  {
+    "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
+    "question": "Relacione: ReplicaSet, DaemonSet, Service e Ingress con sus definiciones en Kubernetes:",
+    "options": [
+      "ReplicaSet=garantiza réplicas de Pods ejecutándose, DaemonSet=Pod en todos los nodos, Service=conjunto lógico de Pods y política de acceso, Ingress=reglas de enrutamiento para acceso externo",
+      "ReplicaSet=Pod en todos los nodos, DaemonSet=garantiza réplicas ejecutándose, Service=reglas de enrutamiento para acceso externo, Ingress=conjunto lógico de Pods",
+      "ReplicaSet=reglas de enrutamiento, DaemonSet=conjunto lógico de Pods, Service=garantiza réplicas ejecutándose, Ingress=Pod en todos los nodos",
+      "ReplicaSet=conjunto lógico de Pods, DaemonSet=reglas de enrutamiento, Service=Pod en todos los nodos, Ingress=garantiza réplicas ejecutándose"
+    ],
+    "answer": "ReplicaSet=garantiza réplicas de Pods ejecutándose, DaemonSet=Pod en todos los nodos, Service=conjunto lógico de Pods y política de acceso, Ingress=reglas de enrutamiento para acceso externo",
+    "explanation": "ReplicaSet: garantiza que un número especificado de réplicas de Pods está ejecutándose. DaemonSet: asegura que en todos los nodos se ejecuta un Pod especificado. Service: define un conjunto lógico de Pods y una política para acceder a ellos. Ingress: utiliza reglas de enrutamiento para gestionar el acceso externo a múltiples servicios."
+  },
+  {
+    "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
+    "question": "¿Qué tipo de recurso de Kubernetes se encarga de que un número especificado de réplicas de Pods está ejecutándose en el clúster?",
+    "options": [
+      "ReplicaSet",
+      "DaemonSet",
+      "Service",
+      "Ingress"
+    ],
+    "answer": "ReplicaSet",
+    "explanation": "El ReplicaSet se encarga de que el número especificado de réplicas de Pods está ejecutándose en el clúster."
+  },
+  {
+    "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
+    "question": "¿Qué tipo de recurso de Kubernetes utiliza reglas de enrutamiento para gestionar el acceso externo a múltiples servicios?",
+    "options": [
+      "ReplicaSet",
+      "DaemonSet",
+      "Service",
+      "Ingress"
+    ],
+    "answer": "Ingress",
+    "explanation": "Ingress funciona como punto de entrada al clúster, permitiéndonos utilizar la misma dirección IP para exponer múltiples servicios, mediante HTTP(S), utilizando reglas de enrutamiento."
+  },
+  {
+    "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
+    "question": "Relacione los tipos de servicio: ExternalName, NodePort, ClusterIP y LoadBalancer con sus funciones:",
+    "options": [
+      "ExternalName=asocia con dominio mediante CNAME, NodePort=expone por IP de cada nodo con mismo puerto, ClusterIP=IP interna solo accesible dentro del clúster, LoadBalancer=balanceador externo con IP fija",
+      "ExternalName=IP interna del clúster, NodePort=balanceador externo, ClusterIP=asocia con dominio CNAME, LoadBalancer=expone por IP de cada nodo",
+      "ExternalName=balanceador externo con IP fija, NodePort=IP interna del clúster, ClusterIP=expone por IP de cada nodo, LoadBalancer=asocia con dominio CNAME",
+      "ExternalName=expone por IP de cada nodo, NodePort=asocia con dominio CNAME, ClusterIP=balanceador externo, LoadBalancer=IP interna del clúster"
+    ],
+    "answer": "ExternalName=asocia con dominio mediante CNAME, NodePort=expone por IP de cada nodo con mismo puerto, ClusterIP=IP interna solo accesible dentro del clúster, LoadBalancer=balanceador externo con IP fija",
+    "explanation": "ExternalName: expone el servicio asociándolo con un nombre de dominio mediante registro CNAME. NodePort: expone fuera del clúster a través de la IP de cada nodo usando el mismo puerto. ClusterIP: expone en una IP interna, solo accesible desde dentro del clúster. LoadBalancer: crea un balanceador de carga externo y asigna una IP fija."
+  },
+  {
+    "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
+    "question": "¿Qué tipo de servicio de Kubernetes expone el servicio fuera del clúster a través de la dirección IP de cada nodo, utilizando el mismo puerto en cada uno de ellos?",
+    "options": [
+      "ClusterIP",
+      "NodePort",
+      "ExternalName",
+      "Todos los anteriores"
+    ],
+    "answer": "NodePort",
+    "explanation": "Un servicio de tipo NodePort expone el servicio fuera del clúster a través de la dirección IP de cada nodo, utilizando el mismo puerto en cada uno de ellos."
+  },
+  {
+    "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
+    "question": "¿Cómo podemos seleccionar en qué nodos se despliegan los Pods de un DaemonSet?",
+    "options": [
+      "No es posible, los Pods de un DaemonSet siempre se desplegarán en todos los nodos",
+      "Definiendo la lista de nodos a ignorar en la propiedad ignoreNodes del fichero YAML",
+      "Definiendo un selector de nodo basado en etiquetas en la definición del Pod en la propiedad nodeSelector del fichero YAML",
+      "Cambiando al nodo de Namespace"
+    ],
+    "answer": "Definiendo un selector de nodo basado en etiquetas en la definición del Pod en la propiedad nodeSelector del fichero YAML",
+    "explanation": "Los selectores de nodos se utilizan para limitar en qué nodos se puede ejecutar un Pod. Se pueden configurar en el fichero YAML en la definición del Pod al crear un DaemonSet, utilizando la propiedad nodeSelector."
+  },
+  {
+    "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
+    "question": "¿Qué ocurre con los Pods de un ReplicaSet desplegados en un nodo cuando dicho nodo deja de estar operativo?",
+    "options": [
+      "Los Pods quedan en estado «no disponible» hasta que el nodo vuelve a estar operativo",
+      "Los Pods son automáticamente replanificados en otros nodos disponibles",
+      "El número de réplicas configurado en el ReplicaSet es decrementado en el número de Pods"
+    ],
+    "answer": "Los Pods son automáticamente replanificados en otros nodos disponibles",
+    "explanation": "Los ReplicaSets se encargan de que en todo momento se están ejecutando el número y tipo de Pods deseados. En caso de fallo en un nodo, todos aquellos Pods gestionados por un ReplicaSet serán replanificados a otros nodos disponibles."
+  },
+  {
+    "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
+    "question": "¿Cuál de las siguientes afirmaciones acerca de los tipos de servicio de Kubernetes es FALSA?",
+    "options": [
+      "NodePort expone el servicio fuera del clúster a través de la dirección IP de cada nodo utilizando el mismo puerto en cada uno de ellos",
+      "LoadBalancer crea un balanceador de carga externo y se asignará una dirección IP fija al servicio",
+      "ClusterIP expone el servicio en una dirección IP única externa del clúster, siendo accesible dentro y fuera del clúster",
+      "ExternalName expone el servicio a través de un nombre especificado en la definición, asociándolo con un nombre de dominio mediante un registro CNAME"
+    ],
+    "answer": "ClusterIP expone el servicio en una dirección IP única externa del clúster, siendo accesible dentro y fuera del clúster",
+    "explanation": "Un servicio de tipo ClusterIP expone el servicio en una dirección IP interna del clúster, por lo que solamente será accesible desde dentro del clúster, no desde fuera."
+  },
+  {
+    "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
+    "question": "¿Cuál de las siguientes afirmaciones acerca de los recursos Horizontal Pod Autoscaler (HPA) es FALSA?",
+    "options": [
+      "Permite modificar automáticamente el número de réplicas de Pods de un ReplicaSet en base a ciertas métricas",
+      "Kubernetes nos permite utilizar por defecto el uso de CPU y el consumo de memoria como métricas para el auto escalado",
+      "El comando kubectl autoscale permite crear de manera imperativa un HPA",
+      "No es posible definir métricas personalizadas diferentes a las ofrecidas por Kubernetes"
+    ],
+    "answer": "No es posible definir métricas personalizadas diferentes a las ofrecidas por Kubernetes",
+    "explanation": "Por defecto Kubernetes nos permite utilizar el uso de CPU y el consumo de memoria como métricas para el auto escalado. Sin embargo, también sería posible definir métricas personalizadas e incluso externas."
+  },
+  {
+    "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
+    "question": "Relacione: emptyDir, hostPath, awsElasticBlockStore y PersistentVolumes con sus funciones:",
+    "options": [
+      "emptyDir=volúmenes vacíos ligados a la vida del Pod, hostPath=montar directorio del nodo, awsElasticBlockStore=montar volumen EBS de Amazon, PersistentVolumes=desacoplar almacenamiento de la definición del Pod",
+      "emptyDir=montar directorio del nodo, hostPath=volúmenes vacíos ligados al Pod, awsElasticBlockStore=desacoplar almacenamiento, PersistentVolumes=montar volumen EBS de Amazon",
+      "emptyDir=desacoplar almacenamiento, hostPath=montar volumen EBS, awsElasticBlockStore=volúmenes vacíos ligados al Pod, PersistentVolumes=montar directorio del nodo",
+      "emptyDir=montar volumen EBS, hostPath=desacoplar almacenamiento, awsElasticBlockStore=montar directorio del nodo, PersistentVolumes=volúmenes vacíos ligados al Pod"
+    ],
+    "answer": "emptyDir=volúmenes vacíos ligados a la vida del Pod, hostPath=montar directorio del nodo, awsElasticBlockStore=montar volumen EBS de Amazon, PersistentVolumes=desacoplar almacenamiento de la definición del Pod",
+    "explanation": "emptyDir: montan volúmenes vacíos y están ligados a la vida útil del Pod. hostPath: permiten montar un directorio o archivo específico del sistema de ficheros del nodo. awsElasticBlockStore: permiten montar un volumen EBS de Amazon en los Pods. PersistentVolumes: permiten desacoplar la infraestructura de almacenamiento de la definición del Pod."
+  },
+  {
+    "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
+    "question": "¿Cuál de las siguientes afirmaciones sobre los ConfigMaps es FALSA?",
+    "options": [
+      "Permiten desacoplar de los Pods sus opciones de configuración",
+      "Están compuestos por pares clave/valor",
+      "Se asocian a un Namespace",
+      "Son globales al clúster"
+    ],
+    "answer": "Son globales al clúster",
+    "explanation": "Los ConfigMaps se crean asociados a un Namespace específico y no serán accesibles desde otros Namespaces del clúster."
+  },
+  {
+    "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
+    "question": "¿Cuál de las siguientes afirmaciones sobre los ConfigMaps y volúmenes es FALSA?",
+    "options": [
+      "Podemos montar el contenido de los ConfigMaps en un volumen de los Pods",
+      "El volumen montado a partir de un ConfigMap se actualizará automáticamente cuando se hagan cambios en este último",
+      "Es posible establecer dinámicamente variables de entorno y argumentos del comando de inicio con los valores almacenados en el ConfigMap",
+      "Las variables de entorno establecidas a partir de un ConfigMap se actualizarán automáticamente cuando se hagan cambios en este último"
+    ],
+    "answer": "El volumen montado a partir de un ConfigMap se actualizará automáticamente cuando se hagan cambios en este último",
+    "explanation": "Si al configurar un Pod con un ConfigMap lo hicimos estableciendo variables de entorno o argumentos de la línea de comandos, no podremos actualizar el contenedor en ejecución cuando los valores del ConfigMap sean modificados. Sería necesario recrear el Pod para hacer efectiva la nueva configuración."
+  },
+  {
+    "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
+    "question": "Los volúmenes hostPath:",
+    "options": [
+      "Permiten montar en el Pod un directorio o archivo específico del sistema de ficheros del nodo",
+      "Se crean inicialmente vacíos, y serán eliminados cuando el Pod finalice su ejecución",
+      "Permiten desacoplar la infraestructura de almacenamiento de la definición del Pod",
+      "Están diseñados para inyectar datos de configuración en los Pods"
+    ],
+    "answer": "Permiten montar en el Pod un directorio o archivo específico del sistema de ficheros del nodo",
+    "explanation": "Los volúmenes de tipo hostPath referenciarán un directorio o archivo específico del sistema de ficheros del nodo, permitiendo a los Pods que lo monten acceder a su contenido en la ruta local especificada."
+  },
+  {
+    "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
+    "question": "Los volúmenes emptyDir:",
+    "options": [
+      "Permiten desacoplar la infraestructura de almacenamiento de la definición del Pod",
+      "Permiten montar en el Pod un directorio o archivo específico del sistema de ficheros del nodo",
+      "Se crean inicialmente vacíos, y serán eliminados cuando el Pod finalice su ejecución",
+      "Están diseñados para inyectar datos de configuración en los Pods"
+    ],
+    "answer": "Se crean inicialmente vacíos, y serán eliminados cuando el Pod finalice su ejecución",
+    "explanation": "Los volúmenes de tipo emptyDir nos permitirán compartir ficheros entre los contenedores de un Pod. Como su nombre indica, se crean vacíos y se eliminan al finalizar el Pod."
+  },
+  {
+    "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
+    "question": "Los PersistentVolumes:",
+    "options": [
+      "Permiten desacoplar la infraestructura de almacenamiento de la definición del Pod",
+      "Son recursos globales del clúster. No están asociados a un Namespace específico",
+      "Tendrán definidos los modos de acceso permitidos",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Los PersistentVolumes permiten desacoplar la infraestructura de almacenamiento de la definición del Pod. Los modos de acceso permitidos son ReadWriteOnce, ReadOnlyMany y ReadWriteMany. Además, son recursos globales del clúster, por lo que podrán ser enlazados con Pods de cualquier Namespace."
+  },
+  {
+    "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
+    "question": "Los PersistentVolumeClaims:",
+    "options": [
+      "Se utilizan para solicitar almacenamiento",
+      "Permiten especificar el modo de acceso requerido al almacenamiento",
+      "Pueden definirse referenciando a un StorageClass para permitir el aprovisionamiento dinámico de almacenamiento",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Los PersistentVolumeClaims permiten solicitar almacenamiento para los Pods, especificando modo de acceso requerido. Si son definidos con un StorageClass, entonces habrá aprovisionamiento dinámico y se creará un nuevo PersistentVolume."
+  },
+  {
+    "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
+    "question": "Las StorageClass:",
+    "options": [
+      "Definen un tipo de almacenamiento en un proveedor específico",
+      "Se utilizan para el aprovisionamiento dinámico de almacenamiento",
+      "Se creará un nuevo PersistentVolume cada vez que se solicite almacenamiento referenciando a un objeto StorageClass",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Describen un tipo de almacenamiento, normalmente en un proveedor de nube, y será utilizado por Kubernetes para el aprovisionamiento dinámico de almacenamiento en recursos PersistentVolumes."
+  },
+  {
+    "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
+    "question": "Los ConfigMaps:",
+    "options": [
+      "Se almacenan codificados en base64, pero no cifrados",
+      "Son recursos globales a todo el clúster",
+      "Se crean en un determinado Namespace, pudiendo ser utilizado solo por recursos de este",
+      "Solo existen a nivel del Pod, una vez finalice su ejecución, el ConfigMap será eliminado"
+    ],
+    "answer": "Se crean en un determinado Namespace, pudiendo ser utilizado solo por recursos de este",
+    "explanation": "Los ConfigMaps se definen a nivel de Namespace y pueden ser utilizados en múltiples recursos del Namespace al que pertenecen. Su información está almacenada en claro."
+  },
+  {
+    "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
+    "question": "Los objetos Secrets de Kubernetes:",
+    "options": [
+      "Se almacenan en etcd y su información estará cifrada",
+      "Se almacenan codificados en base64, pero no cifrados",
+      "Son recursos globales a todo el clúster",
+      "Solo existen a nivel del Pod, una vez finalice su ejecución, el Secret será eliminado"
+    ],
+    "answer": "Se almacenan codificados en base64, pero no cifrados",
+    "explanation": "La información de los objetos Secrets no se guarda en claro, sino que estará codificada en base64. Sin embargo, dicha información no estará cifrada. Además, se definen a nivel de Namespace y pueden ser utilizados en múltiples recursos del Namespace al que pertenecen."
+  }
+]

@@ -6,8 +6,9 @@ let userAnswers = [];
 let score = 0;
 let questionHistory = [];
 const questionCache = {}; // Caché para preguntas cargadas
+const answeredQuestions = new Set(); // Evita guardar duplicados en Firebase
 
-// Función para cargar preguntas dinámicamente
+// Función para cargar preguntas dinámicamente con validación
 async function loadQuestions(subject) {
     if (questionCache[subject]) {
         return questionCache[subject];
@@ -17,8 +18,26 @@ async function loadQuestions(subject) {
         const response = await fetch(`data/${subject}.json`);
         if (!response.ok) throw new Error('Error cargando preguntas');
         const questions = await response.json();
-        questionCache[subject] = questions;
-        return questions;
+        
+        // Validar que cada pregunta tenga la respuesta correcta dentro de las opciones
+        const validQuestions = questions.filter(q => {
+            const isValid = q.options && q.answer && q.options.includes(q.answer);
+            if (!isValid) {
+                console.warn(`⚠️ Pregunta inválida descartada (answer no está en options): "${q.question}"`);
+            }
+            return isValid;
+        });
+        
+        if (validQuestions.length === 0) {
+            throw new Error('No hay preguntas válidas en este archivo');
+        }
+        
+        if (validQuestions.length < questions.length) {
+            console.warn(`⚠️ Se descartaron ${questions.length - validQuestions.length} preguntas inválidas de ${subject}`);
+        }
+        
+        questionCache[subject] = validQuestions;
+        return validQuestions;
     } catch (error) {
         console.error('Error:', error);
         throw error;
@@ -80,6 +99,14 @@ if (themeToggle) {
     });
 }
 
+// Mapa de nombres de asignaturas para mostrar
+const SUBJECT_NAMES = {
+    'herramientasdevops': 'Herramientas DevOps',
+    'gestionproyectos': 'Gestión de Proyectos',
+    'integracionentrega': 'Integración y Entrega Continua',
+    'contenedores': 'Contenedores'
+};
+
 async function selectSubject(subject) {
     if (!currentUser) {
         alert('⚠️ Debes iniciar sesión con Google primero para guardar tu progreso');
@@ -98,16 +125,23 @@ async function selectSubject(subject) {
         return;
     }
     
-    numQuestions = parseInt(document.getElementById('num-questions-herramientas').value);
-    mode = document.getElementById('quiz-mode-herramientas').value;
-    quizTitle = 'Herramientas DevOps';
+    // Leer configuración del selector correspondiente a la asignatura
+    const numInput = document.getElementById(`num-questions-${subject}`);
+    const modeSelect = document.getElementById(`quiz-mode-${subject}`);
+    
+    numQuestions = numInput ? parseInt(numInput.value) : 10;
+    mode = modeSelect ? modeSelect.value : 'normal';
+    quizTitle = SUBJECT_NAMES[subject] || subject;
     
     if (mode === 'tema') {
-        const selectedTema = document.getElementById('tema-select-herramientas').value;
-        allQuestions = allQuestions.filter(q => q.tema.includes(selectedTema));
-        if (allQuestions.length === 0) {
-            alert('No hay preguntas para este tema');
-            return;
+        const temaSelect = document.getElementById(`tema-select-${subject}`);
+        if (temaSelect && temaSelect.value) {
+            const selectedTema = temaSelect.value;
+            allQuestions = allQuestions.filter(q => q.tema.includes(selectedTema));
+            if (allQuestions.length === 0) {
+                alert('No hay preguntas para este tema');
+                return;
+            }
         }
     }
     
@@ -201,6 +235,8 @@ let questionStartTime = null;
 function backToSubjects() {
     document.getElementById('subject-selector').classList.remove('hidden');
     document.getElementById('main-quiz-content').classList.add('hidden');
+    document.getElementById('practical-question-content').classList.add('hidden');
+    document.getElementById('study-mode-content').classList.add('hidden');
     currentSubject = null;
     quizData = [];
     currentQuestionIndex = 0;
@@ -212,6 +248,7 @@ function startQuiz() {
     currentQuestionIndex = 0;
     userAnswers = new Array(quizData.length).fill(null);
     score = 0;
+    answeredQuestions.clear(); // Limpiar registro de preguntas guardadas
     
     document.getElementById('result-container').classList.add('hidden');
     document.getElementById('quiz-container').classList.remove('hidden');
@@ -300,7 +337,12 @@ function showFeedback() {
     const userAnswer = userAnswers[currentQuestionIndex];
     const isCorrect = userAnswer === question.answer;
     
-    saveQuestionResult(question, userAnswer, isCorrect);
+    // Solo guardar si no se ha guardado antes para esta pregunta en este quiz
+    const questionKey = `${currentQuestionIndex}_${question.question}`;
+    if (!answeredQuestions.has(questionKey)) {
+        answeredQuestions.add(questionKey);
+        saveQuestionResult(question, userAnswer, isCorrect);
+    }
     
     const feedbackDiv = document.getElementById(`feedback-${currentQuestionIndex}`);
     feedbackDiv.innerHTML = `
@@ -538,7 +580,7 @@ async function viewStats() {
             // Estadísticas por asignatura
             const subjectStats = Object.entries(stats.bySubject || {}).map(([subject, data]) => ({
                 subject,
-                displayName: subject === 'secdevops' ? 'SecDevOps y Administración de Redes' : subject === 'adminsistemas' ? 'Administración de Sistemas Cloud' : subject === 'clouddevops' ? 'Cloud Computing, DevOps y Cultura DevOps' : subject === 'herramientasdevops' ? 'Herramientas DevOps' : subject === 'automatizacion' ? 'Herramientas de Automatización de Despliegues' : subject,
+                displayName: SUBJECT_NAMES[subject] || subject,
                 accuracy: Math.round((data.correct / data.total) * 100),
                 total: data.total,
                 correct: data.correct,
@@ -734,7 +776,7 @@ async function loadPracticalAnswer() {
     if (!currentUser) return;
     
     try {
-        const snapshot = await get(ref(database, `users/${currentUser.uid}/practicalAnswer`));
+        const snapshot = await db.ref(`projects/${PROJECT_NAME}/users/${currentUser.uid}/practicalAnswer`).once('value');
         if (snapshot.exists()) {
             const answers = snapshot.val();
             for (let i = 1; i <= 6; i++) {
@@ -766,7 +808,7 @@ async function savePracticalAnswer() {
     answers.lastSaved = new Date().toISOString();
     
     try {
-        await set(ref(database, `users/${currentUser.uid}/practicalAnswer`), answers);
+        await db.ref(`projects/${PROJECT_NAME}/users/${currentUser.uid}/practicalAnswer`).set(answers);
         
         const statusDiv = document.getElementById('save-status');
         statusDiv.classList.remove('hidden');
@@ -968,3 +1010,45 @@ function previousCard() {
         showCard();
     }
 }
+
+
+// Cargar conteo de preguntas y temas al inicio para todas las asignaturas
+(async function loadQuestionCounts() {
+    const subjects = ['herramientasdevops', 'gestionproyectos', 'integracionentrega', 'contenedores'];
+    
+    for (const subject of subjects) {
+        try {
+            const questions = await loadQuestions(subject);
+            
+            // Actualizar contador
+            const countEl = document.getElementById(`question-count-${subject}`);
+            if (countEl) {
+                countEl.textContent = `${questions.length} preguntas disponibles`;
+            }
+            
+            // Actualizar max del input
+            const numInput = document.getElementById(`num-questions-${subject}`);
+            if (numInput) {
+                numInput.max = questions.length;
+                if (parseInt(numInput.value) > questions.length) {
+                    numInput.value = questions.length;
+                }
+            }
+            
+            // Poblar selector de temas dinámicamente
+            const temaSelect = document.getElementById(`tema-select-${subject}`);
+            if (temaSelect && temaSelect.options.length === 0) {
+                const temas = [...new Set(questions.map(q => q.tema))].sort();
+                temas.forEach(tema => {
+                    const option = document.createElement('option');
+                    option.value = tema;
+                    option.textContent = tema;
+                    temaSelect.appendChild(option);
+                });
+            }
+        } catch (error) {
+            const countEl = document.getElementById(`question-count-${subject}`);
+            if (countEl) countEl.textContent = 'Error cargando preguntas';
+        }
+    }
+})();

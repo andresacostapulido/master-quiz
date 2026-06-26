@@ -1,0 +1,28 @@
+{
+  "rules": {
+    "projects": {
+      "master-quiz": {
+        "users": {
+          "$uid": {
+            // Cada usuario solo puede leer y escribir sus propios datos
+            ".read": "$uid === auth.uid",
+            ".write": "$uid === auth.uid",
+            "history": {
+              // Limitar tamaño: máximo 500 entradas por usuario
+              ".validate": "newData.hasChildren() || !newData.exists()"
+            },
+            "stats": {
+              ".validate": "newData.hasChild('totalQuestions')"
+            },
+            "practicalAnswer": {
+              ".validate": "newData.hasChild('lastSaved')"
+            }
+          }
+        }
+      }
+    },
+    // Denegar acceso a todo lo demás por defecto
+    ".read": false,
+    ".write": false
+  }
+}

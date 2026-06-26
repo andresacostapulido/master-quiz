@@ -38,6 +38,17 @@ Sistema de quiz interactivo para preparación de exámenes del Magister en DevOp
 
 Las credenciales de Firebase client-side son seguras de exponer públicamente. Firebase protege tus datos mediante reglas de seguridad en la base de datos, no ocultando las credenciales.
 
+### Configurar reglas de seguridad
+
+Para proteger los datos de cada usuario, aplica las reglas del archivo `firebase-rules.json` en la consola de Firebase:
+
+1. Ve a [Firebase Console](https://console.firebase.google.com/)
+2. Selecciona tu proyecto → Realtime Database → Rules
+3. Copia el contenido de `firebase-rules.json` y pégalo
+4. Publica las reglas
+
+Esto asegura que cada usuario solo pueda leer/escribir sus propios datos.
+
 ## 👨💻 Autor
 
 Proyecto para Magister en DevOps

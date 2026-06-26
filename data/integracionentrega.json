@@ -1,0 +1,26 @@
+[
+  {
+    "tema": "Tema 1: Fundamentos de CI/CD",
+    "question": "¿Cuál es el objetivo principal de la Integración Continua (CI)?",
+    "options": [
+      "Desplegar automáticamente en producción cada commit",
+      "Detectar errores de integración lo antes posible mediante builds y tests automáticos",
+      "Eliminar la necesidad de hacer code review",
+      "Reemplazar los entornos de staging"
+    ],
+    "answer": "Detectar errores de integración lo antes posible mediante builds y tests automáticos",
+    "explanation": "Tema 1: La CI busca que cada cambio de código se integre frecuentemente al repositorio compartido, ejecutando builds y tests automáticos para detectar problemas tempranamente."
+  },
+  {
+    "tema": "Tema 1: Fundamentos de CI/CD",
+    "question": "¿Cuál es la diferencia entre Entrega Continua (CD) y Despliegue Continuo?",
+    "options": [
+      "No hay diferencia, son lo mismo",
+      "En Entrega Continua el despliegue a producción requiere aprobación manual; en Despliegue Continuo es automático",
+      "Entrega Continua solo aplica a microservicios",
+      "Despliegue Continuo no incluye tests automáticos"
+    ],
+    "answer": "En Entrega Continua el despliegue a producción requiere aprobación manual; en Despliegue Continuo es automático",
+    "explanation": "Tema 1: La Entrega Continua garantiza que el código siempre está listo para producción pero requiere una decisión humana para desplegarlo. El Despliegue Continuo automatiza también ese último paso."
+  }
+]

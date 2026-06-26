@@ -30,8 +30,8 @@
     <!-- Selector de Asignatura -->
     <div id="subject-selector" class="max-w-4xl mx-auto">
         <header class="mb-8 text-center">
-            <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">Quiz Herramientas DevOps</h1>
-            <p class="text-gray-600">Prepárate para tu examen</p>
+            <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">Quiz Magister DevOps</h1>
+            <p class="text-gray-600">Prepárate para tus exámenes</p>
             <div id="user-info" class="mt-4"></div>
         </header>
         
@@ -39,21 +39,21 @@
             <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
                 <i class="fas fa-cogs text-4xl text-indigo-600 mb-3"></i>
                 <h3 class="text-xl font-bold mb-2 text-gray-900">Herramientas DevOps</h3>
-                <p class="text-sm text-gray-600 mb-4">0 preguntas disponibles</p>
+                <p id="question-count-herramientasdevops" class="text-sm text-gray-600 mb-4">Cargando preguntas...</p>
                 
                 <div class="flex-grow"></div>
                 
                 <div class="mt-4">
                     <label class="block text-sm font-medium mb-2">Modo:</label>
-                    <select id="quiz-mode-herramientas" class="w-full p-2 border rounded mb-3">
+                    <select id="quiz-mode-herramientasdevops" class="w-full p-2 border rounded mb-3">
                         <option value="normal">Normal - Todos los temas</option>
                         <option value="tema">Repaso por Tema</option>
                     </select>
                 </div>
                 
-                <div id="tema-selector-herramientas" class="mt-3 hidden">
+                <div id="tema-selector-herramientasdevops" class="mt-3 hidden">
                     <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
-                    <select id="tema-select-herramientas" class="w-full p-2 border rounded">
+                    <select id="tema-select-herramientasdevops" class="w-full p-2 border rounded">
                         <option value="Tema 1">Tema 1: Ciclo de vida DevOps</option>
                         <option value="Tema 2">Tema 2: Componentes de aplicaciones</option>
                         <option value="Tema 3">Tema 3: Arquitectura de aplicaciones</option>
@@ -69,9 +69,96 @@
                 
                 <div class="mt-4">
                     <label class="block text-sm font-medium mb-2">Cantidad de preguntas:</label>
-                    <input type="number" id="num-questions-herramientas" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
+                    <input type="number" id="num-questions-herramientasdevops" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
                 </div>
                 <button onclick="selectSubject('herramientasdevops')" class="mt-auto w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700">Comenzar Quiz</button>
+            </div>
+
+            <!-- Gestión de Proyectos -->
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
+                <i class="fas fa-tasks text-4xl text-teal-600 mb-3"></i>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Gestión de Proyectos</h3>
+                <p id="question-count-gestionproyectos" class="text-sm text-gray-600 mb-4">Cargando preguntas...</p>
+                
+                <div class="flex-grow"></div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-medium mb-2">Modo:</label>
+                    <select id="quiz-mode-gestionproyectos" class="w-full p-2 border rounded mb-3">
+                        <option value="normal">Normal - Todos los temas</option>
+                        <option value="tema">Repaso por Tema</option>
+                    </select>
+                </div>
+                
+                <div id="tema-selector-gestionproyectos" class="mt-3 hidden">
+                    <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
+                    <select id="tema-select-gestionproyectos" class="w-full p-2 border rounded">
+                    </select>
+                </div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-medium mb-2">Cantidad de preguntas:</label>
+                    <input type="number" id="num-questions-gestionproyectos" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
+                </div>
+                <button onclick="selectSubject('gestionproyectos')" class="mt-auto w-full bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-teal-700">Comenzar Quiz</button>
+            </div>
+
+            <!-- Entornos de Integración y Entrega Continua -->
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
+                <i class="fas fa-sync-alt text-4xl text-orange-600 mb-3"></i>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Integración y Entrega Continua</h3>
+                <p id="question-count-integracionentrega" class="text-sm text-gray-600 mb-4">Cargando preguntas...</p>
+                
+                <div class="flex-grow"></div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-medium mb-2">Modo:</label>
+                    <select id="quiz-mode-integracionentrega" class="w-full p-2 border rounded mb-3">
+                        <option value="normal">Normal - Todos los temas</option>
+                        <option value="tema">Repaso por Tema</option>
+                    </select>
+                </div>
+                
+                <div id="tema-selector-integracionentrega" class="mt-3 hidden">
+                    <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
+                    <select id="tema-select-integracionentrega" class="w-full p-2 border rounded">
+                    </select>
+                </div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-medium mb-2">Cantidad de preguntas:</label>
+                    <input type="number" id="num-questions-integracionentrega" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
+                </div>
+                <button onclick="selectSubject('integracionentrega')" class="mt-auto w-full bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-orange-700">Comenzar Quiz</button>
+            </div>
+
+            <!-- Contenedores -->
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
+                <i class="fas fa-cube text-4xl text-cyan-600 mb-3"></i>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Contenedores</h3>
+                <p id="question-count-contenedores" class="text-sm text-gray-600 mb-4">Cargando preguntas...</p>
+                
+                <div class="flex-grow"></div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-medium mb-2">Modo:</label>
+                    <select id="quiz-mode-contenedores" class="w-full p-2 border rounded mb-3">
+                        <option value="normal">Normal - Todos los temas</option>
+                        <option value="tema">Repaso por Tema</option>
+                    </select>
+                </div>
+                
+                <div id="tema-selector-contenedores" class="mt-3 hidden">
+                    <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
+                    <select id="tema-select-contenedores" class="w-full p-2 border rounded">
+                    </select>
+                </div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-medium mb-2">Cantidad de preguntas:</label>
+                    <input type="number" id="num-questions-contenedores" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
+                </div>
+                <button onclick="selectSubject('contenedores')" class="mt-auto w-full bg-cyan-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-cyan-700">Comenzar Quiz</button>
             </div>
             
             <button onclick="startPracticalQuestion()" class="bg-green-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
@@ -333,49 +420,29 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     <script src="firebase-config.js"></script>
     <script>
-        // Mostrar/ocultar selector de tema
+        // Mostrar/ocultar selector de tema para todas las asignaturas
         document.addEventListener('DOMContentLoaded', () => {
-            const modeSelect = document.getElementById('quiz-mode');
-            const temaSelector = document.getElementById('tema-selector');
-            if (modeSelect && temaSelector) {
-                modeSelect.addEventListener('change', (e) => {
-                    temaSelector.classList.toggle('hidden', e.target.value !== 'tema');
-                });
-            }
+            const subjects = ['herramientasdevops', 'gestionproyectos', 'integracionentrega', 'contenedores'];
             
-            const modeSelectAdmin = document.getElementById('quiz-mode-admin');
-            const temaSelectorAdmin = document.getElementById('tema-selector-admin');
-            if (modeSelectAdmin && temaSelectorAdmin) {
-                modeSelectAdmin.addEventListener('change', (e) => {
-                    temaSelectorAdmin.classList.toggle('hidden', e.target.value !== 'tema');
-                });
-            }
-            
-            const modeSelectCloud = document.getElementById('quiz-mode-cloud');
-            const temaSelectorCloud = document.getElementById('tema-selector-cloud');
-            if (modeSelectCloud && temaSelectorCloud) {
-                modeSelectCloud.addEventListener('change', (e) => {
-                    temaSelectorCloud.classList.toggle('hidden', e.target.value !== 'tema');
-                });
-            }
-            
-            const modeSelectHerramientas = document.getElementById('quiz-mode-herramientas');
-            const temaSelectorHerramientas = document.getElementById('tema-selector-herramientas');
-            if (modeSelectHerramientas && temaSelectorHerramientas) {
-                modeSelectHerramientas.addEventListener('change', (e) => {
-                    temaSelectorHerramientas.classList.toggle('hidden', e.target.value !== 'tema');
-                });
-            }
-            
-            const modeSelectAutomatizacion = document.getElementById('quiz-mode-automatizacion');
-            const temaSelectorAutomatizacion = document.getElementById('tema-selector-automatizacion');
-            if (modeSelectAutomatizacion && temaSelectorAutomatizacion) {
-                modeSelectAutomatizacion.addEventListener('change', (e) => {
-                    temaSelectorAutomatizacion.classList.toggle('hidden', e.target.value !== 'tema');
-                });
-            }
+            subjects.forEach(subject => {
+                const modeSelect = document.getElementById(`quiz-mode-${subject}`);
+                const temaSelector = document.getElementById(`tema-selector-${subject}`);
+                if (modeSelect && temaSelector) {
+                    modeSelect.addEventListener('change', (e) => {
+                        temaSelector.classList.toggle('hidden', e.target.value !== 'tema');
+                    });
+                }
+            });
         });
     </script>
-    <script src="app.js?v=3"></script>
+    <script>
+        // Cache busting automático: carga app.js con timestamp diario
+        (function() {
+            const script = document.createElement('script');
+            const today = new Date().toISOString().split('T')[0]; // cambia cada día
+            script.src = 'app.js?v=' + today;
+            document.body.appendChild(script);
+        })();
+    </script>
 </body>
 </html>
