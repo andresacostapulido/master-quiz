@@ -358,5 +358,725 @@
     ],
     "answer": "Describe un estado futuro del producto como objetivo a largo plazo y que se debe cumplir antes de continuar",
     "explanation": "Siempre se deben cumplir los objetivos marcados para continuar."
+  },
+  {
+    "tema": "Tema 4: Lean y Kanban",
+    "question": "Lean es una filosofía que consiste en:",
+    "options": [
+      "Que todo negocio debe maximizar el valor dado al cliente y reducir las incidencias o despilfarros",
+      "Que toda organización debe minimizar el valor dado al cliente y garantizar que no haya incidencias o despilfarros",
+      "Que todo negocio debe implicar al cliente, cubrir sus necesidades y aplicar la metodología tradicional o ágil que sea necesaria",
+      "Que todo negocio debe maximizar el valor que se le da al cliente, cubrir sus necesidades y aplicar la metodología tradicional o ágil que sea necesaria"
+    ],
+    "answer": "Que todo negocio debe maximizar el valor dado al cliente y reducir las incidencias o despilfarros",
+    "explanation": "Este es el objetivo principal detrás del pensamiento Lean."
+  },
+  {
+    "tema": "Tema 4: Lean y Kanban",
+    "question": "¿Cuál es la diferencia entre Lean Management y Lean Manufacturing?",
+    "options": [
+      "Lean Management se refiere a la aplicación de las técnicas de producción y Lean Manufacturing a la gestión de implantar Lean",
+      "Lean Management se refiere a gestión de implantar Lean y Lean Manufacturing a la aplicación de las técnicas de implementación de los sistemas en caliente",
+      "Lean Management se refiere a gestión de implantar Lean y Lean Manufacturing a la aplicación de las técnicas de producción",
+      "Lean Management se refiere a gestión de evaluar Lean y Lean Manufacturing a la aplicación de las técnicas de producción"
+    ],
+    "answer": "Lean Management se refiere a gestión de implantar Lean y Lean Manufacturing a la aplicación de las técnicas de producción",
+    "explanation": "Lean Management es la gestión de implantar Lean en la organización, mientras que Lean Manufacturing se centra en las técnicas de producción."
+  },
+  {
+    "tema": "Tema 4: Lean y Kanban",
+    "question": "Entre los aspectos que suponen despilfarros o desperdicios en Lean, algunos son los siguientes:",
+    "options": [
+      "Sobreproducción, porque se abarquen más requisitos de lo que se puede desarrollar, y transporte porque la logística sea complicada",
+      "Exceso de inventario, porque se generan productos que no llegan a usarse por los clientes, y esperas porque se requiera de respuestas o acciones de otros miembros del equipo para continuar",
+      "Costes innecesarios, por tener que trasladarse a departamentos o buscar continuamente herramientas, y esperas porque se requiera de respuestas o acciones de otros miembros del equipo para continuar",
+      "Defectos de producción, por no tener en consideración la opinión del cliente y generar productos defectuosos, y desaprovechamiento del talento por no escuchar esas ideas buenas del cliente"
+    ],
+    "answer": "Exceso de inventario, porque se generan productos que no llegan a usarse por los clientes, y esperas porque se requiera de respuestas o acciones de otros miembros del equipo para continuar",
+    "explanation": "Hay 7+1 = 8 despilfarros. Aquí se describen algunos; lo importante es entender lo que se asocia a los que se indican."
+  },
+  {
+    "tema": "Tema 4: Lean y Kanban",
+    "question": "¿Cuáles son los principios de Lean?",
+    "options": [
+      "Valor de cliente y calidad, eliminar desperdicios, mejora integra, procesos push, flexibilidad, y relación a largo plazo con proveedores",
+      "Valor de cliente y calidad, eliminar desperdicios, mejora continua, procesos push, flexibilidad, y relación a largo plazo con proveedores",
+      "Valor de cliente y calidad, eliminar desperdicios, mejora continua, procesos pull, flexibilidad, y relación a largo plazo con proveedores",
+      "Valor de cliente y calidad, eliminar desperdicios, mejora continua, procesos pull, facilidad, y relación a largo plazo con proveedores"
+    ],
+    "answer": "Valor de cliente y calidad, eliminar desperdicios, mejora continua, procesos pull, flexibilidad, y relación a largo plazo con proveedores",
+    "explanation": "Estos son los principios básicos de Lean."
+  },
+  {
+    "tema": "Tema 4: Lean y Kanban",
+    "question": "Imaginemos que una empresa quiere implantar Lean en su modelo de trabajo, ¿qué aspectos debería tener en cuenta?",
+    "options": [
+      "Compromiso de la dirección y los clientes, darles valor a los requisitos pedidos por el cliente, y trabajo continuo",
+      "Compromiso de la dirección, localizar el valor del producto, implicar a la gente al trabajo de coste mínimo, y pensamiento de procesos",
+      "Compromiso de la dirección, localizar el valor de la colaboración entre la dirección y el equipo de desarrollo, implicar a la gente al trabajo real, y pensamiento de procesos",
+      "Compromiso de la dirección, localizar el valor del cliente y la calidad, implicar a la gente al trabajo real, y pensamiento de procesos"
+    ],
+    "answer": "Compromiso de la dirección, localizar el valor del cliente y la calidad, implicar a la gente al trabajo real, y pensamiento de procesos",
+    "explanation": "Es fundamental que la dirección esté implicada, y a partir de ahí, dar valor al cliente, a tener procesos de calidad e implicar a las personas del equipo de desarrollo y la empresa en general a aplicar el pensamiento Lean."
+  },
+  {
+    "tema": "Tema 4: Lean y Kanban",
+    "question": "¿Puede ser un Kanban utilizado sobre una herramienta digital?",
+    "options": [
+      "Siempre debe ser sobre tablero físico",
+      "Sí, en el caso que participen pocas personas, para llevar mejor control",
+      "Solo en caso de usar herramientas con licencia para usar Kanban",
+      "Sí, se puede hacer tanto físico como digital"
+    ],
+    "answer": "Sí, se puede hacer tanto físico como digital",
+    "explanation": "Es de hecho una realidad que, debido a la deslocalización de los equipos de trabajo, cada día se hace más uso de herramientas digitales."
+  },
+  {
+    "tema": "Tema 4: Lean y Kanban",
+    "question": "Los principios en los que se fundamenta Kanban incluyen:",
+    "options": [
+      "Objetivos de cambios incrementales, cada miembro es líder, mejora continua y colaborativa, proceso claro, virtualizar y gestionar el flujo de trabajo",
+      "Objetivos de cambios iterativos, cada miembro tiene un jefe como líder, mejora continua y colaborativa, proceso claro, virtualizar y gestionar los requisitos dados por el cliente",
+      "Objetivos de cambios incrementales, cada miembro es líder, mejora colaborativa, proceso claro, virtualizar y gestionar los requisitos dados por el cliente",
+      "Objetivos de cambios incrementales, cada miembro tiene un jefe como líder, mejora continua y colaborativa, proceso claro, virtualizar y gestionar el flujo de trabajo"
+    ],
+    "answer": "Objetivos de cambios incrementales, cada miembro es líder, mejora continua y colaborativa, proceso claro, virtualizar y gestionar el flujo de trabajo",
+    "explanation": "Aquí se incluyen algunos de los principios de Kanban."
+  },
+  {
+    "tema": "Tema 4: Lean y Kanban",
+    "question": "¿Qué aspectos debe considerar un tablero Kanban con un buen diseño?",
+    "options": [
+      "Que indique las diferentes tareas que se deben realizar, que use bastantes colores para identificarlas y que se ponga información de los tiempos de ejecución de las tareas",
+      "Se pueden usar colores, pero no de manera excesiva, pues puede dar lugar a confusión",
+      "Un buen diseño puede ser estructurado, con la información que sea fácil de leer, visible, entendible, que no use excesiva cantidad de colores y que se identifique bien las asignaciones a miembros",
+      "Identificar claramente quién hace cada tarea y quién es el responsable de cada miembro del equipo de desarrollo"
+    ],
+    "answer": "Un buen diseño puede ser estructurado, con la información que sea fácil de leer, visible, entendible, que no use excesiva cantidad de colores y que se identifique bien las asignaciones a miembros",
+    "explanation": "No hay una regla única para un buen diseño, sobre todo se alcanza con la práctica, pero sí se puede considerar evitar algunos aspectos como los indicados."
+  },
+  {
+    "tema": "Tema 4: Lean y Kanban",
+    "question": "¿Cuál de las siguientes opciones puede ser la mejor para reflejar quién está haciendo una tarea en Kanban?",
+    "options": [
+      "Asignar la tarea al Scrum Master",
+      "Indicarlo con un número en la tarjeta",
+      "Indicarlo al Product Owner, y que decida",
+      "Asignar la tarea al facilitador"
+    ],
+    "answer": "Asignar la tarea al facilitador",
+    "explanation": "Una de las tareas del facilitador es que debe hacerse cargo de la gestión de las dependencias con otras organizaciones o proyectos."
+  },
+  {
+    "tema": "Tema 4: Lean y Kanban",
+    "question": "En relación con el uso de Kanban en un proyecto, ¿cuál de estas opciones incluye buenas prácticas?",
+    "options": [
+      "Una tarea solo se asigna a una persona, las tareas se mueven hacia la derecha, pocas tareas en cada columna y no más de tres o cuatro personas asignadas a la vez a una tarea",
+      "No se pueden producir cambios dentro de un Timebox una vez comience una iteración, aunque las tareas se pueden distribuir en tantas personas del equipo como miembros haya trabajado en el proyecto",
+      "Debe haber pocas tareas asignadas por persona simultáneamente, y las tareas pueden ir hacia la derecha, o retroceder si ocurren errores o inconvenientes",
+      "Una tarea solo se asigna a una persona en principio, si esta no puede llevarla a cabo entonces se coge al siguiente en la lista y se le asigna, mientras todo se queda bloqueado"
+    ],
+    "answer": "Una tarea solo se asigna a una persona, las tareas se mueven hacia la derecha, pocas tareas en cada columna y no más de tres o cuatro personas asignadas a la vez a una tarea",
+    "explanation": "Son aspectos importantes que deben considerarse para hacer un buen uso de Kanban, de lo contrario no se estará aplicando bien la metodología/herramienta."
+  },
+  {
+    "tema": "Tema 5: Visión y gestión del proyecto ágil",
+    "question": "Cuando hablamos de gestión ágil de proyectos, hay que plantear una visión que considera una serie de aspectos, entre los que se encuentran:",
+    "options": [
+      "Se trata de una visión relativa a cada uno de los miembros de equipo, que analiza cada detalle y va argumentando por qué considera que hay que hacer un cambio",
+      "Se habla de una visión unificada del proyecto, en la que se analiza y comprende el por qué se lleva a cabo cada tarea, priorizando los requisitos, y por qué se aporta valor de negocio",
+      "Es una visión única, en la que se analiza y comprende por qué el cliente siempre tiene la razón en sus propuestas de cambio",
+      "Se trata de una visión clara, concreta y muy concisa, por la que todo debe quedar claro en la reunión inicial con el cliente"
+    ],
+    "answer": "Se habla de una visión unificada del proyecto, en la que se analiza y comprende el por qué se lleva a cabo cada tarea, priorizando los requisitos, y por qué se aporta valor de negocio",
+    "explanation": "Se trata de una visión unificada donde se priorizan los requisitos y se consideran aspectos de valor de negocio, pero se pueden hacer cambios."
+  },
+  {
+    "tema": "Tema 5: Visión y gestión del proyecto ágil",
+    "question": "¿A qué nos referimos con el Product Box?",
+    "options": [
+      "Es el diseño técnico que se establece para un producto",
+      "Se trata del desglose de los costes que tiene desarrollar el producto en una caja",
+      "Es una técnica que se usa para transmitir la visión unificada del proyecto",
+      "Es la pila de requisitos, que debe venir priorizada"
+    ],
+    "answer": "Es una técnica que se usa para transmitir la visión unificada del proyecto",
+    "explanation": "Tanto el Elevator Pitch como el Product Box son técnicas muy útiles para transmitir el enfoque de visión unificada del proyecto."
+  },
+  {
+    "tema": "Tema 5: Visión y gestión del proyecto ágil",
+    "question": "Las historias de usuario se usan:",
+    "options": [
+      "Tanto en proyectos con enfoque ágil como tradicional",
+      "Solo en proyectos de enfoque tradicional, cuando se pueden conocer las funcionalidades del sistema a priori",
+      "En marcos de metodologías ágiles como Scrum y Kanban",
+      "Para que los clientes sepan cuáles van a ser los requisitos que el equipo de desarrollo ha decidido implementar"
+    ],
+    "answer": "En marcos de metodologías ágiles como Scrum y Kanban",
+    "explanation": "Las historias de usuario son un elemento fundamental en marcos ágiles como Scrum y Kanban para definir requisitos desde la perspectiva del usuario."
+  },
+  {
+    "tema": "Tema 5: Visión y gestión del proyecto ágil",
+    "question": "¿Qué son las Personas cuando trabajamos en la gestión de proyectos?",
+    "options": [
+      "Son los usuarios finales que tomarán las decisiones de qué se debe implementar",
+      "Es un grupo de usuarios del producto final, también considerados como un arquetipo",
+      "Son los patrocinadores del proyecto y, por tanto, hay que considerarlos como los propietarios",
+      "Son un conjunto de personas que establecen las decisiones de la priorización de requisitos"
+    ],
+    "answer": "Es un grupo de usuarios del producto final, también considerados como un arquetipo",
+    "explanation": "Las Personas (técnica Personas) representan un conjunto de los usuarios finales que usarán el producto y por tanto se espera resolver las necesidades requeridas del sistema para ellos."
+  },
+  {
+    "tema": "Tema 5: Visión y gestión del proyecto ágil",
+    "question": "Sobre los criterios de aceptación de un requisito:",
+    "options": [
+      "Es preferible el no tener que indicarlos, y poder desarrollar directamente un documento de análisis y diseño de requisitos funcionales",
+      "Se deben considerar en base a unos planes de validación y pruebas del sistema",
+      "Deben tener una respuesta directa y clara sobre si están bien cubiertos o no",
+      "Se deben poder analizar de forma subjetiva por parte del responsable de negocio"
+    ],
+    "answer": "Deben tener una respuesta directa y clara sobre si están bien cubiertos o no",
+    "explanation": "Los criterios de aceptación reflejan una aceptación positiva o negativa, por eso tienen que indicar una respuesta clara."
+  },
+  {
+    "tema": "Tema 5: Visión y gestión del proyecto ágil",
+    "question": "¿Cuáles son los niveles de priorización del modelo Kano?",
+    "options": [
+      "Elementos lineales, básicos, seductores",
+      "Elementos requeridos, básicos, atractivos, además de poder considerar neutros e inversos",
+      "Elementos requeridos, básicos, neutros",
+      "Elementos requeridos, básicos, atractivos, además de poder considerar anversos y reversos"
+    ],
+    "answer": "Elementos requeridos, básicos, atractivos, además de poder considerar neutros e inversos",
+    "explanation": "Tenemos estos conceptos para agrupar los requisitos, con los tres principales y los otros dos que pueden considerarse."
+  },
+  {
+    "tema": "Tema 5: Visión y gestión del proyecto ágil",
+    "question": "Cuando se trabaja en las historias de usuario, pueden surgir las épicas, ¿qué son exactamente?",
+    "options": [
+      "Son historias de usuario demasiado grandes",
+      "Son historias de usuario relacionadas con un conjunto de historias más pequeñas y juntas tienen más fuerza en el valor de negocio",
+      "Son requisitos que no se escriben como historias de usuario",
+      "Son historias de usuario que suponen un atractivo muy interesante para el proyecto"
+    ],
+    "answer": "Son historias de usuario demasiado grandes",
+    "explanation": "Se trata de requisitos que, debido a su tamaño, provocan que las iteraciones se alarguen, lo cual no es muy deseable normalmente en un proyecto."
+  },
+  {
+    "tema": "Tema 5: Visión y gestión del proyecto ágil",
+    "question": "A la hora de priorizar las historias de usuarios, se pueden emplear una serie de técnicas, tales como:",
+    "options": [
+      "La técnica de Moscú, Kamper y el árbol caído",
+      "La técnica de MoSCow, Kano y priorización por árboles",
+      "La técnica de MoSCoW, Kamper y priorización por ranking",
+      "La técnica de MoSCow, Kano y priorización por ranking"
+    ],
+    "answer": "La técnica de MoSCow, Kano y priorización por ranking",
+    "explanation": "Existen otras técnicas para la priorización de requisitos, y estas son las que hemos visto. En las otras respuestas hay alguna que no existe."
+  },
+  {
+    "tema": "Tema 5: Visión y gestión del proyecto ágil",
+    "question": "En caso de que aparezca un nuevo requisito que sea más prioritario que los ya registrados en el Backlog durante el transcurso del proyecto, ¿cómo debe considerarse?",
+    "options": [
+      "Hay que incluirlo al final de la pila de requisitos, y así poder finalizar antes los que ya están registrados",
+      "No se debería incluir en ningún momento, ya que el proyecto ya está iniciado",
+      "Se deberá incluir en el Backlog como primer requisito para ser ejecutado de manera inmediata",
+      "Hay que incluirlo en el Backlog como los responsables de negocio puedan determinar, en base a la prioridad y las dependencias técnicas"
+    ],
+    "answer": "Hay que incluirlo en el Backlog como los responsables de negocio puedan determinar, en base a la prioridad y las dependencias técnicas",
+    "explanation": "Se debe intentar adelantar la ejecución de cualquier requisito prioritario en el momento en el que se pueda según las dependencias."
+  },
+  {
+    "tema": "Tema 5: Visión y gestión del proyecto ágil",
+    "question": "Cuando ya se pone en marcha el Product Backlog, se debe realizar una revisión periódica, en la que:",
+    "options": [
+      "Se adapta el Backlog en base a las necesidades de los desarrolladores",
+      "Se refina el Backlog en base a las necesidades de los clientes, que en todo momento puede indicar qué quiere y qué no, independientemente de los valores de negocio y el coste",
+      "Se adapta el Backlog mediante un refinamiento adecuado para el proyecto, agrupando elementos a corto y largo plazo",
+      "Se adapta el Backlog mediante un refinamiento propio de lo que el mercado considere, agrupando elementos a corto y largo plazo"
+    ],
+    "answer": "Se adapta el Backlog mediante un refinamiento adecuado para el proyecto, agrupando elementos a corto y largo plazo",
+    "explanation": "El Backlog refinement o refinamiento del Backlog se realiza cuando se necesita adaptar el Backlog para hacerlo más afinado y adecuado al proyecto."
+  },
+  {
+    "tema": "Tema 6: Estimación y planificación ágil",
+    "question": "La estimación y la planificación ágil:",
+    "options": [
+      "Son exactamente lo mismo, sólo que con nombres diferentes",
+      "La estimación sirve para estimar las horas y el coste del desarrollo, y la planificación para ver quién realizará las tareas",
+      "Son dos conceptos que no están nada relacionados",
+      "La estimación permite asignar puntos de historia como medidas de esfuerzo relativo, y la planificación plantea iteraciones basadas en los objetivos, de manera iterativa e incremental"
+    ],
+    "answer": "La estimación permite asignar puntos de historia como medidas de esfuerzo relativo, y la planificación plantea iteraciones basadas en los objetivos, de manera iterativa e incremental",
+    "explanation": "Son conceptos relacionados, pero no se estima en horas y coste, sino en puntos de historia, y se planifica con fases o iteraciones."
+  },
+  {
+    "tema": "Tema 6: Estimación y planificación ágil",
+    "question": "En un punto de historia, el número de horas asignadas:",
+    "options": [
+      "Siempre es el mismo para todos los proyectos relacionados",
+      "Puede ser distinto en cada proyecto",
+      "Nunca puede relacionarse un punto de historia con tiempo en horas",
+      "Siempre es el mismo cuando son proyectos de una misma empresa"
+    ],
+    "answer": "Puede ser distinto en cada proyecto",
+    "explanation": "Dado que el tamaño unitario del requisito (1 punto) puede ser diferente por proyecto, hace que las horas para abordar el requisito sean distintas en cada proyecto."
+  },
+  {
+    "tema": "Tema 6: Estimación y planificación ágil",
+    "question": "¿Quién es el responsable de llevar a cabo la estimación ágil de requisitos?",
+    "options": [
+      "El jefe de proyecto junto con el cliente",
+      "Un responsable que actúa como líder ágil habla con el Product Owner y lo transmite al equipo",
+      "El Product Owner junto con el líder ágil y el equipo, refinando el Product Backlog",
+      "Un responsable que será el jefe de proyecto, junto con el Product Owner y el equipo"
+    ],
+    "answer": "El Product Owner junto con el líder ágil y el equipo, refinando el Product Backlog",
+    "explanation": "Se realiza un refinamiento de la pila de requisitos y se obtiene una estimación."
+  },
+  {
+    "tema": "Tema 6: Estimación y planificación ágil",
+    "question": "La técnica Planning Poker sirve para:",
+    "options": [
+      "Realizar una estimación ágil haciendo uso de puntos de historia, estimando la dificultad de la tarea",
+      "Realizar una planificación ágil haciendo uso de puntos de historia, estimando la dificultad de la tarea",
+      "Realizar una estimación ágil haciendo uso de historias de usuario, estimando la dificultad de la tarea",
+      "Realizar una planificación ágil haciendo uso de historias de usuario, estimando la dificultad de la tarea"
+    ],
+    "answer": "Realizar una estimación ágil haciendo uso de puntos de historia, estimando la dificultad de la tarea",
+    "explanation": "Las diferentes técnicas de estimación ágil usan los puntos de historia para la estimación de la dificultad de las tareas."
+  },
+  {
+    "tema": "Tema 6: Estimación y planificación ágil",
+    "question": "¿En qué consiste el método The Bucket System?",
+    "options": [
+      "En colocar valores diferentes de los puntos de historia en una tabla, metiendo cada historia de usuario en un cubo, en base a la estimación",
+      "En indicar el tamaño relativo diferente para cada historia de usuario",
+      "En usar un tablero Kanban para indicar las historias de usuario preferidas",
+      "En colocar valores diferentes de las historias de usuario en una tabla, metiendo cada punto de historia en un cubo, en base a la estimación"
+    ],
+    "answer": "En colocar valores diferentes de los puntos de historia en una tabla, metiendo cada historia de usuario en un cubo, en base a la estimación",
+    "explanation": "Cada persona que vota va metiendo las historias de usuarios en cubos, y se asignan valores."
+  },
+  {
+    "tema": "Tema 6: Estimación y planificación ágil",
+    "question": "Entre los beneficios de la estimación ágil, podemos encontrar:",
+    "options": [
+      "Adaptabilidad, habilidad requerida, bajo coste, calidad y time-to-market",
+      "Adaptabilidad en grandes empresas, innovación, bajo coste, calidad y time-to-market",
+      "Adaptabilidad, interoperabilidad, bajo coste, calidad y time-to-market",
+      "Adaptabilidad, innovación, bajo coste, calidad y time-to-market"
+    ],
+    "answer": "Adaptabilidad, innovación, bajo coste, calidad y time-to-market",
+    "explanation": "Esta es la única que contiene todos beneficios, el resto incluye algún tipo de obstáculo, como la habilidad requerida y la adaptabilidad en grandes empresas."
+  },
+  {
+    "tema": "Tema 6: Estimación y planificación ágil",
+    "question": "¿Cuál es la principal diferencia entre la planificación ágil y la tradicional?",
+    "options": [
+      "La planificación ágil es predictiva e iterativa, y la tradicional identifica los cambios",
+      "La planificación ágil es iterativa, progresiva, y se adapta a cambios, y la tradicional es predictiva y se basa en identificar tareas a priori",
+      "La planificación tradicional es iterativa y se adapta a cambios, y la ágil es predictiva y se basa en identificar tareas a priori",
+      "La planificación ágil es iterativa y se adapta a cambios, y la tradicional es incremental y va adaptándose a situaciones cambiantes sin problemas"
+    ],
+    "answer": "La planificación ágil es iterativa, progresiva, y se adapta a cambios, y la tradicional es predictiva y se basa en identificar tareas a priori",
+    "explanation": "La planificación ágil es iterativa e incremental, aceptando cambios, mientras la tradicional no lo hace de manera sencilla, es predictiva y planifica todo antes."
+  },
+  {
+    "tema": "Tema 6: Estimación y planificación ágil",
+    "question": "Los horizontes de planificación ágil son:",
+    "options": [
+      "Una serie de niveles que se usan para llegar al final del producto, entregas y reuniones diarias",
+      "Un conjunto de pruebas que se realizan para poder realizar los cambios sobre el producto final, considerando la hoja de ruta y las entregas",
+      "Una serie de niveles que llevan a cabo acciones para ir avanzando en los planes de producto, hoja de rutas, entregas e iteraciones",
+      "Una serie de métodos que se usan para realizar las planificaciones del proyecto ágil"
+    ],
+    "answer": "Una serie de niveles que llevan a cabo acciones para ir avanzando en los planes de producto, hoja de rutas, entregas e iteraciones",
+    "explanation": "Son los niveles de planificación para ir avanzando el producto hasta producir un valor de negocio, incluyendo el Backlog, Vision, Roadmap, Release Plan, Iteraciones y Diarias."
+  },
+  {
+    "tema": "Tema 6: Estimación y planificación ágil",
+    "question": "La creación de una hoja de ruta o Roadmap, se puede dividir en estos pasos:",
+    "options": [
+      "Asegurar la estrategia y tecnología, identificar los requisitos desde el Product Backlog, organizar los temas y entregas y determinar líneas de tiempo a bajo nivel",
+      "Asegurar la estrategia y tecnología, identificar los requisitos desde el Release Plan, organizar los temas y entregas y determinar líneas de tiempo a alto nivel",
+      "Asegurar la estrategia y objetivos, identificar los requisitos desde el Release Plan, organizar los temas y entregas y determinar líneas de tiempo a bajo nivel",
+      "Asegurar la estrategia y tecnología, identificar los requisitos desde el Product Backlog, organizar los temas y entregas y determinar líneas de tiempo a alto nivel"
+    ],
+    "answer": "Asegurar la estrategia y tecnología, identificar los requisitos desde el Product Backlog, organizar los temas y entregas y determinar líneas de tiempo a alto nivel",
+    "explanation": "Se hace desde los requisitos del Product Backlog y a alto nivel."
+  },
+  {
+    "tema": "Tema 6: Estimación y planificación ágil",
+    "question": "¿Cuándo se realiza la planificación de las entregas o Release Plan?",
+    "options": [
+      "Cuando estamos listos para estimar los requisitos",
+      "Cuando se deben hacer las entregas de los incrementos del producto",
+      "Cuando se deben hacer los requisitos de manera iterativa y alcanzar el producto",
+      "Cuando se deben hacer las entregas finales del producto"
+    ],
+    "answer": "Cuando se deben hacer las entregas de los incrementos del producto",
+    "explanation": "Se hace para las entregas del producto a partir del Roadmap, y no tiene por qué ser las finales."
+  },
+  {
+    "tema": "Tema 7: Planificación del Roadmap y entregas",
+    "question": "¿Qué información viene reflejada en el Roadmap de producto?",
+    "options": [
+      "Se determina el número de iteraciones del proyecto y de las entregas",
+      "Las prioridades de negocio tanto en los requisitos como las iteraciones",
+      "Al ser un panel de tareas, se añaden las tarjetas para comprobar el trabajo diario del equipo",
+      "Las tareas y características útiles para poder hacer las entregas del producto"
+    ],
+    "answer": "Se determina el número de iteraciones del proyecto y de las entregas",
+    "explanation": "El Roadmap presenta la estructura en iteraciones del producto, y sobre la hoja de ruta se señalarán dónde se espera que se realicen las entregas."
+  },
+  {
+    "tema": "Tema 7: Planificación del Roadmap y entregas",
+    "question": "La mejor forma para representar un Roadmap es:",
+    "options": [
+      "Mediante un Diagrama de Gantt",
+      "Mediante un mapa visual claro",
+      "Mediante una hoja Excel",
+      "Mediante un software adecuado para ello, con un mapeo de historias"
+    ],
+    "answer": "Mediante un mapa visual claro",
+    "explanation": "No importa si se hace en papel, software, online. Lo importante es que sea un mapa visual muy claro para transmitir la estructura."
+  },
+  {
+    "tema": "Tema 7: Planificación del Roadmap y entregas",
+    "question": "¿Por qué es necesario que un proyecto ágil mantenga las iteraciones con la misma duración durante la vida del proyecto?",
+    "options": [
+      "Porque así se puede medir y comparar la velocidad entre las diferentes iteraciones",
+      "Porque así se puede medir y comparar el Timebox y Tailoring entre las diferentes iteraciones",
+      "Porque se desarrollan a partir de los mismos requisitos y en el mismo entorno",
+      "Porque el Roadmap lo indica en su estructura y estrategia"
+    ],
+    "answer": "Porque así se puede medir y comparar la velocidad entre las diferentes iteraciones",
+    "explanation": "Hay que establecer un ritmo para ir avanzando, que de alguna manera marca el avance del proyecto, y se hace con la duración de iteraciones."
+  },
+  {
+    "tema": "Tema 7: Planificación del Roadmap y entregas",
+    "question": "¿Cuántas iteraciones tiene un proyecto ágil respecto a uno tradicional?",
+    "options": [
+      "Tienen las mismas, no varía el enfoque",
+      "Tienen una iteración por cada entrega del proyecto",
+      "Se hace una entrega al mes, por tanto, una iteración al mes",
+      "Es algo que depende del proyecto, y se identifica en el Roadmap"
+    ],
+    "answer": "Es algo que depende del proyecto, y se identifica en el Roadmap",
+    "explanation": "No hay una relación con las iteraciones a nivel de enfoque ágil y tradicional, y es el Roadmap el que indica la duración necesaria de las iteraciones, en función de los requisitos."
+  },
+  {
+    "tema": "Tema 7: Planificación del Roadmap y entregas",
+    "question": "¿Cuál es la principal diferencia entre el Roadmap y el Release Plan?",
+    "options": [
+      "Que son horizontes de planificación diferentes, y su plan de ejecución es distinto",
+      "Que el Roadmap comunica una descripción de la estrategia de producto, y el Release Plan describe el proceso de ejecución por iteraciones",
+      "Que son horizontes de planificación incluidos en el mismo nivel, pero generando un plan de ejecución distinto",
+      "Que el Roadmap comunica una descripción de la visión de producto a nivel de entregas, y el Release Plan describe el proceso de ejecución por requisitos"
+    ],
+    "answer": "Que el Roadmap comunica una descripción de la estrategia de producto, y el Release Plan describe el proceso de ejecución por iteraciones",
+    "explanation": "El Roadmap sigue esa descripción y se termina en la entrega, donde comienza el Release Plan con un plan de documentos tácticos para realizar el proceso de la ejecución por etapas."
+  },
+  {
+    "tema": "Tema 7: Planificación del Roadmap y entregas",
+    "question": "La planificación de entregas se representa mediante:",
+    "options": [
+      "Un mapa visual que indica los puntos de historia por iteración",
+      "Un tablero Kanban que determina los hitos a ser ejecutados por iteración",
+      "Un mapa de historias que indican las que se llevan a cabo por iteración",
+      "Una herramienta digital que identifique la planificación de la pila de requisitos"
+    ],
+    "answer": "Un mapa de historias que indican las que se llevan a cabo por iteración",
+    "explanation": "En el mapa se muestran historias, no puntos de historia, y se hace por iteraciones."
+  },
+  {
+    "tema": "Tema 7: Planificación del Roadmap y entregas",
+    "question": "¿En qué consiste la técnica del Timebox en la planificación ágil?",
+    "options": [
+      "Sirve para fijar las horas que tardan las iteraciones",
+      "Consiste en fijar el tiempo mínimo que debe superarse para conseguir un objetivo, o realizar una tarea, en una iteración",
+      "Sirve para priorizar y tomar la decisión de qué tarea se debe hacer primero",
+      "Consiste en fijar el tiempo máximo que no debe superarse para conseguir un objetivo, o realizar una tarea, en una iteración"
+    ],
+    "answer": "Consiste en fijar el tiempo máximo que no debe superarse para conseguir un objetivo, o realizar una tarea, en una iteración",
+    "explanation": "Sirve para acordar trabajar con una limitación temporal, que favorece la priorización y la toma de decisiones."
+  },
+  {
+    "tema": "Tema 7: Planificación del Roadmap y entregas",
+    "question": "En la gestión ágil del cambio, la velocidad ágil se refiere a:",
+    "options": [
+      "La cantidad de puntos de historia que el equipo de trabajo puede ser capaz de cumplir en cada iteración",
+      "La cantidad de historias de requisitos que el equipo de trabajo puede ser capaz de cumplir en cada iteración",
+      "La cantidad de entregas que el equipo de trabajo puede ser capaz de cumplir en cada iteración",
+      "La cantidad de reuniones que da tiempo a que el equipo de trabajo puede tener durante cada iteración"
+    ],
+    "answer": "La cantidad de puntos de historia que el equipo de trabajo puede ser capaz de cumplir en cada iteración",
+    "explanation": "Se analizan los puntos de historia quemados o completos. Si un requisito no está totalmente terminado al finalizar la iteración, no se pueden considerar como conseguidos sus puntos de historia."
+  },
+  {
+    "tema": "Tema 7: Planificación del Roadmap y entregas",
+    "question": "En el enfoque ágil, se buscan tiempos de ciclo:",
+    "options": [
+      "Grandes, para así que dé tiempo a poder ejecutar todas las tareas",
+      "Cortos",
+      "Medios",
+      "En períodos de trimestre"
+    ],
+    "answer": "Cortos",
+    "explanation": "La idea es minimizar el período de tiempo que pasa desde que aparece un problema, incidencia o desde que el requisito aparece, hasta que se entrega."
+  },
+  {
+    "tema": "Tema 7: Planificación del Roadmap y entregas",
+    "question": "El valor ganado del proyecto es:",
+    "options": [
+      "La estrategia usada para conocer el valor de negocio real que genera un proyecto a los usuarios",
+      "Es el valor que se gana cuando el proyecto se ha alcanzado a tiempo",
+      "La estrategia usada para conocer el valor relativo que tienen las entregas en base a las necesidades, aunque no se cumplan todos los requisitos",
+      "Es el presupuesto en base al contrato del proyecto con el cliente"
+    ],
+    "answer": "La estrategia usada para conocer el valor de negocio real que genera un proyecto a los usuarios",
+    "explanation": "Es un valor fundamental de analizar, porque indica que se han alcanzado los objetivos y el cliente y usuario quedan satisfechos."
+  },
+  {
+    "tema": "Tema 8: Desarrollo del proyecto ágil",
+    "question": "¿Cuándo termina el desarrollo de un proyecto, Definition of Done?",
+    "options": [
+      "Cuando el cliente lo decide",
+      "Cuando se agota el presupuesto, aunque se haya planificado continuar",
+      "Cuando el contenido planificado se ha completado satisfactoriamente, sin necesidad de que se cumpla la fecha de entrega",
+      "Cuando los requisitos han quedado desarrollados, independientemente de si se han finalizado satisfactoriamente"
+    ],
+    "answer": "Cuando el contenido planificado se ha completado satisfactoriamente, sin necesidad de que se cumpla la fecha de entrega",
+    "explanation": "Es este caso en el que se da la definición de Done: que están hechas las tareas de los diferentes requisitos."
+  },
+  {
+    "tema": "Tema 8: Desarrollo del proyecto ágil",
+    "question": "La definición de listo, Ready:",
+    "options": [
+      "Muestra el camino a seguir sólo para cada iteración",
+      "Marca el momento de salida de la implementación de un proyecto",
+      "Muestra el camino que tiene que llevar a cabo un requisito",
+      "Marca el momento de salida tanto para un requisito, iteración o proyecto"
+    ],
+    "answer": "Marca el momento de salida tanto para un requisito, iteración o proyecto",
+    "explanation": "La definición de Ready se establece tanto para requisitos, iteraciones y el proyecto en sí."
+  },
+  {
+    "tema": "Tema 8: Desarrollo del proyecto ágil",
+    "question": "Cuando se va a comenzar una iteración:",
+    "options": [
+      "No es necesario disponer de un Roadmap para el proyecto",
+      "Se planifica el detalle de todas las iteraciones siguientes",
+      "Se determinan los requisitos que se implementarán en dicha iteración",
+      "No están determinados aún los requisitos a ser implementados en la iteración"
+    ],
+    "answer": "Se determinan los requisitos que se implementarán en dicha iteración",
+    "explanation": "Para comenzar una iteración, lo primero es determinar las tareas de la iteración, por lo que los requisitos a resolver están previstos en el Release Plan."
+  },
+  {
+    "tema": "Tema 8: Desarrollo del proyecto ágil",
+    "question": "¿Cuál es el resultado de llevar a cabo el proceso de planificación de una iteración?",
+    "options": [
+      "Se establece un panel o tablero de tareas que resuelve todos los requisitos de una iteración, cada una con las horas estimadas",
+      "Se obtiene el Release Plan",
+      "Se genera el Roadmap que será usado durante la planificación de iteraciones",
+      "Se establece un panel o tablero que resuelve todos los requisitos de una iteración, contados en puntos de historia"
+    ],
+    "answer": "Se establece un panel o tablero de tareas que resuelve todos los requisitos de una iteración, cada una con las horas estimadas",
+    "explanation": "La planificación de la iteración se lleva a cabo para determinar las tareas, estimación y construcción del Sprint Backlog. Las horas son necesarias en este punto para ver la capacidad del equipo."
+  },
+  {
+    "tema": "Tema 8: Desarrollo del proyecto ágil",
+    "question": "Una buena práctica para indicar el contenido de una iteración:",
+    "options": [
+      "Es aplicar una estrategia de estimación a posteriori",
+      "Es establecer el tiempo que tarda cada miembro del equipo en hacer una tarea",
+      "Es crear tantas tareas para cada requisito como condiciones tenga la definición de hecho o Done",
+      "Es establecer la duración de cada tarea en base a los puntos de historia"
+    ],
+    "answer": "Es crear tantas tareas para cada requisito como condiciones tenga la definición de hecho o Done",
+    "explanation": "Se pueden encontrar distintos tipos de condiciones para la definición de hecho, por lo que se deben contemplar todas."
+  },
+  {
+    "tema": "Tema 8: Desarrollo del proyecto ágil",
+    "question": "¿Cómo se calcula el avance de un proyecto ágil?",
+    "options": [
+      "Según el número de puntos completados",
+      "Según el presupuesto y facturación",
+      "Según el número de horas que se tarda",
+      "Según las tareas finalizadas o hechas"
+    ],
+    "answer": "Según el número de puntos completados",
+    "explanation": "El avance de un proyecto sobre el Roadmap se mide en base a los puntos finalizados tras cada iteración."
+  },
+  {
+    "tema": "Tema 8: Desarrollo del proyecto ágil",
+    "question": "En un proyecto ágil, ¿qué variable de entrada es fundamental para planificar: el número de personas o la fecha máxima?",
+    "options": [
+      "El número de personas",
+      "La fecha máxima",
+      "Ninguna de las dos",
+      "Ambas"
+    ],
+    "answer": "Ambas",
+    "explanation": "El número de personas del proyecto es fundamental e influye en la duración, a la par que la fecha máxima, que indica cuál debe ser la duración en sí."
+  },
+  {
+    "tema": "Tema 8: Desarrollo del proyecto ágil",
+    "question": "¿Cuánto dura la reunión diaria o Daily stand-up?",
+    "options": [
+      "Quince minutos como mínimo",
+      "Quince minutos como máximo",
+      "Lo que sea necesario",
+      "Dos minutos por cada miembro"
+    ],
+    "answer": "Quince minutos como máximo",
+    "explanation": "Se establece no más de quince minutos máximo, de manera que si se tarda menos es incluso preferible. Se busca agilidad."
+  },
+  {
+    "tema": "Tema 8: Desarrollo del proyecto ágil",
+    "question": "Entre los beneficios de la reunión de retrospectiva, se encuentran:",
+    "options": [
+      "Reflexionar sobre el proceso, encontrar formas de mejorar la productividad y actualizar la definición de hecho",
+      "Mejorar y evolucionar, y construir de manera individual",
+      "Reflexionar sobre el proceso, encontrar formas de minimizar la productividad y actualizar la definición de hecho",
+      "Mejorar y preguntar todo al cliente, y construir como equipo"
+    ],
+    "answer": "Reflexionar sobre el proceso, encontrar formas de mejorar la productividad y actualizar la definición de hecho",
+    "explanation": "Estos son algunos de los beneficios. Hay más, pero no están entre los que se argumentan en las otras respuestas, que se plantean de manera incorrecta."
+  },
+  {
+    "tema": "Tema 8: Desarrollo del proyecto ágil",
+    "question": "¿Cuál es el objetivo de la reunión de refinamiento?",
+    "options": [
+      "Determinar cuáles son las tareas necesarias en la siguiente iteración",
+      "Introducir nuevos requisitos solicitados por el cliente en la iteración en curso",
+      "Ejecutar técnicas de estimación de tareas que refinen la iteración",
+      "Resolver dudas que puedan surgir durante la iteración"
+    ],
+    "answer": "Resolver dudas que puedan surgir durante la iteración",
+    "explanation": "Idealmente, las dudas se deben resolver cuando surgen, pero se va haciendo una reunión específica para ello, donde se analiza lo que se va llevando a cabo."
+  },
+  {
+    "tema": "Tema 9: Seguimiento del proyecto ágil",
+    "question": "La técnica de valor ganado en los proyectos ágiles es:",
+    "options": [
+      "La estrategia donde se hace lo que el cliente indica con el valor adecuado y real del proyecto ágil",
+      "La estrategia que se usa para conocer el valor de negocio del proyecto y es del 100 % real en proyectos ágiles",
+      "La estrategia que define si los productos entregados en cada iteración ágil se terminan a tiempo",
+      "La estrategia de análisis aplicando la velocidad al valor económico de cada persona del equipo ágil"
+    ],
+    "answer": "La estrategia que se usa para conocer el valor de negocio del proyecto y es del 100 % real en proyectos ágiles",
+    "explanation": "En proyectos ágiles, el valor ganado se basa en los resultados entregados y no solo en avances parciales, por lo que el valor real es 100 %."
+  },
+  {
+    "tema": "Tema 9: Seguimiento del proyecto ágil",
+    "question": "Cuando se habla del estado global del proyecto ágil:",
+    "options": [
+      "Se valora el estado respecto a un alcance determinado",
+      "Se valora el estado desde el punto de vista del valor generado",
+      "Se valora el estado respecto a los puntos de historia prioritarios",
+      "Se valora el estado respecto a las tareas asignadas a las personas"
+    ],
+    "answer": "Se valora el estado desde el punto de vista del valor generado",
+    "explanation": "Se pretende valorar el estado según el valor que ha generado el proyecto, no según un alcance determinado ni otras cuestiones."
+  },
+  {
+    "tema": "Tema 9: Seguimiento del proyecto ágil",
+    "question": "¿Qué suele representar el burndown de una Release?",
+    "options": [
+      "El número de requisitos a realizar, según los previstos en la Release",
+      "El número de horas que quedan aún por realizar, de los previstos en la Release",
+      "El número de tareas que queda por realizar, de las previstas en la Release",
+      "El número de puntos de historia que quedan por realizar, según las previstas en la Release"
+    ],
+    "answer": "El número de puntos de historia que quedan por realizar, según las previstas en la Release",
+    "explanation": "La velocidad de avance en el burndown de una Release representa los puntos restantes hasta el final de la Release."
+  },
+  {
+    "tema": "Tema 9: Seguimiento del proyecto ágil",
+    "question": "Un gráfico de burnup de una release representa:",
+    "options": [
+      "El número de requisitos que se han realizado ya, según los previstos en la Release",
+      "El número de puntos de historia que se han realizado ya, según las previstas en la release",
+      "El número de tareas que se han realizado ya, de las previstas en la release",
+      "El número de horas que se han realizado ya, de los previstos en la release"
+    ],
+    "answer": "El número de puntos de historia que se han realizado ya, según las previstas en la release",
+    "explanation": "La velocidad de avance en el burnup de una Release representa los puntos alcanzados hasta la fecha."
+  },
+  {
+    "tema": "Tema 9: Seguimiento del proyecto ágil",
+    "question": "¿Cómo se deben disponer las tarjetas en un radiador de información?",
+    "options": [
+      "No importa mucho el orden mientras sea importante lo que se informa",
+      "Se puede ir rellenando todo el espacio físico disponible",
+      "Se debe ocupar el mínimo espacio posible",
+      "De forma ordenada y limpia"
+    ],
+    "answer": "De forma ordenada y limpia",
+    "explanation": "Un radiador de información debe ser entendido fácilmente, por lo que debe haber orden y claridad en las tarjetas."
+  },
+  {
+    "tema": "Tema 9: Seguimiento del proyecto ágil",
+    "question": "Los atributos de autoorganización y autodirección de los equipos ágiles:",
+    "options": [
+      "Son objetivos del enfoque ágil a medio plazo",
+      "Son estados del enfoque ágil a medio plazo",
+      "Son objetivos del enfoque ágil a largo plazo",
+      "Son estados del enfoque ágil a corto plazo"
+    ],
+    "answer": "Son objetivos del enfoque ágil a medio plazo",
+    "explanation": "Se necesita un apoyo y orientación a medida que se va enfrentando el alcance del proyecto."
+  },
+  {
+    "tema": "Tema 9: Seguimiento del proyecto ágil",
+    "question": "Comúnmente, un equipo ágil autoorganizado:",
+    "options": [
+      "Se mantiene al mismo nivel de principio a fin",
+      "Arranca como equipo de alto rendimiento",
+      "Empeora su rendimiento con el tiempo",
+      "Arranca como equipo inmaduro e irá mejorando"
+    ],
+    "answer": "Arranca como equipo inmaduro e irá mejorando",
+    "explanation": "Aun considerando un equipo excelente a nivel técnico, necesita madurar como equipo en las etapas iniciales de autoorganización."
+  },
+  {
+    "tema": "Tema 9: Seguimiento del proyecto ágil",
+    "question": "El estilo de liderazgo de proyecto para el empoderamiento de un equipo ágil es:",
+    "options": [
+      "Facilitador",
+      "Centralizado",
+      "De orden y mando",
+      "De estilo directivo"
+    ],
+    "answer": "Facilitador",
+    "explanation": "Es importante que cada persona pueda aportar ideas y así que el equipo crezca."
+  },
+  {
+    "tema": "Tema 9: Seguimiento del proyecto ágil",
+    "question": "¿Cómo puede ser definida la motivación de un equipo ágil?",
+    "options": [
+      "Como un conjunto de acciones en común por parte del equipo",
+      "Como un vector de fuerzas impulsadas por el líder",
+      "Como un vector de fuerzas que impulsan al equipo",
+      "Como un conjunto de tareas al unísono, siempre con un enfoque estático"
+    ],
+    "answer": "Como un vector de fuerzas que impulsan al equipo",
+    "explanation": "Las motivaciones individuales del equipo deben estar alineadas con el objetivo del proyecto."
+  },
+  {
+    "tema": "Tema 9: Seguimiento del proyecto ágil",
+    "question": "¿En qué momento se deben registrar las lecciones aprendidas?",
+    "options": [
+      "Siempre al inicio del proyecto",
+      "Durante la ejecución del proyecto",
+      "Siempre al final de proyecto",
+      "Entre una iteración y la reunión de retrospectiva"
+    ],
+    "answer": "Durante la ejecución del proyecto",
+    "explanation": "El pensamiento clásico se posiciona en registrar lecciones al final, pero es más efectivo hacerlo cuando se van produciendo las lecciones, tanto al inicio, como en mitad y en el cierre."
   }
 ]

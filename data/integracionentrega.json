@@ -1,26 +1,218 @@
 [
   {
-    "tema": "Tema 1: Fundamentos de CI/CD",
-    "question": "¿Cuál es el objetivo principal de la Integración Continua (CI)?",
+    "tema": "Tema 1: Introducción",
+    "question": "¿Cuáles son los tres aspectos de ALM?",
     "options": [
-      "Desplegar automáticamente en producción cada commit",
-      "Detectar errores de integración lo antes posible mediante builds y tests automáticos",
-      "Eliminar la necesidad de hacer code review",
-      "Reemplazar los entornos de staging"
+      "Gobierno, integración y despliegue",
+      "Gobierno, desarrollo y operaciones",
+      "SDLC, CICD y despliegue continuo",
+      "Desarrollo y operaciones"
     ],
-    "answer": "Detectar errores de integración lo antes posible mediante builds y tests automáticos",
-    "explanation": "Tema 1: La CI busca que cada cambio de código se integre frecuentemente al repositorio compartido, ejecutando builds y tests automáticos para detectar problemas tempranamente."
+    "answer": "Gobierno, desarrollo y operaciones",
+    "explanation": "Estos tres aspectos forman parte del ciclo de ALM e intervienen en cada una de las fases, según corresponda."
   },
   {
-    "tema": "Tema 1: Fundamentos de CI/CD",
-    "question": "¿Cuál es la diferencia entre Entrega Continua (CD) y Despliegue Continuo?",
+    "tema": "Tema 1: Introducción",
+    "question": "¿Qué significa construir, probar y desplegar automáticamente?",
     "options": [
-      "No hay diferencia, son lo mismo",
-      "En Entrega Continua el despliegue a producción requiere aprobación manual; en Despliegue Continuo es automático",
-      "Entrega Continua solo aplica a microservicios",
-      "Despliegue Continuo no incluye tests automáticos"
+      "Escribir unos scripts de bash para cada tarea",
+      "Definir trabajos en Jenkins y ejecutarlos cada vez que hay un cambio",
+      "Documentar cada paso del despliegue exhaustivamente",
+      "Conseguir que los cambios de código inicien una construcción, ejecuten las pruebas y permitan un despliegue sin intervención humana"
     ],
-    "answer": "En Entrega Continua el despliegue a producción requiere aprobación manual; en Despliegue Continuo es automático",
-    "explanation": "Tema 1: La Entrega Continua garantiza que el código siempre está listo para producción pero requiere una decisión humana para desplegarlo. El Despliegue Continuo automatiza también ese último paso."
+    "answer": "Conseguir que los cambios de código inicien una construcción, ejecuten las pruebas y permitan un despliegue sin intervención humana",
+    "explanation": "Las respuestas A y B son ciertas en parte, pero no son suficientes de manera individual para desplegar automáticamente."
+  },
+  {
+    "tema": "Tema 1: Introducción",
+    "question": "¿Por qué es útil desplegar un entorno de producción antes de que acabe el desarrollo?",
+    "options": [
+      "Para probar el proceso de despliegue antes de la fecha clave",
+      "Para comprobar que el sistema funciona bien en este entorno, que puede ser y será diferente de los entornos de desarrollo",
+      "Para aumentar la fiabilidad del proceso",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Aunque pueden existir razones de costes para no desplegar en producción mucho antes de la salida al mercado, desplegar en un entorno similar a producción es clave para conseguir un proceso de despliegue fiable."
+  },
+  {
+    "tema": "Tema 1: Introducción",
+    "question": "¿Qué significa gestionar automáticamente la configuración?",
+    "options": [
+      "Mantener la configuración de cada entorno separada del script de despliegue y con un control de versiones",
+      "Escribir scripts separados, uno por entorno, que no dependan de ningún otro fichero",
+      "Guardar la configuración aplicada en cada entorno en una base de datos",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Mantener la configuración de cada entorno separada del script de despliegue y con un control de versiones",
+    "explanation": "Es fundamental que todos los entornos se desplieguen con el mismo proceso y que la configuración específica se guarde por separado."
+  },
+  {
+    "tema": "Tema 1: Introducción",
+    "question": "¿Cuál es el objetivo de la integración continua?",
+    "options": [
+      "Obligar a los desarrolladores a integrar cambios todos los días para controlar lo que hacen",
+      "Implantar una herramienta moderna como Jenkins",
+      "Aumentar la calidad del código detectando los errores lo más pronto posible y la velocidad a la que se entrega a los clientes",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Aumentar la calidad del código detectando los errores lo más pronto posible y la velocidad a la que se entrega a los clientes",
+    "explanation": "El objetivo principal es aumentar la calidad del código ofrecido a los clientes, ya que es el único sitio en el que aporta valor."
+  },
+  {
+    "tema": "Tema 1: Introducción",
+    "question": "¿Cuál es el objetivo de la entrega continua?",
+    "options": [
+      "Aumentar la fiabilidad del código, reduciendo el número de errores",
+      "Reducir el tiempo necesario para entregar software en producción",
+      "Aumentar la fiabilidad de los procesos de despliegue",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Cuando se consiguen todos los objetivos anteriores, el resultado es el código de calidad que aporta valor al producto lo más rápido posible."
+  },
+  {
+    "tema": "Tema 1: Introducción",
+    "question": "¿Qué diferencia hay entre entrega y despliegue continuos?",
+    "options": [
+      "Ninguna, son sinónimos",
+      "La entrega deja el producto listo para desplegar después de cada cambio, pero no tiene por qué desplegar en producción. El despliegue continuo prosigue el flujo de la entrega múltiples veces al día hasta completar el despliegue en producción",
+      "La entrega solo compila el código, el despliegue, además, incorpora las pruebas",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "La entrega deja el producto listo para desplegar después de cada cambio, pero no tiene por qué desplegar en producción. El despliegue continuo prosigue el flujo de la entrega múltiples veces al día hasta completar el despliegue en producción",
+    "explanation": "Puede haber razones de negocio o técnicas para implementar entrega continua sin despliegue continuo."
+  },
+  {
+    "tema": "Tema 1: Introducción",
+    "question": "¿Qué se puede esperar de las construcciones de software en una organización que no ha empezado a madurar en la integración continua?",
+    "options": [
+      "El pase a producción es automático, fiable e indoloro",
+      "Los cambios en la base de datos se ejecutan manualmente",
+      "La construcción es manual y no se gestionan los artefactos",
+      "No hay batería de pruebas alguna"
+    ],
+    "answer": "La construcción es manual y no se gestionan los artefactos",
+    "explanation": "Además, los despliegues son manuales, no hay un proceso común de despliegue, las pruebas no están integradas en el desarrollo y las migraciones de las bases de datos no están versionadas y se ejecutan manualmente."
+  },
+  {
+    "tema": "Tema 1: Introducción",
+    "question": "¿En qué debe centrar sus esfuerzos una organización que intenta mejorar su calidad de software?",
+    "options": [
+      "En aquellos aspectos del proceso de integración y entrega que sean más dolorosos",
+      "En automatizar todo el proceso cuanto antes",
+      "En desplegar la aplicación sobre Kubernetes",
+      "En versionar todos los elementos de la configuración"
+    ],
+    "answer": "En aquellos aspectos del proceso de integración y entrega que sean más dolorosos",
+    "explanation": "Aquellos aspectos más dolorosos y que más riesgo introducen serán los que más valor puedan aportar si se mejoran. Poco a poco se podrán ir mejorando otros aspectos."
+  },
+  {
+    "tema": "Tema 1: Introducción",
+    "question": "¿Cuál de estos elementos es fundamental para empezar a aplicar integración continua?",
+    "options": [
+      "Un sistema de control de versiones",
+      "Una batería de pruebas y automatización",
+      "Aceptación del equipo",
+      "Todos los anteriores"
+    ],
+    "answer": "Todos los anteriores",
+    "explanation": "Todos los elementos citados, tanto técnicos como humanos, son esenciales para implementar integración continua en un proyecto."
+  },
+  {
+    "tema": "Tema 2: Control de versiones",
+    "question": "¿En qué consiste un commit?",
+    "options": [
+      "Es el proceso de incluir un fichero en un sistema de control de cambios",
+      "Es un conjunto de cambios registrados en la historia de un sistema de control de cambios",
+      "Es una carpeta con los ficheros de una versión de la aplicación",
+      "Es el cambio a un punto anterior de la historia del repositorio"
+    ],
+    "answer": "Es un conjunto de cambios registrados en la historia de un sistema de control de cambios",
+    "explanation": "Los cambios pueden ser modificaciones de líneas en ficheros existentes, ficheros añadidos o eliminados del repositorio."
+  },
+  {
+    "tema": "Tema 2: Control de versiones",
+    "question": "¿Qué debería ser versionado?",
+    "options": [
+      "El código fuente de la aplicación",
+      "La documentación",
+      "Las herramientas de despliegue",
+      "Todos los anteriores"
+    ],
+    "answer": "Todos los anteriores",
+    "explanation": "Es fundamental ser capaz de reproducir una versión de la aplicación y esto no se consigue solo con el código fuente. Son necesarios también los scripts de despliegues, las dependencias, herramientas, etc."
+  },
+  {
+    "tema": "Tema 2: Control de versiones",
+    "question": "¿En qué consiste la edición simultánea?",
+    "options": [
+      "Varios desarrolladores editan un mismo fichero y uno de ellos combina los cambios del resto manualmente",
+      "Un desarrollador bloquea un fichero para trabajar sobre él",
+      "Varios desarrolladores trabajan sobre el mismo repositorio y probablemente sobre los mismos ficheros y el sistema se encarga de fusionar los cambios de todos automáticamente",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Varios desarrolladores trabajan sobre el mismo repositorio y probablemente sobre los mismos ficheros y el sistema se encarga de fusionar los cambios de todos automáticamente",
+    "explanation": "En algunos casos es necesario corregir conflictos manualmente."
+  },
+  {
+    "tema": "Tema 2: Control de versiones",
+    "question": "Relacione: Commit, Rama, Repositorio y Fusión con sus definiciones:",
+    "options": [
+      "Commit=cambios registrados en la historia, Rama=puntero a cambios consecutivos, Repositorio=almacén de cambios, Fusión=unión de dos ramas",
+      "Commit=almacén de cambios, Rama=unión de dos ramas, Repositorio=cambios registrados, Fusión=puntero a cambios consecutivos",
+      "Commit=puntero a cambios consecutivos, Rama=cambios registrados, Repositorio=unión de dos ramas, Fusión=almacén de cambios",
+      "Commit=unión de dos ramas, Rama=almacén de cambios, Repositorio=puntero a cambios consecutivos, Fusión=cambios registrados"
+    ],
+    "answer": "Commit=cambios registrados en la historia, Rama=puntero a cambios consecutivos, Repositorio=almacén de cambios, Fusión=unión de dos ramas",
+    "explanation": "Commit: conjunto de cambios registrados en la historia. Rama: puntero a un conjunto de cambios consecutivos. Repositorio: almacén de los cambios de un sistema o aplicación. Fusión: unión de dos ramas."
+  },
+  {
+    "tema": "Tema 2: Control de versiones",
+    "question": "¿Qué significa «viajar en el tiempo» en el contexto de los sistemas de control de versiones?",
+    "options": [
+      "Que se pueden instalar versiones antiguas de una aplicación",
+      "Que las nuevas versiones son compatibles con las anteriores",
+      "Que un desarrollador puede trabajar en una versión antigua del repositorio",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Que un desarrollador puede trabajar en una versión antigua del repositorio",
+    "explanation": "Más concretamente, la copia de trabajo se puede actualizar con cualquier commit del histórico."
+  },
+  {
+    "tema": "Tema 2: Control de versiones",
+    "question": "¿Qué metadatos incluyen los commits?",
+    "options": [
+      "Autor",
+      "Fecha",
+      "Comentarios",
+      "Todos los anteriores"
+    ],
+    "answer": "Todos los anteriores",
+    "explanation": "También incluyen un identificador único, pueden incluir una firma, etc."
+  },
+  {
+    "tema": "Tema 2: Control de versiones",
+    "question": "¿Cómo se recomienda versionar las dependencias de una aplicación?",
+    "options": [
+      "Copiando el código fuente de la dependencia dentro de una carpeta del repositorio de la aplicación",
+      "Manteniendo un documento con instrucciones sobre cómo instalarla",
+      "Referenciando la versión de la dependencia como una librería e instalándola con un gestor de paquetes durante el despliegue",
+      "Todas las anteriores son estrategias válidas"
+    ],
+    "answer": "Referenciando la versión de la dependencia como una librería e instalándola con un gestor de paquetes durante el despliegue",
+    "explanation": "Técnicamente todas las opciones son posibles, pero la A no permite actualizar la versión fácilmente y la B no tiene en cuenta una instalación automatizada."
+  },
+  {
+    "tema": "Tema 2: Control de versiones",
+    "question": "¿Cómo se crea una nueva rama llamada feature en Git?",
+    "options": [
+      "git checkout -b feature",
+      "git branch feature",
+      "git create branch feature",
+      "A y B"
+    ],
+    "answer": "A y B",
+    "explanation": "«A» crea la rama y la activa en la copia de trabajo, mientras que «B» la crea, pero no cambia la rama activa."
   }
 ]
