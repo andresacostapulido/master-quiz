@@ -32,11 +32,10 @@
         <header class="mb-8 text-center">
             <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 mb-4">Quiz Magister DevOps</h1>
             <p class="text-gray-600">Prepárate para tus exámenes</p>
-            <div id="user-info" class="mt-4"></div>
         </header>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
-            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col">
                 <i class="fas fa-cogs text-4xl text-indigo-600 mb-3"></i>
                 <h3 class="text-xl font-bold mb-2 text-gray-900">Herramientas DevOps</h3>
                 <p id="question-count-herramientasdevops" class="text-sm text-gray-600 mb-4">Cargando preguntas...</p>
@@ -75,7 +74,7 @@
             </div>
 
             <!-- Gestión de Proyectos -->
-            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col">
                 <i class="fas fa-tasks text-4xl text-teal-600 mb-3"></i>
                 <h3 class="text-xl font-bold mb-2 text-gray-900">Gestión de Proyectos</h3>
                 <p id="question-count-gestionproyectos" class="text-sm text-gray-600 mb-4">Cargando preguntas...</p>
@@ -93,6 +92,16 @@
                 <div id="tema-selector-gestionproyectos" class="mt-3 hidden">
                     <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
                     <select id="tema-select-gestionproyectos" class="w-full p-2 border rounded">
+                        <option value="Tema 1">Tema 1: Introducción a la gestión de proyectos</option>
+                        <option value="Tema 2">Tema 2: Metodologías ágiles</option>
+                        <option value="Tema 3">Tema 3: Marco ágil Scrum</option>
+                        <option value="Tema 4">Tema 4: Lean y Kanban</option>
+                        <option value="Tema 5">Tema 5: Visión y gestión del proyecto ágil</option>
+                        <option value="Tema 6">Tema 6: Estimación y planificación ágil</option>
+                        <option value="Tema 7">Tema 7: Planificación del Roadmap y entregas</option>
+                        <option value="Tema 8">Tema 8: Desarrollo del proyecto ágil</option>
+                        <option value="Tema 9">Tema 9: Seguimiento del proyecto ágil</option>
+                        <option value="Tema 10">Tema 10: Evolución en la gestión de proyectos</option>
                     </select>
                 </div>
                 
@@ -104,7 +113,7 @@
             </div>
 
             <!-- Entornos de Integración y Entrega Continua -->
-            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col">
                 <i class="fas fa-sync-alt text-4xl text-orange-600 mb-3"></i>
                 <h3 class="text-xl font-bold mb-2 text-gray-900">Integración y Entrega Continua</h3>
                 <p id="question-count-integracionentrega" class="text-sm text-gray-600 mb-4">Cargando preguntas...</p>
@@ -133,7 +142,7 @@
             </div>
 
             <!-- Contenedores -->
-            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col">
                 <i class="fas fa-cube text-4xl text-cyan-600 mb-3"></i>
                 <h3 class="text-xl font-bold mb-2 text-gray-900">Contenedores</h3>
                 <p id="question-count-contenedores" class="text-sm text-gray-600 mb-4">Cargando preguntas...</p>
@@ -159,185 +168,6 @@
                     <input type="number" id="num-questions-contenedores" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
                 </div>
                 <button onclick="selectSubject('contenedores')" class="mt-auto w-full bg-cyan-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-cyan-700">Comenzar Quiz</button>
-            </div>
-            
-            <button onclick="startPracticalQuestion()" class="bg-green-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
-                <i class="fas fa-file-code text-4xl text-green-600 mb-3"></i>
-                <h3 class="text-xl font-bold mb-2 text-gray-900">Pregunta Práctica</h3>
-                <p class="text-sm text-gray-600">Desarrollo CI/CD con Packer (5 puntos)</p>
-            </button>
-
-            <button onclick="startStudyMode()" class="bg-yellow-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col h-full">
-                <i class="fas fa-graduation-cap text-4xl text-yellow-600 mb-3"></i>
-                <h3 class="text-xl font-bold mb-2 text-gray-900">Modo Estudio</h3>
-                <p class="text-sm text-gray-600">Aprende la respuesta práctica</p>
-            </button>
-            
-            <button onclick="viewStats()" class="bg-purple-100 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105">
-                <i class="fas fa-chart-line text-4xl text-purple-600 mb-3"></i>
-                <h3 class="text-xl font-bold mb-2 text-gray-900">Estadísticas</h3>
-                <p class="text-sm text-gray-600">Ver mi progreso</p>
-            </button>
-        </div>
-    </div>
-
-    <!-- Modo Estudio Container -->
-    <div class="max-w-4xl mx-auto hidden" id="study-mode-content">
-        <header class="mb-8">
-            <div class="flex justify-between items-center mb-4">
-                <div class="flex items-center gap-4">
-                    <button onclick="backToSubjects()" class="bg-gray-200 p-2 rounded-full hover:bg-gray-300">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                    <div>
-                        <h1 class="text-2xl sm:text-3xl font-bold text-yellow-600">Modo Estudio - Pregunta Práctica</h1>
-                        <p class="text-sm text-gray-500 font-medium">Flashcards interactivas</p>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div class="mb-6">
-            <div class="flex justify-between items-center mb-2">
-                <span class="text-sm font-medium text-gray-600">Progreso</span>
-                <span class="text-sm font-medium text-gray-600"><span id="current-card">1</span> / 6</span>
-            </div>
-            <div class="progress-bar-container">
-                <div id="study-progress-bar" class="progress-bar" style="width: 16.67%;"></div>
-            </div>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-lg p-8 mb-6 min-h-96">
-            <div id="flashcard" class="cursor-pointer" onclick="flipCard()">
-                <div id="card-front" class="text-center">
-                    <div class="text-6xl mb-4">🤔</div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4" id="card-question"></h2>
-                    <p class="text-gray-500 italic">Haz clic para ver la respuesta</p>
-                </div>
-                <div id="card-back" class="hidden">
-                    <div class="text-6xl mb-4 text-center">💡</div>
-                    <div id="card-answer" class="text-gray-700 space-y-3"></div>
-                    <p class="text-gray-500 italic text-center mt-6">Haz clic para volver a la pregunta</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="flex gap-4">
-            <button onclick="previousCard()" id="prev-btn" class="flex-1 bg-gray-300 text-gray-700 font-semibold py-3 px-6 rounded-lg hover:bg-gray-400 disabled:opacity-50" disabled>
-                <i class="fas fa-arrow-left mr-2"></i>Anterior
-            </button>
-            <button onclick="nextCard()" id="next-btn" class="flex-1 bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-yellow-700">
-                Siguiente<i class="fas fa-arrow-right ml-2"></i>
-            </button>
-        </div>
-
-        <div class="mt-6 bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-            <p class="text-sm text-blue-800">
-                <i class="fas fa-lightbulb mr-2"></i>
-                <strong>Consejo:</strong> Lee cada tarjeta varias veces. Intenta recordar la respuesta antes de voltear la tarjeta.
-            </p>
-        </div>
-    </div>
-
-    <!-- Pregunta Práctica Container -->
-    <div class="max-w-6xl mx-auto hidden" id="practical-question-content">
-        <header class="mb-8">
-            <div class="flex justify-between items-center mb-4">
-                <div class="flex items-center gap-4">
-                    <button onclick="backToSubjects()" class="bg-gray-200 p-2 rounded-full hover:bg-gray-300">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                    <div>
-                        <h1 class="text-2xl sm:text-3xl font-bold text-green-600">Pregunta Práctica - CI/CD con Packer</h1>
-                        <p class="text-sm text-gray-500 font-medium">Valor: 5 puntos</p>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
-            <h2 class="text-xl font-bold text-gray-900 mb-4">Enunciado</h2>
-            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-4">
-                <p class="text-gray-700 mb-3">
-                    Basándose en lo visto durante la impartición de la asignatura y en las fases del ciclo de vida DevOps, 
-                    desarrolle la creación de una template de Packer que despliega simultáneamente en dos nubes públicas 
-                    para una aplicación con stack MEAN para desplegar una aplicación PHP.
-                </p>
-            </div>
-
-            <h3 class="text-lg font-semibold text-gray-900 mb-3">Criterios de Evaluación:</h3>
-            <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
-                <li>Fases del Ciclo de vida DevOps para CI/CD</li>
-                <li>Explicación de las herramientas a utilizar y justificación de las mismas</li>
-                <li>Orden del despliegue de la solución</li>
-                <li>Ejemplo de los ficheros de cada herramienta y cómo se complementan</li>
-                <li>Configuraciones necesarias a realizar en las diferentes nubes</li>
-                <li>Propuesta de mejoras a realizar</li>
-            </ol>
-
-            <div class="space-y-6">
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">
-                        1. Fases del Ciclo de vida DevOps para CI/CD
-                    </label>
-                    <textarea id="answer-1" class="w-full p-3 border rounded-lg h-32 focus:ring-2 focus:ring-green-500" 
-                        placeholder="Describe las fases del ciclo DevOps aplicadas a este proyecto..."></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">
-                        2. Explicación de las herramientas a utilizar y justificación
-                    </label>
-                    <textarea id="answer-2" class="w-full p-3 border rounded-lg h-32 focus:ring-2 focus:ring-green-500" 
-                        placeholder="Explica qué herramientas usarías y por qué..."></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">
-                        3. Orden del despliegue de la solución
-                    </label>
-                    <textarea id="answer-3" class="w-full p-3 border rounded-lg h-32 focus:ring-2 focus:ring-green-500" 
-                        placeholder="Describe el orden paso a paso del despliegue..."></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">
-                        4. Ejemplo de los ficheros de cada herramienta y cómo se complementan
-                    </label>
-                    <textarea id="answer-4" class="w-full p-3 border rounded-lg h-48 focus:ring-2 focus:ring-green-500 font-mono text-sm" 
-                        placeholder="Proporciona ejemplos de código/configuración..."></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">
-                        5. Configuraciones necesarias en las diferentes nubes
-                    </label>
-                    <textarea id="answer-5" class="w-full p-3 border rounded-lg h-32 focus:ring-2 focus:ring-green-500" 
-                        placeholder="Detalla las configuraciones específicas para cada nube..."></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-bold text-gray-700 mb-2">
-                        6. Propuesta de mejoras a realizar
-                    </label>
-                    <textarea id="answer-6" class="w-full p-3 border rounded-lg h-32 focus:ring-2 focus:ring-green-500" 
-                        placeholder="Propón mejoras y optimizaciones..."></textarea>
-                </div>
-            </div>
-
-            <div class="mt-6 flex gap-4">
-                <button onclick="savePracticalAnswer()" class="flex-1 bg-green-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-green-700">
-                    <i class="fas fa-save mr-2"></i>Guardar Respuesta
-                </button>
-                <button onclick="exportPracticalAnswer()" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700">
-                    <i class="fas fa-download mr-2"></i>Exportar
-                </button>
-            </div>
-
-            <div id="save-status" class="mt-4 hidden">
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
-                    <i class="fas fa-check-circle mr-2"></i>Respuesta guardada exitosamente
-                </div>
             </div>
         </div>
     </div>
@@ -387,38 +217,12 @@
             <button onclick="restartGame()" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700">
                 <i class="fas fa-redo"></i> Volver a Jugar
             </button>
-            <button onclick="viewHistory()" class="ml-3 bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-green-700">
-                <i class="fas fa-history"></i> Ver Historial
+            <button onclick="backToSubjects()" class="ml-3 bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-700">
+                <i class="fas fa-home"></i> Inicio
             </button>
         </div>
     </div>
 
-    <!-- Modal Historial -->
-    <div id="history-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onclick="closeHistory()">
-        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-y-auto" onclick="event.stopPropagation()">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold">📊 Historial de Respuestas</h2>
-                <button onclick="closeHistory()" class="text-2xl">&times;</button>
-            </div>
-            <div id="history-content"></div>
-        </div>
-    </div>
-
-    <!-- Modal Estadísticas -->
-    <div id="stats-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onclick="closeStats()">
-        <div class="bg-white p-8 rounded-xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-y-auto" onclick="event.stopPropagation()">
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold">📊 Estadísticas Avanzadas</h2>
-                <button onclick="closeStats()" class="text-2xl">&times;</button>
-            </div>
-            <div id="stats-content"></div>
-        </div>
-    </div>
-
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-    <script src="firebase-config.js"></script>
     <script>
         // Mostrar/ocultar selector de tema para todas las asignaturas
         document.addEventListener('DOMContentLoaded', () => {
