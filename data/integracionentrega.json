@@ -214,5 +214,821 @@
     ],
     "answer": "A y B",
     "explanation": "«A» crea la rama y la activa en la copia de trabajo, mientras que «B» la crea, pero no cambia la rama activa."
+  },
+  {
+    "tema": "Tema 3: Flujos de trabajo con Git",
+    "question": "¿Por qué un sistema de control de versiones distribuido no necesita bloqueo de archivos?",
+    "options": [
+      "Sí que lo necesita",
+      "Porque cada usuario trabaja con una copia completa del repositorio",
+      "Porque son sistemas más antiguos y limitados",
+      "Porque cada usuario es propietario de un fichero y solo ese usuario puede modificarlo"
+    ],
+    "answer": "Porque cada usuario trabaja con una copia completa del repositorio",
+    "explanation": "Cada usuario puede trabajar en todos los ficheros que necesite; el sistema se encargará de fusionar los cambios automáticamente o de avisar al usuario si hay conflictos que se deben resolver manualmente."
+  },
+  {
+    "tema": "Tema 3: Flujos de trabajo con Git",
+    "question": "¿Por qué no se puede aplicar el flujo de GitHub en un sistema de control de versiones centralizado?",
+    "options": [
+      "Técnicamente se puede, aunque no es habitual",
+      "Porque solo funciona con GitHub, que se basa en Git, que es un sistema de control de versiones distribuido",
+      "Porque se basa en los conceptos de fork y pull requests, que solo ofrecen los sistemas distribuidos",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Porque se basa en los conceptos de fork y pull requests, que solo ofrecen los sistemas distribuidos",
+    "explanation": "El flujo de GitHub se puede aplicar en otras plataformas, como BitBucket y GitLab."
+  },
+  {
+    "tema": "Tema 3: Flujos de trabajo con Git",
+    "question": "¿Cuántas ramas soporta el flujo centralizado?",
+    "options": [
+      "Solo una, master o trunk",
+      "Solo una en el repositorio principal y tantas como sean necesarias en los forks",
+      "Una principal y una de desarrollo",
+      "Una principal, una de desarrollo y tantas como sean necesarias para las funcionalidades nuevas"
+    ],
+    "answer": "Solo una, master o trunk",
+    "explanation": "Es el flujo más cercano al concepto de integración continua extrema, ya que todos los cambios se añaden a la rama principal directamente."
+  },
+  {
+    "tema": "Tema 3: Flujos de trabajo con Git",
+    "question": "¿Por qué una rama de hotfix se fusiona tanto a master como a develop en el Gitflow?",
+    "options": [
+      "Solo se fusiona a master, no a develop",
+      "En Gitflow las modificaciones se fusionan en develop y este se fusiona sobre master, siempre",
+      "Por convenio. Técnicamente no hace falta",
+      "Porque el cambio es necesario en producción y debe estar disponible en master, pero; además, hay que incorporarlo en cualquier prueba que se esté realizando en el desarrollo de la siguiente versión"
+    ],
+    "answer": "Porque el cambio es necesario en producción y debe estar disponible en master, pero; además, hay que incorporarlo en cualquier prueba que se esté realizando en el desarrollo de la siguiente versión",
+    "explanation": "De lo contrario, los entornos de pruebas pueden no comportarse igual que producción."
+  },
+  {
+    "tema": "Tema 3: Flujos de trabajo con Git",
+    "question": "¿Se puede implementar feature branching con GitHub sin usar pull requests?",
+    "options": [
+      "No, en GitHub es obligatorio usar pull requests",
+      "Sí, porque GitHub ofrece la funcionalidad de abrir pull requests dentro de un mismo repositorio, que son otro tipo de pull requests",
+      "Sí, feature branching puede implementarse en cualquier tipo de sistema de control de versiones centralizado o distribuido",
+      "B y C"
+    ],
+    "answer": "Sí, feature branching puede implementarse en cualquier tipo de sistema de control de versiones centralizado o distribuido",
+    "explanation": "GitHub ofrece todas las funcionalidades de un servidor de Git y, por tanto, soporta un flujo que funcione sobre Git."
+  },
+  {
+    "tema": "Tema 3: Flujos de trabajo con Git",
+    "question": "¿Cómo se crea un fork en GitHub?",
+    "options": [
+      "En la interfaz de GitHub, haciendo clic sobre el botón Fork",
+      "Con git fork new",
+      "Con git clone --fork",
+      "En la interfaz de GitHub, en el asistente de New repository, hay que seleccionar que se trata de un fork e indicar el repositorio principal"
+    ],
+    "answer": "En la interfaz de GitHub, haciendo clic sobre el botón Fork",
+    "explanation": "Los forks no son más que clones, pero GitHub ofrece una funcionalidad adicional para identificar que un repositorio es un fork de otro."
+  },
+  {
+    "tema": "Tema 3: Flujos de trabajo con Git",
+    "question": "Relacione: Flujo centralizado, Feature branching, Flujo de GitLab y Forking workflow con sus características:",
+    "options": [
+      "Centralizado=única rama, Feature branching=rama nueva por cada cambio, GitLab=cada rama corresponde a un entorno, Forking=requiere pull requests",
+      "Centralizado=rama nueva por cada cambio, Feature branching=única rama, GitLab=requiere pull requests, Forking=cada rama corresponde a un entorno",
+      "Centralizado=cada rama corresponde a un entorno, Feature branching=requiere pull requests, GitLab=única rama, Forking=rama nueva por cada cambio",
+      "Centralizado=requiere pull requests, Feature branching=cada rama corresponde a un entorno, GitLab=rama nueva por cada cambio, Forking=única rama"
+    ],
+    "answer": "Centralizado=única rama, Feature branching=rama nueva por cada cambio, GitLab=cada rama corresponde a un entorno, Forking=requiere pull requests",
+    "explanation": "Flujo centralizado: hay una única rama. Feature branching: hay una rama principal y una rama nueva para cada cambio. Flujo de GitLab: cada rama corresponde con un entorno de despliegue. Forking workflow: requiere una plataforma que soporte el concepto de pull request."
+  },
+  {
+    "tema": "Tema 3: Flujos de trabajo con Git",
+    "question": "Un desarrollador no tiene acceso de escritura al repositorio principal repo y ha trabajado en una rama new-feature en su fork. Al abrir la pull request, ¿cuál es la rama de origen y cuál es la de destino?",
+    "options": [
+      "El origen es repo:new-feature y el destino es repo:master",
+      "El origen es fork/repo:new-feature y el destino es repo:master",
+      "El origen es fork/repo:new-feature y el destino es repo:new-feature",
+      "El origen es repo:new-feature y el destino es fork/repo:master"
+    ],
+    "answer": "El origen es fork/repo:new-feature y el destino es repo:master",
+    "explanation": "La rama de trabajo existe en el fork, no en el repositorio principal. El destino es la rama principal del repositorio original."
+  },
+  {
+    "tema": "Tema 3: Flujos de trabajo con Git",
+    "question": "¿Qué significa que un repositorio local pueda tener varios repositorios remotos?",
+    "options": [
+      "En un sistema distribuido un repositorio puede intercambiar ramas y commits con cualquier otro repositorio. Estos otros repositorios se consideran remotos, y puede definirse más de uno",
+      "Lo normal es que haya un único repositorio remoto: el fork del usuario",
+      "Git solo permite un repositorio remoto, pero Subversion permite varios",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "En un sistema distribuido un repositorio puede intercambiar ramas y commits con cualquier otro repositorio. Estos otros repositorios se consideran remotos, y puede definirse más de uno",
+    "explanation": "Además, el usuario puede tener acceso de lectura sobre unos y de lectura y escritura sobre otros."
+  },
+  {
+    "tema": "Tema 3: Flujos de trabajo con Git",
+    "question": "En Gitflow, ¿por qué se dice que cada fusión sobre master es una nueva versión?",
+    "options": [
+      "No es cierto; en Gitflow se trabaja únicamente con master",
+      "Porque se añade una etiqueta con el número de la versión a esos commits",
+      "Por convenio, en master no se añaden commits que no se hayan planificado para una versión concreta",
+      "Por convenio, las ramas de características nuevas se fusionan sobre master justo antes de preparar la nueva versión"
+    ],
+    "answer": "Por convenio, en master no se añaden commits que no se hayan planificado para una versión concreta",
+    "explanation": "El trabajo de preparación de la versión se ha llevado a cabo en las ramas release-* o hotfix-*. Cuando su HEAD está lista, se fusiona sobre master, por lo que esta también estará lista para producción."
+  },
+  {
+    "tema": "Tema 4: Fases de la entrega continua",
+    "question": "¿Cuántas fases de prueba tiene un pipeline de CICD?",
+    "options": [
+      "Tres: unitarias, de aceptación automáticas y de aceptación manuales",
+      "Tantas como sean necesarias en cada proyecto de desarrollo",
+      "Solo una, la inicial",
+      "Cinco: unitarias, estáticas, de aceptación automática, de aceptación manual y smoke tests"
+    ],
+    "answer": "Tantas como sean necesarias en cada proyecto de desarrollo",
+    "explanation": "Las fases de un pipeline deben adaptarse a los requisitos de cada proyecto. Pueden incluir todas las fases mencionadas o reducirlas, según sea necesario."
+  },
+  {
+    "tema": "Tema 4: Fases de la entrega continua",
+    "question": "¿Cuándo debe detenerse un pipeline?",
+    "options": [
+      "Cuando se detecta un error de sintaxis en el código",
+      "Cuando falla la compilación",
+      "Cuando falla una de las pruebas",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Un pipeline debe fallar cuando se detecta una situación que puede afectar al código en producción, sea cual sea su origen."
+  },
+  {
+    "tema": "Tema 4: Fases de la entrega continua",
+    "question": "¿Cuándo no hace falta compilar un software?",
+    "options": [
+      "Siempre es necesario compilar el software",
+      "Cuando se trata de Java, ya que el bytecode no es realmente una compilación",
+      "En lenguajes interpretados",
+      "En lenguajes compilados"
+    ],
+    "answer": "En lenguajes interpretados",
+    "explanation": "Los lenguajes interpretados, como Python o JavaScript, no necesitan una compilación previa y el intérprete se encarga de leer el código fuente y ejecutarlo directamente."
+  },
+  {
+    "tema": "Tema 4: Fases de la entrega continua",
+    "question": "¿Por qué es necesario empaquetar un software?",
+    "options": [
+      "Solo es necesario empaquetar si el lenguaje es compilado",
+      "Para facilitar la distribución e instalación",
+      "Para incluir ficheros necesarios para el funcionamiento, como configuraciones y ficheros estáticos",
+      "B y C"
+    ],
+    "answer": "B y C",
+    "explanation": "El empaquetado recopila todos los elementos necesarios para ejecutar una aplicación y los prepara para una fácil distribución y despliegue."
+  },
+  {
+    "tema": "Tema 4: Fases de la entrega continua",
+    "question": "¿En qué consiste un smoke test?",
+    "options": [
+      "Es una prueba sencilla que permite comprobar si un sistema ha arrancado correctamente, incluyendo todas sus dependencias",
+      "Es una prueba sin estado ni base de datos",
+      "Es una prueba manual en la que se verifican funcionalidades ofrecidas al usuario",
+      "Es una comprobación del servicio para saber si ha arrancado o no"
+    ],
+    "answer": "Es una prueba sencilla que permite comprobar si un sistema ha arrancado correctamente, incluyendo todas sus dependencias",
+    "explanation": "La llamada como tal debe ser rápida y sencilla de evaluar. Internamente, la prueba debe evaluar suficientes elementos como para discernir si el sistema funciona o no."
+  },
+  {
+    "tema": "Tema 4: Fases de la entrega continua",
+    "question": "¿Por qué hay que construir una única vez?",
+    "options": [
+      "Para acelerar el proceso",
+      "Para asegurar que el paquete que ha pasado las pruebas es el mismo que se despliega en producción",
+      "A y B",
+      "No es necesario. De hecho, conviene construir en cada fase para paralelizar mejor"
+    ],
+    "answer": "A y B",
+    "explanation": "La construcción puede ser un proceso lento, por lo que una única ejecución permite acelerarla. Además, construir múltiples veces aumenta el riesgo de que haya cambios en el proceso y las pruebas dejen de ser fiables."
+  },
+  {
+    "tema": "Tema 4: Fases de la entrega continua",
+    "question": "¿Qué propiedades deben tener los scripts de despliegue?",
+    "options": [
+      "Deben estar incluidos en el control de cambios",
+      "Se debe usar el mismo script para desplegar todos los entornos",
+      "El script debe aplicar diferentes configuraciones en cada entorno, que obtiene de una ubicación diferente",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Los scripts de despliegue deben estar versionados, ser únicos para todos los entornos y parametrizar la configuración específica de cada uno."
+  },
+  {
+    "tema": "Tema 4: Fases de la entrega continua",
+    "question": "¿En qué consiste desplegar una copia de producción?",
+    "options": [
+      "En clonar el sistema de producción, antes de los despliegues, como copia de seguridad",
+      "En desplegar, en un entorno lo más parecido posible a producción, en una fase de prueba para reducir el riesgo del despliegue en producción",
+      "Esto se consigue con despliegues blue/green: se despliega una copia de producción y se apuntan los balanceadores a la nueva instancia",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "En desplegar, en un entorno lo más parecido posible a producción, en una fase de prueba para reducir el riesgo del despliegue en producción",
+    "explanation": "Cada entorno tiene sus peculiaridades, por lo que desplegar satisfactoriamente un entorno de desarrollo no asegura que el despliegue en producción vaya a funcionar perfectamente."
+  },
+  {
+    "tema": "Tema 4: Fases de la entrega continua",
+    "question": "¿Por qué un pipeline no sirve para proyectos que funcionan con pull requests?",
+    "options": [
+      "Sí que se pueden usar",
+      "Porque entonces no hay una construcción única del paquete",
+      "Porque el flujo no se puede adaptar",
+      "Porque es un desperdicio construir el paquete para todas las pull requests"
+    ],
+    "answer": "Sí que se pueden usar",
+    "explanation": "Los pipelines sí funcionan con pull requests. De hecho, es una práctica muy común ejecutar el pipeline en cada PR antes de fusionar."
+  },
+  {
+    "tema": "Tema 5: Pruebas",
+    "question": "¿Cómo debería ser una prueba unitaria?",
+    "options": [
+      "Rápida",
+      "Independiente del estado",
+      "Dirigida a una única función",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Estas son algunas de las características de una prueba unitaria."
+  },
+  {
+    "tema": "Tema 5: Pruebas",
+    "question": "¿Qué pruebas requieren que la aplicación esté arrancada?",
+    "options": [
+      "De sistema",
+      "De rendimiento",
+      "De aceptación",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Todas estas pruebas requieren que la aplicación esté desplegada junto a sus dependencias, ya que comprueban el comportamiento global."
+  },
+  {
+    "tema": "Tema 5: Pruebas",
+    "question": "¿Cuáles de las siguientes se pueden considerar pruebas no funcionales?",
+    "options": [
+      "De rendimiento",
+      "De cobertura",
+      "De seguridad",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Las pruebas no funcionales comprueban requisitos ajenos a las características que ofrece la aplicación, como rendimiento, cobertura y seguridad."
+  },
+  {
+    "tema": "Tema 5: Pruebas",
+    "question": "¿Por qué es útil que el desarrollador pueda acceder a los resultados de las pruebas?",
+    "options": [
+      "En general no lo necesitan",
+      "Para poder estudiar el error y ser capaz de corregirlo",
+      "Para identificar quién ha roto el código",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Para poder estudiar el error y ser capaz de corregirlo",
+    "explanation": "De lo contrario, el desarrollador solo verá que el pipeline con sus cambios ha fallado sin saber por qué."
+  },
+  {
+    "tema": "Tema 5: Pruebas",
+    "question": "Relacione: Unitarias, De sistema, De GUI y De rendimiento con sus características:",
+    "options": [
+      "Unitarias=no dependen de un estado, Sistema=requieren app y dependencias en funcionamiento, GUI=evalúan la interfaz gráfica, Rendimiento=comprueba cuánta carga soporta",
+      "Unitarias=evalúan la interfaz gráfica, Sistema=no dependen de un estado, GUI=comprueba cuánta carga soporta, Rendimiento=requieren app en funcionamiento",
+      "Unitarias=comprueba cuánta carga soporta, Sistema=evalúan la interfaz gráfica, GUI=no dependen de un estado, Rendimiento=requieren app en funcionamiento",
+      "Unitarias=requieren app en funcionamiento, Sistema=comprueba cuánta carga soporta, GUI=no dependen de un estado, Rendimiento=evalúan la interfaz gráfica"
+    ],
+    "answer": "Unitarias=no dependen de un estado, Sistema=requieren app y dependencias en funcionamiento, GUI=evalúan la interfaz gráfica, Rendimiento=comprueba cuánta carga soporta",
+    "explanation": "Unitarias: no dependen de un estado. De sistema: requieren que la aplicación y sus dependencias estén en funcionamiento. De GUI: evalúan la interfaz gráfica. De rendimiento: comprueban cuánta carga soporta una aplicación."
+  },
+  {
+    "tema": "Tema 5: Pruebas",
+    "question": "¿Para qué sirve el decorador @pytest.mark.unit?",
+    "options": [
+      "Convierte una prueba de servicio en unitaria",
+      "Para evitar la ejecución de una prueba",
+      "Etiqueta la prueba en la batería de pruebas unit",
+      "Exporta el informe de la prueba en formato JUnit"
+    ],
+    "answer": "Etiqueta la prueba en la batería de pruebas unit",
+    "explanation": "Estas etiquetas sirven para dividir la ejecución de pruebas en grupos diferentes."
+  },
+  {
+    "tema": "Tema 5: Pruebas",
+    "question": "¿Qué significa que una prueba de GUI se ejecute en un navegador headless?",
+    "options": [
+      "El navegador no tiene una ventana visible",
+      "Que es un navegador en modo texto, por lo que no ejecutará código JavaScript",
+      "Que el navegador se ejecuta en un servidor remoto sin pantalla",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "El navegador no tiene una ventana visible",
+    "explanation": "El navegador dispone de todas las funcionalidades (HTML, llamadas HTTP, JavaScript, seguridad, etc.) pero no muestra una ventana, incluso cuando se ejecuta en un equipo de escritorio."
+  },
+  {
+    "tema": "Tema 5: Pruebas",
+    "question": "¿Qué son los informes JUnit?",
+    "options": [
+      "Ficheros XML exclusivos de pruebas en Java",
+      "Ficheros XML resultado de ejecución de pruebas",
+      "Ficheros XML exclusivos de pruebas unitarias",
+      "Ficheros PDF archivados por las herramientas de CICD"
+    ],
+    "answer": "Ficheros XML resultado de ejecución de pruebas",
+    "explanation": "Aunque la herramienta JUnit es originaria de Java, el formato es usado por multitud de ejecutores y lenguajes y en cualquier tipo de pruebas."
+  },
+  {
+    "tema": "Tema 5: Pruebas",
+    "question": "¿Cómo se pueden paralelizar las pruebas?",
+    "options": [
+      "Aprovechando la ejecución en múltiples hilos",
+      "Separando las pruebas en baterías y ejecutándolas en paralelo",
+      "Todas las anteriores",
+      "En general no se puede y deben ejecutarse en serie"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "En la medida de lo posible hay que aprovechar ambas técnicas, siempre que la naturaleza de la prueba lo permita."
+  },
+  {
+    "tema": "Tema 5: Pruebas",
+    "question": "¿Para qué sirve una fixture?",
+    "options": [
+      "Para fijar el resultado de una prueba",
+      "Para fijar un estado conocido antes de ejecutar una prueba y devolver el entorno al estado original al terminar",
+      "Para borrar la base de datos al terminar las pruebas",
+      "Para deshabilitar una prueba puntualmente"
+    ],
+    "answer": "Para fijar un estado conocido antes de ejecutar una prueba y devolver el entorno al estado original al terminar",
+    "explanation": "Las pruebas deben partir de un estado conocido para poder evaluar correctamente el resultado."
+  },
+  {
+    "tema": "Tema 6: Evaluación y calidad del código",
+    "question": "¿Por qué las revisiones de código deberían estar incorporadas en el flujo de integración continua?",
+    "options": [
+      "Para que los compañeros del equipo puedan aportar feedback antes de que el código esté fusionado en la rama principal",
+      "Porque todos los pasos del desarrollo deben estar integrados en una única herramienta de CICD",
+      "No tienen por qué estar integradas, las revisiones deben ser siempre presenciales y antes de que se envíe el commit",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Para que los compañeros del equipo puedan aportar feedback antes de que el código esté fusionado en la rama principal",
+    "explanation": "Si no se incorpora al flujo, hay peligro de que no se llegue a realizar o de que se realice cuando ya se haya fusionado el código."
+  },
+  {
+    "tema": "Tema 6: Evaluación y calidad del código",
+    "question": "¿En qué casos es obligatorio que una revisión apruebe una pull request en GitHub para poder fusionarla?",
+    "options": [
+      "En cualquier caso",
+      "Cuando se activa la protección de rama",
+      "Cuando el autor de la pull request no es administrador del repositorio",
+      "Cuando se abre la pull request en modo borrador"
+    ],
+    "answer": "Cuando se activa la protección de rama",
+    "explanation": "Esta protección no es obligatoria y puede incluir otras protecciones, como que no se puedan subir commits directamente."
+  },
+  {
+    "tema": "Tema 6: Evaluación y calidad del código",
+    "question": "¿Qué tipo de reglas se tienen en cuenta en una convención de estilo?",
+    "options": [
+      "La longitud máxima de línea",
+      "El formato de los nombres de variables y funciones",
+      "El número máximo de líneas de una función",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Estas son solo un ejemplo y puede haber muchas más."
+  },
+  {
+    "tema": "Tema 6: Evaluación y calidad del código",
+    "question": "¿Por qué los proyectos adoptan convenciones de estilo?",
+    "options": [
+      "Para que el código sea más legible",
+      "Para facilitar el mantenimiento por desarrolladores diferentes al autor",
+      "Para aumentar la consistencia entre módulos",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "En definitiva, para hacer código más fácil de entender."
+  },
+  {
+    "tema": "Tema 6: Evaluación y calidad del código",
+    "question": "¿Qué mide la cobertura?",
+    "options": [
+      "El número de pruebas unitarias",
+      "El número de pruebas totales, incluyendo unitarias, de integración y UI",
+      "El porcentaje de líneas que se ejecutan durante las pruebas",
+      "El número de líneas de código"
+    ],
+    "answer": "El porcentaje de líneas que se ejecutan durante las pruebas",
+    "explanation": "Se pueden excluir archivos o secciones que no aportan valor en las pruebas y no se tienen en cuenta líneas en blanco ni comentarios."
+  },
+  {
+    "tema": "Tema 6: Evaluación y calidad del código",
+    "question": "¿Es una cobertura del 100 % sinónimo de riesgo cero?",
+    "options": [
+      "Claro, porque se han ejecutado todas las líneas del código durante las pruebas",
+      "Claro, porque no tiene sentido escribir más pruebas",
+      "No, porque llegar al 100 % no es posible",
+      "No, porque eso no implica que se hayan probado todas las condiciones y valores de frontera"
+    ],
+    "answer": "No, porque eso no implica que se hayan probado todas las condiciones y valores de frontera",
+    "explanation": "Es habitual que las pruebas ejecuten una misma función con diferentes valores, no solo para comprobar todas las bifurcaciones, sino para comprobar valores límite, errores, etc."
+  },
+  {
+    "tema": "Tema 6: Evaluación y calidad del código",
+    "question": "¿Qué valor aporta Sonar a un proyecto?",
+    "options": [
+      "La evaluación de la calidad del proyecto desde diferentes puntos de vista",
+      "El seguimiento de la evolución de la calidad a lo largo del tiempo",
+      "La identificación de problemas potenciales",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Estas funcionalidades se pueden integrar con herramientas de CICD para que la evaluación de la calidad sea una parte integral del desarrollo."
+  },
+  {
+    "tema": "Tema 6: Evaluación y calidad del código",
+    "question": "¿Por qué es deseable reducir la complejidad del código?",
+    "options": [
+      "Para que el código sea más legible",
+      "Para facilitar el mantenimiento por desarrolladores diferentes al autor",
+      "La A y la B",
+      "Para poder pasar el umbral de aceptación de Sonar"
+    ],
+    "answer": "La A y la B",
+    "explanation": "Si el código es más fácil de leer y de entender, será más fácil mantenerlo."
+  },
+  {
+    "tema": "Tema 6: Evaluación y calidad del código",
+    "question": "¿Qué significa que Sonar utilice un agente?",
+    "options": [
+      "Que un proceso se encarga de analizar el código y de enviar los resultados a un servidor central",
+      "Que hay que subir el código a un servidor central para su análisis",
+      "Que hay que instalar un software adicional junto con el producto para poder analizarlo",
+      "Todas las anteriores"
+    ],
+    "answer": "Que un proceso se encarga de analizar el código y de enviar los resultados a un servidor central",
+    "explanation": "Esto facilita la escalabilidad del sistema y facilita la integración con herramientas de CICD."
+  },
+  {
+    "tema": "Tema 6: Evaluación y calidad del código",
+    "question": "¿En qué consisten los perfiles de calidad de Sonar?",
+    "options": [
+      "En un proyecto concreto",
+      "En todas las reglas posibles de un lenguaje",
+      "En un umbral de complejidad que marca el proyecto como válido",
+      "En conjuntos de reglas que se evalúan durante el análisis de los proyectos a los que se asigna el perfil"
+    ],
+    "answer": "En conjuntos de reglas que se evalúan durante el análisis de los proyectos a los que se asigna el perfil",
+    "explanation": "Los perfiles permiten habilitar o deshabilitar reglas en cada proyecto, ya que algunas de ellas pueden no tener sentido en un proyecto concreto."
+  },
+  {
+    "tema": "Tema 7: Jenkins",
+    "question": "¿Qué trabajos se pueden programar en Jenkins?",
+    "options": [
+      "Compilación",
+      "Pruebas",
+      "Despliegues",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Aunque su función inicial fuera para integración continua, Jenkins admite cualquier tipo de script, por lo que se puede automatizar cualquier tarea."
+  },
+  {
+    "tema": "Tema 7: Jenkins",
+    "question": "¿Cuál es la contraseña por defecto de Jenkins?",
+    "options": [
+      "admin",
+      "Password1!",
+      "Es aleatoria, Jenkins la imprime por la salida estándar",
+      "No hay contraseña por defecto, el inicio de sesión es automático"
+    ],
+    "answer": "Es aleatoria, Jenkins la imprime por la salida estándar",
+    "explanation": "También la guarda en disco. De esta manera no puede recibir ataques con contraseñas por defecto."
+  },
+  {
+    "tema": "Tema 7: Jenkins",
+    "question": "¿Dónde debe definirse el código de un pipeline?",
+    "options": [
+      "En un Jenkinsfile en el repositorio",
+      "En la definición del trabajo",
+      "Los trabajos se definen en un formulario web donde se escribe el código a ejecutar",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Aunque es preferible versionar el código de construcción con un Jenkinsfile en el propio repositorio, Jenkins ofrece también las otras opciones."
+  },
+  {
+    "tema": "Tema 7: Jenkins",
+    "question": "¿Sobre qué plataformas puede ejecutar un proyecto Jenkins?",
+    "options": [
+      "Sobre cualquier que soporte Java",
+      "Solo sobre Linux, ya que Jenkins es de código abierto",
+      "En Windows, Debian y RedHat",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Sobre cualquier que soporte Java",
+    "explanation": "Tanto el master como los agentes se ejecutan sobre Java. Un mismo master puede disponer de varios agentes sobre plataformas diferentes."
+  },
+  {
+    "tema": "Tema 7: Jenkins",
+    "question": "¿Para qué sirve archivar artefactos?",
+    "options": [
+      "Para hacer una copia de seguridad de los informes de pruebas",
+      "Para que Jenkins pueda mostrar los informes de pruebas",
+      "Para almacenar el resultado de una compilación, una construcción o de un informe de pruebas, junto a los detalles de la ejecución",
+      "Todas las anteriores"
+    ],
+    "answer": "Para almacenar el resultado de una compilación, una construcción o de un informe de pruebas, junto a los detalles de la ejecución",
+    "explanation": "Para almacenar paquetes definitivos es habitual usar un repositorio de artefactos externo, pero la funcionalidad de Jenkins puede ser útil en entornos pequeños."
+  },
+  {
+    "tema": "Tema 7: Jenkins",
+    "question": "¿Cómo se puede configurar un trabajo para que se ejecute cuando hay cambios en un repositorio?",
+    "options": [
+      "Configurando un webhook en GitHub sobre Jenkins",
+      "Haciendo una comprobación periódica del repositorio",
+      "A través de una petición a la API de Jenkins desde un Githook",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "La primera opción es la más eficiente y fiable, pero obliga a que la URL de Jenkins sea accesible desde Internet."
+  },
+  {
+    "tema": "Tema 7: Jenkins",
+    "question": "¿Qué configuración hay que usar para ejecutar un trabajo de Jenkins a cada hora?",
+    "options": [
+      "A partir de un webhook en un sistema con cron",
+      "Un trigger periódico y una agenda 0 * * * *",
+      "Una comprobación periódica del repositorio con una agenda 0 * * * *",
+      "Todas las anteriores"
+    ],
+    "answer": "Un trigger periódico y una agenda 0 * * * *",
+    "explanation": "Esta programación ejecutará el trabajo cada hora en punto."
+  },
+  {
+    "tema": "Tema 7: Jenkins",
+    "question": "¿Qué relación hay entre «trabajo» y «ejecución» en Jenkins?",
+    "options": [
+      "Son sinónimos",
+      "Un trabajo se ejecuta en el master, mientras que los agentes se encargan de las ejecuciones",
+      "Un trabajo es una definición de un pipeline y la ejecución es cada una de las fases del pipeline",
+      "Un trabajo es una definición de una tarea que puede tener varias fases; una ejecución es una activación concreta del trabajo con unos parámetros y un resultado concretos"
+    ],
+    "answer": "Un trabajo es una definición de una tarea que puede tener varias fases; una ejecución es una activación concreta del trabajo con unos parámetros y un resultado concretos",
+    "explanation": "Cada trabajo mantiene un historial con las ejecuciones anteriores."
+  },
+  {
+    "tema": "Tema 7: Jenkins",
+    "question": "¿Cómo se indica que debe ser la ejecución de un trabajo en un nodo con herramientas de compilación de Java?",
+    "options": [
+      "Con la sentencia label 'maven' en la sección del agente",
+      "Con la sentencia label 'java' en la sección del agente",
+      "Asignando una etiqueta concreta a los agentes con herramientas de compilación e indicando esa etiqueta en la sentencia label",
+      "Todas las anteriores"
+    ],
+    "answer": "Asignando una etiqueta concreta a los agentes con herramientas de compilación e indicando esa etiqueta en la sentencia label",
+    "explanation": "Es fundamental configurar los agentes correctamente."
+  },
+  {
+    "tema": "Tema 8: GitLab",
+    "question": "¿Qué servicios ofrece GitLab?",
+    "options": [
+      "Repositorio remoto de Git",
+      "Pipelines de CICD",
+      "Registros de paquetes",
+      "Todos los anteriores"
+    ],
+    "answer": "Todos los anteriores",
+    "explanation": "También ofrece herramientas para gestionar proyectos, monitorización, etc."
+  },
+  {
+    "tema": "Tema 8: GitLab",
+    "question": "¿Cómo se llama la funcionalidad de pull request de GitLab?",
+    "options": [
+      "Pull request",
+      "Merge request",
+      "Join request",
+      "Branch merge"
+    ],
+    "answer": "Merge request",
+    "explanation": "La funcionalidad es idéntica a la de GitHub, incluyendo la discusión durante revisiones, aprobaciones, etc."
+  },
+  {
+    "tema": "Tema 8: GitLab",
+    "question": "¿Dónde se definen las fases de un pipeline en GitLab?",
+    "options": [
+      "En el fichero .gitlab-ci.yml, en la raíz del repositorio",
+      "En la interfaz de GitLab, en la sección de opciones del repositorio",
+      "En Jenkins, a través del plugin de GitLab",
+      "Todas las anteriores son opciones válidas"
+    ],
+    "answer": "En el fichero .gitlab-ci.yml, en la raíz del repositorio",
+    "explanation": "El nombre del fichero es configurable, pero debe estar versionado en el mismo repositorio donde se ejecuta el pipeline."
+  },
+  {
+    "tema": "Tema 8: GitLab",
+    "question": "¿Dónde se ejecutan los trabajos de un pipeline en GitLab?",
+    "options": [
+      "En el servidor principal, si no hay runners asociados al proyecto, o en los runners asociados",
+      "En los runners asociados al proyecto, en los compartidos entre varios proyectos",
+      "En los agentes de Jenkins a través del plugin de GitLab",
+      "En el servidor principal de GitLab"
+    ],
+    "answer": "En los runners asociados al proyecto, en los compartidos entre varios proyectos",
+    "explanation": "GitLab necesita delegar en los runners todos los trabajos de un pipeline."
+  },
+  {
+    "tema": "Tema 8: GitLab",
+    "question": "¿Cómo se determina el orden de ejecución de fases y trabajos?",
+    "options": [
+      "Las fases se ejecutan secuencialmente",
+      "Los trabajos de una misma fase se ejecutan en paralelo",
+      "Los trabajos empiezan tan pronto terminan sus dependencias",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "A y B aplican cuando se define un pipeline simple. C aplica si el pipeline se define como un grafo dirigido acíclico."
+  },
+  {
+    "tema": "Tema 8: GitLab",
+    "question": "¿Para qué sirve la directiva artifacts?",
+    "options": [
+      "Para guardar archivos o directorios que serán utilizados en fases posteriores del pipeline",
+      "Para guardar archivos o directorios que deben estar disponibles para los usuarios al terminar el pipeline",
+      "Para recopilar informes de pruebas, cobertura o análisis de seguridad y mostrarlos en la interfaz de GitLab",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "GitLab es capaz de interpretar algunos artefactos, como los informes JUnit, mientras que otros se almacenan para poder ser descargados. Además, es necesario mover los archivos generados de un trabajo a otro mediante esta directiva."
+  },
+  {
+    "tema": "Tema 8: GitLab",
+    "question": "¿Cuándo se ejecuta un pipeline en GitLab?",
+    "options": [
+      "Cuando hay un cambio en una rama, ya sean etiquetas de Git o commits nuevos",
+      "Cuando se abre una merge request a partir de una rama de un fork",
+      "Es necesario arrancarlas manualmente desde la interfaz de GitLab o con el comando gitlab-runner start",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Cuando hay un cambio en una rama, ya sean etiquetas de Git o commits nuevos",
+    "explanation": "GitLab inicia la ejecución tan pronto detecta un cambio. También se pueden arrancar manualmente o a partir de una agenda."
+  },
+  {
+    "tema": "Tema 8: GitLab",
+    "question": "¿Cuándo se borran las imágenes del registro de contenedores?",
+    "options": [
+      "Manualmente",
+      "Al finalizar el pipeline, a menos que se etiqueten con *-latest",
+      "Tras un intervalo configurable, a menos que estén incluidas como excepción",
+      "A los noventa días"
+    ],
+    "answer": "Tras un intervalo configurable, a menos que estén incluidas como excepción",
+    "explanation": "El borrado automático se puede desactivar. En caso de estarlo, se puede seleccionar un intervalo configurable y se pueden definir expresiones regulares para incluir o excluir etiquetas."
+  },
+  {
+    "tema": "Tema 8: GitLab",
+    "question": "¿Cuándo se ejecuta el contenido de before_script?",
+    "options": [
+      "Al inicio del pipeline",
+      "Antes de iniciar cada trabajo, siempre y cuando el trabajo no sobreescriba la sección before_script explícitamente",
+      "Antes de iniciar cada trabajo",
+      "Al terminar cada trabajo"
+    ],
+    "answer": "Antes de iniciar cada trabajo, siempre y cuando el trabajo no sobreescriba la sección before_script explícitamente",
+    "explanation": "El contenido se ejecuta en el mismo contexto en el que se ejecutará el script del trabajo. Si los comandos fallan, el trabajo se detiene y se marca como erróneo."
+  },
+  {
+    "tema": "Tema 8: GitLab",
+    "question": "¿Cuándo se detiene un pipeline?",
+    "options": [
+      "Se pueden detener manualmente",
+      "Si un trabajo falla, la siguiente fase no se ejecuta, pero los trabajos que se pongan en marcha en paralelo pueden terminar",
+      "Se pueden cancelar automáticamente si la rama recibe más cambios durante la ejecución de su pipeline",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Se puede configurar un trabajo para mostrar un error en el log y marcar el pipeline como inestable, pero sin detenerlo. Si esta opción no se configura explícitamente, el pipeline se detendrá al fallar un trabajo."
+  },
+  {
+    "tema": "Tema 9: Otras herramientas de CICD",
+    "question": "¿Con qué sistemas de control de versiones distribuidos es compatible Bitbucket?",
+    "options": [
+      "GitHub",
+      "Git",
+      "Mercurial",
+      "SVN"
+    ],
+    "answer": "Git",
+    "explanation": "Bitbucket ofrecía compatibilidad con Mercurial, pero dejó de ofrecerla en 2020."
+  },
+  {
+    "tema": "Tema 9: Otras herramientas de CICD",
+    "question": "¿En qué fichero se definen los pipelines de CircleCI?",
+    "options": [
+      ".circleci/config.yml",
+      "gitlab-ci.yml",
+      "Jenkinsfile",
+      ".circle-ci.yml"
+    ],
+    "answer": ".circleci/config.yml",
+    "explanation": "Al igual que en GitLab, debe versionarse en el repositorio y estar en formato YAML."
+  },
+  {
+    "tema": "Tema 9: Otras herramientas de CICD",
+    "question": "¿Cómo se ejecutan los trabajos de un workflow de CircleCI?",
+    "options": [
+      "Secuencialmente",
+      "En paralelo",
+      "En paralelo por defecto, salvo que se definan dependencias entre ellos",
+      "Secuencialmente por defecto, salvo que se indique que pueden ejecutarse en paralelo"
+    ],
+    "answer": "En paralelo por defecto, salvo que se definan dependencias entre ellos",
+    "explanation": "Si se define una dependencia en un trabajo, este empezará cuando la dependencia haya terminado."
+  },
+  {
+    "tema": "Tema 9: Otras herramientas de CICD",
+    "question": "¿Se puede seguir un flujo de trabajo de GitHub con Bitbucket?",
+    "options": [
+      "No, en todo caso se podría seguir el flujo de trabajo de Bitbucket",
+      "No, porque Bitbucket no soporta forks ni pull requests",
+      "No, aunque sí que soporta el flujo de trabajo de GitLab",
+      "Sí, ya que soporta la creación de forks y pull requests"
+    ],
+    "answer": "Sí, ya que soporta la creación de forks y pull requests",
+    "explanation": "El nombre del flujo no es exclusivo de la herramienta y puede seguirse si el servicio de repositorios remotos ofrece estas funcionalidades."
+  },
+  {
+    "tema": "Tema 9: Otras herramientas de CICD",
+    "question": "¿Con qué servicios de control de versiones se integra CircleCI?",
+    "options": [
+      "GitHub y Bitbucket",
+      "GitHub, GitLab y Bitbucket",
+      "Con cualquiera que ofrezca un plugin, como Jenkins",
+      "Con cualquiera que use Git como sistema de control de versiones"
+    ],
+    "answer": "GitHub y Bitbucket",
+    "explanation": "En el momento de publicar estos materiales, CircleCI está limitado a GitHub y Bitbucket."
+  },
+  {
+    "tema": "Tema 9: Otras herramientas de CICD",
+    "question": "¿A partir de qué cambios se ejecuta un pipeline de CircleCI?",
+    "options": [
+      "Creación de ramas nuevas y cambios en ramas existentes",
+      "Creación de pull requests",
+      "Creación de etiquetas de Git, si se activan explícitamente",
+      "Cualquiera de las anteriores"
+    ],
+    "answer": "Cualquiera de las anteriores",
+    "explanation": "Todas las opciones son disparadores que iniciarán la ejecución del pipeline."
+  },
+  {
+    "tema": "Tema 9: Otras herramientas de CICD",
+    "question": "¿En qué consiste un orb de CircleCI?",
+    "options": [
+      "En una plantilla con fases habituales para un sistema concreto",
+      "En un paquete YAML reutilizable",
+      "Código reutilizable, bien privado o público, ofrecido habitualmente por las propias organizaciones",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Los orbs son paquetes YAML que definen elementos reutilizables en un pipeline a modo de macros o funciones."
+  },
+  {
+    "tema": "Tema 9: Otras herramientas de CICD",
+    "question": "¿Qué ventaja tiene usar Nexus como proxy?",
+    "options": [
+      "Acelera la descarga de paquetes en una red local",
+      "Aísla a los sistemas internos de posibles caídas de servicio de repositorios públicos",
+      "Centraliza el acceso a Internet a un único sistema en sistemas privados donde esta conectividad está restringida",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Estos repositorios funcionan como caché y pueden servir los paquetes más rápido que los repositorios remotos."
+  },
+  {
+    "tema": "Tema 9: Otras herramientas de CICD",
+    "question": "¿Cuándo tiene sentido usar Nexus como repositorio para paquetes o imágenes?",
+    "options": [
+      "Cuando los proyectos son privados y no se desea alojarlos en un repositorio público",
+      "Cuando se quiere acelerar la publicación de paquetes",
+      "Cuando no se dispone de una cuenta en el repositorio público",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Cuando los proyectos son privados y no se desea alojarlos en un repositorio público",
+    "explanation": "Algunos sistemas ofrecen repositorios privados en modo SaaS, por lo que el acceso es privado, al igual que en Nexus."
+  },
+  {
+    "tema": "Tema 9: Otras herramientas de CICD",
+    "question": "¿Qué gestores de paquetes soporta Nexus?",
+    "options": [
+      "npm",
+      "docker",
+      "apt",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Soporta algunos más, como yum, pypi o maven."
   }
 ]
