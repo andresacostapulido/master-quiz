@@ -1077,5 +1077,125 @@
     ],
     "answer": "Se almacenan codificados en base64, pero no cifrados",
     "explanation": "La información de los objetos Secrets no se guarda en claro, sino que estará codificada en base64. Sin embargo, dicha información no estará cifrada. Además, se definen a nivel de Namespace y pueden ser utilizados en múltiples recursos del Namespace al que pertenecen."
+  },
+  {
+    "tema": "Tema 10: Deployments, StatefulSets y Jobs",
+    "question": "Relacione: Deployments, StatefulSets, Jobs y CronJobs con sus definiciones:",
+    "options": [
+      "Deployments=apps sin estado, StatefulSets=apps con estado, Jobs=tareas bajo demanda, CronJobs=tareas planificadas",
+      "Deployments=apps con estado, StatefulSets=tareas bajo demanda, Jobs=tareas planificadas, CronJobs=apps sin estado",
+      "Deployments=tareas bajo demanda, StatefulSets=tareas planificadas, Jobs=apps sin estado, CronJobs=apps con estado",
+      "Deployments=tareas planificadas, StatefulSets=apps sin estado, Jobs=apps con estado, CronJobs=tareas bajo demanda"
+    ],
+    "answer": "Deployments=apps sin estado, StatefulSets=apps con estado, Jobs=tareas bajo demanda, CronJobs=tareas planificadas",
+    "explanation": "Deployments: permiten desplegar aplicaciones sin estado. StatefulSets: permiten desplegar aplicaciones con estado. Jobs: tareas de corta duración bajo demanda. CronJobs: tareas de corta duración planificadas."
+  },
+  {
+    "tema": "Tema 10: Deployments, StatefulSets y Jobs",
+    "question": "Los recursos Job de Kubernetes:",
+    "options": [
+      "Permiten la planificación de los Jobs para su ejecución a una hora concreta o de forma periódica",
+      "Soportan estrategias de despliegue progresivo que permiten actualizar la aplicación sin pérdida de servicio",
+      "Soportan políticas de reinicio para la gestión de errores en la ejecución",
+      "Están diseñados para el despliegue de aplicaciones con estado"
+    ],
+    "answer": "Soportan políticas de reinicio para la gestión de errores en la ejecución",
+    "explanation": "En los Jobs es posible establecer una política de reinicio en caso de fallo en la ejecución de la tarea. Los valores admitidos son Always, OnFailure y Never, siendo el primero el valor por defecto."
+  },
+  {
+    "tema": "Tema 10: Deployments, StatefulSets y Jobs",
+    "question": "Los recursos CronJob de Kubernetes:",
+    "options": [
+      "Permiten la planificación de los Jobs para su ejecución a una hora concreta o de forma periódica",
+      "Soportan estrategias de despliegue progresivo que permiten actualizar la aplicación sin pérdida de servicio",
+      "Crean un Replicaset para la gestión de las réplicas",
+      "Están diseñados para el despliegue de aplicaciones con estado"
+    ],
+    "answer": "Permiten la planificación de los Jobs para su ejecución a una hora concreta o de forma periódica",
+    "explanation": "Los CronJobs de Kubernetes permiten planificar tareas para que sean ejecutadas a una hora específica o, incluso, que se repitan de manera periódica."
+  },
+  {
+    "tema": "Tema 10: Deployments, StatefulSets y Jobs",
+    "question": "Los recursos Deployment de Kubernetes:",
+    "options": [
+      "Permiten el despliegue progresivo de actualizaciones, realizando el proceso sin pérdida de servicio",
+      "Soportan revertir un despliegue de actualizaciones a un estado anterior",
+      "Están diseñados para el despliegue de aplicaciones sin estado",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Los Deployment de Kubernetes están pensados para el despliegue de aplicaciones sin estado. Cuando realicemos cambios, será Kubernetes el encargado de desplegar los cambios progresivamente sin pérdida de servicio y permitiendo volver a un estado anterior si fuera necesario."
+  },
+  {
+    "tema": "Tema 10: Deployments, StatefulSets y Jobs",
+    "question": "Los recursos StatefulSets de Kubernetes:",
+    "options": [
+      "Los Pods de las réplicas tendrán hostname e IP únicos",
+      "Las réplicas se crean y destruyen ordenadamente",
+      "Están diseñados para el despliegue de aplicaciones con estado",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Los StatefulSets se utilizarán para gestionar aplicaciones con estado. A cada una de las réplicas de los Pods se le asignará un hostname e IP persistente, además de nombrar los Pods con un índice único. Las réplicas se crean en orden, comenzando por el índice más bajo."
+  },
+  {
+    "tema": "Tema 10: Deployments, StatefulSets y Jobs",
+    "question": "¿Cuál de los siguientes objetos de Kubernetes crea un Replicaset para gestionar las réplicas?",
+    "options": [
+      "Deployments",
+      "StatefulSets",
+      "Jobs",
+      "CronJobs"
+    ],
+    "answer": "Deployments",
+    "explanation": "Los Deployments son objetos de Kubernetes de alto nivel que nos permitirán desplegar y actualizar nuestras aplicaciones de forma declarativa. Estos harán uso de objetos Replicasets para la creación y gestión de los Pods."
+  },
+  {
+    "tema": "Tema 10: Deployments, StatefulSets y Jobs",
+    "question": "Relacione: kubectl rollout status, kubectl rollout undo, kubectl rollout pause y kubectl scale con sus funciones:",
+    "options": [
+      "status=consultar estado del despliegue, undo=volver a estado anterior, pause=pausar actualizaciones, scale=modificar número de réplicas",
+      "status=volver a estado anterior, undo=consultar estado, pause=modificar réplicas, scale=pausar actualizaciones",
+      "status=pausar actualizaciones, undo=modificar réplicas, pause=consultar estado, scale=volver a estado anterior",
+      "status=modificar réplicas, undo=pausar actualizaciones, pause=volver a estado anterior, scale=consultar estado"
+    ],
+    "answer": "status=consultar estado del despliegue, undo=volver a estado anterior, pause=pausar actualizaciones, scale=modificar número de réplicas",
+    "explanation": "kubectl rollout status: consulta el estado del despliegue. kubectl rollout undo: permite volver a un estado anterior. kubectl rollout pause: pausa las actualizaciones permitiendo aplicar varias modificaciones a la vez. kubectl scale: permite modificar el número de réplicas."
+  },
+  {
+    "tema": "Tema 10: Deployments, StatefulSets y Jobs",
+    "question": "¿Cuál de las siguientes propiedades de un manifiesto YAML permite establecer un tiempo límite de ejecución de un Job en Kubernetes?",
+    "options": [
+      "spec.backoffLimit",
+      "spec.completions",
+      "spec.activeDeadlineSeconds",
+      "spec.schedule"
+    ],
+    "answer": "spec.activeDeadlineSeconds",
+    "explanation": "Para establecer un tiempo límite de ejecución del Job utilizaremos la propiedad spec.activeDeadlineSeconds, indicando el número de segundos desde el inicio de la ejecución del Job, independientemente del número de Pods que se hayan creado."
+  },
+  {
+    "tema": "Tema 10: Deployments, StatefulSets y Jobs",
+    "question": "En Kubernetes los objetos Service de tipo headless:",
+    "options": [
+      "No realizan balanceo de carga entre los Pods",
+      "Devuelven la lista de IPs de los Pods",
+      "No tendrán una Cluster IP asociado",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Proporcionan a los Pods del StatefulSet una entrada propia en el DNS. No tendrán una clusterIP asociada, por lo que no realizarán balanceo de carga. En su lugar devolverán la lista de IPs y hostnames asociadas a los Pods."
+  },
+  {
+    "tema": "Tema 10: Deployments, StatefulSets y Jobs",
+    "question": "¿Cuál de los siguientes objetos de Kubernetes permite la ejecución de un Pod periódicamente?",
+    "options": [
+      "Deployments",
+      "StatefulSets",
+      "Jobs",
+      "CronJobs"
+    ],
+    "answer": "CronJobs",
+    "explanation": "Los CronJobs nos permiten planificar tareas para que sean ejecutadas a una hora específica o, incluso, que se repitan de manera periódica. La ejecución de las tareas se realizará creando un Job, el cual ejecutará uno o varios Pods."
   }
 ]

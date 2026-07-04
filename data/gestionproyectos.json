@@ -1078,5 +1078,125 @@
     ],
     "answer": "Durante la ejecución del proyecto",
     "explanation": "El pensamiento clásico se posiciona en registrar lecciones al final, pero es más efectivo hacerlo cuando se van produciendo las lecciones, tanto al inicio, como en mitad y en el cierre."
+  },
+  {
+    "tema": "Tema 10: Evolución en la gestión de proyectos",
+    "question": "¿Cuál de las siguientes es una posible desventaja del enfoque ágil?",
+    "options": [
+      "Se requieren más personas para realizar el trabajo",
+      "Suele implicar un coste superior para poder completar el proyecto",
+      "Se requiere aplicar una tecnología más versátil",
+      "Suele implicar el no tener tan claro qué se debe hacer a largo plazo"
+    ],
+    "answer": "Suele implicar el no tener tan claro qué se debe hacer a largo plazo",
+    "explanation": "No hay que definir en detalle desde el inicio, por eso se aplican los horizontes de planificación que vimos en anteriores temas."
+  },
+  {
+    "tema": "Tema 10: Evolución en la gestión de proyectos",
+    "question": "¿Cuál es la actitud más adecuada respecto a los cambios en los proyectos?",
+    "options": [
+      "Se debe entender que son necesarios y beneficiosos",
+      "Se debe replanificar cuando se produzca una petición de cambio, al instante",
+      "No se debe establecer líneas base, ya que los cambios harán que no sean útiles",
+      "Se deben evitar los cambios si no mejoran nada, según prevea el equipo"
+    ],
+    "answer": "Se debe entender que son necesarios y beneficiosos",
+    "explanation": "En líneas generales, lo importante es adaptarse para satisfacer los requisitos, y no tanto el tener que cumplir planes prefijados."
+  },
+  {
+    "tema": "Tema 10: Evolución en la gestión de proyectos",
+    "question": "El enfoque tradicional pierde importancia respecto al ágil, debido a:",
+    "options": [
+      "Que el enfoque tradicional resulta más caro de poner en marcha que el ágil",
+      "Que se requieren más personas en el equipo de trabajo del tradicional",
+      "Que el enfoque tradicional es menos adaptable",
+      "Que hay más personas formadas en el enfoque ágil"
+    ],
+    "answer": "Que el enfoque tradicional es menos adaptable",
+    "explanation": "El enfoque tradicional, basado en líneas base, se enfoca en el mantenimiento y cumplimiento de estas, lo que no funciona bien cuando hay que adaptarse a cambios."
+  },
+  {
+    "tema": "Tema 10: Evolución en la gestión de proyectos",
+    "question": "¿Cuál es la característica principal del enfoque ágil respecto al tradicional?",
+    "options": [
+      "El enfoque ágil resulta más económico de aplicar que el tradicional",
+      "El enfoque ágil requiere una tecnología más avanzada",
+      "El enfoque ágil requiere menos perfiles técnicos que el tradicional",
+      "El enfoque ágil implica menos planificación detallada al inicio"
+    ],
+    "answer": "El enfoque ágil implica menos planificación detallada al inicio",
+    "explanation": "Se debe disponer de suficiente información para iniciar el proyecto, pero no es necesario disponer de toda la información necesaria para saber cómo acabar el proyecto."
+  },
+  {
+    "tema": "Tema 10: Evolución en la gestión de proyectos",
+    "question": "La planificación de un proyecto debe ser:",
+    "options": [
+      "Lo más realista posible",
+      "Lo más comprimida posible",
+      "Lo más detallada y concreta posible",
+      "Lo más técnica posible, con uso de herramientas software"
+    ],
+    "answer": "Lo más realista posible",
+    "explanation": "La planificación, sea realizada con un Roadmap o con un diagrama de Gantt, debe ser una herramienta que refleje la información más probable y real posible."
+  },
+  {
+    "tema": "Tema 10: Evolución en la gestión de proyectos",
+    "question": "¿Cuál es la evolución del riesgo en un proyecto ágil respecto al tradicional?",
+    "options": [
+      "En el enfoque ágil se mantiene el riesgo en niveles más elevados que el tradicional",
+      "En el enfoque ágil no hay riesgos durante el ciclo de vida del proyecto",
+      "En el enfoque ágil se reduce el riesgo con mayor medida que el tradicional",
+      "En el enfoque ágil se aumenta el riesgo cuando hay que hacer cambios"
+    ],
+    "answer": "En el enfoque ágil se reduce el riesgo con mayor medida que el tradicional",
+    "explanation": "En un proyecto ágil se obtiene feedback sobre el trabajo realizado a corto plazo, por lo que los errores se pueden detectar y corregir pronto, minimizando los riesgos."
+  },
+  {
+    "tema": "Tema 10: Evolución en la gestión de proyectos",
+    "question": "¿Cuál de las siguientes alternativas es más importante como centro fundamental en la gestión de proyectos con enfoque ágil?",
+    "options": [
+      "El cumplir la planificación del proyecto aprobada por el cliente",
+      "El valor del resultado desde el punto de vista de negocio",
+      "El cumplir la restricción de tiempo, coste y alcance del proyecto",
+      "El valor del resultado desde el punto de vista del contrato"
+    ],
+    "answer": "El valor del resultado desde el punto de vista de negocio",
+    "explanation": "Aun considerando que se deben cumplir las restricciones y los contratos contemplados, lo que más se valora es el maximizar el resultado para el negocio."
+  },
+  {
+    "tema": "Tema 10: Evolución en la gestión de proyectos",
+    "question": "¿Cuáles de estos son modelos o métodos SDLC (Software Development Life Cycle)?",
+    "options": [
+      "Tradicional, iterativo, DevOps y orientación a aspectos",
+      "Los modelos centralizados y distribuidos",
+      "Tradicional, prototipo, iterativo y espiral",
+      "Tradicional, prototipo, iterativo y orientación a objetos"
+    ],
+    "answer": "Tradicional, prototipo, iterativo y espiral",
+    "explanation": "Estos son algunos de los principales métodos SDLC."
+  },
+  {
+    "tema": "Tema 10: Evolución en la gestión de proyectos",
+    "question": "El objetivo de DevOps es:",
+    "options": [
+      "Aumentar la técnica y calidad del desarrollo de sistemas, mejorando la metodología tradicional",
+      "Reducir el ciclo de vida del desarrollo de sistemas y proporcionar una entrega continua, siendo complementario a lo que se hace en la metodología ágil",
+      "Mejorar la entrega de los productos, gracias a la entrega continua y planificarlo desde el inicio",
+      "Reducir el ciclo de vida del desarrollo de sistemas y proporcionar una entrega continua, siendo opuesto a lo que se hace en la metodología tradicional"
+    ],
+    "answer": "Reducir el ciclo de vida del desarrollo de sistemas y proporcionar una entrega continua, siendo complementario a lo que se hace en la metodología ágil",
+    "explanation": "DevOps acorta el ciclo de vida con la entrega y mejora continua, y aunque aspectos de DevOps provienen de la metodología Ágil, no es opuesto a la tradicional."
+  },
+  {
+    "tema": "Tema 10: Evolución en la gestión de proyectos",
+    "question": "¿Cuáles son las características básicas de RUP (Rational Unified Process)?",
+    "options": [
+      "El tener cinco fases en el desarrollo del proyecto: inicio, elaboración, diseño, desarrollo, y cierre",
+      "El hecho de emplearse junto con UML, que lo hace de importancia en el uso del desarrollo de proyectos",
+      "El tener cuatro fases dentro de cada iteración: requisitos, análisis, planificación, diseño, e implementación",
+      "El estar dirigido por casos de uso, centrado en la arquitectura y ser iterativo e incremental"
+    ],
+    "answer": "El estar dirigido por casos de uso, centrado en la arquitectura y ser iterativo e incremental",
+    "explanation": "Estas son las tres características principales. El resto suponen las fases y el uso de UML, pero además no son argumentos correctos por completo."
   }
 ]
