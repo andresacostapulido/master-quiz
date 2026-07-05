@@ -250,11 +250,10 @@
         });
     </script>
     <script>
-        // Cache busting automático: carga app.js con timestamp diario
+        // Cache busting: carga app.js con timestamp único
         (function() {
             const script = document.createElement('script');
-            const today = new Date().toISOString().split('T')[0]; // cambia cada día
-            script.src = 'app.js?v=' + today;
+            script.src = 'app.js?v=' + Date.now();
             document.body.appendChild(script);
         })();
     </script>

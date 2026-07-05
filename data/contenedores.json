@@ -9,7 +9,8 @@
       "Instalar host de Docker remotos"
     ],
     "answer": "Almacenar y distribuir imágenes de Docker",
-    "explanation": "Un registro de Docker nos permite almacenar de manera centralizada las imágenes que utilizará nuestro sistema. Las imágenes se descargarán automáticamente del registro cuando se necesiten y no estén disponibles localmente."
+    "explanation": "Un registro de Docker nos permite almacenar de manera centralizada las imágenes que utilizará nuestro sistema. Las imágenes se descargarán automáticamente del registro cuando se necesiten y no estén disponibles localmente.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn registro de Docker (como Docker Hub o Amazon ECR) es un sistema de almacenamiento centralizado para imágenes de contenedores. Permite a los desarrolladores subir (push) sus imágenes compiladas y descargarlas (pull) en cualquier entorno, garantizando la consistencia del software.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos destaca que los registros son fundamentales para la distribución y el despliegue automático. En lugar de transferir archivos pesados manualmente, el motor de Docker descarga automáticamente la imagen necesaria desde el registro si no está disponible localmente.\n\nAplicación en DevOps:\nEn pipelines de CI/CD, el registro actúa como el repositorio de artefactos. Una vez que las pruebas pasan, la imagen se compila, se etiqueta (tag) y se sube al registro, desde donde el entorno de producción o Kubernetes la descarga para su despliegue."
   },
   {
     "tema": "Tema 1: Introducción a Docker",
@@ -21,7 +22,8 @@
       "El formato de contenedor utilizado por Docker"
     ],
     "answer": "Un registro público de imágenes Docker",
-    "explanation": "Docker Hub es un registro público de imágenes en la nube mantenido por Docker. Los usuarios pueden crear sus propios repositorios para subir y compartir imágenes con otros usuarios. Además, ofrece multitud de imágenes gratuitas publicadas por terceros."
+    "explanation": "Docker Hub es un registro público de imágenes en la nube mantenido por Docker. Los usuarios pueden crear sus propios repositorios para subir y compartir imágenes con otros usuarios. Además, ofrece multitud de imágenes gratuitas publicadas por terceros.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker Hub es el registro oficial y público de imágenes de contenedores en la nube gestionado por la empresa Docker. Alberga miles de imágenes oficiales y comunitarias de sistemas operativos, bases de datos y lenguajes de programación listas para usar.\n\nLa perspectiva de la clase:\nEl profesor explica que Docker Hub es la biblioteca central por defecto de Docker. Cuando ejecutamos un comando como 'docker pull nginx', Docker busca esta imagen en Docker Hub de manera automática si no la encuentra en el host local.\n\nAplicación en DevOps:\nLos equipos de DevOps utilizan Docker Hub para obtener imágenes base oficiales y seguras (como node:alpine o python:slim) y para almacenar imágenes públicas, optimizando la construcción de contenedores sin reinventar la rueda."
   },
   {
     "tema": "Tema 1: Introducción a Docker",
@@ -33,7 +35,8 @@
       "Herramienta para gestionar instalaciones de Docker remotas"
     ],
     "answer": "Aplicación para instalar Docker en Windows y Mac OS",
-    "explanation": "El demonio de Docker no es compatible de forma nativa ni en Windows, ni Mac OS, por lo que deberemos utilizar el instalador Docker Desktop que proporciona de manera transparente una virtualización necesaria para la ejecución de los contenedores."
+    "explanation": "El demonio de Docker no es compatible de forma nativa ni en Windows, ni Mac OS, por lo que deberemos utilizar el instalador Docker Desktop que proporciona de manera transparente una virtualización necesaria para la ejecución de los contenedores.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker Desktop es una aplicación de escritorio diseñada para Windows y macOS que proporciona un entorno local completo de Docker. Dado que los contenedores Linux requieren un kernel de Linux, Docker Desktop levanta una máquina virtual ligera de forma transparente para permitir su ejecución.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos menciona que Docker Desktop es excelente para entornos de desarrollo locales y entornos gráficos. Sin embargo, recalca que para servidores y entornos de producción reales se utiliza el motor de Docker nativo sobre sistemas operativos Linux.\n\nAplicación en DevOps:\nEn la práctica DevOps, Docker Desktop permite a los desarrolladores probar sus contenedores en su propia máquina (incluyendo un clúster local de Kubernetes de un solo nodo) antes de enviar el código al pipeline de CI/CD, asegurando la consistencia entre local y producción."
   },
   {
     "tema": "Tema 1: Introducción a Docker",
@@ -45,7 +48,8 @@
       "Se inician más lento que las máquinas virtuales, pero son más seguros"
     ],
     "answer": "Permiten aprovechar mejor el hardware de la máquina host",
-    "explanation": "Los contenedores son más ligeros y rápidos al desplegarse que las máquinas virtuales, lo que nos permite ejecutar más cargas de trabajo en el mismo hardware."
+    "explanation": "Los contenedores son más ligeros y rápidos al desplegarse que las máquinas virtuales, lo que nos permite ejecutar más cargas de trabajo en el mismo hardware.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos contenedores empaquetan una aplicación y sus dependencias compartiendo el kernel del sistema operativo host, sin la sobrecarga de un hipervisor ni un sistema operativo completo. Esto reduce drásticamente el uso de memoria y CPU, mejorando la densidad de aplicaciones por servidor.\n\nLa perspectiva de la clase:\nEl profesor resalta que los contenedores son extremadamente ligeros y se inician en milisegundos en comparación con las máquinas virtuales que tardan minutos. Esto permite multiplicar el número de aplicaciones que se ejecutan sobre la misma infraestructura física.\n\nAplicación en DevOps:\nEn DevOps, esta eficiencia permite optimizar los costos de computación en la nube (cloud optimization) y permite implementar escalabilidad horizontal rápida, levantando y destruyendo contenedores de forma dinámica según la demanda de tráfico."
   },
   {
     "tema": "Tema 1: Introducción a Docker",
@@ -57,7 +61,8 @@
       "Sirven para clasificar imágenes Docker"
     ],
     "answer": "Proporcionan capas de aislamiento a los contenedores",
-    "explanation": "Los namespaces proporcionan una capa de aislamiento al contenedor. Cada aspecto de un contenedor se ejecuta en un espacio de nombres separado y su acceso está limitado a ese espacio de nombres."
+    "explanation": "Los namespaces proporcionan una capa de aislamiento al contenedor. Cada aspecto de un contenedor se ejecuta en un espacio de nombres separado y su acceso está limitado a ese espacio de nombres.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos namespaces son una característica del kernel de Linux que aísla los recursos del sistema (como redes, procesos, usuarios y sistemas de archivos) de un grupo de procesos. Docker utiliza namespaces para asegurar que cada contenedor tenga su propia vista aislada de la máquina.\n\nLa perspectiva de la clase:\nEl profesor explica que gracias a los namespaces, un contenedor no puede ver ni interferir con los procesos, interfaces de red o archivos de otro contenedor, a menos que se configure explícitamente una comunicación o recurso compartido.\n\nAplicación en DevOps:\nPara la seguridad y el aislamiento en entornos multi-inquilino (multi-tenant), los namespaces garantizan que las aplicaciones compartan el mismo hardware físico de forma segura, reduciendo la superficie de ataque y previniendo conflictos de red o procesos."
   },
   {
     "tema": "Tema 1: Introducción a Docker",
@@ -69,7 +74,8 @@
       "namespaces=formato de contenedor, libcontainer=aislamiento, cgroups=sistema de archivos por capas, unionfs=límites de recursos"
     ],
     "answer": "namespaces=aislamiento, libcontainer=formato de contenedor, cgroups=límites de recursos, unionfs=sistema de archivos por capas",
-    "explanation": "namespaces: crea capas de aislamiento a los contenedores. libcontainer: formato de contenedor predeterminado de Docker. cgroups: impone límites y restricciones a los recursos. unionfs: monta un sistema de archivos formado por la unión de otros (capas de imagen)."
+    "explanation": "namespaces: crea capas de aislamiento a los contenedores. libcontainer: formato de contenedor predeterminado de Docker. cgroups: impone límites y restricciones a los recursos. unionfs: monta un sistema de archivos formado por la unión de otros (capas de imagen).",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker se construye sobre varias tecnologías del kernel de Linux: namespaces aísla los recursos, cgroups limita el uso de CPU/memoria, UnionFS permite montar sistemas de archivos por capas eficientes, y libcontainer es la interfaz de abstracción que unifica el control de estas tecnologías.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos utiliza esta relación para desmitificar a Docker, explicando que no es una tecnología mágica, sino una capa de herramientas muy bien diseñada sobre características que el propio kernel de Linux ya ofrecía.\n\nAplicación en DevOps:\nLos ingenieros DevOps configuran cgroups de forma indirecta al definir límites de recursos (limits) en Kubernetes o Docker Compose, asegurando que un contenedor con fugas de memoria no sature y tumbe toda la máquina host."
   },
   {
     "tema": "Tema 1: Introducción a Docker",
@@ -81,7 +87,8 @@
       "C++"
     ],
     "answer": "Go",
-    "explanation": "Docker está escrito en el lenguaje de programación Go (Golang), creado por Google, elegido por su rendimiento y facilidad para compilar binarios estáticos multiplataforma."
+    "explanation": "Docker está escrito en el lenguaje de programación Go (Golang), creado por Google, elegido por su rendimiento y facilidad para compilar binarios estáticos multiplataforma.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker está escrito en Go (Golang), un lenguaje de programación compilado de código abierto desarrollado por Google. Go ofrece un alto rendimiento, una gestión eficiente de la memoria con recolección de basura y compila en un único binario estático sin dependencias externas.\n\nLa perspectiva de la clase:\nEl profesor destaca que la elección de Go permite a Docker interactuar directamente con las APIs del sistema operativo Linux a muy bajo nivel, garantizando que el motor de contenedores sea extremadamente rápido y liviano.\n\nAplicación en DevOps:\nGo es el lenguaje estándar de facto de la infraestructura moderna de la nube y DevOps. Herramientas clave como Docker, Kubernetes, Terraform y Prometheus están escritas en Go, lo que facilita la interoperabilidad y el desarrollo de extensiones personalizadas."
   },
   {
     "tema": "Tema 1: Introducción a Docker",
@@ -93,7 +100,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Todos los métodos son válidos. El nombre de las variables, parámetros y fichero variará según el proveedor, pero podremos utilizar el método más conveniente según nuestras necesidades."
+    "explanation": "Todos los métodos son válidos. El nombre de las variables, parámetros y fichero variará según el proveedor, pero podremos utilizar el método más conveniente según nuestras necesidades.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker Machine es una herramienta que automatiza la creación de hosts de Docker en servidores locales o proveedores de nube. Las credenciales de seguridad (como tokens o claves de API) se pueden pasar mediante variables de entorno, argumentos de consola o archivos de configuración.\n\nLa perspectiva de la clase:\nEl profesor indica que Docker Machine simplifica la vida del administrador al permitir provisionar un motor de Docker en AWS o Azure con un solo comando, gestionando las credenciales según las necesidades de integración de cada entorno.\n\nAplicación en DevOps:\nEn la automatización de infraestructura, las variables de entorno son el método preferido en pipelines de CI/CD para inyectar credenciales de forma segura desde almacenes de secretos (como GitHub Secrets) sin exponerlas en el código fuente."
   },
   {
     "tema": "Tema 1: Introducción a Docker",
@@ -105,7 +113,8 @@
       "Todas las anteriores"
     ],
     "answer": "Mediante un API REST",
-    "explanation": "El cliente Docker y el demonio de Docker se comunican mediante un API REST, ya sea a través de sockets UNIX o mediante una interfaz de red."
+    "explanation": "El cliente Docker y el demonio de Docker se comunican mediante un API REST, ya sea a través de sockets UNIX o mediante una interfaz de red.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker utiliza una arquitectura cliente-servidor. El cliente (CLI 'docker') se comunica con el demonio ('dockerd') enviando peticiones a través de un API REST. Esta comunicación puede ocurrir mediante sockets UNIX locales o sockets TCP de red para administración remota.\n\nLa perspectiva de la clase:\nEl profesor Pardos enfatiza que la CLI de Docker que ejecutamos en la consola no procesa los contenedores, sino que simplemente actúa como un mensajero que le dice al demonio (dockerd) qué hacer a través de llamadas de red estándar.\n\nAplicación en DevOps:\nTener un API REST expuesta (y securizada mediante TLS) permite a herramientas externas de automatización, monitorización y pipelines de CI/CD orquestar y controlar los contenedores del host de forma remota sin necesidad de acceder por SSH."
   },
   {
     "tema": "Tema 1: Introducción a Docker",
@@ -117,7 +126,8 @@
       "Todas las anteriores"
     ],
     "answer": "Comparten el kernel o núcleo del sistema operativo host",
-    "explanation": "Los contenedores comparten el kernel del sistema operativo host, a diferencia de las máquinas virtuales que requieren su propio sistema operativo completo. Esto los hace más ligeros y eficientes en recursos."
+    "explanation": "Los contenedores comparten el kernel del sistema operativo host, a diferencia de las máquinas virtuales que requieren su propio sistema operativo completo. Esto los hace más ligeros y eficientes en recursos.",
+    "detailedExplanation": "¿Qué significa realmente?\nA diferencia de las máquinas virtuales, que emulan hardware y cargan un sistema operativo operativo invitado completo, los contenedores comparten el kernel del sistema operativo del host. Esto significa que ejecutan procesos nativos del host aislados a nivel lógico.\n\nLa perspectiva de la clase:\nEl profesor explica que, dado que comparten el kernel, no es posible ejecutar un contenedor de Windows nativo sobre un kernel de Linux sin capas de emulación. Compartir el núcleo es el secreto de su ligereza y eficiencia.\n\nAplicación en DevOps:\nEsta característica permite una alta densidad de aplicaciones en la nube. En lugar de pagar por licencias y recursos para 20 sistemas operativos independientes en máquinas virtuales, se utiliza un único sistema operativo host con 20 contenedores ligeros."
   },
   {
     "tema": "Tema 2: Creación y distribución de imágenes",
@@ -129,7 +139,8 @@
       "La imagen utilizada se actualiza automáticamente con el estado actual del contenedor"
     ],
     "answer": "Utilizando el comando docker commit",
-    "explanation": "El comando docker commit guarda el estado actual del contenedor en una nueva imagen, devolviendo el identificador de esta."
+    "explanation": "El comando docker commit guarda el estado actual del contenedor en una nueva imagen, devolviendo el identificador de esta.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl comando 'docker commit' toma los cambios realizados en la capa de lectura y escritura de un contenedor en ejecución (el sistema de archivos modificado) y los fusiona para crear una nueva imagen inmutable de lectura.\n\nLa perspectiva de la clase:\nEl profesor advierte que, aunque 'docker commit' es útil para realizar pruebas rápidas o depurar un contenedor modificado, no es una buena práctica para entornos de producción ya que los cambios no son reproducibles ni se documentan de forma declarativa.\n\nAplicación en DevOps:\nEn entornos DevOps profesionales, la creación de imágenes debe ser declarativa y automatizada a través de un archivo Dockerfile y el comando 'docker build', asegurando la trazabilidad de la infraestructura como código."
   },
   {
     "tema": "Tema 2: Creación y distribución de imágenes",
@@ -141,7 +152,8 @@
       "Genera un error, no se pueden copiar ficheros tar con COPY"
     ],
     "answer": "Copia el fichero package.tar en el directorio de trabajo",
-    "explanation": "La instrucción COPY copia ficheros o directorios a la localización especificada. A diferencia de ADD, COPY no descomprime archivos tar automáticamente."
+    "explanation": "La instrucción COPY copia ficheros o directorios a la localización especificada. A diferencia de ADD, COPY no descomprime archivos tar automáticamente.",
+    "detailedExplanation": "¿Qué significa realmente?\nLa instrucción 'COPY' copia archivos del contexto de construcción local dentro de la imagen en la ruta especificada. A diferencia de 'ADD', 'COPY' no realiza descompresiones automáticas de archivos TAR ni descarga archivos desde URLs de red.\n\nLa perspectiva de la clase:\nEl profesor detalla que 'COPY' es preferible sobre 'ADD' por razones de claridad y seguridad, ya que su comportamiento es predecible y evita sorpresas al procesar archivos comprimidos de forma no intencionada.\n\nAplicación en DevOps:\nEl uso de 'COPY' ayuda a mantener las imágenes predecibles en los pipelines de CI/CD. Copiar archivos estáticos o paquetes de dependencias directamente permite que Docker aproveche el sistema de caché por capas de manera más eficiente."
   },
   {
     "tema": "Tema 2: Creación y distribución de imágenes",
@@ -153,7 +165,8 @@
       "XML"
     ],
     "answer": "Texto",
-    "explanation": "Un fichero Dockerfile es un archivo de texto que contiene las instrucciones que se usarán para generar una imagen de Docker con el comando docker build."
+    "explanation": "Un fichero Dockerfile es un archivo de texto que contiene las instrucciones que se usarán para generar una imagen de Docker con el comando docker build.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn Dockerfile es un archivo de texto plano y sin formato, que contiene una lista secuencial de instrucciones (como FROM, RUN, COPY, EXPOSE) que Docker ejecuta en orden para compilar una imagen de contenedor.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos menciona que, al ser texto plano, un Dockerfile es sumamente ligero, fácil de leer y puede crearse con cualquier editor de texto o consola (como vim, nano o VS Code).\n\nAplicación en DevOps:\nQue el Dockerfile sea texto plano facilita enormemente el enfoque de Infraestructura como Código (IaC). Puede subirse a sistemas de control de versiones (Git), ser auditado, comparado mediante 'git diff' e integrado en pipelines de automatización."
   },
   {
     "tema": "Tema 2: Creación y distribución de imágenes",
@@ -165,7 +178,8 @@
       "No es posible, los registros Docker solo tienen sentido en la nube"
     ],
     "answer": "Utilizando la imagen pública registry de Docker Hub",
-    "explanation": "La imagen oficial de Docker para crear registros se llama registry y está disponible de manera pública en Docker Hub."
+    "explanation": "La imagen oficial de Docker para crear registros se llama registry y está disponible de manera pública en Docker Hub.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker proporciona una imagen de contenedor oficial llamada 'registry' que, al ejecutarse, levanta un servidor de registro de contenedores privado. Permite almacenar y distribuir imágenes dentro de una red local o corporativa sin depender de nubes de terceros.\n\nLa perspectiva de la clase:\nEl profesor enseña que levantar un registro local es tan sencillo como hacer un 'docker run' de la imagen 'registry' en el puerto 5000, lo que resulta ideal para pruebas internas o desarrollo sin conexión a internet.\n\nAplicación en DevOps:\nPara empresas con estrictas políticas de seguridad o entornos aislados de red (air-gapped), un registro local o privado es indispensable para distribuir imágenes internamente, minimizando la latencia de descarga de red y controlando los accesos."
   },
   {
     "tema": "Tema 2: Creación y distribución de imágenes",
@@ -177,7 +191,8 @@
       "Genera un error, es obligatorio indicar la etiqueta"
     ],
     "answer": "Descarga la imagen nginx etiquetada como latest",
-    "explanation": "Si no se especifica etiqueta, el comando docker pull utilizará la etiqueta latest por defecto."
+    "explanation": "Si no se especifica etiqueta, el comando docker pull utilizará la etiqueta latest por defecto.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl comando 'docker pull' descarga una imagen desde un registro. Si ejecutamos el comando sin especificar una etiqueta (tag) después de los dos puntos, Docker por defecto asume y busca la etiqueta especial 'latest'.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos hace hincapié en que la etiqueta 'latest' no es dinámica ni mágica; simplemente apunta a la versión de la imagen que el creador subió más recientemente con esa etiqueta, y su uso puede cambiar con el tiempo.\n\nAplicación en DevOps:\nEn la automatización de DevOps, usar 'latest' en producción es peligroso porque puede introducir cambios disruptivos sin previo aviso. Es obligatorio usar etiquetas con números de versión específicos (semver o git commit SHA) para garantizar despliegues deterministas."
   },
   {
     "tema": "Tema 2: Creación y distribución de imágenes",
@@ -189,7 +204,8 @@
       "docker build"
     ],
     "answer": "docker build",
-    "explanation": "El comando docker build genera una imagen a partir de un fichero Dockerfile."
+    "explanation": "El comando docker build genera una imagen a partir de un fichero Dockerfile.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl comando 'docker build' lee un archivo Dockerfile y un contexto de construcción para generar una imagen de contenedor. Ejecuta secuencialmente las instrucciones del Dockerfile y guarda cada cambio como una nueva capa de la imagen.\n\nLa perspectiva de la clase:\nEl profesor explica que 'docker build' utiliza de manera inteligente la caché. Si las líneas de un Dockerfile no han cambiado y los archivos copiados son idénticos, Docker no vuelve a ejecutar las instrucciones, ahorrando mucho tiempo.\n\nAplicación en DevOps:\nEn integración continua, 'docker build' es el núcleo del pipeline de compilación. Las herramientas de CI (como Jenkins, GitHub Actions o GitLab CI) ejecutan este comando para compilar las nuevas versiones del aplicativo automáticamente."
   },
   {
     "tema": "Tema 2: Creación y distribución de imágenes",
@@ -201,7 +217,8 @@
       "No es posible con ficheros Dockerfile"
     ],
     "answer": "FROM scratch",
-    "explanation": "Docker nos permite crear nuestras imágenes desde cero, partiendo como base de una imagen oficial de Docker llamada scratch, publicada expresamente para este propósito. Cuando utilizamos la instrucción FROM scratch en nuestro Dockerfile, esta no creará ninguna capa de imagen, sino que será la segunda instrucción la utilizada para crear la primera capa."
+    "explanation": "Docker nos permite crear nuestras imágenes desde cero, partiendo como base de una imagen oficial de Docker llamada scratch, publicada expresamente para este propósito. Cuando utilizamos la instrucción FROM scratch en nuestro Dockerfile, esta no creará ninguna capa de imagen, sino que será la segunda instrucción la utilizada para crear la primera capa.",
+    "detailedExplanation": "¿Qué significa realmente?\nLa instrucción 'FROM scratch' indica a Docker que inicie el proceso de construcción de la imagen desde un lienzo completamente en blanco, sin ninguna imagen base. Es la base sobre la cual se puede importar un sistema de archivos raíz completo.\n\nLa perspectiva de la clase:\nEl profesor señala que 'scratch' es una imagen base especial que está completamente vacía y no crea ninguna capa. Se utiliza cuando queremos migrar sistemas legados importando su sistema de archivos TAR directamente mediante la instrucción ADD.\n\nAplicación en DevOps:\nPara construir contenedores ultra-ligeros y seguros, se puede usar 'FROM scratch' y copiar un único binario compilado de forma estática (por ejemplo, escrito en Go o C++). Esto reduce el tamaño del contenedor a pocos megabytes y elimina vulnerabilidades."
   },
   {
     "tema": "Tema 2: Creación y distribución de imágenes",
@@ -213,7 +230,8 @@
       "Genera un error, es obligatorio indicar la etiqueta"
     ],
     "answer": "Elimina la imagen del repositorio «myimage» etiquetada como latest",
-    "explanation": "Si no se especifica etiqueta, el comando docker rmi buscará la imagen etiquetada como latest y si existe la eliminará. Si hubiera otras imágenes referenciando al mismo identificador de imagen, estas no se verán afectadas."
+    "explanation": "Si no se especifica etiqueta, el comando docker rmi buscará la imagen etiquetada como latest y si existe la eliminará. Si hubiera otras imágenes referenciando al mismo identificador de imagen, estas no se verán afectadas.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl comando 'docker rmi' se utiliza para eliminar imágenes locales. Al igual que otros comandos de Docker, si no especificamos un tag para 'myimage', Docker asume que queremos borrar la versión de la imagen etiquetada con 'latest'.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos advierte que 'docker rmi' fallará si hay contenedores activos o parados que hacen uso de la imagen. Primero se deben detener y borrar los contenedores ('docker rm') antes de poder eliminar la imagen.\n\nAplicación en DevOps:\nLa limpieza automatizada de imágenes antiguas ('docker image prune' o 'docker rmi') es una tarea programada crucial en los servidores de CI/CD para evitar que los discos duros se saturen con versiones obsoletas de compilaciones pasadas."
   },
   {
     "tema": "Tema 2: Creación y distribución de imágenes",
@@ -225,7 +243,8 @@
       "Permite añadir a la imagen un comando que se ejecutará más adelante, al usar la imagen generada como base en otra construcción"
     ],
     "answer": "Permite añadir a la imagen un comando que se ejecutará más adelante, al usar la imagen generada como base en otra construcción",
-    "explanation": "La instrucción ONBUILD nos permite incluir, en la imagen que usaremos como plantilla o base, un comando que será ejecutado más adelante, cuando la imagen que estamos generando sea usada posteriormente como imagen base de otra referenciándola con la instrucción FROM."
+    "explanation": "La instrucción ONBUILD nos permite incluir, en la imagen que usaremos como plantilla o base, un comando que será ejecutado más adelante, cuando la imagen que estamos generando sea usada posteriormente como imagen base de otra referenciándola con la instrucción FROM.",
+    "detailedExplanation": "¿Qué significa realmente?\nLa instrucción 'ONBUILD' registra un desencadenador en la imagen. El comando especificado no se ejecuta al construir la imagen actual, sino que se ejecutará en el futuro, cuando otra imagen use esta imagen actual como base en su instrucción FROM.\n\nLa perspectiva de la clase:\nEl profesor explica que 'ONBUILD' es útil para crear imágenes de plantillas corporativas. Por ejemplo, una imagen base de Node.js que use 'ONBUILD COPY . /app' para que los proyectos hijos copien su propio código automáticamente.\n\nAplicación en DevOps:\nLos equipos de arquitectura DevOps utilizan 'ONBUILD' para empaquetar políticas corporativas, dependencias estándar y configuraciones de seguridad en imágenes base compartidas, facilitando el trabajo de los desarrolladores."
   },
   {
     "tema": "Tema 2: Creación y distribución de imágenes",
@@ -237,7 +256,8 @@
       "docker image history"
     ],
     "answer": "docker image history",
-    "explanation": "El comando docker image history, o simplemente docker history, nos lista las diferentes capas que componen una imagen."
+    "explanation": "El comando docker image history, o simplemente docker history, nos lista las diferentes capas que componen una imagen.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl comando 'docker image history' (o 'docker history') muestra el historial de una imagen de Docker, detallando secuencialmente cada capa creada, el tamaño de cada capa, la fecha de creación y la instrucción del Dockerfile que la originó.\n\nLa perspectiva de la clase:\nEl profesor recalca el uso de 'docker history' como una excelente herramienta de depuración y auditoría. Permite inspeccionar cómo se estructuró una imagen de terceros y verificar si hay capas innecesarias que sumen peso.\n\nAplicación en DevOps:\nEn optimización de imágenes (image tuning), los ingenieros DevOps analizan el historial de capas para consolidar comandos RUN y reducir el tamaño final de las imágenes, lo que resulta en descargas más rápidas en producción."
   },
   {
     "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
@@ -249,7 +269,8 @@
       "No es posible"
     ],
     "answer": "docker cp",
-    "explanation": "El comando docker cp nos permite copiar ficheros y directorios entre el sistema de ficheros local y el del contenedor."
+    "explanation": "El comando docker cp nos permite copiar ficheros y directorios entre el sistema de ficheros local y el del contenedor.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl comando 'docker cp' permite copiar de forma bidireccional archivos y directorios entre el sistema de archivos del host local y el sistema de archivos de un contenedor (esté este último en ejecución o incluso parado).\n\nLa perspectiva de la clase:\nEl profesor explica que 'docker cp' es una herramienta de auxilio muy práctica cuando se necesita extraer un archivo de configuración, logs de una aplicación rota o importar datos rápidos dentro de un contenedor en fase de pruebas.\n\nAplicación en DevOps:\nAunque no se utiliza para el despliegue habitual de código, en tareas de depuración en caliente o para extraer reportes de pruebas generados dentro de contenedores de CI/CD, 'docker cp' es una herramienta de scripting indispensable."
   },
   {
     "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
@@ -261,7 +282,8 @@
       "Exited"
     ],
     "answer": "Exited",
-    "explanation": "El estado Exited indica que la ejecución del contenedor ha finalizado."
+    "explanation": "El estado Exited indica que la ejecución del contenedor ha finalizado.",
+    "detailedExplanation": "¿Qué significa realmente?\nCuando el proceso principal (PID 1) de un contenedor finaliza su ejecución de forma voluntaria o por un error, el contenedor pasa al estado 'Exited'. El contenedor ya no consume CPU ni memoria, pero sus archivos y metadatos se conservan en el host.\n\nLa perspectiva de la clase:\nEl profesor aclara un concepto erróneo común: un contenedor que ha finalizado (Exited) no se borra automáticamente. Se puede volver a arrancar con 'docker start' o se debe eliminar explícitamente con 'docker rm' para liberar espacio.\n\nAplicación en DevOps:\nEn la automatización de tareas y Jobs (como scripts de migración de bases de datos), se verifica el código de salida de un contenedor en estado 'Exited' (donde 0 significa éxito) para decidir si el pipeline de despliegue puede continuar."
   },
   {
     "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
@@ -273,7 +295,8 @@
       "Macvlan"
     ],
     "answer": "Bridge",
-    "explanation": "El controlador de red por defecto es bridge. Si no se especifica ninguno se creará una red de este tipo."
+    "explanation": "El controlador de red por defecto es bridge. Si no se especifica ninguno se creará una red de este tipo.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl controlador de red por defecto en Docker es 'bridge'. Cuando se crea una red, este controlador crea un puente de red virtual de software en el host de Linux, permitiendo que los contenedores conectados a él se comuniquen entre sí usando direcciones IP privadas.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos explica que las redes bridge creadas por el usuario son mejores que la red bridge por defecto de Docker, ya que ofrecen resolución automática de nombres DNS entre contenedores sin necesidad de usar enlaces (links).\n\nAplicación en DevOps:\nEn la práctica real, configurar redes bridge personalizadas por proyecto permite aislar y proteger el tráfico de las aplicaciones de base de datos y backend de otros proyectos que corren en el mismo host."
   },
   {
     "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
@@ -285,7 +308,8 @@
       "Overlay=deshabilita redes, Host=conecta contenedores en un mismo host, Bridge=elimina aislamiento de red, None=conecta contenedores en diferentes nodos"
     ],
     "answer": "Overlay=conecta contenedores en diferentes nodos, Host=elimina aislamiento de red, Bridge=conecta contenedores en un mismo host, None=deshabilita redes",
-    "explanation": "Overlay: conecta servicios y contenedores en diferentes nodos (Docker Swarm). Host: elimina el aislamiento de red entre host y contenedor. Bridge: permite conectar contenedores en un mismo host. None: deshabilita las redes del contenedor."
+    "explanation": "Overlay: conecta servicios y contenedores en diferentes nodos (Docker Swarm). Host: elimina el aislamiento de red entre host y contenedor. Bridge: permite conectar contenedores en un mismo host. None: deshabilita las redes del contenedor.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker ofrece varios controladores de red: 'bridge' para comunicación en el mismo host, 'host' para eliminar el aislamiento y mapear directamente los puertos del host, 'overlay' para comunicar contenedores en múltiples hosts de un clúster, y 'none' para aislar por completo el contenedor.\n\nLa perspectiva de la clase:\nEl profesor destaca que cada controlador tiene su propósito. Por ejemplo, se utiliza 'overlay' cuando entramos en temas de orquestación con Docker Swarm, y se utiliza 'host' para aplicaciones que requieren un rendimiento de red extremadamente alto.\n\nAplicación en DevOps:\nLos ingenieros DevOps eligen el controlador de red adecuado según la arquitectura. El controlador 'none' es ideal para ejecutar tareas de procesamiento batch altamente seguras que procesan datos locales y no deben tener acceso a internet."
   },
   {
     "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
@@ -297,7 +321,8 @@
       "docker network rm --unused"
     ],
     "answer": "docker network prune",
-    "explanation": "El comando docker network prune nos permite eliminar todas las redes que no están siendo utilizadas."
+    "explanation": "El comando docker network prune nos permite eliminar todas las redes que no están siendo utilizadas.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl comando 'docker network prune' es una instrucción de limpieza que busca y elimina de forma masiva todas las redes personalizadas en el host que no estén siendo utilizadas actualmente por al menos un contenedor.\n\nLa perspectiva de la clase:\nEl profesor indica que Docker tiende a acumular redes y recursos antiguos cuando hacemos pruebas. El comando 'prune' es la forma segura y rápida de hacer limpieza sin riesgo de borrar redes que estén en uso activo.\n\nAplicación en DevOps:\nEn servidores de integración continua que ejecutan compilaciones constantes de Docker Compose, la acumulación de redes huérfanas puede saturar la red del sistema operativo. Automatizar 'docker network prune' de forma periódica es crucial."
   },
   {
     "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
@@ -309,7 +334,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "El contenedor B podrá llegar al A por su IP, nombre y alias",
-    "explanation": "Al enlazar el contenedor se crea una entrada en el fichero /etc/hosts que permite referenciar al contenedor por el nombre y, opcionalmente, también por el alias especificado."
+    "explanation": "Al enlazar el contenedor se crea una entrada en el fichero /etc/hosts que permite referenciar al contenedor por el nombre y, opcionalmente, también por el alias especificado.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl parámetro '--link' permite a un contenedor acceder de forma segura a otro en la red bridge por defecto. Docker añade una entrada con la IP de 'A' y el nombre/alias especificado en el archivo '/etc/hosts' del contenedor 'B'.\n\nLa perspectiva de la clase:\nEl profesor señala que, aunque '--link' es una característica antigua y considerada en desuso (legacy), es muy didáctica para entender cómo se configuraban las conexiones antes de la llegada de las redes personalizadas.\n\nAplicación en DevOps:\nEn la actualidad, para comunicar microservicios no se utiliza '--link', sino que se crean redes bridge personalizadas donde el propio servicio de DNS interno de Docker resuelve de manera dinámica los nombres de los contenedores."
   },
   {
     "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
@@ -321,7 +347,8 @@
       "No es posible, el contenedor ya está en ejecución"
     ],
     "answer": "docker network connect miRed miContenedor",
-    "explanation": "El comando docker network connect permite conectar una red a un contenedor. Si quisiéramos conectar un contenedor a una red cuando lo ejecutamos con docker run utilizaríamos la opción --network. El comando docker network link no existe."
+    "explanation": "El comando docker network connect permite conectar una red a un contenedor. Si quisiéramos conectar un contenedor a una red cuando lo ejecutamos con docker run utilizaríamos la opción --network. El comando docker network link no existe.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl comando 'docker network connect' añade dinámicamente un contenedor en ejecución a una red existente. Esto le crea una interfaz de red adicional al contenedor, permitiéndole comunicarse con los contenedores de esa nueva red sin detenerse.\n\nLa perspectiva de la clase:\nEl profesor explica que, por seguridad, podemos tener una base de datos en una red privada y el frontend en otra red pública, y usar un contenedor de backend conectado a ambas redes para actuar como intermediario seguro.\n\nAplicación en DevOps:\nEn arquitecturas microservicios en la nube, esto permite implementar principios de seguridad de red de mínimo privilegio, limitando la superficie de ataque al no exponer la base de datos de manera directa a redes externas."
   },
   {
     "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
@@ -333,7 +360,8 @@
       "Volumes=procesos del host pueden modificarlos, Bind mounts=en memoria del host + gestionado por Docker, Tmpfs mounts=en cualquier parte del filesystem"
     ],
     "answer": "Volumes=gestionado por Docker solo accesible por comandos Docker, Bind mounts=procesos del host pueden modificarlos + almacenamiento en cualquier parte del filesystem del host, Tmpfs mounts=almacenamiento en memoria del host",
-    "explanation": "Volumes: gestionados por Docker, solo accesibles desde el host por comandos de Docker. Bind mounts: los procesos del sistema anfitrión pueden modificarlos Y el almacenamiento se encuentra en cualquier parte del sistema de ficheros del host. Tmpfs mounts: el almacenamiento se encuentra en la memoria del host."
+    "explanation": "Volumes: gestionados por Docker, solo accesibles desde el host por comandos de Docker. Bind mounts: los procesos del sistema anfitrión pueden modificarlos Y el almacenamiento se encuentra en cualquier parte del sistema de ficheros del host. Tmpfs mounts: el almacenamiento se encuentra en la memoria del host.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker ofrece tres tipos de montajes: 'volumes' son administrados por Docker en un directorio dedicado, 'bind mounts' mapean una ruta exacta del host y pueden ser leídos/escritos por procesos del host, y 'tmpfs' monta almacenamiento temporal directamente en la memoria RAM.\n\nLa perspectiva de la clase:\nEl profesor aclara que los 'volumes' son la mejor opción para bases de datos ya que Docker gestiona su ciclo de vida y rendimiento, mientras que los 'bind mounts' son ideales para desarrollo (mapeando el código local al contenedor).\n\nAplicación en DevOps:\nEn pipelines de CI/CD, 'tmpfs' se utiliza para acelerar las pruebas unitarias que requieren bases de datos temporales de usar y tirar, ya que escribir en memoria RAM es sustancialmente más rápido que escribir en el disco físico."
   },
   {
     "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
@@ -345,7 +373,8 @@
       "Dará un error por no haber indicado el tipo de almacenamiento"
     ],
     "answer": "Montará el volumen de Docker llamado «mis-datos» en la ruta /datos del contenedor",
-    "explanation": "Ejecutará un contenedor montando un volumen de Docker llamado mis-datos en la ruta /datos del contenedor. Si el volumen no existe, creará uno vacío."
+    "explanation": "Ejecutará un contenedor montando un volumen de Docker llamado mis-datos en la ruta /datos del contenedor. Si el volumen no existe, creará uno vacío.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl parámetro '--mount' es la sintaxis moderna y recomendada para definir montajes. Si no especificamos el parámetro 'type', Docker por defecto asume que es un montaje de tipo volumen ('volume') y montará 'mis-datos' en la ruta interna indicada.\n\nLa perspectiva de la clase:\nEl profesor aconseja utilizar '--mount' en lugar de '-v' porque es más descriptivo, explícito y arroja errores claros de sintaxis si la configuración de origen o destino es incorrecta antes de arrancar.\n\nAplicación en DevOps:\nLa sintaxis '--mount' es idéntica a la utilizada en Docker Swarm y Kubernetes para definir la persistencia, por lo que su uso estandariza la Infraestructura como Código (IaC) de la compañía facilitando la migración entre entornos."
   },
   {
     "tema": "Tema 3: Contenedores, almacenamiento y redes en Docker",
@@ -357,7 +386,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "docker top muestra los procesos en ejecución en un contenedor. docker stats muestra en vivo el uso de recursos de los contenedores, incluyendo el número de procesos. docker exec podría utilizarse para ejecutar un comando que muestre información de los procesos, por ejemplo: docker exec <contenedor> ps."
+    "explanation": "docker top muestra los procesos en ejecución en un contenedor. docker stats muestra en vivo el uso de recursos de los contenedores, incluyendo el número de procesos. docker exec podría utilizarse para ejecutar un comando que muestre información de los procesos, por ejemplo: docker exec <contenedor> ps.",
+    "detailedExplanation": "¿Qué significa realmente?\nPara auditar los procesos de un contenedor, podemos usar 'docker top' en el host, inspeccionar métricas en vivo con 'docker stats', o ejecutar comandos internos de depuración (como 'ps') directamente dentro del contenedor mediante 'docker exec'.\n\nLa perspectiva de la clase:\nEl profesor Pardos destaca que 'docker top' es el método más rápido y seguro desde el host, ya que no requiere instalar comandos adicionales dentro de las imágenes ligeras de producción (que a menudo carecen de herramientas de depuración).\n\nAplicación en DevOps:\nEn la monitorización de contenedores en producción, las herramientas automatizadas consultan la API de Docker para recopilar estas métricas, alertando a los equipos si un proceso de contenedor entra en bucle infinito o supera el uso de CPU permitido."
   },
   {
     "tema": "Tema 4: Compose, DevOps y SDKs",
@@ -369,7 +399,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Exporta el sistema de ficheros de un contenedor a un fichero TAR",
-    "explanation": "El comando docker export envía a un fichero TAR todo el sistema de ficheros de un contenedor."
+    "explanation": "El comando docker export envía a un fichero TAR todo el sistema de ficheros de un contenedor.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl comando 'docker export' toma el sistema de archivos de un contenedor (incluyendo cualquier cambio en caliente realizado) y lo comprime en un único archivo plano TAR, omitiendo las capas de historial de la imagen original.\n\nLa perspectiva de la clase:\nEl profesor explica que 'docker export' sirve para 'aplanar' imágenes de contenedores pesadas. Al importar el TAR resultante ('docker import'), se crea una nueva imagen con una sola capa consolidada, reduciendo espacio.\n\nAplicación en DevOps:\nEn DevOps, esto se utiliza para empaquetar de manera limpia e importar como imagen base 'FROM scratch' sistemas de archivos ya modificados de proyectos de migración."
   },
   {
     "tema": "Tema 4: Compose, DevOps y SDKs",
@@ -381,7 +412,8 @@
       "Todas las anteriores"
     ],
     "answer": "ports",
-    "explanation": "En Compose la opción ports permite publicar al host puertos del contenedor. Admite sintaxis corta especificando puerto_host:puerto_contenedor, y sintaxis larga soportando opciones adicionales."
+    "explanation": "En Compose la opción ports permite publicar al host puertos del contenedor. Admite sintaxis corta especificando puerto_host:puerto_contenedor, y sintaxis larga soportando opciones adicionales.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn un archivo 'docker-compose.yml', la directiva 'ports' define el mapeo de puertos entre el host y el contenedor. Admite la sintaxis corta 'puerto_host:puerto_contenedor', lo que permite exponer servicios de forma externa al host.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos diferencia entre 'expose' (que solo abre puertos para comunicación interna entre contenedores del Compose) y 'ports' (que abre los puertos a la red física de la máquina host para que cualquiera acceda).\n\nAplicación en DevOps:\nEn producción, se suele evitar 'ports' en las bases de datos para mantenerlas aisladas de la red pública, limitando el uso de 'ports' exclusivamente a los balanceadores de carga o proxies reversos (como Nginx o Traefik)."
   },
   {
     "tema": "Tema 4: Compose, DevOps y SDKs",
@@ -393,7 +425,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Podemos configurar Docker Hub para generar imágenes a partir de cambios en repositorios Git según reglas predefinidas. Actualmente solo soporta GitHub y BitBucket. Los webhooks permiten configurar un servicio externo que será invocado con una llamada POST al producirse cambios en el repositorio."
+    "explanation": "Podemos configurar Docker Hub para generar imágenes a partir de cambios en repositorios Git según reglas predefinidas. Actualmente solo soporta GitHub y BitBucket. Los webhooks permiten configurar un servicio externo que será invocado con una llamada POST al producirse cambios en el repositorio.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker Hub es una plataforma SaaS completa que ofrece almacenamiento de imágenes, compilaciones automatizadas (automated builds) vinculadas a repositorios de GitHub/Bitbucket y webhooks para disparar despliegues automatizados en respuesta a eventos.\n\nLa perspectiva de la clase:\nEl profesor explica que, gracias a las compilaciones automáticas de Docker Hub, podemos implementar un flujo de trabajo moderno en el que un 'git push' desencadena la compilación de la imagen y actualiza la versión del registro de manera transparente.\n\nAplicación en DevOps:\nLos webhooks de Docker Hub permiten implementar flujos GitOps básicos: tan pronto como Docker Hub termina de compilar la nueva imagen, envía un webhook a un servidor web o clúster para que actualice y redespliegue los contenedores."
   },
   {
     "tema": "Tema 4: Compose, DevOps y SDKs",
@@ -405,7 +438,8 @@
       "export=genera TAR del filesystem de un contenedor, import=genera TAR de una imagen, save=crea imagen desde TAR de filesystem, load=crea imagen desde TAR de una imagen"
     ],
     "answer": "export=genera TAR del filesystem de un contenedor, import=crea imagen desde TAR de filesystem, save=genera TAR de una imagen, load=crea imagen desde TAR de una imagen",
-    "explanation": "docker export: genera un TAR a partir del sistema de ficheros de un contenedor. docker import: crea una imagen a partir de un TAR del sistema de ficheros de un contenedor. docker save: genera un TAR a partir de una imagen. docker load: crea una imagen a partir de un TAR de una imagen."
+    "explanation": "docker export: genera un TAR a partir del sistema de ficheros de un contenedor. docker import: crea una imagen a partir de un TAR del sistema de ficheros de un contenedor. docker save: genera un TAR a partir de una imagen. docker load: crea una imagen a partir de un TAR de una imagen.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn Docker existen dos pares de comandos para empaquetar en TAR: 'export' e 'import' trabajan sobre el sistema de archivos de un contenedor (sin historial), mientras que 'save' y 'load' trabajan sobre imágenes de Docker completas con su historial de capas.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos recalca que 'save/load' es el método correcto si queremos exportar una imagen y conservar todo su historial de capas para llevarla en un pendrive a un servidor que no tiene conexión a internet.\n\nAplicación en DevOps:\nPara realizar despliegues en servidores seguros que están completamente aislados de internet (redes militares, financieras o gubernamentales), se empaquetan las imágenes construidas con 'docker save' y se importan con 'docker load'."
   },
   {
     "tema": "Tema 4: Compose, DevOps y SDKs",
@@ -417,7 +451,8 @@
       "Todas las anteriores"
     ],
     "answer": "Genera imágenes a partir de ficheros Dockerfile referenciados con build en Compose",
-    "explanation": "Para generar las imágenes de los servicios definidos en Compose, ejecutaremos docker-compose build. Cada vez que hagamos algún cambio en el código podemos ejecutarlo de nuevo para reconstruir las imágenes. Para aquellos servicios que no necesitan generar imágenes, simplemente los ignora, pero no las descarga."
+    "explanation": "Para generar las imágenes de los servicios definidos en Compose, ejecutaremos docker-compose build. Cada vez que hagamos algún cambio en el código podemos ejecutarlo de nuevo para reconstruir las imágenes. Para aquellos servicios que no necesitan generar imágenes, simplemente los ignora, pero no las descarga.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl comando 'docker-compose build' analiza el archivo YAML en busca de servicios que contengan la directiva 'build' (que apunta a una ruta con un Dockerfile) y ejecuta la compilación de esas imágenes locales de forma paralela.\n\nLa perspectiva de la clase:\nEl profesor aclara que 'docker-compose build' no descarga imágenes oficiales externas (como mysql o mongo); de eso se encarga 'pull' o 'up'. 'build' compila exclusivamente el código propio de nuestro aplicativo.\n\nAplicación en DevOps:\nEn pipelines de integración continua, 'docker-compose build' se ejecuta de forma automatizada para compilar todo el stack de microservicios de la aplicación antes de ejecutar las pruebas de integración en el entorno de testing."
   },
   {
     "tema": "Tema 4: Compose, DevOps y SDKs",
@@ -429,7 +464,8 @@
       "mount"
     ],
     "answer": "volumes",
-    "explanation": "La sección volumes a nivel raíz del fichero de Compose permite la definición de volúmenes asignándoles un nombre para poder ser referenciados en los servicios definidos."
+    "explanation": "La sección volumes a nivel raíz del fichero de Compose permite la definición de volúmenes asignándoles un nombre para poder ser referenciados en los servicios definidos.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn Docker Compose, la clave raíz 'volumes' define los volúmenes con nombre del proyecto. Estos volúmenes son globales a nivel de Compose, lo que permite que varios servicios independientes mapeen el mismo volumen y compartan datos.\n\nLa perspectiva de la clase:\nEl profesor Pardos aconseja definir siempre los volúmenes con nombre en la sección raíz de Compose para tener un control centralizado de los datos persistentes de la aplicación, evitando rutas relativas difíciles de portar.\n\nAplicación en DevOps:\nEl uso de volúmenes compartidos permite que un contenedor escriba logs y que otro los recopile en tiempo real (por ejemplo, mediante Filebeat) para mandarlos de manera centralizada a Elasticsearch."
   },
   {
     "tema": "Tema 4: Compose, DevOps y SDKs",
@@ -441,7 +477,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Portainer se despliega en contenedores de Docker utilizando la imagen publicada en Docker Hub. Ofrece una interfaz web para gestionar hosts de Docker, expuesta en el puerto 9000. Permite gestionar un demonio local montando el socket de Linux de Docker, o cualquier otro host remoto mediante autenticación."
+    "explanation": "Portainer se despliega en contenedores de Docker utilizando la imagen publicada en Docker Hub. Ofrece una interfaz web para gestionar hosts de Docker, expuesta en el puerto 9000. Permite gestionar un demonio local montando el socket de Linux de Docker, o cualquier otro host remoto mediante autenticación.",
+    "detailedExplanation": "¿Qué significa realmente?\nPortainer es una herramienta de código abierto que proporciona una interfaz web completa para la administración gráfica de Docker. Se despliega como un contenedor y puede conectarse a hosts locales (vía socket UNIX) o remotos (vía API REST).\n\nLa perspectiva de la clase:\nEl profesor menciona que Portainer es excelente para administradores de sistemas y desarrolladores que prefieren evitar la consola. Permite ver logs, levantar stacks de Compose y monitorizar el uso de hardware de manera visual.\n\nAplicación en DevOps:\nEn DevOps, Portainer se utiliza como panel de control centralizado para que los equipos de soporte o desarrollo puedan inspeccionar el estado de los contenedores en desarrollo y preproducción sin necesidad de permisos SSH en los servidores."
   },
   {
     "tema": "Tema 4: Compose, DevOps y SDKs",
@@ -453,7 +490,8 @@
       "Detiene y elimina un servicio, parando y eliminando los recursos asociados"
     ],
     "answer": "Detiene y elimina un servicio, parando y eliminando los recursos asociados",
-    "explanation": "El comando docker-compose down detiene y elimina un servicio, parando y eliminando los recursos asociados (contenedores, redes, imágenes, volúmenes)."
+    "explanation": "El comando docker-compose down detiene y elimina un servicio, parando y eliminando los recursos asociados (contenedores, redes, imágenes, volúmenes).",
+    "detailedExplanation": "¿Qué significa realmente?\nEl comando 'docker-compose down' realiza el desmontaje completo del stack. Detiene los contenedores en ejecución, los elimina y borra las redes creadas para el proyecto, liberando todos los recursos del host de manera limpia.\n\nLa perspectiva de la clase:\nEl profesor destaca que 'docker-compose down' no elimina de forma predeterminada los volúmenes con nombre de base de datos para prevenir pérdidas de datos accidentales, a menos que usemos el flag específico '-v'.\n\nAplicación en DevOps:\nEn pipelines de pruebas automatizadas, 'docker-compose down -v' se ejecuta siempre al finalizar la fase de testeo para limpiar por completo el entorno y borrar bases de datos temporales, garantizando que el servidor de CI quede libre de basura."
   },
   {
     "tema": "Tema 4: Compose, DevOps y SDKs",
@@ -465,7 +503,8 @@
       "Docker no ofrece oficialmente ningún SDK"
     ],
     "answer": "Go y Python",
-    "explanation": "Docker ofrece SDKs para los lenguajes Go y Python, que permiten hacer en nuestras aplicaciones todo lo que podemos hacer con el comando docker. Además, existen multitud de librerías no oficiales para otros lenguajes."
+    "explanation": "Docker ofrece SDKs para los lenguajes Go y Python, que permiten hacer en nuestras aplicaciones todo lo que podemos hacer con el comando docker. Además, existen multitud de librerías no oficiales para otros lenguajes.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker mantiene de forma oficial bibliotecas de software (SDK) para los lenguajes Go y Python. Estas librerías permiten interactuar programáticamente con el API REST del demonio de Docker para automatizar cualquier acción de contenedores.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos menciona que, dado que el motor de Docker está escrito en Go, la librería de Go es extremadamente potente, aunque para automatización de scripts de administración de sistemas Python es muy común.\n\nAplicación en DevOps:\nLos ingenieros de automatización e infraestructura utilizan estos SDK para desarrollar herramientas personalizadas de autocuración (self-healing), plataformas internas de desarrollo (IDP) o herramientas de aprovisionamiento dinámico."
   },
   {
     "tema": "Tema 4: Compose, DevOps y SDKs",
@@ -477,7 +516,8 @@
       "Ninguna. Deben ser definidas en el Dockerfile de la imagen"
     ],
     "answer": "environment y envfile",
-    "explanation": "En Compose la opción environment permite indicar una lista de variables de entorno que serán pasadas a los contenedores del servicio. Además, con la opción env_file podemos pasar múltiples variables de entorno definidas en un fichero externo."
+    "explanation": "En Compose la opción environment permite indicar una lista de variables de entorno que serán pasadas a los contenedores del servicio. Además, con la opción env_file podemos pasar múltiples variables de entorno definidas en un fichero externo.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn Docker Compose, podemos pasar variables de entorno usando 'environment' (definiendo claves y valores directamente en el YAML) o usando 'env_file' (haciendo referencia a un archivo externo que contiene las variables).\n\nLa perspectiva de la clase:\nEl profesor recalca que 'env_file' es mucho más seguro para la gestión de credenciales y secretos de bases de datos, ya que evita escribir contraseñas en el archivo YAML principal del proyecto.\n\nAplicación en DevOps:\nEn la práctica de despliegue continuo, se sube el archivo de Compose al repositorio sin datos sensibles, y el pipeline de CI/CD crea dinámicamente el archivo '.env' referenciado en 'env_file' con los secretos inyectados desde un almacén seguro."
   },
   {
     "tema": "Tema 5: Orquestación con el modo Swarm",
@@ -489,7 +529,8 @@
       "Todos los nodos del clúster, siempre que no tengan disponibilidad drain"
     ],
     "answer": "Todos los nodos del clúster, siempre que no tengan disponibilidad drain",
-    "explanation": "Los nodos mánager, además de realizar funciones de administración, también actuarán como los nodos worker ejecutando tareas de los servicios. Sin embargo, cualquier nodo cuya disponibilidad sea drain no ejecutará ninguna tarea de los servicios del clúster."
+    "explanation": "Los nodos mánager, además de realizar funciones de administración, también actuarán como los nodos worker ejecutando tareas de los servicios. Sin embargo, cualquier nodo cuya disponibilidad sea drain no ejecutará ninguna tarea de los servicios del clúster.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn Docker Swarm, un clúster consta de nodos manager y worker. Por defecto, los nodos manager actúan también como nodos worker y el planificador les asigna tareas, a menos que se cambie explícitamente su disponibilidad a 'drain'.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos explica que los nodos manager no solo administran el clúster, sino que también ejecutan contenedores de los servicios por defecto, permitiendo así aprovechar al máximo los recursos disponibles en infraestructuras pequeñas.\n\nAplicación en DevOps:\nEn un pipeline DevOps, conocer este comportamiento ayuda a planificar la capacidad del clúster y la asignación de recursos, pudiendo configurar nodos manager dedicados (con disponibilidad drain) para asegurar que el plano de control no se quede sin recursos."
   },
   {
     "tema": "Tema 5: Orquestación con el modo Swarm",
@@ -501,7 +542,8 @@
       "Las tareas en ejecución de servicios replicados se paran y se planifican en otros nodos. Las tareas de servicios globales simplemente se paran"
     ],
     "answer": "Las tareas en ejecución de servicios replicados se paran y se planifican en otros nodos. Las tareas de servicios globales simplemente se paran",
-    "explanation": "Cuando se cambia la disponibilidad a drenaje, el administrador detendrá las tareas ejecutándose en el nodo y ejecutará nuevas réplicas en los nodos que estén activos. Las tareas de los servicios globales también se pararán en el nodo."
+    "explanation": "Cuando se cambia la disponibilidad a drenaje, el administrador detendrá las tareas ejecutándose en el nodo y ejecutará nuevas réplicas en los nodos que estén activos. Las tareas de los servicios globales también se pararán en el nodo.",
+    "detailedExplanation": "¿Qué significa realmente?\nCuando un nodo se pone en disponibilidad 'drain', Swarm detiene inmediatamente las tareas de los servicios replicados en ese nodo y las recrea en otros nodos activos. En cambio, para los servicios globales (que se ejecutan en todos los nodos), las tareas simplemente se detienen en ese nodo.\n\nLa perspectiva de la clase:\nEl profesor explica que esta acción automatizada demuestra la gran ventaja de la orquestación. Si un servidor físico va a fallar, el orquestador drena el nodo y mueve todas las cargas de trabajo a servidores sanos sin caída de servicio.\n\nAplicación en DevOps:\nEste comportamiento permite a los equipos de DevOps implementar flujos de mantenimiento automatizados: se drena el nodo, se actualiza el sistema operativo o hardware del servidor, y luego se reactiva en el clúster."
   },
   {
     "tema": "Tema 5: Orquestación con el modo Swarm",
@@ -513,7 +555,8 @@
       "Ninguno de ellos pueden enviarse entre los nodos"
     ],
     "answer": "Tanto los objetos config como los secret se transmiten encriptados",
-    "explanation": "Los clústeres Swarm utilizan TLS para autenticar, autorizar y encriptar las comunicaciones entre los nodos."
+    "explanation": "Los clústeres Swarm utilizan TLS para autenticar, autorizar y encriptar las comunicaciones entre los nodos.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn el modo Swarm de Docker, la seguridad es un pilar fundamental. Tanto las configuraciones (configs) como las credenciales (secrets) se transmiten de forma totalmente cifrada a través de la red de control mediante un túnel seguro protegido por TLS mutuo (mTLS) de manera automática.\n\nLa perspectiva de la clase:\nEl profesor explica que Docker Swarm viene con seguridad por defecto (secure by default). No es necesario configurar certificados manualmente, ya que los nodos mánager y worker se comunican cifrando todo el tráfico de gestión y distribución de secretos desde el primer momento.\n\nAplicación en DevOps:\nEn pipelines de CI/CD de DevOps, esto permite inyectar contraseñas de bases de datos, claves API y archivos de configuración sensibles directamente en los contenedores en tempo de ejecución, reduciendo el riesgo de que queden expuestos en el código fuente o en imágenes Docker."
   },
   {
     "tema": "Tema 5: Orquestación con el modo Swarm",
@@ -525,7 +568,8 @@
       "Mostrará un mensaje avisando que al no estar soportada la configuración build será ignorada, y continuará con el despliegue"
     ],
     "answer": "Mostrará un mensaje avisando que al no estar soportada la configuración build será ignorada, y continuará con el despliegue",
-    "explanation": "Tanto docker-compose como docker stack ignoran las opciones no soportadas, pero no darán error. Esto quiere decir que podríamos preparar nuestros ficheros YAML para funcionar con ambos."
+    "explanation": "Tanto docker-compose como docker stack ignoran las opciones no soportadas, pero no darán error. Esto quiere decir que podríamos preparar nuestros ficheros YAML para funcionar con ambos.",
+    "detailedExplanation": "¿Qué significa realmente?\n`docker stack deploy` es el comando para desplegar pilas de servicios en un clúster de Docker Swarm. Swarm requiere imágenes precompiladas y disponibles en un registro; por ello, ignora la directiva `build` (que compila imágenes locales sobre la marcha) y arroja un error o advertencia.\n\nLa perspectiva de la clase:\nEn el video \"514575.mp4\" se explica que Swarm es un orquestador para entornos distribuidos. Dado que Swarm asume que el contenedor puede levantarse en cualquier servidor físico del clúster, no puede compilar la imagen localmente usando un `Dockerfile` del host.\n\nAplicación en DevOps:\nEn pipelines de DevOps que usan Swarm, el flujo correcto es compilar la imagen primero con `docker build`, subirla a un registro de imágenes (como Docker Hub o ECR) y luego referenciar esa imagen externa en el archivo de Compose para el despliegue."
   },
   {
     "tema": "Tema 5: Orquestación con el modo Swarm",
@@ -537,7 +581,8 @@
       "No es posible convertirlo, habría que eliminarlo del clúster y volver a añadirlo"
     ],
     "answer": "Con el comando docker node promote",
-    "explanation": "El comando docker node promote promueve un nodo a mánager. De igual manera, docker node demote degrada un nodo a worker. Ambos comandos deben ser ejecutados desde un nodo mánager."
+    "explanation": "El comando docker node promote promueve un nodo a mánager. De igual manera, docker node demote degrada un nodo a worker. Ambos comandos deben ser ejecutados desde un nodo mánager.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker Swarm permite cambiar dinámicamente el rol de los nodos del clúster sin reiniciar el demonio de Docker. Para ascender un nodo de worker a mánager se utiliza el mecanismo de promoción, el cual otorga privilegios de administración y participación en el quórum de decisiones.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos destaca que los roles en Swarm son altamente flexibles. Promocionar un nodo worker a mánager es tan sencillo como ejecutar el comando 'docker node promote <nombre-nodo>' desde un nodo que ya posea el rol de mánager.\n\nAplicación en DevOps:\nEsto facilita la automatización del escalado y la alta disponibilidad de la infraestructura. Si un mánager falla, los scripts de monitorización pueden promover automáticamente a un worker saludable para mantener el quórum y la resiliencia del clúster en producción."
   },
   {
     "tema": "Tema 5: Orquestación con el modo Swarm",
@@ -549,7 +594,8 @@
       "Todos los nodos del clúster pueden atender llamadas al API de Swarm"
     ],
     "answer": "Todos los nodos del clúster pueden atender llamadas al API de Swarm",
-    "explanation": "Solamente los nodos mánager atenderán llamadas al API de Swarm. Igualmente, los comandos para gestionar el clúster deberán ser ejecutados desde un nodo mánager."
+    "explanation": "Solamente los nodos mánager atenderán llamadas al API de Swarm. Igualmente, los comandos para gestionar el clúster deberán ser ejecutados desde un nodo mánager.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn Docker Swarm, existe una clara segregación de responsabilidades entre nodos. Solo los nodos mánager tienen la capacidad de atender llamadas al API de Swarm, controlar el estado del clúster, realizar planificación de tareas y ejecutar comandos de gestión.\n\nLa perspectiva de la clase:\nEl profesor hace hincapié en que si intentas ejecutar comandos de administración del clúster (como listar nodos o servicios) en un nodo worker, Swarm rechazará la petición indicando que el nodo no es un mánager activo.\n\nAplicación en DevOps:\nEsta restricción es clave para la seguridad en DevOps. Permite aislar los entornos de ejecución (workers) de la capa de control, asegurando que un contenedor comprometido en un worker no pueda tomar el control del resto del clúster."
   },
   {
     "tema": "Tema 5: Orquestación con el modo Swarm",
@@ -561,7 +607,8 @@
       "El comando lo obtendremos al ejecutar docker swarm join-token worker en un nodo mánager"
     ],
     "answer": "El comando lo obtendremos al ejecutar docker swarm join-token worker en un nodo mánager",
-    "explanation": "Ejecutando docker swarm join-token worker en un nodo mánager obtendremos el comando necesario para añadir nuevos nodos worker, que incluirá el token y la dirección del manager."
+    "explanation": "Ejecutando docker swarm join-token worker en un nodo mánager obtendremos el comando necesario para añadir nuevos nodos worker, que incluirá el token y la dirección del manager.",
+    "detailedExplanation": "¿Qué significa realmente?\nPara integrar una nueva máquina a un clúster Swarm existente, el nodo mánager debe generar una invitación segura. Esta invitación contiene el token criptográfico de autenticación y la dirección IP/puerto del mánager de destino.\n\nLa perspectiva de la clase:\nEl profesor muestra en pantalla que el comando exacto de unión se obtiene ejecutando 'docker swarm join-token worker' en un nodo mánager. Este comando te devuelve la línea exacta 'docker swarm join --token <token> <IP-manager>:2377' para copiar y pegar en el worker.\n\nAplicación en DevOps:\nEn entornos de Infraestructura como Código (IaC), este comando se suele capturar dinámicamente mediante scripts de Terraform o Ansible para automatizar el auto-scaling, permitiendo que nuevos servidores se unan al clúster de forma desasistida."
   },
   {
     "tema": "Tema 5: Orquestación con el modo Swarm",
@@ -573,7 +620,8 @@
       "docker stack deploy --compose-file docker-compose.yml"
     ],
     "answer": "docker stack deploy --compose-file docker-compose.yml",
-    "explanation": "El comando docker stack deploy despliega una stack en un clúster en modo Swarm a partir de un fichero en formato Compose."
+    "explanation": "El comando docker stack deploy despliega una stack en un clúster en modo Swarm a partir de un fichero en formato Compose.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker Swarm permite orquestar aplicaciones complejas de múltiples contenedores utilizando la definición estándar de Docker Compose. El clúster interpreta este archivo YAML para crear un objeto de nivel superior denominado 'stack' (pila de servicios).\n\nLa perspectiva de la clase:\nEl profesor explica que, a diferencia de Docker Compose local ('docker-compose up'), en Swarm se utiliza el comando 'docker stack deploy --compose-file docker-compose.yml <nombre-stack>' para desplegar los servicios de forma distribuida en el clúster.\n\nAplicación en DevOps:\nEsto permite reutilizar los mismos archivos de definición de Compose que los desarrolladores usan en local para realizar despliegues de producción y pruebas en el clúster Swarm, facilitando la transición de desarrollo a operaciones."
   },
   {
     "tema": "Tema 5: Orquestación con el modo Swarm",
@@ -585,7 +633,8 @@
       "No es posible añadir secrets a un servicio ya creado"
     ],
     "answer": "docker service update --secret-add my-secret my-service",
-    "explanation": "Para añadir un objeto secret de Docker a un servicio existente, lo actualizaremos de la siguiente manera: docker service update --secret-add my-secret my-service."
+    "explanation": "Para añadir un objeto secret de Docker a un servicio existente, lo actualizaremos de la siguiente manera: docker service update --secret-add my-secret my-service.",
+    "detailedExplanation": "¿Qué significa realmente?\nDocker Swarm permite modificar la configuración de los servicios en caliente. Añadir un secreto a un servicio ya desplegado requiere actualizar su definición, lo que provoca que Swarm redespliegue los contenedores de forma progresiva (rolling update) para inyectar el nuevo secreto.\n\nLa perspectiva de la clase:\nEl profesor demuestra que la actualización se realiza de manera imperativa utilizando el comando 'docker service update --secret-add <secreto> <servicio>'. Esto garantiza que los contenedores reciban la credencial sin detener el servicio por completo.\n\nAplicación en DevOps:\nEs crucial para las rotaciones de credenciales en producción. Permite actualizar contraseñas o llaves criptográficas caducadas de manera automatizada a través de pipelines de CI/CD sin provocar caídas de servicio (zero-downtime deployment)."
   },
   {
     "tema": "Tema 5: Orquestación con el modo Swarm",
@@ -597,7 +646,8 @@
       "Un nodo que pertenece a un clúster no puede ejecutar contenedores independientes fuera del clúster"
     ],
     "answer": "Un nodo que pertenece a un clúster no puede ejecutar contenedores independientes fuera del clúster",
-    "explanation": "Un nodo, ya sea mánager o worker, que forma parte de un clúster en modo Swarm, aún puede ejecutar contenedores independientes. Sin embargo, estos contenedores no serán administrados por los managers, sino que seguirán su ciclo de vida normal."
+    "explanation": "Un nodo, ya sea mánager o worker, que forma parte de un clúster en modo Swarm, aún puede ejecutar contenedores independientes. Sin embargo, estos contenedores no serán administrados por los managers, sino que seguirán su ciclo de vida normal.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn nodo de Docker Swarm no pierde sus capacidades tradicionales. Aunque pertenezca a un clúster orquestado, el demonio local de Docker puede seguir ejecutando contenedores autónomos (no gestionados por Swarm) que no interfieren con el clúster.\n\nLa perspectiva de la clase:\nEl profesor aclara una duda habitual: un nodo Swarm aún puede ejecutar 'docker run' individuales. Sin embargo, advierte que estos contenedores no se beneficiarán de la replicación, la autoreparación ni el balanceo de carga del clúster.\n\nAplicación en DevOps:\nEsto es útil para ejecutar herramientas de diagnóstico rápido, agentes de monitorización temporales o tareas de mantenimiento locales en un servidor del clúster sin necesidad de declarar un servicio Swarm completo para ello."
   },
   {
     "tema": "Tema 6: Introducción a Kubernetes",
@@ -609,7 +659,8 @@
       "Controller Manager"
     ],
     "answer": "Controller Manager",
-    "explanation": "El proceso Controller Manager incluye varios servicios de gestión, entre ellos los siguientes controladores: Replication controller, Endpoint controller, Node controller, Service controller."
+    "explanation": "El proceso Controller Manager incluye varios servicios de gestión, entre ellos los siguientes controladores: Replication controller, Endpoint controller, Node controller, Service controller.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl nodo máster (o plano de control) de Kubernetes gestiona el estado global del clúster. El 'Controller Manager' es el componente encargado de ejecutar los bucles de regulación del clúster, vigilando que el estado real coincida con el estado deseado.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos describe la arquitectura de Kubernetes comparándola con un cerebro. El Controller Manager agrupa internamente varios controladores como el de nodos, el de réplicas y el de endpoints, ejecutándose todos en el plano de control.\n\nAplicación en DevOps:\nComprender la separación de componentes ayuda a diagnosticar fallos. Si los Pods no se recrean al fallar, el DevOps sabe que el problema podría estar en el Controller Manager, mientras que si no se asignan nodos, el fallo es del Scheduler."
   },
   {
     "tema": "Tema 6: Introducción a Kubernetes",
@@ -621,7 +672,8 @@
       "API server"
     ],
     "answer": "Kubelet",
-    "explanation": "En cada uno de los nodos worker tendremos un servicio llamado Kubelet que será el encargado de comunicarse con el nodo máster, obteniendo la configuración de los Pods y garantizando su correcta ejecución."
+    "explanation": "En cada uno de los nodos worker tendremos un servicio llamado Kubelet que será el encargado de comunicarse con el nodo máster, obteniendo la configuración de los Pods y garantizando su correcta ejecución.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos nodos worker son los que ejecutan las aplicaciones. El 'Kubelet' es el agente principal que corre en cada nodo worker, encargado de recibir las especificaciones de los Pods (PodSpecs) desde el API Server y asegurar que los contenedores correspondientes estén sanos.\n\nLa perspectiva de la clase:\nEl profesor describe al Kubelet como el 'capataz' de cada nodo worker. No se comunica directamente con otros kubelets; solo recibe órdenes del plano de control y reporta el estado de salud de sus Pods locales.\n\nAplicación en DevOps:\nSi un nodo worker aparece con estado 'NotReady' en producción, el ingeniero DevOps debe verificar de inmediato el servicio del Kubelet en esa máquina virtual mediante systemctl, ya que suele ser la causa de la pérdida de comunicación con el plano de control."
   },
   {
     "tema": "Tema 6: Introducción a Kubernetes",
@@ -633,7 +685,8 @@
       "El algoritmo de consenso necesita que el número de nodos máster sea impar"
     ],
     "answer": "Cada Pod ejecutará un único contenedor",
-    "explanation": "En un clúster de Kubernetes, los Pods serán la unidad más básica de ejecución, el cual estará compuesto por uno o varios contenedores."
+    "explanation": "En un clúster de Kubernetes, los Pods serán la unidad más básica de ejecución, el cual estará compuesto por uno o varios contenedores.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn la arquitectura de Kubernetes, un Pod es la unidad mínima de despliegue y puede contener más de un contenedor. Los contenedores dentro de un mismo Pod comparten el espacio de red (misma IP) y almacenamiento local.\n\nLa perspectiva de la clase:\nEl profesor insiste en que, aunque la mayoría de los Pods ejecutan un solo contenedor, el diseño de Kubernetes permite patrones multi-contenedor como el sidecar (un contenedor principal y otro de soporte para logs o proxies).\n\nAplicación en DevOps:\nEl patrón de múltiples contenedores en un Pod se aplica en DevOps para acoplar agentes de telemetría, proxies de seguridad (como Istio/Envoy) o sincronizadores de configuración sin necesidad de modificar el código de la aplicación principal."
   },
   {
     "tema": "Tema 6: Introducción a Kubernetes",
@@ -645,7 +698,8 @@
       "Servicio=asigna peticiones a nodos worker, Pod=almacén clave-valor, etcd=unidad básica de contenedores, Scheduler=punto de acceso para Pods"
     ],
     "answer": "Servicio=punto de acceso para Pods, Pod=unidad básica de uno o varios contenedores, etcd=almacén clave-valor de configuración, Scheduler=asigna peticiones a nodos worker",
-    "explanation": "Servicio: define un único punto de acceso para un conjunto de Pods. Pod: unidad básica de ejecución compuesta por uno o varios contenedores. etcd: almacén de datos clave-valor distribuido que guarda la configuración del clúster. Scheduler: atiende las peticiones del API server y las asigna a los nodos worker."
+    "explanation": "Servicio: define un único punto de acceso para un conjunto de Pods. Pod: unidad básica de ejecución compuesta por uno o varios contenedores. etcd: almacén de datos clave-valor distribuido que guarda la configuración del clúster. Scheduler: atiende las peticiones del API server y las asigna a los nodos worker.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos componentes de Kubernetes tienen roles específicos. etcd actúa como base de datos del clúster; Scheduler planifica la ubicación de los Pods; un Pod es la unidad básica con uno o varios contenedores; y un Servicio es el punto de acceso para los Pods.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos describe etcd como el cerebro de almacenamiento de clave-valor del clúster, y resalta que el Scheduler decide dinámicamente en qué nodo físico o máquina virtual de Amazon EC2 se desplegará cada Pod.\n\nAplicación en DevOps:\nEn DevOps, un servicio actúa como un balanceador interno que proporciona una IP virtual única para que las micro-aplicaciones se comuniquen entre sí, abstrayendo las IPs efímeras de los contenedores individuales."
   },
   {
     "tema": "Tema 6: Introducción a Kubernetes",
@@ -657,7 +711,8 @@
       "DaemonSets=apps con estado, StatefulSets=apps sin estado, Deployments=tareas periódicas, CronJobs=Pod en cada nodo"
     ],
     "answer": "DaemonSets=Pod en cada nodo, StatefulSets=apps con estado, Deployments=apps sin estado, CronJobs=tareas periódicas",
-    "explanation": "DaemonSets: permite ejecutar un Pod en cada uno de los nodos del clúster. StatefulSets: gestionan el despliegue y escalado de aplicaciones con estado. Deployments: gestionan el despliegue y escalado de aplicaciones sin estado. CronJobs: programan el despliegue de Pods para realizar tareas periódicas o planificadas."
+    "explanation": "DaemonSets: permite ejecutar un Pod en cada uno de los nodos del clúster. StatefulSets: gestionan el despliegue y escalado de aplicaciones con estado. Deployments: gestionan el despliegue y escalado de aplicaciones sin estado. CronJobs: programan el despliegue de Pods para realizar tareas periódicas o planificadas.",
+    "detailedExplanation": "¿Qué significa realmente?\nKubernetes gestiona diferentes tipos de cargas de trabajo. Los Deployments administran aplicaciones sin estado; los StatefulSets gestionan almacenamiento e identidades de red con estado; los DaemonSets corren un Pod en cada nodo; y los CronJobs programan tareas periódicas.\n\nLa perspectiva de la clase:\nEl profesor utiliza el ejemplo de un sistema empresarial (como un ERP o base de datos) para justificar los StatefulSets, mientras que describe los DaemonSets como perfectos para recolectar logs de todo el clúster.\n\nAplicación en DevOps:\nEn ingeniería de plataforma, los DaemonSets se usan para desplegar agentes de recolección de logs (Fluentd/FluentBit) y monitorización (Prometheus Node Exporter) de manera automática en cada nuevo nodo que se una al clúster."
   },
   {
     "tema": "Tema 6: Introducción a Kubernetes",
@@ -669,7 +724,8 @@
       "CronJob"
     ],
     "answer": "StatefulSets",
-    "explanation": "Los StatefulSets se utilizan para aplicaciones con estado, como puede ser una base de datos. Toda la información asociada al estado de los Pods gestionados por los StatefulSets será almacenada en un volumen asociado."
+    "explanation": "Los StatefulSets se utilizan para aplicaciones con estado, como puede ser una base de datos. Toda la información asociada al estado de los Pods gestionados por los StatefulSets será almacenada en un volumen asociado.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos 'StatefulSets' son controladores especializados para aplicaciones con estado. Asignan a cada Pod una identidad de red única, persistente y un índice numérico secuencial, manteniendo su almacenamiento enlazado de forma determinista incluso si el Pod es recreado.\n\nLa perspectiva de la clase:\nEl profesor explica que, a diferencia de los Deployments (donde los Pods son efímeros y reemplazables), los StatefulSets manejan Pods como 'mascotas' únicas con nombres estables, ideales para desplegar motores de bases de datos.\n\nAplicación en DevOps:\nSe utiliza en DevOps para configurar clústeres de base de datos distribuidas (como Elasticsearch, Cassandra o PostgreSQL), asegurando que cada nodo mantenga su volumen persistente asociado de forma inmutable durante actualizaciones."
   },
   {
     "tema": "Tema 6: Introducción a Kubernetes",
@@ -681,7 +737,8 @@
       "Todos los anteriores"
     ],
     "answer": "Todos los anteriores",
-    "explanation": "Minikube permite desplegar un clúster de Kubernetes de un solo nodo de forma local o en una máquina virtual. Soportado en diferentes sistemas operativos (Linux, Windows, OSX) e hypervisores (VirtualBox, VMware Fusion, Hyper-V, etc)."
+    "explanation": "Minikube permite desplegar un clúster de Kubernetes de un solo nodo de forma local o en una máquina virtual. Soportado en diferentes sistemas operativos (Linux, Windows, OSX) e hypervisores (VirtualBox, VMware Fusion, Hyper-V, etc).",
+    "detailedExplanation": "¿Qué significa realmente?\nMinikube es una herramienta multiplataforma ligera diseñada para ejecutar un clúster de Kubernetes de un solo nodo de manera local. Soporta virtualización mediante diversos hipervisores e incluso contenedores de Docker en Linux, macOS y Windows.\n\nLa perspectiva de la clase:\nEl profesor indica que Minikube es fantástico para que los estudiantes aprendan y practiquen comandos básicos de 'kubectl' en sus propios equipos (Windows, Mac o Linux) sin incurrir en costes de nube durante la fase de estudio.\n\nAplicación en DevOps:\nEn DevOps, los desarrolladores usan Minikube en sus entornos locales para validar la sintaxis de sus manifiestos YAML y probar el comportamiento de los microservicios localmente antes de subirlos al repositorio Git y lanzarlos en entornos cloud."
   },
   {
     "tema": "Tema 6: Introducción a Kubernetes",
@@ -693,7 +750,8 @@
       "El algoritmo de consenso necesita que el número de nodos máster sea impar"
     ],
     "answer": "Cada Pod ejecutará un único contenedor",
-    "explanation": "En un clúster de Kubernetes, los Pods serán la unidad más básica de ejecución, el cual estará compuesto por uno o varios contenedores."
+    "explanation": "En un clúster de Kubernetes, los Pods serán la unidad más básica de ejecución, el cual estará compuesto por uno o varios contenedores.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs falso que cada Pod deba ejecutar obligatoriamente un único contenedor. El Pod es un espacio de nombres compartido donde pueden coexistir múltiples contenedores estrechamente acoplados que comparten recursos de red y almacenamiento.\n\nLa perspectiva de la clase:\nEl profesor enseña que, si bien la mejor práctica común es 'un contenedor por Pod', es muy habitual y válido desplegar contenedores secundarios (sidecars) para tareas auxiliares como monitorización o proxies locales.\n\nAplicación en DevOps:\nEl patrón multi-contenedor se utiliza en DevOps para inyectar sidecars de mallas de servicio (Service Mesh) como Linkerd o Envoy, los cuales interceptan y cifran el tráfico de red de la aplicación sin alterar su código fuente."
   },
   {
     "tema": "Tema 6: Introducción a Kubernetes",
@@ -705,7 +763,8 @@
       "Kubespray"
     ],
     "answer": "Kubectl",
-    "explanation": "Kubectl es la herramienta de línea de comandos de Kubernetes. Ejecuta los comandos realizando peticiones al API Server, permitiendo así el despliegue y gestión de aplicaciones en el clúster."
+    "explanation": "Kubectl es la herramienta de línea de comandos de Kubernetes. Ejecuta los comandos realizando peticiones al API Server, permitiendo así el despliegue y gestión de aplicaciones en el clúster.",
+    "detailedExplanation": "¿Qué significa realmente?\n'Kubectl' es la herramienta CLI de administración oficial de Kubernetes. Se comunica con el API Server del plano de control mediante peticiones REST seguras para crear, modificar, inspeccionar y eliminar recursos dentro del clúster.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos describe a 'kubectl' como el control remoto del clúster. Al ejecutar comandos como 'kubectl apply' o 'kubectl get', interactuamos con el plano de control para validar el estado de nuestras aplicaciones de forma remota.\n\nAplicación en DevOps:\nEn DevOps, 'kubectl' se integra en runners y agentes de pipelines de CI/CD (como GitHub Actions, GitLab CI o Jenkins) para aplicar automáticamente los cambios en los manifiestos YAML de la infraestructura en cada despliegue."
   },
   {
     "tema": "Tema 6: Introducción a Kubernetes",
@@ -717,7 +776,8 @@
       "Todas las anteriores"
     ],
     "answer": "Garantizar que nuestra aplicación tiene el número deseado de Pods",
-    "explanation": "Los ReplicaSets garantizan que nuestra aplicación tiene el número deseado de Pods, creándolos y escalando según los disparadores configurados. Además, creará un nuevo Pod en caso de que uno de los Pods en ejecución muera o se detenga por algún motivo."
+    "explanation": "Los ReplicaSets garantizan que nuestra aplicación tiene el número deseado de Pods, creándolos y escalando según los disparadores configurados. Además, creará un nuevo Pod en caso de que uno de los Pods en ejecución muera o se detenga por algún motivo.",
+    "detailedExplanation": "¿Qué significa realmente?\nLa función principal de un ReplicaSet es garantizar de manera persistente que un número específico de réplicas de un Pod esté en ejecución y saludable en cualquier momento en el clúster, autocurándose ante fallos de nodos.\n\nLa perspectiva de la clase:\nEl profesor resalta que el ReplicaSet actúa de forma reactiva. Si un nodo físico o máquina virtual cae en la nube de AWS, el ReplicaSet detecta la pérdida y programa inmediatamente nuevos Pods en los nodos disponibles.\n\nAplicación en DevOps:\nEsto asegura la alta disponibilidad y la resiliencia automática de las aplicaciones web y APIs en producción, eliminando la necesidad de intervenciones manuales nocturnas ante fallos de hardware en los servidores cloud."
   },
   {
     "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
@@ -729,7 +789,8 @@
       "Cada contenedor de un mismo Pod tendrá su propia dirección IP"
     ],
     "answer": "Cada contenedor de un mismo Pod tendrá su propia dirección IP",
-    "explanation": "Un Pod se desplegará por completo en un mismo nodo y todos sus contenedores compartirán la misma dirección IP y puertos, estando asociados al mismo hostname."
+    "explanation": "Un Pod se desplegará por completo en un mismo nodo y todos sus contenedores compartirán la misma dirección IP y puertos, estando asociados al mismo hostname.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs incorrecto afirmar que cada contenedor de un mismo Pod tiene su propia dirección IP. En Kubernetes, todos los contenedores dentro de un mismo Pod comparten el mismo espacio de red, localhost y la misma dirección IP asignada al Pod.\n\nLa perspectiva de la clase:\nEl profesor explica que, debido a que comparten la misma IP y espacio de puertos, dos contenedores en un mismo Pod no pueden usar el mismo puerto (por ejemplo, el puerto 80) porque entrarían en colisión de red.\n\nAplicación en DevOps:\nEsta compartición de red por localhost permite que los contenedores sidecar realicen transmisiones locales extremadamente rápidas y eficientes (interprocess communication), ideal para proxies de seguridad locales."
   },
   {
     "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
@@ -741,7 +802,8 @@
       "Pod=información adicional no estructurada, Label=divide clúster en clústeres virtuales, Annotation=pares clave/valor para seleccionar objetos, Namespace=unidad mínima de contenedores"
     ],
     "answer": "Pod=unidad mínima de contenedores y volúmenes, Label=pares clave/valor para seleccionar objetos, Annotation=información adicional no estructurada, Namespace=divide clúster en clústeres virtuales",
-    "explanation": "Pod: unidad mínima de despliegue formada por una colección de contenedores más sus volúmenes. Label: pares clave/valor asociadas a un recurso, se utilizan para seleccionar colecciones de objetos. Annotation: añaden información adicional a los recursos del clúster, no necesariamente estructurada. Namespace: abstracción que permite dividir un clúster en múltiples clústeres virtuales."
+    "explanation": "Pod: unidad mínima de despliegue formada por una colección de contenedores más sus volúmenes. Label: pares clave/valor asociadas a un recurso, se utilizan para seleccionar colecciones de objetos. Annotation: añaden información adicional a los recursos del clúster, no necesariamente estructurada. Namespace: abstracción que permite dividir un clúster en múltiples clústeres virtuales.",
+    "detailedExplanation": "¿Qué significa realmente?\nKubernetes organiza sus recursos de forma lógica: los Pods ejecutan contenedores; los Labels (etiquetas) son pares clave/valor para selección y filtrado; las Annotations adjuntan metadatos no estructurados; y los Namespaces dividen un clúster físico en entornos virtuales.\n\nLa perspectiva de la clase:\nEl profesor detalla que los Namespaces permiten segmentar el clúster por entornos (desarrollo, pruebas, producción), y los Labels permiten a los servicios seleccionar dinámicamente qué Pods deben recibir el tráfico web.\n\nAplicación en DevOps:\nEn entornos corporativos DevOps, las Annotations se utilizan para inyectar información de auditoría interna, como el autor del despliegue, la fecha de compilación, el enlace del pipeline de CI/CD o políticas de seguridad."
   },
   {
     "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
@@ -753,7 +815,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Permitir filtrar objetos del clúster en base a un conjunto de etiquetas",
-    "explanation": "Los selectores, formados por una serie de condiciones booleanas basadas en las etiquetas o labels, nos van a permitir filtrar objetos del clúster."
+    "explanation": "Los selectores, formados por una serie de condiciones booleanas basadas en las etiquetas o labels, nos van a permitir filtrar objetos del clúster.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos selectores de etiquetas (`Label Selectors`) son consultas booleanas que Kubernetes utiliza para filtrar y agrupar recursos del clúster basándose en sus etiquetas (`Labels`). Permiten vincular dinámicamente objetos independientes del plano de control.\n\nLa perspectiva de la clase:\nEl profesor Santos explica que un servicio de Kubernetes no sabe de forma estática qué IPs tienen los Pods. En su lugar, el servicio usa un `selector: app=web` para redirigir dinámicamente el tráfico a cualquier Pod que tenga esa etiqueta en el clúster.\n\nAplicación en DevOps:\nFacilita el autoescalado y las actualizaciones sin caída del servicio. Al levantar nuevos Pods con la misma etiqueta, el servicio los detecta y los añade automáticamente al balanceo de carga, permitiendo reemplazar contenedores viejos sin interrupción."
   },
   {
     "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
@@ -765,7 +828,8 @@
       "Todos los anteriores"
     ],
     "answer": "Todos los anteriores",
-    "explanation": "Cuando creamos un clúster de Kubernetes este comienza con tres Namespaces: default, kube-system y kube-public. Aunque dependiendo de la instalación podría tener inicialmente alguno más."
+    "explanation": "Cuando creamos un clúster de Kubernetes este comienza con tres Namespaces: default, kube-system y kube-public. Aunque dependiendo de la instalación podría tener inicialmente alguno más.",
+    "detailedExplanation": "¿Qué significa realmente?\nAl inicializar un clúster de Kubernetes, el sistema crea automáticamente namespaces básicos: 'default' para recursos de usuario; 'kube-system' para los componentes de control de Kubernetes; y 'kube-public' para recursos públicos de libre lectura.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos advierte en clase que no se deben desplegar aplicaciones propias en 'kube-system', ya que ese namespace está reservado estrictamente para los objetos del propio motor de Kubernetes.\n\nAplicación en DevOps:\nLa separación de namespaces por defecto ayuda a implementar políticas de control de acceso basadas en roles (RBAC) y cuotas de recursos, asegurando que un despliegue de desarrollo no consuma la memoria de los servicios críticos del sistema."
   },
   {
     "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
@@ -777,7 +841,8 @@
       "kube-system"
     ],
     "answer": "kube-system",
-    "explanation": "kube-system es el Namespace para los objetos que han sido creados por el propio sistema de Kubernetes. Los usuarios no deberían desplegar aplicaciones en él."
+    "explanation": "kube-system es el Namespace para los objetos que han sido creados por el propio sistema de Kubernetes. Los usuarios no deberían desplegar aplicaciones en él.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl namespace 'kube-system' alberga todos los recursos de sistema y componentes internos de control del motor de Kubernetes. Contiene Pods críticos para la red, DNS, controladores y el proxy del clúster.\n\nLa perspectiva de la clase:\nEl profesor aconseja no tocar ni realizar despliegues manuales en 'kube-system'. Este namespace debe mantenerse limpio de aplicaciones de usuario para asegurar que las operaciones críticas del plano de control no se vean afectadas.\n\nAplicación en DevOps:\nEn seguridad DevOps, se aplican estrictas políticas RBAC en el namespace 'kube-system' para evitar que desarrolladores o scripts automatizados alteren o accedan por error a componentes de red y monitorización central."
   },
   {
     "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
@@ -789,7 +854,8 @@
       "livenessProbe.exec=recursos mínimos requeridos, resources.limits=puertos expuestos, resources.requests=limita uso de recursos, ports.containerPort=prueba de vida"
     ],
     "answer": "livenessProbe.exec=prueba de vida del contenedor, resources.limits=limita uso de recursos, resources.requests=recursos mínimos requeridos, ports.containerPort=puertos expuestos",
-    "explanation": "livenessProbe.exec: comando utilizado para la prueba de vida del contenedor. resources.limits: limita el uso de recursos por parte del contenedor. resources.requests: establece los recursos mínimos requeridos por el contenedor. ports.containerPort: puertos expuestos en el contenedor."
+    "explanation": "livenessProbe.exec: comando utilizado para la prueba de vida del contenedor. resources.limits: limita el uso de recursos por parte del contenedor. resources.requests: establece los recursos mínimos requeridos por el contenedor. ports.containerPort: puertos expuestos en el contenedor.",
+    "detailedExplanation": "¿Qué significa realmente?\nLas propiedades de un contenedor definen su ciclo de vida y recursos: 'limits' restringe el hardware; 'requests' reserva el hardware mínimo; 'containerPort' declara los puertos; y 'livenessProbe.exec' prueba la salud del contenedor.\n\nLa perspectiva de la clase:\nEl profesor explica que si configuras 'limits' muy altos y la máquina host se queda sin memoria, el componente de Kubernetes 'OOMKilled' (Out Of Memory) matará al contenedor para proteger el servidor físico.\n\nAplicación en DevOps:\nEn ingeniería de fiabilidad, configurar 'requests' de forma precisa ayuda a que el planificador ubique los Pods en nodos con espacio disponible, optimizando el uso de la infraestructura y evitando la saturación de los servidores cloud."
   },
   {
     "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
@@ -801,7 +867,8 @@
       "Conectándose a un socket TCP (tcpSocket)"
     ],
     "answer": "Conectándose por SSH (sshConnect)",
-    "explanation": "Los métodos válidos son solamente mediante ejecución de comando (exec), con una llamada HTTP (httpGet) y con la conexión a un socket TCP (tcpSocket)."
+    "explanation": "Los métodos válidos son solamente mediante ejecución de comando (exec), con una llamada HTTP (httpGet) y con la conexión a un socket TCP (tcpSocket).",
+    "detailedExplanation": "¿Qué significa realmente?\nKubernetes realiza comprobaciones de salud automáticas en los contenedores mediante tres mecanismos: ejecución de comandos locales (exec), peticiones HTTP (httpGet) y comprobaciones de socket TCP (tcpSocket). Conectarse por SSH no es una opción nativa.\n\nLa perspectiva de la clase:\nEl profesor explica que levantar un servidor SSH en un contenedor para comprobar si está vivo es ineficiente y rompe el principio de inmutabilidad y ligereza de las tecnologías de contenedores.\n\nAplicación en DevOps:\nLas sondas httpGet son las más populares en DevOps. Permiten que Kubernetes verifique si una API responde con códigos HTTP saludables (200-399) en un endpoint como '/health', reiniciando automáticamente el contenedor en caso de fallo."
   },
   {
     "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
@@ -813,7 +880,8 @@
       "cp=redirige puertos locales, exec=recupera logs, logs=ejecuta comando en contenedor, port-forward=copia ficheros"
     ],
     "answer": "cp=copia ficheros desde/hacia contenedores, exec=ejecuta comando en contenedor, logs=recupera logs del contenedor, port-forward=redirige puertos locales a un Pod",
-    "explanation": "kubectl cp: copia ficheros y directorios desde y hacia los contenedores del Pod. kubectl exec: ejecuta un comando en uno de los contenedores del Pod. kubectl logs: recupera los logs de un contenedor del Pod. kubectl port-forward: redirige uno o varios puertos locales a un Pod."
+    "explanation": "kubectl cp: copia ficheros y directorios desde y hacia los contenedores del Pod. kubectl exec: ejecuta un comando en uno de los contenedores del Pod. kubectl logs: recupera los logs de un contenedor del Pod. kubectl port-forward: redirige uno o varios puertos locales a un Pod.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl cliente 'kubectl' ofrece comandos para depuración: 'cp' copia archivos; 'exec' ejecuta comandos en caliente dentro de un contenedor; 'logs' lee las trazas del proceso; y 'port-forward' reenvía puertos del host a un Pod.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos utiliza en clase 'kubectl logs' para ver por qué falla una base de datos, y demuestra cómo usar 'kubectl port-forward' para acceder temporalmente a un puerto privado de un Pod desde su navegador local.\n\nAplicación en DevOps:\nEn DevOps, 'kubectl exec' se utiliza para realizar diagnósticos o tareas administrativas puntuales, pero se automatizan las herramientas de agregación de logs (como Elasticsearch o Loki) en lugar de usar 'kubectl logs' en producción."
   },
   {
     "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
@@ -825,7 +893,8 @@
       "Namespace"
     ],
     "answer": "Selector de etiquetas",
-    "explanation": "En Kubernetes los contextos están formados por tres elementos: el clúster (URL al API), un usuario (credenciales) y el Namespace a utilizar. Los selectores de etiquetas no forman parte de la definición de un contexto."
+    "explanation": "En Kubernetes los contextos están formados por tres elementos: el clúster (URL al API), un usuario (credenciales) y el Namespace a utilizar. Los selectores de etiquetas no forman parte de la definición de un contexto.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn contexto de Kubernetes es un conjunto de parámetros de conexión que asocia tres elementos específicos: un clúster de Kubernetes, un usuario autenticado y un namespace por defecto. El selector de etiquetas (label selector) no forma parte de esta definición.\n\nLa perspectiva de la clase:\nEl profesor muestra que los contextos se guardan en el archivo local '~/.kube/config' y permiten saltar rápidamente entre clústeres locales y entornos de nube como Amazon EKS usando el comando 'kubectl config'.\n\nAplicación en DevOps:\nEn DevOps, el manejo de contextos es crucial para ingenieros que operan múltiples clústeres. Permite configurar entornos independientes para Desarrollo, Staging y Producción, evitando aplicar cambios por error en entornos reales."
   },
   {
     "tema": "Tema 7: Pods, etiquetas, anotaciones y Namespaces",
@@ -837,7 +906,8 @@
       "kubectl apply context"
     ],
     "answer": "kubectl config set-context",
-    "explanation": "Podemos definir nuevos contextos con el comando kubectl config set-context, indicando el clúster, el usuario y el Namespace."
+    "explanation": "Podemos definir nuevos contextos con el comando kubectl config set-context, indicando el clúster, el usuario y el Namespace.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl comando 'kubectl config set-context' define una nueva entrada de configuración en el archivo kubeconfig local, enlazando un clúster físico, un usuario con credenciales de acceso y un namespace lógico específico.\n\nLa perspectiva de la clase:\nEl profesor explica que cuando se asocia una cuenta de AWS Academy con un clúster real de EKS, herramientas como 'aws eks update-kubeconfig' automatizan la llamada interna a 'kubectl config' para configurar tu entorno de trabajo.\n\nAplicación en DevOps:\nAutomatizar la configuración de contextos facilita la orquestación segura. Permite que las herramientas de automatización ejecuten despliegues directos en clústeres remotos autenticándose dinámicamente con perfiles restringidos por clúster."
   },
   {
     "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
@@ -849,7 +919,8 @@
       "Escalando el ReplicaSet a cero réplicas"
     ],
     "answer": "Con la opción --cascade=false del Cliente kubectl",
-    "explanation": "Al eliminar un ReplicaSet por defecto también serán eliminados los Pods gestionados por él. En caso de que no queramos que se eliminen sus Pods deberemos utilizar la opción --cascade=false."
+    "explanation": "Al eliminar un ReplicaSet por defecto también serán eliminados los Pods gestionados por él. En caso de que no queramos que se eliminen sus Pods deberemos utilizar la opción --cascade=false.",
+    "detailedExplanation": "¿Qué significa realmente?\nPor defecto, Kubernetes implementa borrado en cascada (garbage collection): si eliminas un controlador, borra también sus Pods secundarios. La opción '--cascade=false' desvincula los Pods de la vida útil del ReplicaSet.\n\nLa perspectiva de la clase:\nEl profesor explica que al usar '--cascade=false', los Pods se vuelven 'huérfanos' pero siguen en ejecución activa. Dejan de estar supervisados por el ReplicaSet y se gestionan como Pods independientes.\n\nAplicación en DevOps:\nSe utiliza en DevOps para realizar migraciones de controladores sin provocar caídas de servicio. Permite recrear o actualizar la definición de un ReplicaSet sin interrumpir la ejecución de los contenedores que procesan tráfico real."
   },
   {
     "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
@@ -861,7 +932,8 @@
       "ReplicaSet=conjunto lógico de Pods, DaemonSet=reglas de enrutamiento, Service=Pod en todos los nodos, Ingress=garantiza réplicas ejecutándose"
     ],
     "answer": "ReplicaSet=garantiza réplicas de Pods ejecutándose, DaemonSet=Pod en todos los nodos, Service=conjunto lógico de Pods y política de acceso, Ingress=reglas de enrutamiento para acceso externo",
-    "explanation": "ReplicaSet: garantiza que un número especificado de réplicas de Pods está ejecutándose. DaemonSet: asegura que en todos los nodos se ejecuta un Pod especificado. Service: define un conjunto lógico de Pods y una política para acceder a ellos. Ingress: utiliza reglas de enrutamiento para gestionar el acceso externo a múltiples servicios."
+    "explanation": "ReplicaSet: garantiza que un número especificado de réplicas de Pods está ejecutándose. DaemonSet: asegura que en todos los nodos se ejecuta un Pod especificado. Service: define un conjunto lógico de Pods y una política para acceder a ellos. Ingress: utiliza reglas de enrutamiento para gestionar el acceso externo a múltiples servicios.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos recursos de Kubernetes cubren diferentes necesidades: el ReplicaSet mantiene un número deseado de Pods; el DaemonSet ejecuta un Pod en todos los nodos; el Service balancea tráfico; y el Ingress enruta tráfico HTTP/S externo.\n\nLa perspectiva de la clase:\nEl profesor describe al Ingress como la puerta de entrada HTTP/S principal del clúster. Reemplaza el uso de múltiples balanceadores de carga físicos en la nube, usando reglas de enrutamiento basadas en nombres de dominio.\n\nAplicación en DevOps:\nEn DevOps, Ingress actúa como un proxy inverso inverso e ingress controller (como NGINX Ingress), permitiendo enrutar múltiples microservicios bajo un único balanceador de carga público, ahorrando costes sustanciales."
   },
   {
     "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
@@ -873,7 +945,8 @@
       "Ingress"
     ],
     "answer": "ReplicaSet",
-    "explanation": "El ReplicaSet se encarga de que el número especificado de réplicas de Pods está ejecutándose en el clúster."
+    "explanation": "El ReplicaSet se encarga de que el número especificado de réplicas de Pods está ejecutándose en el clúster.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl recurso 'ReplicaSet' tiene como único propósito supervisar y mantener un grupo de réplicas de Pods idénticos y saludables en todo momento en base a selectores de etiquetas, recreando de inmediato cualquier Pod que falle.\n\nLa perspectiva de la clase:\nEl profesor indica que, aunque el ReplicaSet es el encargado directo de las réplicas, los desarrolladores rara vez crean un ReplicaSet de forma directa. En su lugar, declaran un 'Deployment', el cual crea un ReplicaSet automáticamente.\n\nAplicación en DevOps:\nEl ReplicaSet forma la base de la autocuración (self-healing) de Kubernetes en DevOps. Permite que el sistema se autorecupere ante fallos de hardware en los servidores de la nube de forma transparente y sin caída del servicio."
   },
   {
     "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
@@ -885,7 +958,8 @@
       "Ingress"
     ],
     "answer": "Ingress",
-    "explanation": "Ingress funciona como punto de entrada al clúster, permitiéndonos utilizar la misma dirección IP para exponer múltiples servicios, mediante HTTP(S), utilizando reglas de enrutamiento."
+    "explanation": "Ingress funciona como punto de entrada al clúster, permitiéndonos utilizar la misma dirección IP para exponer múltiples servicios, mediante HTTP(S), utilizando reglas de enrutamiento.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl recurso 'Ingress' es una capa de enrutamiento HTTP/S de nivel 7 que gestiona el acceso externo a los servicios del clúster mediante reglas declarativas basadas en dominios o rutas de URL, ofreciendo SSL/TLS y balanceo de carga.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos describe Ingress como la puerta de entrada unificada. Permite dirigir el tráfico de 'http://localhost/frontend' a un servicio y 'http://localhost/backend' a otro, exponiendo una sola IP pública.\n\nAplicación en DevOps:\nSe aplica en DevOps para exponer microservicios web de forma segura. Facilita la configuración centralizada de certificados SSL/TLS (por ejemplo, con Let's Encrypt y cert-manager) y la implementación de enrutamiento basado en nombres."
   },
   {
     "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
@@ -897,7 +971,8 @@
       "ExternalName=expone por IP de cada nodo, NodePort=asocia con dominio CNAME, ClusterIP=balanceador externo, LoadBalancer=IP interna del clúster"
     ],
     "answer": "ExternalName=asocia con dominio mediante CNAME, NodePort=expone por IP de cada nodo con mismo puerto, ClusterIP=IP interna solo accesible dentro del clúster, LoadBalancer=balanceador externo con IP fija",
-    "explanation": "ExternalName: expone el servicio asociándolo con un nombre de dominio mediante registro CNAME. NodePort: expone fuera del clúster a través de la IP de cada nodo usando el mismo puerto. ClusterIP: expone en una IP interna, solo accesible desde dentro del clúster. LoadBalancer: crea un balanceador de carga externo y asigna una IP fija."
+    "explanation": "ExternalName: expone el servicio asociándolo con un nombre de dominio mediante registro CNAME. NodePort: expone fuera del clúster a través de la IP de cada nodo usando el mismo puerto. ClusterIP: expone en una IP interna, solo accesible desde dentro del clúster. LoadBalancer: crea un balanceador de carga externo y asigna una IP fija.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos tipos de servicio de Kubernetes exponen las aplicaciones de diferentes formas: ClusterIP expone internamente; NodePort expone a nivel de puerto del nodo; LoadBalancer crea un balanceador de nube; y ExternalName asocia con un dominio CNAME.\n\nLa perspectiva de la clase:\nEl profesor describe ClusterIP como la opción segura por defecto para bases de datos, mientras que LoadBalancer es la opción recomendada para exponer servicios públicos a internet en nubes como AWS.\n\nAplicación en DevOps:\nEn pipelines de CI/CD de DevOps, se prefiere LoadBalancer en nube para exponer la aplicación web principal. Para integrar APIs externas de terceros de forma limpia y transparente, se utiliza ExternalName para evitar configurar IPs hardcodeadas."
   },
   {
     "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
@@ -909,7 +984,8 @@
       "Todos los anteriores"
     ],
     "answer": "NodePort",
-    "explanation": "Un servicio de tipo NodePort expone el servicio fuera del clúster a través de la dirección IP de cada nodo, utilizando el mismo puerto en cada uno de ellos."
+    "explanation": "Un servicio de tipo NodePort expone el servicio fuera del clúster a través de la dirección IP de cada nodo, utilizando el mismo puerto en cada uno de ellos.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl servicio de tipo 'NodePort' abre un puerto específico de rango alto (por defecto 30000-32767) en la IP de todos los nodos del clúster, permitiendo acceder al Pod a través de cualquiera de ellos.\n\nLa perspectiva de la clase:\nEl profesor explica que, si bien NodePort permite exponer aplicaciones al exterior, no es recomendable usarlo para producción de cara al cliente final debido a que expone los puertos de los servidores directamente.\n\nAplicación en DevOps:\nSe utiliza en DevOps principalmente para entornos de desarrollo y pruebas, o como punto de anclaje para balanceadores de carga físicos externos de la propia empresa que apuntan a las IPs de los nodos del clúster."
   },
   {
     "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
@@ -921,7 +997,8 @@
       "Cambiando al nodo de Namespace"
     ],
     "answer": "Definiendo un selector de nodo basado en etiquetas en la definición del Pod en la propiedad nodeSelector del fichero YAML",
-    "explanation": "Los selectores de nodos se utilizan para limitar en qué nodos se puede ejecutar un Pod. Se pueden configurar en el fichero YAML en la definición del Pod al crear un DaemonSet, utilizando la propiedad nodeSelector."
+    "explanation": "Los selectores de nodos se utilizan para limitar en qué nodos se puede ejecutar un Pod. Se pueden configurar en el fichero YAML en la definición del Pod al crear un DaemonSet, utilizando la propiedad nodeSelector.",
+    "detailedExplanation": "¿Qué significa realmente?\nPor defecto, un DaemonSet despliega un Pod en cada nodo del clúster. Sin embargo, mediante la propiedad 'nodeSelector' en el archivo YAML de definición del Pod, se pueden usar selectores de etiquetas para limitar su alcance.\n\nLa perspectiva de la clase:\nEl profesor enseña que si un DaemonSet se encarga de monitorizar el almacenamiento, solo tiene sentido desplegarlo en nodos que tengan discos de almacenamiento asociados, usando etiquetas para seleccionarlos.\n\nAplicación en DevOps:\nEn ingeniería de plataforma DevOps, se usan selectores de nodos para desplegar agentes de recolección de logs o agentes APM únicamente en los nodos dedicados a bases de datos o procesamiento pesado, evitando sobrecargar otros nodos."
   },
   {
     "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
@@ -932,7 +1009,8 @@
       "El número de réplicas configurado en el ReplicaSet es decrementado en el número de Pods"
     ],
     "answer": "Los Pods son automáticamente replanificados en otros nodos disponibles",
-    "explanation": "Los ReplicaSets se encargan de que en todo momento se están ejecutando el número y tipo de Pods deseados. En caso de fallo en un nodo, todos aquellos Pods gestionados por un ReplicaSet serán replanificados a otros nodos disponibles."
+    "explanation": "Los ReplicaSets se encargan de que en todo momento se están ejecutando el número y tipo de Pods deseados. En caso de fallo en un nodo, todos aquellos Pods gestionados por un ReplicaSet serán replanificados a otros nodos disponibles.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn ReplicaSet supervisa constantemente la cantidad de Pods activos en el clúster. Si un nodo cae, Kubernetes marca ese nodo como no disponible y el ReplicaSet replanifica y recrea los Pods perdidos en otros nodos sanos.\n\nLa perspectiva de la clase:\nEl profesor destaca que esta es la magia de la autocuración de Kubernetes. El sistema no intenta reparar el nodo físico dañado; simplemente reubica el contenedor en un servidor saludable en milisegundos.\n\nAplicación en DevOps:\nEn operaciones en la nube, esto permite implementar infraestructuras altamente resilientes y tolerantes a fallos (disaster recovery), reduciendo la intervención manual ante cortes o mantenimientos del proveedor de nube."
   },
   {
     "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
@@ -944,7 +1022,8 @@
       "ExternalName expone el servicio a través de un nombre especificado en la definición, asociándolo con un nombre de dominio mediante un registro CNAME"
     ],
     "answer": "ClusterIP expone el servicio en una dirección IP única externa del clúster, siendo accesible dentro y fuera del clúster",
-    "explanation": "Un servicio de tipo ClusterIP expone el servicio en una dirección IP interna del clúster, por lo que solamente será accesible desde dentro del clúster, no desde fuera."
+    "explanation": "Un servicio de tipo ClusterIP expone el servicio en una dirección IP interna del clúster, por lo que solamente será accesible desde dentro del clúster, no desde fuera.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs falso que el servicio de tipo 'ClusterIP' exponga el servicio en una IP pública única fuera del clúster. Su función es estrictamente interna; proporciona una IP virtual estable accesible solo dentro de la red del clúster.\n\nLa perspectiva de la clase:\nEl profesor aclara en clase una duda recurrente: un servicio de base de datos Postgres o Redis siempre debe definirse como ClusterIP para garantizar que nadie desde el exterior de internet pueda atacarlo.\n\nAplicación en DevOps:\nEn seguridad de DevOps, se implementa ClusterIP para todas las bases de datos y microservicios internos del backend, protegiéndolos de la exposición directa y reduciendo la superficie de ataque del entorno."
   },
   {
     "tema": "Tema 8: ReplicaSets, DaemonSets y Servicios",
@@ -956,7 +1035,8 @@
       "No es posible definir métricas personalizadas diferentes a las ofrecidas por Kubernetes"
     ],
     "answer": "No es posible definir métricas personalizadas diferentes a las ofrecidas por Kubernetes",
-    "explanation": "Por defecto Kubernetes nos permite utilizar el uso de CPU y el consumo de memoria como métricas para el auto escalado. Sin embargo, también sería posible definir métricas personalizadas e incluso externas."
+    "explanation": "Por defecto Kubernetes nos permite utilizar el uso de CPU y el consumo de memoria como métricas para el auto escalado. Sin embargo, también sería posible definir métricas personalizadas e incluso externas.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs falso que no se puedan definir métricas personalizadas en HPA. El Horizontal Pod Autoscaler de Kubernetes soporta autoescalado dinámico basado tanto en métricas nativas (CPU y memoria) como en métricas personalizadas externas.\n\nLa perspectiva de la clase:\nEl profesor aclara que, aunque el clúster ofrece CPU y memoria por defecto, en producción a menudo se escala por número de peticiones HTTP concurrentes o longitud de colas de mensajes (como RabbitMQ).\n\nAplicación en DevOps:\nEn DevOps, se configuran métricas personalizadas utilizando adaptadores (como Prometheus Adapter) para que las aplicaciones de comercio electrónico escalen automáticamente por volumen de peticiones o transacciones reales."
   },
   {
     "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
@@ -968,7 +1048,8 @@
       "emptyDir=montar volumen EBS, hostPath=desacoplar almacenamiento, awsElasticBlockStore=montar directorio del nodo, PersistentVolumes=volúmenes vacíos ligados al Pod"
     ],
     "answer": "emptyDir=volúmenes vacíos ligados a la vida del Pod, hostPath=montar directorio del nodo, awsElasticBlockStore=montar volumen EBS de Amazon, PersistentVolumes=desacoplar almacenamiento de la definición del Pod",
-    "explanation": "emptyDir: montan volúmenes vacíos y están ligados a la vida útil del Pod. hostPath: permiten montar un directorio o archivo específico del sistema de ficheros del nodo. awsElasticBlockStore: permiten montar un volumen EBS de Amazon en los Pods. PersistentVolumes: permiten desacoplar la infraestructura de almacenamiento de la definición del Pod."
+    "explanation": "emptyDir: montan volúmenes vacíos y están ligados a la vida útil del Pod. hostPath: permiten montar un directorio o archivo específico del sistema de ficheros del nodo. awsElasticBlockStore: permiten montar un volumen EBS de Amazon en los Pods. PersistentVolumes: permiten desacoplar la infraestructura de almacenamiento de la definición del Pod.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos volúmenes gestionan almacenamiento: 'emptyDir' monta un directorio temporal ligado a la vida útil del Pod; 'hostPath' monta una ruta del nodo físico; 'awsElasticBlockStore' monta discos EBS de AWS; y 'PersistentVolumes' desacopla el disco del Pod.\n\nLa perspectiva de la clase:\nEl profesor explica que, mientras 'emptyDir' se borra si el Pod muere, los 'PersistentVolumes' aseguran que los datos sobrevivan y puedan ser montados en cualquier nuevo Pod que reemplace al anterior.\n\nAplicación en DevOps:\nSe aplica en DevOps para gestionar almacenamiento persistente. Al usar PersistentVolumes, el desarrollador declara que su base de datos necesita almacenamiento sin preocuparse de si se encuentra en discos EBS, Azure Disks o NFS."
   },
   {
     "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
@@ -980,7 +1061,8 @@
       "Son globales al clúster"
     ],
     "answer": "Son globales al clúster",
-    "explanation": "Los ConfigMaps se crean asociados a un Namespace específico y no serán accesibles desde otros Namespaces del clúster."
+    "explanation": "Los ConfigMaps se crean asociados a un Namespace específico y no serán accesibles desde otros Namespaces del clúster.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs falso que los ConfigMaps sean globales al clúster de Kubernetes. Un ConfigMap es un recurso con ámbito de namespace, lo que significa que solo es accesible por los recursos del namespace al que pertenece.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos insiste en que un ConfigMap creado en el namespace de desarrollo no puede ser accedido por un Pod que se ejecute en el namespace de producción, aislando sus configuraciones.\n\nAplicación en DevOps:\nEsto es vital en DevOps para mantener entornos de desarrollo, preproducción y producción aislados de forma estricta, permitiendo usar el mismo manifiesto YAML de Pod pero inyectando diferentes valores según el namespace."
   },
   {
     "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
@@ -992,7 +1074,8 @@
       "Las variables de entorno establecidas a partir de un ConfigMap se actualizarán automáticamente cuando se hagan cambios en este último"
     ],
     "answer": "El volumen montado a partir de un ConfigMap se actualizará automáticamente cuando se hagan cambios en este último",
-    "explanation": "Si al configurar un Pod con un ConfigMap lo hicimos estableciendo variables de entorno o argumentos de la línea de comandos, no podremos actualizar el contenedor en ejecución cuando los valores del ConfigMap sean modificados. Sería necesario recrear el Pod para hacer efectiva la nueva configuración."
+    "explanation": "Si al configurar un Pod con un ConfigMap lo hicimos estableciendo variables de entorno o argumentos de la línea de comandos, no podremos actualizar el contenedor en ejecución cuando los valores del ConfigMap sean modificados. Sería necesario recrear el Pod para hacer efectiva la nueva configuración.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs falso que las variables de entorno inyectadas a partir de un ConfigMap se actualicen automáticamente en el contenedor si se modifica el ConfigMap. Es necesario recrear el Pod para cargar los nuevos valores.\n\nLa perspectiva de la clase:\nEl profesor explica que, mientras las variables de entorno inyectadas requieren el reinicio del Pod para actualizarse, los archivos de configuración montados como volúmenes a partir de ConfigMaps sí se actualizan automáticamente.\n\nAplicación en DevOps:\nEn prácticas DevOps, esto se soluciona utilizando herramientas de GitOps (como Kustomize o Helm) que calculan un hash del ConfigMap; si cambia la configuración, el hash cambia y fuerza un reinicio automático de los Pods."
   },
   {
     "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
@@ -1004,7 +1087,8 @@
       "Están diseñados para inyectar datos de configuración en los Pods"
     ],
     "answer": "Permiten montar en el Pod un directorio o archivo específico del sistema de ficheros del nodo",
-    "explanation": "Los volúmenes de tipo hostPath referenciarán un directorio o archivo específico del sistema de ficheros del nodo, permitiendo a los Pods que lo monten acceder a su contenido en la ruta local especificada."
+    "explanation": "Los volúmenes de tipo hostPath referenciarán un directorio o archivo específico del sistema de ficheros del nodo, permitiendo a los Pods que lo monten acceder a su contenido en la ruta local especificada.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn volumen 'hostPath' monta un archivo o directorio existente en el sistema de archivos local del nodo físico o máquina virtual de Amazon EC2 en el que se ejecuta el Pod en ese momento.\n\nLa perspectiva de la clase:\nEl profesor advierte que 'hostPath' no es seguro ni adecuado para aplicaciones de usuario en producción, ya que si el Pod se recrea en otro nodo worker, no encontrará los archivos porque estos se quedaron en el primer nodo.\n\nAplicación en DevOps:\nSe utiliza en DevOps de forma exclusiva para herramientas de monitorización y sistema que necesitan inspeccionar el nodo físico directamente, como recolectores de logs que leen '/var/log' del sistema host."
   },
   {
     "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
@@ -1016,7 +1100,8 @@
       "Están diseñados para inyectar datos de configuración en los Pods"
     ],
     "answer": "Se crean inicialmente vacíos, y serán eliminados cuando el Pod finalice su ejecución",
-    "explanation": "Los volúmenes de tipo emptyDir nos permitirán compartir ficheros entre los contenedores de un Pod. Como su nombre indica, se crean vacíos y se eliminan al finalizar el Pod."
+    "explanation": "Los volúmenes de tipo emptyDir nos permitirán compartir ficheros entre los contenedores de un Pod. Como su nombre indica, se crean vacíos y se eliminan al finalizar el Pod.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos volúmenes 'emptyDir' se crean vacíos en el momento en que se asigna el Pod al nodo y persisten solo mientras el Pod esté en ejecución en ese nodo. Al destruirse el Pod, los datos del 'emptyDir' se eliminan definitivamente.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos describe el 'emptyDir' como una pizarra temporal. Permite compartir archivos muy rápidamente entre contenedores de un mismo Pod, pero no sirve para persistir datos.\n\nAplicación en DevOps:\nEn pipelines DevOps, se utiliza 'emptyDir' para compartir almacenamiento rápido en memoria (RAM) o caché de disco entre un contenedor principal y un contenedor sidecar que procesa datos de forma temporal."
   },
   {
     "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
@@ -1028,7 +1113,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Los PersistentVolumes permiten desacoplar la infraestructura de almacenamiento de la definición del Pod. Los modos de acceso permitidos son ReadWriteOnce, ReadOnlyMany y ReadWriteMany. Además, son recursos globales del clúster, por lo que podrán ser enlazados con Pods de cualquier Namespace."
+    "explanation": "Los PersistentVolumes permiten desacoplar la infraestructura de almacenamiento de la definición del Pod. Los modos de acceso permitidos son ReadWriteOnce, ReadOnlyMany y ReadWriteMany. Además, son recursos globales del clúster, por lo que podrán ser enlazados con Pods de cualquier Namespace.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos 'PersistentVolumes' (PV) son recursos de almacenamiento de aprovisionamiento físico o virtual gestionados a nivel global del clúster de Kubernetes, desacoplados del ciclo de vida del Pod y de un namespace específico.\n\nLa perspectiva de la clase:\nEl profesor explica que los PersistentVolumes permiten separar el rol del administrador (que configura los discos en la nube, NFS o cabinas físicas) de los desarrolladores (que solo solicitan almacenamiento).\n\nAplicación en DevOps:\nPermiten implementar almacenamiento persistente consistente en bases de datos empresariales. Al recrearse un Pod, Kubernetes monta automáticamente el mismo PersistentVolume en el nuevo contenedor de forma automática."
   },
   {
     "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
@@ -1040,7 +1126,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Los PersistentVolumeClaims permiten solicitar almacenamiento para los Pods, especificando modo de acceso requerido. Si son definidos con un StorageClass, entonces habrá aprovisionamiento dinámico y se creará un nuevo PersistentVolume."
+    "explanation": "Los PersistentVolumeClaims permiten solicitar almacenamiento para los Pods, especificando modo de acceso requerido. Si son definidos con un StorageClass, entonces habrá aprovisionamiento dinámico y se creará un nuevo PersistentVolume.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn 'PersistentVolumeClaim' (PVC) es una solicitud de almacenamiento realizada por un desarrollador. Define los requisitos específicos, como el tamaño y los modos de acceso, para enlazarse dinámicamente con un PersistentVolume.\n\nLa perspectiva de la clase:\nEl profesor explica que, mediante las StorageClass, el PVC desencadena el aprovisionamiento dinámico en nubes como AWS, creando un PersistentVolume de disco de forma automática sin intervención manual.\n\nAplicación en DevOps:\nEn ingeniería de plataforma DevOps, los PVCs se incluyen en los manifiestos de las bases de datos para garantizar que el almacenamiento necesario se aprovisione dinámicamente en AWS o Azure al desplegar el microservicio."
   },
   {
     "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
@@ -1052,7 +1139,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Describen un tipo de almacenamiento, normalmente en un proveedor de nube, y será utilizado por Kubernetes para el aprovisionamiento dinámico de almacenamiento en recursos PersistentVolumes."
+    "explanation": "Describen un tipo de almacenamiento, normalmente en un proveedor de nube, y será utilizado por Kubernetes para el aprovisionamiento dinámico de almacenamiento en recursos PersistentVolumes.",
+    "detailedExplanation": "¿Qué significa realmente?\nUna 'StorageClass' describe un tipo de almacenamiento dinámico (por ejemplo, disco de alta velocidad GP3 o almacenamiento lento de bajo coste) ofrecido por el proveedor de nube para aprovisionar automáticamente discos PersistentVolumes.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos enseña que el cláuster tiene un StorageClass por defecto para que cuando un alumno cree un persistent volume claim en clase, la nube de AWS genere de inmediato el volumen persistente correspondiente.\n\nAplicación en DevOps:\nPermite optimizar costes en DevOps. El equipo puede definir una StorageClass rápida (SSD) para bases de datos transaccionales, y una StorageClass lenta y económica para almacenar backups e informes históricos."
   },
   {
     "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
@@ -1064,7 +1152,8 @@
       "Solo existen a nivel del Pod, una vez finalice su ejecución, el ConfigMap será eliminado"
     ],
     "answer": "Se crean en un determinado Namespace, pudiendo ser utilizado solo por recursos de este",
-    "explanation": "Los ConfigMaps se definen a nivel de Namespace y pueden ser utilizados en múltiples recursos del Namespace al que pertenecen. Su información está almacenada en claro."
+    "explanation": "Los ConfigMaps se definen a nivel de Namespace y pueden ser utilizados en múltiples recursos del Namespace al que pertenecen. Su información está almacenada en claro.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos 'ConfigMaps' inyectan datos de configuración no estructurados en formato clave/valor en claro dentro del contenedor. Se definen a nivel de namespace, permitiendo desacoplar la configuración del código fuente.\n\nLa perspectiva de la clase:\nEl profesor resalta que los ConfigMaps no están encriptados; su información se almacena en texto plano. Advierte que nunca deben usarse para guardar contraseñas, claves privadas o tokens de API.\n\nAplicación en DevOps:\nSe aplican en DevOps para definir variables ambientales de URLs de endpoints, niveles de depuración (log-level) o puertos de servicios, permitiendo que la misma imagen Docker sea portable entre múltiples entornos."
   },
   {
     "tema": "Tema 9: Almacenamiento y configuración en Kubernetes",
@@ -1076,7 +1165,8 @@
       "Solo existen a nivel del Pod, una vez finalice su ejecución, el Secret será eliminado"
     ],
     "answer": "Se almacenan codificados en base64, pero no cifrados",
-    "explanation": "La información de los objetos Secrets no se guarda en claro, sino que estará codificada en base64. Sin embargo, dicha información no estará cifrada. Además, se definen a nivel de Namespace y pueden ser utilizados en múltiples recursos del Namespace al que pertenecen."
+    "explanation": "La información de los objetos Secrets no se guarda en claro, sino que estará codificada en base64. Sin embargo, dicha información no estará cifrada. Además, se definen a nivel de Namespace y pueden ser utilizados en múltiples recursos del Namespace al que pertenecen.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos objetos 'Secrets' están diseñados para almacenar datos altamente confidenciales (como contraseñas o tokens de API). Se almacenan codificados en formato base64 para evitar que se visualicen por accidente en la terminal o archivos.\n\nLa perspectiva de la clase:\nEl profesor enfatiza una regla de seguridad de oro: base64 no es cifrado, es solo codificación. Advierte que cualquiera que acceda al archivo YAML del Secret puede decodificarlo al instante de forma muy fácil.\n\nAplicación en DevOps:\nEn pipelines de CI/CD de DevOps, se configuran herramientas externas (como HashiCorp Vault o AWS Secret Manager) para inyectar contraseñas de forma segura en los Secrets de Kubernetes en tiempo de ejecución en producción."
   },
   {
     "tema": "Tema 10: Deployments, StatefulSets y Jobs",
@@ -1088,7 +1178,8 @@
       "Deployments=tareas planificadas, StatefulSets=apps sin estado, Jobs=apps con estado, CronJobs=tareas bajo demanda"
     ],
     "answer": "Deployments=apps sin estado, StatefulSets=apps con estado, Jobs=tareas bajo demanda, CronJobs=tareas planificadas",
-    "explanation": "Deployments: permiten desplegar aplicaciones sin estado. StatefulSets: permiten desplegar aplicaciones con estado. Jobs: tareas de corta duración bajo demanda. CronJobs: tareas de corta duración planificadas."
+    "explanation": "Deployments: permiten desplegar aplicaciones sin estado. StatefulSets: permiten desplegar aplicaciones con estado. Jobs: tareas de corta duración bajo demanda. CronJobs: tareas de corta duración planificadas.",
+    "detailedExplanation": "¿Qué significa realmente?\nKubernetes tiene diferentes controladores de cargas de trabajo: 'Deployments' gestiona réplicas de aplicaciones sin estado (stateless), 'StatefulSets' mantiene identidades persistentes para aplicaciones con estado, 'Jobs' ejecuta tareas de un solo uso, y 'CronJobs' planifica tareas periódicas.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos detalla que en las actividades de clase utilizaremos 'Deployments' para levantar el frontend y backend de Node.js, ya que son aplicaciones sin estado que escalan de manera horizontal muy fácil.\n\nAplicación en DevOps:\nLos ingenieros DevOps eligen el controlador según la aplicación: 'StatefulSets' para bases de datos relacionales (como Postgres o MySQL) que requieren almacenamiento de datos e identidad persistente, y 'CronJobs' para backups automatizados nocturnos."
   },
   {
     "tema": "Tema 10: Deployments, StatefulSets y Jobs",
@@ -1100,7 +1191,8 @@
       "Están diseñados para el despliegue de aplicaciones con estado"
     ],
     "answer": "Soportan políticas de reinicio para la gestión de errores en la ejecución",
-    "explanation": "En los Jobs es posible establecer una política de reinicio en caso de fallo en la ejecución de la tarea. Los valores admitidos son Always, OnFailure y Never, siendo el primero el valor por defecto."
+    "explanation": "En los Jobs es posible establecer una política de reinicio en caso de fallo en la ejecución de la tarea. Los valores admitidos son Always, OnFailure y Never, siendo el primero el valor por defecto.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn recurso de tipo 'Job' en Kubernetes crea uno o más Pods y garantiza que un número específico de ellos termine con éxito, soportando políticas de reinicio específicas ('restartPolicy') como 'OnFailure' o 'Never' para gestionar fallos.\n\nLa perspectiva de la clase:\nEl profesor Pardos recalca que para un Job no se puede usar la política de reinicio 'Always' (por defecto en pods normales), ya que un Job está diseñado para finalizar tras completar su tarea y no para correr infinitamente.\n\nAplicación en DevOps:\nEn la automatización de bases de datos, los 'Jobs' se utilizan para ejecutar migraciones de esquemas de bases de datos (como 'db:migrate') de forma síncrona antes de que el nuevo despliegue del aplicativo se complete."
   },
   {
     "tema": "Tema 10: Deployments, StatefulSets y Jobs",
@@ -1112,7 +1204,8 @@
       "Están diseñados para el despliegue de aplicaciones con estado"
     ],
     "answer": "Permiten la planificación de los Jobs para su ejecución a una hora concreta o de forma periódica",
-    "explanation": "Los CronJobs de Kubernetes permiten planificar tareas para que sean ejecutadas a una hora específica o, incluso, que se repitan de manera periódica."
+    "explanation": "Los CronJobs de Kubernetes permiten planificar tareas para que sean ejecutadas a una hora específica o, incluso, que se repitan de manera periódica.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn 'CronJob' gestiona la ejecución temporal de 'Jobs' utilizando la sintaxis estándar de cron de Linux (ej. '0 2 * * *' para las 2:00 AM) para instanciar dinámicamente un Job que ejecute las tareas planificadas.\n\nLa perspectiva de la clase:\nEl profesor explica que, a diferencia de los cron de Linux tradicionales en un único servidor, los CronJobs de Kubernetes se ejecutan a nivel de todo el clúster, aprovechando la infraestructura distribuida y tolerando fallos de servidores locales.\n\nAplicación en DevOps:\nLos CronJobs son esenciales en DevOps para automatizar tareas de mantenimiento, como copias de seguridad de bases de datos programadas, generación periódica de informes o rotación automatizada de logs del sistema."
   },
   {
     "tema": "Tema 10: Deployments, StatefulSets y Jobs",
@@ -1124,7 +1217,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Los Deployment de Kubernetes están pensados para el despliegue de aplicaciones sin estado. Cuando realicemos cambios, será Kubernetes el encargado de desplegar los cambios progresivamente sin pérdida de servicio y permitiendo volver a un estado anterior si fuera necesario."
+    "explanation": "Los Deployment de Kubernetes están pensados para el despliegue de aplicaciones sin estado. Cuando realicemos cambios, será Kubernetes el encargado de desplegar los cambios progresivamente sin pérdida de servicio y permitiendo volver a un estado anterior si fuera necesario.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn 'Deployment' es un objeto declarativo de alto nivel en Kubernetes que genera de forma implícita un 'ReplicaSet'. Sostiene estrategias de actualización progresiva sin pérdida de servicio (rolling updates) y permite hacer rollbacks o regresiones a estados estables anteriores.\n\nLa perspectiva de la clase:\nEl profesor recalca que los Deployments son el estándar para la mayoría de los servicios de la asignatura ya que Kubernetes se encarga de que la actualización se complete de forma limpia y transparente.\n\nAplicación en DevOps:\nEn integración continua, las actualizaciones de las aplicaciones se despliegan de forma automática actualizando la etiqueta de versión de la imagen en el Deployment, de modo que el clúster realice la transición sin cortes de servicio."
   },
   {
     "tema": "Tema 10: Deployments, StatefulSets y Jobs",
@@ -1136,7 +1230,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Los StatefulSets se utilizarán para gestionar aplicaciones con estado. A cada una de las réplicas de los Pods se le asignará un hostname e IP persistente, además de nombrar los Pods con un índice único. Las réplicas se crean en orden, comenzando por el índice más bajo."
+    "explanation": "Los StatefulSets se utilizarán para gestionar aplicaciones con estado. A cada una de las réplicas de los Pods se le asignará un hostname e IP persistente, además de nombrar los Pods con un índice único. Las réplicas se crean en orden, comenzando por el índice más bajo.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos StatefulSets se utilizan para aplicaciones con estado, como bases de datos. A diferencia de los Deployments, cada Pod de un StatefulSet recibe un identificador único y persistente que se mantiene aun si el pod se reprograma en otro nodo.\n\nLa perspectiva de la clase:\nEl profesor aclara que para desplegar de forma segura gestores de bases de datos (como Postgres o MySQL) en Kubernetes se requiere el uso de StatefulSets para garantizar que cada pod se reconecte siempre a su volumen persistente.\n\nAplicación en DevOps:\nEn la arquitectura DevOps de almacenamiento, esto permite escalar clásteres de bases de datos de forma predecible y segura, asegurando que cada réplica mantenga su identidad de red y de almacenamiento de datos intacta."
   },
   {
     "tema": "Tema 10: Deployments, StatefulSets y Jobs",
@@ -1148,7 +1243,8 @@
       "CronJobs"
     ],
     "answer": "Deployments",
-    "explanation": "Los Deployments son objetos de Kubernetes de alto nivel que nos permitirán desplegar y actualizar nuestras aplicaciones de forma declarativa. Estos harán uso de objetos Replicasets para la creación y gestión de los Pods."
+    "explanation": "Los Deployments son objetos de Kubernetes de alto nivel que nos permitirán desplegar y actualizar nuestras aplicaciones de forma declarativa. Estos harán uso de objetos Replicasets para la creación y gestión de los Pods.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn Kubernetes, un 'Deployment' no gestiona los pods directamente. En su lugar, el Deployment crea y controla un 'ReplicaSet' de forma implícita, y es este ReplicaSet el encargado de levantar, escalar o destruir las réplicas físicas de los pods.\n\nLa perspectiva de la clase:\nEl profesor Pardos explica que la ventaja de esta abstracción por capas es que, al realizar una actualización de versión, el Deployment simplemente crea un nuevo 'ReplicaSet' con la nueva versión y reduce gradualmente las réplicas del viejo, permitiendo reversiones fáciles.\n\nAplicación en DevOps:\nPara el equipo de DevOps, esto permite auditorías claras de versiones en el clúster. Al ejecutar 'kubectl rollout history', Kubernetes consulta los ReplicaSets históricos asociados al Deployment para permitirnos volver a cualquier versión de despliegue estable anterior."
   },
   {
     "tema": "Tema 10: Deployments, StatefulSets y Jobs",
@@ -1160,7 +1256,8 @@
       "status=modificar réplicas, undo=pausar actualizaciones, pause=volver a estado anterior, scale=consultar estado"
     ],
     "answer": "status=consultar estado del despliegue, undo=volver a estado anterior, pause=pausar actualizaciones, scale=modificar número de réplicas",
-    "explanation": "kubectl rollout status: consulta el estado del despliegue. kubectl rollout undo: permite volver a un estado anterior. kubectl rollout pause: pausa las actualizaciones permitiendo aplicar varias modificaciones a la vez. kubectl scale: permite modificar el número de réplicas."
+    "explanation": "kubectl rollout status: consulta el estado del despliegue. kubectl rollout undo: permite volver a un estado anterior. kubectl rollout pause: pausa las actualizaciones permitiendo aplicar varias modificaciones a la vez. kubectl scale: permite modificar el número de réplicas.",
+    "detailedExplanation": "¿Qué significa realmente?\nLa herramienta de línea de comandos 'kubectl' proporciona comandos específicos para gestionar el ciclo de vida del despliegue: 'rollout status' comprueba el progreso, 'rollout undo' deshace una actualización, 'rollout pause' pausa el despliegue de cambios y 'scale' cambia el número de pods.\n\nLa perspectiva de la clase:\nEl profesor enseña que 'kubectl' es el cliente interactivo que utilizamos en nuestra máquina de gestión de AWS para enviarle instrucciones al API Server de nuestro clúster EKS, permitiéndonos controlar el estado de la aplicación de manera muy sencilla.\n\nAplicación en DevOps:\nEn pipelines de entrega continua (CD), 'kubectl rollout status' se utiliza para bloquear el pipeline de despliegue hasta que Kubernetes confirme que todos los nuevos pods se han levantado con éxito. Si falla, el pipeline ejecuta 'kubectl rollout undo' de forma automatizada."
   },
   {
     "tema": "Tema 10: Deployments, StatefulSets y Jobs",
@@ -1172,7 +1269,8 @@
       "spec.schedule"
     ],
     "answer": "spec.activeDeadlineSeconds",
-    "explanation": "Para establecer un tiempo límite de ejecución del Job utilizaremos la propiedad spec.activeDeadlineSeconds, indicando el número de segundos desde el inicio de la ejecución del Job, independientemente del número de Pods que se hayan creado."
+    "explanation": "Para establecer un tiempo límite de ejecución del Job utilizaremos la propiedad spec.activeDeadlineSeconds, indicando el número de segundos desde el inicio de la ejecución del Job, independientemente del número de Pods que se hayan creado.",
+    "detailedExplanation": "¿Qué significa realmente?\nLa propiedad 'spec.activeDeadlineSeconds' de un Job en Kubernetes establece un límite de tiempo absoluto en segundos para la ejecución de la tarea. Si se excede este tiempo, el Job se cancela y limpia de forma automática.\n\nLa perspectiva de la clase:\nEl profesor explica que esta propiedad es ideal para evitar que tareas o procesos de script corruptos o en bucle infinito queden colgados consumiendo recursos del clúster de forma permanente.\n\nAplicación en DevOps:\nEn ingeniería DevOps se utiliza para automatizar tareas de migración de bases de datos, auditorías de seguridad rápidas o limpiezas de almacenamiento, deteniendo y alertando de inmediato si la ejecución excede el tiempo estimado."
   },
   {
     "tema": "Tema 10: Deployments, StatefulSets y Jobs",
@@ -1184,7 +1282,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Proporcionan a los Pods del StatefulSet una entrada propia en el DNS. No tendrán una clusterIP asociada, por lo que no realizarán balanceo de carga. En su lugar devolverán la lista de IPs y hostnames asociadas a los Pods."
+    "explanation": "Proporcionan a los Pods del StatefulSet una entrada propia en el DNS. No tendrán una clusterIP asociada, por lo que no realizarán balanceo de carga. En su lugar devolverán la lista de IPs y hostnames asociadas a los Pods.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn servicio 'headless' se define especificando 'clusterIP: None' en el archivo YAML. No tiene una IP virtual única asignada, no realiza balanceo de carga y, en su lugar, el servidor DNS de Kubernetes devuelve de forma directa una lista con todas las IPs de los pods asociados.\n\nLa perspectiva de la clase:\nEl profesor explica que los servicios headless son de gran utilidad para clásteres de bases de datos. Al no haber balanceador de IP en medio, los pods de base de datos pueden identificarse directamente entre sí para realizar la replicación de datos del clúster.\n\nAplicación en DevOps:\nEn DevOps, esto se utiliza junto con 'StatefulSets'. El servicio headless permite que un pod cliente se conecte específicamente a un nodo maestro o un nodo réplica en particular consultando los hostnames DNS directos (ej. 'db-0.base-datos')."
   },
   {
     "tema": "Tema 10: Deployments, StatefulSets y Jobs",
@@ -1196,6 +1295,7 @@
       "CronJobs"
     ],
     "answer": "CronJobs",
-    "explanation": "Los CronJobs nos permiten planificar tareas para que sean ejecutadas a una hora específica o, incluso, que se repitan de manera periódica. La ejecución de las tareas se realizará creando un Job, el cual ejecutará uno o varios Pods."
+    "explanation": "Los CronJobs nos permiten planificar tareas para que sean ejecutadas a una hora específica o, incluso, que se repitan de manera periódica. La ejecución de las tareas se realizará creando un Job, el cual ejecutará uno o varios Pods.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl controlador 'CronJob' se encarga de crear 'Jobs' a intervalos periódicos según una planificación definida en formato cron. Cada 'Job' instanciado se encargará de crear y gestionar los pods necesarios para ejecutar la tarea correspondiente.\n\nLa perspectiva de la clase:\nEl profesor Santos Pardos menciona que los CronJobs permiten externalizar las tareas programadas que antes se configuraban de forma insegura y descentralizada en el sistema operativo de servidores individuales, consolidándolas en el clúster.\n\nAplicación en DevOps:\nEn la gestión de infraestructura, los 'CronJobs' se utilizan para realizar mantenimiento del clúster, regenerar índices de bases de datos de Elasticsearch de forma diaria o alertar al equipo de DevOps si los recursos de almacenamiento están llegando a su límite."
   }
 ]

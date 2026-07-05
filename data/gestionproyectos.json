@@ -9,7 +9,8 @@
       "Análisis de viabilidad del proyecto, planificación del trabajo, ejecución del proyecto, seguimiento y control del trabajo, cierre del proyecto"
     ],
     "answer": "Análisis de viabilidad del proyecto, planificación del trabajo, ejecución del proyecto, seguimiento y control del trabajo, cierre del proyecto",
-    "explanation": "Estos son los objetivos o fases sobre los que se apoya la gestión de proyectos para obtener beneficios para las empresas."
+    "explanation": "Estos son los objetivos o fases sobre los que se apoya la gestión de proyectos para obtener beneficios para las empresas.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa gestión de proyectos es un conjunto de procesos estructurados para alcanzar metas específicas mediante cinco fases: inicio, planificación, ejecución, seguimiento/control y cierre. Su propósito principal es asegurar que los objetivos se cumplan dentro de los límites de alcance, tiempo y coste.\n\n**La perspectiva de la clase:**\nEl profesor Miguel Lozano recalca que gestionar un proyecto no es solo organizar tareas, sino estructurarlas para tomar decisiones informadas. En el examen, recuerda que estas fases clásicas definen el ciclo completo de vida de cualquier desarrollo.\n\n**Aplicación en DevOps:**\nEn una app como la de FinTech Solutions, esto se traduce en definir la viabilidad, planificar los pipelines de CI/CD, ejecutar el código, monitorear de forma continua con telemetría y formalizar el despliegue final en producción."
   },
   {
     "tema": "Tema 1: Introducción a la gestión de proyectos",
@@ -21,7 +22,8 @@
       "Cuando se desarrolla el proyecto pueden surgir cambios y hay que adaptarse"
     ],
     "answer": "Durante el desarrollo del proyecto los requisitos siempre serán los mismos",
-    "explanation": "No se puede asegurar que los requisitos y funcionalidades del proyecto no varíen, por lo que hay que adaptarse a lo que el cliente va requiriendo."
+    "explanation": "No se puede asegurar que los requisitos y funcionalidades del proyecto no varíen, por lo que hay que adaptarse a lo que el cliente va requiriendo.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn el desarrollo de software real, es imposible asegurar que los requisitos permanecerán estáticos. La variabilidad, los cambios en las necesidades del cliente y el aprendizaje incremental hacen que el alcance sea el elemento más volátil de un proyecto.\n\n**La perspectiva de la clase:**\nEl profesor enfatiza que los clientes a menudo no saben lo que quieren hasta que ven el software funcionando. Por tanto, asumir requisitos fijos en un entorno tecnológico es una receta segura para el fracaso de la gestión tradicional.\n\n**Aplicación en DevOps:**\nAl implementar la aplicación financiera, el equipo descubre mejoras de seguridad y usabilidad a medida que despliega microfuncionalidades, lo que obliga a adaptar y reordenar constantemente la pila del producto (Product Backlog)."
   },
   {
     "tema": "Tema 1: Introducción a la gestión de proyectos",
@@ -33,7 +35,8 @@
       "La buena documentación generada"
     ],
     "answer": "El hecho de tener una comunicación transparente y más abierta entre los equipos",
-    "explanation": "Con el enfoque ágil, las personas son el centro, en base a su conocimiento y la propia colaboración del equipo."
+    "explanation": "Con el enfoque ágil, las personas son el centro, en base a su conocimiento y la propia colaboración del equipo.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl enfoque ágil sitúa a las personas en el centro, basando su éxito en su propio conocimiento, la autoorganización y la colaboración transparente y abierta entre todos los miembros de los equipos de trabajo.\n\n**La perspectiva de la clase:**\nEl profesor Lozano destaca que esta comunicación fluida y abierta elimina silos, facilitando que el equipo tome decisiones rápidas y se adapte de forma proactiva al cambio continuo sin depender de pesadas aprobaciones jerárquicas.\n\n**Aplicación en DevOps:**\nEn el proyecto de FinTech Solutions S.A., esta transparencia se concreta en la daily stand-up, donde el equipo colabora de manera integrada para resolver dependencias técnicas en el pipeline de CI/CD."
   },
   {
     "tema": "Tema 1: Introducción a la gestión de proyectos",
@@ -45,7 +48,8 @@
       "En los que los clientes lo solicitan"
     ],
     "answer": "En los que los requisitos y funcionalidades no estén del todo definidos desde el inicio y puedan tener cambios",
-    "explanation": "En los proyectos donde no varían los requisitos y funcionalidades, se pueden usar metodologías tradicionales. Cuando hay cambios es recomendable usar metodologías ágiles."
+    "explanation": "En los proyectos donde no varían los requisitos y funcionalidades, se pueden usar metodologías tradicionales. Cuando hay cambios es recomendable usar metodologías ágiles.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSe recomienda su uso en proyectos complejos caracterizados por una alta incertidumbre, donde los requisitos y funcionalidades no están completamente definidos desde el inicio y es muy probable que surjan cambios.\n\n**La perspectiva de la clase:**\nEl profesor explica que, si los requisitos son fijos y conocidos, los métodos tradicionales son válidos. Sin embargo, para proyectos tecnológicos modernos donde las prioridades del negocio cambian, el agilismo es indispensable para no fracasar.\n\n**Aplicación en DevOps:**\nPara la base de datos y la pasarela de pagos de FinTech Solutions, el enfoque ágil permite adaptar los sprints conforme se reciben regulaciones de seguridad dinámicas del sector bancario."
   },
   {
     "tema": "Tema 1: Introducción a la gestión de proyectos",
@@ -57,7 +61,8 @@
       "El movimiento DevOps apuesta por ciclos de desarrollo cortos con lanzamientos confiables, alineado con los objetivos de la agilidad"
     ],
     "answer": "El movimiento DevOps apuesta por ciclos de desarrollo cortos con lanzamientos confiables, alineado con los objetivos de la agilidad",
-    "explanation": "Es esta alineación la que hace que exista una relación importante, no cuestiones como que uno y otro tengan una dependencia."
+    "explanation": "Es esta alineación la que hace que exista una relación importante, no cuestiones como que uno y otro tengan una dependencia.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nDevOps comparte plenamente los objetivos de agilidad al apostar por ciclos de desarrollo sumamente cortos y frecuentes con lanzamientos o despliegues de software altamente confiables y estables.\n\n**La perspectiva de la clase:**\nSe enseña en clase que existe una simbiosis y una alineación estrecha de objetivos comerciales entre ambos paradigmas; DevOps extiende los beneficios de agilidad más allá de la fase de desarrollo, llegando hasta la operación real.\n\n**Aplicación en DevOps:**\nEl equipo automatiza el pipeline de despliegue continuo (CD) para asegurar que el código desarrollado al final de un Sprint de dos semanas llegue a producción de forma segura y automatizada."
   },
   {
     "tema": "Tema 1: Introducción a la gestión de proyectos",
@@ -69,7 +74,8 @@
       "Se puede usar cualquier tipo de enfoque, pues no depende de esto"
     ],
     "answer": "El enfoque ágil",
-    "explanation": "En los proyectos ágiles las iteraciones se ejecutan para realizar incrementos sobre el producto generado en cada iteración."
+    "explanation": "En los proyectos ágiles las iteraciones se ejecutan para realizar incrementos sobre el producto generado en cada iteración.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl enfoque ágil se basa en construir el producto a través de ciclos cortos repetitivos (iteraciones) y entregas acumulativas (incrementos). Esto maximiza la adaptabilidad y reduce el riesgo al no comprometerse con un plan masivo y rígido.\n\n**La perspectiva de la clase:**\nEl profesor Lozano destaca que cada ciclo (Sprints de 2 semanas) es como un mini-proyecto donde se desarrolla, prueba y entrega algo funcional. Esto contrasta con el modelo en cascada (Waterfall), donde el producto final solo se ve al acabar todo.\n\n**Aplicación en DevOps:**\nEn cada iteración de la app financiera, el equipo de TechOps Solutions añade una funcionalidad (ej. módulo de informes), la prueba automáticamente en el pipeline de CI/CD y la despliega, acumulando valor de forma segura."
   },
   {
     "tema": "Tema 1: Introducción a la gestión de proyectos",
@@ -81,7 +87,8 @@
       "Se puede usar cualquier tipo de enfoque, pues no depende de esto"
     ],
     "answer": "Se manejan equipos de trabajos pequeños, normalmente no más de quince personas, dependiendo del proyecto",
-    "explanation": "No es un límite absoluto, pero se recomiendan grupos reducidos. Si un proyecto requiere cien personas, se harán varios equipos de ocho-diez personas en cada equipo."
+    "explanation": "No es un límite absoluto, pero se recomiendan grupos reducidos. Si un proyecto requiere cien personas, se harán varios equipos de ocho-diez personas en cada equipo.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos marcos ágiles exigen equipos de trabajo pequeños y multidisciplinares para garantizar una comunicación fluida y evitar la burocracia. Un tamaño reducido minimiza los canales de comunicación y agiliza la toma de decisiones autónomas.\n\n**La perspectiva de la clase:**\nEn clase se enfatiza la 'regla de las dos pizzas' de Jeff Bezos: si no puedes alimentar al equipo con dos pizzas, es demasiado grande. El estándar de Scrum recomienda un tamaño óptimo de entre 3 y 9 desarrolladores.\n\n**Aplicación en DevOps:**\nPara la app de FinTech, un equipo ágil de 7 personas (que incluye desarrolladores, expertos en seguridad y un especialista en sistemas) puede autogestionarse y desplegar cambios sin pesadas reuniones jerárquicas."
   },
   {
     "tema": "Tema 1: Introducción a la gestión de proyectos",
@@ -93,7 +100,8 @@
       "Radica en los equipos de trabajo, porque en el agilismo los miembros se adaptan a cambios en el desarrollo y se apoyan, y en DevOps se unen equipo de desarrollo y operaciones"
     ],
     "answer": "Radica en los equipos de trabajo, porque en el agilismo los miembros se adaptan a cambios en el desarrollo y se apoyan, y en DevOps se unen equipo de desarrollo y operaciones",
-    "explanation": "Esta es la principal diferencia y, además, antes de la cultura DevOps no existía una interacción a nivel de comunicación y trabajo continuo entre el equipo de desarrollo y el de operaciones."
+    "explanation": "Esta es la principal diferencia y, además, antes de la cultura DevOps no existía una interacción a nivel de comunicación y trabajo continuo entre el equipo de desarrollo y el de operaciones.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa diferencia radica en los equipos de trabajo: el agilismo se enfoca en que los desarrolladores colaboren y se adapten a cambios, mientras que DevOps derriba la barrera histórica uniendo al equipo de desarrollo con el de operaciones/sistemas.\n\n**La perspectiva de la clase:**\nEl profesor recalca que antes del surgimiento de la cultura DevOps, no existía una comunicación ni un trabajo continuo e integrado entre el personal de programación (Dev) y el de sistemas (Ops), operando como silos independientes.\n\n**Aplicación en DevOps:**\nEn la práctica, un ingeniero de TechOps no solo escribe código financiero, sino que también gestiona y versiona la infraestructura como código usando herramientas como Terraform y Git."
   },
   {
     "tema": "Tema 1: Introducción a la gestión de proyectos",
@@ -105,7 +113,8 @@
       "Cuando se desarrolla un proyecto mediante la idea de DevOps se asegura"
     ],
     "answer": "Cuando se aplican metodologías ágiles, en cada iteración y en plazos cortos",
-    "explanation": "En una propuesta ágil, se van obteniendo MVP en cada iteración que se enriquece en las siguientes, y no tiene por qué emplearse DevOps."
+    "explanation": "En una propuesta ágil, se van obteniendo MVP en cada iteración que se enriquece en las siguientes, y no tiene por qué emplearse DevOps.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl MVP (Minimum Viable Product) es la versión funcional más simple de un producto que permite probar hipótesis de negocio y recopilar aprendizaje validado con el menor esfuerzo y tiempo.\n\n**La perspectiva de la clase:**\nEl profesor Lozano aclara que el MVP se obtiene específicamente bajo metodologías ágiles en cada iteración y en plazos cortos, sin necesidad obligatoria de aplicar herramientas de DevOps.\n\n**Aplicación en DevOps:**\nPara la app financiera de FinTech Solutions, un MVP consistiría en lanzar la pantalla de login con un único método de pago para validar la seguridad y la base de datos antes de añadir más funciones."
   },
   {
     "tema": "Tema 1: Introducción a la gestión de proyectos",
@@ -117,7 +126,8 @@
       "Hacer equipos pequeños, reducir costes, no realizar cambios continuos y trabajar con metodología tradicional"
     ],
     "answer": "Desarrollo continuo, integración continua, entrega continua, supervisión continua",
-    "explanation": "Estas prácticas son algunas de las que permiten una base de automatización y mejora continua en DevOps."
+    "explanation": "Estas prácticas son algunas de las que permiten una base de automatización y mejora continua en DevOps.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nDevOps se apoya en un pipeline automatizado de prácticas continuas: desarrollo continuo (ramas cortas), integración continua (CI), entrega/despliegue continuos (CD) y supervisión continua. Esto asegura lanzamientos frecuentes, rápidos y estables.\n\n**La perspectiva de la clase:**\nEl profesor insiste en que la automatización es clave en DevOps. No se puede hablar de DevOps real si el paso a producción o las pruebas de calidad siguen dependiendo de procesos manuales lentos o de un departamento de calidad aislado.\n\n**Aplicación en DevOps:**\nCada vez que un programador de TechOps sube cambios para la app financiera, el servidor de CI ejecuta pruebas automáticas de seguridad. Si se validan, el código se empaqueta y se despliega de inmediato mediante pipelines automatizados."
   },
   {
     "tema": "Tema 2: Metodologías ágiles",
@@ -129,7 +139,8 @@
       "Estudiar la viabilidad de un proyecto desde su inicio hasta el final, y sin considerar cambios en tiempo real"
     ],
     "answer": "Establecer un conjunto de valores y principios como guía a seguir para un desarrollo de calidad, rápido y adaptado a requisitos cambiantes",
-    "explanation": "Lo fundamental fue el aglutinar estos valores y principios en un Manifiesto con esta finalidad de servir de modelo."
+    "explanation": "Lo fundamental fue el aglutinar estos valores y principios en un Manifiesto con esta finalidad de servir de modelo.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl Manifiesto Ágil, redactado en 2001 por 17 expertos de la industria, es el documento fundacional de la agilidad. Establece 4 valores y 12 principios diseñados para guiar el desarrollo de software de alta calidad, rápido y altamente adaptable.\n\n**La perspectiva de la clase:**\nEl profesor recalca que el manifiesto fue una revolución cultural. No es una metodología con pasos rígidos, sino una filosofía de trabajo que prioriza a las personas y los resultados de negocio reales sobre procesos burocráticos.\n\n**Aplicación en DevOps:**\nEl equipo de desarrollo de la app financiera utiliza estos principios para colaborar diariamente con el Product Owner de FinTech Solutions, lanzando pequeños incrementos de software en lugar de redactar extensos manuales técnicos antes de programar."
   },
   {
     "tema": "Tema 2: Metodologías ágiles",
@@ -141,7 +152,8 @@
       "Valorar más la respuesta a cambios sobre seguir un plan estricto"
     ],
     "answer": "Valorar más la negociación de un contrato con el cliente sobre la colaboración con dicho cliente o usuario final",
-    "explanation": "El resto de los valores son ciertos, y este es justo al revés: se debe valorar la colaboración con el cliente sobre negociar el contrato."
+    "explanation": "El resto de los valores son ciertos, y este es justo al revés: se debe valorar la colaboración con el cliente sobre negociar el contrato.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl Manifiesto Ágil valora la colaboración con el cliente por encima de la negociación contractual. Sostiene que una relación de confianza mutua e involucramiento diario produce mejores resultados que un contrato rígido de desconfianza.\n\n**La perspectiva de la clase:**\nEl profesor Miguel Lozano explica en clase que clásicamente el cliente y el proveedor adoptaban posturas distantes y preventivas. Agile rompe esto incluyendo al cliente (o su representante, el Product Owner) directamente dentro del equipo de trabajo.\n\n**Aplicación en DevOps:**\nEn el proyecto de FinTech Solutions, en lugar de discutir el contrato cada vez que hay una modificación, el Product Owner trabaja mano a mano con TechOps redefiniendo las prioridades en el tablero para buscar el beneficio mutuo."
   },
   {
     "tema": "Tema 2: Metodologías ágiles",
@@ -153,7 +165,8 @@
       "Los procesos ágiles no pueden asegurar el desarrollo sostenible"
     ],
     "answer": "Los procesos ágiles no pueden asegurar el desarrollo sostenible",
-    "explanation": "Justo lo contrario: los procesos ágiles deben promover el desarrollo sostenible, manteniendo un ritmo constante de trabajo."
+    "explanation": "Justo lo contrario: los procesos ágiles deben promover el desarrollo sostenible, manteniendo un ritmo constante de trabajo.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos procesos ágiles promueven de forma explícita el desarrollo sostenible. Esto significa que los promotores, desarrolladores y usuarios deben ser capaces de mantener un ritmo de trabajo constante y saludable de forma indefinida, evitando el agotamiento.\n\n**La perspectiva de la clase:**\nEl profesor advierte que la agilidad no consiste en explotar al equipo o trabajar 24 horas seguidas para cumplir una fecha de entrega artificial. El ritmo debe ser sostenible en el tiempo para garantizar la calidad del código y la retención del talento.\n\n**Aplicación en DevOps:**\nTechOps Solutions planifica la velocidad del equipo basándose en datos históricos reales (ej. 16 puntos de historia por Sprint), asegurando que los desarrolladores de la app financiera no sufran sobrecargas ni estrés extremo."
   },
   {
     "tema": "Tema 2: Metodologías ágiles",
@@ -165,7 +178,8 @@
       "Puede haber empresas que usen ambas metodologías, según el equipo de desarrollo y sus habilidades"
     ],
     "answer": "Puede haber empresas que usen ambas metodologías, según el proyecto a desarrollar",
-    "explanation": "Se pueden usar ambas en distintos proyectos, y no depende del equipo de desarrollo, sino del proyecto en sí, si habrá cambios o no."
+    "explanation": "Se pueden usar ambas en distintos proyectos, y no depende del equipo de desarrollo, sino del proyecto en sí, si habrá cambios o no.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSí, es totalmente viable que una organización coexista usando ambas metodologías. La elección no depende del equipo de desarrollo, sino de la naturaleza del proyecto a desarrollar y del nivel de incertidumbre de sus requisitos.\n\n**La perspectiva de la clase:**\nEn las clases teóricas se resalta el concepto de enfoques híbridos. Por ejemplo, en una organización se puede usar el enfoque predictivo tradicional para infraestructuras físicas de servidores y enfoques ágiles para el desarrollo de software.\n\n**Aplicación en DevOps:**\nLa empresa de FinTech puede usar planificación tradicional para la construcción física de sus oficinas, pero aplica Scrum, DevOps e integración continua para el despliegue de sus microservicios en la nube AWS."
   },
   {
     "tema": "Tema 2: Metodologías ágiles",
@@ -177,7 +191,8 @@
       "Los indicados en el Manifiesto Ágil salvo que Scrum tiene su propio esquema de trabajo"
     ],
     "answer": "La transparencia en el avance y comunicación, la inspección con revisiones a corto plazo, y la adaptación cuando surge nueva información",
-    "explanation": "En Scrum se contemplan los principios indicados en el Manifiesto Ágil que se centra en estos que se señalan aquí, y se aplica como metodología ágil, no tradicional."
+    "explanation": "En Scrum se contemplan los principios indicados en el Manifiesto Ágil que se centra en estos que se señalan aquí, y se aplica como metodología ágil, no tradicional.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nScrum se fundamenta en los tres pilares del control empírico de procesos: la transparencia para hacer visible el avance, la inspección constante a corto plazo para evaluar el progreso y la adaptación cuando surge información nueva.\n\n**La perspectiva de la clase:**\nEl profesor indica que estos principios provienen directamente del Manifiesto Ágil. El control empírico asegura que las decisiones del proyecto se tomen basadas en la experiencia y la realidad observada, no en suposiciones teóricas.\n\n**Aplicación en DevOps:**\nEn FinTech Solutions, la transparencia se logra en el tablero Jira, la inspección mediante pruebas unitarias en cada push de código, y la adaptación ajustando el backlog si un test automático falla."
   },
   {
     "tema": "Tema 2: Metodologías ágiles",
@@ -189,7 +204,8 @@
       "Una metodología que, mediante una serie de pasos a aplicar, da valor al cliente, realiza mejora continua y ayuda a eliminar desperdicio"
     ],
     "answer": "Una síntesis entre un conjunto de principios y un pensamiento para obtener productos diferentes y basados en la metodología ágil",
-    "explanation": "Lean no es una metodología, es un enfoque o una filosofía sobre la que usar los principios o guía en la construcción de productos."
+    "explanation": "Lean no es una metodología, es un enfoque o una filosofía sobre la que usar los principios o guía en la construcción de productos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLean no es una metodología estricta, sino un pensamiento o filosofía centrado en maximizar el valor entregado al cliente mediante la optimización de los flujos de trabajo y la eliminación sistemática de todo desperdicio (despilfarro).\n\n**La perspectiva de la clase:**\nEl profesor explica que en software, Lean consiste en hacer únicamente lo que es útil y aporta valor, eliminando procesos lentos, sobreproducción de código que nadie usará, y tiempos muertos entre departamentos.\n\n**Aplicación en DevOps:**\nEn el proyecto de FinTech, TechOps identifica el desperdicio por tiempos de espera cuando el equipo de calidad hace pruebas manuales, solucionándolo al automatizar las pruebas unitarias y de integración dentro del pipeline."
   },
   {
     "tema": "Tema 2: Metodologías ágiles",
@@ -201,7 +217,8 @@
       "Tanto una metodología como una herramienta que automáticamente va mostrando la evolución del proyecto definido"
     ],
     "answer": "Tanto una metodología como una herramienta que automáticamente va mostrando la evolución del proyecto definido",
-    "explanation": "Kanban es tanto una metodología como una herramienta, pero no muestra automáticamente la evolución del proyecto. Se debe hacer con el desarrollo incremental, con las historias de usuario y las tareas modificadas por el equipo en el tablero Kanban."
+    "explanation": "Kanban es tanto una metodología como una herramienta, pero no muestra automáticamente la evolución del proyecto. Se debe hacer con el desarrollo incremental, con las historias de usuario y las tareas modificadas por el equipo en el tablero Kanban.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nKanban no es una herramienta o sistema que de forma totalmente automática muestre la evolución del proyecto. El progreso real debe ser alimentado de forma incremental mediante la actualización manual de tarjetas por parte del equipo.\n\n**La perspectiva de la clase:**\nEl profesor previene contra el error común de creer que el software hace todo el trabajo. Kanban es tanto una filosofía como un método visual de arrastre (*pull*), que requiere disciplina humana para limitar el trabajo en progreso (WIP).\n\n**Aplicación en DevOps:**\nCuando un desarrollador de TechOps termina la codificación de una historia, debe mover la tarjeta de 'In Progress' a 'Testing' en el tablero físico o digital (como Jira o Trello) para visibilizar el avance."
   },
   {
     "tema": "Tema 2: Metodologías ágiles",
@@ -213,7 +230,8 @@
       "Solo se podrían combinar en caso de que el cliente lo acepte, pues puede hacer que el proyecto se ralentice"
     ],
     "answer": "Varios enfoques o metodologías ágiles se pueden usar en conjunto, por ejemplo, Lean y Scrum, junto con Kanban",
-    "explanation": "No hay problema en combinar algunos enfoques y metodologías ágiles, pues aportan un valor añadido a los proyectos."
+    "explanation": "No hay problema en combinar algunos enfoques y metodologías ágiles, pues aportan un valor añadido a los proyectos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSí, los marcos y enfoques ágiles no son excluyentes ni rígidos. Se pueden usar perfectamente de forma conjunta (como Scrum, Lean y Kanban) para enriquecer el proceso de desarrollo y aportar mayor valor al cliente.\n\n**La perspectiva de la clase:**\nEl profesor Lozano aconseja ampliamente la combinación: estructurar el ciclo con las ceremonias y roles de Scrum, optimizar y visualizar el flujo diario con Kanban, y depurar ineficiencias mediante el pensamiento Lean.\n\n**Aplicación en DevOps:**\nEl equipo utiliza Scrum para planificar un Sprint de dos semanas y, al mismo tiempo, emplea un tablero Kanban integrado para limitar el WIP de las tareas de despliegue y automatización en Jenkins."
   },
   {
     "tema": "Tema 2: Metodologías ágiles",
@@ -225,7 +243,8 @@
       "Se propone minimizar la documentación, maximizar resultados, no se pueden dar cambios, y hay un jefe de proyecto"
     ],
     "answer": "Se propone minimizar la documentación, maximizar resultados, se pueden dar cambios, y hay autogestión de personas y trabajo",
-    "explanation": "Estos son los aspectos que se concluyen cuando se combinan diferentes metodologías y enfoques ágiles, reforzando todas las ventajas del pensamiento ágil."
+    "explanation": "Estos son los aspectos que se concluyen cuando se combinan diferentes metodologías y enfoques ágiles, reforzando todas las ventajas del pensamiento ágil.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSe logra minimizar la documentación innecesaria, maximizar el valor de los resultados funcionales entregados, adaptarse con flexibilidad a los cambios del cliente y promover una cultura de autogestión de las personas.\n\n**La perspectiva de la clase:**\nEl profesor enfatiza que al combinar enfoques, se refuerzan todas las ventajas de la filosofía ágil. El enfoque deja de ser contractual e instrumental y pasa a centrarse plenamente en el valor real de negocio y en el equipo.\n\n**Aplicación en DevOps:**\nEl equipo de FinTech prioriza entregar software funcionando (incremento) en lugar de redactar extensos manuales, logrando un despliegue más ágil, seguro y a un costo operativo significativamente menor."
   },
   {
     "tema": "Tema 2: Metodologías ágiles",
@@ -237,7 +256,8 @@
       "Cuando en un proyecto de grandes dimensiones no se pueden resolver ciertos aspectos con los enfoques ágiles, como la predictibilidad, la comercialización, la calidad y la visibilidad"
     ],
     "answer": "Cuando en un proyecto de grandes dimensiones no se pueden resolver ciertos aspectos con los enfoques ágiles, como la predictibilidad, la comercialización, la calidad y la visibilidad",
-    "explanation": "Hay ocasiones que las metodologías y enfoques ágiles comunes no se pueden usar en proyectos de dimensiones importantes, y suele ocurrir en grandes organizaciones, por lo que se aplican los frameworks de escalado ágil."
+    "explanation": "Hay ocasiones que las metodologías y enfoques ágiles comunes no se pueden usar en proyectos de dimensiones importantes, y suele ocurrir en grandes organizaciones, por lo que se aplican los frameworks de escalado ágil.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos frameworks de escalado ágil (como SAFe, LeSS o Spotify) se aplican cuando múltiples equipos ágiles (decenas o cientos de personas) necesitan colaborar para desarrollar un único producto complejo, requiriendo coordinación y predictibilidad a gran escala.\n\n**La perspectiva de la clase:**\nEl profesor explica que Scrum clásico funciona de maravilla para un solo equipo de hasta 9 personas. Sin embargo, cuando tienes 10 equipos trabajando integrados (como en Spotify o grandes bancos), se necesitan marcos de escalado para sincronizar Sprints.\n\n**Aplicación en DevOps:**\nSi el proyecto de FinTech Solutions crece y requiere 4 equipos trabajando en paralelo (pagos, seguridad, backend, interfaz), se aplica un modelo de escalado para coordinar las releases conjuntas de forma automatizada y sin colisiones de código."
   },
   {
     "tema": "Tema 3: Marco ágil Scrum",
@@ -249,7 +269,8 @@
       "Scrum se origina por la necesidad de cubrir algunos principios que no estaban incluidos en el Manifiesto Ágil"
     ],
     "answer": "Se origina como marco de trabajo ágil fundamental con aprendizaje empírico y autogestión, y se basa en el pensamiento Lean, centrándose en lo esencial",
-    "explanation": "Efectivamente, Scrum se basa en Lean, y no pretende cubrir otras cuestiones, sino que es un marco de trabajo y Lean es una filosofía."
+    "explanation": "Efectivamente, Scrum se basa en Lean, y no pretende cubrir otras cuestiones, sino que es un marco de trabajo y Lean es una filosofía.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nScrum nace como un marco de trabajo ágil y ligero fundamentado en el aprendizaje empírico y la autogestión. Se nutre fuertemente del pensamiento Lean, enfocándose exclusivamente en lo esencial y eliminando desperdicios.\n\n**La perspectiva de la clase:**\nSe explica que Lean es una filosofía organizativa muy amplia de optimización, mientras que Scrum es un marco de trabajo (*framework*) de gestión práctico que aplica dicha filosofía para resolver problemas complejos.\n\n**Aplicación en DevOps:**\nEl origen empírico de Scrum se traduce en DevOps al realizar retrospectivas tras cada iteración para analizar fallos de automatización y adaptar el pipeline CI/CD en el siguiente ciclo."
   },
   {
     "tema": "Tema 3: Marco ágil Scrum",
@@ -261,7 +282,8 @@
       "No hay una evaluación de producto final por parte del jefe de proyecto líder"
     ],
     "answer": "No se mantiene colaboración cliente y equipo de desarrollo, hay falta de liderazgo, no hay empatía, el equipo no es maduro",
-    "explanation": "Estos son algunos de los errores fundamentales que se producen en organizaciones que no aplican correctamente Scrum."
+    "explanation": "Estos son algunos de los errores fundamentales que se producen en organizaciones que no aplican correctamente Scrum.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl principal error es el llamado 'Agile de fachada', donde las organizaciones adoptan las ceremonias y nombres de Scrum de forma superficial, pero mantienen una estructura jerárquica rígida de ordenar y mandar, sin dar autonomía real al equipo.\n\n**La perspectiva de la clase:**\nEl profesor Lozano advierte que Scrum falla si hay falta de madurez en el equipo, falta de empatía, ausencia de colaboración directa con el cliente o si se trata al Scrum Master como si fuera un jefe de proyecto clásico.\n\n**Aplicación en DevOps:**\nSi en FinTech Solutions el departamento de Operaciones bloquea los despliegues de Desarrollo por políticas burocráticas antiguas, el Scrum Team no será realmente autónomo ni podrá entregar incrementos funcionales con agilidad."
   },
   {
     "tema": "Tema 3: Marco ágil Scrum",
@@ -273,7 +295,8 @@
       "Se ha hecho la guía menos prescriptiva, se habla de autogestión en vez de autoorganización, y en la planificación del Sprint se añade el por qué, además de qué y cómo"
     ],
     "answer": "Se ha hecho la guía menos prescriptiva, se habla de autogestión en vez de autoorganización, y en la planificación del Sprint se añade el por qué, además de qué y cómo",
-    "explanation": "Ha habido algunos cambios, no muy grandes, pero interesantes, entre los que se encuentran los aquí indicados."
+    "explanation": "Ha habido algunos cambios, no muy grandes, pero interesantes, entre los que se encuentran los aquí indicados.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSe redujo la prescriptividad para hacer la guía más ligera, se sustituyó el término 'autoorganización' por 'autogestión' y en la planificación del Sprint se añadió la meta o el 'por qué' estratégico de la iteración.\n\n**La perspectiva de la clase:**\nEl profesor aclara que la autogestión otorga más poder al equipo: ahora el equipo Scrum decide de manera autónoma quién hace qué, cómo y cuándo, lo que incrementa el compromiso y la madurez profesional.\n\n**Aplicación en DevOps:**\nEl equipo de TechOps no requiere de un jefe que asigne las tareas de configuración de red; ellos mismos se autogestionan para levantar la infraestructura de contenedores Docker en AWS."
   },
   {
     "tema": "Tema 3: Marco ágil Scrum",
@@ -285,7 +308,8 @@
       "Transparencia, inspección y gestión de análisis"
     ],
     "answer": "Transparencia, inspección y adaptación",
-    "explanation": "Estos son los pilares empíricos que se han añadido a la Guía de Scrum."
+    "explanation": "Estos son los pilares empíricos que se han añadido a la Guía de Scrum.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSon la transparencia, la inspección y la adaptación. La transparencia asegura que el estado real del proyecto sea visible; la inspección periódica evalúa el progreso; y la adaptación corrige de inmediato las desviaciones.\n\n**La perspectiva de la clase:**\nEl profesor Lozano recalca en sus diapositivas que estos pilares forman un ciclo continuo. No se puede inspeccionar con éxito si no hay transparencia sobre el estado real, y la inspección es inútil si no se adapta el proceso.\n\n**Aplicación en DevOps:**\nLa transparencia se logra compartiendo el tablero Jira, la inspección se realiza con análisis automatizados de seguridad y la adaptación ocurre corrigiendo fallos del pipeline al instante."
   },
   {
     "tema": "Tema 3: Marco ágil Scrum",
@@ -297,7 +321,8 @@
       "Compromiso, enfoque, visibilidad, respeto y coraje"
     ],
     "answer": "Compromiso, enfoque, sinceridad, respeto y coraje",
-    "explanation": "Estos son los valores sobre los que se fundamenta Scrum."
+    "explanation": "Estos son los valores sobre los que se fundamenta Scrum.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSon cinco valores esenciales para la conducta ética y la confianza del equipo: compromiso, enfoque, sinceridad (apertura), respeto y coraje (valentía) para abordar problemas difíciles.\n\n**La perspectiva de la clase:**\nEl profesor destaca que estos valores humanizan el desarrollo de software. Por ejemplo, la sinceridad y el coraje permiten a un desarrollador levantar la mano y admitir un error o un retraso en una sesión diaria.\n\n**Aplicación en DevOps:**\nEl respeto y la sinceridad permiten al equipo de FinTech realizar un análisis de causa raíz constructivo (*post-mortem*) tras una caída del sistema, buscando soluciones en lugar de culpables."
   },
   {
     "tema": "Tema 3: Marco ágil Scrum",
@@ -309,7 +334,8 @@
       "Se habla de responsabilidades, y serían el Product Owner, el Scrum Líder y los Desarrolladores"
     ],
     "answer": "Uno de los cambios fundamentales en la Guía de Scrum 2020 ha sido que se sustituye roles directamente por responsabilidades",
-    "explanation": "En la Guía de Scrum 2020 se ha sustituido el concepto de roles por responsabilidades."
+    "explanation": "En la Guía de Scrum 2020 se ha sustituido el concepto de roles por responsabilidades.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUno de los cambios más representativos de la Guía de Scrum 2020 es la abolición del concepto de 'roles' formales, sustituyéndolo directamente por 'responsabilidades' dentro de un único equipo cohesionado.\n\n**La perspectiva de la clase:**\nEl profesor explica que esto busca eliminar silos internos y la actitud de 'nosotros contra ellos' entre programadores y tester. Todo el equipo Scrum comparte la responsabilidad solidaria de entregar un incremento útil.\n\n**Aplicación en DevOps:**\nEn FinTech, el ingeniero de DevOps, el desarrollador y el analista de QA son parte de la misma unidad de trabajo, y la calidad del entregable en producción es una meta y responsabilidad compartida."
   },
   {
     "tema": "Tema 3: Marco ágil Scrum",
@@ -321,7 +347,8 @@
       "Impulsar la adopción de agilidad, autogestión, multifuncionalidad, ser el líder del equipo Scrum, gestionar los problemas y asegurar la ejecución de los eventos"
     ],
     "answer": "Impulsar la adopción de agilidad, autogestión, multifuncionalidad, ser el líder del equipo Scrum, gestionar los problemas y asegurar la ejecución de los eventos",
-    "explanation": "El Scrum Master impulsa la agilidad, promueve autogestión y multifuncionalidad, lidera el equipo, gestiona impedimentos y asegura que los eventos se ejecuten correctamente."
+    "explanation": "El Scrum Master impulsa la agilidad, promueve autogestión y multifuncionalidad, lidera el equipo, gestiona impedimentos y asegura que los eventos se ejecuten correctamente.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl Scrum Master promueve la agilidad, la autogestión y la multifuncionalidad en el equipo. Actúa como un líder al servicio de Scrum, gestionando y eliminando impedimentos técnicos y organizacionales.\n\n**La perspectiva de la clase:**\nEl profesor Lozano aclara de forma contundente que el Scrum Master **no es un project manager tradicional**; no tiene autoridad jerárquica ni asigna tareas, sino que facilita el éxito eliminando bloqueos.\n\n**Aplicación en DevOps:**\nSi el pipeline de CI/CD se detiene por un fallo en el servidor de licencias externo, el Scrum Master asume la gestión con el proveedor para desbloquear inmediatamente al equipo de desarrollo."
   },
   {
     "tema": "Tema 3: Marco ágil Scrum",
@@ -333,7 +360,8 @@
       "El Sprint es la meta a la que llega el resultado del proyecto tras las iteraciones finales"
     ],
     "answer": "El Sprint es un contenedor para los diferentes eventos del proyecto, como la planificación, Scrum diario, revisión del propio Sprint y retrospectiva de este",
-    "explanation": "Estas son las características que engloban el Sprint de Scrum."
+    "explanation": "Estas son las características que engloban el Sprint de Scrum.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl Sprint es el evento contenedor central de Scrum, de una duración máxima de un mes, dentro del cual se ejecutan todos los demás eventos: planificación, Scrum diario, revisión e iteración de retrospectiva.\n\n**La perspectiva de la clase:**\nEl profesor enfatiza que los Sprints deben mantener una duración constante a lo largo del proyecto para establecer un ritmo de desarrollo regular y sostenible, actuando como un latido constante.\n\n**Aplicación en DevOps:**\nPara la app de FinTech, se definen Sprints fijos de dos semanas; esto estabiliza las métricas del pipeline y asegura que el cliente reciba un incremento de software utilizable cada 14 días."
   },
   {
     "tema": "Tema 3: Marco ágil Scrum",
@@ -345,7 +373,8 @@
       "Son un conjunto de componentes del proyecto que deben ser asignados a cada miembro del equipo de desarrollo. Se tienen el Product Backlog, el Sprint y la Iteración"
     ],
     "answer": "Son los elementos que forman la base de la productividad y calidad del proyecto. Se tienen el Product Backlog, el Sprint Backlog y el Incremento",
-    "explanation": "Son estos tres artefactos que combinan como elementos necesarios para la productividad y calidad."
+    "explanation": "Son estos tres artefactos que combinan como elementos necesarios para la productividad y calidad.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSon elementos tangibles diseñados para maximizar la transparencia y proporcionar una base para la calidad. Son tres: el Product Backlog (requisitos del producto), el Sprint Backlog (tareas de la iteración) y el Incremento (producto funcional).\n\n**La perspectiva de la clase:**\nEl profesor indica que cada uno de estos artefactos tiene un compromiso asociado para garantizar el progreso enfocado: el Objetivo del Producto, el Objetivo del Sprint y la Definición de Hecho (DoD).\n\n**Aplicación en DevOps:**\nEl incremento representa el código compilado, probado automáticamente y listo para desplegarse, el cual cumple estrictamente con el checklist de calidad técnica de la compañía."
   },
   {
     "tema": "Tema 3: Marco ágil Scrum",
@@ -357,7 +386,8 @@
       "Describe un estado futuro del producto como objetivo a largo plazo y que se debe cumplir antes de continuar"
     ],
     "answer": "Describe un estado futuro del producto como objetivo a largo plazo y que se debe cumplir antes de continuar",
-    "explanation": "Siempre se deben cumplir los objetivos marcados para continuar."
+    "explanation": "Siempre se deben cumplir los objetivos marcados para continuar.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSu compromiso asociado es el Objetivo del Producto, el cual describe de forma concisa un estado futuro del software a largo plazo que sirve de meta unificada para que el equipo Scrum se enfoque antes de avanzar.\n\n**La perspectiva de la clase:**\nEn clase se explica que tener un objetivo de producto claro ayuda a evitar desperdicios y previene la dispersión del equipo al desarrollar funcionalidades que no aportan un valor de negocio real.\n\n**Aplicación en DevOps:**\nPara FinTech Solutions, el objetivo del producto es: 'Desplegar una plataforma de pagos segura y encriptada en la nube'. Todas las historias del backlog deben alinearse directamente con esta meta."
   },
   {
     "tema": "Tema 4: Lean y Kanban",
@@ -369,7 +399,8 @@
       "Que todo negocio debe maximizar el valor que se le da al cliente, cubrir sus necesidades y aplicar la metodología tradicional o ágil que sea necesaria"
     ],
     "answer": "Que todo negocio debe maximizar el valor dado al cliente y reducir las incidencias o despilfarros",
-    "explanation": "Este es el objetivo principal detrás del pensamiento Lean."
+    "explanation": "Este es el objetivo principal detrás del pensamiento Lean.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa filosofía Lean se centra en optimizar los procesos de un negocio maximizando al extremo el valor entregado al cliente, mientras se identifican y eliminan todos los despilfarros o desperdicios.\n\n**La perspectiva de la clase:**\nEl profesor Lozano recalca que el desperdicio en ingeniería de software incluye procesos lentos, esperas de aprobaciones, traspasos ineficientes y programar funcionalidades redundantes que nadie usará.\n\n**Aplicación en DevOps:**\nLa filosofía Lean se plasma en DevOps al automatizar las pruebas unitarias y de integración. Al eliminar el testeo manual y las esperas asociadas, se erradican desperdicios del ciclo de desarrollo."
   },
   {
     "tema": "Tema 4: Lean y Kanban",
@@ -381,7 +412,8 @@
       "Lean Management se refiere a gestión de evaluar Lean y Lean Manufacturing a la aplicación de las técnicas de producción"
     ],
     "answer": "Lean Management se refiere a gestión de implantar Lean y Lean Manufacturing a la aplicación de las técnicas de producción",
-    "explanation": "Lean Management es la gestión de implantar Lean en la organización, mientras que Lean Manufacturing se centra en las técnicas de producción."
+    "explanation": "Lean Management es la gestión de implantar Lean en la organización, mientras que Lean Manufacturing se centra en las técnicas de producción.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLean Management se refiere al marco estratégico y cultural para implantar la filosofía Lean en toda la organización, mientras que Lean Manufacturing se enfoca en la aplicación de las técnicas físicas y herramientas de producción en la fábrica.\n\n**La perspectiva de la clase:**\nEl profesor explica que Lean Management es la gestión del cambio cultural en la empresa, promoviendo el respeto por las personas y la mejora continua, mientras que Lean Manufacturing se limita al ámbito de los procesos productivos.\n\n**Aplicación en DevOps:**\nEn la consultora, Lean Management implica cambiar la mentalidad de los directores para empoderar al equipo ágil, mientras que las técnicas operativas se traducen en optimizar el flujo de despliegue del pipeline de CI/CD."
   },
   {
     "tema": "Tema 4: Lean y Kanban",
@@ -393,7 +425,8 @@
       "Defectos de producción, por no tener en consideración la opinión del cliente y generar productos defectuosos, y desaprovechamiento del talento por no escuchar esas ideas buenas del cliente"
     ],
     "answer": "Exceso de inventario, porque se generan productos que no llegan a usarse por los clientes, y esperas porque se requiera de respuestas o acciones de otros miembros del equipo para continuar",
-    "explanation": "Hay 7+1 = 8 despilfarros. Aquí se describen algunos; lo importante es entender lo que se asocia a los que se indican."
+    "explanation": "Hay 7+1 = 8 despilfarros. Aquí se describen algunos; lo importante es entender lo que se asocia a los que se indican.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl exceso de inventario (en software: código a medio terminar o sin desplegar que acumula polvo) y las esperas (detener el trabajo debido a traspasos ineficientes o requerir firmas de otros departamentos).\n\n**La perspectiva de la clase:**\nEl profesor resalta que existen 8 desperdicios clásicos aplicados al software. El código que no se despliega rápido a producción es inventario que se devalúa y puede contener errores ocultos.\n\n**Aplicación en DevOps:**\nPara reducir el inventario y las esperas, el equipo de FinTech implementa pipelines automatizados que integran el código de forma diaria y continua, reduciendo los tiempos de ciclo y el riesgo."
   },
   {
     "tema": "Tema 4: Lean y Kanban",
@@ -405,7 +438,8 @@
       "Valor de cliente y calidad, eliminar desperdicios, mejora continua, procesos pull, facilidad, y relación a largo plazo con proveedores"
     ],
     "answer": "Valor de cliente y calidad, eliminar desperdicios, mejora continua, procesos pull, flexibilidad, y relación a largo plazo con proveedores",
-    "explanation": "Estos son los principios básicos de Lean."
+    "explanation": "Estos son los principios básicos de Lean.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos principios fundamentales del pensamiento Lean son: definir el valor desde la perspectiva del cliente, eliminar los desperdicios, fomentar la mejora continua (*Kaizen*), implementar procesos *pull*, potenciar la flexibilidad y forjar relaciones a largo plazo.\n\n**La perspectiva de la clase:**\nEl profesor Lozano explica que la flexibilidad y los procesos *pull* (producir solo bajo demanda real del cliente) son pilares que la agilidad heredó directamente de la filosofía japonesa.\n\n**Aplicación en DevOps:**\nEn DevOps, el principio *pull* se observa cuando un commit en Git desencadena automáticamente la compilación y despliegue del microservicio en AWS, respondiendo a una demanda directa de integración."
   },
   {
     "tema": "Tema 4: Lean y Kanban",
@@ -417,7 +451,8 @@
       "Compromiso de la dirección, localizar el valor del cliente y la calidad, implicar a la gente al trabajo real, y pensamiento de procesos"
     ],
     "answer": "Compromiso de la dirección, localizar el valor del cliente y la calidad, implicar a la gente al trabajo real, y pensamiento de procesos",
-    "explanation": "Es fundamental que la dirección esté implicada, y a partir de ahí, dar valor al cliente, a tener procesos de calidad e implicar a las personas del equipo de desarrollo y la empresa en general a aplicar el pensamiento Lean."
+    "explanation": "Es fundamental que la dirección esté implicada, y a partir de ahí, dar valor al cliente, a tener procesos de calidad e implicar a las personas del equipo de desarrollo y la empresa en general a aplicar el pensamiento Lean.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nRequiere el compromiso real de la alta dirección, identificar con claridad el flujo de valor para el cliente, implicar activamente a las personas en el trabajo real diario y adoptar un enfoque basado en procesos sistémicos.\n\n**La perspectiva de la clase:**\nEl profesor Lozano enfatiza que Lean no es una directriz de software que se compra; es una cultura. Sin el apoyo activo de la gerencia para eliminar la burocracia y dar autonomía, la transformación fallará.\n\n**Aplicación en DevOps:**\nLa dirección de la FinTech aprueba que el equipo técnico autogestione su pipeline de despliegue automatizado, respaldando con presupuesto la adopción de herramientas en la nube como AWS."
   },
   {
     "tema": "Tema 4: Lean y Kanban",
@@ -429,7 +464,8 @@
       "Sí, se puede hacer tanto físico como digital"
     ],
     "answer": "Sí, se puede hacer tanto físico como digital",
-    "explanation": "Es de hecho una realidad que, debido a la deslocalización de los equipos de trabajo, cada día se hace más uso de herramientas digitales."
+    "explanation": "Es de hecho una realidad que, debido a la deslocalización de los equipos de trabajo, cada día se hace más uso de herramientas digitales.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSí, Kanban puede implementarse tanto en formatos físicos (pizarras con notas autoadhesivas) como en plataformas digitales especializadas, siendo ambas opciones completamente válidas.\n\n**La perspectiva de la clase:**\nDebido a la globalización y la deslocalización física de los ingenieros de software, el profesor destaca que el uso de herramientas virtuales es hoy una necesidad estándar para mantener la alineación del equipo.\n\n**Aplicación en DevOps:**\nEl equipo de TechOps utiliza Jira Software para dar seguimiento a las tareas del pipeline, facilitando que desarrolladores en Chile y España tengan visibilidad en tiempo real del flujo de trabajo."
   },
   {
     "tema": "Tema 4: Lean y Kanban",
@@ -441,7 +477,8 @@
       "Objetivos de cambios incrementales, cada miembro tiene un jefe como líder, mejora continua y colaborativa, proceso claro, virtualizar y gestionar el flujo de trabajo"
     ],
     "answer": "Objetivos de cambios incrementales, cada miembro es líder, mejora continua y colaborativa, proceso claro, virtualizar y gestionar el flujo de trabajo",
-    "explanation": "Aquí se incluyen algunos de los principios de Kanban."
+    "explanation": "Aquí se incluyen algunos de los principios de Kanban.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nKanban se cimienta en visualizar el flujo de trabajo, limitar el WIP (*Work in Progress*), gestionar y medir el flujo de manera activa, hacer las políticas explícitas e implementar ciclos de mejora continua y colaborativa.\n\n**La perspectiva de la clase:**\nEl profesor Lozano destaca en clase que limitar el WIP es crucial: 'deja de empezar y empieza a terminar'. Evita la multitarea, reduce la sobrecarga cognitiva del equipo y agiliza la entrega de valor.\n\n**Aplicación en DevOps:**\nEl tablero Kanban de la app de pagos restringe la columna de 'Testing' a un máximo de 3 tareas simultáneas, previniendo cuellos de botella en la fase de validación de microservicios."
   },
   {
     "tema": "Tema 4: Lean y Kanban",
@@ -453,7 +490,8 @@
       "Identificar claramente quién hace cada tarea y quién es el responsable de cada miembro del equipo de desarrollo"
     ],
     "answer": "Un buen diseño puede ser estructurado, con la información que sea fácil de leer, visible, entendible, que no use excesiva cantidad de colores y que se identifique bien las asignaciones a miembros",
-    "explanation": "No hay una regla única para un buen diseño, sobre todo se alcanza con la práctica, pero sí se puede considerar evitar algunos aspectos como los indicados."
+    "explanation": "No hay una regla única para un buen diseño, sobre todo se alcanza con la práctica, pero sí se puede considerar evitar algunos aspectos como los indicados.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nDebe poseer una estructura clara y limpia, con información visualmente fácil de leer, que no sature con colores innecesarios y permita identificar con precisión a los responsables asignados a cada tarea.\n\n**La perspectiva de la clase:**\nSe enseña en clase que el tablero Kanban funciona como un **radiador de información**. Un observador externo debe entender el estado operativo del proyecto en menos de un minuto sin preguntar a nadie.\n\n**Aplicación en DevOps:**\nEn Jira, cada tarjeta del pipeline financiero contiene el avatar del desarrollador asignado, un enlace al commit correspondiente de GitLab y etiquetas claras de prioridad técnica."
   },
   {
     "tema": "Tema 4: Lean y Kanban",
@@ -465,7 +503,8 @@
       "Asignar la tarea al facilitador"
     ],
     "answer": "Asignar la tarea al facilitador",
-    "explanation": "Una de las tareas del facilitador es que debe hacerse cargo de la gestión de las dependencias con otras organizaciones o proyectos."
+    "explanation": "Una de las tareas del facilitador es que debe hacerse cargo de la gestión de las dependencias con otras organizaciones o proyectos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn situaciones de bloqueos externos o dependencias complejas con otros departamentos u organizaciones, la mejor práctica en Kanban es asignar la tarjeta correspondiente al rol de facilitador.\n\n**La perspectiva de la clase:**\nEl profesor explica que el líder ágil (como el Scrum Master) actúa como un facilitador. Al asignarle la tarea bloqueada, se visibiliza que la responsabilidad de negociar la solución técnica recae en él.\n\n**Aplicación en DevOps:**\nSi el pipeline está detenido esperando que el equipo de seguridad corporativa habilite unos puertos en la nube de AWS, el Scrum Master toma esa tarea para gestionarla de manera proactiva."
   },
   {
     "tema": "Tema 4: Lean y Kanban",
@@ -477,7 +516,8 @@
       "Una tarea solo se asigna a una persona en principio, si esta no puede llevarla a cabo entonces se coge al siguiente en la lista y se le asigna, mientras todo se queda bloqueado"
     ],
     "answer": "Una tarea solo se asigna a una persona, las tareas se mueven hacia la derecha, pocas tareas en cada columna y no más de tres o cuatro personas asignadas a la vez a una tarea",
-    "explanation": "Son aspectos importantes que deben considerarse para hacer un buen uso de Kanban, de lo contrario no se estará aplicando bien la metodología/herramienta."
+    "explanation": "Son aspectos importantes que deben considerarse para hacer un buen uso de Kanban, de lo contrario no se estará aplicando bien la metodología/herramienta.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nCada tarea debe tener un único responsable para evitar la dilución del compromiso, las tarjetas deben moverse estrictamente de izquierda a derecha (hacia el valor) y se debe restringir el número de tareas concurrentes.\n\n**La perspectiva de la clase:**\nEl profesor previene contra el desorden visual. Mover tarjetas hacia atrás oculta fallos metodológicos; las incidencias deben resolverse creando subtareas rápidas o alertas dentro de la columna actual.\n\n**Aplicación en DevOps:**\nCuando un test automático falla en la columna 'Testing', la tarjeta no retrocede a 'Development'; el desarrollador de FinTech asume la corrección (*hotfix*) de manera prioritaria en esa misma fase."
   },
   {
     "tema": "Tema 5: Visión y gestión del proyecto ágil",
@@ -489,7 +529,8 @@
       "Se trata de una visión clara, concreta y muy concisa, por la que todo debe quedar claro en la reunión inicial con el cliente"
     ],
     "answer": "Se habla de una visión unificada del proyecto, en la que se analiza y comprende el por qué se lleva a cabo cada tarea, priorizando los requisitos, y por qué se aporta valor de negocio",
-    "explanation": "Se trata de una visión unificada donde se priorizan los requisitos y se consideran aspectos de valor de negocio, pero se pueden hacer cambios."
+    "explanation": "Se trata de una visión unificada donde se priorizan los requisitos y se consideran aspectos de valor de negocio, pero se pueden hacer cambios.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSe fundamenta en plantear una visión unificada del proyecto, analizando y comprendiendo colectivamente el porqué estratégico y el valor de negocio de cada requisito, bajo un backlog dinámico y priorizado.\n\n**La perspectiva de la clase:**\nEl profesor resalta que la visión no es impuesta de forma autocrática. El equipo participa activamente en comprender el impacto comercial de su trabajo, lo que fomenta la autogestión y la corresponsabilidad.\n\n**Aplicación en DevOps:**\nEl equipo de desarrollo comprende que la encriptación de transacciones en la app financiera es de alta prioridad para cumplir regulaciones del mercado, orientando sus esfuerzos a optimizar este flujo."
   },
   {
     "tema": "Tema 5: Visión y gestión del proyecto ágil",
@@ -501,7 +542,8 @@
       "Es la pila de requisitos, que debe venir priorizada"
     ],
     "answer": "Es una técnica que se usa para transmitir la visión unificada del proyecto",
-    "explanation": "Tanto el Elevator Pitch como el Product Box son técnicas muy útiles para transmitir el enfoque de visión unificada del proyecto."
+    "explanation": "Tanto el Elevator Pitch como el Product Box son técnicas muy útiles para transmitir el enfoque de visión unificada del proyecto.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEs una dinámica de gamificación en la que el equipo simula diseñar la caja física del software (eslogan, logo y características clave) para consensuar y transmitir de forma visual la visión unificada del producto.\n\n**La perspectiva de la clase:**\nJunto con el *Elevator Pitch* (discurso de 30 segundos), el profesor Lozano señala que estas técnicas son fundamentales durante el lanzamiento ágil para forzar al equipo a simplificar y enfocarse en lo esencial.\n\n**Aplicación en DevOps:**\nAl inicio del desarrollo, el equipo diseña una caja virtual de la aplicación titulada: 'FinTechPay: Transferencias seguras en un clic', alineando a programadores y Product Owner bajo una misma propuesta visual."
   },
   {
     "tema": "Tema 5: Visión y gestión del proyecto ágil",
@@ -513,7 +555,8 @@
       "Para que los clientes sepan cuáles van a ser los requisitos que el equipo de desarrollo ha decidido implementar"
     ],
     "answer": "En marcos de metodologías ágiles como Scrum y Kanban",
-    "explanation": "Las historias de usuario son un elemento fundamental en marcos ágiles como Scrum y Kanban para definir requisitos desde la perspectiva del usuario."
+    "explanation": "Las historias de usuario son un elemento fundamental en marcos ágiles como Scrum y Kanban para definir requisitos desde la perspectiva del usuario.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas historias de usuario son la unidad estándar para definir y estructurar requisitos de negocio desde la perspectiva del usuario final en marcos ágiles modernos como Scrum y Kanban.\n\n**La perspectiva de la clase:**\nEl profesor Lozano insiste en que una historia de usuario no es una especificación técnica rígida o contractual, sino un compromiso para iniciar una conversación colaborativa dentro del equipo.\n\n**Aplicación en DevOps:**\nEl Product Owner redacta: 'Como usuario, quiero autenticarme con huella para acceder rápido a mi cuenta'. El equipo DevOps la descompone en tareas técnicas en Jira para su codificación."
   },
   {
     "tema": "Tema 5: Visión y gestión del proyecto ágil",
@@ -525,7 +568,8 @@
       "Son un conjunto de personas que establecen las decisiones de la priorización de requisitos"
     ],
     "answer": "Es un grupo de usuarios del producto final, también considerados como un arquetipo",
-    "explanation": "Las Personas (técnica Personas) representan un conjunto de los usuarios finales que usarán el producto y por tanto se espera resolver las necesidades requeridas del sistema para ellos."
+    "explanation": "Las Personas (técnica Personas) representan un conjunto de los usuarios finales que usarán el producto y por tanto se espera resolver las necesidades requeridas del sistema para ellos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSon representaciones ficticias de los usuarios finales de nuestro producto (arquetipos) creadas en base a datos de comportamiento, metas y frustraciones reales, ayudando a diseñar software centrado en humanos.\n\n**La perspectiva de la clase:**\nEn clase se explica que crear 'Personas' (como 'Carmen, de 65 años, que desconfía de la tecnología') evita el sesgo de programar la aplicación pensando únicamente en lo que los desarrolladores consideran intuitivo.\n\n**Aplicación en DevOps:**\nEl equipo utiliza el arquetipo de Carmen para comprender que los mensajes de error en la pasarela de pagos financieros deben ser extremadamente legibles, claros y con un lenguaje libre de tecnicismos."
   },
   {
     "tema": "Tema 5: Visión y gestión del proyecto ágil",
@@ -537,7 +581,8 @@
       "Se deben poder analizar de forma subjetiva por parte del responsable de negocio"
     ],
     "answer": "Deben tener una respuesta directa y clara sobre si están bien cubiertos o no",
-    "explanation": "Los criterios de aceptación reflejan una aceptación positiva o negativa, por eso tienen que indicar una respuesta clara."
+    "explanation": "Los criterios de aceptación reflejan una aceptación positiva o negativa, por eso tienen que indicar una respuesta clara.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSon las condiciones objetivas que debe satisfacer una historia de usuario para ser considerada completa por el negocio. Deben formularse de manera binaria, arrojando una respuesta clara de sí o no.\n\n**La perspectiva de la clase:**\nEl profesor explica que la ambigüedad en los criterios de aceptación es un foco grave de desperdicio y disputas. Deben ser verificables y SMART para que el equipo técnico los valide con facilidad.\n\n**Aplicación en DevOps:**\nUn criterio como: 'El inicio de sesión debe fallar si la contraseña tiene menos de 8 caracteres'. Esto se traduce en una prueba automática en GitLab CI que pasa o falla de forma binaria."
   },
   {
     "tema": "Tema 5: Visión y gestión del proyecto ágil",
@@ -549,7 +594,8 @@
       "Elementos requeridos, básicos, atractivos, además de poder considerar anversos y reversos"
     ],
     "answer": "Elementos requeridos, básicos, atractivos, además de poder considerar neutros e inversos",
-    "explanation": "Tenemos estos conceptos para agrupar los requisitos, con los tres principales y los otros dos que pueden considerarse."
+    "explanation": "Tenemos estos conceptos para agrupar los requisitos, con los tres principales y los otros dos que pueden considerarse.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nClasifica los requisitos de un producto según la satisfacción del cliente en cinco categorías: básicos (imprescindibles), requeridos (satisfacción proporcional), atractivos (delicias inesperadas), neutros e inversos.\n\n**La perspectiva de la clase:**\nEl profesor Lozano aconseja usar Kano para definir el MVP. Un sistema debe tener cubiertos al 100% sus requisitos básicos antes de destinar tiempo a implementar características atractivas de bajo impacto real.\n\n**Aplicación en DevOps:**\nEn FinTech, la seguridad bancaria es un requisito básico e imprescindible. El equipo prioriza desplegar el cifrado SSL en el pipeline CI/CD antes de desarrollar el módulo opcional de avatares animados."
   },
   {
     "tema": "Tema 5: Visión y gestión del proyecto ágil",
@@ -561,7 +607,8 @@
       "Son historias de usuario que suponen un atractivo muy interesante para el proyecto"
     ],
     "answer": "Son historias de usuario demasiado grandes",
-    "explanation": "Se trata de requisitos que, debido a su tamaño, provocan que las iteraciones se alarguen, lo cual no es muy deseable normalmente en un proyecto."
+    "explanation": "Se trata de requisitos que, debido a su tamaño, provocan que las iteraciones se alarguen, lo cual no es muy deseable normalmente en un proyecto.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUna épica es una historia de usuario de gran envergadura y complejidad técnica que, debido a su tamaño, no puede completarse dentro de una sola iteración y debe ser desglosada en historias menores.\n\n**La perspectiva de la clase:**\nEl profesor Lozano explica que es natural que los requisitos nazcan como épicas al inicio del proyecto. Sin embargo, intentar meter una épica en un Sprint viola el timebox y desestabiliza la velocidad del equipo.\n\n**Aplicación en DevOps:**\nLa épica 'Módulo de transferencias internacionales' es demasiado pesada para un Sprint de 2 semanas de la app de pagos. Se divide en historias pequeñas como: 'Conversión de divisa' y 'Carga de datos bancarios'."
   },
   {
     "tema": "Tema 5: Visión y gestión del proyecto ágil",
@@ -573,7 +620,8 @@
       "La técnica de MoSCow, Kano y priorización por ranking"
     ],
     "answer": "La técnica de MoSCow, Kano y priorización por ranking",
-    "explanation": "Existen otras técnicas para la priorización de requisitos, y estas son las que hemos visto. En las otras respuestas hay alguna que no existe."
+    "explanation": "Existen otras técnicas para la priorización de requisitos, y estas son las que hemos visto. En las otras respuestas hay alguna que no existe.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas técnicas académicas y de mercado más robustas y difundidas para la clasificación y priorización de requisitos del backlog son: la técnica de MoSCoW, el modelo Kano y la priorización por ranking.\n\n**La perspectiva de la clase:**\nEl profesor Lozano detalla en sus diapositivas que MoSCoW es altamente efectiva para categorizar los requisitos en: *Must have* (debe tener), *Should have* (debería tener), *Could have* (podría tener) y *Won't have* (no tendrá por ahora).\n\n**Aplicación in DevOps:**\nAl planificar el lanzamiento de la app, el Product Owner clasifica la pasarela de pagos como un *Must have* en Jira, asegurando que el equipo de automatización construya las pruebas para esta prioridad."
   },
   {
     "tema": "Tema 5: Visión y gestión del proyecto ágil",
@@ -585,7 +633,8 @@
       "Hay que incluirlo en el Backlog como los responsables de negocio puedan determinar, en base a la prioridad y las dependencias técnicas"
     ],
     "answer": "Hay que incluirlo en el Backlog como los responsables de negocio puedan determinar, en base a la prioridad y las dependencias técnicas",
-    "explanation": "Se debe intentar adelantar la ejecución de cualquier requisito prioritario en el momento en el que se pueda según las dependencias."
+    "explanation": "Se debe intentar adelantar la ejecución de cualquier requisito prioritario en el momento en el que se pueda según las dependencias.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSe debe registrar en el Product Backlog y los responsables del negocio (Product Owner) determinarán su posicionamiento basándose en su valor comercial y en la viabilidad técnica ante las dependencias existentes.\n\n**La perspectiva de la clase:**\nEl profesor advierte que la agilidad permite incorporar cambios, pero con orden. No se interrumpe el Sprint en curso; el nuevo requisito se analiza en el refinamiento para programarse en las siguientes iteraciones.\n\n**Aplicación en DevOps:**\nSi surge un parche crítico de seguridad financiera, el Product Owner y el arquitecto de sistemas reordenan el backlog para integrarlo prioritariamente en el pipeline de la siguiente iteración."
   },
   {
     "tema": "Tema 5: Visión y gestión del proyecto ágil",
@@ -597,7 +646,8 @@
       "Se adapta el Backlog mediante un refinamiento propio de lo que el mercado considere, agrupando elementos a corto y largo plazo"
     ],
     "answer": "Se adapta el Backlog mediante un refinamiento adecuado para el proyecto, agrupando elementos a corto y largo plazo",
-    "explanation": "El Backlog refinement o refinamiento del Backlog se realiza cuando se necesita adaptar el Backlog para hacerlo más afinado y adecuado al proyecto."
+    "explanation": "El Backlog refinement o refinamiento del Backlog se realiza cuando se necesita adaptar el Backlog para hacerlo más afinado y adecuado al proyecto.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSe somete a la pila a un proceso continuo de refinamiento (*backlog refinement*), donde los elementos a corto plazo se detallan y estiman con precisión, mientras que los de largo plazo permanecen generales.\n\n**La perspectiva de la clase:**\nSe enseña que el refinamiento periódico evita la parálisis por análisis. Mantiene el backlog saludable, dinámico, adaptable a cambios del mercado y con un flujo constante de tareas listas para el desarrollo.\n\n**Aplicación en DevOps:**\nDurante la sesión semanal de refinamiento en TechOps, los programadores examinan las historias del próximo sprint para resolver dudas de código y asegurar que cumplan con la *Definition of Ready*."
   },
   {
     "tema": "Tema 6: Estimación y planificación ágil",
@@ -609,7 +659,8 @@
       "La estimación permite asignar puntos de historia como medidas de esfuerzo relativo, y la planificación plantea iteraciones basadas en los objetivos, de manera iterativa e incremental"
     ],
     "answer": "La estimación permite asignar puntos de historia como medidas de esfuerzo relativo, y la planificación plantea iteraciones basadas en los objetivos, de manera iterativa e incremental",
-    "explanation": "Son conceptos relacionados, pero no se estima en horas y coste, sino en puntos de historia, y se planifica con fases o iteraciones."
+    "explanation": "Son conceptos relacionados, pero no se estima en horas y coste, sino en puntos de historia, y se planifica con fases o iteraciones.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa estimación se realiza mediante puntos de historia que representan una medida de esfuerzo relativo (complejidad, riesgo y tamaño), y la planificación estructura el desarrollo en iteraciones cortas e incrementales.\n\n**La perspectiva de la clase:**\nEl profesor aclara que estimar de manera relativa evita la ineficacia de comprometer horas absolutas. El tiempo de desarrollo real varía según el programador, pero la complejidad relativa de la tarea es la misma.\n\n**Aplicación en DevOps:**\nEl equipo financiero utiliza *Planning Poker* para estimar el esfuerzo de un microservicio de autenticación, asignándole 5 puntos de historia relativos en su tablero Jira."
   },
   {
     "tema": "Tema 6: Estimación y planificación ágil",
@@ -621,7 +672,8 @@
       "Siempre es el mismo cuando son proyectos de una misma empresa"
     ],
     "answer": "Puede ser distinto en cada proyecto",
-    "explanation": "Dado que el tamaño unitario del requisito (1 punto) puede ser diferente por proyecto, hace que las horas para abordar el requisito sean distintas en cada proyecto."
+    "explanation": "Dado que el tamaño unitario del requisito (1 punto) puede ser diferente por proyecto, hace que las horas para abordar el requisito sean distintas en cada proyecto.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nNo representa una equivalencia fija ni universal en horas de trabajo. El valor real en tiempo de un punto de historia es una medida adaptativa que puede diferir notablemente entre proyectos y equipos de trabajo.\n\n**La perspectiva de la clase:**\nEl profesor Lozano explica que intentar forzar una conversión matemática estricta a nivel organizativo destruye el empirismo. Cada equipo de desarrollo debe descubrir su propia velocidad y métricas internas.\n\n**Aplicación en DevOps:**\nEn el proyecto de FinTech, un equipo maduro descubre empíricamente que su capacidad histórica en un Sprint de dos semanas es de 30 puntos de historia, planificando la iteración con base en esa velocidad."
   },
   {
     "tema": "Tema 6: Estimación y planificación ágil",
@@ -633,7 +685,8 @@
       "Un responsable que será el jefe de proyecto, junto con el Product Owner y el equipo"
     ],
     "answer": "El Product Owner junto con el líder ágil y el equipo, refinando el Product Backlog",
-    "explanation": "Se realiza un refinamiento de la pila de requisitos y se obtiene una estimación."
+    "explanation": "Se realiza un refinamiento de la pila de requisitos y se obtiene una estimación.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEs un proceso colaborativo y compartido realizado por el equipo de desarrollo, junto con el Product Owner y el líder ágil (Scrum Master), durante las sesiones de refinamiento de la pila de requisitos.\n\n**La perspectiva de la clase:**\nEl profesor recalca que el Product Owner aclara el valor de negocio y el alcance de las historias, el Scrum Master facilita la ceremonia y el equipo de desarrollo, de forma exclusiva, estima el esfuerzo técnico real.\n\n**Aplicación en DevOps:**\nEn TechOps, todo el equipo técnico (programadores, testers e ingenieros de infraestructura) participa en la estimación del esfuerzo requerido para automatizar la suite de pruebas unitarias en Git."
   },
   {
     "tema": "Tema 6: Estimación y planificación ágil",
@@ -645,7 +698,8 @@
       "Realizar una planificación ágil haciendo uso de historias de usuario, estimando la dificultad de la tarea"
     ],
     "answer": "Realizar una estimación ágil haciendo uso de puntos de historia, estimando la dificultad de la tarea",
-    "explanation": "Las diferentes técnicas de estimación ágil usan los puntos de historia para la estimación de la dificultad de las tareas."
+    "explanation": "Las diferentes técnicas de estimación ágil usan los puntos de historia para la estimación de la dificultad de las tareas.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEs una dinámica colaborativa diseñada para estimar de forma relativa el esfuerzo y la dificultad de las tareas mediante el uso de cartas basadas en la serie de Fibonacci y puntos de historia.\n\n**La perspectiva de la clase:**\nEl profesor explica que esta técnica evita el efecto ancla (donde los juniors repiten la estimación de los seniors) al forzar a todos los miembros a revelar su estimación técnica de forma simultánea y honesta.\n\n**Aplicación en DevOps:**\nAl estimar el desarrollo de la pasarela de pagos, los ingenieros de FinTech votan en paralelo: si uno estima 3 puntos y otro 13, debaten los riesgos técnicos ocultos hasta alcanzar un consenso."
   },
   {
     "tema": "Tema 6: Estimación y planificación ágil",
@@ -657,7 +711,8 @@
       "En colocar valores diferentes de las historias de usuario en una tabla, metiendo cada punto de historia en un cubo, en base a la estimación"
     ],
     "answer": "En colocar valores diferentes de los puntos de historia en una tabla, metiendo cada historia de usuario en un cubo, en base a la estimación",
-    "explanation": "Cada persona que vota va metiendo las historias de usuarios en cubos, y se asignan valores."
+    "explanation": "Cada persona que vota va metiendo las historias de usuarios en cubos, y se asignan valores.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nConsiste en una técnica de estimación grupal rápida y colaborativa donde se colocan valores relativos de puntos de historia en una mesa o tablero, y el equipo distribuye un volumen masivo de historias en estos cubos.\n\n**La perspectiva de la clase:**\nSe enseña en clase que *The Bucket System* es idóneo para estimar backlogs gigantescos (más de 50 historias de usuario) de forma veloz al inicio del proyecto, facilitando el diseño inicial del Product Roadmap.\n\n**Aplicación en DevOps:**\nEl equipo de lanzamiento de FinTech organiza una sesión inicial donde clasifica de forma ágil un backlog de 80 historias en cubos del 1 al 21, logrando una estimación macro del esfuerzo del proyecto."
   },
   {
     "tema": "Tema 6: Estimación y planificación ágil",
@@ -669,7 +724,8 @@
       "Adaptabilidad, innovación, bajo coste, calidad y time-to-market"
     ],
     "answer": "Adaptabilidad, innovación, bajo coste, calidad y time-to-market",
-    "explanation": "Esta es la única que contiene todos beneficios, el resto incluye algún tipo de obstáculo, como la habilidad requerida y la adaptabilidad en grandes empresas."
+    "explanation": "Esta es la única que contiene todos beneficios, el resto incluye algún tipo de obstáculo, como la habilidad requerida y la adaptabilidad en grandes empresas.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPermite optimizar de forma integral la adaptabilidad al cambio, fomentar la innovación tecnológica continua, reducir drásticamente los costos innecesarios y acelerar sustancialmente el *time-to-market* del software.\n\n**La perspectiva de la clase:**\nEl profesor enfatiza que al estimar de manera relativa y empírica, el negocio obtiene pronósticos realistas de entrega sin obligar a los desarrolladores a cumplir cronogramas ficticios e inalcanzables.\n\n**Aplicación en DevOps:**\nFinTech Solutions reduce la complejidad al estimar en puntos de historia, logrando liberar versiones estables de su plataforma transaccional de manera continua y predecible para sus usuarios."
   },
   {
     "tema": "Tema 6: Estimación y planificación ágil",
@@ -681,7 +737,8 @@
       "La planificación ágil es iterativa y se adapta a cambios, y la tradicional es incremental y va adaptándose a situaciones cambiantes sin problemas"
     ],
     "answer": "La planificación ágil es iterativa, progresiva, y se adapta a cambios, y la tradicional es predictiva y se basa en identificar tareas a priori",
-    "explanation": "La planificación ágil es iterativa e incremental, aceptando cambios, mientras la tradicional no lo hace de manera sencilla, es predictiva y planifica todo antes."
+    "explanation": "La planificación ágil es iterativa e incremental, aceptando cambios, mientras la tradicional no lo hace de manera sencilla, es predictiva y planifica todo antes.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa planificación tradicional es rígida, predictiva y busca definir de forma minuciosa todas las tareas e hitos al inicio del proyecto; la planificación ágil es iterativa, progresiva y adaptativa ante los cambios.\n\n**La perspectiva de la clase:**\nEl profesor Lozano ilustra esto con el triángulo de restricciones: en la gestión tradicional el alcance es fijo mientras que el tiempo y el costo son variables. En la agilidad, el tiempo y el costo son fijos y el alcance es variable.\n\n**Aplicación en DevOps:**\nPara la app financiera, en lugar de intentar planificar un Gantt de un año, el equipo de TechOps planifica iteraciones quincenales, ajustando el alcance en cada Sprint de acuerdo a la retroalimentación real del mercado."
   },
   {
     "tema": "Tema 6: Estimación y planificación ágil",
@@ -693,7 +750,8 @@
       "Una serie de métodos que se usan para realizar las planificaciones del proyecto ágil"
     ],
     "answer": "Una serie de niveles que llevan a cabo acciones para ir avanzando en los planes de producto, hoja de rutas, entregas e iteraciones",
-    "explanation": "Son los niveles de planificación para ir avanzando el producto hasta producir un valor de negocio, incluyendo el Backlog, Vision, Roadmap, Release Plan, Iteraciones y Diarias."
+    "explanation": "Son los niveles de planificación para ir avanzando el producto hasta producir un valor de negocio, incluyendo el Backlog, Vision, Roadmap, Release Plan, Iteraciones y Diarias.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSon una serie de niveles progresivos de planificación que van desde la Visión del Producto a largo plazo, la hoja de ruta (Roadmap), el Plan de Entregas (Release Plan), la Iteración (Sprint) hasta la sincronización Diaria (Daily).\n\n**La perspectiva de la clase:**\nEl profesor explica que estos horizontes protegen al equipo de la incertidumbre. Permiten tomar decisiones operativas con información en tiempo real mientras se mantiene una dirección estratégica de alto nivel clara.\n\n**Aplicación en DevOps:**\nEn FinTech, la visión es 'Ser la pasarela de pagos líder'. El Roadmap define las fases semestrales, el Release Plan agrupa las iteraciones quincenales y la Daily organiza el trabajo operativo de las próximas 24 horas."
   },
   {
     "tema": "Tema 6: Estimación y planificación ágil",
@@ -705,7 +763,8 @@
       "Asegurar la estrategia y tecnología, identificar los requisitos desde el Product Backlog, organizar los temas y entregas y determinar líneas de tiempo a alto nivel"
     ],
     "answer": "Asegurar la estrategia y tecnología, identificar los requisitos desde el Product Backlog, organizar los temas y entregas y determinar líneas de tiempo a alto nivel",
-    "explanation": "Se hace desde los requisitos del Product Backlog y a alto nivel."
+    "explanation": "Se hace desde los requisitos del Product Backlog y a alto nivel.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos pasos clave incluyen: asegurar la alineación de la estrategia y tecnología, identificar con claridad los requisitos generales desde el Product Backlog, organizar las entregas temáticas y estructurar una línea de tiempo a alto nivel.\n\n**La perspectiva de la clase:**\nSe resalta en clase que el Roadmap es un documento de comunicación estratégica para los stakeholders. No debe contener fechas exactas de tareas de micro-nivel, sino bloques visuales de valor propuesto por fases.\n\n**Aplicación en DevOps:**\nEl equipo de TechOps diseña el Roadmap de FinTech detallando que en la Fase 1 se entregará la funcionalidad básica de login y encriptación, y en la Fase 2 se integrará la pasarela de pagos internacionales."
   },
   {
     "tema": "Tema 6: Estimación y planificación ágil",
@@ -717,7 +776,8 @@
       "Cuando se deben hacer las entregas finales del producto"
     ],
     "answer": "Cuando se deben hacer las entregas de los incrementos del producto",
-    "explanation": "Se hace para las entregas del producto a partir del Roadmap, y no tiene por qué ser las finales."
+    "explanation": "Se hace para las entregas del producto a partir del Roadmap, y no tiene por qué ser las finales.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSe lleva a cabo para programar y estructurar la entrega de los incrementos funcionales de valor del producto a producción, basándose en la hoja de ruta y en las capacidades operativas reales demostradas por el equipo.\n\n**La perspectiva de la clase:**\nEl profesor Lozano señala que un Release Plan no implica esperar obligatoriamente al final del proyecto para desplegar. Los incrementos se planifican en lotes pequeños y estables de manera secuencial y ágil.\n\n**Aplicación en DevOps:**\nEl equipo de FinTech organiza su Release Plan quincenal para coordinar que, al término de cada iteración, el pipeline CI/CD despliegue automáticamente los incrementos validados a entornos de preproducción."
   },
   {
     "tema": "Tema 7: Planificación del Roadmap y entregas",
@@ -729,7 +789,8 @@
       "Las tareas y características útiles para poder hacer las entregas del producto"
     ],
     "answer": "Se determina el número de iteraciones del proyecto y de las entregas",
-    "explanation": "El Roadmap presenta la estructura en iteraciones del producto, y sobre la hoja de ruta se señalarán dónde se espera que se realicen las entregas."
+    "explanation": "El Roadmap presenta la estructura en iteraciones del producto, y sobre la hoja de ruta se señalarán dónde se espera que se realicen las entregas.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl Roadmap de producto determina de manera visual la estructura estratégica del proyecto, señalando el número y secuencia estimada de las iteraciones operativas y la proyección general de las entregas.\n\n**La perspectiva de la clase:**\nEl profesor Miguel Lozano recalca que la única planificación que acompaña al equipo hasta el final del proyecto es el Roadmap. Sirve como un radiador de información de alto nivel para orientar las metas globales de negocio.\n\n**Aplicación en DevOps:**\nEn el proyecto de pagos, el Roadmap refleja visualmente que el desarrollo requerirá de 6 iteraciones de dos semanas de duración, proyectando lanzamientos estables cada tres iteraciones completadas."
   },
   {
     "tema": "Tema 7: Planificación del Roadmap y entregas",
@@ -741,7 +802,8 @@
       "Mediante un software adecuado para ello, con un mapeo de historias"
     ],
     "answer": "Mediante un mapa visual claro",
-    "explanation": "No importa si se hace en papel, software, online. Lo importante es que sea un mapa visual muy claro para transmitir la estructura."
+    "explanation": "No importa si se hace en papel, software, online. Lo importante es que sea un mapa visual muy claro para transmitir la estructura.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa mejor forma de representar e instrumentar la hoja de ruta de un proyecto de ingeniería de software es mediante un mapa visual estructurado que sea sumamente claro de comprender para todo el equipo.\n\n**La perspectiva de la clase:**\nEl profesor indica que no importa la herramienta tecnológica utilizada (ya sea Jira, papel, o plataformas colaborativas en la nube); lo crucial es que el formato visual funcione como un potente radiador de información.\n\n**Aplicación en DevOps:**\nEl Product Owner de FinTech proyecta el Roadmap visual en un tablero interactivo accesible para programadores y patrocinadores del banco, eliminando la necesidad de redactar reportes de estado manuales."
   },
   {
     "tema": "Tema 7: Planificación del Roadmap y entregas",
@@ -753,7 +815,8 @@
       "Porque el Roadmap lo indica en su estructura y estrategia"
     ],
     "answer": "Porque así se puede medir y comparar la velocidad entre las diferentes iteraciones",
-    "explanation": "Hay que establecer un ritmo para ir avanzando, que de alguna manera marca el avance del proyecto, y se hace con la duración de iteraciones."
+    "explanation": "Hay que establecer un ritmo para ir avanzando, que de alguna manera marca el avance del proyecto, y se hace con la duración de iteraciones.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nMantener una duración uniforme y fija en todos los Sprints es indispensable para poder medir, comparar y proyectar de manera empírica la velocidad de entrega de puntos de historia del equipo de trabajo.\n\n**La perspectiva de la clase:**\nEl profesor Lozano aclara que la constancia temporal actúa como una métrica científica. Si alteramos la duración de las iteraciones de forma caprichosa, se destruye el ritmo de trabajo y se distorsiona la velocidad media.\n\n**Aplicación en DevOps:**\nEn FinTech, fijar los Sprints estrictamente en dos semanas permite al pipeline registrar una velocidad histórica promedio de 25 puntos, facilitando estimar con certeza matemática cuántas historias caben en el Sprint Backlog."
   },
   {
     "tema": "Tema 7: Planificación del Roadmap y entregas",
@@ -765,7 +828,8 @@
       "Es algo que depende del proyecto, y se identifica en el Roadmap"
     ],
     "answer": "Es algo que depende del proyecto, y se identifica en el Roadmap",
-    "explanation": "No hay una relación con las iteraciones a nivel de enfoque ágil y tradicional, y es el Roadmap el que indica la duración necesaria de las iteraciones, en función de los requisitos."
+    "explanation": "No hay una relación con las iteraciones a nivel de enfoque ágil y tradicional, y es el Roadmap el que indica la duración necesaria de las iteraciones, en función de los requisitos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nNo existe una fórmula predefinida ni un número estándar de iteraciones que determine la comparación; es un factor adaptativo que depende del alcance global y de la prioridad de los requisitos definidos en el Roadmap.\n\n**La perspectiva de la clase:**\nEl profesor resalta que en la gestión tradicional no existe el concepto de iteraciones repetitivas con feedback inmediato. Es la hoja de ruta viva de la agilidad la que define cuántos ciclos requerirá el producto.\n\n**Aplicación en DevOps:**\nPara la pasarela de pagos de FinTech, el equipo desglosa el backlog inicial y proyecta en su hoja de ruta un ciclo de vida adaptativo compuesto por 8 iteraciones consecutivas de desarrollo y despliegue continuo."
   },
   {
     "tema": "Tema 7: Planificación del Roadmap y entregas",
@@ -777,7 +841,8 @@
       "Que el Roadmap comunica una descripción de la visión de producto a nivel de entregas, y el Release Plan describe el proceso de ejecución por requisitos"
     ],
     "answer": "Que el Roadmap comunica una descripción de la estrategia de producto, y el Release Plan describe el proceso de ejecución por iteraciones",
-    "explanation": "El Roadmap sigue esa descripción y se termina en la entrega, donde comienza el Release Plan con un plan de documentos tácticos para realizar el proceso de la ejecución por etapas."
+    "explanation": "El Roadmap sigue esa descripción y se termina en la entrega, donde comienza el Release Plan con un plan de documentos tácticos para realizar el proceso de la ejecución por etapas.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl Roadmap es un horizonte estratégico de alto nivel que muestra la hoja de ruta y metas, mientras que el Release Plan es táctico y detalla las iteraciones [163, 185].\n\n**La perspectiva de la clase:**\nEl profesor enseña que el Roadmap comunica la estrategia flexible del producto hasta la entrega, y el Release Plan detalla qué historias van en cada sprint [163, 186].\n\n**Aplicación en DevOps:**\nEl Roadmap sitúa el módulo de depósitos seguros en el segundo mes, y el Release Plan define que se construirá en las iteraciones 1 y 2 [52, 53]."
   },
   {
     "tema": "Tema 7: Planificación del Roadmap y entregas",
@@ -789,7 +854,8 @@
       "Una herramienta digital que identifique la planificación de la pila de requisitos"
     ],
     "answer": "Un mapa de historias que indican las que se llevan a cabo por iteración",
-    "explanation": "En el mapa se muestran historias, no puntos de historia, y se hace por iteraciones."
+    "explanation": "En el mapa se muestran historias, no puntos de historia, y se hace por iteraciones.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSe instrumenta y representa mediante un mapa de historias (*Story Map*) visual, el cual detalla de manera estructurada y secuencial qué historias de usuario específicas se implementarán en cada una de las iteraciones.\n\n**La perspectiva de la clase:**\nEl profesor Lozano enseña en clase que el *Story Map* organiza el backlog en dos dimensiones: el eje horizontal representa la experiencia del usuario (flujo de actividades) y el vertical define la prioridad de desarrollo por entregas.\n\n**Aplicación en DevOps:**\nEl equipo de FinTech utiliza una plantilla interactiva de *Story Map* para definir que la funcionalidad básica de transferencias se construirá en el Sprint 1, y la encriptación transaccional avanzada en el Sprint 2."
   },
   {
     "tema": "Tema 7: Planificación del Roadmap y entregas",
@@ -801,7 +867,8 @@
       "Consiste en fijar el tiempo máximo que no debe superarse para conseguir un objetivo, o realizar una tarea, en una iteración"
     ],
     "answer": "Consiste en fijar el tiempo máximo que no debe superarse para conseguir un objetivo, o realizar una tarea, en una iteración",
-    "explanation": "Sirve para acordar trabajar con una limitación temporal, que favorece la priorización y la toma de decisiones."
+    "explanation": "Sirve para acordar trabajar con una limitación temporal, que favorece la priorización y la toma de decisiones.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nConsiste en delimitar y fijar de antemano un intervalo de tiempo máximo y riguroso (*timebox*) destinado a alcanzar un objetivo concreto o a ejecutar las tareas planificadas dentro de una iteración.\n\n**La perspectiva de la clase:**\nEl profesor recalca que el *Timebox* promueve la disciplina, combate la parálisis por análisis y obliga al equipo de desarrollo a centrar sus esfuerzos en simplificar las soluciones y priorizar lo esencial ante restricciones temporales.\n\n**Aplicación en DevOps:**\nTodos los eventos en el proyecto de pagos tienen *Timebox* estrictos: la Daily stand-up dura un máximo inflexible de 15 minutos y la iteración del Sprint de desarrollo de microservicios está limitada a 2 semanas."
   },
   {
     "tema": "Tema 7: Planificación del Roadmap y entregas",
@@ -813,7 +880,8 @@
       "La cantidad de reuniones que da tiempo a que el equipo de trabajo puede tener durante cada iteración"
     ],
     "answer": "La cantidad de puntos de historia que el equipo de trabajo puede ser capaz de cumplir en cada iteración",
-    "explanation": "Se analizan los puntos de historia quemados o completos. Si un requisito no está totalmente terminado al finalizar la iteración, no se pueden considerar como conseguidos sus puntos de historia."
+    "explanation": "Se analizan los puntos de historia quemados o completos. Si un requisito no está totalmente terminado al finalizar la iteración, no se pueden considerar como conseguidos sus puntos de historia.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSe define como la cantidad total de puntos de historia de requisitos completados y validados al 100% que el equipo de trabajo es capaz de entregar con calidad al finalizar una iteración específica.\n\n**La perspectiva de la clase:**\nEl profesor Lozano es sumamente riguroso en este punto técnico: si una historia de usuario no cumple en su totalidad con la *Definition of Done*, sus puntos de historia no se computan en absoluto en la velocidad de la iteración.\n\n**Aplicación en DevOps:**\nSi el equipo de TechOps planificó 25 puntos pero un microservicio con valor de 5 puntos falló la prueba automatizada de QA al final del Sprint, la velocidad real registrada y consolidada de la iteración es únicamente de 20 puntos."
   },
   {
     "tema": "Tema 7: Planificación del Roadmap y entregas",
@@ -825,7 +893,8 @@
       "En períodos de trimestre"
     ],
     "answer": "Cortos",
-    "explanation": "La idea es minimizar el período de tiempo que pasa desde que aparece un problema, incidencia o desde que el requisito aparece, hasta que se entrega."
+    "explanation": "La idea es minimizar el período de tiempo que pasa desde que aparece un problema, incidencia o desde que el requisito aparece, hasta que se entrega.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSe buscan de forma prioritaria tiempos de ciclo cortos, minimizando al extremo el periodo temporal que transcurre desde que se detecta una necesidad o requisito hasta que se entrega de forma funcional.\n\n**La perspectiva de la clase:**\nEl profesor Miguel Lozano explica en clase que acelerar los tiempos de ciclo incrementa la competitividad de la empresa. Permite recopilar retroalimentación directa y temprana del mercado real para realizar adaptaciones rápidas.\n\n**Aplicación en DevOps:**\nEn FinTech Solutions S.A., medir el tiempo de ciclo desde que se acepta una historia en Jira hasta que el pipeline CI/CD la despliega en producción permite identificar cuellos de botella operativos en la fase de tests."
   },
   {
     "tema": "Tema 7: Planificación del Roadmap y entregas",
@@ -837,7 +906,8 @@
       "Es el presupuesto en base al contrato del proyecto con el cliente"
     ],
     "answer": "La estrategia usada para conocer el valor de negocio real que genera un proyecto a los usuarios",
-    "explanation": "Es un valor fundamental de analizar, porque indica que se han alcanzado los objetivos y el cliente y usuario quedan satisfechos."
+    "explanation": "Es un valor fundamental de analizar, porque indica que se han alcanzado los objetivos y el cliente y usuario quedan satisfechos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn gestión ágil, el valor ganado (Earned Value) es una estrategia que mide el valor de negocio real que genera un proyecto basándose en los incrementos de software funcionales completados que cumplen con la Definición de Hecho (DoD).\n\n**La perspectiva de la clase:**\nEl profesor Lozano insiste en que en Agile 'hecho' significa que aporta valor real. No sirve decir que una funcionalidad está 'al 90%' o que se ha gastado el 50% del presupuesto si el software no es funcional y desplegable.\n\n**Aplicación en DevOps:**\nCada punto de historia completado y desplegado con éxito en el pipeline de la app financiera representa un valor económico ganado. Si una historia vale 1.000€ y se despliega en producción, el proyecto ha ganado oficialmente ese valor de negocio."
   },
   {
     "tema": "Tema 8: Desarrollo del proyecto ágil",
@@ -849,7 +919,8 @@
       "Cuando los requisitos han quedado desarrollados, independientemente de si se han finalizado satisfactoriamente"
     ],
     "answer": "Cuando el contenido planificado se ha completado satisfactoriamente, sin necesidad de que se cumpla la fecha de entrega",
-    "explanation": "Es este caso en el que se da la definición de Done: que están hechas las tareas de los diferentes requisitos."
+    "explanation": "Es este caso en el que se da la definición de Done: que están hechas las tareas de los diferentes requisitos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa 'Definición de Terminado' (DoD) es un acuerdo explícito sobre los criterios de calidad y verificación que debe cumplir un incremento de software para considerarse oficialmente completado.\n\n**La perspectiva de la clase:**\nEl profesor Lozano insiste en que el desarrollo de una historia o sprint termina cuando el contenido planificado se completa satisfactoriamente, de forma independiente de las fechas estimadas de entrega.\n\n**Aplicación en DevOps:**\nEn DevOps, la DoD incluye que el código de la app financiera compile, pase análisis estático de seguridad, tests automatizados y esté desplegado de forma automatizada en el entorno de pruebas."
   },
   {
     "tema": "Tema 8: Desarrollo del proyecto ágil",
@@ -861,7 +932,8 @@
       "Marca el momento de salida tanto para un requisito, iteración o proyecto"
     ],
     "answer": "Marca el momento de salida tanto para un requisito, iteración o proyecto",
-    "explanation": "La definición de Ready se establece tanto para requisitos, iteraciones y el proyecto en sí."
+    "explanation": "La definición de Ready se establece tanto para requisitos, iteraciones y el proyecto en sí.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa Definición de Listo (*Definition of Ready* o DoR) establece los criterios mínimos de calidad que debe cumplir un paquete de trabajo (ya sea un requisito individual, una iteración completa o el proyecto) antes de iniciar su ejecución.\n\n**La perspectiva de la clase:**\nEl profesor advierte que omitir un DoR robusto es un grave error de gestión. Provoca que el equipo comience a programar requisitos ambiguos, dificultando enormemente la estimación exacta de esfuerzo y sobrecargando los tableros.\n\n**Aplicación en DevOps:**\nUna historia de usuario pasa a estado 'Ready' para desarrollo en FinTech Solutions solo si cuenta con criterios de aceptación claros y un arquetipo 'Persona' bien definido para que el desarrollador comience a trabajar sin dudas."
   },
   {
     "tema": "Tema 8: Desarrollo del proyecto ágil",
@@ -873,7 +945,8 @@
       "No están determinados aún los requisitos a ser implementados en la iteración"
     ],
     "answer": "Se determinan los requisitos que se implementarán en dicha iteración",
-    "explanation": "Para comenzar una iteración, lo primero es determinar las tareas de la iteración, por lo que los requisitos a resolver están previstos en el Release Plan."
+    "explanation": "Para comenzar una iteración, lo primero es determinar las tareas de la iteración, por lo que los requisitos a resolver están previstos en el Release Plan.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLo primero que realiza el equipo es determinar con precisión quirúrgica cuáles son los requisitos específicos del Product Backlog que se implementarán y resolverán a lo largo de dicha iteración.\n\n**La perspectiva de la clase:**\nEl profesor Lozano enseña en clase que los requisitos candidatos a desarrollarse ya deben estar previamente refinados en la pila de producto de alto nivel (*Release Plan*) para facilitar una planificación fluida y libre de vacíos.\n\n**Aplicación en DevOps:**\nDurante el Sprint Planning del proyecto financiero, el Product Owner presenta las historias y el equipo de desarrollo las desglosa de manera colaborativa para estructurar las metas operativas del Sprint Backlog."
   },
   {
     "tema": "Tema 8: Desarrollo del proyecto ágil",
@@ -885,7 +958,8 @@
       "Se establece un panel o tablero que resuelve todos los requisitos de una iteración, contados en puntos de historia"
     ],
     "answer": "Se establece un panel o tablero de tareas que resuelve todos los requisitos de una iteración, cada una con las horas estimadas",
-    "explanation": "La planificación de la iteración se lleva a cabo para determinar las tareas, estimación y construcción del Sprint Backlog. Las horas son necesarias en este punto para ver la capacidad del equipo."
+    "explanation": "La planificación de la iteración se lleva a cabo para determinar las tareas, estimación y construcción del Sprint Backlog. Las horas son necesarias en este punto para ver la capacidad del equipo.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSu resultado directo es el Sprint Backlog, representado en un panel o tablero visual de tareas detalladas que resuelven todos los requisitos comprometidos de la iteración, estimadas individualmente en horas de trabajo.\n\n**La perspectiva de la clase:**\nSe resalta en clase que estimar en horas en este nivel operativo quincenal es crucial. Permite comparar de manera realista el esfuerzo requerido contra la capacidad técnica y disponibilidad del equipo para la iteración.\n\n**Aplicación en DevOps:**\nEl equipo técnico de FinTech Solutions S.A. desglosa las historias en subtareas de desarrollo, QA y automatización de despliegue, asignándoles horas en Jira para asegurar que no se sature la capacidad de trabajo."
   },
   {
     "tema": "Tema 8: Desarrollo del proyecto ágil",
@@ -897,7 +971,8 @@
       "Es establecer la duración de cada tarea en base a los puntos de historia"
     ],
     "answer": "Es crear tantas tareas para cada requisito como condiciones tenga la definición de hecho o Done",
-    "explanation": "Se pueden encontrar distintos tipos de condiciones para la definición de hecho, por lo que se deben contemplar todas."
+    "explanation": "Se pueden encontrar distintos tipos de condiciones para la definición de hecho, por lo que se deben contemplar todas.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nConsiste en desglosar cada requisito del Sprint Backlog creando de forma proactiva tantas subtareas técnicas específicas como condiciones estén detalladas en la Definición de Hecho (*Definition of Done* o DoD).\n\n**La perspectiva de la clase:**\nEl profesor Lozano aconseja ampliamente esta práctica estructurada. Asegura que el equipo no pase por alto ningún estándar de calidad técnica acordado, ya que cada criterio de calidad se convierte en una tarea visible.\n\n**Aplicación en DevOps:**\nSi el DoD del proyecto FinTech exige: 'Pruebas unitarias al 80%, escaneo de seguridad y documentación de API', el programador crea subtareas específicas para cada uno de estos ítems para asegurar su riguroso cumplimiento."
   },
   {
     "tema": "Tema 8: Desarrollo del proyecto ágil",
@@ -909,7 +984,8 @@
       "Según las tareas finalizadas o hechas"
     ],
     "answer": "Según el número de puntos completados",
-    "explanation": "El avance de un proyecto sobre el Roadmap se mide en base a los puntos finalizados tras cada iteración."
+    "explanation": "El avance de un proyecto sobre el Roadmap se mide en base a los puntos finalizados tras cada iteración.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl avance real del proyecto sobre el Roadmap se calcula y mide de manera objetiva según el número de puntos de historia consolidados y completados al 100% al término de cada una de las iteraciones.\n\n**La perspectiva de la clase:**\nEl profesor insiste en clase en que los porcentajes de avance subjetivos ('historia al 90%') están prohibidos en la agilidad. Una funcionalidad solo aporta valor de negocio y puntúa si está completamente terminada y operativa.\n\n**Aplicación en DevOps:**\nEn el cuadro de mandos quincenal del banco FinTech, el Scrum Master reporta el progreso real del Roadmap sumando únicamente los puntos de historia de las funcionalidades desplegadas con éxito en producción."
   },
   {
     "tema": "Tema 8: Desarrollo del proyecto ágil",
@@ -921,7 +997,8 @@
       "Ambas"
     ],
     "answer": "Ambas",
-    "explanation": "El número de personas del proyecto es fundamental e influye en la duración, a la par que la fecha máxima, que indica cuál debe ser la duración en sí."
+    "explanation": "El número de personas del proyecto es fundamental e influye en la duración, a la par que la fecha máxima, que indica cuál debe ser la duración en sí.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nAmbas variables son pilares fundamentales e interdependientes: el número de ingenieros define la capacidad de entrega y velocidad de la iteración, y la fecha máxima impone el límite temporal estricto (*timebox*).\n\n**La perspectiva de la clase:**\nEl profesor Lozano explica en sus clases que, a diferencia del enfoque predictivo tradicional donde se busca expandir recursos ante retrasos de alcance, el agilismo mantiene fijas las personas y la fecha, ajustando el alcance.\n\n**Aplicación en DevOps:**\nCon un equipo estable de 5 ingenieros de TechOps y una fecha inamovible de entrega regulatoria quincenal, el Product Owner de FinTech planifica priorizando rigurosamente solo las funcionalidades de mayor valor estratégico."
   },
   {
     "tema": "Tema 8: Desarrollo del proyecto ágil",
@@ -933,7 +1010,8 @@
       "Dos minutos por cada miembro"
     ],
     "answer": "Quince minutos como máximo",
-    "explanation": "Se establece no más de quince minutos máximo, de manera que si se tarda menos es incluso preferible. Se busca agilidad."
+    "explanation": "Se establece no más de quince minutos máximo, de manera que si se tarda menos es incluso preferible. Se busca agilidad.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nTiene una duración máxima inflexible de quince minutos (*time-box*), diseñándose para ser breve y ágil, por lo que realizarla en menos tiempo es altamente preferible para maximizar la productividad diaria.\n\n**La perspectiva de la clase:**\nEl profesor Lozano recalca en sus grabaciones que la Daily no es una sesión de resolución de problemas técnicos complejos ni un reporte de estatus para el jefe, sino una sincronización rápida de los desarrolladores de pie.\n\n**Aplicación en DevOps:**\nEn la Daily de TechOps, cada ingeniero responde rápidamente qué hizo ayer, qué hará hoy y qué impedimentos bloquean su pipeline, coordinando al instante apoyos mutuos para resolver problemas de código."
   },
   {
     "tema": "Tema 8: Desarrollo del proyecto ágil",
@@ -945,7 +1023,8 @@
       "Mejorar y preguntar todo al cliente, y construir como equipo"
     ],
     "answer": "Reflexionar sobre el proceso, encontrar formas de mejorar la productividad y actualizar la definición de hecho",
-    "explanation": "Estos son algunos de los beneficios. Hay más, pero no están entre los que se argumentan en las otras respuestas, que se plantean de manera incorrecta."
+    "explanation": "Estos son algunos de los beneficios. Hay más, pero no están entre los que se argumentan en las otras respuestas, que se plantean de manera incorrecta.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPermite reflexionar de manera constructiva sobre el proceso de trabajo del equipo, identificar sistemáticamente oportunidades para mejorar la productividad y la calidad técnica, y actualizar la Definición de Hecho (DoD).\n\n**La perspectiva de la clase:**\nEl profesor señala que la retrospectiva es el motor de mejora continua (*Kaizen*) de Scrum. Es el evento ideal para que el equipo analice fallos operativos, adapte sus acuerdos técnicos y evolucione el DoD del proyecto.\n\n**Aplicación en DevOps:**\nTras detectar fallas en el pipeline de AWS, el equipo decide de manera conjunta en la retrospectiva actualizar el DoD de FinTech, incorporando un escaneo automático de vulnerabilidades con SonarQube antes de preproducción."
   },
   {
     "tema": "Tema 8: Desarrollo del proyecto ágil",
@@ -957,7 +1036,8 @@
       "Resolver dudas que puedan surgir durante la iteración"
     ],
     "answer": "Resolver dudas que puedan surgir durante la iteración",
-    "explanation": "Idealmente, las dudas se deben resolver cuando surgen, pero se va haciendo una reunión específica para ello, donde se analiza lo que se va llevando a cabo."
+    "explanation": "Idealmente, las dudas se deben resolver cuando surgen, pero se va haciendo una reunión específica para ello, donde se analiza lo que se va llevando a cabo.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSu objetivo primordial es examinar, desglosar e inspeccionar las historias de usuario de las futuras iteraciones, permitiendo resolver dudas de negocio o técnicas que puedan surgir de forma anticipada.\n\n**La perspectiva de la clase:**\nEl profesor Miguel Lozano explica en clase que, aunque las dudas operativas cotidianas deben resolverse al instante en el día a día, esta sesión específica asegura que el backlog futuro cumpla la *Definition of Ready*.\n\n**Aplicación en DevOps:**\nDurante el refinamiento quincenal de TechOps, el equipo detecta que una historia requiere integrarse con una API externa desconocida, decidiendo crear un *spike* de investigación técnica en el Sprint en curso."
   },
   {
     "tema": "Tema 9: Seguimiento del proyecto ágil",
@@ -969,7 +1049,8 @@
       "La estrategia de análisis aplicando la velocidad al valor económico de cada persona del equipo ágil"
     ],
     "answer": "La estrategia que se usa para conocer el valor de negocio del proyecto y es del 100 % real en proyectos ágiles",
-    "explanation": "En proyectos ágiles, el valor ganado se basa en los resultados entregados y no solo en avances parciales, por lo que el valor real es 100 %."
+    "explanation": "En proyectos ágiles, el valor ganado se basa en los resultados entregados y no solo en avances parciales, por lo que el valor real es 100 %.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl análisis de valor ganado (EVM) mide el progreso real del proyecto cruzando el alcance completado con los costes reales y la planificación temporal original.\n\n**La perspectiva de la clase:**\nEl profesor destaca que en Agile el valor ganado es 100% real solo cuando los resultados funcionales se entregan al cliente, rechazando estimaciones subjetivas de 'porcentajes de avance'.\n\n**Aplicación en DevOps:**\nSi TechOps Solutions despliega y automatiza la funcionalidad de 'transferencias inmediatas', el proyecto ha 'ganado' ese valor de negocio medible de inmediato para FinTech Solutions."
   },
   {
     "tema": "Tema 9: Seguimiento del proyecto ágil",
@@ -981,7 +1062,8 @@
       "Se valora el estado respecto a las tareas asignadas a las personas"
     ],
     "answer": "Se valora el estado desde el punto de vista del valor generado",
-    "explanation": "Se pretende valorar el estado según el valor que ha generado el proyecto, no según un alcance determinado ni otras cuestiones."
+    "explanation": "Se pretende valorar el estado según el valor que ha generado el proyecto, no según un alcance determinado ni otras cuestiones.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl estado del proyecto se mide y valora exclusivamente desde la perspectiva del valor de negocio generado y entregado al cliente final, rompiendo con el enfoque clásico de cumplimiento de un alcance estático.\n\n**La perspectiva de la clase:**\nEl profesor enfatiza en clase que de nada sirve haber completado el 100% de la planificación del Gantt inicial si el producto resultante no genera un impacto positivo o ya no satisface la realidad competitiva del mercado.\n\n**Aplicación en DevOps:**\nPara la FinTech Solutions S.A., el éxito del proyecto se evalúa según la cantidad de transacciones reales que la app puede procesar con seguridad en producción tras el despliegue del último incremento funcional."
   },
   {
     "tema": "Tema 9: Seguimiento del proyecto ágil",
@@ -993,7 +1075,8 @@
       "El número de puntos de historia que quedan por realizar, según las previstas en la Release"
     ],
     "answer": "El número de puntos de historia que quedan por realizar, según las previstas en la Release",
-    "explanation": "La velocidad de avance en el burndown de una Release representa los puntos restantes hasta el final de la Release."
+    "explanation": "La velocidad de avance en el burndown de una Release representa los puntos restantes hasta el final de la Release.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl gráfico Burndown es un radiador de información visual que muestra el trabajo acumulado restante (en puntos de historia) que decrece a lo largo de las iteraciones del proyecto.\n\n**La perspectiva de la clase:**\nEl profesor enseña que si la línea real de trabajo pendiente está por encima de la ideal, indica que queda más trabajo del previsto, revelando de forma transparente un retraso temporal.\n\n**Aplicación en DevOps:**\nPermite al Product Owner proyectar con exactitud matemática cuántas iteraciones serán necesarias para consumir el Backlog de la app financiera y si el ritmo del equipo es sostenible."
   },
   {
     "tema": "Tema 9: Seguimiento del proyecto ágil",
@@ -1005,7 +1088,8 @@
       "El número de horas que se han realizado ya, de los previstos en la release"
     ],
     "answer": "El número de puntos de historia que se han realizado ya, según las previstas en la release",
-    "explanation": "La velocidad de avance en el burnup de una Release representa los puntos alcanzados hasta la fecha."
+    "explanation": "La velocidad de avance en el burnup de una Release representa los puntos alcanzados hasta la fecha.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nRepresenta de manera visual la cantidad total de puntos de historia de requisitos completados acumulativamente a lo largo del tiempo, contrastándolos contra el alcance previsto de la release.\n\n**La perspectiva de la clase:**\nEl profesor Lozano explica en clase de manera muy gráfica que, a diferencia del *burndown* que muestra el trabajo restante, el *burnup* visibiliza de forma clara las adiciones o reducciones de alcance realizadas por negocio.\n\n**Aplicación en DevOps:**\nEn el gráfico de *burnup* del proyecto de pasarela de pagos, el Scrum Master visualiza que la velocidad de entrega del equipo se mantiene constante en 25 puntos quincenales, asegurando la fecha de liberación del módulo."
   },
   {
     "tema": "Tema 9: Seguimiento del proyecto ágil",
@@ -1017,7 +1101,8 @@
       "De forma ordenada y limpia"
     ],
     "answer": "De forma ordenada y limpia",
-    "explanation": "Un radiador de información debe ser entendido fácilmente, por lo que debe haber orden y claridad en las tarjetas."
+    "explanation": "Un radiador de información debe ser entendido fácilmente, por lo que debe haber orden y claridad en las tarjetas.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas tarjetas físicas o digitales en cualquier tablero o radiador de información deben estar dispuestas de una manera sumamente clara, limpia, estructurada y ordenada para facilitar su legibilidad inmediata.\n\n**La perspectiva de la clase:**\nEl profesor insiste en que un radiador de información desordenado es un foco de desperdicio. La información debe ser consumida visualmente de un vistazo rápido por cualquier interesado sin necesidad de interpretaciones.\n\n**Aplicación en DevOps:**\nEl tablero Kanban de TechOps Solutions utiliza filtros visuales automáticos y columnas estandarizadas de flujo de trabajo para rastrear los despliegues, manteniendo un aspecto pulcro y profesional."
   },
   {
     "tema": "Tema 9: Seguimiento del proyecto ágil",
@@ -1029,7 +1114,8 @@
       "Son estados del enfoque ágil a corto plazo"
     ],
     "answer": "Son objetivos del enfoque ágil a medio plazo",
-    "explanation": "Se necesita un apoyo y orientación a medida que se va enfrentando el alcance del proyecto."
+    "explanation": "Se necesita un apoyo y orientación a medida que se va enfrentando el alcance del proyecto.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nNo se alcanzan de forma mágica o instantánea al inicio del proyecto. Son metas y objetivos del enfoque ágil a medio plazo que requieren apoyo, orientación, capacitación y maduración del equipo.\n\n**La perspectiva de la clase:**\nEl profesor Miguel Lozano recalca en clase que el gestor ágil debe guiar al equipo de forma activa en las primeras fases del ciclo, delegando paulatinamente el control técnico conforme los integrantes asimilan la autogestión.\n\n**Aplicación en DevOps:**\nAl iniciar el desarrollo del software de FinTech, el Scrum Master interviene de forma cercana para estructurar las daily stand-ups, retirándose gradualmente una vez que los desarrolladores coordinan el pipeline de forma autónoma."
   },
   {
     "tema": "Tema 9: Seguimiento del proyecto ágil",
@@ -1041,7 +1127,8 @@
       "Arranca como equipo inmaduro e irá mejorando"
     ],
     "answer": "Arranca como equipo inmaduro e irá mejorando",
-    "explanation": "Aun considerando un equipo excelente a nivel técnico, necesita madurar como equipo en las etapas iniciales de autoorganización."
+    "explanation": "Aun considerando un equipo excelente a nivel técnico, necesita madurar como equipo en las etapas iniciales de autoorganización.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nArranca de manera habitual como un equipo inmaduro metodológicamente y con desajustes que irá corrigiendo e inspeccionando de forma iterativa hasta consolidar su alto rendimiento en la autoorganización.\n\n**La perspectiva de la clase:**\nSe enseña en clase que incluso los ingenieros más talentosos a nivel individual requieren tiempo para madurar como una unidad de trabajo cohesionada, debiendo superar etapas naturales de conflicto y normalización.\n\n**Aplicación en DevOps:**\nEn los primeros Sprints, el equipo de TechOps Solutions experimenta retrasos en la estimación de pruebas automatizadas. Mediante retrospectivas sinceras, el equipo consolida un flujo integrado y maduro de CI/CD."
   },
   {
     "tema": "Tema 9: Seguimiento del proyecto ágil",
@@ -1053,7 +1140,8 @@
       "De estilo directivo"
     ],
     "answer": "Facilitador",
-    "explanation": "Es importante que cada persona pueda aportar ideas y así que el equipo crezca."
+    "explanation": "Es importante que cada persona pueda aportar ideas y así que el equipo crezca.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEs un estilo de liderazgo puramente facilitador (*servant leadership*), enfocado en brindar soporte al equipo, remover los impedimentos, fomentar la colaboración descentralizada y potenciar el crecimiento continuo de las personas.\n\n**La perspectiva de la clase:**\nEl profesor Lozano recalca en clase que un líder facilitador no ejerce microgestión ni manda de forma autocrática. Su misión es empoderar a los ingenieros para que tomen decisiones de diseño técnico bajo una visión unificada.\n\n**Aplicación en DevOps:**\nEl Scrum Master de FinTech no dictamina qué base de datos utilizar; en su lugar, actúa como facilitador promoviendo una sesión técnica de arquitectura donde el equipo de desarrollo elige de forma autónoma la mejor solución."
   },
   {
     "tema": "Tema 9: Seguimiento del proyecto ágil",
@@ -1065,7 +1153,8 @@
       "Como un conjunto de tareas al unísono, siempre con un enfoque estático"
     ],
     "answer": "Como un vector de fuerzas que impulsan al equipo",
-    "explanation": "Las motivaciones individuales del equipo deben estar alineadas con el objetivo del proyecto."
+    "explanation": "Las motivaciones individuales del equipo deben estar alineadas con el objetivo del proyecto.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPuede ser definida formalmente como un vector dinámico de fuerzas que impulsan de manera conjunta y enfocada al equipo de trabajo hacia la consecución exitosa de los objetivos comerciales del proyecto.\n\n**La perspectiva de la clase:**\nEl profesor señala que la motivación en marcos ágiles es intrínseca y colectiva. Nace del respeto mutuo, el orgullo profesional del código limpio, la autonomía de trabajo y la comprensión clara del valor que se aporta al negocio.\n\n**Aplicación in DevOps:**\nEl equipo de TechOps se mantiene motivado e implicado al observar cómo sus automatizaciones e infraestructura de despliegue quincenal eliminan errores de seguridad y facilitan la vida del cliente final de FinTech Solutions."
   },
   {
     "tema": "Tema 9: Seguimiento del proyecto ágil",
@@ -1077,7 +1166,8 @@
       "Entre una iteración y la reunión de retrospectiva"
     ],
     "answer": "Durante la ejecución del proyecto",
-    "explanation": "El pensamiento clásico se posiciona en registrar lecciones al final, pero es más efectivo hacerlo cuando se van produciendo las lecciones, tanto al inicio, como en mitad y en el cierre."
+    "explanation": "El pensamiento clásico se posiciona en registrar lecciones al final, pero es más efectivo hacerlo cuando se van produciendo las lecciones, tanto al inicio, como en mitad y en el cierre.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSe deben registrar de manera continua y sistemática durante la propia ejecución del proyecto, capturando el aprendizaje en el instante en que se produce (al inicio, a mitad de ciclo o al cierre).\n\n**La perspectiva de la clase:**\nEl profesor Lozano contrasta este enfoque contra el pensamiento clásico tradicional, donde las lecciones se registran en bloque al final del proyecto, perdiendo valiosos matices prácticos y oportunidades de adaptación.\n\n**Aplicación en DevOps:**\nEl equipo de FinTech registra de inmediato las incidencias de despliegue en un diario compartido de lecciones en Wiki/Confluence tras cada Sprint, permitiendo que otros equipos de la empresa se beneficien de la solución."
   },
   {
     "tema": "Tema 10: Evolución en la gestión de proyectos",
@@ -1089,7 +1179,8 @@
       "Suele implicar el no tener tan claro qué se debe hacer a largo plazo"
     ],
     "answer": "Suele implicar el no tener tan claro qué se debe hacer a largo plazo",
-    "explanation": "No hay que definir en detalle desde el inicio, por eso se aplican los horizontes de planificación que vimos en anteriores temas."
+    "explanation": "No hay que definir en detalle desde el inicio, por eso se aplican los horizontes de planificación que vimos en anteriores temas.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUna desventaja operativa inherente es que suele implicar no contar con una definición completamente detallada y clara a largo plazo sobre el alcance y la arquitectura de todo el sistema desde el inicio del proyecto.\n\n**La perspectiva de la clase:**\nEl profesor Lozano explica en sus diapositivas del Tema 10 que el agilismo asume que planificar al detalle el futuro lejano genera desperdicios ante el cambio constante, por lo que adopta una planificación progresiva por horizontes.\n\n**Aplicación en DevOps:**\nPara la app financiera de FinTech Solutions, esto significa que, aunque el MVP tiene definidas sus características básicas en el Roadmap, el diseño de módulos complejos como reportes anuales se pospone para Sprints posteriores."
   },
   {
     "tema": "Tema 10: Evolución en la gestión de proyectos",
@@ -1101,7 +1192,8 @@
       "Se deben evitar los cambios si no mejoran nada, según prevea el equipo"
     ],
     "answer": "Se debe entender que son necesarios y beneficiosos",
-    "explanation": "En líneas generales, lo importante es adaptarse para satisfacer los requisitos, y no tanto el tener que cumplir planes prefijados."
+    "explanation": "En líneas generales, lo importante es adaptarse para satisfacer los requisitos, y no tanto el tener que cumplir planes prefijados.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos cambios en el alcance y los requisitos de un proyecto de software ágil no deben ser evitados ni penalizados; se deben comprender como oportunidades necesarias y altamente beneficiosas para maximizar el valor del negocio.\n\n**La perspectiva de la clase:**\nEl profesor Lozano recalca que el Manifiesto Ágil prioriza la respuesta ante el cambio sobre el seguimiento ciego de un plan rígido prefijado, adaptándose continuamente para satisfacer de forma real las demandas del usuario.\n\n**Aplicación en DevOps:**\nSi el banco FinTech solicita un nuevo estándar de validación transaccional quincenal, el equipo de TechOps no se resiste contractualmente, sino que adapta de inmediato sus pipelines automáticos para integrar la nueva validación."
   },
   {
     "tema": "Tema 10: Evolución en la gestión de proyectos",
@@ -1113,7 +1205,8 @@
       "Que hay más personas formadas en el enfoque ágil"
     ],
     "answer": "Que el enfoque tradicional es menos adaptable",
-    "explanation": "El enfoque tradicional, basado en líneas base, se enfoca en el mantenimiento y cumplimiento de estas, lo que no funciona bien cuando hay que adaptarse a cambios."
+    "explanation": "El enfoque tradicional, basado en líneas base, se enfoca en el mantenimiento y cumplimiento de estas, lo que no funciona bien cuando hay que adaptarse a cambios.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl enfoque predictivo tradicional es inherentemente menos adaptable y flexible. Al centrarse rígidamente en el cumplimiento de una línea base fija de proyecto, no responde bien ante la incertidumbre tecnológica y los cambios continuos.\n\n**La perspectiva de la clase:**\nEl profesor Miguel Lozano enseña en clase que los proyectos modernos de transformación digital operan bajo escenarios de alta volatilidad. Forzar la adherencia a un plan diseñado hace un año provoca la entrega de software obsoleto.\n\n**Aplicación en DevOps:**\nFrente al fracaso de proyectos tradicionales que tardaban un año en desplegar software, la app de pagos FinTech adopta agilidad para liberar actualizaciones incrementales y estables cada dos semanas."
   },
   {
     "tema": "Tema 10: Evolución en la gestión de proyectos",
@@ -1125,7 +1218,8 @@
       "El enfoque ágil implica menos planificación detallada al inicio"
     ],
     "answer": "El enfoque ágil implica menos planificación detallada al inicio",
-    "explanation": "Se debe disponer de suficiente información para iniciar el proyecto, pero no es necesario disponer de toda la información necesaria para saber cómo acabar el proyecto."
+    "explanation": "Se debe disponer de suficiente información para iniciar el proyecto, pero no es necesario disponer de toda la información necesaria para saber cómo acabar el proyecto.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl enfoque ágil requiere de un volumen sustancialmente menor de planificación exhaustiva y detallada al inicio del proyecto, prefiriendo arrancar con la información básica para luego iterar y planificar sobre la marcha.\n\n**La perspectiva de la clase:**\nEl profesor explica que basta con contar con la visión inicial, las Personas y una pila de requisitos priorizada de alto nivel en el Roadmap para iniciar el desarrollo, detallando de forma incremental antes de cada iteración.\n\n**Aplicación en DevOps:**\nEn el lanzamiento del proyecto de TechOps, el equipo no pasa tres meses redactando un pliego de condiciones de mil páginas; acuerda la arquitectura base en el Sprint 0 y comienza a programar código funcional de inmediato."
   },
   {
     "tema": "Tema 10: Evolución en la gestión de proyectos",
@@ -1137,7 +1231,8 @@
       "Lo más técnica posible, con uso de herramientas software"
     ],
     "answer": "Lo más realista posible",
-    "explanation": "La planificación, sea realizada con un Roadmap o con un diagrama de Gantt, debe ser una herramienta que refleje la información más probable y real posible."
+    "explanation": "La planificación, sea realizada con un Roadmap o con un diagrama de Gantt, debe ser una herramienta que refleje la información más probable y real posible.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nIndependientemente de la metodología adoptada (ya sea un Roadmap ágil o un diagrama de Gantt tradicional), la planificación debe diseñarse para ser lo más realista e informada posible en base a datos observados.\n\n**La perspectiva de la clase:**\nEl profesor Lozano advierte que una planificación sobreestimada basada en deseos políticos en lugar de en la capacidad técnica real del equipo de desarrollo destruye la confianza y conduce al fracaso sistemático.\n\n**Aplicación en DevOps:**\nEl equipo de FinTech planifica su Sprint Backlog apoyado firmemente en su velocidad histórica demostrada de 25 puntos quincenales de esfuerzo, garantizando una planificación de alta confiabilidad metodológica."
   },
   {
     "tema": "Tema 10: Evolución en la gestión de proyectos",
@@ -1149,7 +1244,8 @@
       "En el enfoque ágil se aumenta el riesgo cuando hay que hacer cambios"
     ],
     "answer": "En el enfoque ágil se reduce el riesgo con mayor medida que el tradicional",
-    "explanation": "En un proyecto ágil se obtiene feedback sobre el trabajo realizado a corto plazo, por lo que los errores se pueden detectar y corregir pronto, minimizando los riesgos."
+    "explanation": "En un proyecto ágil se obtiene feedback sobre el trabajo realizado a corto plazo, por lo que los errores se pueden detectar y corregir pronto, minimizando los riesgos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn el enfoque ágil, el riesgo global del proyecto se reduce de manera sustancialmente mayor y más temprana en comparación con las metodologías predictivas clásicas.\n\n**La perspectiva de la clase:**\nEn el enfoque tradicional, el riesgo se acumula de forma exponencial y solo se disipa al final durante el despliegue de Big Bang. En la agilidad, cada iteración quincenal entrega un incremento funcional validado, mitigando el riesgo.\n\n**Aplicación en DevOps:**\nAl automatizar pruebas de regresión y desplegar incrementos de código cada Sprint, el equipo de TechOps detecta incompatibilidades de software de manera inmediata, eliminando el riesgo de fallos masivos en producción."
   },
   {
     "tema": "Tema 10: Evolución en la gestión de proyectos",
@@ -1161,7 +1257,8 @@
       "El valor del resultado desde el punto de vista del contrato"
     ],
     "answer": "El valor del resultado desde el punto de vista de negocio",
-    "explanation": "Aun considerando que se deben cumplir las restricciones y los contratos contemplados, lo que más se valora es el maximizar el resultado para el negocio."
+    "explanation": "Aun considerando que se deben cumplir las restricciones y los contratos contemplados, lo que más se valora es el maximizar el resultado para el negocio.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl centro e indicador absoluto de éxito de todo proyecto es maximizar el valor de los resultados funcionales desde el punto de vista de negocio y del cliente, por encima del cumplimiento burocrático de planes o contratos.\n\n**La perspectiva de la clase:**\nEl profesor Lozano aclara que, aunque las restricciones financieras y contractuales se deben respetar de forma corporativa, de nada sirve cumplirlas si el software finalizado no resuelve las necesidades reales del negocio.\n\n**Aplicación en DevOps:**\nEl equipo de FinTech prioriza robustecer el motor de encriptación de transacciones antes de programar características decorativas, garantizando que el software entregado cumpla de manera óptima con su meta estratégica."
   },
   {
     "tema": "Tema 10: Evolución en la gestión de proyectos",
@@ -1173,7 +1270,8 @@
       "Tradicional, prototipo, iterativo y orientación a objetos"
     ],
     "answer": "Tradicional, prototipo, iterativo y espiral",
-    "explanation": "Estos son algunos de los principales métodos SDLC."
+    "explanation": "Estos son algunos de los principales métodos SDLC.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos principales modelos históricos y marcos de referencia del Ciclo de Vida del Desarrollo de Software son: el método Tradicional (o de cascada), el Modelo de Prototipo, el Modelo Iterativo y el Modelo en Espiral.\n\n**La perspectiva de la clase:**\nEl profesor Lozano señala en el Tema 10 que el ciclo de vida del software ha evolucionado notablemente. Es vital comprender que no existe un modelo SDLC único o superior; se debe seleccionar el que mejor se adapte a la empresa.\n\n**Aplicación en DevOps:**\nEl equipo de FinTech evalúa que, frente a la rigidez del modelo en cascada tradicional, el enfoque adaptativo de DevOps combina el desarrollo iterativo e incremental con metodologías ágiles avanzadas."
   },
   {
     "tema": "Tema 10: Evolución en la gestión de proyectos",
@@ -1185,7 +1283,8 @@
       "Reducir el ciclo de vida del desarrollo de sistemas y proporcionar una entrega continua, siendo opuesto a lo que se hace en la metodología tradicional"
     ],
     "answer": "Reducir el ciclo de vida del desarrollo de sistemas y proporcionar una entrega continua, siendo complementario a lo que se hace en la metodología ágil",
-    "explanation": "DevOps acorta el ciclo de vida con la entrega y mejora continua, y aunque aspectos de DevOps provienen de la metodología Ágil, no es opuesto a la tradicional."
+    "explanation": "DevOps acorta el ciclo de vida con la entrega y mejora continua, y aunque aspectos de DevOps provienen de la metodología Ágil, no es opuesto a la tradicional.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSu objetivo primordial es reducir drásticamente el ciclo de vida de desarrollo de sistemas, proporcionando entregas continuas, seguras y de alta calidad, siendo un enfoque plenamente complementario a la metodología ágil.\n\n**La perspectiva de la clase:**\nEl profesor aclara en clase que DevOps no se opone a las metodologías tradicionales, sino que las complementa y potencia culturalmente mediante la automatización, rompiendo los silos entre desarrollo y sistemas.\n\n**Aplicación en DevOps:**\nEn FinTech Solutions S.A., el equipo implementa un flujo continuo (*pipeline*) automatizado de despliegue a la nube de AWS, acortando el tiempo de liberación y garantizando un servicio bancario de alta disponibilidad."
   },
   {
     "tema": "Tema 10: Evolución en la gestión de proyectos",
@@ -1197,6 +1296,7 @@
       "El estar dirigido por casos de uso, centrado en la arquitectura y ser iterativo e incremental"
     ],
     "answer": "El estar dirigido por casos de uso, centrado en la arquitectura y ser iterativo e incremental",
-    "explanation": "Estas son las tres características principales. El resto suponen las fases y el uso de UML, pero además no son argumentos correctos por completo."
+    "explanation": "Estas son las tres características principales. El resto suponen las fases y el uso de UML, pero además no son argumentos correctos por completo.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas tres características arquitectónicas e históricas esenciales de la metodología unificada RUP son: estar plenamente dirigido por casos de uso, centrado en la arquitectura de software y ser iterativo e incremental.\n\n**La perspectiva de la clase:**\nEl profesor Miguel Lozano explica que, aunque RUP permite cierta adaptación a requisitos cambiantes durante sus primeras fases preliminares (Inicio y Elaboración), una vez definida la arquitectura pasa a ser menos ágil.\n\n**Aplicación en DevOps:**\nEl equipo de TechOps Solutions analiza a RUP como un predecesor importante de la agilidad moderna; sin embargo, prefiere usar marcos ágiles más dinámicos como Scrum o XP para responder velozmente a los cambios del negocio."
   }
 ]

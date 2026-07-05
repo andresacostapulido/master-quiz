@@ -9,7 +9,8 @@
       "Desarrollo y operaciones"
     ],
     "answer": "Gobierno, desarrollo y operaciones",
-    "explanation": "Estos tres aspectos forman parte del ciclo de ALM e intervienen en cada una de las fases, según corresponda."
+    "explanation": "Estos tres aspectos forman parte del ciclo de ALM e intervienen en cada una de las fases, según corresponda.",
+    "detailedExplanation": "¿Qué significa realmente?\nALM (Application Lifecycle Management) consiste en la gestión integral del ciclo de vida de una aplicación, abarcando desde su diseño inicial y desarrollo hasta su mantenimiento y retiro definitivo.\n\nLa perspectiva de la clase:\nEl material de la UNIR señala tres pilares fundamentales: gobierno, desarrollo y operaciones, los cuales interactúan de forma transversal en cada fase del ciclo de vida según corresponda.\n\nAplicación en DevOps:\nEn DevOps, la integración de estos tres aspectos rompe los silos organizacionales tradicionales, automatizando el flujo de trabajo bajo un mismo marco de gobierno y control."
   },
   {
     "tema": "Tema 1: Introducción",
@@ -21,7 +22,8 @@
       "Conseguir que los cambios de código inicien una construcción, ejecuten las pruebas y permitan un despliegue sin intervención humana"
     ],
     "answer": "Conseguir que los cambios de código inicien una construcción, ejecuten las pruebas y permitan un despliegue sin intervención humana",
-    "explanation": "Las respuestas A y B son ciertas en parte, pero no son suficientes de manera individual para desplegar automáticamente."
+    "explanation": "Las respuestas A y B son ciertas en parte, pero no son suficientes de manera individual para desplegar automáticamente.",
+    "detailedExplanation": "¿Qué significa realmente?\nSignifica configurar un sistema en el que cualquier cambio de código en el repositorio dispare de manera autónoma la compilación del software, la ejecución de pruebas y el despliegue del artefacto.\n\nLa perspectiva de la clase:\nEl profesor destaca que esta automatización completa debe realizarse sin intervención humana directa, garantizando un flujo constante, rápido y libre de fallos manuales en cada entrega.\n\nAplicación en DevOps:\nEn DevOps, esto se traduce en el pipeline de CI/CD. Al automatizar el build, test y deploy, se reduce el 'lead time' al mínimo y se agiliza drásticamente la entrega de valor al usuario final."
   },
   {
     "tema": "Tema 1: Introducción",
@@ -33,7 +35,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Aunque pueden existir razones de costes para no desplegar en producción mucho antes de la salida al mercado, desplegar en un entorno similar a producción es clave para conseguir un proceso de despliegue fiable."
+    "explanation": "Aunque pueden existir razones de costes para no desplegar en producción mucho antes de la salida al mercado, desplegar en un entorno similar a producción es clave para conseguir un proceso de despliegue fiable.",
+    "detailedExplanation": "¿Qué significa realmente?\nPermite validar de forma anticipada las configuraciones de red, las dependencias de la infraestructura y el comportamiento real del software en un entorno idéntico al productivo.\n\nLa perspectiva de la clase:\nAunque existan restricciones de costes para no tener producción activo con tanta antelación, desplegar en un entorno homólogo a producción es clave para lograr un despliegue fiable.\n\nAplicación en DevOps:\nMediante Infraestructura como Código (IaC), DevOps facilita el aprovisionamiento de entornos réplica de producción de forma efímera para pruebas de integración tempranas y despliegues sin sorpresas."
   },
   {
     "tema": "Tema 1: Introducción",
@@ -45,7 +48,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Mantener la configuración de cada entorno separada del script de despliegue y con un control de versiones",
-    "explanation": "Es fundamental que todos los entornos se desplieguen con el mismo proceso y que la configuración específica se guarde por separado."
+    "explanation": "Es fundamental que todos los entornos se desplieguen con el mismo proceso y que la configuración específica se guarde por separado.",
+    "detailedExplanation": "¿Qué significa realmente?\nConsiste en desacoplar por completo las variables y configuraciones de cada entorno específico (desarrollo, staging, producción) de los scripts de construcción y despliegue del software.\n\nLa perspectiva de la clase:\nEl material de la UNIR enfatiza la importancia de versionar esta configuración por separado, asegurando que todos los entornos se desplieguen usando exactamente el mismo proceso base.\n\nAplicación en DevOps:\nDevOps implementa esto mediante herramientas de gestión de configuración y secretos (como HashiCorp Vault o variables de entorno en el CI/CD), garantizando la seguridad y portabilidad de los artefactos."
   },
   {
     "tema": "Tema 1: Introducción",
@@ -57,7 +61,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Aumentar la calidad del código detectando los errores lo más pronto posible y la velocidad a la que se entrega a los clientes",
-    "explanation": "El objetivo principal es aumentar la calidad del código ofrecido a los clientes, ya que es el único sitio en el que aporta valor."
+    "explanation": "El objetivo principal es aumentar la calidad del código ofrecido a los clientes, ya que es el único sitio en el que aporta valor.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs la práctica de unificar el código de los desarrolladores en una rama principal varias veces al día, sometiendo cada integración a compilaciones y pruebas automáticas.\n\nLa perspectiva de la clase:\nEl profesor destaca que el objetivo principal es detectar y corregir errores lo antes posible, elevando la calidad del código y la velocidad de entrega a los clientes.\n\nAplicación en DevOps:\nEn DevOps, la integración continua (CI) asegura que el código siempre esté en un estado saludable y desplegable, acortando drásticamente el bucle de feedback técnico."
   },
   {
     "tema": "Tema 1: Introducción",
@@ -69,7 +74,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Cuando se consiguen todos los objetivos anteriores, el resultado es el código de calidad que aporta valor al producto lo más rápido posible."
+    "explanation": "Cuando se consiguen todos los objetivos anteriores, el resultado es el código de calidad que aporta valor al producto lo más rápido posible.",
+    "detailedExplanation": "¿Qué significa realmente?\nConsiste en asegurar que cualquier cambio de código que pase las pruebas de integración esté listo para ser desplegado en producción de forma segura y controlada en cualquier momento.\n\nLa perspectiva de la clase:\nEl material didáctico indica que, al alcanzar todos los objetivos anteriores, el resultado es código de calidad que aporta valor de forma fiable y rápida al negocio.\n\nAplicación en DevOps:\nLa entrega continua (CD) minimiza el esfuerzo y riesgo de los despliegues. Aunque la puesta en producción requiera una decisión de negocio manual, el software siempre está técnicamente listo."
   },
   {
     "tema": "Tema 1: Introducción",
@@ -81,7 +87,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "La entrega deja el producto listo para desplegar después de cada cambio, pero no tiene por qué desplegar en producción. El despliegue continuo prosigue el flujo de la entrega múltiples veces al día hasta completar el despliegue en producción",
-    "explanation": "Puede haber razones de negocio o técnicas para implementar entrega continua sin despliegue continuo."
+    "explanation": "Puede haber razones de negocio o técnicas para implementar entrega continua sin despliegue continuo.",
+    "detailedExplanation": "¿Qué significa realmente?\nLa entrega continua mantiene la base de código siempre lista y desplegable (con aprobación final manual), mientras que el despliegue continuo automatiza también la puesta en producción real.\n\nLa perspectiva de la clase:\nEl profesor explica que la entrega deja el producto listo tras cada cambio, pero no obliga a desplegar en producción directamente, habiendo razones de negocio para no automatizar el último paso.\n\nAplicación en DevOps:\nEn despliegue continuo, cada cambio aprobado por las pruebas se libera inmediatamente a producción múltiples veces al día, maximizando la automatización y la retroalimentación real del usuario."
   },
   {
     "tema": "Tema 1: Introducción",
@@ -93,7 +100,8 @@
       "No hay batería de pruebas alguna"
     ],
     "answer": "La construcción es manual y no se gestionan los artefactos",
-    "explanation": "Además, los despliegues son manuales, no hay un proceso común de despliegue, las pruebas no están integradas en el desarrollo y las migraciones de las bases de datos no están versionadas y se ejecutan manualmente."
+    "explanation": "Además, los despliegues son manuales, no hay un proceso común de despliegue, las pruebas no están integradas en el desarrollo y las migraciones de las bases de datos no están versionadas y se ejecutan manualmente.",
+    "detailedExplanation": "¿Qué significa realmente?\nSe observan procesos manuales y descentralizados, donde compilar el software es una tarea artesanal propensa a errores que depende de las computadoras locales de los desarrolladores.\n\nLa perspectiva de la clase:\nLa clase sitúa esto en el nivel más bajo de madurez, caracterizado por compilaciones manuales, nula gestión de artefactos generados, y migraciones de bases de datos no versionadas.\n\nAplicación en DevOps:\nPara superar esta etapa, DevOps introduce la estandarización mediante repositorios de artefactos (como Nexus o JFrog) y la automatización del proceso de compilación mediante un servidor de CI."
   },
   {
     "tema": "Tema 1: Introducción",
@@ -105,7 +113,8 @@
       "En versionar todos los elementos de la configuración"
     ],
     "answer": "En aquellos aspectos del proceso de integración y entrega que sean más dolorosos",
-    "explanation": "Aquellos aspectos más dolorosos y que más riesgo introducen serán los que más valor puedan aportar si se mejoran. Poco a poco se podrán ir mejorando otros aspectos."
+    "explanation": "Aquellos aspectos más dolorosos y que más riesgo introducen serán los que más valor puedan aportar si se mejoran. Poco a poco se podrán ir mejorando otros aspectos.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn lugar de intentar solucionar todo a la vez, la organización debe identificar los cuellos de botella más severos en su proceso actual y priorizar su optimización gradual.\n\nLa perspectiva de la clase:\nEl profesor aconseja enfocarse en los aspectos del proceso de integración y entrega que sean más 'dolorosos' o introduzcan más riesgo, ya que allí es donde se aporta mayor valor inicial.\n\nAplicación en DevOps:\nBajo la filosofía Lean de DevOps, se mapea la cadena de valor (Value Stream Mapping) para localizar y eliminar desperdicios, implementando mejoras iterativas basadas en datos reales."
   },
   {
     "tema": "Tema 1: Introducción",
@@ -117,7 +126,8 @@
       "Todos los anteriores"
     ],
     "answer": "Todos los anteriores",
-    "explanation": "Todos los elementos citados, tanto técnicos como humanos, son esenciales para implementar integración continua en un proyecto."
+    "explanation": "Todos los elementos citados, tanto técnicos como humanos, son esenciales para implementar integración continua en un proyecto.",
+    "detailedExplanation": "¿Qué significa realmente?\nLa integración continua no es solo adoptar una herramienta, sino una combinación armoniosa de tecnología adecuada, procesos claros y un cambio en la cultura del equipo.\n\nLa perspectiva de la clase:\nSe enseña que tanto los factores técnicos (repositorios, automatización de pruebas) como humanos (compromiso del equipo, disciplina de commits) son esenciales para comenzar.\n\nAplicación en DevOps:\nDevOps impulsa esta transformación cultural y técnica asegurando que los desarrolladores asuman la calidad como propia y adopten la costumbre de integrar su trabajo frecuentemente."
   },
   {
     "tema": "Tema 2: Control de versiones",
@@ -129,7 +139,8 @@
       "Es el cambio a un punto anterior de la historia del repositorio"
     ],
     "answer": "Es un conjunto de cambios registrados en la historia de un sistema de control de cambios",
-    "explanation": "Los cambios pueden ser modificaciones de líneas en ficheros existentes, ficheros añadidos o eliminados del repositorio."
+    "explanation": "Los cambios pueden ser modificaciones de líneas en ficheros existentes, ficheros añadidos o eliminados del repositorio.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs una confirmación que registra un conjunto de cambios específicos en el historial de un sistema de control de versiones, actuando como una instantánea del código en ese momento.\n\nLa perspectiva de la clase:\nLa clase detalla que un commit puede incluir adiciones, modificaciones o eliminaciones de archivos, sirviendo como la unidad base para el rastreo y auditoría del historial.\n\nAplicación en DevOps:\nUn commit de calidad (bajo estándares como Conventional Commits) es el disparador (trigger) que arranca de forma automática las pipelines de CI/CD para validar el nuevo código."
   },
   {
     "tema": "Tema 2: Control de versiones",
@@ -141,7 +152,8 @@
       "Todos los anteriores"
     ],
     "answer": "Todos los anteriores",
-    "explanation": "Es fundamental ser capaz de reproducir una versión de la aplicación y esto no se consigue solo con el código fuente. Son necesarios también los scripts de despliegues, las dependencias, herramientas, etc."
+    "explanation": "Es fundamental ser capaz de reproducir una versión de la aplicación y esto no se consigue solo con el código fuente. Son necesarios también los scripts de despliegues, las dependencias, herramientas, etc.",
+    "detailedExplanation": "¿Qué significa realmente?\nTodo elemento necesario para reproducir una versión exacta de la aplicación debe estar bajo control de versiones, no únicamente el código fuente escrito por los desarrolladores.\n\nLa perspectiva de la clase:\nEl profesor enfatiza que se deben versionar scripts de despliegue, esquemas de bases de datos, dependencias, configuraciones de entorno y las herramientas utilizadas.\n\nAplicación en DevOps:\nEste principio habilita prácticas de DevOps cruciales como GitOps e Infraestructura como Código (IaC), permitiendo reconstruir cualquier entorno de forma idéntica desde Git."
   },
   {
     "tema": "Tema 2: Control de versiones",
@@ -153,7 +165,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Varios desarrolladores trabajan sobre el mismo repositorio y probablemente sobre los mismos ficheros y el sistema se encarga de fusionar los cambios de todos automáticamente",
-    "explanation": "En algunos casos es necesario corregir conflictos manualmente."
+    "explanation": "En algunos casos es necesario corregir conflictos manualmente.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs la capacidad de que varios desarrolladores trabajen de manera paralela sobre la misma base de código y los mismos archivos, sin bloquearse mutuamente durante la edición.\n\nLa perspectiva de la clase:\nEl material de la UNIR explica que el sistema de control de versiones se encarga de fusionar estos cambios automáticamente, alertando cuando se requiere resolución manual de conflictos.\n\nAplicación en DevOps:\nLa edición simultánea, potenciada por sistemas distribuidos como Git, acelera el desarrollo en paralelo y requiere pipelines robustos para validar que las fusiones no rompan el software."
   },
   {
     "tema": "Tema 2: Control de versiones",
@@ -165,7 +178,8 @@
       "Commit=unión de dos ramas, Rama=almacén de cambios, Repositorio=puntero a cambios consecutivos, Fusión=cambios registrados"
     ],
     "answer": "Commit=cambios registrados en la historia, Rama=puntero a cambios consecutivos, Repositorio=almacén de cambios, Fusión=unión de dos ramas",
-    "explanation": "Commit: conjunto de cambios registrados en la historia. Rama: puntero a un conjunto de cambios consecutivos. Repositorio: almacén de los cambios de un sistema o aplicación. Fusión: unión de dos ramas."
+    "explanation": "Commit: conjunto de cambios registrados en la historia. Rama: puntero a un conjunto de cambios consecutivos. Repositorio: almacén de los cambios de un sistema o aplicación. Fusión: unión de dos ramas.",
+    "detailedExplanation": "¿Qué significa realmente?\nSon los cuatro conceptos atómicos de los sistemas de versiones: el commit registra cambios, la rama agrupa commits, el repositorio los almacena y la fusión los unifica.\n\nLa perspectiva de la clase:\nLa clase define formalmente: Commit (cambios registrados), Rama (puntero a cambios consecutivos), Repositorio (almacén de cambios) y Fusión (unión de dos ramas distintas).\n\nAplicación en DevOps:\nEn DevOps, dominar estos conceptos es vital para diseñar estrategias de ramificación eficientes (branching strategies) que dictan cómo viaja el código hacia producción."
   },
   {
     "tema": "Tema 2: Control de versiones",
@@ -177,7 +191,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Que un desarrollador puede trabajar en una versión antigua del repositorio",
-    "explanation": "Más concretamente, la copia de trabajo se puede actualizar con cualquier commit del histórico."
+    "explanation": "Más concretamente, la copia de trabajo se puede actualizar con cualquier commit del histórico.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs la capacidad técnica de retroceder o actualizar la copia de trabajo local a cualquier punto anterior o commit específico registrado en el historial del repositorio.\n\nLa perspectiva de la clase:\nSe enseña que esto permite trabajar sobre versiones antiguas del repositorio, facilitando auditorías de código o la corrección de errores específicos de versiones pasadas.\n\nAplicación en DevOps:\nEn DevOps, esta funcionalidad permite realizar rollbacks (marchas atrás) inmediatos y seguros en producción ante incidentes, restableciendo el estado estable anterior en segundos."
   },
   {
     "tema": "Tema 2: Control de versiones",
@@ -189,7 +204,8 @@
       "Todos los anteriores"
     ],
     "answer": "Todos los anteriores",
-    "explanation": "También incluyen un identificador único, pueden incluir una firma, etc."
+    "explanation": "También incluyen un identificador único, pueden incluir una firma, etc.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos metadatos son la información contextual que describe cada cambio, permitiendo saber con exactitud quién hizo la modificación, cuándo y por qué razón.\n\nLa perspectiva de la clase:\nEl material de estudio señala que además del autor, fecha y mensaje, se incluyen identificadores únicos (hashes SHA-1), firmas digitales y metadatos del integrador.\n\nAplicación en DevOps:\nEstos metadatos garantizan una trazabilidad completa en las auditorías de seguridad de DevOps, conectando cada despliegue con el autor original del cambio."
   },
   {
     "tema": "Tema 2: Control de versiones",
@@ -201,7 +217,8 @@
       "Todas las anteriores son estrategias válidas"
     ],
     "answer": "Referenciando la versión de la dependencia como una librería e instalándola con un gestor de paquetes durante el despliegue",
-    "explanation": "Técnicamente todas las opciones son posibles, pero la A no permite actualizar la versión fácilmente y la B no tiene en cuenta una instalación automatizada."
+    "explanation": "Técnicamente todas las opciones son posibles, pero la A no permite actualizar la versión fácilmente y la B no tiene en cuenta una instalación automatizada.",
+    "detailedExplanation": "¿Qué significa realmente?\nLas librerías externas de las que depende el código no deben subirse al repositorio Git, sino ser declaradas en un archivo de configuración para su descarga automatizada.\n\nLa perspectiva de la clase:\nSe recomienda referenciar la versión de la dependencia en un archivo y delegar su descarga e instalación en un gestor de paquetes durante el proceso de compilación y despliegue.\n\nAplicación en DevOps:\nEn DevOps, esto aligera el tamaño del repositorio y permite que herramientas de análisis SCA (como Snyk o Dependabot) escaneen de forma automática vulnerabilidades en dependencias."
   },
   {
     "tema": "Tema 2: Control de versiones",
@@ -213,7 +230,8 @@
       "A y B"
     ],
     "answer": "A y B",
-    "explanation": "«A» crea la rama y la activa en la copia de trabajo, mientras que «B» la crea, pero no cambia la rama activa."
+    "explanation": "«A» crea la rama y la activa en la copia de trabajo, mientras que «B» la crea, pero no cambia la rama activa.",
+    "detailedExplanation": "¿Qué significa realmente?\nCrear una rama es establecer una nueva línea de desarrollo independiente. Se puede crear la rama manteniéndose en la actual, o bien crearla y activarla al mismo tiempo.\n\nLa perspectiva de la clase:\nSe enseña que 'git branch feature' crea la rama pero mantiene activa la actual, mientras que 'git checkout -b feature' la crea y la activa inmediatamente en la copia de trabajo.\n\nAplicación en DevOps:\nLa creación de ramas ligeras facilita el desarrollo de micro-características aisladas, permitiendo que cada desarrollador trabaje en su propia 'sandbox' de forma segura."
   },
   {
     "tema": "Tema 3: Flujos de trabajo con Git",
@@ -225,7 +243,8 @@
       "Porque cada usuario es propietario de un fichero y solo ese usuario puede modificarlo"
     ],
     "answer": "Porque cada usuario trabaja con una copia completa del repositorio",
-    "explanation": "Cada usuario puede trabajar en todos los ficheros que necesite; el sistema se encargará de fusionar los cambios automáticamente o de avisar al usuario si hay conflictos que se deben resolver manualmente."
+    "explanation": "Cada usuario puede trabajar en todos los ficheros que necesite; el sistema se encargará de fusionar los cambios automáticamente o de avisar al usuario si hay conflictos que se deben resolver manualmente.",
+    "detailedExplanation": "¿Qué significa realmente?\nAl trabajar de forma distribuida, cada desarrollador tiene una copia completa del repositorio en su máquina local, lo que permite modificar cualquier archivo sin interferir con otros.\n\nLa perspectiva de la clase:\nEl material didáctico explica que el sistema se encarga de resolver las fusiones automáticamente, o bien de avisar al usuario para solucionar conflictos de forma manual.\n\nAplicación en DevOps:\nEsto elimina el desperdicio por tiempos de espera de las metodologías tradicionales, acelerando el flujo de desarrollo colaborativo de alta velocidad en equipos DevOps."
   },
   {
     "tema": "Tema 3: Flujos de trabajo con Git",
@@ -237,7 +256,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Porque se basa en los conceptos de fork y pull requests, que solo ofrecen los sistemas distribuidos",
-    "explanation": "El flujo de GitHub se puede aplicar en otras plataformas, como BitBucket y GitLab."
+    "explanation": "El flujo de GitHub se puede aplicar en otras plataformas, como BitBucket y GitLab.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl flujo de GitHub se basa en interactuar entre repositorios independientes mediante bifurcaciones (forks) y solicitudes de integración (pull requests), conceptos nativos de arquitecturas distribuidas.\n\nLa perspectiva de la clase:\nEl profesor resalta que estos flujos requieren plataformas que admitan pull requests, mecanismos inviables en sistemas centralizados clásicos donde hay un solo servidor de verdad única.\n\nAplicación en DevOps:\nEn DevOps, el pull request funciona como un 'límite de calidad' automático (gate) donde se ejecutan pruebas, linters y análisis de seguridad antes de autorizar el merge."
   },
   {
     "tema": "Tema 3: Flujos de trabajo con Git",
@@ -249,7 +269,8 @@
       "Una principal, una de desarrollo y tantas como sean necesarias para las funcionalidades nuevas"
     ],
     "answer": "Solo una, master o trunk",
-    "explanation": "Es el flujo más cercano al concepto de integración continua extrema, ya que todos los cambios se añaden a la rama principal directamente."
+    "explanation": "Es el flujo más cercano al concepto de integración continua extrema, ya que todos los cambios se añaden a la rama principal directamente.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn un flujo de trabajo centralizado, todos los desarrolladores envían sus commits directamente a una única rama común (master o trunk) sin bifurcaciones estables de larga duración.\n\nLa perspectiva de la clase:\nSegún el material de la UNIR, es el flujo más cercano a la integración continua extrema, ya que todos los cambios se añaden directamente a la rama principal para que el equipo parta siempre de la misma base.\n\nAplicación en DevOps:\nEn DevOps, este flujo requiere pruebas automatizadas extremadamente rápidas y de calidad en local antes del commit, evitando conflictos masivos al unificar código constantemente en equipos pequeños y experimentados."
   },
   {
     "tema": "Tema 3: Flujos de trabajo con Git",
@@ -261,7 +282,8 @@
       "Porque el cambio es necesario en producción y debe estar disponible en master, pero; además, hay que incorporarlo en cualquier prueba que se esté realizando en el desarrollo de la siguiente versión"
     ],
     "answer": "Porque el cambio es necesario en producción y debe estar disponible en master, pero; además, hay que incorporarlo en cualquier prueba que se esté realizando en el desarrollo de la siguiente versión",
-    "explanation": "De lo contrario, los entornos de pruebas pueden no comportarse igual que producción."
+    "explanation": "De lo contrario, los entornos de pruebas pueden no comportarse igual que producción.",
+    "detailedExplanation": "¿Qué significa realmente?\nUna rama de hotfix soluciona fallos críticos de producción. Una vez corregido, el cambio debe fusionarse a master para el despliegue inmediato, y a develop para evitar regresiones en la siguiente versión.\n\nLa perspectiva de la clase:\nLa clase recalca que si el parche no se propaga inmediatamente a develop, los entornos de prueba correspondientes a las futuras versiones no se comportarán de la misma forma que el entorno productivo.\n\nAplicación en DevOps:\nEn DevOps, automatizar este back-merge (fusión de retorno) hacia la rama develop mediante pipelines garantiza la consistencia entre entornos y previene que errores ya corregidos reaparezcan en futuras entregas."
   },
   {
     "tema": "Tema 3: Flujos de trabajo con Git",
@@ -273,7 +295,8 @@
       "B y C"
     ],
     "answer": "Sí, feature branching puede implementarse en cualquier tipo de sistema de control de versiones centralizado o distribuido",
-    "explanation": "GitHub ofrece todas las funcionalidades de un servidor de Git y, por tanto, soporta un flujo que funcione sobre Git."
+    "explanation": "GitHub ofrece todas las funcionalidades de un servidor de Git y, por tanto, soporta un flujo que funcione sobre Git.",
+    "detailedExplanation": "¿Qué significa realmente?\nFeature branching es una capacidad nativa de Git. Se puede crear una rama local para cada funcionalidad y fusionarla directamente en el servidor remoto sin necesidad de usar interfaces web o de aprobación.\n\nLa perspectiva de la clase:\nEl profesor aclara que GitHub ofrece todas las funcionalidades de un servidor Git estándar, por lo que es totalmente capaz de soportar flujos técnicos que funcionen sobre Git sin mediación de Pull Requests.\n\nAplicación en DevOps:\nAunque DevOps promueve las Pull Requests como 'gates' de calidad automatizados (pruebas, linters, escaneo de SonarQube), la ramificación de funcionalidades es una técnica de control de versiones independiente de estas herramientas."
   },
   {
     "tema": "Tema 3: Flujos de trabajo con Git",
@@ -285,7 +308,8 @@
       "En la interfaz de GitHub, en el asistente de New repository, hay que seleccionar que se trata de un fork e indicar el repositorio principal"
     ],
     "answer": "En la interfaz de GitHub, haciendo clic sobre el botón Fork",
-    "explanation": "Los forks no son más que clones, pero GitHub ofrece una funcionalidad adicional para identificar que un repositorio es un fork de otro."
+    "explanation": "Los forks no son más que clones, pero GitHub ofrece una funcionalidad adicional para identificar que un repositorio es un fork de otro.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn fork es una copia personal de un repositorio ajeno alojada en tu cuenta de GitHub, que te permite experimentar y modificar el código libremente sin alterar el proyecto original.\n\nLa perspectiva de la clase:\nEl material de la UNIR enseña que los forks no son más que clones, pero la plataforma de GitHub añade metadatos adicionales para identificar el origen y facilitar el envío de Pull Requests.\n\nAplicación en DevOps:\nEl flujo de forking es un pilar de la colaboración en proyectos de código abierto y entornos corporativos estrictos, ya que habilita la contribución de desarrolladores externos sin otorgarles accesos de escritura directos."
   },
   {
     "tema": "Tema 3: Flujos de trabajo con Git",
@@ -297,7 +321,8 @@
       "Centralizado=requiere pull requests, Feature branching=cada rama corresponde a un entorno, GitLab=rama nueva por cada cambio, Forking=única rama"
     ],
     "answer": "Centralizado=única rama, Feature branching=rama nueva por cada cambio, GitLab=cada rama corresponde a un entorno, Forking=requiere pull requests",
-    "explanation": "Flujo centralizado: hay una única rama. Feature branching: hay una rama principal y una rama nueva para cada cambio. Flujo de GitLab: cada rama corresponde con un entorno de despliegue. Forking workflow: requiere una plataforma que soporte el concepto de pull request."
+    "explanation": "Flujo centralizado: hay una única rama. Feature branching: hay una rama principal y una rama nueva para cada cambio. Flujo de GitLab: cada rama corresponde con un entorno de despliegue. Forking workflow: requiere una plataforma que soporte el concepto de pull request.",
+    "detailedExplanation": "¿Qué significa realmente?\nCada flujo organiza las ramas de forma distinta: el centralizado usa una sola rama; feature branching aísla cada cambio; GitLab mapea ramas a entornos físicos de despliegue; y Forking requiere Pull Requests entre repositorios separados.\n\nLa perspectiva de la clase:\nEl profesor insiste en que no hay un flujo superior a otro; la mejor práctica es adoptar el que mejor se adapte al tamaño, experiencia del equipo y necesidades operativas del proyecto.\n\nAplicación en DevOps:\nLa elección del flujo condiciona el diseño del pipeline. Por ejemplo, en GitLab Flow, empujar cambios a una rama de entorno (como staging o production) desencadena automáticamente el despliegue correspondiente."
   },
   {
     "tema": "Tema 3: Flujos de trabajo con Git",
@@ -309,7 +334,8 @@
       "El origen es repo:new-feature y el destino es fork/repo:master"
     ],
     "answer": "El origen es fork/repo:new-feature y el destino es repo:master",
-    "explanation": "La rama de trabajo existe en el fork, no en el repositorio principal. El destino es la rama principal del repositorio original."
+    "explanation": "La rama de trabajo existe en el fork, no en el repositorio principal. El destino es la rama principal del repositorio original.",
+    "detailedExplanation": "¿Qué significa realmente?\nAl colaborar sin permisos directos de escritura, realizas una copia personal (fork) del proyecto y trabajas en tu propia rama. La Pull Request propone integrar tus cambios desde esa rama externa hacia la rama principal (master/main) del repositorio original.\n\nLa perspectiva de la clase:\nLa actividad grupal de la UNIR replica exactamente este flujo: cada integrante realiza un fork del repositorio del administrador, crea una rama local, sube sus cambios y solicita una Pull Request hacia el repositorio principal del equipo.\n\nAplicación en DevOps:\nEsta separación técnica protege la integridad del código base principal. La Pull Request actúa como una \"puerta de calidad\" donde se ejecutan de forma automática pipelines de validación (linters, pruebas y SonarQube) antes de autorizar la fusión."
   },
   {
     "tema": "Tema 3: Flujos de trabajo con Git",
@@ -321,7 +347,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "En un sistema distribuido un repositorio puede intercambiar ramas y commits con cualquier otro repositorio. Estos otros repositorios se consideran remotos, y puede definirse más de uno",
-    "explanation": "Además, el usuario puede tener acceso de lectura sobre unos y de lectura y escritura sobre otros."
+    "explanation": "Además, el usuario puede tener acceso de lectura sobre unos y de lectura y escritura sobre otros.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn Git, tu repositorio local no está atado a un único servidor. Puedes registrar múltiples servidores remotos (remotes), permitiéndote descargar cambios (fetch/pull) o subir tu trabajo (push) a distintas plataformas o repositorios de compañeros de manera independiente.\n\nLa perspectiva de la clase:\nEl profesor explica que un usuario puede definir más de un remoto para un repositorio, permitiendo tener accesos de lectura sobre unos y de lectura/escritura sobre otros para facilitar el flujo distribuido de colaboración.\n\nAplicación en DevOps:\nEn entornos corporativos o de distribución multinube, un repositorio local puede sincronizarse con varios remotos a la vez (como un GitLab interno por seguridad y un GitHub público para open source), manteniendo copias redundantes de forma ágil."
   },
   {
     "tema": "Tema 3: Flujos de trabajo con Git",
@@ -333,7 +360,8 @@
       "Por convenio, las ramas de características nuevas se fusionan sobre master justo antes de preparar la nueva versión"
     ],
     "answer": "Por convenio, en master no se añaden commits que no se hayan planificado para una versión concreta",
-    "explanation": "El trabajo de preparación de la versión se ha llevado a cabo en las ramas release-* o hotfix-*. Cuando su HEAD está lista, se fusiona sobre master, por lo que esta también estará lista para producción."
+    "explanation": "El trabajo de preparación de la versión se ha llevado a cabo en las ramas release-* o hotfix-*. Cuando su HEAD está lista, se fusiona sobre master, por lo que esta también estará lista para producción.",
+    "detailedExplanation": "¿Qué significa realmente?\nLa rama master (o main) en Gitflow representa exclusivamente el estado estable y desplegable en producción. No se trabaja directamente sobre ella; solo recibe fusiones consolidadas cuando una versión está completamente madura.\n\nLa perspectiva de la clase:\nLa preparación técnica de cada versión se lleva a cabo en ramas release-* o de hotfixes. Cuando su HEAD está lista y se fusiona en master, por convenio la rama principal avanza directamente a un estado listo para producción.\n\nAplicación en DevOps:\nPara asegurar despliegues ágiles, cada fusión en master se automatiza mediante pipelines de CI/CD para crear una etiqueta de versión (tag) usando versionado semántico (SemVer), disparando la compilación del artefacto productivo final."
   },
   {
     "tema": "Tema 4: Fases de la entrega continua",
@@ -345,7 +373,8 @@
       "Cinco: unitarias, estáticas, de aceptación automática, de aceptación manual y smoke tests"
     ],
     "answer": "Tantas como sean necesarias en cada proyecto de desarrollo",
-    "explanation": "Las fases de un pipeline deben adaptarse a los requisitos de cada proyecto. Pueden incluir todas las fases mencionadas o reducirlas, según sea necesario."
+    "explanation": "Las fases de un pipeline deben adaptarse a los requisitos de cada proyecto. Pueden incluir todas las fases mencionadas o reducirlas, según sea necesario.",
+    "detailedExplanation": "¿Qué significa realmente?\nNo existe un número estándar de fases de prueba. El pipeline es un flujo dinámico y modular que debe diseñarse a la medida de la complejidad de la aplicación y de las necesidades de negocio del proyecto.\n\nLa perspectiva de la clase:\nEl profesor recalca que no hay un límite establecido y las fases deben adaptarse a cada proyecto, integrando desde pruebas unitarias, de calidad de código, hasta pruebas de API e interfaz gráfica (E2E) según se requiera.\n\nAplicación en DevOps:\nEn DevOps moderno, modularizar las pruebas (unitarias, de integración, seguridad SAST/DAST y rendimiento) en etapas separadas optimiza los tiempos de ejecución del pipeline, acelerando el ciclo de feedback técnico del equipo."
   },
   {
     "tema": "Tema 4: Fases de la entrega continua",
@@ -357,7 +386,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Un pipeline debe fallar cuando se detecta una situación que puede afectar al código en producción, sea cual sea su origen."
+    "explanation": "Un pipeline debe fallar cuando se detecta una situación que puede afectar al código en producción, sea cual sea su origen.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn pipeline debe fallar de inmediato si se detecta cualquier anomalía que comprometa la calidad o estabilidad del software, evitando la propagación de código defectuoso a entornos superiores o producción.\n\nLa perspectiva de la clase:\nEl material de estudio destaca como buena práctica que, ante cualquier fallo en la fase de commit (compilación, pruebas o cobertura), la pipeline debe abortar su ejecución para que el equipo priorice corregir el error.\n\nAplicación en DevOps:\nDevOps adopta el principio Lean de \"detener la línea\" (Andon). Si un test unitario falla o SonarQube detecta un \"gate\" de calidad roto, el pipeline se detiene automáticamente y alerta al desarrollador a través de canales de chat o correo."
   },
   {
     "tema": "Tema 4: Fases de la entrega continua",
@@ -369,7 +399,8 @@
       "En lenguajes compilados"
     ],
     "answer": "En lenguajes interpretados",
-    "explanation": "Los lenguajes interpretados, como Python o JavaScript, no necesitan una compilación previa y el intérprete se encarga de leer el código fuente y ejecutarlo directamente."
+    "explanation": "Los lenguajes interpretados, como Python o JavaScript, no necesitan una compilación previa y el intérprete se encarga de leer el código fuente y ejecutarlo directamente.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos lenguajes interpretados no requieren traducir previamente el código fuente a código binario ejecutable. El intérprete se encarga de leer y ejecutar las instrucciones directamente en tiempo de ejecución.\n\nLa perspectiva de la clase:\nEl profesor explica que en lenguajes no compilados, como Python o JavaScript, no se genera un artefacto físico tradicional, sino que el propio script modificado se considera el artefacto de entrega.\n\nAplicación en DevOps:\nEn pipelines de lenguajes interpretados se omiten las fases pesadas de construcción (build), optimizando el pipeline para centrarse en linters rápidos, empaquetado de dependencias y pruebas automatizadas."
   },
   {
     "tema": "Tema 4: Fases de la entrega continua",
@@ -381,7 +412,8 @@
       "B y C"
     ],
     "answer": "B y C",
-    "explanation": "El empaquetado recopila todos los elementos necesarios para ejecutar una aplicación y los prepara para una fácil distribución y despliegue."
+    "explanation": "El empaquetado recopila todos los elementos necesarios para ejecutar una aplicación y los prepara para una fácil distribución y despliegue.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl empaquetado consiste en unificar el código (compilado o interpretado) junto con sus dependencias, librerías y recursos en un formato único, transportable y listo para ser distribuido.\n\nLa perspectiva de la clase:\nEl empaquetado es el corazón de la entrega continua; permite depositar un artefacto estable en un repositorio (como Nexus o Harbor) para que esté disponible para pruebas de integración y despliegues.\n\nAplicación en DevOps:\nEn DevOps, el empaquetado se traduce en la creación de imágenes de contenedores Docker. Esto asegura la inmutabilidad del artefacto, garantizando que lo que se prueba en staging sea idéntico a lo que llega a producción."
   },
   {
     "tema": "Tema 4: Fases de la entrega continua",
@@ -393,7 +425,8 @@
       "Es una comprobación del servicio para saber si ha arrancado o no"
     ],
     "answer": "Es una prueba sencilla que permite comprobar si un sistema ha arrancado correctamente, incluyendo todas sus dependencias",
-    "explanation": "La llamada como tal debe ser rápida y sencilla de evaluar. Internamente, la prueba debe evaluar suficientes elementos como para discernir si el sistema funciona o no."
+    "explanation": "La llamada como tal debe ser rápida y sencilla de evaluar. Internamente, la prueba debe evaluar suficientes elementos como para discernir si el sistema funciona o no.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs una verificación preliminar rápida diseñada para asegurar que las funciones más críticas de un sistema (como el inicio de la aplicación y la conexión a bases de datos) funcionan tras un despliegue.\n\nLa perspectiva de la clase:\nSe enseña que probar los despliegues con un *smoke test* es una buena práctica indispensable para validar ágilmente la salud del sistema y de todas sus dependencias integradas antes de pruebas mayores.\n\nAplicación en DevOps:\nEn una pipeline automatizada, el *smoke test* actúa como la primera compuerta post-despliegue. Si falla, la pipeline se detiene inmediatamente (Andon), previniendo que los errores afecten a los usuarios reales."
   },
   {
     "tema": "Tema 4: Fases de la entrega continua",
@@ -405,7 +438,8 @@
       "No es necesario. De hecho, conviene construir en cada fase para paralelizar mejor"
     ],
     "answer": "A y B",
-    "explanation": "La construcción puede ser un proceso lento, por lo que una única ejecución permite acelerarla. Además, construir múltiples veces aumenta el riesgo de que haya cambios en el proceso y las pruebas dejen de ser fiables."
+    "explanation": "La construcción puede ser un proceso lento, por lo que una única ejecución permite acelerarla. Además, construir múltiples veces aumenta el riesgo de que haya cambios en el proceso y las pruebas dejen de ser fiables.",
+    "detailedExplanation": "¿Qué significa realmente?\nCompilar o construir el artefacto una sola vez al inicio del ciclo de vida asegura que el mismo paquete binario que se prueba y certifica en staging sea exactamente el que se libera en producción.\n\nLa perspectiva de la clase:\nEl profesor destaca la \"compilación única\" como una buena práctica clave. Reconstruir el software en fases avanzadas del pipeline introduce el riesgo de incorporar cambios accidentales o dependencias inconsistentes.\n\nAplicación en DevOps:\nEn un pipeline de CI/CD, el artefacto se construye en el primer *stage* y se almacena de forma inmutable en un gestor (como Nexus o Harbor). Los entornos posteriores solo descargan y despliegan ese artefacto."
   },
   {
     "tema": "Tema 4: Fases de la entrega continua",
@@ -417,7 +451,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Los scripts de despliegue deben estar versionados, ser únicos para todos los entornos y parametrizar la configuración específica de cada uno."
+    "explanation": "Los scripts de despliegue deben estar versionados, ser únicos para todos los entornos y parametrizar la configuración específica de cada uno.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos scripts de despliegue deben ser independientes de la infraestructura física, estar almacenados bajo control de versiones y permitir la inyección de variables externas para adaptarse a cualquier entorno.\n\nLa perspectiva de la clase:\nSe recalca que el proceso de despliegue debe ser idéntico en todos los entornos. La configuración y las credenciales críticas deben gestionarse y encriptarse por separado en ficheros parametrizados.\n\nAplicación en DevOps:\nA través de prácticas como GitOps e Infraestructura como Código (IaC), los scripts se versionan en Git. Los pipelines de CD inyectan de forma dinámica los secretos y variables específicas de cada entorno."
   },
   {
     "tema": "Tema 4: Fases de la entrega continua",
@@ -429,7 +464,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "En desplegar, en un entorno lo más parecido posible a producción, en una fase de prueba para reducir el riesgo del despliegue en producción",
-    "explanation": "Cada entorno tiene sus peculiaridades, por lo que desplegar satisfactoriamente un entorno de desarrollo no asegura que el despliegue en producción vaya a funcionar perfectamente."
+    "explanation": "Cada entorno tiene sus peculiaridades, por lo que desplegar satisfactoriamente un entorno de desarrollo no asegura que el despliegue en producción vaya a funcionar perfectamente.",
+    "detailedExplanation": "¿Qué significa realmente?\nConsiste en instalar la versión final del artefacto de software en un entorno de pruebas idéntico al productivo (como staging o preproducción) para certificar su estabilidad antes del lanzamiento definitivo.\n\nLa perspectiva de la clase:\nEl profesor Juan Agustín Fraile destaca que cada entorno tiene sus peculiaridades. Conseguir un despliegue exitoso en desarrollo no asegura la estabilidad en producción, por lo que desplegar una copia homóloga es indispensable para evitar fallos de configuración.\n\nAplicación en DevOps:\nDevOps utiliza la Infraestructura como Código (IaC) para garantizar que staging y producción sean réplicas exactas. Esto permite ejecutar pruebas de humo (\"smoke tests\") de forma automatizada sobre el mismo artefacto inmutable que se promoverá a producción."
   },
   {
     "tema": "Tema 4: Fases de la entrega continua",
@@ -441,7 +477,8 @@
       "Porque es un desperdicio construir el paquete para todas las pull requests"
     ],
     "answer": "Sí que se pueden usar",
-    "explanation": "Los pipelines sí funcionan con pull requests. De hecho, es una práctica muy común ejecutar el pipeline en cada PR antes de fusionar."
+    "explanation": "Los pipelines sí funcionan con pull requests. De hecho, es una práctica muy común ejecutar el pipeline en cada PR antes de fusionar.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos pipelines de integración continua son completamente compatibles con las Pull Requests (PR). El pipeline se dispara de forma automática con cada PR para validar los cambios de código antes de autorizar su fusión.\n\nLa perspectiva de la clase:\nLa guía de colaboración de la UNIR establece que una de las mejores prácticas es la integración continua en cada PR, exigiendo que los tests y análisis estáticos estén \"en verde\" como requisito obligatorio para el merge.\n\nAplicación en DevOps:\nEn DevOps, la integración de la PR con el pipeline actúa como una compuerta automática de calidad (\"gate\"). Esto protege la rama principal ('main' o 'develop') de regresiones, validando la compilación y seguridad de manera inmediata."
   },
   {
     "tema": "Tema 5: Pruebas",
@@ -453,7 +490,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Estas son algunas de las características de una prueba unitaria."
+    "explanation": "Estas son algunas de las características de una prueba unitaria.",
+    "detailedExplanation": "¿Qué significa realmente?\nUna prueba unitaria debe validar la unidad de código más pequeña posible en total aislamiento, ejecutándose en memoria y sustituyendo las dependencias reales (como bases de datos o APIs externas) por simulación (\"mocks\").\n\nLa perspectiva de la clase:\nLa clase sitúa a las pruebas unitarias en la base de la pirámide de pruebas. Deben desarrollarse como parte del flujo habitual de codificación para acelerar de manera drástica la detección de fallos de lógica a nivel de código.\n\nAplicación en DevOps:\nAl ser veloces y estar aisladas, se pueden ejecutar cientos de ellas en pocos segundos dentro de la fase de commit del pipeline de CI. Esto proporciona un bucle de feedback inmediato a los desarrolladores tras cada push."
   },
   {
     "tema": "Tema 5: Pruebas",
@@ -465,7 +503,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Todas estas pruebas requieren que la aplicación esté desplegada junto a sus dependencias, ya que comprueban el comportamiento global."
+    "explanation": "Todas estas pruebas requieren que la aplicación esté desplegada junto a sus dependencias, ya que comprueban el comportamiento global.",
+    "detailedExplanation": "¿Qué significa realmente?\nSon pruebas de caja negra o gris que evalúan el comportamiento integral del sistema en ejecución, validando la interacción de la aplicación con sus bases de datos, redes y componentes de interfaz.\n\nLa perspectiva de la clase:\nLa práctica de la asignatura demuestra que las pruebas de API necesitan levantar primero el servidor (como Flask a través de contenedores Docker) para poder realizar peticiones HTTP reales (como `urlopen`) y certificar su comportamiento.\n\nAplicación en DevOps:\nEl pipeline de CD automatiza el despliegue de la aplicación de manera efímera en entornos aislados. Sobre estos servidores activos se disparan frameworks modernos (como Playwright o Cypress) para certificar la experiencia real del usuario."
   },
   {
     "tema": "Tema 5: Pruebas",
@@ -477,7 +516,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Las pruebas no funcionales comprueban requisitos ajenos a las características que ofrece la aplicación, como rendimiento, cobertura y seguridad."
+    "explanation": "Las pruebas no funcionales comprueban requisitos ajenos a las características que ofrece la aplicación, como rendimiento, cobertura y seguridad.",
+    "detailedExplanation": "¿Qué significa realmente?\nSon validaciones enfocadas en evaluar cómo funciona el sistema bajo ciertos atributos de calidad, en lugar de verificar si el sistema cumple una funcionalidad o regla de negocio específica.\n\nLa perspectiva de la clase:\nLa asignatura define como pruebas no funcionales del pipeline de CI/CD los análisis estáticos de estilo (linters), las métricas de cobertura de código, la calidad con SonarQube, y las pruebas de rendimiento y carga en staging o producción.\n\nAplicación en DevOps:\nDevOps automatiza estas verificaciones para implementar políticas estrictas de seguridad (SAST/SCA), control de deuda técnica y umbrales de rendimiento, garantizando que el software entregado cumpla de forma continua con estándares rigurosos de operación."
   },
   {
     "tema": "Tema 5: Pruebas",
@@ -489,7 +529,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Para poder estudiar el error y ser capaz de corregirlo",
-    "explanation": "De lo contrario, el desarrollador solo verá que el pipeline con sus cambios ha fallado sin saber por qué."
+    "explanation": "De lo contrario, el desarrollador solo verá que el pipeline con sus cambios ha fallado sin saber por qué.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl acceso transparente a los reportes de las pruebas permite a los desarrolladores diagnosticar fallas de manera autónoma, reduciendo la dependencia de otros equipos y acelerando el ciclo de depuración.\n\nLa perspectiva de la clase:\nEl material de la UNIR enfatiza que sin acceso directo a los resultados, el desarrollador solo verá un fallo genérico en la pipeline sin comprender la causa raíz, lo que imposibilita una corrección rápida.\n\nAplicación en DevOps:\nEn DevOps, los resultados de las pruebas se exponen directamente en la interfaz del servidor de CI (como Jenkins o GitLab) o se notifican automáticamente por canales de chat, acortando el tiempo medio de resolución (MTTR)."
   },
   {
     "tema": "Tema 5: Pruebas",
@@ -501,7 +542,8 @@
       "Unitarias=requieren app en funcionamiento, Sistema=comprueba cuánta carga soporta, GUI=no dependen de un estado, Rendimiento=evalúan la interfaz gráfica"
     ],
     "answer": "Unitarias=no dependen de un estado, Sistema=requieren app y dependencias en funcionamiento, GUI=evalúan la interfaz gráfica, Rendimiento=comprueba cuánta carga soporta",
-    "explanation": "Unitarias: no dependen de un estado. De sistema: requieren que la aplicación y sus dependencias estén en funcionamiento. De GUI: evalúan la interfaz gráfica. De rendimiento: comprueban cuánta carga soporta una aplicación."
+    "explanation": "Unitarias: no dependen de un estado. De sistema: requieren que la aplicación y sus dependencias estén en funcionamiento. De GUI: evalúan la interfaz gráfica. De rendimiento: comprueban cuánta carga soporta una aplicación.",
+    "detailedExplanation": "¿Qué significa realmente?\nCada tipo de prueba tiene un propósito y alcance distintos: las unitarias aíslan el código básico; las de sistema integran componentes; las de GUI prueban la interfaz visual; y las de rendimiento miiden la tolerancia al estrés.\n\nLa perspectiva de la clase:\nEl profesor insiste en categorizar correctamente las pruebas para construir una estrategia de calidad balanceada, distinguiendo entre pruebas de lógica interna y pruebas de comportamiento global en ejecución.\n\nAplicación en DevOps:\nLa pirámide de pruebas automatizada de una pipeline de CD ejecuta primero las unitarias (rápidas y baratas) y promueve el código progresivamente hacia pruebas de GUI y rendimiento en entornos homólogos a producción."
   },
   {
     "tema": "Tema 5: Pruebas",
@@ -513,7 +555,8 @@
       "Exporta el informe de la prueba en formato JUnit"
     ],
     "answer": "Etiqueta la prueba en la batería de pruebas unit",
-    "explanation": "Estas etiquetas sirven para dividir la ejecución de pruebas en grupos diferentes."
+    "explanation": "Estas etiquetas sirven para dividir la ejecución de pruebas en grupos diferentes.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos decoradores de pytest funcionan como etiquetas o metadatos que permiten clasificar y agrupar los tests para ejecutarlos de forma selectiva en lugar de correr toda la suite de pruebas.\n\nLa perspectiva de la clase:\nLa práctica 2 de la UNIR utiliza marcas (como `unit` o `api`) para modularizar y segmentar la suite de pruebas, facilitando que el comando de pytest filtre y ejecute solo el subconjunto de interés.\n\nAplicación en DevOps:\nEn pipelines de CI/CD, etiquetar pruebas permite separar ejecuciones: por ejemplo, correr los tests `@pytest.mark.unit` en cada commit de forma rápida, y reservar pruebas de integración pesadas para un horario nocturno."
   },
   {
     "tema": "Tema 5: Pruebas",
@@ -525,7 +568,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "El navegador no tiene una ventana visible",
-    "explanation": "El navegador dispone de todas las funcionalidades (HTML, llamadas HTTP, JavaScript, seguridad, etc.) pero no muestra una ventana, incluso cuando se ejecuta en un equipo de escritorio."
+    "explanation": "El navegador dispone de todas las funcionalidades (HTML, llamadas HTTP, JavaScript, seguridad, etc.) pero no muestra una ventana, incluso cuando se ejecuta en un equipo de escritorio.",
+    "detailedExplanation": "¿Qué significa realmente?\nEjecutar un navegador en modo headless (sin interfaz gráfica) significa que el motor del navegador compila, renderiza y procesa el HTML/JS en memoria, sin necesidad de abrir una ventana visual en la pantalla.\n\nLa perspectiva de la clase:\nEl profesor explica que los navegadores headless disponen de todas las funcionalidades estándar (Llamadas HTTP, DOM, JS) pero optimizan drásticamente los recursos de cómputo en servidores de automatización.\n\nAplicación en DevOps:\nEn entornos de CI/CD (donde Jenkins o los agentes se ejecutan en terminales Linux sin pantalla/servidor X11), el modo headless es imprescindible para correr suites de pruebas de interfaz con frameworks como Playwright o Cypress."
   },
   {
     "tema": "Tema 5: Pruebas",
@@ -537,7 +581,8 @@
       "Ficheros PDF archivados por las herramientas de CICD"
     ],
     "answer": "Ficheros XML resultado de ejecución de pruebas",
-    "explanation": "Aunque la herramienta JUnit es originaria de Java, el formato es usado por multitud de ejecutores y lenguajes y en cualquier tipo de pruebas."
+    "explanation": "Aunque la herramienta JUnit es originaria de Java, el formato es usado por multitud de ejecutores y lenguajes y en cualquier tipo de pruebas.",
+    "detailedExplanation": "¿Qué significa realmente?\nJUnit XML es un formato estandarizado para reportar los resultados de pruebas de software, detallando tests exitosos, fallidos, tiempos de ejecución y tracebacks de errores en un lenguaje estructurado.\n\nLa perspectiva de la clase:\nEl profesor indica que los reportes XML JUnit generados por pytest son el estándar universal que las herramientas de automatización leen para presentar informes interactivos y visuales en Jenkins.\n\nAplicación en DevOps:\nEn Jenkins, la instrucción `junit 'results/*_result.xml'` parsea de forma automática estos archivos JUnit XML, permitiendo mostrar gráficos de evolución de tests y detener la pipeline si la tasa de fallos supera el umbral."
   },
   {
     "tema": "Tema 5: Pruebas",
@@ -549,7 +594,8 @@
       "En general no se puede y deben ejecutarse en serie"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "En la medida de lo posible hay que aprovechar ambas técnicas, siempre que la naturaleza de la prueba lo permita."
+    "explanation": "En la medida de lo posible hay que aprovechar ambas técnicas, siempre que la naturaleza de la prueba lo permita.",
+    "detailedExplanation": "¿Qué significa realmente?\nLa paralelización consiste en ejecutar múltiples pruebas al mismo tiempo, ya sea distribuyéndolas en varios núcleos de una misma máquina o repartiéndolas en distintas máquinas (nodos) de ejecución física o virtual.\n\nLa perspectiva de la clase:\nEl profesor enseña que, en la medida de lo posible, hay que aprovechar ambas técnicas (paralelización a nivel de hilos/procesos y a nivel de infraestructura distribuida) siempre que la naturaleza y dependencias del test lo permitan.\n\nAplicación en DevOps:\nEn entornos de CI/CD rápidos, configurar la paralelización mediante plugins (como pytest-xdist o agentes dinámicos de Kubernetes) reduce drásticamente el tiempo de ejecución del pipeline, acelerando el feedback de desarrollo."
   },
   {
     "tema": "Tema 5: Pruebas",
@@ -561,7 +607,8 @@
       "Para deshabilitar una prueba puntualmente"
     ],
     "answer": "Para fijar un estado conocido antes de ejecutar una prueba y devolver el entorno al estado original al terminar",
-    "explanation": "Las pruebas deben partir de un estado conocido para poder evaluar correctamente el resultado."
+    "explanation": "Las pruebas deben partir de un estado conocido para poder evaluar correctamente el resultado.",
+    "detailedExplanation": "¿Qué significa realmente?\nUna fixture es un mecanismo para preparar un entorno y un conjunto de datos limpios y predecibles (setup) antes de que se ejecute una prueba, y limpiar el entorno (teardown) una vez terminada.\n\nLa perspectiva de la clase:\nEl material didáctico destaca que las pruebas automatizadas deben partir obligatoriamente de un estado conocido y controlado para poder evaluar y certificar el comportamiento del resultado de forma reproducible.\n\nAplicación en DevOps:\nEn pipelines modernos, el uso de fixtures y bases de datos efímeras (con herramientas como Testcontainers) garantiza que las pruebas no dependan del estado residual de ejecuciones anteriores, evitando falsos positivos."
   },
   {
     "tema": "Tema 6: Evaluación y calidad del código",
@@ -573,7 +620,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Para que los compañeros del equipo puedan aportar feedback antes de que el código esté fusionado en la rama principal",
-    "explanation": "Si no se incorpora al flujo, hay peligro de que no se llegue a realizar o de que se realice cuando ya se haya fusionado el código."
+    "explanation": "Si no se incorpora al flujo, hay peligro de que no se llegue a realizar o de que se realice cuando ya se haya fusionado el código.",
+    "detailedExplanation": "¿Qué significa realmente?\nIntegrar las revisiones en el flujo de CI automatiza el proceso de auditoría y garantiza que todo código propuesto sea examinado por el equipo antes de considerarse parte del producto estable.\n\nLa perspectiva de la clase:\nSe enseña que si la revisión no se incorpora orgánicamente en el flujo de trabajo, existe el grave peligro de que se omita por prisas o se realice tardíamente cuando el código ya se ha fusionado en main.\n\nAplicación en DevOps:\nEn DevOps, las revisiones se implementan mediante Pull Requests. El pipeline de CI valida automáticamente que la sintaxis, pruebas y calidad estática (SonarQube) estén en verde antes de que un compañero apruebe el merge."
   },
   {
     "tema": "Tema 6: Evaluación y calidad del código",
@@ -585,7 +633,8 @@
       "Cuando se abre la pull request en modo borrador"
     ],
     "answer": "Cuando se activa la protección de rama",
-    "explanation": "Esta protección no es obligatoria y puede incluir otras protecciones, como que no se puedan subir commits directamente."
+    "explanation": "Esta protección no es obligatoria y puede incluir otras protecciones, como que no se puedan subir commits directamente.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs la imposición técnica que impide a cualquier desarrollador incorporar código directamente a una rama importante sin contar antes con el visto bueno explícito de uno o varios revisores autorizados.\n\nLa perspectiva de la clase:\nEl material didáctico de la UNIR explica que esta restricción se activa a través de las opciones de protección de rama (branch protection rules), las cuales también pueden prohibir las subidas directas de commits.\n\nAplicación en DevOps:\nLa protección de ramas en main o develop es un gate de gobernanza obligatorio en DevOps. Asegura que ningún cambio llegue a entornos de producción sin pasar por un control dual de calidad y validación técnica automatizada."
   },
   {
     "tema": "Tema 6: Evaluación y calidad del código",
@@ -597,7 +646,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Estas son solo un ejemplo y puede haber muchas más."
+    "explanation": "Estas son solo un ejemplo y puede haber muchas más.",
+    "detailedExplanation": "¿Qué significa realmente?\nUna convención de estilo unifica la apariencia estética, la estructura del código y los estándares de nomenclatura de un proyecto, haciendo que parezca escrito por una única persona.\n\nLa perspectiva de la clase:\nLa clase señala que estas convenciones incluyen reglas de espaciado, indentación, límites de longitud de línea y nombres de variables/clases, siendo validadas por linters como Pylint o Checkstyle.\n\nAplicación en DevOps:\nDevOps automatiza estas convenciones mediante linters y formateadores automáticos (como Black o Prettier) ejecutados en pre-commit o en el pipeline de CI, eliminando discusiones estéticas subjetivas en los Pull Requests."
   },
   {
     "tema": "Tema 6: Evaluación y calidad del código",
@@ -609,7 +659,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "En definitiva, para hacer código más fácil de entender."
+    "explanation": "En definitiva, para hacer código más fácil de entender.",
+    "detailedExplanation": "¿Qué significa realmente?\nLas convenciones de estilo unifican la apariencia y estructura del código escrito por diferentes desarrolladores, haciéndolo consistente, legible y fácil de entender por cualquier miembro del equipo.\n\nLa perspectiva de la clase:\nEl profesor explica que, en última instancia, el objetivo de adoptar estas normas estandarizadas es hacer que todo el código fuente de la aplicación sea mucho más fácil de comprender y mantener.\n\nAplicación en DevOps:\nEn pipelines de CI/CD, las convenciones de estilo se validan automáticamente en etapas tempranas mediante linters (como Pylint) para corregir desvíos estéticos de inmediato antes de la revisión manual."
   },
   {
     "tema": "Tema 6: Evaluación y calidad del código",
@@ -621,7 +672,8 @@
       "El número de líneas de código"
     ],
     "answer": "El porcentaje de líneas que se ejecutan durante las pruebas",
-    "explanation": "Se pueden excluir archivos o secciones que no aportan valor en las pruebas y no se tienen en cuenta líneas en blanco ni comentarios."
+    "explanation": "Se pueden excluir archivos o secciones que no aportan valor en las pruebas y no se tienen en cuenta líneas en blanco ni comentarios.",
+    "detailedExplanation": "¿Qué significa realmente?\nLa cobertura de pruebas (code coverage) es una métrica de software que indica el porcentaje de líneas de código fuente que se ejecutan de manera efectiva al correr la suite de pruebas.\n\nLa perspectiva de la clase:\nEl material de la UNIR destaca que es habitual excluir del cálculo aquellos archivos o secciones de código que no aportan valor real para las pruebas, y no se computan comentarios ni líneas vacías.\n\nAplicación en DevOps:\nLa cobertura se mide e integra en el pipeline de CI/CD (usando herramientas como coverage.py) para asegurar que el nuevo código cumpla con un umbral mínimo aceptable (típicamente 80%) antes de autorizar su fusión."
   },
   {
     "tema": "Tema 6: Evaluación y calidad del código",
@@ -633,7 +685,8 @@
       "No, porque eso no implica que se hayan probado todas las condiciones y valores de frontera"
     ],
     "answer": "No, porque eso no implica que se hayan probado todas las condiciones y valores de frontera",
-    "explanation": "Es habitual que las pruebas ejecuten una misma función con diferentes valores, no solo para comprobar todas las bifurcaciones, sino para comprobar valores límite, errores, etc."
+    "explanation": "Es habitual que las pruebas ejecuten una misma función con diferentes valores, no solo para comprobar todas las bifurcaciones, sino para comprobar valores límite, errores, etc.",
+    "detailedExplanation": "¿Qué significa realmente?\nNo, un porcentaje perfecto de cobertura solo indica que cada línea de código se ejecutó al menos una vez en los tests, pero no garantiza que se hayan validado todas las combinaciones de datos o valores límite.\n\nLa perspectiva de la clase:\nEl profesor señala que las pruebas deben ejecutarse con diferentes valores de entrada, evaluando no solo las bifurcaciones principales, sino también casos de error, excepciones y valores de frontera.\n\nAplicación en DevOps:\nDevOps promueve complementar las pruebas unitarias y de cobertura con pruebas de integración, de API y End-to-End (E2E) robustas para validar el comportamiento real del sistema ante fallos de infraestructura."
   },
   {
     "tema": "Tema 6: Evaluación y calidad del código",
@@ -645,7 +698,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Estas funcionalidades se pueden integrar con herramientas de CICD para que la evaluación de la calidad sea una parte integral del desarrollo."
+    "explanation": "Estas funcionalidades se pueden integrar con herramientas de CICD para que la evaluación de la calidad sea una parte integral del desarrollo.",
+    "detailedExplanation": "¿Qué significa realmente?\nSonar (SonarQube) es una plataforma de análisis estático continuo que evalúa la salud del código, identificando deudas técnicas, bugs potenciales, vulnerabilidades de seguridad, duplicidades y problemas de estilo.\n\nLa perspectiva de la clase:\nSe enseña que Sonar verifica estándares, errores encubiertos, mide duplicados, evalúa complejidad y calcula cobertura. Estas métricas se pueden integrar con herramientas de CI/CD para automatizar la calidad del código.\n\nAplicación en DevOps:\nSonarQube actúa como un \"quality gate\" automatizado en el pipeline de CI/CD. Si el código propuesto no supera los umbrales de calidad definidos por la organización, la pipeline se bloquea impidiendo su despliegue."
   },
   {
     "tema": "Tema 6: Evaluación y calidad del código",
@@ -657,7 +711,8 @@
       "Para poder pasar el umbral de aceptación de Sonar"
     ],
     "answer": "La A y la B",
-    "explanation": "Si el código es más fácil de leer y de entender, será más fácil mantenerlo."
+    "explanation": "Si el código es más fácil de leer y de entender, será más fácil mantenerlo.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn código con alta complejidad posee múltiples bifurcaciones lógicas y caminos de ejecución, lo que eleva drásticamente la probabilidad de introducir errores y dificulta el mantenimiento técnico.\n\nLa perspectiva de la clase:\nEl material de estudio explica que reducir la complejidad de los módulos y métodos del software hace que el código sea más simple de comprender, facilitando su legibilidad y su mantenimiento a largo plazo.\n\nAplicación en DevOps:\nEn DevOps, simplificar el código minimiza la deuda técnica acumulada y agiliza las revisiones en las Pull Requests, permitiendo que el equipo entregue nuevas funcionalidades de forma más rápida y segura."
   },
   {
     "tema": "Tema 6: Evaluación y calidad del código",
@@ -669,7 +724,8 @@
       "Todas las anteriores"
     ],
     "answer": "Que un proceso se encarga de analizar el código y de enviar los resultados a un servidor central",
-    "explanation": "Esto facilita la escalabilidad del sistema y facilita la integración con herramientas de CICD."
+    "explanation": "Esto facilita la escalabilidad del sistema y facilita la integración con herramientas de CICD.",
+    "detailedExplanation": "¿Qué significa realmente?\nSignifica que el análisis del código no se ejecuta en el servidor central de SonarQube, sino que un proceso local (el escáner o agente) realiza el análisis estático localmente y envía los reportes resultantes.\n\nLa perspectiva de la clase:\nEl profesor explica que el uso de un agente descentraliza el procesamiento, permitiendo que el análisis se ejecute de forma distribuida en la máquina de desarrollo o en un agente del pipeline.\n\nAplicación en DevOps:\nEsta arquitectura facilita la integración en pipelines de CI/CD (por ejemplo, mediante SonarScanner en Jenkins), optimizando los recursos del servidor central y permitiendo escalar el análisis a cientos de builds diarios."
   },
   {
     "tema": "Tema 6: Evaluación y calidad del código",
@@ -681,7 +737,8 @@
       "En conjuntos de reglas que se evalúan durante el análisis de los proyectos a los que se asigna el perfil"
     ],
     "answer": "En conjuntos de reglas que se evalúan durante el análisis de los proyectos a los que se asigna el perfil",
-    "explanation": "Los perfiles permiten habilitar o deshabilitar reglas en cada proyecto, ya que algunas de ellas pueden no tener sentido en un proyecto concreto."
+    "explanation": "Los perfiles permiten habilitar o deshabilitar reglas en cada proyecto, ya que algunas de ellas pueden no tener sentido en un proyecto concreto.",
+    "detailedExplanation": "¿Qué significa realmente?\nSon colecciones estructuradas de reglas de programación que se aplican de forma selectiva para auditar el código fuente de los proyectos según el lenguaje de programación utilizado.\n\nLa perspectiva de la clase:\nLa clase indica que los perfiles permiten habilitar o deshabilitar reglas específicas para cada proyecto de forma flexible, ya que algunas pautas pueden no tener sentido práctico en un contexto tecnológico concreto.\n\nAplicación en DevOps:\nEn DevOps, se configuran perfiles de calidad específicos por tecnología en el servidor de SonarQube. Esto evita el ruido de falsos positivos en las pipelines y garantiza que los \"quality gates\" se ajusten a la realidad del equipo."
   },
   {
     "tema": "Tema 7: Jenkins",
@@ -693,7 +750,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Aunque su función inicial fuera para integración continua, Jenkins admite cualquier tipo de script, por lo que se puede automatizar cualquier tarea."
+    "explanation": "Aunque su función inicial fuera para integración continua, Jenkins admite cualquier tipo de script, por lo que se puede automatizar cualquier tarea.",
+    "detailedExplanation": "¿Qué significa realmente?\nComo motor de automatización de propósito general, Jenkins permite programar y ejecutar virtualmente cualquier secuencia de comandos o scripts del sistema operativo para automatizar tareas repetitivas.\n\nLa perspectiva de la clase:\nEl profesor destaca que, aunque la función inicial de Jenkins sea la integración continua, su flexibilidad permite ejecutar cualquier tipo de script, habilitando la automatización de cualquier tarea imaginable.\n\nAplicación en DevOps:\nEn DevOps, esto se traduce en la capacidad de automatizar no solo builds y despliegues, sino también copias de seguridad de bases de datos, aprovisionamiento de infraestructura (IaC), auditorías de seguridad nocturnas y tareas cron."
   },
   {
     "tema": "Tema 7: Jenkins",
@@ -705,7 +763,8 @@
       "No hay contraseña por defecto, el inicio de sesión es automático"
     ],
     "answer": "Es aleatoria, Jenkins la imprime por la salida estándar",
-    "explanation": "También la guarda en disco. De esta manera no puede recibir ataques con contraseñas por defecto."
+    "explanation": "También la guarda en disco. De esta manera no puede recibir ataques con contraseñas por defecto.",
+    "detailedExplanation": "¿Qué significa realmente?\nPara prevenir vulnerabilidades críticas de seguridad por credenciales de fábrica predecibles, Jenkins genera una clave secreta única y aleatoria durante su proceso de arranque inicial.\n\nLa perspectiva de la clase:\nEl material de estudio explica que Jenkins imprime esta contraseña por la salida estándar (consola) y la guarda en un archivo del disco (`initialAdminPassword`), neutralizando de raíz los ataques por contraseñas por defecto.\n\nAplicación en DevOps:\nEn la cultura DevOps, la gestión segura de accesos es fundamental. Automatizar la instalación de Jenkins (mediante contenedores Docker o Ansible) requiere recuperar dinámicamente este secreto para evitar fallos de seguridad."
   },
   {
     "tema": "Tema 7: Jenkins",
@@ -717,7 +776,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Aunque es preferible versionar el código de construcción con un Jenkinsfile en el propio repositorio, Jenkins ofrece también las otras opciones."
+    "explanation": "Aunque es preferible versionar el código de construcción con un Jenkinsfile en el propio repositorio, Jenkins ofrece también las otras opciones.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl código que orquesta la pipeline (las etapas de construcción, prueba y despliegue) puede declararse directamente en la interfaz web de Jenkins, o bien almacenarse en un archivo de texto estructurado.\n\nLa perspectiva de la clase:\nAunque el profesor recalca como excelente práctica versionar el código de construcción mediante un archivo `Jenkinsfile` dentro del repositorio del proyecto, Jenkins también permite definirlo directamente en el propio trabajo.\n\nAplicación en DevOps:\nAlmacenar el flujo como un `Jenkinsfile` en el repositorio Git (Pipeline as Code) asegura la trazabilidad del proceso de entrega continua, permitiendo auditar, versionar y modificar el pipeline junto con el código de la aplicación."
   },
   {
     "tema": "Tema 7: Jenkins",
@@ -729,7 +789,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Sobre cualquier que soporte Java",
-    "explanation": "Tanto el master como los agentes se ejecutan sobre Java. Un mismo master puede disponer de varios agentes sobre plataformas diferentes."
+    "explanation": "Tanto el master como los agentes se ejecutan sobre Java. Un mismo master puede disponer de varios agentes sobre plataformas diferentes.",
+    "detailedExplanation": "¿Qué significa realmente?\nDado que Jenkins está escrito en Java, se ejecuta de forma nativa en cualquier sistema operativo que cuente con una máquina virtual de Java (JVM) compatible, lo que le otorga una alta portabilidad.\n\nLa perspectiva de la clase:\nEl profesor Juan Agustín Fraile detalla que la arquitectura de Jenkins permite que un mismo nodo controlador (master) coordine múltiples agentes que se ejecutan en plataformas de sistemas operativos totalmente diferentes.\n\nAplicación en DevOps:\nEsta versatilidad multiplataforma permite diseñar granjas de agentes híbridas en DevOps, ejecutando compilaciones de iOS en agentes macOS, contenedores en Linux y scripts tradicionales en Windows."
   },
   {
     "tema": "Tema 7: Jenkins",
@@ -741,7 +802,8 @@
       "Todas las anteriores"
     ],
     "answer": "Para almacenar el resultado de una compilación, una construcción o de un informe de pruebas, junto a los detalles de la ejecución",
-    "explanation": "Para almacenar paquetes definitivos es habitual usar un repositorio de artefactos externo, pero la funcionalidad de Jenkins puede ser útil en entornos pequeños."
+    "explanation": "Para almacenar paquetes definitivos es habitual usar un repositorio de artefactos externo, pero la funcionalidad de Jenkins puede ser útil en entornos pequeños.",
+    "detailedExplanation": "¿Qué significa realmente?\nConsiste en persistir de manera inmutable los binarios, reportes de pruebas o logs generados durante un build. Esto permite que el equipo los descargue, analice o distribuya de manera directa desde el historial del trabajo.\n\nLa perspectiva de la clase:\nEl profesor aclara que para entornos pequeños la funcionalidad de archivado de Jenkins es muy útil. Sin embargo, para paquetes definitivos de producción, la buena práctica es depositarlos en un repositorio de artefactos externo como Nexus.\n\nAplicación en DevOps:\nEn las pipelines de CI/CD, archivar de manera automática los reportes de pruebas JUnit (como archivos XML) proporciona visibilidad inmediata en la interfaz del CI sobre el estado y rendimiento del código ante cada cambio."
   },
   {
     "tema": "Tema 7: Jenkins",
@@ -753,7 +815,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "La primera opción es la más eficiente y fiable, pero obliga a que la URL de Jenkins sea accesible desde Internet."
+    "explanation": "La primera opción es la más eficiente y fiable, pero obliga a que la URL de Jenkins sea accesible desde Internet.",
+    "detailedExplanation": "¿Qué significa realmente?\nPara arrancar un trabajo automáticamente al modificar el código, se puede usar polling (Jenkins consulta periódicamente a Git si hay cambios) o webhooks (el repositorio envía una notificación HTTP instantánea a Jenkins tras un commit).\n\nLa perspectiva de la clase:\nEl profesor destaca que el uso de un disparador o webhook es la opción más limpia y eficiente, pero requiere que el servidor de Jenkins sea accesible desde Internet para que plataformas como GitHub puedan enviarle el evento.\n\nAplicación en DevOps:\nLa automatización del disparador (trigger) es el corazón de la integración continua. Elimina la intervención humana, asegurando que cada push o Pull Request dispare el proceso de validación del software de forma inmediata."
   },
   {
     "tema": "Tema 7: Jenkins",
@@ -765,7 +828,8 @@
       "Todas las anteriores"
     ],
     "answer": "Un trigger periódico y una agenda 0 * * * *",
-    "explanation": "Esta programación ejecutará el trabajo cada hora en punto."
+    "explanation": "Esta programación ejecutará el trabajo cada hora en punto.",
+    "detailedExplanation": "¿Qué significa realmente?\nLa sintaxis cron de Jenkins utiliza cinco campos para programar tareas periódicas en el tiempo. Definir la agenda en el minuto cero de cada hora permite lanzar ejecuciones regulares sin depender de un cambio de código.\n\nLa perspectiva de la clase:\nSe especifica que la cadena \"0 * * * *\" asegura que el trabajo se ejecute exactamente cada hora en punto (por ejemplo, a las 10:00, 11:00, etc.), manteniendo el sistema automatizado bajo una agenda predecible.\n\nAplicación en DevOps:\nEsta configuración se asocia a tareas DevOps de mantenimiento, escaneos profundos de seguridad (SAST/SCA) o pruebas de carga y rendimiento nocturnas, evitando saturar los agentes de compilación durante las horas de trabajo activo del equipo."
   },
   {
     "tema": "Tema 7: Jenkins",
@@ -777,7 +841,8 @@
       "Un trabajo es una definición de una tarea que puede tener varias fases; una ejecución es una activación concreta del trabajo con unos parámetros y un resultado concretos"
     ],
     "answer": "Un trabajo es una definición de una tarea que puede tener varias fases; una ejecución es una activación concreta del trabajo con unos parámetros y un resultado concretos",
-    "explanation": "Cada trabajo mantiene un historial con las ejecuciones anteriores."
+    "explanation": "Cada trabajo mantiene un historial con las ejecuciones anteriores.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl trabajo (Job) es el molde o la receta que describe las fases de construcción, pruebas y despliegue. La ejecución (Build) es la instancia concreta de esa receta en el tiempo, con sus propios parámetros de entrada, logs y estado de salida.\n\nLa perspectiva de la clase:\nEl material didáctico expone que cada trabajo en Jenkins mantiene de forma estructurada un historial con todas sus ejecuciones anteriores, facilitando la auditoría y la detección de fallos a lo largo del tiempo.\n\nAplicación en DevOps:\nEsta diferenciación es crucial para la estabilidad: permite separar la lógica del pipeline de los datos de entorno. Ante un fallo de red transitorio, se puede disparar una nueva ejecución usando exactamente la misma definición e historial."
   },
   {
     "tema": "Tema 7: Jenkins",
@@ -789,7 +854,8 @@
       "Todas las anteriores"
     ],
     "answer": "Asignando una etiqueta concreta a los agentes con herramientas de compilación e indicando esa etiqueta en la sentencia label",
-    "explanation": "Es fundamental configurar los agentes correctamente."
+    "explanation": "Es fundamental configurar los agentes correctamente.",
+    "detailedExplanation": "¿Qué significa realmente?\nPara asegurar que un trabajo que requiere herramientas específicas corra en un servidor compatible, se asocian etiquetas (labels) descriptivas a los agentes. Al definir el trabajo o pipeline, se restringe su ejecución indicando dicha etiqueta.\n\nLa perspectiva de la clase:\nEl profesor Juan Agustín Fraile detalla en su arquitectura que el nodo principal distribuye los trabajos a los agentes basándose en la directiva label (por ejemplo, agent { label 'python' }), garantizando la presencia del software requerido.\n\nAplicación en DevOps:\nEsto permite una gestión modular y eficiente de la infraestructura de compilación. Al etiquetar agentes (como 'java', 'python' o 'docker'), evitamos fallos de ejecución al no tener que instalar todo el stack tecnológico en todos los nodos de la red."
   },
   {
     "tema": "Tema 8: GitLab",
@@ -801,7 +867,8 @@
       "Todos los anteriores"
     ],
     "answer": "Todos los anteriores",
-    "explanation": "También ofrece herramientas para gestionar proyectos, monitorización, etc."
+    "explanation": "También ofrece herramientas para gestionar proyectos, monitorización, etc.",
+    "detailedExplanation": "¿Qué significa realmente?\nGitLab ha evolucionado de ser un simple servidor Git a una plataforma integral que cubre todo el ciclo de vida de la aplicación. Ofrece en un mismo ecosistema herramientas para la gestión de proyectos, control de versiones, pipelines de CI/CD, registro de artefactos y seguridad.\n\nLa perspectiva de la clase:\nEl material de estudio señala que, a diferencia de Jenkins (que funciona principalmente como un orquestador puro), GitLab aglutina en sí mismo un conjunto de herramientas para gestionar el proyecto \"end-to-end\".\n\nAplicación en DevOps:\nAl unificar la gestión ágil de tarjetas, repositorios y automatizaciones, DevOps logra una trazabilidad total. Esto facilita conectar cada commit o despliegue en Kubernetes de manera automática con su respectiva historia de usuario."
   },
   {
     "tema": "Tema 8: GitLab",
@@ -813,7 +880,8 @@
       "Branch merge"
     ],
     "answer": "Merge request",
-    "explanation": "La funcionalidad es idéntica a la de GitHub, incluyendo la discusión durante revisiones, aprobaciones, etc."
+    "explanation": "La funcionalidad es idéntica a la de GitHub, incluyendo la discusión durante revisiones, aprobaciones, etc.",
+    "detailedExplanation": "¿Qué significa realmente?\nUna Merge Request (MR) es el mecanismo de GitLab para proponer la fusión de cambios desde una rama de trabajo hacia una rama principal, habilitando la revisión de código por pares, discusiones técnicas y aprobaciones antes de consolidar el cambio.\n\nLa perspectiva de la clase:\nEl material de la UNIR explica que la funcionalidad de Merge Request de GitLab es de uso idéntico a la Pull Request de GitHub, incluyendo las herramientas de discusión durante revisiones y aprobaciones.\n\nAplicación en DevOps:\nEn DevOps, la Merge Request es el núcleo de la gobernanza. Permite automatizar políticas de branch protection y ejecutar pruebas automáticas en runners antes de que el código sea integrado, evitando regresiones en producción."
   },
   {
     "tema": "Tema 8: GitLab",
@@ -825,7 +893,8 @@
       "Todas las anteriores son opciones válidas"
     ],
     "answer": "En el fichero .gitlab-ci.yml, en la raíz del repositorio",
-    "explanation": "El nombre del fichero es configurable, pero debe estar versionado en el mismo repositorio donde se ejecuta el pipeline."
+    "explanation": "El nombre del fichero es configurable, pero debe estar versionado en el mismo repositorio donde se ejecuta el pipeline.",
+    "detailedExplanation": "¿Qué significa realmente?\nLas etapas y los trabajos de la pipeline de GitLab se describen de manera declarativa en un archivo estructurado con formato YAML. Este archivo define el flujo de CI/CD que GitLab leerá para guiar la compilación, pruebas y despliegues.\n\nLa perspectiva de la clase:\nEl profesor destaca que, por convenio, el archivo .gitlab-ci.yml se ubica en la raíz del repositorio, asegurando que la definición de la pipeline esté versionada junto con el código de la aplicación.\n\nAplicación en DevOps:\nEsta práctica de \"Pipeline as Code\" facilita que cualquier desarrollador pueda proponer mejoras en el flujo de entrega editando el archivo YAML. Esto descentraliza y agiliza las configuraciones de automatización en equipos ágiles."
   },
   {
     "tema": "Tema 8: GitLab",
@@ -837,7 +906,8 @@
       "En el servidor principal de GitLab"
     ],
     "answer": "En los runners asociados al proyecto, en los compartidos entre varios proyectos",
-    "explanation": "GitLab necesita delegar en los runners todos los trabajos de un pipeline."
+    "explanation": "GitLab necesita delegar en los runners todos los trabajos de un pipeline.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos runners son agentes o procesos ligeros y aislados (instalados en servidores o contenedores) que se encargan de ejecutar físicamente las tareas definidas en el archivo de pipeline.\n\nLa perspectiva de la clase:\nSe enseña que GitLab delega la computación de las pipelines en runners, los cuales pueden ser específicos de un proyecto para necesidades particulares de software, o compartidos entre múltiples proyectos de la organización.\n\nAplicación en DevOps:\nEl uso de runners permite una alta escalabilidad horizontal. Mediante el uso de ejecutores basados en Docker o Kubernetes, los runners pueden aprovisionarse de forma dinámica y bajo demanda en la nube, optimizando los costes de infraestructura."
   },
   {
     "tema": "Tema 8: GitLab",
@@ -849,7 +919,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "A y B aplican cuando se define un pipeline simple. C aplica si el pipeline se define como un grafo dirigido acíclico."
+    "explanation": "A y B aplican cuando se define un pipeline simple. C aplica si el pipeline se define como un grafo dirigido acíclico.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn un pipeline simple, las fases (stages) corren de manera secuencial y los trabajos de una misma fase en paralelo. En flujos complejos, un Grafo Dirigido Acíclico (DAG) permite que un trabajo se ejecute tan pronto como finalicen sus dependencias directas sin esperar a que termine toda la fase anterior.\n\nLa perspectiva de la clase:\nEl profesor Juan Agustín Fraile enseña que GitLab soporta tanto la definición secuencial por fases (stages) como la programación por grafos (DAG) mediante la directiva needs, adaptándose a pipelines simples y complejos.\n\nAplicación en DevOps:\nEl uso de DAGs (Grafos Dirigidos Acíclicos) elimina cuellos de botella al permitir que los trabajos más veloces avancen a producción sin verse frenados por pruebas lentas de otros componentes del sistema."
   },
   {
     "tema": "Tema 8: GitLab",
@@ -861,7 +932,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "GitLab es capaz de interpretar algunos artefactos, como los informes JUnit, mientras que otros se almacenan para poder ser descargados. Además, es necesario mover los archivos generados de un trabajo a otro mediante esta directiva."
+    "explanation": "GitLab es capaz de interpretar algunos artefactos, como los informes JUnit, mientras que otros se almacenan para poder ser descargados. Además, es necesario mover los archivos generados de un trabajo a otro mediante esta directiva.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos artefactos son archivos generados por un trabajo que se guardan y transfieren automáticamente a trabajos posteriores. También se pueden descargar desde la interfaz web de GitLab o configurarse para que la plataforma los interprete visualmente.\n\nLa perspectiva de la clase:\nSe explica que artifacts es indispensable para compartir binarios entre fases del pipeline, así como para publicar reportes estándares (como reportes JUnit XML) que GitLab interpreta de manera interactiva en su interfaz.\n\nAplicación en DevOps:\nEn DevOps, exportar informes de pruebas e imágenes inmutables mediante artefactos asegura una trazabilidad total, facilitando de manera ágil las auditorías continuas y aislando los entregables de cada ejecución del pipeline."
   },
   {
     "tema": "Tema 8: GitLab",
@@ -873,7 +945,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Cuando hay un cambio en una rama, ya sean etiquetas de Git o commits nuevos",
-    "explanation": "GitLab inicia la ejecución tan pronto detecta un cambio. También se pueden arrancar manualmente o a partir de una agenda."
+    "explanation": "GitLab inicia la ejecución tan pronto detecta un cambio. También se pueden arrancar manualmente o a partir de una agenda.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl pipeline se dispara automáticamente ante cualquier cambio de estado en el control de versiones. Además, la plataforma ofrece opciones para iniciar la ejecución manualmente o programarla bajo calendarios de tiempo fijos.\n\nLa perspectiva de la clase:\nEl profesor destaca que la ejecución automática tras detectar modificaciones (etiquetas o commits) es el comportamiento por defecto, pero se complementa con triggers manuales y agendas programadas.\n\nAplicación en DevOps:\nLa automatización basada en eventos es el corazón de la Integración Continua (CI). Permite validar automáticamente cada cambio mediante linters, pruebas de API y análisis estáticos antes de integrar el código en ramas estables."
   },
   {
     "tema": "Tema 8: GitLab",
@@ -885,7 +958,8 @@
       "A los noventa días"
     ],
     "answer": "Tras un intervalo configurable, a menos que estén incluidas como excepción",
-    "explanation": "El borrado automático se puede desactivar. En caso de estarlo, se puede seleccionar un intervalo configurable y se pueden definir expresiones regulares para incluir o excluir etiquetas."
+    "explanation": "El borrado automático se puede desactivar. En caso de estarlo, se puede seleccionar un intervalo configurable y se pueden definir expresiones regulares para incluir o excluir etiquetas.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl Container Registry almacena imágenes Docker de las compilaciones. Para evitar la saturación del espacio, se configuran políticas de expiración que eliminan las imágenes antiguas tras un período de tiempo definido.\n\nLa perspectiva de la clase:\nSe enseña que el borrado automático se puede parametrizar de forma de configurar un intervalo configurable, permitiendo definir expresiones regulares (regex) para excluir de la eliminación las etiquetas críticas de producción como latest.\n\nAplicación en DevOps:\nEn DevOps, implementar políticas automatizadas de limpieza de imágenes reduce costes operativos de almacenamiento en la nube y mantiene el registro de contenedores limpio, seguro y enfocado únicamente en artefactos vigentes."
   },
   {
     "tema": "Tema 8: GitLab",
@@ -897,7 +971,8 @@
       "Al terminar cada trabajo"
     ],
     "answer": "Antes de iniciar cada trabajo, siempre y cuando el trabajo no sobreescriba la sección before_script explícitamente",
-    "explanation": "El contenido se ejecuta en el mismo contexto en el que se ejecutará el script del trabajo. Si los comandos fallan, el trabajo se detiene y se marca como erróneo."
+    "explanation": "El contenido se ejecuta en el mismo contexto en el que se ejecutará el script del trabajo. Si los comandos fallan, el trabajo se detiene y se marca como erróneo.",
+    "detailedExplanation": "¿Qué significa realmente?\nEs una sección declarativa para ejecutar tareas de preparación del entorno (como instalar dependencias o autenticar credenciales) justo antes de que comience el script principal de cada trabajo en el pipeline.\n\nLa perspectiva de la clase:\nEl material didáctico aclara que estos comandos corren en el mismo contexto que el script principal. Si alguno de ellos falla, la ejecución se interrumpe de inmediato, marcando el trabajo como erróneo para evitar falsos positivos.\n\nAplicación en DevOps:\nEn DevOps, before_script se utiliza para modularizar y estandarizar tareas previas repetitivas (como el inicio de sesión en Docker o la configuración efímera de variables), garantizando que las tareas de compilación o test corran de forma segura."
   },
   {
     "tema": "Tema 8: GitLab",
@@ -909,7 +984,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Se puede configurar un trabajo para mostrar un error en el log y marcar el pipeline como inestable, pero sin detenerlo. Si esta opción no se configura explícitamente, el pipeline se detendrá al fallar un trabajo."
+    "explanation": "Se puede configurar un trabajo para mostrar un error en el log y marcar el pipeline como inestable, pero sin detenerlo. Si esta opción no se configura explícitamente, el pipeline se detendrá al fallar un trabajo.",
+    "detailedExplanation": "¿Qué significa realmente?\nPor defecto, un pipeline de CI/CD detiene su ejecución inmediatamente si cualquier trabajo (job) devuelve un código de error. Esto evita que código defectuoso o vulnerable progrese en el flujo de entrega.\n\nLa perspectiva de la clase:\nEl material didáctico explica que se puede configurar un trabajo con directivas de tolerancia a fallos (allow_failure: true) para marcar el pipeline como inestable o advertido sin detener la ejecución de las fases siguientes.\n\nAplicación en DevOps:\nEn DevOps, esta configuración es sumamente útil para ejecutar análisis estáticos de estilo, escaneos de dependencias o tests experimentales que aporten retroalimentación informativa sin bloquear despliegues críticos."
   },
   {
     "tema": "Tema 9: Otras herramientas de CICD",
@@ -921,7 +997,8 @@
       "SVN"
     ],
     "answer": "Git",
-    "explanation": "Bitbucket ofrecía compatibilidad con Mercurial, pero dejó de ofrecerla en 2020."
+    "explanation": "Bitbucket ofrecía compatibilidad con Mercurial, pero dejó de ofrecerla en 2020.",
+    "detailedExplanation": "¿Qué significa realmente?\nBitbucket es un servicio web de alojamiento para proyectos de desarrollo. Aunque históricamente soportaba múltiples tecnologías de control de versiones distribuidas, hoy en día se centra exclusivamente en Git.\n\nLa perspectiva de la clase:\nSe señala que Bitbucket ofrecía compatibilidad nativa con Mercurial, otro sistema distribuido de control de versiones, pero Atlassian la retiró de forma oficial en el año 2020.\n\nAplicación en DevOps:\nDado que Git es el estándar dominante en la cultura DevOps, esta unificación permite que Bitbucket se integre de forma mucho más fluida con la suite de Atlassian (Jira, Bamboo) y pipelines de automatización complejos."
   },
   {
     "tema": "Tema 9: Otras herramientas de CICD",
@@ -933,7 +1010,8 @@
       ".circle-ci.yml"
     ],
     "answer": ".circleci/config.yml",
-    "explanation": "Al igual que en GitLab, debe versionarse en el repositorio y estar en formato YAML."
+    "explanation": "Al igual que en GitLab, debe versionarse en el repositorio y estar en formato YAML.",
+    "detailedExplanation": "¿Qué significa realmente?\nCircleCI utiliza la metodología de \"Pipeline como Código\". Toda la lógica de compilación, testeo y entrega se define mediante un archivo de configuración estructurado en formato YAML.\n\nLa perspectiva de la clase:\nEl material didáctico explica que, por convención de la herramienta, este archivo YAML debe almacenarse en el repositorio dentro de una carpeta oculta denominada .circleci.\n\nAplicación en DevOps:\nAlmacenar .circleci/config.yml en el repositorio garantiza que cualquier cambio en la pipeline se gestione como código: se puede versionar, auditar e integrar de forma transparente mediante Pull Requests."
   },
   {
     "tema": "Tema 9: Otras herramientas de CICD",
@@ -945,7 +1023,8 @@
       "Secuencialmente por defecto, salvo que se indique que pueden ejecutarse en paralelo"
     ],
     "answer": "En paralelo por defecto, salvo que se definan dependencias entre ellos",
-    "explanation": "Si se define una dependencia en un trabajo, este empezará cuando la dependencia haya terminado."
+    "explanation": "Si se define una dependencia en un trabajo, este empezará cuando la dependencia haya terminado.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn los flujos de trabajo de CircleCI, múltiples tareas o trabajos se lanzan simultáneamente por defecto para reducir tiempos. Para forzar un orden, se deben establecer dependencias directas.\n\nLa perspectiva de la clase:\nLa asignatura indica que si se declara que un trabajo depende de otro, este no comenzará hasta que su predecesor haya terminado de ejecutarse exitosamente.\n\nAplicación en DevOps:\nLa ejecución paralela nativa maximiza la eficiencia. En DevOps se suele configurar que las pruebas unitarias y el formateo corran simultáneamente, mientras que la fase de despliegue dependa secuencialmente de ambas."
   },
   {
     "tema": "Tema 9: Otras herramientas de CICD",
@@ -957,7 +1036,8 @@
       "Sí, ya que soporta la creación de forks y pull requests"
     ],
     "answer": "Sí, ya que soporta la creación de forks y pull requests",
-    "explanation": "El nombre del flujo no es exclusivo de la herramienta y puede seguirse si el servicio de repositorios remotos ofrece estas funcionalidades."
+    "explanation": "El nombre del flujo no es exclusivo de la herramienta y puede seguirse si el servicio de repositorios remotos ofrece estas funcionalidades.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl flujo de colaboración basado en ramas de funcionalidades y solicitudes de extracción (GitHub Flow) es un modelo metodológico y no depende exclusivamente de un solo proveedor o plataforma.\n\nLa perspectiva de la clase:\nEl profesor resalta que dado que Bitbucket incluye características para bifurcar repositorios (forks) y proponer revisiones (Pull Requests), es perfectamente compatible con este flujo de trabajo.\n\nAplicación en DevOps:\nEsto demuestra que la cultura y las metodologías DevOps son agnósticas a la herramienta. Los equipos pueden mantener idénticas disciplinas de revisión por pares y puertas de calidad automática independientemente de si usan GitHub o Bitbucket."
   },
   {
     "tema": "Tema 9: Otras herramientas de CICD",
@@ -969,7 +1049,8 @@
       "Con cualquiera que use Git como sistema de control de versiones"
     ],
     "answer": "GitHub y Bitbucket",
-    "explanation": "En el momento de publicar estos materiales, CircleCI está limitado a GitHub y Bitbucket."
+    "explanation": "En el momento de publicar estos materiales, CircleCI está limitado a GitHub y Bitbucket.",
+    "detailedExplanation": "¿Qué significa realmente?\nCircleCI es una plataforma de CI/CD en la nube que requiere conectarse a un proveedor de Git para acceder a los repositorios, leer la configuración de la pipeline y arrancar flujos automatizados de forma nativa.\n\nLa perspectiva de la clase:\nEl material docente de la UNIR aclara que, en el momento de redactar y publicar los contenidos oficiales de la asignatura, la integración nativa y de autenticación de CircleCI está limitada principalmente a GitHub y Bitbucket.\n\nAplicación en DevOps:\nEn DevOps, esta integración nativa mediante OAuth y webhooks automatizados simplifica la configuración inicial, permitiendo que las pipelines se desencadenen de inmediato ante eventos de Git sin requerir complejas gestiones de credenciales."
   },
   {
     "tema": "Tema 9: Otras herramientas de CICD",
@@ -981,7 +1062,8 @@
       "Cualquiera de las anteriores"
     ],
     "answer": "Cualquiera de las anteriores",
-    "explanation": "Todas las opciones son disparadores que iniciarán la ejecución del pipeline."
+    "explanation": "Todas las opciones son disparadores que iniciarán la ejecución del pipeline.",
+    "detailedExplanation": "¿Qué significa realmente?\nLos flujos de trabajo automatizados de CI/CD reaccionan a los cambios de estado en el repositorio. Cualquier evento de Git configurado como disparador arranca automáticamente el pipeline para verificar que el código permanezca estable.\n\nLa perspectiva de la clase:\nEl material didáctico destaca que en CircleCI, tanto la subida de commits a ramas, la creación de Pull Requests como las etiquetas (tags) de Git funcionan como disparadores válidos para iniciar la compilación y pruebas del software.\n\nAplicación en DevOps:\nEn DevOps, configurar disparadores diferenciados optimiza el uso de recursos. Por ejemplo, se corren pruebas unitarias rápidas ante cada commit, análisis de seguridad en las PRs y flujos completos de despliegue sólo cuando se detecta un tag de versión."
   },
   {
     "tema": "Tema 9: Otras herramientas de CICD",
@@ -993,7 +1075,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Los orbs son paquetes YAML que definen elementos reutilizables en un pipeline a modo de macros o funciones."
+    "explanation": "Los orbs son paquetes YAML que definen elementos reutilizables en un pipeline a modo de macros o funciones.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn orb de CircleCI es un paquete de configuración compartida y reutilizable que simplifica la creación de pipelines al encapsular comandos complejos, jobs y ejecutores en un formato modular y sencillo.\n\nLa perspectiva de la clase:\nEl material didáctico explica que los orbs actúan como elementos reutilizables que agrupan ejecutores, comandos y trabajos, permitiendo integraciones ágiles con herramientas y servicios externos de forma declarativa.\n\nAplicación en DevOps:\nEl uso de orbs oficiales (como AWS, Slack o Docker) acelera y estandariza la creación de pipelines en DevOps, promoviendo la reutilización de código (\"Pipeline as Code\") y reduciendo drásticamente los errores de configuración manual."
   },
   {
     "tema": "Tema 9: Otras herramientas de CICD",
@@ -1005,7 +1088,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Estos repositorios funcionan como caché y pueden servir los paquetes más rápido que los repositorios remotos."
+    "explanation": "Estos repositorios funcionan como caché y pueden servir los paquetes más rápido que los repositorios remotos.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn repositorio proxy en Sonatype Nexus funciona como un intermediario entre tu infraestructura interna y los registros públicos de Internet (como npm o Maven Central), almacenando de forma local una copia de cada dependencia solicitada.\n\nLa perspectiva de la clase:\nEl profesor Juan Agustín Fraile explica que estos repositorios actúan como una caché local de alto rendimiento, sirviendo los paquetes necesarios con una velocidad sustancialmente mayor que los servidores externos remotos.\n\nAplicación en DevOps:\nEn DevOps, usar Nexus como proxy optimiza el consumo de ancho de banda y acelera de manera drástica las etapas de build del pipeline. Además, garantiza la disponibilidad de las dependencias críticas ante cortes temporales de los repositorios públicos."
   },
   {
     "tema": "Tema 9: Otras herramientas de CICD",
@@ -1017,7 +1101,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Cuando los proyectos son privados y no se desea alojarlos en un repositorio público",
-    "explanation": "Algunos sistemas ofrecen repositorios privados en modo SaaS, por lo que el acceso es privado, al igual que en Nexus."
+    "explanation": "Algunos sistemas ofrecen repositorios privados en modo SaaS, por lo que el acceso es privado, al igual que en Nexus.",
+    "detailedExplanation": "¿Qué significa realmente?\nNexus permite crear repositorios privados internos y seguros para almacenar artefactos de software construidos por el propio equipo (como binarios compilados o imágenes Docker), restringiendo el acceso únicamente a usuarios autorizados.\n\nLa perspectiva de la clase:\nSe destaca que recurrir a Nexus como almacén privado tiene total sentido cuando se trabaja en proyectos con restricciones corporativas o de propiedad intelectual, evitando exponer de forma accidental el código al público.\n\nAplicación en DevOps:\nDisponer de un registro privado de artefactos como Nexus es un pilar crítico en DevOps para asegurar la procedencia y la gobernanza del código, facilitando un almacenamiento seguro y centralizado antes de promover las imágenes a producción."
   },
   {
     "tema": "Tema 9: Otras herramientas de CICD",
@@ -1029,7 +1114,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Soporta algunos más, como yum, pypi o maven."
+    "explanation": "Soporta algunos más, como yum, pypi o maven.",
+    "detailedExplanation": "¿Qué significa realmente?\nNexus (Sonatype Nexus Repository Manager) funciona como un repositorio de artefactos universal capaz de alojar, gestionar y servir paquetes para múltiples lenguajes y herramientas de construcción (como Maven, npm, PyPI, NuGet, Yum, Apt, entre otros).\n\nLa perspectiva de la clase:\nEl material didáctico destaca que Nexus soporta una amplia variedad de gestores de paquetes del sector (como yum, pypi o maven), permitiendo a los equipos de desarrollo centralizar la gestión de artefactos de forma estandarizada y segura.\n\nAplicación en DevOps:\nEn una arquitectura DevOps, Nexus actúa como un servidor proxy y caché local para registros públicos (como Maven Central o npmjs). Esto protege las pipelines de compilación ante posibles caídas externas de red y acelera drásticamente el tiempo de compilación."
   },
   {
     "tema": "Tema 10: Modelos de despliegue",
@@ -1041,7 +1127,8 @@
       "Que el despliegue siempre es exitoso y nunca hay vuelta atrás"
     ],
     "answer": "Que ofrece todas las funcionalidades durante todo el proceso de despliegue",
-    "explanation": "Si el despliegue es exitoso, la nueva versión está disponible sin que haya interrupción en el servicio; si se detecta un fallo, se puede volver a la versión antigua con una disrupción mínima."
+    "explanation": "Si el despliegue es exitoso, la nueva versión está disponible sin que haya interrupción en el servicio; si se detecta un fallo, se puede volver a la versión antigua con una disrupción mínima.",
+    "detailedExplanation": "¿Qué significa realmente?\nUn despliegue sin pérdida de servicio (zero-downtime deployment) asegura que los usuarios de la aplicación puedan seguir utilizándola con total normalidad y sin interrupciones mientras los servidores y servicios subyacentes se actualizan a la nueva versión.\n\nLa perspectiva de la clase:\nLa UNIR expone que si el despliegue es exitoso, la nueva versión queda disponible de inmediato sin interrupciones, y si se detecta cualquier fallo en las métricas de salud, el sistema permite retroceder (rollback) a la versión anterior con una disrupción mínima.\n\nAplicación en DevOps:\nEn DevOps, esto se logra mediante el uso de balanceadores de carga y despliegues progresivos. Al dirigir el tráfico de manera controlada y gradual, se eliminan las tradicionales e incómodas ventanas de mantenimiento nocturnas de los equipos de operaciones."
   },
   {
     "tema": "Tema 10: Modelos de despliegue",
@@ -1053,7 +1140,8 @@
       "Blue/green=mismo código con configuración, Incremental=porcentaje pequeño con versión nueva, Canary=se sustituyen servidores poco a poco, Feature flag=dos entornos idénticos"
     ],
     "answer": "Blue/green=dos entornos idénticos uno por versión, Incremental=se sustituyen servidores poco a poco, Canary=porcentaje pequeño de servidores con versión nueva, Feature flag=mismo código pero funcionalidad se ofrece o no según configuración",
-    "explanation": "Blue/green: despliega dos entornos idénticos, uno para cada versión. Actualización incremental: se sustituyen servidores poco a poco. Canary releasing: un porcentaje pequeño de servidores ofrece la versión nueva. Feature flag: todos los servidores tienen el mismo código, pero una funcionalidad se ofrece o no dependiendo de la configuración."
+    "explanation": "Blue/green: despliega dos entornos idénticos, uno para cada versión. Actualización incremental: se sustituyen servidores poco a poco. Canary releasing: un porcentaje pequeño de servidores ofrece la versión nueva. Feature flag: todos los servidores tienen el mismo código, pero una funcionalidad se ofrece o no dependiendo de la configuración.",
+    "detailedExplanation": "¿Qué significa realmente?\nCada modelo mitiga riesgos de forma distinta: Blue/Green duplica entornos idénticos; la actualización incremental reemplaza servidores paulatinamente; Canary expone el cambio a un porcentaje mínimo de usuarios; y Feature Flags controlan funciones desde archivos de configuración.\n\nLa perspectiva de la clase:\nEl profesor Juan Agustín Fraile detalla en el Tema 10 que estas estrategias son esenciales para disociar el despliegue técnico del software de la exposición real de características, permitiendo entregas más seguras y controladas.\n\nAplicación en DevOps:\nEn la práctica, estas estrategias se integran y automatizan en el pipeline de CD. Canary y Blue/Green facilitan la ejecución de *rollbacks* automatizados e instantáneos mediante herramientas de monitorización, y las Feature Flags permiten hacer pruebas controladas en producción."
   },
   {
     "tema": "Tema 10: Modelos de despliegue",
@@ -1065,7 +1153,8 @@
       "Porque habría que aplicar una subida de esquema si accede la versión nueva, y una bajada de esquema si accede la versión antigua"
     ],
     "answer": "Porque el código nuevo puede escribir un dato con un esquema incompatible con el código antiguo",
-    "explanation": "Esto puede ocurrir si cada registro de la base de datos puede tener un esquema diferente. Si todos los registros de una tabla comparten el esquema, la versión antigua no podrá siquiera leer los datos."
+    "explanation": "Esto puede ocurrir si cada registro de la base de datos puede tener un esquema diferente. Si todos los registros de una tabla comparten el esquema, la versión antigua no podrá siquiera leer los datos.",
+    "detailedExplanation": "¿Qué significa realmente?\nDurante un despliegue progresivo, las versiones vieja y nueva de la aplicación acceden a la misma base de datos de manera simultánea. Si el código nuevo modifica la estructura con un esquema incompatible, la versión antigua romperá su ejecución en producción.\n\nLa perspectiva de la clase:\nEl material didáctico advierte que si todos los registros de una tabla comparten el esquema, la versión antigua no podrá leer los nuevos datos, provocando errores fatales de compatibilidad e interrupciones del servicio no planificadas.\n\nAplicación en DevOps:\nLa cultura DevOps soluciona este conflicto implementando el patrón de diseño de base de datos \"Expand and Contract\" (Expandir y Contraer). Las migraciones se dividen en fases incrementales para asegurar que la base de datos sea siempre compatible con ambas versiones de la app."
   },
   {
     "tema": "Tema 10: Modelos de despliegue",
@@ -1077,7 +1166,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "La situación ideal es ofrecer API con compatibilidad hacia atrás siempre que sea posible y exponer una nueva versión cuando hay cambios incompatibles sin dejar de ofrecer la versión antigua."
+    "explanation": "La situación ideal es ofrecer API con compatibilidad hacia atrás siempre que sea posible y exponer una nueva versión cuando hay cambios incompatibles sin dejar de ofrecer la versión antigua.",
+    "detailedExplanation": "¿Qué significa realmente?\nActualizar servicios interconectados exige garantizar que los cambios no rompan las dependencias de otros sistemas. Esto se logra diseñando interfaces con compatibilidad hacia atrás o permitiendo la coexistencia de múltiples versiones de la misma API en producción.\n\nLa perspectiva de la clase:\nSe explica que la situación ideal es ofrecer APIs con compatibilidad hacia atrás siempre que sea posible y exponer una nueva ruta o versión cuando hay cambios incompatibles, sin dejar de ofrecer o apagar la versión antigua de inmediato.\n\nAplicación en DevOps:\nEn DevOps, esto se implementa mediante versionado semántico de APIs (ej. `/v1/` y `/v2/`) y API Gateways. Esto desacopla a los equipos de desarrollo, permitiendo que cada microservicio se actualice de manera independiente sin provocar caídas en cascada."
   },
   {
     "tema": "Tema 10: Modelos de despliegue",
@@ -1089,7 +1179,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Porque en un momento dado, todos los servidores que dan servicio tienen la misma versión del código",
-    "explanation": "Este modelo se basa en dirigir todo el tráfico a uno de los dos entornos, o bien al azul, o bien al verde."
+    "explanation": "Este modelo se basa en dirigir todo el tráfico a uno de los dos entornos, o bien al azul, o bien al verde.",
+    "detailedExplanation": "¿Qué significa realmente?\nEl despliegue Blue/Green mantiene dos entornos de producción idénticos y aislados. En un momento dado, uno está activo (recibiendo el 100% del tráfico) y el otro está inactivo, sirviendo para cargar y verificar la nueva versión antes de conmutar todo el tráfico simultáneamente.\n\nLa perspectiva de la clase:\nEl profesor Juan Agustín Fraile enseña que este modelo se basa en dirigir de forma absoluta el tráfico de usuarios a uno de los dos entornos (azul o verde), garantizando que todos los servidores activos ejecuten exactamente la misma versión del código.\n\nAplicación en DevOps:\nEn las prácticas de DevOps, esta conmutación se realiza de manera instantánea a nivel de balanceador de carga o DNS. Si se detecta un fallo catastrófico, el rollback consiste simplemente en redirigir el tráfico de vuelta al entorno anterior, logrando un riesgo mínimo."
   },
   {
     "tema": "Tema 10: Modelos de despliegue",
@@ -1101,7 +1192,8 @@
       "A y B son correctas"
     ],
     "answer": "A y B son correctas",
-    "explanation": "Los servidores canario reducen el riesgo de los despliegues, ya que el volumen de usuarios afectados ante un error es menor."
+    "explanation": "Los servidores canario reducen el riesgo de los despliegues, ya que el volumen de usuarios afectados ante un error es menor.",
+    "detailedExplanation": "¿Qué significa realmente?\nCanary releasing expone la nueva versión del software de forma gradual a un grupo reducido de usuarios reales. Esto permite monitorear su rendimiento en producción sin necesidad de duplicar toda la infraestructura física.\n\nLa perspectiva de la clase:\nEl profesor destaca que los servidores canario reducen drásticamente el riesgo de los despliegues. Al dirigir solo una pequeña porción del tráfico a la nueva versión, el volumen de usuarios afectados ante un potencial error es significativamente menor.\n\nAplicación en DevOps:\nPara el equipo de DevOps, Canary releasing ofrece la ventaja de validar cambios con tráfico de producción real y con menor coste de infraestructura que Blue/Green, automatizando el rollback si las métricas de error (en Prometheus o Datadog) aumentan."
   },
   {
     "tema": "Tema 10: Modelos de despliegue",
@@ -1113,7 +1205,8 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Desde que se despliega el primer servidor con la nueva versión hasta que se apaga el último de la versión antigua",
-    "explanation": "La convivencia de ambas versiones es fundamental en este tipo de despliegues."
+    "explanation": "La convivencia de ambas versiones es fundamental en este tipo de despliegues.",
+    "detailedExplanation": "¿Qué significa realmente?\nEn un despliegue incremental (rolling update), los servidores o pods se van actualizando de forma progresiva. Durante este proceso de transición, coexisten temporalmente instancias con la versión antigua y la nueva versión.\n\nLa perspectiva de la clase:\nLa asignatura explica que esta convivencia de versiones es el núcleo del despliegue incremental, iniciándose al actualizar el primer servidor y finalizando únicamente cuando el último nodo con el código anterior ha sido reemplazado.\n\nAplicación en DevOps:\nEn plataformas como Kubernetes, esta transición se controla mediante estrategias de rolling update (maxSurge y maxUnavailable), garantizando una actualización sin pérdida de servicio (zero-downtime) y facilitando un progreso seguro del código."
   },
   {
     "tema": "Tema 10: Modelos de despliegue",
@@ -1125,7 +1218,8 @@
       "Que los despliegues deben estar controlados por configuraciones definidas en una feature flag"
     ],
     "answer": "Que la fecha de un despliegue no tiene por qué coincidir con la exposición de una nueva funcionalidad a los usuarios",
-    "explanation": "Este paradigma no se ha extendido sino hasta hace relativamente pocos años, ya que era habitual acoplar las nuevas características a despliegues masivos de nuevas versiones."
+    "explanation": "Este paradigma no se ha extendido sino hasta hace relativamente pocos años, ya que era habitual acoplar las nuevas características a despliegues masivos de nuevas versiones.",
+    "detailedExplanation": "¿Qué significa realmente?\nConsiste en separar el acto técnico de instalar el código en los servidores de producción (despliegue) del acto comercial de activar y hacer visible esa nueva característica para los usuarios finales (liberación o release).\n\nLa perspectiva de la clase:\nEl profesor explica que, aunque históricamente se acoplaban las nuevas características a grandes y masivos pases a producción, el paradigma moderno exige separar ambos conceptos para liberar valor de forma controlada y segura.\n\nAplicación en DevOps:\nEsta disociación es fundamental en la entrega continua. Permite realizar despliegues técnicos frecuentes de forma silenciosa (dark launches) y controlar la activación de características de negocio mediante técnicas como Feature Flags."
   },
   {
     "tema": "Tema 10: Modelos de despliegue",
@@ -1137,7 +1231,8 @@
       "Todas las anteriores"
     ],
     "answer": "Todas las anteriores",
-    "explanation": "Las feature flags tienen el significado que le quieran dar los desarrolladores, por lo que se pueden usar para aquello que consideren necesario."
+    "explanation": "Las feature flags tienen el significado que le quieran dar los desarrolladores, por lo que se pueden usar para aquello que consideren necesario.",
+    "detailedExplanation": "¿Qué significa realmente?\nUna Feature Flag (o bandera de funcionalidad) es una variable en la configuración del sistema que permite activar o desactivar dinámicamente un bloque de código en tiempo de ejecución, sin necesidad de redesplegar la aplicación.\n\nLa perspectiva de la clase:\nSe enseña que las feature flags no tienen un uso rígido, sino que poseen el significado que los desarrolladores y el equipo de producto decidan otorgarles, sirviendo para pruebas A/B, lanzamientos progresivos o apagado de emergencia.\n\nAplicación en DevOps:\nEn DevOps, las feature flags actúan como disyuntores de seguridad (circuit breakers). Permiten realizar pruebas controladas directamente en producción y desactivar al instante funcionalidades que muestren un rendimiento deficiente."
   },
   {
     "tema": "Tema 10: Modelos de despliegue",
@@ -1149,6 +1244,7 @@
       "Ninguna de las anteriores"
     ],
     "answer": "Si hay suficientes ejecuciones exitosas consecutivas de la sonda readinessProbe",
-    "explanation": "En caso contrario, Kubernetes no sigue con el despliegue."
+    "explanation": "En caso contrario, Kubernetes no sigue con el despliegue.",
+    "detailedExplanation": "¿Qué significa realmente?\nKubernetes evalúa la salud de los pods mediante sondas (probes). La sonda de disponibilidad (readinessProbe) determina si un contenedor está listo para recibir tráfico de red, impidiendo el envío de peticiones hasta que pase los chequeos.\n\nLa perspectiva de la clase:\nEl material didáctico expone que, si no hay suficientes ejecuciones exitosas de la sonda, Kubernetes detiene el proceso de despliegue para evitar que una versión dañada inhabilite el servicio.\n\nAplicación en DevOps:\nConfigurar una readinessProbe correcta (que valide conexiones a base de datos y dependencias antes de reportarse lista) es un requisito crítico en DevOps para implementar despliegues automatizados seguros y sin pérdida de servicio (zero-downtime)."
   }
 ]

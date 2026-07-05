@@ -72,7 +72,7 @@ async function selectSubject(subject) {
         const temaSelect = document.getElementById(`tema-select-${subject}`);
         if (temaSelect && temaSelect.value) {
             const selectedTema = temaSelect.value;
-            allQuestions = allQuestions.filter(q => q.tema.includes(selectedTema));
+            allQuestions = allQuestions.filter(q => q.tema.startsWith(selectedTema + ':') || q.tema.startsWith(selectedTema + '.'));
             if (allQuestions.length === 0) {
                 alert('No hay preguntas para este tema');
                 return;
@@ -211,10 +211,30 @@ function showFeedback() {
                 ${!isCorrect ? `<p class="mb-2"><strong>Respuesta correcta:</strong> ${question.answer}</p>` : ''}
                 <p class="text-sm text-gray-700">${question.explanation}</p>
                 <p class="text-xs text-blue-600 mt-2 font-medium">📘 ${question.tema}</p>
+                <div id="detail-btn-${currentQuestionIndex}" class="mt-3"></div>
             </div>
         </div>
     `;
     feedbackDiv.classList.add('show');
+    
+    // Agregar botón profundizar si existe
+    if (question.detailedExplanation) {
+        const container = document.getElementById(`detail-btn-${currentQuestionIndex}`);
+        if (container) {
+            const btn = document.createElement('button');
+            btn.className = 'text-sm bg-blue-100 text-blue-700 px-3 py-1 rounded-lg hover:bg-blue-200 font-medium';
+            btn.textContent = '📖 Profundizar';
+            const detail = document.createElement('div');
+            detail.className = 'hidden mt-3 p-4 bg-gray-50 rounded-lg border-l-4 border-blue-400 text-sm text-gray-700 whitespace-pre-line';
+            detail.textContent = question.detailedExplanation;
+            btn.addEventListener('click', () => {
+                detail.classList.toggle('hidden');
+                btn.textContent = detail.classList.contains('hidden') ? '📖 Profundizar' : '📖 Ocultar detalle';
+            });
+            container.appendChild(btn);
+            container.appendChild(detail);
+        }
+    }
     
     const buttons = document.querySelectorAll('.option-btn');
     buttons.forEach(btn => {
@@ -324,10 +344,46 @@ function showResults() {
             ${statsHtml}
         </div>
     `;
+    
+    // Mostrar resumen de errores
+    const errors = quizData.filter((q, i) => userAnswers[i] !== q.answer);
+    if (errors.length > 0) {
+        const errorsHtml = errors.map((q) => {
+            const idx = quizData.indexOf(q);
+            const userAnswer = userAnswers[idx];
+            return `
+                <div class="mb-3 p-3 border-l-4 border-red-400 bg-red-50 rounded-r-lg text-left cursor-pointer hover:bg-red-100" onclick="goToQuestion(${idx})">
+                    <p class="font-semibold text-gray-900 text-sm">${q.question}</p>
+                    <p class="text-xs text-red-600 mt-1">❌ Tu respuesta: ${userAnswer}</p>
+                    <p class="text-xs text-green-600">✅ Correcta: ${q.answer}</p>
+                    <p class="text-xs text-blue-500 mt-1">Clic para revisar →</p>
+                </div>
+            `;
+        }).join('');
+        
+        document.getElementById('stats-by-tema').innerHTML += `
+            <div class="mt-4">
+                <button onclick="document.getElementById('errors-detail').classList.toggle('hidden')" class="w-full bg-red-100 text-red-700 font-semibold py-2 px-4 rounded-lg hover:bg-red-200">
+                    📋 Revisar errores (${errors.length})
+                </button>
+                <div id="errors-detail" class="hidden mt-4">
+                    ${errorsHtml}
+                </div>
+            </div>
+        `;
+    }
 }
 
 function restartGame() {
     startQuiz();
+}
+
+function goToQuestion(index) {
+    currentQuestionIndex = index;
+    document.getElementById('result-container').classList.add('hidden');
+    document.getElementById('quiz-container').classList.remove('hidden');
+    document.getElementById('navigation-controls').classList.remove('hidden');
+    displayQuestion();
 }
 
 // Cargar conteo de preguntas y temas al inicio
