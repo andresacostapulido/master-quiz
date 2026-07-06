@@ -68,6 +68,11 @@ async function selectSubject(subject) {
     mode = modeSelect ? modeSelect.value : 'normal';
     quizTitle = SUBJECT_NAMES[subject] || subject;
     
+    if (mode === 'cortas') {
+        startShortAnswerMode(subject);
+        return;
+    }
+    
     if (mode === 'tema') {
         const temaSelect = document.getElementById(`tema-select-${subject}`);
         if (temaSelect && temaSelect.value) {
@@ -98,6 +103,7 @@ async function selectSubject(subject) {
 function backToSubjects() {
     document.getElementById('subject-selector').classList.remove('hidden');
     document.getElementById('main-quiz-content').classList.add('hidden');
+    document.getElementById('short-answer-content').classList.add('hidden');
     currentSubject = null;
     quizData = [];
     currentQuestionIndex = 0;
@@ -384,6 +390,60 @@ function goToQuestion(index) {
     document.getElementById('quiz-container').classList.remove('hidden');
     document.getElementById('navigation-controls').classList.remove('hidden');
     displayQuestion();
+}
+
+// === Modo Respuestas Cortas ===
+let shortData = [];
+let shortIndex = 0;
+
+async function startShortAnswerMode(subject) {
+    try {
+        const response = await fetch(`data/${subject}-cortas.json`);
+        if (!response.ok) throw new Error('No hay preguntas cortas');
+        shortData = await response.json();
+        shortData.sort(() => Math.random() - 0.5);
+    } catch (error) {
+        alert('No hay preguntas de respuesta corta disponibles para esta asignatura.');
+        return;
+    }
+    
+    shortIndex = 0;
+    document.getElementById('subject-selector').classList.add('hidden');
+    document.getElementById('short-answer-content').classList.remove('hidden');
+    renderShortQuestion();
+}
+
+function renderShortQuestion() {
+    const q = shortData[shortIndex];
+    document.getElementById('short-question').textContent = q.q;
+    document.getElementById('short-ext').textContent = `Extensión: ${q.ext}`;
+    document.getElementById('short-progress').textContent = `Pregunta ${shortIndex + 1} de ${shortData.length}`;
+    document.getElementById('short-progress-bar').style.width = ((shortIndex + 1) / shortData.length * 100) + '%';
+    document.getElementById('short-answer-input').value = '';
+    document.getElementById('short-answer-ref').classList.add('hidden');
+    document.getElementById('short-answer-body').innerHTML = q.a;
+    document.getElementById('short-prev-btn').disabled = shortIndex === 0;
+    document.getElementById('short-next-btn').textContent = shortIndex === shortData.length - 1 ? 'Finalizar' : 'Siguiente';
+}
+
+function showShortAnswer() {
+    document.getElementById('short-answer-ref').classList.toggle('hidden');
+}
+
+function nextShortQuestion() {
+    if (shortIndex < shortData.length - 1) {
+        shortIndex++;
+        renderShortQuestion();
+    } else {
+        backToSubjects();
+    }
+}
+
+function prevShortQuestion() {
+    if (shortIndex > 0) {
+        shortIndex--;
+        renderShortQuestion();
+    }
 }
 
 // Cargar conteo de preguntas y temas al inicio

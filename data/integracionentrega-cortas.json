@@ -1,0 +1,152 @@
+[
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué comando de Git utilizarías para crear una nueva rama local llamada 'feature/login' y posicionarte directamente en ella?",
+    "a": "<p>Se utiliza el comando abreviado con la opción de creación y posicionamiento:</p><pre><code>git checkout -b feature/login</code></pre><p>O en versiones más recientes de Git, el comando nativo alternativo:</p><pre><code>git switch -c feature/login</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica la diferencia técnica entre 'git merge' y 'git rebase' a la hora de integrar cambios de una rama secundaria en la rama principal, indicando el impacto en el historial.",
+    "a": "<p><strong>git merge</strong> une los desarrollos manteniendo el historial intacto; crea un 'merge commit' de integración no lineal, ideal para trazabilidad en repositorios públicos. En cambio, <strong>git rebase</strong> reescribe el historial local reaplicando los commits de la rama secundaria uno a uno sobre la punta de la rama principal (main), generando un historial lineal y limpio, pero con el riesgo de alterar commits ya publicados e inducir conflictos repetitivos.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "Durante la resolución de un conflicto de fusión en un archivo binario (como una imagen), ¿qué comandos de Git usarías para conservar únicamente tu versión ('ours') o la de la rama que integras ('theirs')?",
+    "a": "<p>Para conservar tu versión local ('ours'):</p><pre><code>git checkout --ours -- ruta/archivo.png\ngit add ruta/archivo.png</code></pre><p>Para conservar la versión entrante de la otra rama ('theirs'):</p><pre><code>git checkout --theirs -- ruta/archivo.png\ngit add ruta/archivo.png</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica la diferencia entre 'git revert' y 'git reset --soft' para deshacer cambios, aclarando en qué escenario de integración continua es seguro usar cada uno.",
+    "a": "<p><strong>git revert</strong> crea un nuevo commit que invierte exactamente los cambios de un commit previo sin modificar el historial, siendo seguro para ramas públicas y compartidas en CI/CD. Por contra, <strong>git reset --soft</strong> mueve el puntero HEAD a un commit anterior conservando las modificaciones en el área intermedia (staging), lo cual reescribe el historial y solo debe usarse localmente antes de publicar (push), ya que rompería las copias de otros desarrolladores.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Cómo configurarías Git globalmente para que recuerde y resuelva de forma automática conflictos repetitivos utilizando la funcionalidad nativa 'rerere'?",
+    "a": "<p>Para habilitar de manera global la grabadora de resoluciones de conflictos (Reuse Recorded Resolution) se ejecuta:</p><pre><code>git config --global rerere.enabled true</code></pre><p>A partir de ese momento, Git guardará el estado antes y después de cada resolución manual para reaplicarla automáticamente en conflictos futuros idénticos.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "Escribe los comandos Git necesarios para comprobar qué archivos específicos están en conflicto tras un merge fallido, y cómo abortar por completo dicho merge volviendo al estado anterior.",
+    "a": "<p>Para ver la lista de archivos con conflictos de fusión:</p><pre><code>git status\ngit diff --name-only --diff-filter=U</code></pre><p>Para abortar inmediatamente el proceso de merge y restaurar el estado anterior:</p><pre><code>git merge --abort</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Compara operativamente los flujos 'GitHub Flow' y 'Gitflow', indicando cuándo se recomienda utilizar cada uno según la frecuencia de entregas del proyecto.",
+    "a": "<p><strong>GitHub Flow</strong> es un flujo ágil y simplificado que pivota sobre la rama estable 'main' y ramas efímeras de corta vida que se integran mediante Pull Requests, ideal para despliegue continuo (SaaS). <strong>Gitflow</strong> es un flujo estructurado de larga duración que utiliza ramas estables paralelas ('master' para producción y 'develop' para integración), además de ramas de soporte ('feature', 'release' y 'hotfix'), ideal para proyectos con ciclos de lanzamiento planificados y versiones tradicionales.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica en qué consiste el flujo de trabajo 'Trunk-Based Development' y cómo el uso de 'Feature Flags' ayuda a evitar la existencia de ramas de larga duración.",
+    "a": "<p><strong>Trunk-Based Development</strong> consiste en que todos los desarrolladores integran pequeños cambios directamente en una única rama principal ('trunk' o 'main') de forma muy frecuente (varias veces al día). Las <strong>Feature Flags</strong> (banderas de funcionalidad) permiten desacoplar el despliegue del código de su activación comercial, subiendo cambios incompletos a producción de forma silenciosa ('dark launch') pero desactivados mediante configuración, eliminando así las ramas aisladas de larga duración.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "Escribe dos ejemplos de mensajes de commit que sigan el estándar de 'Conventional Commits': uno que registre la corrección de un bug en el módulo de autenticación y otro que añada una nueva característica.",
+    "a": "<p>Corrección de error en el ámbito de autenticación:</p><pre><code>fix(auth): corrige la expiración de la sesión con refresh tokens</code></pre><p>Adición de nueva característica en el ámbito de pagos:</p><pre><code>feat(pay): añade integración con pasarela de pagos Stripe</code></pre>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "Escribe un archivo de configuración 'CODEOWNERS' de GitHub para que el equipo '@team-devops' sea responsable de la carpeta '/infra/' y el equipo '@team-security' lo sea de la ruta '/auth/'.",
+    "a": "<p>Contenido del archivo <code>CODEOWNERS</code> en la carpeta raíz o <code>.github/</code>:</p><pre><code># Los cambios en infraestructura requieren revisión de DevOps\n/infra/*      @team-devops\n\n# Los cambios en autenticación requieren aprobación de seguridad\n/auth/**      @team-security</code></pre>"
+  },
+  {
+    "ext": "1 cara",
+    "q": "Escribe un pipeline declarativo completo en un archivo 'Jenkinsfile' que se ejecute en cualquier agente disponible, que defina tres etapas ('Build', 'Test', 'Deploy') y ejecute comandos 'sh' simulados para cada etapa.",
+    "a": "<p>Ejemplo de un pipeline declarativo mínimo en <code>Jenkinsfile</code>:</p><pre><code>pipeline {\n    agent any\n\n    stages {\n        stage('Build') {\n            steps {\n                echo 'Compilando la aplicación...'\n                sh 'echo \"Construyendo artefactos...\"'\n            }\n        }\n        stage('Test') {\n            steps {\n                echo 'Ejecutando pruebas...'\n                sh 'echo \"Ejecutando tests unitarios...\"'\n            }\n        }\n        stage('Deploy') {\n            steps {\n                echo 'Desplegando...'\n                sh 'echo \"Desplegando en staging...\"'\n            }\n        }\n    }\n}</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Cómo configurarías un 'Jenkinsfile' declarativo para restringir que las etapas se ejecuten estrictamente en un agente con la etiqueta 'python' y define una variable de entorno inmutable?",
+    "a": "<p>Se utiliza la sección <code>agent</code> con el bloque de etiqueta (<code>label</code>) y la sección <code>environment</code>:</p><pre><code>pipeline {\n    agent {\n        label 'python'\n    }\n    environment {\n        APP_ENV = 'production'\n    }\n    stages {\n        stage('Check') {\n            steps { echo \"Entorno activo: ${env.APP_ENV}\" }\n        }\n    }\n}</code></pre>"
+  },
+  {
+    "ext": "1 cara",
+    "q": "Diseña un 'Jenkinsfile' declarativo que ejecute pruebas unitarias ('make test-unit'), archive de manera inmutable el informe XML de resultados, y use una sección de post-procesamiento para simular el envío de un correo si el pipeline falla.",
+    "a": "<p>Estructura declarativa completa para almacenar reportes y reaccionar ante fallos de build:</p><pre><code>pipeline {\n    agent any\n    stages {\n        stage('Run Tests') {\n            steps {\n                sh 'make test-unit'\n            }\n        }\n    }\n    post {\n        always {\n            // Archivar el reporte XML de pruebas sin importar el resultado\n            archiveArtifacts artifacts: 'results/unit_result.xml', allowEmptyArchive: false\n        }\n        failure {\n            // Simulación del envío de correo con variables de entorno\n            echo \"[ALERT] El trabajo ${env.JOB_NAME} con número de ejecución #${env.BUILD_NUMBER} ha fallado.\"\n            sh 'echo \"Enviando correo de alerta a administradores...\"'\n        }\n    }\n}</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Escribe una etapa ('stage') en Jenkins declarativo que valide el uso de credenciales seguras de tipo texto (token) almacenadas en Jenkins, asignándolas a una variable temporal en un script.",
+    "a": "<p>Se utiliza la directiva <code>withCredentials</code> o el método abreviado <code>credentials()</code> de Jenkins:</p><pre><code>stage('Deploy with Token') {\n    steps {\n        withCredentials([string(credentialsId: 'SECRET_API_TOKEN', variable: 'API_TOKEN')]) {\n            sh 'echo \"Ejecutando despliegue seguro...\"'\n            sh 'curl -H \"Authorization: Bearer $API_TOKEN\" https://api.prod/deploy'\n        }\n    }\n}</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Escribe una etapa ('stage') de Jenkins declarativo que se ejecute de manera condicional únicamente cuando los cambios se hayan integrado en la rama 'master'.",
+    "a": "<p>Se implementa utilizando la directiva condicional <code>when</code> en la etapa deseada:</p><pre><code>stage('Production Promote') {\n    when {\n        branch 'master'\n    }\n    steps {\n        echo 'Cambio en rama master detectado. Desplegando en producción...'\n        sh 'make deploy-prod'\n    }\n}</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Escribe un archivo de configuración '.gitlab-ci.yml' básico que defina dos etapas ('build' y 'test') y configure el trabajo de pruebas para ejecutarse con una imagen de Python mediante 'pytest'.",
+    "a": "<p>Ejemplo de configuración declarativa YAML de GitLab CI/CD:</p><pre><code>stages:\n  - build\n  - test\n\njob_build:\n  stage: build\n  script:\n    - echo \"Compilando aplicación...\"\n\njob_test:\n  stage: test\n  image: python:3.11\n  script:\n    - pip install -r requirements.txt\n    - pytest</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "En GitLab CI/CD, ¿cómo configurarías la caché dentro de '.gitlab-ci.yml' para evitar que se descarguen las dependencias de node_modules en cada ejecución del pipeline?",
+    "a": "<p>Se implementa la directiva <code>cache</code> indicando la ruta y el identificador de clave:</p><pre><code>cache:\n  key: \"${CI_COMMIT_REF_SLUG}\" # Caché por rama\n  paths:\n    - node_modules/\n\njob_test:\n  image: node:20\n  script:\n    - npm ci\n    - npm test</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Cómo configurarías la directiva 'artifacts' en un trabajo de '.gitlab-ci.yml' para guardar informes de resultados de pruebas JUnit XML de forma que puedan descargarse y expiren en una semana?",
+    "a": "<p>Se utiliza la sección <code>artifacts</code> con el formato JUnit e indicando la expiración:</p><pre><code>job_test:\n  script:\n    - pytest --junitxml=results/test-report.xml\n  artifacts:\n    name: \"test-results-${CI_COMMIT_REF_NAME}\"\n    expire_in: 1 week\n    reports:\n      junit: results/test-report.xml\n    paths:\n      - results/test-report.xml</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica la utilidad de la sección 'before_script' en '.gitlab-ci.yml' y escribe un ejemplo práctico para iniciar sesión en un Container Registry privado de Docker.",
+    "a": "<p>La sección <code>before_script</code> define comandos que se ejecutan antes del script principal en cada trabajo. Se usa para preparar entornos de compilación o autenticarse:</p><pre><code>before_script:\n  - echo \"Iniciando sesión en el registro de contenedores...\"\n  - docker login -u \"$CI_REGISTRY_USER\" -p \"$CI_REGISTRY_PASSWORD\" \"$CI_REGISTRY\"</code></pre>"
+  },
+  {
+    "ext": "1 cara",
+    "q": "Escribe un archivo de configuración '.circleci/config.yml' para un workflow básico que defina dos trabajos secuenciales ('build' y 'test'), especificando que el trabajo 'test' requiere que finalice con éxito el trabajo 'build'.",
+    "a": "<p>Configuración del archivo de CircleCI utilizando workflows declarativos secuenciales:</p><pre><code>version: 2.1\n\njobs:\n  build:\n    docker:\n      - image: cimg/python:3.11\n    steps:\n      - checkout\n      - run: echo \"Compilando aplicación y empaquetando dependencias...\"\n\n  test:\n    docker:\n      - image: cimg/python:3.11\n    steps:\n      - checkout\n      - run: echo \"Ejecutando batería de pruebas unitarias...\"\n\nworkflows:\n  build-and-test:\n    jobs:\n      - build\n      - test:\n          requires:\n            - build # Dependencia explícita secuencial</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué es un 'Orb' en el contexto de CircleCI y cómo se declara e invoca en un pipeline de automatización?",
+    "a": "<p>Un <strong>Orb</strong> es un paquete reutilizable de configuración YAML de CircleCI que encapsula comandos, ejecutores y trabajos. Se declaran en la cabecera del archivo y se invocan como funciones parametrizadas:</p><pre><code>orbs:\n  slack: circleci/slack@4.10\n\njobs:\n  notify:\n    steps:\n      - slack/notify:\n          event: fail\n          mentions: '@devs'</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Cómo se ejecutan los trabajos ('jobs') dentro de un workflow de CircleCI de manera predeterminada y qué beneficio técnico aporta esto al ciclo de feedback?",
+    "a": "<p>De forma predeterminada, los trabajos de un workflow de CircleCI se ejecutan en <strong>paralelo</strong>, a menos que se definan dependencias explícitas (<code>requires</code>) entre ellos. Esto optimiza el uso de infraestructura y reduce drásticamente el tiempo de ejecución del pipeline, proporcionando retroalimentación inmediata sobre la calidad del código al equipo de desarrollo.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Justifica la colocación de las pruebas unitarias en la base de la Pirámide de Pruebas de automatización y explica por qué deben ejecutarse antes que las pruebas funcionales de GUI en el pipeline.",
+    "a": "<p>Las pruebas unitarias se sitúan en la base porque son sumamente <strong>rápidas, aisladas y de bajo coste de ejecución</strong>, proporcionando el primer bucle de retroalimentación en segundos. Deben ejecutarse antes que las pruebas de GUI (que son complejas, requieren levantar la aplicación completa y son más propensas a inestabilidad o 'flakiness') para detectar fallos lógicos elementales de forma inmediata y detener el pipeline antes de gastar recursos de infraestructura costosos.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Por qué tener una cobertura de pruebas (Code Coverage) del 100% en SonarQube no es sinónimo de que una aplicación esté libre de errores en producción?",
+    "a": "<p>El 100% de cobertura solo indica que la suite de pruebas ejecutó cada línea de código fuente al menos una vez durante los tests. Sin embargo, esto <strong>no garantiza riesgo cero</strong> porque no valida el comportamiento ante combinaciones lógicas de entrada inesperadas, condiciones de frontera (boundary values), fallos de concurrencia, problemas de integración con servicios externos reales, ni vulnerabilidades de infraestructura.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica en qué consiste el concepto de 'Quality Gate' en SonarQube y cómo se utiliza para automatizar la gobernanza del código en un pipeline de CI/CD.",
+    "a": "<p>Un <strong>Quality Gate</strong> es un conjunto de umbrales métricos (p. ej., cobertura mínima de código nuevo del 80%, cero vulnerabilidades críticas, bajo porcentaje de duplicaciones) que el proyecto debe cumplir. En el pipeline de CI/CD, el análisis de SonarQube reporta los resultados al servidor central. Si el código nuevo no supera el Quality Gate establecido, la pipeline aborta automáticamente la ejecución, previniendo la promoción de deuda técnica a entornos estables.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Distingue entre pruebas de análisis estático de seguridad de aplicaciones (SAST) y análisis de composición de software (SCA), indicando qué busca cada una.",
+    "a": "<p>El análisis <strong>SAST</strong> (Static Application Security Testing) analiza el código fuente propio del proyecto sin ejecutarlo en busca de fallos lógicos de seguridad internos, malas prácticas de desarrollo o secretos expuestos. El análisis <strong>SCA</strong> (Software Composition Analysis) escanea la lista de dependencias y librerías de terceros (declaradas en los gestores de paquetes) para contrastarlas con bases de datos públicas de vulnerabilidades conocidas (CVEs), identificando componentes desactualizados o inseguros.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica detalladamente la estrategia de despliegue 'Blue/Green Deployment', aclarando cómo mitiga el riesgo de caídas de servicio (zero-downtime) y facilita el rollback.",
+    "a": "<p>La estrategia <strong>Blue/Green</strong> requiere duplicar la infraestructura de producción en dos entornos físicamente idénticos: el entorno actual en producción ('Blue') y la nueva versión instalándose de forma aislada en el entorno inactivo ('Green'). Una vez validadas las pruebas de humo en 'Green', el balanceador de carga o DNS redirige de forma instantánea el 100% del tráfico. Si se presenta un error catastrófico, el rollback consiste simplemente en cambiar la redirección de tráfico de vuelta a 'Blue' sin pérdida de servicio.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Describe cómo funciona un despliegue progresivo de tipo 'Canary Releasing' y qué métricas de monitorización deben vigilarse para automatizar el rollback.",
+    "a": "<p>En un despliegue <strong>Canary Releasing</strong>, la nueva versión de la aplicación se expone inicialmente solo a un porcentaje mínimo y controlado de usuarios de producción (p. ej., el 5% del tráfico). Se deben vigilar métricas de salud críticas como la tasa de errores HTTP (códigos 5xx), la latencia de respuesta y la saturación de recursos. Si se detecta una anomalía o desviación en estas métricas, el pipeline de CD detiene la promoción y realiza un rollback automático antes de que afecte a toda la base de usuarios.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Escribe un ejemplo conceptual de pseudo-código que demuestre cómo implementar una 'Feature Flag' para controlar de forma dinámica la visibilidad de una funcionalidad en producción.",
+    "a": "<p>Ejemplo de uso de una Feature Flag inyectada por configuración:</p><pre><code># Evaluar la feature flag de forma dinámica\nif feature_flags.is_enabled(\"nueva-pasarela-pago\"):\n    # Ejecuta el código de la nueva característica de pago\n    procesar_pago_stripe(datos_pago)\nelse:\n    # Ejecuta la vía heredada estable\n    procesar_pago_legacy(datos_pago)</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué ventajas técnicas aporta configurar un repositorio de artefactos como Sonatype Nexus como proxy caché de registros públicos (como npm o Maven Central) en las compilaciones del pipeline?",
+    "a": "<p>Nexus funcionando como proxy caché almacena localmente una copia de cada librería externa de Internet solicitada en la primera compilación. Esto aporta tres ventajas críticas: <strong>velocidad extrema de descarga</strong> en builds posteriores del pipeline, <strong>ahorro masivo de ancho de banda</strong> de red corporativa, e <strong>independencia de red</strong>, ya que las pipelines no fallarán ante caídas temporales o latencias en los registros públicos de Internet.</p>"
+  }
+]

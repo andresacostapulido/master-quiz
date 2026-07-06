@@ -1,0 +1,152 @@
+[
+  {
+    "ext": "8 líneas",
+    "q": "Explica la filosofía Lean y su objetivo.",
+    "a": "<p>Filosofía nacida en la producción de Toyota que busca entregar el máximo valor al cliente con el mínimo desperdicio. Su objetivo es eliminar todo lo que no aporta valor (esperas, retrabajo, inventario, sobreproducción) y mejorar el flujo de forma continua.</p><p>Se apoya en identificar el valor desde la óptica del cliente, trabajar con sistemas pull, buscar la calidad a la primera y aplicar la mejora continua (kaizen). En software se traduce en ciclos cortos, decisiones tardías y entrega rápida.</p>"
+  },
+  {
+    "ext": "1 cara",
+    "q": "¿Cómo combinarías los enfoques ágiles de Scrum y Kanban? Pon un ejemplo.",
+    "a": "<p>Combinándolos en lo que se conoce como Scrumban: se mantiene la estructura de Scrum (sprints, roles y eventos) y se añade el tablero Kanban con límites de trabajo en curso para visualizar y controlar el flujo dentro del sprint.</p><p>Encaja cuando el equipo quiere la cadencia y los objetivos de Scrum pero sufre cuellos de botella o trabajo no planificado. Ejemplo: un equipo de soporte planifica un sprint de dos semanas, pero atiende las incidencias urgentes en un carril Kanban con límite de tareas, de modo que no rompan la planificación.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica el concepto de Product Backlog en Scrum.",
+    "a": "<p>Lista ordenada y única de todo lo que el producto podría necesitar: funcionalidades, mejoras y correcciones. Es responsabilidad del Product Owner, que la prioriza según el valor para el negocio y el cliente.</p><p>Está viva: se refina y reordena de forma continua. Los elementos más prioritarios son más detallados y los de largo plazo, más generales. De ella se seleccionan los elementos que entran en cada Sprint.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica el concepto de MVP y su utilidad.",
+    "a": "<p>El MVP (producto mínimo viable) es la versión más sencilla de un producto que ya aporta valor y se puede poner en manos de usuarios reales.</p><p>Su utilidad es validar hipótesis y aprender del mercado con el menor esfuerzo posible, antes de invertir en funcionalidades que quizá nadie use. Permite obtener feedback temprano, reducir el riesgo y orientar el desarrollo según datos reales en lugar de suposiciones.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica qué es una historia de usuario.",
+    "a": "<p>Descripción breve de una funcionalidad desde el punto de vista de quien la usa. Sigue el formato «Como [rol], quiero [funcionalidad], para [beneficio]».</p><p>No es una especificación cerrada, sino una invitación a conversar y aclarar detalles. Suele acompañarse de criterios de aceptación que definen cuándo está terminada. Conviene que cumpla INVEST: independiente, negociable, valiosa, estimable, pequeña y testable.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica los valores del Manifiesto Ágil.",
+    "a": "<p>Son cuatro: individuos e interacciones sobre procesos y herramientas; software funcionando sobre documentación extensa; colaboración con el cliente sobre negociación contractual; y respuesta al cambio sobre seguir un plan.</p><p>No niegan el valor de los elementos de la derecha, pero priorizan los de la izquierda. De estos cuatro valores se derivan los doce principios ágiles.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica cómo funciona Kanban.",
+    "a": "<p>Método de gestión visual del trabajo basado en un tablero con columnas que representan los estados del proceso (por ejemplo, pendiente, en curso y hecho). Cada tarea es una tarjeta que avanza de columna en columna.</p><p>Se limita el trabajo en curso (WIP) en cada estado para evitar la saturación y detectar cuellos de botella. Es un flujo continuo, sin iteraciones fijas, centrado en la entrega constante y en la mejora del flujo.</p>"
+  },
+  {
+    "ext": "24 líneas",
+    "q": "¿Cuándo y qué se hace en las reuniones de Retrospectiva de un proyecto ágil? ¿Para qué sirven? ¿Suele haber una o más de una?",
+    "a": "<p>La retrospectiva se celebra al final de cada Sprint, después de la revisión y antes de planificar el siguiente. El equipo analiza cómo ha trabajado: qué ha ido bien, qué ha fallado y qué acciones de mejora aplicar.</p><p>Sirve para inspeccionar y adaptar el proceso (no el producto) y reforzar la mejora continua. Hay una por Sprint, así que a lo largo del proyecto se celebran varias. Conviene que salga de ella algún compromiso de mejora concreto y medible.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Describe el burndown chart.",
+    "a": "<p>Gráfico que muestra el trabajo pendiente frente al tiempo dentro de un Sprint o una entrega. En el eje vertical va el trabajo restante (en puntos o tareas) y en el horizontal, el tiempo.</p><p>Una línea ideal desciende de forma uniforme hasta cero y la línea real refleja el avance verdadero. Si la real queda por encima de la ideal, hay retraso; si queda por debajo, se va adelantado. Ayuda a prever si se cumplirá el objetivo.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica en qué se basa Scrum y el concepto de aprendizaje empírico.",
+    "a": "<p>Scrum se basa en el empirismo: el conocimiento surge de la experiencia y las decisiones se toman sobre lo observado. Se apoya en tres pilares: transparencia, inspección y adaptación.</p><p>El equipo entrega incrementos en ciclos cortos (Sprints) y, al inspeccionar el resultado, ajusta el producto y el proceso. Así se aprende haciendo y se reduce el riesgo frente a los planes cerrados de largo plazo.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica cómo evaluar una iteración.",
+    "a": "<p>Se valora si se ha cumplido el objetivo del Sprint y si el incremento cumple la Definición de Terminado. Para ello sirven la revisión del Sprint (se muestra el incremento al cliente y se recoge feedback) y herramientas como el burndown chart o el tablero, que reflejan el avance y los bloqueos.</p><p>También se mide la cantidad de trabajo completado (velocidad) y la calidad entregada. La retrospectiva, por su parte, evalúa el proceso de trabajo del equipo.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Describe qué es SDLC (Software Development Life Cycle).",
+    "a": "<p>El ciclo de vida del desarrollo de software es el conjunto de fases y modelos que organizan cómo se desarrolla un sistema, desde el análisis de requisitos hasta el mantenimiento.</p><p>Incluye etapas como requisitos, diseño, implementación, pruebas, despliegue y mantenimiento. No existe un único modelo válido: cascada, incremental, espiral o ágil son formas distintas de recorrer ese ciclo según el proyecto.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica el valor ganado en ágil.",
+    "a": "<p>Mide el valor realmente entregado en función de las funcionalidades completadas y aceptadas, no del esfuerzo invertido. Solo cuenta el trabajo terminado que cumple la Definición de Terminado.</p><p>Permite evaluar el progreso real del proyecto y compararlo con lo previsto, evitando dar por avanzado un trabajo a medias. Ofrece una visión más fiable del avance que medir horas o tareas iniciadas.</p>"
+  },
+  {
+    "ext": "1 cara",
+    "q": "Describe las principales características de Kanban. Define un tablero Kanban de ejemplo con 5 estados.",
+    "a": "<p>Kanban visualiza el trabajo, limita el trabajo en curso (WIP), gestiona el flujo, hace explícitas las reglas del proceso y busca la mejora continua. No usa iteraciones de duración fija.</p><p>Ejemplo de tablero con cinco estados: Pendiente, En curso, En revisión, En pruebas y Hecho. Cada tarjeta avanza de izquierda a derecha y cada columna tiene su límite de tareas en curso para mantener el flujo equilibrado.</p>"
+  },
+  {
+    "ext": "1 cara",
+    "q": "Describe las similitudes y diferencias entre la metodología ágil y DevOps. Añade un ejemplo práctico de cómo una empresa podría aplicar ambos enfoques de forma complementaria.",
+    "a": "<p>Coinciden en buscar entregas frecuentes, ciclos cortos, automatización y mejora continua. Se diferencian en el alcance: ágil se centra en cómo el equipo planifica y construye el producto, mientras que DevOps abarca todo el camino hasta producción, uniendo desarrollo y operaciones.</p><p>Son complementarios. Ejemplo: una empresa usa Scrum para planificar y desarrollar en sprints, y DevOps con integración y despliegue continuos para llevar cada incremento a producción de forma automática y fiable.</p>"
+  },
+  {
+    "ext": "24 líneas",
+    "q": "¿Qué es el Product Backlog? ¿Para qué sirve? Dibuja un esquema de Product Backlog con algún ejemplo.",
+    "a": "<p>Lista ordenada y única de todo lo que el producto necesita, gestionada por el Product Owner. Sirve para priorizar el trabajo por valor y alimentar cada Sprint. Los elementos superiores están listos y detallados; los inferiores, más generales hasta que se refinan.</p><p>Esquema de ejemplo, de mayor a menor prioridad:</p><ol><li>Registro y login (alta, detallada)</li><li>Carrito de compra (alta)</li><li>Pasarela de pago (media)</li><li>Recomendaciones de productos (baja, poco detallada)</li></ol>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Describe qué es un Sprint y cuál es su objetivo.",
+    "a": "<p>Iteración de duración fija (habitualmente de una a cuatro semanas) en la que el equipo Scrum produce un incremento de producto terminado y potencialmente entregable. Es el contenedor del resto de eventos: planificación, Scrum diario, revisión y retrospectiva.</p><p>Su objetivo es entregar valor de forma regular y predecible, manteniendo un ritmo sostenible y permitiendo inspeccionar y adaptar al final de cada ciclo.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué es el Sprint Backlog y en qué se diferencia del Product Backlog?",
+    "a": "<p>Conjunto de elementos del Product Backlog seleccionados para el Sprint, junto con el plan para entregarlos y el objetivo del Sprint. Lo gestionan los desarrolladores y refleja el trabajo concreto del ciclo en curso.</p><p>Se diferencia del Product Backlog en que este recoge todo lo que el producto podría necesitar a largo plazo, mientras que el Sprint Backlog solo contiene lo comprometido para el Sprint actual y es mucho más detallado.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica los tres roles (responsabilidades) del marco Scrum.",
+    "a": "<p>El Product Owner maximiza el valor del producto y gestiona y prioriza el Product Backlog. El Scrum Master facilita el marco, ayuda al equipo a autoorganizarse y elimina impedimentos. Los desarrolladores construyen el incremento y deciden cómo realizar el trabajo del Sprint.</p><p>Juntos forman un equipo pequeño, autogestionado y multifuncional, con responsabilidades distintas pero un objetivo común.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué es la Definición de Terminado (Definition of Done) y para qué sirve?",
+    "a": "<p>Acuerdo del equipo sobre las condiciones que debe cumplir un incremento para considerarse realmente terminado: código probado, revisado, integrado y documentado, entre otras.</p><p>Sirve para garantizar una calidad común y compartida, evitar ambigüedad sobre qué está hecho y asegurar que cada incremento es potencialmente entregable. Es transversal a todas las historias del producto.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿En qué consiste el Sprint Planning y qué resultados produce?",
+    "a": "<p>Reunión que abre el Sprint. En ella el equipo define el objetivo del Sprint, selecciona del Product Backlog los elementos que abordará y elabora un plan para conseguirlo, normalmente descomponiendo las historias en tareas.</p><p>Participan el Product Owner, el Scrum Master y los desarrolladores. El resultado es el Sprint Backlog y un objetivo claro que guía el trabajo del ciclo.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué es el Daily Scrum y cuál es su propósito?",
+    "a": "<p>Reunión breve diaria, de un máximo de quince minutos, en la que los desarrolladores se sincronizan. Revisan el avance hacia el objetivo del Sprint, detectan impedimentos y ajustan el plan del día.</p><p>No es un informe de estado a un jefe, sino una coordinación del propio equipo. Ayuda a mantener el foco y la transparencia y a reaccionar pronto ante los problemas.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica qué es la velocidad (velocity) de un equipo ágil y para qué se usa.",
+    "a": "<p>Cantidad de trabajo, medida en puntos de historia, que un equipo completa de media por Sprint. Se calcula con los datos de sprints anteriores.</p><p>Se usa para estimar cuánto podrá abarcar el equipo en los próximos sprints y prever fechas de entrega. Es una métrica interna y relativa a cada equipo; no debe emplearse para comparar equipos ni como objetivo de presión.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué es la integración continua (CI) y qué ventajas aporta?",
+    "a": "<p>Práctica de integrar los cambios de código en un repositorio común de forma frecuente, lanzando de manera automática la compilación y las pruebas.</p><p>Permite detectar errores pronto, reducir los conflictos de integración y mantener el código siempre en un estado estable. Aporta confianza para entregar con rapidez y es la base sobre la que se apoya la entrega continua.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Diferencia entre entrega continua y despliegue continuo (CD).",
+    "a": "<p>En la entrega continua, cada cambio que supera las pruebas queda listo y validado para pasar a producción, pero el paso final lo decide una persona.</p><p>En el despliegue continuo ese último paso también se automatiza, de modo que todo cambio que supera el pipeline llega a producción sin intervención manual. Ambos se apoyan en la integración continua.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica la técnica de priorización MoSCoW.",
+    "a": "<p>Técnica que clasifica los requisitos en cuatro categorías: Must (imprescindibles, sin ellos la entrega no sirve), Should (importantes pero no críticos), Could (deseables si hay margen) y Won't (fuera del alcance de esta entrega).</p><p>Ayuda a centrar el esfuerzo en lo que de verdad aporta valor y a negociar el alcance con los interesados cuando el tiempo o los recursos son limitados.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué es un roadmap de producto y para qué sirve?",
+    "a": "<p>Representación visual y a alto nivel de la evolución prevista del producto en el tiempo, con sus grandes objetivos y entregas.</p><p>Sirve para comunicar la dirección a los interesados, alinear al equipo y orientar las decisiones de prioridad. No es un plan cerrado: se ajusta según el feedback y los cambios del mercado. Se sitúa por encima del backlog y de los sprints.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica la estimación con puntos de historia (story points) y el planning poker.",
+    "a": "<p>Los puntos de historia estiman el esfuerzo y la complejidad relativa de una historia, no las horas exactas. Se asignan comparando unas historias con otras.</p><p>El planning poker es una técnica de estimación por consenso: cada miembro elige en privado una carta con su valor, se muestran a la vez y, si hay discrepancia, se debate y se vuelve a votar. Así se aprovecha el criterio de todo el equipo y se reduce el sesgo de una sola persona.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica el modelo en cascada (Waterfall) y sus limitaciones frente a lo ágil.",
+    "a": "<p>Modelo de desarrollo secuencial en el que cada fase (requisitos, diseño, implementación, pruebas y mantenimiento) empieza al terminar la anterior. Funciona cuando los requisitos son estables y bien conocidos.</p><p>Sus limitaciones frente a lo ágil: el cliente ve el resultado muy tarde, los cambios son caros y difíciles de incorporar, y los errores detectados al final obligan a rehacer mucho trabajo.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué aporta la cultura DevOps a una organización?",
+    "a": "<p>Aporta una forma de trabajar en la que desarrollo y operaciones colaboran con un objetivo común, en lugar de funcionar como compartimentos separados.</p><p>Fomenta la automatización, la responsabilidad compartida sobre el producto en producción, la medición continua y el aprendizaje a partir de los fallos. El resultado es entregar software más rápido, con más calidad y mayor estabilidad.</p>"
+  }
+]
