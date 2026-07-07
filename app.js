@@ -207,6 +207,7 @@ function showFeedback() {
     }
     
     const feedbackDiv = document.getElementById(`feedback-${currentQuestionIndex}`);
+    const explanationHtml = applyGlossary(question.explanation);
     feedbackDiv.innerHTML = `
         <div class="flex items-start gap-3">
             <i class="fas ${isCorrect ? 'fa-check-circle text-green-600' : 'fa-times-circle text-red-600'} text-2xl"></i>
@@ -215,7 +216,7 @@ function showFeedback() {
                     ${isCorrect ? '¡Correcto!' : 'Incorrecto'}
                 </p>
                 ${!isCorrect ? `<p class="mb-2"><strong>Respuesta correcta:</strong> ${question.answer}</p>` : ''}
-                <p class="text-sm text-gray-700">${question.explanation}</p>
+                <p class="text-sm text-gray-700">${explanationHtml}</p>
                 <p class="text-xs text-blue-600 mt-2 font-medium">📘 ${question.tema}</p>
                 <div id="detail-btn-${currentQuestionIndex}" class="mt-3"></div>
             </div>
@@ -390,6 +391,21 @@ function goToQuestion(index) {
     document.getElementById('quiz-container').classList.remove('hidden');
     document.getElementById('navigation-controls').classList.remove('hidden');
     displayQuestion();
+    // Agregar botón para volver a resultados
+    const nav = document.getElementById('navigation-controls');
+    if (!document.getElementById('back-to-results-btn')) {
+        const btn = document.createElement('button');
+        btn.id = 'back-to-results-btn';
+        btn.className = 'bg-red-100 text-red-700 font-semibold py-2 px-4 rounded-lg hover:bg-red-200';
+        btn.textContent = '← Volver a resultados';
+        btn.onclick = () => {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('navigation-controls').classList.add('hidden');
+            document.getElementById('result-container').classList.remove('hidden');
+            btn.remove();
+        };
+        nav.insertBefore(btn, nav.firstChild);
+    }
 }
 
 // === Modo Respuestas Cortas ===
@@ -445,6 +461,41 @@ function prevShortQuestion() {
         renderShortQuestion();
     }
 }
+
+// === Glosario ===
+let glossary = {};
+
+async function loadGlossary() {
+    try {
+        const response = await fetch('data/glosario.json');
+        if (response.ok) glossary = await response.json();
+    } catch (e) { console.warn('Glosario no disponible'); }
+}
+
+function applyGlossary(text) {
+    if (!Object.keys(glossary).length) return text;
+    const sorted = Object.keys(glossary).sort((a, b) => b.length - a.length);
+    const regex = new RegExp('\\b(' + sorted.map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')\\b', 'gi');
+    const seen = new Set();
+    return text.replace(regex, (match) => {
+        const key = Object.keys(glossary).find(k => k.toLowerCase() === match.toLowerCase());
+        if (!key || seen.has(key.toLowerCase())) return match;
+        seen.add(key.toLowerCase());
+        return `<span class="glossary-term" onclick="showGlossary(this, '${key.replace(/'/g, "\\'")}')">${match}</span>`;
+    });
+}
+
+function showGlossary(el, term) {
+    const existing = el.parentElement.querySelector('.glossary-popup');
+    if (existing) { existing.remove(); return; }
+    document.querySelectorAll('.glossary-popup').forEach(p => p.remove());
+    const popup = document.createElement('div');
+    popup.className = 'glossary-popup';
+    popup.innerHTML = `<strong>${term}:</strong> ${glossary[term]}`;
+    el.parentElement.insertBefore(popup, el.nextSibling);
+}
+
+loadGlossary();
 
 // Cargar conteo de preguntas y temas al inicio
 (async function loadQuestionCounts() {
