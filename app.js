@@ -233,7 +233,7 @@ function showFeedback() {
             btn.textContent = '📖 Profundizar';
             const detail = document.createElement('div');
             detail.className = 'hidden mt-3 p-4 bg-gray-50 rounded-lg border-l-4 border-blue-400 text-sm text-gray-700 whitespace-pre-line';
-            detail.textContent = question.detailedExplanation;
+            detail.innerHTML = applyGlossary(question.detailedExplanation.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'));
             btn.addEventListener('click', () => {
                 detail.classList.toggle('hidden');
                 btn.textContent = detail.classList.contains('hidden') ? '📖 Profundizar' : '📖 Ocultar detalle';
