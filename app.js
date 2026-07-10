@@ -73,6 +73,20 @@ async function selectSubject(subject) {
         return;
     }
     
+    if (mode === 'errores') {
+        const key = `errors_${subject}`;
+        const errorQuestions = JSON.parse(localStorage.getItem(key) || '[]');
+        if (errorQuestions.length === 0) {
+            alert('No hay errores guardados para esta asignatura. Haz un quiz primero.');
+            return;
+        }
+        allQuestions = allQuestions.filter(q => errorQuestions.includes(q.question));
+        if (allQuestions.length === 0) {
+            alert('No se encontraron las preguntas de errores anteriores.');
+            return;
+        }
+    }
+    
     if (mode === 'tema') {
         const temaSelect = document.getElementById(`tema-select-${subject}`);
         if (temaSelect && temaSelect.value) {
@@ -204,6 +218,13 @@ function showFeedback() {
     const questionKey = `${currentQuestionIndex}_${question.question}`;
     if (!answeredQuestions.has(questionKey)) {
         answeredQuestions.add(questionKey);
+        // Si acertó, eliminar de la lista de errores
+        if (isCorrect && currentSubject) {
+            const key = `errors_${currentSubject}`;
+            const errors = JSON.parse(localStorage.getItem(key) || '[]');
+            const updated = errors.filter(q => q !== question.question);
+            localStorage.setItem(key, JSON.stringify(updated));
+        }
     }
     
     const feedbackDiv = document.getElementById(`feedback-${currentQuestionIndex}`);
@@ -296,6 +317,16 @@ function showResults() {
         return acc + (answer === quizData[index].answer ? 1 : 0);
     }, 0);
     
+    // Guardar errores en localStorage para modo "Solo errores"
+    const errors = quizData.filter((q, i) => userAnswers[i] !== q.answer);
+    if (errors.length > 0 && currentSubject) {
+        const key = `errors_${currentSubject}`;
+        const existing = JSON.parse(localStorage.getItem(key) || '[]');
+        const newErrors = errors.map(q => q.question);
+        const combined = [...new Set([...existing, ...newErrors])];
+        localStorage.setItem(key, JSON.stringify(combined));
+    }
+    
     const percentage = Math.round((score / quizData.length) * 100);
     
     const statsByTema = {};
@@ -353,9 +384,9 @@ function showResults() {
     `;
     
     // Mostrar resumen de errores
-    const errors = quizData.filter((q, i) => userAnswers[i] !== q.answer);
-    if (errors.length > 0) {
-        const errorsHtml = errors.map((q) => {
+    const reviewErrors = quizData.filter((q, i) => userAnswers[i] !== q.answer);
+    if (reviewErrors.length > 0) {
+        const errorsHtml = reviewErrors.map((q) => {
             const idx = quizData.indexOf(q);
             const userAnswer = userAnswers[idx];
             return `
@@ -371,7 +402,7 @@ function showResults() {
         document.getElementById('stats-by-tema').innerHTML += `
             <div class="mt-4">
                 <button onclick="document.getElementById('errors-detail').classList.toggle('hidden')" class="w-full bg-red-100 text-red-700 font-semibold py-2 px-4 rounded-lg hover:bg-red-200">
-                    📋 Revisar errores (${errors.length})
+                    📋 Revisar errores (${reviewErrors.length})
                 </button>
                 <div id="errors-detail" class="hidden mt-4">
                     ${errorsHtml}
