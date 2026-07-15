@@ -1,0 +1,539 @@
+[
+  {
+    "category": "Docker básico",
+    "scenario": "Crea y arranca un contenedor en segundo plano (segundo plano o detach) usando la imagen oficial de nginx exponiendo el puerto 80 del contenedor en el puerto 8080 del host.",
+    "answer": "docker run -d -p 8080:80 nginx",
+    "hint": "Usa la flag -d para segundo plano y -p para mapear los puertos (host:contenedor).",
+    "alternatives": [
+      "docker container run -d -p 8080:80 nginx"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Lista todos los contenedores activos en ejecución en el sistema actual de Docker.",
+    "answer": "docker ps",
+    "hint": "Este comando muestra los contenedores que están activos y corriendo.",
+    "alternatives": [
+      "docker container ps",
+      "docker container ls"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Lista todos los contenedores en tu sistema de Docker, incluyendo aquellos que están parados o detenidos.",
+    "answer": "docker ps -a",
+    "hint": "Usa el parámetro abreviado -a o el largo --all.",
+    "alternatives": [
+      "docker ps --all",
+      "docker container ls -a",
+      "docker container ps -a"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Detén o para de forma segura un contenedor en ejecución que tiene por identificador de ID corto 'c3f4'.",
+    "answer": "docker stop c3f4",
+    "hint": "Utiliza el comando stop seguido del identificador del contenedor.",
+    "alternatives": [
+      "docker container stop c3f4"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Arranca o inicia un contenedor que se encuentra detenido o en estado parado con el identificador de ID 'c3f4'.",
+    "answer": "docker start c3f4",
+    "hint": "Utiliza el comando start para revivir un contenedor detenido.",
+    "alternatives": [
+      "docker container start c3f4"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Elimina un contenedor detenido del disco que tiene el identificador 'c3f4'.",
+    "answer": "docker rm c3f4",
+    "hint": "Usa rm para borrar contenedores ya parados. Para forzar uno activo usarías -f.",
+    "alternatives": [
+      "docker container rm c3f4"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Inicia una sesión de terminal interactiva con la shell 'sh' dentro de un contenedor activo llamado 'mi-contenedor'.",
+    "answer": "docker exec -it mi-contenedor sh",
+    "hint": "Usa exec con las flags -i (interactivo) y -t (pseudo-TTY).",
+    "alternatives": [
+      "docker container exec -it mi-contenedor sh",
+      "docker exec -ti mi-contenedor sh",
+      "docker exec -it mi-contenedor /bin/sh"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Muestra los registros o logs de salida de un contenedor en ejecución cuyo ID corto es 'a1b2'.",
+    "answer": "docker logs a1b2",
+    "hint": "Usa el comando logs seguido del identificador.",
+    "alternatives": [
+      "docker container logs a1b2"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Inspecciona los metadatos y la configuración detallada en formato JSON de un contenedor con ID 'a1b2'.",
+    "answer": "docker inspect a1b2",
+    "hint": "Utiliza el comando inspect para obtener la información de bajo nivel.",
+    "alternatives": [
+      "docker container inspect a1b2"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Descarga de Docker Hub la imagen oficial de 'postgres' con la etiqueta '15-alpine' sin ejecutar ningún contenedor.",
+    "answer": "docker pull postgres:15-alpine",
+    "hint": "Usa pull seguido del nombre de la imagen y su etiqueta separada por dos puntos.",
+    "alternatives": [
+      "docker image pull postgres:15-alpine"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Sube o publica la imagen local etiquetada como 'usuario1/mi-app:v1' a tu cuenta o repositorio de Docker Hub.",
+    "answer": "docker push usuario1/mi-app:v1",
+    "hint": "Asegúrate de estar logueado y usa el comando push con la etiqueta correcta.",
+    "alternatives": [
+      "docker image push usuario1/mi-app:v1"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Lista todas las imágenes de Docker que están guardadas localmente en el host.",
+    "answer": "docker images",
+    "hint": "Este comando muestra el listado de imágenes, su ID, tamaño y tags.",
+    "alternatives": [
+      "docker image ls",
+      "docker image list"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Elimina de tu host local una imagen de Docker descargada que tiene el ID 'f5e4'.",
+    "answer": "docker rmi f5e4",
+    "hint": "Usa rmi (remove image) seguido del ID o tag de la imagen.",
+    "alternatives": [
+      "docker image rm f5e4"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Crea una etiqueta o tag para la imagen local 'mi-app' de forma que quede referenciada como 'santos-pardos/unir:netflix'.",
+    "answer": "docker tag mi-app santos-pardos/unir:netflix",
+    "hint": "Usa el comando tag especificando primero la imagen origen y luego la imagen destino etiquetada.",
+    "alternatives": [
+      "docker image tag mi-app santos-pardos/unir:netflix"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Copia un archivo llamado 'config.json' desde tu máquina local (host) dentro de un contenedor en ejecución llamado 'backend' en la ruta '/app/config.json'.",
+    "answer": "docker cp config.json backend:/app/config.json",
+    "hint": "Usa el comando cp con la sintaxis: origen destino.",
+    "alternatives": [
+      "docker container cp config.json backend:/app/config.json"
+    ]
+  },
+  {
+    "category": "Docker básico",
+    "scenario": "Muestra en tiempo real estadísticas de consumo de CPU, memoria y red de todos los contenedores Docker activos.",
+    "answer": "docker stats",
+    "hint": "El comando es similar al top de Linux pero para contenedores.",
+    "alternatives": [
+      "docker container stats"
+    ]
+  },
+  {
+    "category": "Dockerfile",
+    "scenario": "Escribe la instrucción de Dockerfile para establecer como imagen base oficial la versión ultra ligera de Python 3.10 basada en alpine.",
+    "answer": "FROM python:3.10-alpine",
+    "hint": "La instrucción inicial siempre empieza con FROM seguido del nombre y la etiqueta de la imagen base.",
+    "alternatives": []
+  },
+  {
+    "category": "Dockerfile",
+    "scenario": "Escribe la instrucción de Dockerfile para ejecutar el comando 'apk add --no-cache git' durante la fase de construcción de la imagen.",
+    "answer": "RUN apk add --no-cache git",
+    "hint": "Usa la instrucción RUN para ejecutar comandos que modifiquen el sistema de ficheros de la imagen.",
+    "alternatives": []
+  },
+  {
+    "category": "Dockerfile",
+    "scenario": "Escribe la instrucción de Dockerfile para copiar el fichero local 'package.json' de tu host al directorio de trabajo actual del contenedor.",
+    "answer": "COPY package.json .",
+    "hint": "COPY se usa para transferir ficheros. El punto final representa el directorio de trabajo actual.",
+    "alternatives": [
+      "COPY package.json ./"
+    ]
+  },
+  {
+    "category": "Dockerfile",
+    "scenario": "Escribe la instrucción de Dockerfile que descargue y extraiga automáticamente un archivo comprimido de dependencias local llamado 'source.tar.gz' en la raíz '/' del contenedor.",
+    "answer": "ADD source.tar.gz /",
+    "hint": "ADD permite descompresión automática de ficheros tar locales y descargas de URLs.",
+    "alternatives": []
+  },
+  {
+    "category": "Dockerfile",
+    "scenario": "Escribe la instrucción de Dockerfile que defina el comando ejecutable predeterminado 'node src/index.js' utilizando el formato de array (formato ejecutable o exec).",
+    "answer": "CMD [\"node\", \"src/index.js\"]",
+    "hint": "Usa la palabra clave CMD y el formato JSON con comillas dobles.",
+    "alternatives": []
+  },
+  {
+    "category": "Dockerfile",
+    "scenario": "Escribe la instrucción de Dockerfile que configure un punto de entrada inmutable para el comando 'python' utilizando el formato exec.",
+    "answer": "ENTRYPOINT [\"python\"]",
+    "hint": "ENTRYPOINT define el ejecutable principal del contenedor que no se puede anular fácilmente.",
+    "alternatives": []
+  },
+  {
+    "category": "Dockerfile",
+    "scenario": "Escribe la instrucción de Dockerfile para documentar que el contenedor escucha o expone el puerto TCP 3000 de manera informativa.",
+    "answer": "EXPOSE 3000",
+    "hint": "La instrucción es EXPOSE seguida del número de puerto.",
+    "alternatives": []
+  },
+  {
+    "category": "Dockerfile",
+    "scenario": "Escribe la instrucción de Dockerfile que defina el directorio de trabajo interno como '/app' de forma que las instrucciones siguientes se ejecuten allí.",
+    "answer": "WORKDIR /app",
+    "hint": "WORKDIR crea y cambia el directorio activo dentro del contenedor.",
+    "alternatives": []
+  },
+  {
+    "category": "Dockerfile",
+    "scenario": "Escribe la instrucción de Dockerfile para definir una variable de entorno persistente dentro de la imagen llamada 'NODE_ENV' con el valor 'production'.",
+    "answer": "ENV NODE_ENV production",
+    "hint": "Usa ENV seguido de la clave y el valor.",
+    "alternatives": [
+      "ENV NODE_ENV=production"
+    ]
+  },
+  {
+    "category": "Dockerfile",
+    "scenario": "Escribe la instrucción de Dockerfile para definir una variable de argumento disponible solo en tiempo de compilación llamada 'BUILD_VERSION'.",
+    "answer": "ARG BUILD_VERSION",
+    "hint": "La instrucción es ARG seguido de la clave.",
+    "alternatives": []
+  },
+  {
+    "category": "Dockerfile",
+    "scenario": "Escribe la instrucción de Dockerfile que cree un punto de montaje o volumen para el directorio '/data' de forma que persistan sus datos.",
+    "answer": "VOLUME /data",
+    "hint": "Utiliza VOLUME seguido de la ruta absoluta del directorio.",
+    "alternatives": [
+      "VOLUME [\"/data\"]"
+    ]
+  },
+  {
+    "category": "Dockerfile",
+    "scenario": "Escribe la instrucción de Dockerfile que configure un usuario sin privilegios llamado 'node' para ejecutar las instrucciones siguientes en lugar de root.",
+    "answer": "USER node",
+    "hint": "La instrucción es USER seguida del nombre de usuario o UID.",
+    "alternatives": []
+  },
+  {
+    "category": "Docker Compose",
+    "scenario": "Crea y arranca todos los servicios definidos en el archivo docker-compose.yml en segundo plano.",
+    "answer": "docker compose up -d",
+    "hint": "Usa 'up' para levantar el entorno y '-d' para liberarlo en background.",
+    "alternatives": [
+      "docker-compose up -d"
+    ]
+  },
+  {
+    "category": "Docker Compose",
+    "scenario": "Detén y elimina por completo los contenedores, redes y volúmenes creados por el entorno de Compose actual.",
+    "answer": "docker compose down",
+    "hint": "Usa 'down' para destruir de forma segura el entorno de Compose levantado.",
+    "alternatives": [
+      "docker-compose down"
+    ]
+  },
+  {
+    "category": "Docker Compose",
+    "scenario": "Construye o reconstruye las imágenes de todos los servicios del archivo docker-compose.yml que tengan la directiva 'build' configurada.",
+    "answer": "docker compose build",
+    "hint": "Usa el comando 'build' de Compose.",
+    "alternatives": [
+      "docker-compose build"
+    ]
+  },
+  {
+    "category": "Docker Compose",
+    "scenario": "Muestra los registros de logs agregados en tiempo real de todos los servicios activos del entorno Compose actual.",
+    "answer": "docker compose logs",
+    "hint": "Usa el comando 'logs' de Compose.",
+    "alternatives": [
+      "docker-compose logs",
+      "docker compose logs -f"
+    ]
+  },
+  {
+    "category": "Docker Compose",
+    "scenario": "Lista el estado y puertos mapeados de todos los contenedores pertenecientes al proyecto de Compose actual.",
+    "answer": "docker compose ps",
+    "hint": "El comando es 'ps' pero dentro de la CLI de docker compose.",
+    "alternatives": [
+      "docker-compose ps"
+    ]
+  },
+  {
+    "category": "Docker Compose",
+    "scenario": "Ejecuta de manera interactiva el comando 'sh' en el servicio de compose activo llamado 'backend'.",
+    "answer": "docker compose exec backend sh",
+    "hint": "Usa compose exec indicando el nombre del servicio y el comando.",
+    "alternatives": [
+      "docker-compose exec backend sh",
+      "docker compose exec -it backend sh"
+    ]
+  },
+  {
+    "category": "Docker Compose",
+    "scenario": "Detén la ejecución de todos los servicios de Compose actuales sin borrarlos ni destruirlos.",
+    "answer": "docker compose stop",
+    "hint": "Usa el comando 'stop' de Compose.",
+    "alternatives": [
+      "docker-compose stop"
+    ]
+  },
+  {
+    "category": "Docker Compose",
+    "scenario": "Reinicia todos los servicios del entorno actual de Docker Compose.",
+    "answer": "docker compose restart",
+    "hint": "El comando para realizar un reinicio rápido es 'restart'.",
+    "alternatives": [
+      "docker-compose restart"
+    ]
+  },
+  {
+    "category": "Docker Compose",
+    "scenario": "Escala el servicio de Compose llamado 'web' para que ejecute exactamente 3 réplicas.",
+    "answer": "docker compose up -d --scale web=3",
+    "hint": "Se utiliza up -d especificando el flag --scale servicio=cantidad.",
+    "alternatives": [
+      "docker-compose scale web=3",
+      "docker compose scale web=3",
+      "docker-compose up -d --scale web=3"
+    ]
+  },
+  {
+    "category": "Docker Compose",
+    "scenario": "Valida e imprime por consola la configuración final resuelta del archivo docker-compose.yml con las variables inyectadas.",
+    "answer": "docker compose config",
+    "hint": "Usa el comando 'config' para comprobar errores sintácticos de YAML.",
+    "alternatives": [
+      "docker-compose config"
+    ]
+  },
+  {
+    "category": "Docker redes y volúmenes",
+    "scenario": "Crea una red personalizada de Docker local de tipo bridge llamada 'mi-red'.",
+    "answer": "docker network create mi-red",
+    "hint": "Por defecto, al crear una red sin especificar driver, usa bridge.",
+    "alternatives": [
+      "docker network create --driver bridge mi-red"
+    ]
+  },
+  {
+    "category": "Docker redes y volúmenes",
+    "scenario": "Conecta en caliente un contenedor en ejecución llamado 'mi-app' a una red existente llamada 'mi-red'.",
+    "answer": "docker network connect mi-red mi-app",
+    "hint": "Usa 'network connect' especificando primero la red y luego el contenedor.",
+    "alternatives": [
+      "docker network connect mi-red mi-app"
+    ]
+  },
+  {
+    "category": "Docker redes y volúmenes",
+    "scenario": "Crea un volumen administrado por Docker con el nombre 'datos-db' para almacenar información persistente.",
+    "answer": "docker volume create datos-db",
+    "hint": "Usa la API de volúmenes con 'volume create'.",
+    "alternatives": [
+      "docker volume create datos-db"
+    ]
+  },
+  {
+    "category": "Docker redes y volúmenes",
+    "scenario": "Arranca un contenedor alpine persistiendo sus datos montando el volumen 'datos-db' en la ruta '/var/lib/mysql' utilizando el flag corto de montaje '-v'.",
+    "answer": "docker run -d -v datos-db:/var/lib/mysql alpine",
+    "hint": "El flag corto de montaje es -v volumen:destino_interno.",
+    "alternatives": [
+      "docker run -v datos-db:/var/lib/mysql -d alpine"
+    ]
+  },
+  {
+    "category": "Docker redes y volúmenes",
+    "scenario": "Arranca un contenedor nginx montando una carpeta de tu host actual '/workspace/html' directamente en el contenedor en '/usr/share/nginx/html' usando un Bind Mount con el flag corto '-v'.",
+    "answer": "docker run -d -v /workspace/html:/usr/share/nginx/html nginx",
+    "hint": "El bind mount se reconoce porque el origen empieza con una barra de ruta absoluta (/...).",
+    "alternatives": [
+      "docker run -v /workspace/html:/usr/share/nginx/html -d nginx"
+    ]
+  },
+  {
+    "category": "Docker redes y volúmenes",
+    "scenario": "Lista todos los drivers de red disponibles por defecto en una instalación limpia de Docker.",
+    "answer": "docker network ls",
+    "hint": "Usa este comando para ver redes preinstaladas como bridge, host y none.",
+    "alternatives": []
+  },
+  {
+    "category": "Docker redes y volúmenes",
+    "scenario": "Arranca un contenedor nginx eliminando por completo su aislamiento de red de forma que use la interfaz de red directa de tu máquina host.",
+    "answer": "docker run -d --network host nginx",
+    "hint": "Establece la opción --network al valor del driver de red que comparte interfaz directa.",
+    "alternatives": [
+      "docker run --network host -d nginx"
+    ]
+  },
+  {
+    "category": "Docker redes y volúmenes",
+    "scenario": "Inspecciona el volumen con nombre llamado 'datos-db' para averiguar su ubicación física (Mountpoint) en el disco del host.",
+    "answer": "docker volume inspect datos-db",
+    "hint": "Usa inspect especificando que es del tipo volume.",
+    "alternatives": []
+  },
+  {
+    "category": "kubectl básico",
+    "scenario": "Lista todos los Pods activos en ejecución en el Namespace por defecto utilizando kubectl.",
+    "answer": "kubectl get pods",
+    "hint": "Usa el comando 'get' seguido del tipo de recurso en plural.",
+    "alternatives": [
+      "kubectl get pod"
+    ]
+  },
+  {
+    "category": "kubectl básico",
+    "scenario": "Muestra información técnica detallada y eventos de depuración de un Pod llamado 'backend-pod'.",
+    "answer": "kubectl describe pod backend-pod",
+    "hint": "Usa el comando 'describe' para inspeccionar a fondo un Pod específico.",
+    "alternatives": [
+      "kubectl describe pods backend-pod"
+    ]
+  },
+  {
+    "category": "kubectl básico",
+    "scenario": "Crea o actualiza de forma declarativa un recurso en el clúster a partir del fichero de configuración local 'deployment.yaml'.",
+    "answer": "kubectl apply -f deployment.yaml",
+    "hint": "La directiva de aplicación declarativa por excelencia es 'apply -f'.",
+    "alternatives": []
+  },
+  {
+    "category": "kubectl básico",
+    "scenario": "Elimina del clúster un Pod específico llamado 'nginx-antiguo'.",
+    "answer": "kubectl delete pod nginx-antiguo",
+    "hint": "Usa el comando delete especificando el tipo de recurso y su nombre.",
+    "alternatives": [
+      "kubectl delete pods nginx-antiguo"
+    ]
+  },
+  {
+    "category": "kubectl básico",
+    "scenario": "Muestra las últimas líneas de registros de logs generados por el contenedor del Pod 'mi-api'.",
+    "answer": "kubectl logs mi-api",
+    "hint": "Usa el comando 'logs' de kubectl seguido de su identificador.",
+    "alternatives": []
+  },
+  {
+    "category": "kubectl básico",
+    "scenario": "Inicia una terminal interactiva 'sh' dentro del contenedor de un Pod activo llamado 'base-datos-pod'.",
+    "answer": "kubectl exec -it base-datos-pod -- sh",
+    "hint": "Usa exec con las opciones -it, el nombre del pod, las dos barras de separación '--' y el ejecutable sh.",
+    "alternatives": [
+      "kubectl exec -it base-datos-pod -- /bin/sh",
+      "kubectl exec -it base-datos-pod -- /bin/bash",
+      "kubectl exec -it base-datos-pod -- bash"
+    ]
+  },
+  {
+    "category": "kubectl básico",
+    "scenario": "Redirige de forma temporal el puerto local 8080 de tu máquina host al puerto 80 del Pod 'frontend-pod' para realizar pruebas de desarrollo local.",
+    "answer": "kubectl port-forward frontend-pod 8080:80",
+    "hint": "La herramienta kubectl cuenta con el comando 'port-forward' para mapear puertos de forma directa temporal.",
+    "alternatives": []
+  },
+  {
+    "category": "kubectl básico",
+    "scenario": "Escala de forma imperativa las réplicas del deployment 'servicio-web' a exactamente 5 réplicas.",
+    "answer": "kubectl scale deployment/servicio-web --replicas=5",
+    "hint": "Usa el comando scale definiendo el recurso y el parámetro --replicas.",
+    "alternatives": [
+      "kubectl scale deployment servicio-web --replicas=5"
+    ]
+  },
+  {
+    "category": "kubectl básico",
+    "scenario": "Deshaz (rollback) de forma progresiva la última actualización que falló sobre el Deployment 'api-server'.",
+    "answer": "kubectl rollout undo deployment/api-server",
+    "hint": "El subcomando para gestionar estrategias de despliegue progresivo es 'rollout undo'.",
+    "alternatives": [
+      "kubectl rollout undo deployment api-server"
+    ]
+  },
+  {
+    "category": "kubectl básico",
+    "scenario": "Muestra las estadísticas de uso de hardware actual (CPU y memoria RAM) consumidos por los Pods activos en el Namespace.",
+    "answer": "kubectl top pods",
+    "hint": "Usa el comando 'top' seguido de pods para consultar consumos.",
+    "alternatives": [
+      "kubectl top pod"
+    ]
+  },
+  {
+    "category": "Kubernetes YAML",
+    "scenario": "Escribe el manifiesto declarativo YAML básico para crear un Pod llamado 'nginx-pod' que ejecute un contenedor con la imagen 'nginx:alpine' exponiendo el containerPort 80.",
+    "answer": "apiVersion: v1\nkind: Pod\nmetadata:\n  name: nginx-pod\nspec:\n  containers:\n  - name: nginx\n    image: nginx:alpine\n    ports:\n    - containerPort: 80",
+    "hint": "Define apiVersion (v1), kind (Pod), metadata (name), spec (containers con name, image y ports).",
+    "alternatives": []
+  },
+  {
+    "category": "Kubernetes YAML",
+    "scenario": "Escribe el manifiesto declarativo YAML de un recurso Deployment llamado 'web-deployment' que mantenga 3 réplicas de Pods bajo el selector de etiquetas 'app: frontend', cargando la plantilla de Pods con la imagen 'nginx:alpine' expuesta por el puerto 80.",
+    "answer": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: web-deployment\nspec:\n  replicas: 3\n  selector:\n    matchLabels:\n      app: frontend\n  template:\n    metadata:\n      labels:\n        app: frontend\n    spec:\n      containers:\n      - name: web\n        image: nginx:alpine\n        ports:\n        - containerPort: 80",
+    "hint": "Usa apiVersion apps/v1, replica count, matchLabels bajo selector y labels bajo template.metadata.",
+    "alternatives": []
+  },
+  {
+    "category": "Kubernetes YAML",
+    "scenario": "Escribe el manifiesto declarativo YAML para un Service de tipo ClusterIP por defecto llamado 'servicio-interno' que balancee hacia los Pods etiquetados con 'app: db', exponiendo el puerto de servicio 3306 hacia el targetPort de contenedor 3306.",
+    "answer": "apiVersion: v1\nkind: Service\nmetadata:\n  name: servicio-interno\nspec:\n  type: ClusterIP\n  selector:\n    app: db\n  ports:\n  - port: 3306\n    targetPort: 3306",
+    "hint": "apiVersion v1, tipo ClusterIP (opcional pero bueno definirlo), define selector.app y la lista de ports.",
+    "alternatives": []
+  },
+  {
+    "category": "Kubernetes YAML",
+    "scenario": "Escribe el manifiesto declarativo YAML para crear un Service de tipo NodePort llamado 'exposicion-externa' que mapee el puerto 80 del servicio al puerto de contenedor 80 en los Pods que tengan la etiqueta 'app: api', utilizando el nodePort específico 30080 en los nodos.",
+    "answer": "apiVersion: v1\nkind: Service\nmetadata:\n  name: exposicion-externa\nspec:\n  type: NodePort\n  selector:\n    app: api\n  ports:\n  - port: 80\n    targetPort: 80\n    nodePort: 30080",
+    "hint": "Usa apiVersion v1, kind Service, type NodePort, y mapea port, targetPort y nodePort (debe estar entre 30000-32767).",
+    "alternatives": []
+  },
+  {
+    "category": "Kubernetes YAML",
+    "scenario": "Escribe el manifiesto declarativo YAML básico para crear un ConfigMap en Kubernetes llamado 'servidor-config' que inyecte una clave-valor sencilla: 'API_URL' con valor 'http://api.unir.interno'.",
+    "answer": "apiVersion: v1\nkind: ConfigMap\nmetadata:\n  name: servidor-config\ndata:\n  API_URL: http://api.unir.interno",
+    "hint": "La API es v1, kind es ConfigMap, la data se especifica bajo claves de texto plano.",
+    "alternatives": []
+  },
+  {
+    "category": "Kubernetes YAML",
+    "scenario": "Escribe el manifiesto declarativo YAML básico para un Secret genérico llamado 'base-datos-secreta' que almacene de forma codificada la clave-valor: 'password' con valor en base64 de 'secreto123' (que es 'c2VjcmV0bzEyMw==').",
+    "answer": "apiVersion: v1\nkind: Secret\nmetadata:\n  name: base-datos-secreta\ntype: Opaque\ndata:\n  password: c2VjcmV0bzEyMw==",
+    "hint": "Usa kind Secret, type Opaque, y define las llaves bajo la sección data con valores en Base64.",
+    "alternatives": []
+  },
+  {
+    "category": "Kubernetes YAML",
+    "scenario": "Escribe el manifiesto declarativo YAML para crear una solicitud de volumen persistente (PersistentVolumeClaim) llamada 'peticion-disco' con modo de acceso ReadWriteOnce (RWO) y solicitando 5 Gigabytes ('5Gi') de espacio de almacenamiento.",
+    "answer": "apiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: peticion-disco\nspec:\n  accessModes:\n  - ReadWriteOnce\n  resources:\n    requests:\n      storage: 5Gi",
+    "hint": "apiVersion v1, kind PersistentVolumeClaim, define accessModes y spec.resources.requests.storage.",
+    "alternatives": []
+  }
+]

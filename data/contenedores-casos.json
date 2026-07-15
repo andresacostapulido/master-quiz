@@ -1,0 +1,92 @@
+[
+  {
+    "id": "wordpress-k8s",
+    "title": "WordPress con base de datos privada",
+    "category": "Kubernetes YAML",
+    "enunciado": "Crea un YAML para desplegar WordPress con MySQL en Kubernetes. WordPress debe ser accesible públicamente y la base de datos debe permanecer privada. No hace falta que pongas todas las opciones, solo las líneas necesarias.",
+    "pistas": ["Secret para contraseñas", "ClusterIP para MySQL (privado)", "LoadBalancer para WordPress (público)", "Deployments + Services", "Variables de entorno con secretKeyRef"],
+    "solucion": "apiVersion: v1\nkind: Secret\nmetadata:\n  name: wordpress-secret\ntype: Opaque\nstringData:\n  mysql-root-password: root123\n  mysql-password: wordpress123\n\n---\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: mysql\nspec:\n  replicas: 1\n  selector:\n    matchLabels:\n      app: mysql\n  template:\n    metadata:\n      labels:\n        app: mysql\n    spec:\n      containers:\n        - name: mysql\n          image: mysql:8.4\n          ports:\n            - containerPort: 3306\n          env:\n            - name: MYSQL_DATABASE\n              value: wordpress\n            - name: MYSQL_USER\n              value: wordpress\n            - name: MYSQL_PASSWORD\n              valueFrom:\n                secretKeyRef:\n                  name: wordpress-secret\n                  key: mysql-password\n            - name: MYSQL_ROOT_PASSWORD\n              valueFrom:\n                secretKeyRef:\n                  name: wordpress-secret\n                  key: mysql-root-password\n\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: mysql\nspec:\n  type: ClusterIP\n  selector:\n    app: mysql\n  ports:\n    - port: 3306\n      targetPort: 3306\n\n---\napiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: wordpress\nspec:\n  replicas: 1\n  selector:\n    matchLabels:\n      app: wordpress\n  template:\n    metadata:\n      labels:\n        app: wordpress\n    spec:\n      containers:\n        - name: wordpress\n          image: wordpress:latest\n          ports:\n            - containerPort: 80\n          env:\n            - name: WORDPRESS_DB_HOST\n              value: mysql:3306\n            - name: WORDPRESS_DB_NAME\n              value: wordpress\n            - name: WORDPRESS_DB_USER\n              value: wordpress\n            - name: WORDPRESS_DB_PASSWORD\n              valueFrom:\n                secretKeyRef:\n                  name: wordpress-secret\n                  key: mysql-password\n\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: wordpress\nspec:\n  type: LoadBalancer\n  selector:\n    app: wordpress\n  ports:\n    - port: 80\n      targetPort: 80",
+    "explicacion": "WordPress se expone mediante LoadBalancer (tráfico externo). MySQL usa ClusterIP (solo accesible dentro del clúster). WordPress se conecta a MySQL via DNS interno 'mysql:3306'. Las contraseñas se guardan en un Secret y se inyectan con secretKeyRef."
+  },
+  {
+    "id": "job-cronjob",
+    "title": "Job ad hoc y CronJob nocturno",
+    "category": "Kubernetes YAML",
+    "enunciado": "Programar un proceso ETL nocturno y otro proceso ad hoc. Explicar las diferencias entre Job y CronJob, indicar una propiedad para limitar el tiempo de ejecución y proponer un ejemplo de schedule.",
+    "pistas": ["Job = tarea puntual", "CronJob = tarea periódica", "activeDeadlineSeconds limita tiempo", "concurrencyPolicy: Forbid evita solapamiento", "schedule: '0 2 * * *' = todos los días a las 02:00"],
+    "solucion": "# Job ad hoc\napiVersion: batch/v1\nkind: Job\nmetadata:\n  name: proceso-ad-hoc\nspec:\n  activeDeadlineSeconds: 600\n  template:\n    spec:\n      restartPolicy: Never\n      containers:\n        - name: proceso\n          image: miempresa/etl:1.0\n          args: [\"--modo=ad-hoc\"]\n\n---\n# CronJob nocturno\napiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: etl-nocturno\nspec:\n  schedule: \"0 2 * * *\"\n  concurrencyPolicy: Forbid\n  jobTemplate:\n    spec:\n      activeDeadlineSeconds: 3600\n      template:\n        spec:\n          restartPolicy: Never\n          containers:\n            - name: etl\n              image: miempresa/etl:1.0\n              args: [\"--modo=nocturno\"]",
+    "explicacion": "Job ejecuta una tarea puntual hasta completarse. CronJob crea Jobs automáticamente según un schedule (formato cron). activeDeadlineSeconds limita el tiempo máximo. concurrencyPolicy: Forbid impide ejecuciones simultáneas. Schedule '0 2 * * *' = cada día a las 02:00."
+  },
+  {
+    "id": "ingress-microservicios",
+    "title": "Dos microservicios con Ingress",
+    "category": "Kubernetes YAML",
+    "enunciado": "Publicar dos microservicios HTTP bajo el mismo dominio con rutas distintas. Crear un boceto de Ingress con reglas, host y path. Justificar cuándo se prefiere Ingress frente a NodePort o LoadBalancer.",
+    "pistas": ["Services tipo ClusterIP para ambos", "Ingress con rules por path", "ingressClassName: nginx", "pathType: Prefix", "Un solo punto de entrada para varios servicios"],
+    "solucion": "apiVersion: v1\nkind: Service\nmetadata:\n  name: usuarios-service\nspec:\n  type: ClusterIP\n  selector:\n    app: usuarios\n  ports:\n    - port: 80\n      targetPort: 3000\n\n---\napiVersion: v1\nkind: Service\nmetadata:\n  name: pedidos-service\nspec:\n  type: ClusterIP\n  selector:\n    app: pedidos\n  ports:\n    - port: 80\n      targetPort: 4000\n\n---\napiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: microservicios-ingress\nspec:\n  ingressClassName: nginx\n  rules:\n    - host: miapp.ejemplo.com\n      http:\n        paths:\n          - path: /usuarios\n            pathType: Prefix\n            backend:\n              service:\n                name: usuarios-service\n                port:\n                  number: 80\n          - path: /pedidos\n            pathType: Prefix\n            backend:\n              service:\n                name: pedidos-service\n                port:\n                  number: 80",
+    "explicacion": "Ingress permite una sola IP y dominio para varios servicios HTTP, diferenciando por rutas. NodePort obliga a puertos altos (30000-32767) y conocer IPs de nodos. LoadBalancer requiere una IP/balanceador por servicio (más coste). Ingress centraliza HTTPS, dominio y reglas de enrutamiento."
+  },
+  {
+    "id": "compose-flask-nginx-mongo",
+    "title": "Docker Compose: Flask + NGINX + MongoDB",
+    "category": "Docker Compose",
+    "enunciado": "Crear un Docker Compose para Flask, NGINX y MongoDB. Separar las redes frontend y backend, montar un volumen para NGINX e indicar las secciones raíz del fichero.",
+    "pistas": ["nginx solo en frontend", "flask en frontend Y backend", "mongo solo en backend", "volumen nombrado para mongo-data", "bind mount :ro para nginx.conf", "Secciones raíz: services, networks, volumes"],
+    "solucion": "services:\n  nginx:\n    image: nginx:alpine\n    ports:\n      - \"80:80\"\n    volumes:\n      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro\n    depends_on:\n      - flask\n    networks:\n      - frontend\n\n  flask:\n    build: ./flask\n    environment:\n      MONGO_URI: mongodb://mongo:27017/aplicacion\n    depends_on:\n      - mongo\n    networks:\n      - frontend\n      - backend\n\n  mongo:\n    image: mongo:7\n    volumes:\n      - mongo-data:/data/db\n    networks:\n      - backend\n\nnetworks:\n  frontend:\n  backend:\n\nvolumes:\n  mongo-data:",
+    "explicacion": "NGINX (frontend) hace proxy a Flask. Flask (frontend+backend) conecta con MongoDB. MongoDB (backend) queda aislado de NGINX. El bind mount :ro monta nginx.conf como solo lectura. El volumen nombrado mongo-data persiste datos. Secciones raíz: services, networks, volumes, configs, secrets."
+  },
+  {
+    "id": "compose-web-redis",
+    "title": "Docker Compose: web + Redis con puertos",
+    "category": "Docker Compose",
+    "enunciado": "En un docker-compose.yml con servicios web (build local, publica 5000) y redis (imagen oficial), explicar la publicación de puertos con sintaxis corta y larga, añadiendo un ejemplo con binding a 127.0.0.1.",
+    "pistas": ["Sintaxis corta: PUERTO_HOST:PUERTO_CONTENEDOR", "127.0.0.1:5000:5000 limita a localhost", "Sintaxis larga: target, published, host_ip, protocol", "Redis no necesita publicar puerto si solo lo usa web"],
+    "solucion": "services:\n  web:\n    build: ./web\n    ports:\n      - \"5000:5000\"\n    depends_on:\n      - redis\n\n  redis:\n    image: redis:7-alpine\n\n# --- Variante con binding a localhost ---\n# ports:\n#   - \"127.0.0.1:5000:5000\"\n\n# --- Sintaxis larga ---\n# ports:\n#   - target: 5000\n#     published: \"5000\"\n#     host_ip: 127.0.0.1\n#     protocol: tcp",
+    "explicacion": "5000:5000 publica en todas las interfaces del host. 127.0.0.1:5000:5000 limita acceso solo al propio host. La sintaxis larga usa target/published/host_ip/protocol. Redis no publica puerto porque solo se comunica con web internamente via nombre de servicio redis:6379."
+  },
+  {
+    "id": "dockerfile-nodejs",
+    "title": "Dockerfile para Node.js",
+    "category": "Dockerfile",
+    "enunciado": "Escribe un Dockerfile optimizado para una aplicación Node.js. Debe usar alpine, instalar solo dependencias de producción y documentar el puerto.",
+    "pistas": ["FROM node:20-alpine", "WORKDIR /app", "Copiar package*.json primero (caché)", "RUN npm ci --omit=dev", "COPY . . después", "EXPOSE 3000", "CMD [\"npm\", \"start\"]"],
+    "solucion": "FROM node:20-alpine\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci --omit=dev\nCOPY . .\nEXPOSE 3000\nCMD [\"npm\", \"start\"]",
+    "explicacion": "Se usa alpine para imagen ligera. Se copia package.json primero para aprovechar la caché de capas (solo reinstala si cambian dependencias). npm ci --omit=dev instala solo producción. EXPOSE documenta el puerto. CMD en formato exec (con corchetes) es la forma correcta."
+  },
+  {
+    "id": "pv-pvc",
+    "title": "PersistentVolume + PVC montado en Pod",
+    "category": "Kubernetes YAML",
+    "enunciado": "Crea un PersistentVolume, un PersistentVolumeClaim y un Pod que monte el PVC. Explica la relación entre ellos.",
+    "pistas": ["PV = almacenamiento disponible en el clúster", "PVC = solicitud de almacenamiento", "accessModes: ReadWriteOnce", "volumeMounts en el container", "volumes con persistentVolumeClaim en el Pod"],
+    "solucion": "apiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: datos-pv\nspec:\n  capacity:\n    storage: 5Gi\n  accessModes:\n    - ReadWriteOnce\n  hostPath:\n    path: /datos\n\n---\napiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: datos-pvc\nspec:\n  accessModes:\n    - ReadWriteOnce\n  resources:\n    requests:\n      storage: 5Gi\n\n---\napiVersion: v1\nkind: Pod\nmetadata:\n  name: app-con-datos\nspec:\n  containers:\n    - name: aplicacion\n      image: nginx\n      volumeMounts:\n        - name: datos\n          mountPath: /usr/share/nginx/html\n  volumes:\n    - name: datos\n      persistentVolumeClaim:\n        claimName: datos-pvc",
+    "explicacion": "PV representa almacenamiento disponible. PVC es la solicitud de una aplicación. Kubernetes asocia PVC con PV compatible (capacidad, accessModes, StorageClass). El Pod monta el PVC mediante volumes + volumeMounts. Los datos persisten independientemente del ciclo de vida del Pod."
+  },
+  {
+    "id": "swarm-services",
+    "title": "Docker Swarm: servicio replicado vs global",
+    "category": "Docker Swarm",
+    "enunciado": "Explica la diferencia entre un servicio replicado y uno global en Docker Swarm. Crea un ejemplo de cada uno con los comandos correspondientes.",
+    "pistas": ["Replicado: --replicas N, número fijo de copias", "Global: --mode global, una tarea por nodo", "Replicado para apps web/APIs", "Global para agentes de monitorización/logs", "docker service create"],
+    "solucion": "# Servicio replicado (3 copias distribuidas)\ndocker service create \\\n  --name web \\\n  --replicas 3 \\\n  --publish 80:80 \\\n  nginx\n\n# Servicio global (una tarea en CADA nodo)\ndocker service create \\\n  --name agente-logs \\\n  --mode global \\\n  agente-monitorizacion\n\n# Comandos útiles:\ndocker service ls\ndocker service ps web\ndocker service scale web=5\ndocker service update --image nginx:alpine web\ndocker service rm web",
+    "explicacion": "Servicio replicado ejecuta N réplicas distribuidas entre nodos; ideal para apps web y APIs escalables. Servicio global ejecuta exactamente una tarea por nodo; ideal para agentes de monitorización, recolectores de logs o agentes de seguridad que deben estar en todos los nodos."
+  },
+  {
+    "id": "services-comparison",
+    "title": "Tipos de Service en Kubernetes",
+    "category": "Kubernetes conceptos",
+    "enunciado": "Explica la diferencia entre ClusterIP, NodePort, LoadBalancer, ExternalName e Ingress. Resume su uso principal y cuándo elegir cada uno.",
+    "pistas": ["ClusterIP = interno (por defecto)", "NodePort = puerto alto en cada nodo (30000-32767)", "LoadBalancer = IP externa del cloud", "ExternalName = alias DNS a servicio externo", "Ingress = enrutamiento HTTP por dominio/ruta (no es un Service)"],
+    "solucion": "# ClusterIP (por defecto) - solo interno\nspec:\n  type: ClusterIP\n\n# NodePort - expone en puerto alto de cada nodo\nspec:\n  type: NodePort\n# Acceso: IP_NODO:30000-32767\n\n# LoadBalancer - IP externa del proveedor cloud\nspec:\n  type: LoadBalancer\n# Incluye ClusterIP + NodePort internamente\n\n# ExternalName - alias DNS a servicio externo\napiVersion: v1\nkind: Service\nmetadata:\n  name: base-datos-externa\nspec:\n  type: ExternalName\n  externalName: db.empresa.com\n\n# Ingress - NO es un Service, es un recurso aparte\n# Enruta HTTP/HTTPS por host y path\napiVersion: networking.k8s.io/v1\nkind: Ingress\nspec:\n  rules:\n    - host: miapp.com\n      http:\n        paths:\n          - path: /api\n            pathType: Prefix\n            backend:\n              service:\n                name: api-service\n                port:\n                  number: 80",
+    "explicacion": "ClusterIP: comunicación interna entre pods. NodePort: pruebas/labs (puertos altos, poco práctico en producción). LoadBalancer: un servicio expuesto con IP pública (coste por cada uno). ExternalName: alias DNS para recursos externos sin selector ni IP. Ingress: múltiples servicios HTTP bajo un dominio, centraliza HTTPS y reglas."
+  },
+  {
+    "id": "imperativo-vs-declarativo",
+    "title": "Modo imperativo vs declarativo",
+    "category": "Kubernetes conceptos",
+    "enunciado": "Compara brevemente el modo imperativo y el modo declarativo en Kubernetes y cuándo conviene cada uno. Da ejemplos de comandos.",
+    "pistas": ["Imperativo: kubectl create, kubectl run, kubectl expose", "Declarativo: kubectl apply -f archivo.yaml", "Imperativo para pruebas rápidas", "Declarativo para producción y GitOps"],
+    "solucion": "# IMPERATIVO - órdenes directas\nkubectl create deployment nginx --image=nginx\nkubectl expose deployment nginx --port=80 --type=LoadBalancer\nkubectl scale deployment nginx --replicas=3\nkubectl delete deployment nginx\n\n# DECLARATIVO - estado deseado en YAML\nkubectl apply -f deployment.yaml\nkubectl apply -f service.yaml\nkubectl delete -f deployment.yaml\n\n# Diferencia clave:\n# Imperativo = \"haz esto ahora\"\n# Declarativo = \"quiero que el estado sea este\"",
+    "explicacion": "Imperativo indica qué operación ejecutar (rápido para pruebas, difícil de versionar). Declarativo describe el estado deseado en YAML (reproducible, versionable en Git, apropiado para producción y automatización). En producción se prefiere declarativo porque permite control de versiones, revisión y CI/CD."
+  }
+]

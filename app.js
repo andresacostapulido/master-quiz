@@ -73,6 +73,16 @@ async function selectSubject(subject) {
         return;
     }
     
+    if (mode === 'comandos') {
+        startCommandMode(subject);
+        return;
+    }
+    
+    if (mode === 'casos') {
+        startCasesMode(subject);
+        return;
+    }
+    
     if (mode === 'errores') {
         const key = `errors_${subject}`;
         const errorQuestions = JSON.parse(localStorage.getItem(key) || '[]');
@@ -118,6 +128,8 @@ function backToSubjects() {
     document.getElementById('subject-selector').classList.remove('hidden');
     document.getElementById('main-quiz-content').classList.add('hidden');
     document.getElementById('short-answer-content').classList.add('hidden');
+    document.getElementById('commands-content').classList.add('hidden');
+    document.getElementById('cases-content').classList.add('hidden');
     currentSubject = null;
     quizData = [];
     currentQuestionIndex = 0;
@@ -565,3 +577,180 @@ loadGlossary();
         }
     }
 })();
+
+
+// === Modo Práctica de Comandos ===
+let cmdData = [];
+let cmdIndex = 0;
+let cmdCorrect = 0;
+let cmdTotal = 0;
+
+async function startCommandMode(subject) {
+    try {
+        const response = await fetch(`data/${subject}-comandos.json`);
+        if (!response.ok) throw new Error('No hay ejercicios de comandos');
+        cmdData = await response.json();
+        cmdData.sort(() => Math.random() - 0.5);
+    } catch (error) {
+        alert('No hay ejercicios de comandos disponibles para esta asignatura.');
+        return;
+    }
+    
+    cmdIndex = 0;
+    cmdCorrect = 0;
+    cmdTotal = 0;
+    document.getElementById('subject-selector').classList.add('hidden');
+    document.getElementById('commands-content').classList.remove('hidden');
+    renderCmdExercise();
+    
+    // Enter para comprobar
+    document.getElementById('cmd-input').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') checkCmd();
+    });
+}
+
+function renderCmdExercise() {
+    const ex = cmdData[cmdIndex];
+    document.getElementById('cmd-category').textContent = ex.category;
+    document.getElementById('cmd-scenario').textContent = ex.scenario;
+    document.getElementById('cmd-hint').textContent = ex.hint;
+    document.getElementById('cmd-hint').classList.add('hidden');
+    document.getElementById('cmd-output').innerHTML = '';
+    document.getElementById('cmd-input').value = '';
+    document.getElementById('cmd-input').disabled = false;
+    document.getElementById('cmd-input').focus();
+    document.getElementById('cmd-progress').textContent = `Ejercicio ${cmdIndex + 1} de ${cmdData.length}`;
+    document.getElementById('cmd-progress-bar').style.width = ((cmdIndex + 1) / cmdData.length * 100) + '%';
+    document.getElementById('cmd-prev-btn').disabled = cmdIndex === 0;
+    document.getElementById('cmd-stats').textContent = cmdTotal > 0 ? `Aciertos: ${cmdCorrect}/${cmdTotal} (${Math.round(cmdCorrect/cmdTotal*100)}%)` : '';
+}
+
+function showCmdHint() {
+    document.getElementById('cmd-hint').classList.toggle('hidden');
+}
+
+function normalizeCmd(str) {
+    return str.trim().replace(/\s+/g, ' ').toLowerCase();
+}
+
+function checkCmd() {
+    const input = document.getElementById('cmd-input').value;
+    if (!input.trim()) return;
+    
+    const ex = cmdData[cmdIndex];
+    const normalized = normalizeCmd(input);
+    const expected = normalizeCmd(ex.answer);
+    const alts = (ex.alternatives || []).map(a => normalizeCmd(a));
+    
+    const isCorrect = normalized === expected || alts.includes(normalized);
+    cmdTotal++;
+    
+    const output = document.getElementById('cmd-output');
+    if (isCorrect) {
+        cmdCorrect++;
+        output.innerHTML = `<span class="cmd-correct">✓ ¡Correcto!</span>`;
+    } else {
+        output.innerHTML = `<span class="cmd-incorrect">✗ Incorrecto</span><br><span class="cmd-expected">Esperado: ${ex.answer}</span>`;
+        if (ex.alternatives && ex.alternatives.length > 0) {
+            output.innerHTML += `<br><span class="text-gray-400 text-xs">También válido: ${ex.alternatives.join(' | ')}</span>`;
+        }
+    }
+    
+    document.getElementById('cmd-stats').textContent = `Aciertos: ${cmdCorrect}/${cmdTotal} (${Math.round(cmdCorrect/cmdTotal*100)}%)`;
+}
+
+function showCmdAnswer() {
+    const ex = cmdData[cmdIndex];
+    const output = document.getElementById('cmd-output');
+    output.innerHTML = `<span class="cmd-expected">Respuesta: ${ex.answer}</span>`;
+    if (ex.alternatives && ex.alternatives.length > 0) {
+        output.innerHTML += `<br><span class="text-gray-400 text-xs">También válido: ${ex.alternatives.join(' | ')}</span>`;
+    }
+}
+
+function nextCmdExercise() {
+    if (cmdIndex < cmdData.length - 1) {
+        cmdIndex++;
+        renderCmdExercise();
+    } else {
+        alert(`¡Terminaste! Aciertos: ${cmdCorrect}/${cmdTotal}`);
+        backToSubjects();
+    }
+}
+
+function prevCmdExercise() {
+    if (cmdIndex > 0) {
+        cmdIndex--;
+        renderCmdExercise();
+    }
+}
+
+
+// === Modo Casos Prácticos ===
+let casesData = [];
+let casesIndex = 0;
+
+async function startCasesMode(subject) {
+    try {
+        const response = await fetch(`data/${subject}-casos.json`);
+        if (!response.ok) throw new Error('No hay casos prácticos');
+        casesData = await response.json();
+    } catch (error) {
+        alert('No hay casos prácticos disponibles para esta asignatura.');
+        return;
+    }
+    
+    casesIndex = 0;
+    document.getElementById('subject-selector').classList.add('hidden');
+    document.getElementById('cases-content').classList.remove('hidden');
+    renderCase();
+}
+
+function renderCase() {
+    const c = casesData[casesIndex];
+    document.getElementById('cases-title').textContent = c.title;
+    document.getElementById('cases-category').textContent = c.category;
+    document.getElementById('cases-enunciado').textContent = c.enunciado;
+    document.getElementById('cases-progress').textContent = `Caso ${casesIndex + 1} de ${casesData.length}`;
+    document.getElementById('cases-progress-bar').style.width = ((casesIndex + 1) / casesData.length * 100) + '%';
+    document.getElementById('cases-input').value = '';
+    document.getElementById('cases-solution').classList.add('hidden');
+    document.getElementById('cases-hints').classList.add('hidden');
+    document.getElementById('cases-hints-btn').textContent = '💡 Mostrar pistas';
+    
+    const hintsList = document.getElementById('cases-hints-list');
+    hintsList.innerHTML = c.pistas.map(p => `<li>${p}</li>`).join('');
+    
+    document.getElementById('cases-solution-code').textContent = c.solucion;
+    document.getElementById('cases-explicacion').textContent = c.explicacion;
+    
+    document.getElementById('cases-prev-btn').disabled = casesIndex === 0;
+    document.getElementById('cases-next-btn').textContent = casesIndex === casesData.length - 1 ? 'Finalizar' : 'Siguiente';
+}
+
+function toggleCaseHints() {
+    const hints = document.getElementById('cases-hints');
+    const btn = document.getElementById('cases-hints-btn');
+    hints.classList.toggle('hidden');
+    btn.textContent = hints.classList.contains('hidden') ? '💡 Mostrar pistas' : '💡 Ocultar pistas';
+}
+
+function showCaseSolution() {
+    document.getElementById('cases-solution').classList.toggle('hidden');
+}
+
+function nextCase() {
+    if (casesIndex < casesData.length - 1) {
+        casesIndex++;
+        renderCase();
+    } else {
+        backToSubjects();
+    }
+}
+
+function prevCase() {
+    if (casesIndex > 0) {
+        casesIndex--;
+        renderCase();
+    }
+}
