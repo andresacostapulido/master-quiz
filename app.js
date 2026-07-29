@@ -9,9 +9,9 @@ const answeredQuestions = new Set();
 // Mapa de nombres de asignaturas para mostrar
 const SUBJECT_NAMES = {
     'herramientasdevops': 'Herramientas DevOps',
-    'gestionproyectos': 'Gestión de Proyectos',
-    'integracionentrega': 'Integración y Entrega Continua',
-    'contenedores': 'Contenedores'
+    'contenedores': 'Contenedores',
+    'admincloud': 'Administración Cloud',
+    'automatizacion': 'Automatización de Despliegues'
 };
 
 // Función para cargar preguntas dinámicamente con validación
@@ -83,6 +83,11 @@ async function selectSubject(subject) {
         return;
     }
     
+    if (mode === 'esqueletos') {
+        startSkeletonsMode(subject);
+        return;
+    }
+    
     if (mode === 'errores') {
         const key = `errors_${subject}`;
         const errorQuestions = JSON.parse(localStorage.getItem(key) || '[]');
@@ -101,7 +106,7 @@ async function selectSubject(subject) {
         const temaSelect = document.getElementById(`tema-select-${subject}`);
         if (temaSelect && temaSelect.value) {
             const selectedTema = temaSelect.value;
-            allQuestions = allQuestions.filter(q => q.tema.startsWith(selectedTema + ':') || q.tema.startsWith(selectedTema + '.'));
+            allQuestions = allQuestions.filter(q => q.tema === selectedTema || q.tema.startsWith(selectedTema + ':') || q.tema.startsWith(selectedTema + '.') || selectedTema.startsWith(q.tema));
             if (allQuestions.length === 0) {
                 alert('No hay preguntas para este tema');
                 return;
@@ -113,7 +118,12 @@ async function selectSubject(subject) {
     
     quizData.forEach(q => {
         const correctAnswer = q.answer;
-        q.options = [...q.options].sort(() => Math.random() - 0.5);
+        const hasRelativeOption = q.options.some(o => 
+            /todas las anteriores|ninguna de las anteriores|a y b|b y c|c y d|a y c|todas son|ninguna es/i.test(o)
+        );
+        if (!hasRelativeOption) {
+            q.options = [...q.options].sort(() => Math.random() - 0.5);
+        }
         q.correctIndex = q.options.indexOf(correctAnswer);
     });
     
@@ -130,6 +140,7 @@ function backToSubjects() {
     document.getElementById('short-answer-content').classList.add('hidden');
     document.getElementById('commands-content').classList.add('hidden');
     document.getElementById('cases-content').classList.add('hidden');
+    document.getElementById('skeletons-content').classList.add('hidden');
     currentSubject = null;
     quizData = [];
     currentQuestionIndex = 0;
@@ -542,7 +553,7 @@ loadGlossary();
 
 // Cargar conteo de preguntas y temas al inicio
 (async function loadQuestionCounts() {
-    const subjects = ['herramientasdevops', 'gestionproyectos', 'integracionentrega', 'contenedores'];
+    const subjects = ['herramientasdevops', 'admincloud', 'automatizacion'];
     
     for (const subject of subjects) {
         try {
@@ -752,5 +763,61 @@ function prevCase() {
     if (casesIndex > 0) {
         casesIndex--;
         renderCase();
+    }
+}
+
+
+// === Modo Esqueletos ===
+let skelData = [];
+let skelIndex = 0;
+
+async function startSkeletonsMode(subject) {
+    try {
+        const response = await fetch(`data/${subject}-esqueletos.json`);
+        if (!response.ok) throw new Error('No hay esqueletos');
+        skelData = await response.json();
+    } catch (error) {
+        alert('No hay esqueletos disponibles para esta asignatura.');
+        return;
+    }
+    
+    skelIndex = 0;
+    document.getElementById('subject-selector').classList.add('hidden');
+    document.getElementById('skeletons-content').classList.remove('hidden');
+    renderSkeleton();
+}
+
+function renderSkeleton() {
+    const s = skelData[skelIndex];
+    document.getElementById('skel-title').textContent = s.title;
+    document.getElementById('skel-category').textContent = s.category;
+    document.getElementById('skel-description').textContent = s.description;
+    document.getElementById('skel-progress').textContent = `Esqueleto ${skelIndex + 1} de ${skelData.length}`;
+    document.getElementById('skel-progress-bar').style.width = ((skelIndex + 1) / skelData.length * 100) + '%';
+    document.getElementById('skel-input').value = '';
+    document.getElementById('skel-answer').classList.add('hidden');
+    document.getElementById('skel-code').textContent = s.skeleton;
+    document.getElementById('skel-tips').innerHTML = s.tips.map(t => `<li>${t}</li>`).join('');
+    document.getElementById('skel-prev-btn').disabled = skelIndex === 0;
+    document.getElementById('skel-next-btn').textContent = skelIndex === skelData.length - 1 ? 'Finalizar' : 'Siguiente';
+}
+
+function showSkeleton() {
+    document.getElementById('skel-answer').classList.toggle('hidden');
+}
+
+function nextSkeleton() {
+    if (skelIndex < skelData.length - 1) {
+        skelIndex++;
+        renderSkeleton();
+    } else {
+        backToSubjects();
+    }
+}
+
+function prevSkeleton() {
+    if (skelIndex > 0) {
+        skelIndex--;
+        renderSkeleton();
     }
 }

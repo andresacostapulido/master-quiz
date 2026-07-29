@@ -1,0 +1,1203 @@
+﻿[
+  {
+    "question": "¿Cuál es el nivel más amplio de límite administrativo en el Directorio Activo?",
+    "options": [
+      "Bosque",
+      "Dominio",
+      "Unidad Organizativa (OU)",
+      "Árbol de dominios"
+    ],
+    "answer": "Bosque",
+    "explanation": "Los administradores organizan los árboles de directorios en bosques. Los bosques son el límite administrativo y de seguridad más amplio en una estructura AD.",
+    "tema": "Tema 6. Administración de servidores Windows"
+  },
+  {
+    "question": "¿Qué diferencia hay entre una carpeta contenedora y una unidad organizativa (OU) en AD?",
+    "options": [
+      "Ninguna, las carpetas se mantienen por compatibilidad con versiones antiguas de AD",
+      "Las unidades organizativas permiten delegar la administración de los objetos contenidos en esta, mientras que las carpetas no lo permiten",
+      "Las políticas de seguridad se pueden aplicar a una OU, pero no a una carpeta",
+      "B y C son correctas"
+    ],
+    "answer": "B y C son correctas",
+    "explanation": "Las OU permiten aplicar políticas de seguridad (GPO) y delegar la administración a otros usuarios. Las carpetas son similares a las del sistema de ficheros pero sin esas capacidades.",
+    "tema": "Tema 6. Administración de servidores Windows"
+  },
+  {
+    "question": "¿Qué modo de instalación de Windows Server 2019 no se puede instalar en un servidor físico?",
+    "options": [
+      "Nano Server",
+      "Server Core",
+      "Windows Server with Desktop Experience",
+      "Ninguno de los anteriores"
+    ],
+    "answer": "Ninguno de los anteriores",
+    "explanation": "Microsoft distribuye las ediciones en una misma imagen ISO soportando varios modos: Desktop Experience, Server Core y Nano Server. Todos pueden instalarse en hardware físico.",
+    "tema": "Tema 6. Administración de servidores Windows"
+  },
+  {
+    "question": "¿Con qué modos de instalación de Windows Server se puede usar RDP?",
+    "options": [
+      "Server Core",
+      "Windows Server with Desktop Experience",
+      "A y B son correctas",
+      "Nano Server"
+    ],
+    "answer": "A y B son correctas",
+    "explanation": "Nano Server es la única versión que no soporta RDP, ya que es una versión mínima de Windows Server. Server Core y Desktop Experience sí soportan RDP.",
+    "tema": "Tema 6. Administración de servidores Windows"
+  },
+  {
+    "question": "¿Cuál de las siguientes herramientas se puede usar para administrar una instalación de Server Core?",
+    "options": [
+      "RDP",
+      "Server Manager",
+      "PowerShell",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Las principales herramientas de administración remota son: RDP, PowerShell, Server Manager, consola remota MMC y RSAT (Remote Server Administration Tools).",
+    "tema": "Tema 6. Administración de servidores Windows"
+  },
+  {
+    "question": "¿Qué protocolo se integra con el Directorio Activo para la resolución de nombres de equipos, dominios y servicios?",
+    "options": [
+      "LDAP",
+      "DNS",
+      "Kerberos",
+      "WINS"
+    ],
+    "answer": "DNS",
+    "explanation": "AD utiliza DNS para localizar servicios (gracias a entradas SRV) y para identificar tanto dominios como los equipos miembros del dominio.",
+    "tema": "Tema 6. Administración de servidores Windows"
+  },
+  {
+    "question": "¿Qué mecanismo permite acceder a los recursos de un dominio desde un dominio de un bosque diferente?",
+    "options": [
+      "Relación de confianza",
+      "Árbol de dominios",
+      "Kerberos",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Relación de confianza",
+    "explanation": "Las relaciones de confianza conectan bosques distintos y extienden la accesibilidad de los recursos entre dominios, centralizando la administración a nivel lógico.",
+    "tema": "Tema 6. Administración de servidores Windows"
+  },
+  {
+    "question": "¿Cuál es el nivel funcional de dominio más moderno soportado por Windows Server 2019?",
+    "options": [
+      "Windows Server 2012 R2",
+      "Windows Server 2019",
+      "Windows Server 2016 R2",
+      "Windows Server 2016"
+    ],
+    "answer": "Windows Server 2016",
+    "explanation": "Windows Server 2019 no añade ningún nivel funcional nuevo, mantiene los niveles de Windows Server 2016. Todos los controladores del dominio deben ser WS2016 o WS2019.",
+    "tema": "Tema 6. Administración de servidores Windows"
+  },
+  {
+    "question": "¿Qué es necesario instalar en un equipo Windows para unirlo a un dominio?",
+    "options": [
+      "El rol de Active Directory Domain Services",
+      "Las herramientas de administración de Active Directory Domain Services",
+      "Nada, solo es necesario configurar la conexión al dominio",
+      "El rol de Active Directory Federation Services"
+    ],
+    "answer": "Nada, solo es necesario configurar la conexión al dominio",
+    "explanation": "Unir un equipo al dominio no requiere instalar ningún rol especial, solo conectividad y configurar la conexión al dominio desde la configuración del sistema.",
+    "tema": "Tema 6. Administración de servidores Windows"
+  },
+  {
+    "question": "¿Cuántos controladores de dominio debería tener un dominio?",
+    "options": [
+      "Dos o más",
+      "Al menos uno",
+      "Puede no tener y usar un catálogo global de otro dominio",
+      "Tantos como oficinas"
+    ],
+    "answer": "Al menos uno",
+    "explanation": "Cada dominio tendrá al menos un DC que actúa como autoridad. Es habitual tener más de uno por redundancia, ya que la caída del único DC colapsaría todo el dominio.",
+    "tema": "Tema 6. Administración de servidores Windows"
+  },
+  {
+    "question": "¿Qué contiene «$?» cuando el último proceso ha terminado con éxito?",
+    "options": [
+      "0",
+      "-1",
+      "Null",
+      "$true"
+    ],
+    "answer": "$true",
+    "explanation": "Al contrario que en Bash, la variable «$?» contiene un booleano, por lo que los errores de salida no se pueden diferenciar fácilmente.",
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+  },
+  {
+    "question": "¿Cómo se activan los cmdlets de un módulo en una sesión de PowerShell?",
+    "options": [
+      "Import-Module",
+      "Import-Package",
+      "Get-Module",
+      "Install-Module"
+    ],
+    "answer": "Import-Module",
+    "explanation": "Import-Package no existe, Get-Module lista módulos disponibles e Install-Module instala un módulo. Import-Module es el cmdlet correcto para activar los cmdlets de un módulo en la sesión.",
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+  },
+  {
+    "question": "¿Cómo se indica que un parámetro es obligatorio en un script de PowerShell?",
+    "options": [
+      "-Force",
+      "[Parameter(Mandatory=$true)]",
+      "[Parameter(Required=$true)]",
+      "[mandatory][string]"
+    ],
+    "answer": "[Parameter(Mandatory=$true)]",
+    "explanation": "Este bloque precede la definición de un parámetro, tanto en scripts como en funciones, para indicar que es obligatorio.",
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+  },
+  {
+    "question": "¿Por qué un bloque de script de un trabajo (job) no puede acceder a las variables de la sesión actual?",
+    "options": [
+      "Sí que puede",
+      "Porque se reinicia el ámbito manualmente",
+      "Porque se ejecuta en un proceso diferente",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Porque se ejecuta en un proceso diferente",
+    "explanation": "Los ámbitos de las funciones no se comparten entre procesos. Un job se ejecuta en un proceso separado, por lo que no tiene acceso a las variables de la sesión principal.",
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+  },
+  {
+    "question": "¿Qué comando de PowerShell equivale a /dev/null en Linux?",
+    "options": [
+      "Out-Null",
+      "Dev-Null",
+      "Write-Null",
+      "/dev/null"
+    ],
+    "answer": "Out-Null",
+    "explanation": "Out-Null redirige la salida a ningún sitio, equivalente a /dev/null en Linux. Las otras opciones no son cmdlets válidos de PowerShell.",
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+  },
+  {
+    "question": "¿Cómo se divide una cadena $s de texto en subcadenas separadas por punto y coma?",
+    "options": [
+      "$s.Divide()",
+      "Get-Split($s, \";\")",
+      "$s.Split(\";\")",
+      "$s.Split()"
+    ],
+    "answer": "$s.Split(\";\")",
+    "explanation": "$s.Divide() no es un método válido, Get-Split no existe como cmdlet, y $s.Split() sin argumentos divide por espacios en blanco. $s.Split(\";\") divide correctamente por punto y coma.",
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+  },
+  {
+    "question": "¿Cómo se accede a la ayuda personalizada de un script de PowerShell?",
+    "options": [
+      "Get-Help ./nombre-script.ps1",
+      "Get-Help nombre-script",
+      "nombre-script /h",
+      "nombre-script.ps1 --help"
+    ],
+    "answer": "Get-Help ./nombre-script.ps1",
+    "explanation": "Get-Help sin ./ busca un cmdlet, no un fichero de script. Los modificadores /h y --help no son válidos en PowerShell. La ruta relativa ./ indica que es un fichero local.",
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+  },
+  {
+    "question": "¿Cómo se puede leer una cadena de texto como una contraseña segura en PowerShell?",
+    "options": [
+      "Get-Password",
+      "Read-Host",
+      "Read-Host -AsSecureString",
+      "Read-Password -Secure"
+    ],
+    "answer": "Read-Host -AsSecureString",
+    "explanation": "Get-Password y Read-Password -Secure no son cmdlets válidos. Read-Host sin parámetros lee texto plano. Read-Host -AsSecureString lee la entrada como SecureString.",
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+  },
+  {
+    "question": "¿Qué uso se le da a la sintaxis [string]$PasswordAdmin en PowerShell?",
+    "options": [
+      "Indica el tipo del parámetro $PasswordAdmin como de tipo string",
+      "Permite leer una clave con permisos de administración",
+      "Verifica que una clave sea de tipo cadena",
+      "Todas las anteriores"
+    ],
+    "answer": "Indica el tipo del parámetro $PasswordAdmin como de tipo string",
+    "explanation": "Es la sintaxis estándar para indicar el tipo de parámetros en métodos y funciones de PowerShell.",
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+  },
+  {
+    "question": "¿Qué uso se le da al comando New-ADUser en PowerShell?",
+    "options": [
+      "Crea un nuevo AD",
+      "Permite añadir nuevos usuarios",
+      "No es un comando válido",
+      "A y B son correctas"
+    ],
+    "answer": "Permite añadir nuevos usuarios",
+    "explanation": "New-ADUser crea nuevos usuarios en Active Directory. Ejemplo: New-ADUser -name test. No crea un AD completo, solo un usuario dentro de él.",
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+  },
+  {
+    "question": "¿Qué significa administrar un entorno en la nube?",
+    "options": [
+      "Mantener todos los sistemas funcionando",
+      "Crear un nuevo servidor",
+      "Asegurar el funcionamiento de todos los sistemas, además de vigilar el coste del entorno",
+      "Comprobar que la compañía no dispone de ningún recurso físico en propiedad"
+    ],
+    "answer": "Asegurar el funcionamiento de todos los sistemas, además de vigilar el coste del entorno",
+    "explanation": "En un entorno de nube hay tareas de optimización de costes que no suelen estar presentes en un entorno tradicional, sumadas a la administración habitual de sistemas operativos y herramientas nativas.",
+    "tema": "Tema 1. Introducción"
+  },
+  {
+    "question": "¿Cuál de los siguientes enunciados es correcto sobre seguridad en la nube?",
+    "options": [
+      "Los proveedores son los responsables de asegurar el acceso físico al hardware y, por tanto, los asuntos relativos a la seguridad recaen en ellos",
+      "La organización debe proteger la red y sus recursos, y sus equipos deben estar familiarizados con el modelo de seguridad de su proveedor de nube",
+      "Los proveedores no ofrecen opciones adecuadas para restringir los accesos y permisos de usuarios",
+      "Los DevOps no necesitan preocuparse por la seguridad en la nube"
+    ],
+    "answer": "La organización debe proteger la red y sus recursos, y sus equipos deben estar familiarizados con el modelo de seguridad de su proveedor de nube",
+    "explanation": "Los proveedores ofrecen herramientas de seguridad y son responsables de que funcionen, pero es responsabilidad de la compañía y sus DevOps configurarlas correctamente.",
+    "tema": "Tema 1. Introducción"
+  },
+  {
+    "question": "¿Qué debe hacer un ingeniero DevOps al hablar de entornos y redes?",
+    "options": [
+      "Saber cómo configurar recursos de computación para establecer y mantener una conexión entre los diferentes entornos",
+      "Colaborar con su equipo pero no necesita estar familiarizado con los recursos de red",
+      "Combinar sus conocimientos de desarrollo y administración con conocimientos de red, para establecer las conexiones adecuadas",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Combinar sus conocimientos de desarrollo y administración con conocimientos de red, para establecer las conexiones adecuadas",
+    "explanation": "El rol de un DevOps se extiende más allá del administrador de sistemas tradicional y es habitual que esté involucrado en la administración de redes.",
+    "tema": "Tema 1. Introducción"
+  },
+  {
+    "question": "¿Cuál de los siguientes enunciados es correcto al hablar de disponibilidad en la nube?",
+    "options": [
+      "Se espera que un DevOps trabaje 24/7 para garantizar el tiempo de actividad",
+      "Las aplicaciones de escalado funcionan independientemente de la automatización",
+      "Es necesario asegurar que ningún servidor se apaga nunca, actualizando a mano las aplicaciones",
+      "Hoy por hoy existen métricas para detectar eventos que pueden activar tareas de autoescalado y notificaciones"
+    ],
+    "answer": "Hoy por hoy existen métricas para detectar eventos que pueden activar tareas de autoescalado y notificaciones",
+    "explanation": "Los grupos de autoescalado se encargan automáticamente de incrementar o reducir el número de instancias en función de la demanda.",
+    "tema": "Tema 1. Introducción"
+  },
+  {
+    "question": "¿Cuál de las siguientes afirmaciones sobre la nube es correcta?",
+    "options": [
+      "Permitir o bloquear el acceso a la red ahora resulta mucho más sencillo, gracias a la nube",
+      "La automatización siempre facilita la eliminación de errores y la restricción de accesos",
+      "Los costes de hardware han reemplazado al pago por uso y licencias",
+      "Los DevOps necesitan aprender nuevas herramientas, exclusivas de la nube, que no estaban presentes en entornos tradicionales"
+    ],
+    "answer": "Los DevOps necesitan aprender nuevas herramientas, exclusivas de la nube, que no estaban presentes en entornos tradicionales",
+    "explanation": "Las funcionalidades nativas de la nube son posibles gracias a herramientas específicas que no existían en entornos tradicionales.",
+    "tema": "Tema 1. Introducción"
+  },
+  {
+    "question": "¿Qué sistema operativo es mejor: Linux o Windows?",
+    "options": [
+      "Depende de la tarea que vaya a cumplir",
+      "Linux, ya que es gratis",
+      "Windows, ya que el sistema de ventanas es mucho más fácil de usar",
+      "Linux, ya que es lo que usan los informáticos más avanzados"
+    ],
+    "answer": "Depende de la tarea que vaya a cumplir",
+    "explanation": "La clave está en saber escoger el sistema operativo que mejor se adapta a cada situación concreta.",
+    "tema": "Tema 1. Introducción"
+  },
+  {
+    "question": "¿Cuál es la mejor manera de afrontar una migración de una aplicación onsite a la nube?",
+    "options": [
+      "Cambiar el modelo de despliegue para usar herramientas como contenedores o grupos de autodespliegue",
+      "Hacer una copia de seguridad, copiarla a la nube y recrear la aplicación",
+      "Crear una réplica de los discos duros en la nube sincronizada con los discos onsite",
+      "Todas las opciones son válidas, la mejor depende del tipo de aplicación, la capacidad de tener caída de servicio y los recursos disponibles"
+    ],
+    "answer": "Todas las opciones son válidas, la mejor depende del tipo de aplicación, la capacidad de tener caída de servicio y los recursos disponibles",
+    "explanation": "Cada alternativa es viable según el contexto: la opción A requiere mayor inversión pero se adapta mejor a la nube; la B es más barata pero implica downtime; la C reduce downtime pero puede ser más cara.",
+    "tema": "Tema 1. Introducción"
+  },
+  {
+    "question": "En el modelo mascotas vs. ganado (pets vs. cattle), ¿qué describe mejor cada concepto?",
+    "options": [
+      "Pet: servidor que nunca se apaga y se actualiza con parches; Cattle: servidores de usar y tirar, si falla se cambia por otro",
+      "Un servidor mascota tiene nombre familiar y un servidor ganado tiene nombre genérico",
+      "Un servidor mascota es siempre físico y un servidor ganado es siempre virtual",
+      "Un servidor mascota es siempre Windows y un servidor ganado es siempre Linux"
+    ],
+    "answer": "Pet: servidor que nunca se apaga y se actualiza con parches; Cattle: servidores de usar y tirar, si falla se cambia por otro",
+    "explanation": "Los servidores tradicionales eran mascotas: provisionarlos llevaba tiempo y se mantenían funcionando. Los modernos en la nube son ganado: son tantos que no merece la pena preocuparse por cada uno.",
+    "tema": "Tema 1. Introducción"
+  },
+  {
+    "question": "¿Qué se entiende por entorno híbrido?",
+    "options": [
+      "Aquel en el que todos los recursos están en la nube",
+      "Aquel en el que todos los recursos son físicos",
+      "Aquel en el que hay recursos físicos y virtuales",
+      "Aquel en el que parte de los recursos están en las ubicaciones de la compañía y parte residen en la nube"
+    ],
+    "answer": "Aquel en el que parte de los recursos están en las ubicaciones de la compañía y parte residen en la nube",
+    "explanation": "El entorno híbrido integra entornos tradicionales con la nube, requiriendo aprovisionamiento de recursos tanto locales como en la nube con protocolos compatibles.",
+    "tema": "Tema 1. Introducción"
+  },
+  {
+    "question": "¿Cuál de las siguientes definiciones es correcta para el concepto de Disponibilidad en la nube?",
+    "options": [
+      "Trasladar aplicaciones de un entorno tradicional a un entorno de nube",
+      "Porcentaje del tiempo en el que una aplicación ofrece un servicio",
+      "Modelo de despliegue donde parte de los recursos residen en las oficinas de la compañía y parte en la nube",
+      "Instancia de sistema operativo que sirve un rol concreto para una aplicación específica"
+    ],
+    "answer": "Porcentaje del tiempo en el que una aplicación ofrece un servicio",
+    "explanation": "Disponibilidad = porcentaje del tiempo en que la aplicación ofrece servicio. Migración = trasladar apps a la nube. Entorno híbrido = recursos locales + nube. Servidor = instancia de SO con un rol concreto.",
+    "tema": "Tema 1. Introducción"
+  },
+  {
+    "question": "¿Cómo se logra la inmutabilidad de los servidores?",
+    "options": [
+      "Desplegando desde imágenes que ya incluyen la versión concreta de la aplicación",
+      "Desplegando desde imágenes base, siempre instalando la aplicación de cero",
+      "A y B son correctas",
+      "Actualizando la aplicación incrementalmente"
+    ],
+    "answer": "Desplegando desde imágenes que ya incluyen la versión concreta de la aplicación",
+    "explanation": "La técnica de desplegar imágenes que contienen una versión concreta del SO y de la aplicación es ampliamente utilizada por proveedores como Google o Amazon.",
+    "tema": "Tema 10. Instalación y administración en Cloud"
+  },
+  {
+    "question": "¿Qué parámetro de Sysprep aplica la generalización del sistema operativo?",
+    "options": [
+      "/generalize",
+      "/oobe",
+      "/shutdown",
+      "/restart"
+    ],
+    "answer": "/generalize",
+    "explanation": "Este parámetro es fundamental porque reemplaza toda la información de identificación única (SID) en las nuevas copias de Windows de los servidores clonados.",
+    "tema": "Tema 10. Instalación y administración en Cloud"
+  },
+  {
+    "question": "¿Cuál de estas opciones NO está incluida en la definición de la AMI?",
+    "options": [
+      "Tamaño",
+      "Opciones de red",
+      "Etiquetas",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "La AMI solo incluye el disco duro y algunos parámetros de hardware virtual (plataforma x64 o ARM). El tamaño, las opciones de red y las etiquetas son configurables en las VM desplegadas a partir de la AMI.",
+    "tema": "Tema 10. Instalación y administración en Cloud"
+  },
+  {
+    "question": "¿Qué ocurre con la instancia original en AWS cuando se crea una AMI a partir de ella?",
+    "options": [
+      "La instancia desaparece y se crea una AMI con el mismo ID",
+      "Nada, la instancia sigue en ejecución",
+      "No es posible crear AMI a partir de instancias",
+      "La instancia se apaga durante la creación y se vuelve a encender al terminar"
+    ],
+    "answer": "Nada, la instancia sigue en ejecución",
+    "explanation": "En AWS es posible mantener la instancia en ejecución mientras se crea la AMI. En Azure, sin embargo, la VM original desaparece.",
+    "tema": "Tema 10. Instalación y administración en Cloud"
+  },
+  {
+    "question": "¿Qué ocurre con la instancia original en Azure cuando se crea una imagen a partir de ella?",
+    "options": [
+      "La instancia desaparece y se crea una imagen con el mismo ID",
+      "Nada, la instancia sigue en ejecución",
+      "No es posible crear imágenes a partir de instancias",
+      "La instancia desaparece"
+    ],
+    "answer": "La instancia desaparece",
+    "explanation": "Al contrario que en AWS, en Azure la VM original desaparece al crear una imagen a partir de ella.",
+    "tema": "Tema 10. Instalación y administración en Cloud"
+  },
+  {
+    "question": "¿Soportan los proveedores de nube el uso de Sysprep?",
+    "options": [
+      "Sí, siempre es posible ejecutar Sysprep en cualquier VM sea cual sea el proveedor",
+      "Sí, además algunos proveedores ofrecen servicios que integran la ejecución de Sysprep",
+      "Sí, además algunos proveedores ofrecen alternativas propias a Sysprep",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Algunos proveedores integran Sysprep en sus herramientas (EC2Launch, EC2 Image Builder en AWS). VMware Horizon soporta Sysprep y además QuickPrep, una variante propia.",
+    "tema": "Tema 10. Instalación y administración en Cloud"
+  },
+  {
+    "question": "¿Por qué en un despliegue basado en imágenes las instancias están disponibles más rápido?",
+    "options": [
+      "En general tardan por igual",
+      "Porque las aplicaciones están instaladas en la imagen y al arrancar solo es necesario configurar algunos aspectos",
+      "Porque las imágenes privadas tardan menos en arrancar que las públicas",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Porque las aplicaciones están instaladas en la imagen y al arrancar solo es necesario configurar algunos aspectos",
+    "explanation": "Los pasos de configuración tienden a ser más rápidos que la instalación de paquetes de aplicación, por eso las instancias basadas en imágenes están disponibles antes.",
+    "tema": "Tema 10. Instalación y administración en Cloud"
+  },
+  {
+    "question": "¿Por qué no se puede seleccionar el sistema operativo al desplegar una instancia a partir de una imagen privada?",
+    "options": [
+      "Sí se puede, la opción aparece en el siguiente paso",
+      "Por motivos de licencia",
+      "Porque el sistema operativo forma parte del disco de la instancia, al contrario que el hardware virtual",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Porque el sistema operativo forma parte del disco de la instancia, al contrario que el hardware virtual",
+    "explanation": "La instancia arrancará con el SO instalado en el disco a partir del que se tomó el snapshot de la imagen. El hardware virtual sí se puede seleccionar al desplegar.",
+    "tema": "Tema 10. Instalación y administración en Cloud"
+  },
+  {
+    "question": "¿Qué es el clonado en el contexto de virtualización?",
+    "options": [
+      "Es un proceso por el cual se crea una imagen exacta del disco duro de una máquina virtual",
+      "No es un término aplicado a la nube",
+      "Copiar los archivos del sistema operativo exclusivamente",
+      "Permite duplicar las interfaces de red"
+    ],
+    "answer": "Es un proceso por el cual se crea una imagen exacta del disco duro de una máquina virtual",
+    "explanation": "El clonado permite crear una nueva máquina virtual y es una buena forma de aumentar la seguridad y replicar entornos.",
+    "tema": "Tema 10. Instalación y administración en Cloud"
+  },
+  {
+    "question": "¿Qué es una imagen maestra?",
+    "options": [
+      "Es una imagen creada para poder desplegar máquinas virtuales a partir de ella",
+      "No es un término aplicable a la virtualización",
+      "Es una imagen que permite crear imágenes secundarias",
+      "Es una imagen protegida"
+    ],
+    "answer": "Es una imagen creada para poder desplegar máquinas virtuales a partir de ella",
+    "explanation": "En entornos virtuales se crea una plantilla o imagen maestra a partir de una VM, de la que luego se despliegan nuevas instancias. Es más sencillo que el clonado físico tradicional.",
+    "tema": "Tema 10. Instalación y administración en Cloud"
+  },
+  {
+    "question": "¿Cuál de las siguientes herramientas es de Sysinternals?",
+    "options": [
+      "PsExec",
+      "BgInfo",
+      "Process Explorer",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "PsExec ejecuta comandos en máquinas remotas, BgInfo configura el fondo del escritorio con detalles del SO, y Process Explorer es una herramienta de análisis de procesos. Las tres son de Sysinternals.",
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+  },
+  {
+    "question": "¿Cuál de las siguientes herramientas se arranca como un snapin de MMC?",
+    "options": [
+      "Visor de eventos",
+      "Administrador de tareas",
+      "Process Explorer",
+      "TCPview"
+    ],
+    "answer": "Visor de eventos",
+    "explanation": "El Visor de eventos es un snapin de MMC. El Administrador de tareas, Process Explorer y TCPview son herramientas independientes.",
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+  },
+  {
+    "question": "¿Cuál es el nivel que tiene preferencia a la hora de aplicar una GPO?",
+    "options": [
+      "Local",
+      "OU",
+      "Dominio",
+      "Sitio"
+    ],
+    "answer": "OU",
+    "explanation": "Las GPO se aplican en orden: local, sitio, dominio y OU. La última en aplicarse es la que tiene preferencia, y la OU es la más específica y la última.",
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+  },
+  {
+    "question": "¿A qué dos tipos de objetos se aplican las directivas de una GPO?",
+    "options": [
+      "Usuarios y grupos de usuarios",
+      "Usuarios y OU",
+      "Equipos y usuarios",
+      "Equipos y grupos de equipos"
+    ],
+    "answer": "Equipos y usuarios",
+    "explanation": "Las GPO se aplican a objetos de usuario y de equipo, no a grupos.",
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+  },
+  {
+    "question": "¿Qué hace la opción de bloquear herencia en las directivas de grupo?",
+    "options": [
+      "Facilita la administración de GPO copiando las de niveles superiores a una OU concreta",
+      "Bloquea el uso de GPO en una OU concreta",
+      "Evita que las directivas de GPO aplicadas en un nivel superior de la jerarquía se apliquen en una OU concreta",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Evita que las directivas de GPO aplicadas en un nivel superior de la jerarquía se apliquen en una OU concreta",
+    "explanation": "Esta opción permite personalizar las directivas de una OU concreta para que no se apliquen las definidas a un nivel superior.",
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+  },
+  {
+    "question": "¿Qué opción hay que seleccionar en una directiva de grupo para usar su valor por defecto?",
+    "options": [
+      "Not Configured",
+      "Enabled",
+      "Disabled",
+      "Unknown"
+    ],
+    "answer": "Not Configured",
+    "explanation": "Not Configured especifica que esta configuración no se ha habilitado ni deshabilitado. Establece que esta GPO no configura este valor, aunque otras GPO pueden haberlo configurado.",
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+  },
+  {
+    "question": "¿Cómo se inicia una sesión remota de PowerShell en server1?",
+    "options": [
+      "Get-PowerShell -Host server1",
+      "Invoke-PSSession -ComputerName server1",
+      "Enter-PSSession -ComputerName server1",
+      "ssh administrator@server1"
+    ],
+    "answer": "Enter-PSSession -ComputerName server1",
+    "explanation": "Get-PowerShell e Invoke-PSSession no existen como cmdlets. ssh abre una sesión SSH, no una sesión remota de PowerShell. Enter-PSSession es el cmdlet correcto.",
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+  },
+  {
+    "question": "¿Qué herramienta permite ver logs nativos de Windows?",
+    "options": [
+      "Notepad",
+      "LogViewer",
+      "Visor de eventos",
+      "tail"
+    ],
+    "answer": "Visor de eventos",
+    "explanation": "El Visor de eventos (Event Viewer) es el visor de logs nativo de Windows. Las aplicaciones pueden escribir logs en ficheros de texto, pero Windows ofrece un motor nativo para ello.",
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+  },
+  {
+    "question": "¿Qué herramienta nativa de Windows es el equivalente a cron en Linux?",
+    "options": [
+      "Programador de tareas",
+      "wincron",
+      "Servicios",
+      "No hay un servicio equivalente"
+    ],
+    "answer": "Programador de tareas",
+    "explanation": "El Programador de tareas ofrece una funcionalidad similar a cron en Windows, con una gestión de disparadores y acciones más avanzada.",
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+  },
+  {
+    "question": "¿Qué herramienta de Windows es el equivalente gráfico a netstat?",
+    "options": [
+      "TCPview",
+      "winTCP",
+      "NetServer",
+      "TCPBrowser"
+    ],
+    "answer": "TCPview",
+    "explanation": "TCPview es una alternativa gráfica a netstat. Muestra información detallada de los puertos abiertos y las conexiones establecidas.",
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+  },
+  {
+    "question": "¿Cuál de los siguientes comandos vuelca el listado de ficheros del directorio actual en un fichero de texto?",
+    "options": [
+      "Get-ChildItem > listado.txt",
+      "gci > listado.txt",
+      "gci | Export-Csv listado.txt",
+      "Todos los anteriores"
+    ],
+    "answer": "Todos los anteriores",
+    "explanation": "Las tres opciones son equivalentes. Get-ChildItem y gci son alias. Export-Csv genera un formato diferente pero la llamada es equivalente.",
+    "tema": "Tema 7. Guía de estudio de PowerShell"
+  },
+  {
+    "question": "¿Qué expresión lógica indica igualdad entre objetos en PowerShell?",
+    "options": [
+      "-eq",
+      "==",
+      "=",
+      "-=="
+    ],
+    "answer": "-eq",
+    "explanation": "En PowerShell los operadores de comparación llevan guión: -eq (igual), -ne (distinto), -lt (menor), -gt (mayor). Los operadores == y = no son comparadores válidos.",
+    "tema": "Tema 7. Guía de estudio de PowerShell"
+  },
+  {
+    "question": "¿Qué expresión lógica indica que un objeto es menor o igual a otro en PowerShell?",
+    "options": [
+      "-lt",
+      "-le",
+      "-eq",
+      "-ge"
+    ],
+    "answer": "-le",
+    "explanation": "-le es menor o igual (less or equal). -lt es estrictamente menor, -ge es mayor o igual, -eq es igual.",
+    "tema": "Tema 7. Guía de estudio de PowerShell"
+  },
+  {
+    "question": "¿Qué política de ejecución de PowerShell permite ejecutar cualquier script?",
+    "options": [
+      "Remote signed",
+      "Remote only",
+      "Unrestricted",
+      "Restricted"
+    ],
+    "answer": "Unrestricted",
+    "explanation": "Unrestricted permite ejecutar cualquier script, local o descargado, sin restricciones. Restricted bloquea todos los scripts.",
+    "tema": "Tema 7. Guía de estudio de PowerShell"
+  },
+  {
+    "question": "¿Qué comando de PowerShell equivale a man en Linux?",
+    "options": [
+      "Get-Help",
+      "Get-Member",
+      "Get-Manual",
+      "Read-Help"
+    ],
+    "answer": "Get-Help",
+    "explanation": "Get-Help muestra la ayuda de cmdlets. Get-Member muestra los atributos de un objeto .NET. Get-Manual y Read-Help no son cmdlets válidos.",
+    "tema": "Tema 7. Guía de estudio de PowerShell"
+  },
+  {
+    "question": "¿En qué se diferencian las tuberías (pipes) de Bash de las de PowerShell?",
+    "options": [
+      "El carácter de separación es || en PowerShell y | en Bash",
+      "En Bash se transfiere texto mientras que en PowerShell se transfieren objetos",
+      "Funcionan de la misma manera",
+      "En Bash se transfieren objetos de C mientras que en PowerShell se transfieren objetos .NET"
+    ],
+    "answer": "En Bash se transfiere texto mientras que en PowerShell se transfieren objetos",
+    "explanation": "Los objetos de PowerShell tienen métodos y propiedades, por lo que no es necesario parsearlos como ocurre con el texto en Bash.",
+    "tema": "Tema 7. Guía de estudio de PowerShell"
+  },
+  {
+    "question": "¿Qué editor integrado incluye por defecto PowerShell?",
+    "options": [
+      "PowerShell ISE",
+      "Notepad",
+      "vim",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "PowerShell ISE",
+    "explanation": "PowerShell ISE (Integrated Scripting Environment) es el editor integrado por defecto. Notepad es un editor de texto sin formato y vim no se incluye por defecto.",
+    "tema": "Tema 7. Guía de estudio de PowerShell"
+  },
+  {
+    "question": "¿Cuál de los siguientes comandos filtra objetos con base en sus propiedades en PowerShell?",
+    "options": [
+      "Get-Member",
+      "Filter-Object",
+      "Select-Object",
+      "Sort-Object"
+    ],
+    "answer": "Select-Object",
+    "explanation": "Select-Object filtra objetos con base en sus propiedades. Get-Member muestra los atributos de un objeto, Filter-Object no es un cmdlet válido y Sort-Object ordena los objetos a partir de una propiedad, pero devuelve todos los objetos que recibe.",
+    "tema": "Tema 7. Guía de estudio de PowerShell"
+  },
+  {
+    "question": "¿Qué significa que Env: sea una unidad en PowerShell?",
+    "options": [
+      "Que las variables de entorno se pueden manipular con los mismos comandos que un sistema de ficheros, como Get-ChildItem y New-Item",
+      "Que Env: es un alias de Get-Variables",
+      "Nada, las unidades exclusivamente son A:, C:, D:, etc.",
+      "Que PowerShell guarda las variables de entorno en una ruta del disco identificado con la unidad Env:"
+    ],
+    "answer": "Que las variables de entorno se pueden manipular con los mismos comandos que un sistema de ficheros, como Get-ChildItem y New-Item",
+    "explanation": "En PowerShell el sistema de ficheros es solo uno de los tipos de unidades que se pueden manipular. Las unidades disponibles se obtienen con Get-PSDrive sin parámetros.",
+    "tema": "Tema 7. Guía de estudio de PowerShell"
+  },
+  {
+    "question": "¿Cuál es el equivalente en otros lenguajes del operador -ne de PowerShell?",
+    "options": [
+      "!=",
+      "<",
+      ">",
+      ">="
+    ],
+    "answer": "!=",
+    "explanation": "-ne equivale a != (distinto). -lt equivale a <, -gt equivale a >, -ge equivale a >=, -le equivale a <=.",
+    "tema": "Tema 7. Guía de estudio de PowerShell"
+  },
+  {
+    "question": "¿Qué comando sirve para solicitar una terminación programada de un proceso en Linux?",
+    "options": [
+      "kill -15 <pid>",
+      "kill -9 <pid>",
+      "kill -15 <nombre>",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "kill -15 <pid>",
+    "explanation": "La señal SIGTERM (-15) solicita al proceso que termine ordenadamente. Es menos severa que SIGKILL (-9) que fuerza la terminación inmediata.",
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+  },
+  {
+    "question": "¿Qué tipos de permisos tendrá un archivo normal tras configurarlo con chmod 777?",
+    "options": [
+      "Lectura y escritura para el usuario propietario, nada más",
+      "Lectura, escritura y ejecución para cualquier usuario del sistema",
+      "Lectura para cualquier usuario, escritura y ejecución para el propietario",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Lectura, escritura y ejecución para cualquier usuario del sistema",
+    "explanation": "chmod 777 da rwx a usuario, grupo y otros. chmod 600 da solo lectura/escritura al propietario. chmod 744 da rwx al propietario y solo lectura a los demás.",
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+  },
+  {
+    "question": "¿Qué comando permite averiguar el PID de un proceso en Linux?",
+    "options": [
+      "pidof",
+      "ps",
+      "top",
+      "Todos los anteriores"
+    ],
+    "answer": "Todos los anteriores",
+    "explanation": "pidof muestra el PID del comando especificado. ps y top muestran los PID en una de sus columnas.",
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+  },
+  {
+    "question": "¿Qué relación hay entre usuarios y grupos en Linux?",
+    "options": [
+      "Los usuarios pueden pertenecer a un único grupo",
+      "Los usuarios pertenecen al menos a un grupo principal y a cero o más grupos suplementarios",
+      "Los usuarios pueden no pertenecer a ningún grupo o pertenecer a uno o más",
+      "Los grupos pueden agrupar otros grupos, pero no usuarios"
+    ],
+    "answer": "Los usuarios pertenecen al menos a un grupo principal y a cero o más grupos suplementarios",
+    "explanation": "Los usuarios deben pertenecer al menos a un grupo principal. Pueden pertenecer a más grupos suplementarios. Los grupos de Linux no pueden contener otros grupos.",
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+  },
+  {
+    "question": "¿Qué opción del comando systemctl reinicia un servicio?",
+    "options": [
+      "restart",
+      "stop",
+      "status",
+      "start"
+    ],
+    "answer": "restart",
+    "explanation": "restart reinicia el servicio. stop lo detiene, start lo arranca, status muestra su estado actual.",
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+  },
+  {
+    "question": "¿Qué fichero aloja las contraseñas de los usuarios en Linux?",
+    "options": [
+      "/etc/passwd",
+      "/etc/shadow",
+      "Todos los anteriores",
+      "Ninguno de los anteriores"
+    ],
+    "answer": "Ninguno de los anteriores",
+    "explanation": "La contraseña se guarda como hash unidireccional en /etc/shadow, nunca como texto plano. /etc/passwd contiene información del usuario pero no la contraseña en texto plano.",
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+  },
+  {
+    "question": "¿Cuál es el resultado de ejecutar ln -s /usr/bin/python3.6 ~/python?",
+    "options": [
+      "Aparece un enlace simbólico al binario de Python en la home del usuario con el nombre python",
+      "Aparece un enlace simbólico al binario de Python en la home del usuario con el nombre python3.6",
+      "Aparece un enlace fuerte al binario de Python en la home del usuario con el nombre python",
+      "Aparece un enlace simbólico al binario de Python en la raíz del árbol de directorios con el nombre python"
+    ],
+    "answer": "Aparece un enlace simbólico al binario de Python en la home del usuario con el nombre python",
+    "explanation": "ln crea enlaces, -s indica enlace simbólico, ~/python es la ruta de destino en la home del usuario con nombre python.",
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+  },
+  {
+    "question": "¿Qué comandos permiten crear, modificar y borrar usuarios en Linux?",
+    "options": [
+      "usercreate, usermodify y userdelete",
+      "usercreate, usermod y deluser",
+      "useradd, moduser y rmuser",
+      "useradd, usermod y userdel"
+    ],
+    "answer": "useradd, usermod y userdel",
+    "explanation": "Los comandos estándar son useradd, usermod y userdel. El resto de opciones contienen comandos que no existen en Linux.",
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+  },
+  {
+    "question": "¿Por qué visudo ha de ejecutarse con sudo?",
+    "options": [
+      "Por convenio",
+      "No es necesario",
+      "Porque es un comando privilegiado",
+      "Puede no usarse si no se edita el fichero"
+    ],
+    "answer": "Porque es un comando privilegiado",
+    "explanation": "Si no fuera necesario sudo, cualquier usuario podría editar el fichero sudoers para asignarse permisos de administrador a sí mismo.",
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+  },
+  {
+    "question": "¿Qué flag denota un archivo oculto en Linux?",
+    "options": [
+      "d",
+      "l",
+      "Ninguno",
+      "s"
+    ],
+    "answer": "Ninguno",
+    "explanation": "Los archivos ocultos en Linux son archivos normales o directorios cuyo nombre empieza por un punto (.), no tienen un flag especial. d=directorio, l=enlace simbólico, s=setuid.",
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+  },
+  {
+    "question": "¿Qué código de salida significa que el proceso ha terminado sin error?",
+    "options": [
+      "0",
+      "1",
+      "-127",
+      "Todos los anteriores"
+    ],
+    "answer": "0",
+    "explanation": "Los procesos que terminan en error pueden usar cualquier entero de un byte como código de salida. Solo el 0 indica éxito; cualquier otro valor indica error.",
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+  },
+  {
+    "question": "¿Qué cadena de texto delimita un heredoc en Bash?",
+    "options": [
+      "NGINXCONF",
+      "Cualquiera, siempre que la de inicio sea igual que la de final",
+      "Cualquiera, Bash reconoce el fin del documento automáticamente",
+      "Cualquiera, pero debe ser en mayúsculas"
+    ],
+    "answer": "Cualquiera, siempre que la de inicio sea igual que la de final",
+    "explanation": "El identificador del heredoc puede ser cualquier cadena (por convención en mayúsculas) siempre que el delimitador de cierre sea exactamente igual al de apertura.",
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+  },
+  {
+    "question": "¿Qué significa el flag -p en el comando mkdir?",
+    "options": [
+      "Crear la carpeta con permisos de root",
+      "Borrar la carpeta",
+      "No tiene efecto",
+      "Crear la ruta de carpetas si no existe"
+    ],
+    "answer": "Crear la ruta de carpetas si no existe",
+    "explanation": "Por defecto mkdir crea una única carpeta. Con -p se crean todas las carpetas intermedias de la ruta si no existen.",
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+  },
+  {
+    "question": "¿Qué diferencia hay entre apt-get y yum?",
+    "options": [
+      "Ninguna, cumplen la misma función",
+      "yum es un alias de apt-get",
+      "apt-get es un gestor de paquetes en distribuciones Debian, mientras que yum es el gestor en distribuciones RedHat y Fedora",
+      "apt-get es exclusivo de Ubuntu, yum es para el resto de distribuciones Debian"
+    ],
+    "answer": "apt-get es un gestor de paquetes en distribuciones Debian, mientras que yum es el gestor en distribuciones RedHat y Fedora",
+    "explanation": "yum es el gestor de paquetes de CentOS/RedHat/Fedora. apt-get es la herramienta de Debian y sus derivadas (Ubuntu incluida).",
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+  },
+  {
+    "question": "¿Qué modificador del comando test comprueba si existe un fichero en Linux?",
+    "options": [
+      "-e",
+      "-z",
+      "-E",
+      "-h"
+    ],
+    "answer": "-e",
+    "explanation": "-e comprueba si existe el fichero. -z comprueba si una cadena tiene longitud cero. -E no es válido. -h comprueba si existe y es enlace simbólico.",
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+  },
+  {
+    "question": "¿Qué comando de gestión de parámetros usan los scripts de Bash expuestos en el tema?",
+    "options": [
+      "getoptions",
+      "getopts",
+      "Las variables normales de Bash: , , etc.",
+      "while"
+    ],
+    "answer": "getopts",
+    "explanation": "getopts procesa los parámetros del script. Para cada elemento de la cadena de opciones guarda el valor en una variable, combinado con case para ejecutar el código correspondiente.",
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+  },
+  {
+    "question": "¿Qué hace el comando mv /etc/mongod.conf /etc/mongod.conf.orig?",
+    "options": [
+      "Hace una copia de seguridad del fichero de configuración por defecto",
+      "Borra el fichero de configuración por defecto",
+      "Crea el fichero de configuración por defecto",
+      "A y B son correctas"
+    ],
+    "answer": "A y B son correctas",
+    "explanation": "mv renombra el fichero, guardando el contenido original como copia de seguridad (.orig) y liberando el nombre original para poder crear el nuevo fichero de configuración.",
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+  },
+  {
+    "question": "¿Cómo debe empezar el contenido del user data de AWS para que sea considerado como sentencia de Cloud-init?",
+    "options": [
+      "#cloud-config",
+      "#cloudinit",
+      "#!/bin/bash",
+      "<powershell>"
+    ],
+    "answer": "#cloud-config",
+    "explanation": "AWS identifica que el tipo de contenido del user data es Cloud-init cuando la primera línea es #cloud-config. #!/bin/bash indicaría un script de shell normal.",
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+  },
+  {
+    "question": "¿Qué limitaciones tienen los scripts del user data en AWS?",
+    "options": [
+      "Solo pueden contener diez líneas como máximo",
+      "Solo pueden estar escritos en Python",
+      "No pueden esperar entrada de datos del usuario",
+      "No pueden imprimir datos por pantalla"
+    ],
+    "answer": "No pueden esperar entrada de datos del usuario",
+    "explanation": "Si el script espera entrada del usuario (por ejemplo con read) acabará siendo cancelado tras un timeout, ya que se ejecuta de forma desatendida.",
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+  },
+  {
+    "question": "¿Cuál es el gestor de paquetes de Node.js?",
+    "options": [
+      "apt-get",
+      "yum",
+      "npm",
+      "pip"
+    ],
+    "answer": "npm",
+    "explanation": "npm es el gestor de paquetes de Node.js. apt-get es de Debian/Ubuntu, yum es de RedHat/Fedora/CentOS, pip es de Python.",
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+  },
+  {
+    "question": "¿Cuál de los siguientes ejemplos hace uso de una tubería en Linux?",
+    "options": [
+      "grep POST /var/log/nginx/access.log | head -100 | less",
+      "ping -n 5 192.168.1.1 > pings.txt",
+      "Todas las anteriores",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "grep POST /var/log/nginx/access.log | head -100 | less",
+    "explanation": "Este comando usa dos tuberías (|). El operador > redirige la salida a un fichero, no es una tubería.",
+    "tema": "Tema 3. Guía de estudio de Bash"
+  },
+  {
+    "question": "¿Cuál de los siguientes comandos lista los detalles de los archivos de un directorio, incluidos los ocultos?",
+    "options": [
+      "ls -l",
+      "ls -la",
+      "ls -l > head -a",
+      "ls -h"
+    ],
+    "answer": "ls -la",
+    "explanation": "El modificador -l muestra los detalles y -a muestra los archivos ocultos (los que empiezan por punto).",
+    "tema": "Tema 3. Guía de estudio de Bash"
+  },
+  {
+    "question": "¿Cómo crearía el usuario user1 una carpeta nueva app en /home/user1?",
+    "options": [
+      "mkdir ~/app",
+      "mkdir /home/user1/app",
+      "cd ~ && mkdir app",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "~ referencia la home del usuario, /home/user1 es la ruta absoluta y cd ~ seguido de mkdir app también funciona. Las tres son equivalentes.",
+    "tema": "Tema 3. Guía de estudio de Bash"
+  },
+  {
+    "question": "¿Es necesaria la línea #!/bin/bash en cualquier script de Bash?",
+    "options": [
+      "Sí, en todos",
+      "Solo en los de Bash",
+      "Es útil, pero no imprescindible",
+      "Es mejor no incluirlo"
+    ],
+    "answer": "Es útil, pero no imprescindible",
+    "explanation": "Si no se incluye el shebang, siempre es posible ejecutar el script pasándolo como parámetro directamente a Bash.",
+    "tema": "Tema 3. Guía de estudio de Bash"
+  },
+  {
+    "question": "¿Cuál de los siguientes comandos muestra el valor de la variable de entorno CONFIG_FILE?",
+    "options": [
+      "echo ",
+      "cat ",
+      "head ",
+      "pwd "
+    ],
+    "answer": "echo ",
+    "explanation": "echo  muestra el valor de la variable. La shell sustituye  por su valor antes de ejecutar el comando.",
+    "tema": "Tema 3. Guía de estudio de Bash"
+  },
+  {
+    "question": "¿Cuál de los siguientes comandos mostrará un error si lo ejecuta un usuario normal con permisos sudo?",
+    "options": [
+      "sudo apt-get install vim",
+      "apt-get install vim",
+      "vim /etc/hosts",
+      "sudo vim /etc/hosts"
+    ],
+    "answer": "apt-get install vim",
+    "explanation": "apt-get install requiere privilegios de administrador. Sin sudo, un usuario normal recibirá un error de permisos. Con sudo funciona correctamente.",
+    "tema": "Tema 3. Guía de estudio de Bash"
+  },
+  {
+    "question": "¿Cómo se extraen las primeras 50 líneas de file.log a out.log ordenadas alfabéticamente?",
+    "options": [
+      "head -50 file.log | sort > out.log",
+      "cat file.log | head | sort > out.log",
+      "sort file.log | head -50 > out.log",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "head -50 file.log | sort > out.log",
+    "explanation": "head -50 extrae las primeras 50 líneas, sort las ordena alfabéticamente y > out.log redirige el resultado al fichero de salida.",
+    "tema": "Tema 3. Guía de estudio de Bash"
+  },
+  {
+    "question": "¿En qué fichero se pueden definir opciones de personalización para las nuevas sesiones de un usuario en Linux?",
+    "options": [
+      "/etc/profile",
+      "~/.bashprofile",
+      "~/.profile",
+      "Todos los anteriores"
+    ],
+    "answer": "Todos los anteriores",
+    "explanation": "Los ficheros de configuración de sesión incluyen: /etc/profile, ~/.bashprofile, ~/.bashlogin, ~/.profile y ~/.bashrc.",
+    "tema": "Tema 3. Guía de estudio de Bash"
+  },
+  {
+    "question": "¿Cómo puede un usuario duplicar fileA.conf y editar la copia?",
+    "options": [
+      "cp fileA.conf fileB.conf & vim fileB.conf",
+      "cp fileA.conf fileB.conf && vim fileB.conf",
+      "mv fileA.conf fileB.conf && vim fileB.conf",
+      "vim fileA.conf && cp fileA.conf fileB.conf"
+    ],
+    "answer": "cp fileA.conf fileB.conf && vim fileB.conf",
+    "explanation": "&& ejecuta el segundo comando solo si el primero tuvo éxito. cp duplica el fichero y vim edita la copia. mv solo renombra (no duplica) y & no encadena comandos secuencialmente.",
+    "tema": "Tema 3. Guía de estudio de Bash"
+  },
+  {
+    "question": "¿Por qué es necesario el comando sudo?",
+    "options": [
+      "Para permitir que un usuario sin privilegios pueda ejecutar solo ciertos comandos administrativos",
+      "Para evitar trabajar continuamente con la cuenta root y limitar riesgos de comandos erróneos",
+      "Para evitar compartir la contraseña de root con demasiados administradores",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "sudo permite ejecutar comandos con privilegios de root de forma controlada, sin compartir la contraseña de root ni trabajar siempre como superusuario.",
+    "tema": "Tema 3. Guía de estudio de Bash"
+  },
+  {
+    "question": "¿Qué diferencia hay entre una distribución Linux y el kernel?",
+    "options": [
+      "El núcleo es la base del SO y todas las distribuciones lo incluyen, además de aplicaciones adicionales",
+      "Ninguna, son la misma cosa",
+      "El kernel es una distribución más de Linux, la oficial",
+      "El kernel es un paquete más, las distribuciones pueden incluirlo o no"
+    ],
+    "answer": "El núcleo es la base del SO y todas las distribuciones lo incluyen, además de aplicaciones adicionales",
+    "explanation": "Una distribución Linux es un paquete que incluye el núcleo y una colección de aplicaciones. Con la misma versión del núcleo, una app debería ejecutarse en cualquier distribución.",
+    "tema": "Tema 2. Administración de servidores Linux"
+  },
+  {
+    "question": "¿Qué lenguaje de scripting es mejor para automatización en Linux?",
+    "options": [
+      "Bash, porque lo incluyen todas las distribuciones Linux",
+      "Aquel que esté disponible en los sistemas en los que tiene que correr el script",
+      "Uno interpretado para poder editarlo rápidamente",
+      "B y C son correctas"
+    ],
+    "answer": "B y C son correctas",
+    "explanation": "El script será más fácil de distribuir si el lenguaje está soportado sin dependencias adicionales. En general se usan lenguajes interpretados para facilitar su distribución y edición.",
+    "tema": "Tema 2. Administración de servidores Linux"
+  },
+  {
+    "question": "¿Por qué es recomendable usar SSH en vez de Telnet?",
+    "options": [
+      "Es incorrecto, Telnet es más recomendable",
+      "Porque SSH es más moderno",
+      "Porque SSH cifra el tráfico para asegurar la privacidad del contenido en caso de ser interceptado",
+      "Porque la implementación OpenSSH es de código abierto"
+    ],
+    "answer": "Porque SSH cifra el tráfico para asegurar la privacidad del contenido en caso de ser interceptado",
+    "explanation": "Telnet envía el contenido en claro (sin cifrar), mientras que SSH cifra todo el contenido, protegiendo credenciales y datos ante posibles interceptaciones.",
+    "tema": "Tema 2. Administración de servidores Linux"
+  },
+  {
+    "question": "¿Qué comando se puede utilizar en Linux para generar un par de clave privada y pública?",
+    "options": [
+      "ssh-keygen",
+      "ssh",
+      "ssh-copy-id",
+      "Ninguno de los anteriores"
+    ],
+    "answer": "ssh-keygen",
+    "explanation": "ssh-keygen genera el par de claves. Ejemplo: ssh-keygen -t rsa -b 4096 -f ./securitykey. ssh-copy-id copia la clave pública al servidor remoto.",
+    "tema": "Tema 2. Administración de servidores Linux"
+  },
+  {
+    "question": "¿Qué tipo de autenticación soporta AWS por defecto en sus imágenes Amazon Linux?",
+    "options": [
+      "Usuario y contraseña y clave pública",
+      "Usuario y contraseña con contraseña por defecto conocida",
+      "Clave pública",
+      "Ninguno, no es posible iniciar sesión de manera interactiva"
+    ],
+    "answer": "Clave pública",
+    "explanation": "En las imágenes públicas de AWS solo se soporta clave pública, bien generada automáticamente o proporcionada por el usuario. Imágenes de otros proveedores pueden soportar otros métodos.",
+    "tema": "Tema 2. Administración de servidores Linux"
+  },
+  {
+    "question": "¿Qué tipo de autenticación soporta PuTTY?",
+    "options": [
+      "Usuario y contraseña y clave pública",
+      "Usuario y contraseña únicamente",
+      "Clave pública únicamente",
+      "Clave pública, que debe haber sido generada con Puttygen"
+    ],
+    "answer": "Usuario y contraseña y clave pública",
+    "explanation": "PuTTY soporta tanto usuario/contraseña como clave pública. Las claves se pueden generar con PuTTYgen, utilidad disponible en la misma web.",
+    "tema": "Tema 2. Administración de servidores Linux"
+  },
+  {
+    "question": "¿Cuál de las siguientes distribuciones Linux se puede descargar sin coste alguno?",
+    "options": [
+      "Ubuntu",
+      "RHEL",
+      "CentOS",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "RHEL requiere suscripción de soporte pero ofrece descargas gratuitas para desarrolladores. Ubuntu y CentOS son completamente gratuitas.",
+    "tema": "Tema 2. Administración de servidores Linux"
+  },
+  {
+    "question": "¿Qué comando conecta por SSH al equipo host1.local con el usuario localuser y clave privada en secure.key?",
+    "options": [
+      "ssh localuser@host1.local",
+      "ssh -i secure.key localuser@host1.local",
+      "putty localuser@host1.local",
+      "Ninguno de los anteriores"
+    ],
+    "answer": "ssh -i secure.key localuser@host1.local",
+    "explanation": "-i especifica el fichero de clave privada. Sin -i se usaría la clave por defecto o contraseña. ssh-copy-id se usa para copiar la clave pública al servidor remoto.",
+    "tema": "Tema 2. Administración de servidores Linux"
+  },
+  {
+    "question": "¿Qué significa escribir un script pensando que todo puede ir mal?",
+    "options": [
+      "Que hay que detectar todos los errores posibles",
+      "En caso de error, informar al usuario de lo que ha ocurrido",
+      "Controlar el error de manera que el script lo solucione o termine de forma controlada",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "El control de errores requiere detectarlos, informar al usuario/administrador y resolverlos, incluso si la resolución implica terminar el script antes de tiempo.",
+    "tema": "Tema 2. Administración de servidores Linux"
+  },
+  {
+    "question": "¿Qué puerto hay que abrir en un grupo de seguridad para permitir conexiones SSH?",
+    "options": [
+      "22",
+      "23",
+      "443",
+      "Ninguno de los anteriores"
+    ],
+    "answer": "22",
+    "explanation": "SSH usa el puerto 22 por defecto. El puerto 23 es Telnet y el 443 es HTTPS. Es posible cambiar el puerto SSH en la configuración del servidor.",
+    "tema": "Tema 2. Administración de servidores Linux"
+  }
+]
+

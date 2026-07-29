@@ -1,0 +1,90 @@
+[
+  {
+    "id": "deployment",
+    "title": "Deployment",
+    "category": "Kubernetes",
+    "description": "Escribe el esqueleto de un Deployment de Kubernetes (sin valores específicos, solo la estructura).",
+    "skeleton": "apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: ___\nspec:\n  replicas: ___\n  selector:\n    matchLabels:\n      app: ___\n  template:\n    metadata:\n      labels:\n        app: ___\n    spec:\n      containers:\n        - name: ___\n          image: ___\n          ports:\n            - containerPort: ___",
+    "tips": ["apiVersion siempre apps/v1 para Deployments", "selector.matchLabels DEBE coincidir con template.metadata.labels", "template es el molde del Pod"]
+  },
+  {
+    "id": "service",
+    "title": "Service",
+    "category": "Kubernetes",
+    "description": "Escribe el esqueleto de un Service de Kubernetes.",
+    "skeleton": "apiVersion: v1\nkind: Service\nmetadata:\n  name: ___\nspec:\n  type: ___\n  selector:\n    app: ___\n  ports:\n    - port: ___\n      targetPort: ___",
+    "tips": ["apiVersion: v1 (no apps/v1)", "type: ClusterIP (interno), NodePort, LoadBalancer", "selector debe coincidir con los labels del Pod/Deployment", "port = puerto del Service, targetPort = puerto del contenedor"]
+  },
+  {
+    "id": "secret",
+    "title": "Secret",
+    "category": "Kubernetes",
+    "description": "Escribe el esqueleto de un Secret y cómo referenciarlo desde un env.",
+    "skeleton": "apiVersion: v1\nkind: Secret\nmetadata:\n  name: ___\ntype: Opaque\nstringData:\n  clave: valor\n\n# Referencia desde un container env:\n# env:\n#   - name: MI_VARIABLE\n#     valueFrom:\n#       secretKeyRef:\n#         name: ___\n#         key: clave",
+    "tips": ["type: Opaque para secrets genéricos", "stringData permite texto plano (se codifica solo)", "secretKeyRef.name = nombre del Secret, .key = la clave dentro de stringData"]
+  },
+  {
+    "id": "ingress",
+    "title": "Ingress",
+    "category": "Kubernetes",
+    "description": "Escribe el esqueleto de un Ingress con reglas por host y path.",
+    "skeleton": "apiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: ___\nspec:\n  ingressClassName: nginx\n  rules:\n    - host: ___\n      http:\n        paths:\n          - path: ___\n            pathType: Prefix\n            backend:\n              service:\n                name: ___\n                port:\n                  number: ___",
+    "tips": ["apiVersion: networking.k8s.io/v1", "ingressClassName: nginx (u otro controller)", "pathType: Prefix o Exact", "backend apunta a un Service existente"]
+  },
+  {
+    "id": "pvc",
+    "title": "PersistentVolumeClaim + montaje",
+    "category": "Kubernetes",
+    "description": "Escribe el esqueleto de un PVC y cómo montarlo en un Pod.",
+    "skeleton": "apiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: ___\nspec:\n  accessModes:\n    - ReadWriteOnce\n  resources:\n    requests:\n      storage: ___Gi\n\n# Montaje en un Pod:\n# spec:\n#   containers:\n#     - name: ___\n#       volumeMounts:\n#         - name: datos\n#           mountPath: /ruta/dentro/contenedor\n#   volumes:\n#     - name: datos\n#       persistentVolumeClaim:\n#         claimName: ___",
+    "tips": ["accessModes: ReadWriteOnce (un nodo), ReadOnlyMany, ReadWriteMany", "volumeMounts va dentro del container", "volumes va al nivel de spec del Pod (mismo nivel que containers)", "claimName debe coincidir con metadata.name del PVC"]
+  },
+  {
+    "id": "job",
+    "title": "Job",
+    "category": "Kubernetes",
+    "description": "Escribe el esqueleto de un Job (tarea puntual).",
+    "skeleton": "apiVersion: batch/v1\nkind: Job\nmetadata:\n  name: ___\nspec:\n  activeDeadlineSeconds: ___\n  template:\n    spec:\n      restartPolicy: Never\n      containers:\n        - name: ___\n          image: ___",
+    "tips": ["apiVersion: batch/v1", "restartPolicy: Never o OnFailure (nunca Always)", "activeDeadlineSeconds limita el tiempo máximo", "No lleva selector ni replicas"]
+  },
+  {
+    "id": "cronjob",
+    "title": "CronJob",
+    "category": "Kubernetes",
+    "description": "Escribe el esqueleto de un CronJob (tarea periódica).",
+    "skeleton": "apiVersion: batch/v1\nkind: CronJob\nmetadata:\n  name: ___\nspec:\n  schedule: \"___ ___ ___ ___ ___\"\n  concurrencyPolicy: Forbid\n  jobTemplate:\n    spec:\n      template:\n        spec:\n          restartPolicy: Never\n          containers:\n            - name: ___\n              image: ___",
+    "tips": ["schedule formato cron: minuto hora dia-mes mes dia-semana", "Ejemplo: '0 2 * * *' = cada día a las 02:00", "concurrencyPolicy: Forbid evita solapamiento", "jobTemplate envuelve la spec del Job"]
+  },
+  {
+    "id": "dockerfile",
+    "title": "Dockerfile (Node.js / Python)",
+    "category": "Dockerfile",
+    "description": "Escribe el esqueleto de un Dockerfile optimizado para una app web.",
+    "skeleton": "FROM ___:alpine\nWORKDIR /app\nCOPY package*.json ./\nRUN npm ci --omit=dev\nCOPY . .\nEXPOSE ___\nCMD [\"___\", \"___\"]",
+    "tips": ["FROM: imagen base (node:20-alpine, python:3.12-slim)", "Copiar dependencias PRIMERO para aprovechar caché", "RUN instala deps (npm ci, pip install -r requirements.txt)", "COPY . . copia el resto del código DESPUÉS", "EXPOSE documenta el puerto (no lo abre)", "CMD en formato exec: [\"comando\", \"argumento\"]"]
+  },
+  {
+    "id": "compose",
+    "title": "Docker Compose con redes",
+    "category": "Docker Compose",
+    "description": "Escribe el esqueleto de un docker-compose.yml con servicios, redes y volúmenes.",
+    "skeleton": "services:\n  frontend:\n    image: ___\n    ports:\n      - \"80:80\"\n    networks:\n      - frontend\n\n  backend:\n    build: ./___\n    environment:\n      DB_HOST: db\n    depends_on:\n      - db\n    networks:\n      - frontend\n      - backend\n\n  db:\n    image: ___\n    volumes:\n      - db-data:/var/lib/___\n    networks:\n      - backend\n\nnetworks:\n  frontend:\n  backend:\n\nvolumes:\n  db-data:",
+    "tips": ["Secciones raíz: services, networks, volumes", "depends_on controla orden de arranque", "Redes aíslan servicios (frontend no ve db)", "Volúmenes nombrados se declaran en sección raíz", "Bind mount: ./archivo:/ruta:ro (no se declara en volumes)"]
+  },
+  {
+    "id": "compose-ports",
+    "title": "Docker Compose: puertos y build",
+    "category": "Docker Compose",
+    "description": "Escribe la sintaxis de puertos (corta, larga, localhost) y build local.",
+    "skeleton": "services:\n  web:\n    build: ./web\n    ports:\n      # Sintaxis corta:\n      - \"5000:5000\"\n      # Solo localhost:\n      - \"127.0.0.1:5000:5000\"\n      # Sintaxis larga:\n      - target: 5000\n        published: \"5000\"\n        host_ip: 127.0.0.1\n        protocol: tcp\n    depends_on:\n      - redis\n\n  redis:\n    image: redis:7-alpine\n    # No publica puerto (solo acceso interno)",
+    "tips": ["Formato corto: HOST:CONTENEDOR", "127.0.0.1:puerto:puerto = solo accesible desde el host", "Sintaxis larga: target, published, host_ip, protocol", "Si un servicio solo se usa internamente, no publiques su puerto"]
+  },
+  {
+    "id": "swarm-service",
+    "title": "Docker Swarm: crear servicios",
+    "category": "Docker Swarm",
+    "description": "Escribe el comando para crear un servicio replicado y uno global.",
+    "skeleton": "# Servicio replicado:\ndocker service create \\\n  --name ___ \\\n  --replicas ___ \\\n  --publish ___:___ \\\n  ___\n\n# Servicio global:\ndocker service create \\\n  --name ___ \\\n  --mode global \\\n  ___\n\n# Gestión:\ndocker service ls\ndocker service ps ___\ndocker service scale ___=___\ndocker service update --image ___:___ ___\ndocker service rm ___",
+    "tips": ["Replicado: --replicas N (apps web, APIs)", "Global: --mode global (agentes en cada nodo)", "scale cambia réplicas en caliente", "update --image actualiza sin downtime"]
+  }
+]

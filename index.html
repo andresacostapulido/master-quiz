@@ -83,90 +83,89 @@
                 <button onclick="selectSubject('herramientasdevops')" class="mt-auto w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-700">Comenzar Quiz</button>
             </div>
 
-            <!-- Gestión de Proyectos (oculta - examen presentado) -->
-            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col hidden">
-                <i class="fas fa-tasks text-4xl text-teal-600 mb-3"></i>
-                <h3 class="text-xl font-bold mb-2 text-gray-900">Gestión de Proyectos</h3>
-                <p id="question-count-gestionproyectos" class="text-sm text-gray-600 mb-4">Cargando preguntas...</p>
-                
-                <div class="flex-grow"></div>
-                
-                <div class="mt-4">
-                    <label class="block text-sm font-medium mb-2">Modo:</label>
-                    <select id="quiz-mode-gestionproyectos" class="w-full p-2 border rounded mb-3">
-                        <option value="normal">Normal - Todos los temas</option>
-                        <option value="tema">Repaso por Tema</option>
-                        <option value="errores">Solo errores anteriores</option>
-                        <option value="cortas">Respuestas cortas</option>
-                    </select>
-                </div>
-                
-                <div id="tema-selector-gestionproyectos" class="mt-3 hidden">
-                    <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
-                    <select id="tema-select-gestionproyectos" class="w-full p-2 border rounded">
-                        <option value="Tema 1">Tema 1: Introducción a la gestión de proyectos</option>
-                        <option value="Tema 2">Tema 2: Metodologías ágiles</option>
-                        <option value="Tema 3">Tema 3: Marco ágil Scrum</option>
-                        <option value="Tema 4">Tema 4: Lean y Kanban</option>
-                        <option value="Tema 5">Tema 5: Visión y gestión del proyecto ágil</option>
-                        <option value="Tema 6">Tema 6: Estimación y planificación ágil</option>
-                        <option value="Tema 7">Tema 7: Planificación del Roadmap y entregas</option>
-                        <option value="Tema 8">Tema 8: Desarrollo del proyecto ágil</option>
-                        <option value="Tema 9">Tema 9: Seguimiento del proyecto ágil</option>
-                        <option value="Tema 10">Tema 10: Evolución en la gestión de proyectos</option>
-                    </select>
-                </div>
-                
-                <div class="mt-4">
-                    <label class="block text-sm font-medium mb-2">Cantidad de preguntas:</label>
-                    <input type="number" id="num-questions-gestionproyectos" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
-                </div>
-                <button onclick="selectSubject('gestionproyectos')" class="mt-auto w-full bg-teal-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-teal-700">Comenzar Quiz</button>
-            </div>
-
-            <!-- Entornos de Integración y Entrega Continua (oculta - examen presentado) -->
-            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col hidden">
-                <i class="fas fa-sync-alt text-4xl text-orange-600 mb-3"></i>
-                <h3 class="text-xl font-bold mb-2 text-gray-900">Integración y Entrega Continua</h3>
-                <p id="question-count-integracionentrega" class="text-sm text-gray-600 mb-4">Cargando preguntas...</p>
-                
-                <div class="flex-grow"></div>
-                
-                <div class="mt-4">
-                    <label class="block text-sm font-medium mb-2">Modo:</label>
-                    <select id="quiz-mode-integracionentrega" class="w-full p-2 border rounded mb-3">
-                        <option value="normal">Normal - Todos los temas</option>
-                        <option value="tema">Repaso por Tema</option>
-                        <option value="errores">Solo errores anteriores</option>
-                        <option value="cortas">Respuestas cortas</option>
-                    </select>
-                </div>
-                
-                <div id="tema-selector-integracionentrega" class="mt-3 hidden">
-                    <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
-                    <select id="tema-select-integracionentrega" class="w-full p-2 border rounded">
-                        <option value="Tema 1">Tema 1: Introducción</option>
-                        <option value="Tema 2">Tema 2: Control de versiones</option>
-                        <option value="Tema 3">Tema 3: Flujos de trabajo con Git</option>
-                        <option value="Tema 4">Tema 4: Fases de la entrega continua</option>
-                        <option value="Tema 5">Tema 5: Pruebas</option>
-                        <option value="Tema 6">Tema 6: Evaluación y calidad del código</option>
-                        <option value="Tema 7">Tema 7: Jenkins</option>
-                        <option value="Tema 8">Tema 8: GitLab</option>
-                        <option value="Tema 9">Tema 9: Otras herramientas de CICD</option>
-                        <option value="Tema 10">Tema 10: Modelos de despliegue</option>
-                    </select>
-                </div>
-                
-                <div class="mt-4">
-                    <label class="block text-sm font-medium mb-2">Cantidad de preguntas:</label>
-                    <input type="number" id="num-questions-integracionentrega" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
-                </div>
-                <button onclick="selectSubject('integracionentrega')" class="mt-auto w-full bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-orange-700">Comenzar Quiz</button>
-            </div>
-
-            <!-- Contenedores -->
+            <!-- Administración de Sistemas Cloud -->
             <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col">
+                <i class="fas fa-cloud text-4xl text-blue-500 mb-3"></i>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Administración Cloud</h3>
+                <p id="question-count-admincloud" class="text-sm text-gray-600 mb-4">Sin preguntas aún</p>
+                
+                <div class="flex-grow"></div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-medium mb-2">Modo:</label>
+                    <select id="quiz-mode-admincloud" class="w-full p-2 border rounded mb-3">
+                        <option value="normal">Normal - Todos los temas</option>
+                        <option value="tema">Repaso por Tema</option>
+                        <option value="errores">Solo errores anteriores</option>
+                        <option value="cortas">Respuestas cortas</option>
+                    </select>
+                </div>
+                
+                <div id="tema-selector-admincloud" class="mt-3 hidden">
+                    <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
+                    <select id="tema-select-admincloud" class="w-full p-2 border rounded">
+                        <option value="Tema 1">Tema 1: Introducción</option>
+                        <option value="Tema 2">Tema 2: Administración de servidores Linux</option>
+                        <option value="Tema 3">Tema 3: Guía de estudio de Bash</option>
+                        <option value="Tema 4">Tema 4: Automatización de instalación y configuración en Linux</option>
+                        <option value="Tema 5">Tema 5: Administración básica de SO en Linux</option>
+                        <option value="Tema 6">Tema 6: Administración de servidores Windows</option>
+                        <option value="Tema 7">Tema 7: Guía de estudio de PowerShell</option>
+                        <option value="Tema 8">Tema 8: Automatización de instalación y configuración en Windows</option>
+                        <option value="Tema 9">Tema 9: Administración básica de SO en Windows</option>
+                        <option value="Tema 10">Tema 10: Instalación y administración en Cloud</option>
+                    </select>
+                </div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-medium mb-2">Cantidad de preguntas:</label>
+                    <input type="number" id="num-questions-admincloud" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
+                </div>
+                <button onclick="selectSubject('admincloud')" class="mt-auto w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600">Comenzar Quiz</button>
+            </div>
+
+            <!-- Herramientas de Automatización de Despliegues -->
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col">
+                <i class="fas fa-rocket text-4xl text-violet-600 mb-3"></i>
+                <h3 class="text-xl font-bold mb-2 text-gray-900">Automatización de Despliegues</h3>
+                <p id="question-count-automatizacion" class="text-sm text-gray-600 mb-4">Sin preguntas aún</p>
+                
+                <div class="flex-grow"></div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-medium mb-2">Modo:</label>
+                    <select id="quiz-mode-automatizacion" class="w-full p-2 border rounded mb-3">
+                        <option value="normal">Normal - Todos los temas</option>
+                        <option value="tema">Repaso por Tema</option>
+                        <option value="errores">Solo errores anteriores</option>
+                        <option value="cortas">Respuestas cortas</option>
+                    </select>
+                </div>
+                
+                <div id="tema-selector-automatizacion" class="mt-3 hidden">
+                    <label class="block text-sm font-medium mb-2">Selecciona tema:</label>
+                    <select id="tema-select-automatizacion" class="w-full p-2 border rounded">
+                        <option value="Tema 1">Tema 1: Puppet - Introducción e instalación</option>
+                        <option value="Tema 2">Tema 2: Puppet - Utilización</option>
+                        <option value="Tema 3">Tema 3: Chef - Introducción e instalación</option>
+                        <option value="Tema 4">Tema 4: Chef - Pruebas unitarias y de integración</option>
+                        <option value="Tema 5">Tema 5: Ansible - Introducción e instalación</option>
+                        <option value="Tema 6">Tema 6: Ansible - Inventario</option>
+                        <option value="Tema 7">Tema 7: Ansible - Instalación de WordPress</option>
+                        <option value="Tema 8">Tema 8: Roles de Ansible</option>
+                        <option value="Tema 9">Tema 9: Variables de Ansible</option>
+                    </select>
+                </div>
+                
+                <div class="mt-4">
+                    <label class="block text-sm font-medium mb-2">Cantidad de preguntas:</label>
+                    <input type="number" id="num-questions-automatizacion" min="5" max="30" value="10" onclick="event.stopPropagation()" class="w-full p-2 border rounded">
+                </div>
+                <button onclick="selectSubject('automatizacion')" class="mt-auto w-full bg-violet-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-violet-700">Comenzar Quiz</button>
+            </div>
+
+            <!-- Contenedores (oculta - examen aprobado) -->
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex flex-col hidden">
                 <i class="fas fa-cube text-4xl text-cyan-600 mb-3"></i>
                 <h3 class="text-xl font-bold mb-2 text-gray-900">Contenedores</h3>
                 <p id="question-count-contenedores" class="text-sm text-gray-600 mb-4">Cargando preguntas...</p>
@@ -182,6 +181,7 @@
                         <option value="cortas">Respuestas cortas</option>
                         <option value="comandos">Práctica de comandos</option>
                         <option value="casos">Casos prácticos (examen)</option>
+                        <option value="esqueletos">Esqueletos (memorizar)</option>
                     </select>
                 </div>
                 
@@ -331,6 +331,54 @@
         <div id="cmd-stats" class="mt-4 text-center text-sm text-gray-500"></div>
     </div>
 
+    <!-- Esqueletos Container -->
+    <div class="max-w-4xl mx-auto hidden" id="skeletons-content">
+        <header class="mb-6">
+            <div class="flex items-center gap-4 mb-4">
+                <button onclick="backToSubjects()" class="bg-gray-200 p-2 rounded-full hover:bg-gray-300">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div>
+                    <h1 class="text-2xl font-bold text-amber-600">Esqueletos</h1>
+                    <p id="skel-progress" class="text-sm text-gray-500">Esqueleto 1 de 11</p>
+                </div>
+            </div>
+            <div class="progress-bar-container">
+                <div id="skel-progress-bar" class="progress-bar" style="width: 0%; background-color: #d97706;"></div>
+            </div>
+        </header>
+
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="flex items-center gap-2 mb-3">
+                <span id="skel-category" class="text-xs font-semibold text-amber-700 bg-amber-50 px-3 py-1 rounded-full"></span>
+            </div>
+            <h3 id="skel-title" class="text-lg font-bold mb-2 text-gray-900"></h3>
+            <p id="skel-description" class="text-sm text-gray-600 mb-4"></p>
+
+            <textarea id="skel-input" class="w-full p-4 border-2 rounded-lg h-56 font-mono text-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-gray-900 text-green-400" placeholder="Escribe el esqueleto de memoria..."></textarea>
+
+            <button onclick="showSkeleton()" class="w-full mt-3 bg-amber-100 text-amber-700 font-semibold py-2 px-4 rounded-lg hover:bg-amber-200">
+                👀 Ver esqueleto modelo
+            </button>
+
+            <div id="skel-answer" class="hidden mt-4">
+                <div class="p-4 bg-gray-900 rounded-lg border-l-4 border-amber-400 overflow-x-auto">
+                    <p class="text-xs font-bold text-amber-300 uppercase mb-2">Esqueleto modelo</p>
+                    <pre id="skel-code" class="text-sm text-green-400 font-mono whitespace-pre-wrap"></pre>
+                </div>
+                <div class="mt-3 p-3 bg-amber-50 rounded-lg">
+                    <p class="text-xs font-bold text-amber-700 uppercase mb-1">Tips para recordar</p>
+                    <ul id="skel-tips" class="text-sm text-gray-700 list-disc pl-4 space-y-1"></ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4 flex justify-between">
+            <button onclick="prevSkeleton()" id="skel-prev-btn" class="bg-gray-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-gray-700 disabled:opacity-50" disabled>Anterior</button>
+            <button onclick="nextSkeleton()" id="skel-next-btn" class="bg-amber-600 text-white font-semibold py-2 px-5 rounded-lg hover:bg-amber-700">Siguiente</button>
+        </div>
+    </div>
+
     <!-- Casos Prácticos Container -->
     <div class="max-w-4xl mx-auto hidden" id="cases-content">
         <header class="mb-6">
@@ -389,7 +437,7 @@
     <script>
         // Mostrar/ocultar selector de tema para todas las asignaturas
         document.addEventListener('DOMContentLoaded', () => {
-            const subjects = ['herramientasdevops', 'gestionproyectos', 'integracionentrega', 'contenedores'];
+            const subjects = ['herramientasdevops', 'contenedores', 'admincloud', 'automatizacion'];
             
             subjects.forEach(subject => {
                 const modeSelect = document.getElementById(`quiz-mode-${subject}`);

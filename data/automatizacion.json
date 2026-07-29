@@ -1,0 +1,1032 @@
+﻿[
+  {
+    "question": "¿Cómo se denomina en Puppet al host principal que gestiona toda la configuración del entorno?",
+    "options": ["Puppet Server", "Puppet Master", "Puppet Agent", "Nodo"],
+    "answer": "Puppet Master",
+    "explanation": "Generalmente, Puppet se despliega en un modelo cliente-servidor. El servidor recibe el nombre de «Puppet Master». El Puppet Master se ejecuta como un proceso daemon en el host y contiene la configuración necesaria del entorno.",
+    "tema": "Tema 1. Puppet. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo se denomina en Puppet a los hosts gestionados por un Puppet Master?",
+    "options": ["Puppet Server", "Puppet Master", "Puppet Agent", "Nodo"],
+    "answer": "Nodo",
+    "explanation": "El software cliente de Puppet que ejecuta en las máquinas (hosts) que se van a gestionar se llama agente y el propio host se define como un nodo.",
+    "tema": "Tema 1. Puppet. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo se conectan los agentes de Puppet con su servidor maestro?",
+    "options": [
+      "A través de una conexión cifrada utilizando el protocolo SSH",
+      "A través de una conexión cifrada y autentificada utilizando el protocolo SSH",
+      "A través de una conexión cifrada y autentificada utilizando el estándar SSL",
+      "A través de una conexión cifrada y autentificada por HTTP"
+    ],
+    "answer": "A través de una conexión cifrada y autentificada utilizando el estándar SSL",
+    "explanation": "Los agentes de Puppet se conectan con el Puppet Master a través de una conexión cifrada y autentificada utilizando el estándar SSL mediante la que recupera o descarga la configuración que hay que aplicar.",
+    "tema": "Tema 1. Puppet. Introducción e instalación"
+  },
+  {
+    "question": "¿Qué característica tiene el lenguaje que utiliza Puppet?",
+    "options": [
+      "Es un lenguaje declarativo, que declara los pasos que hay que ejecutar de configuración",
+      "Es un lenguaje declarativo, que declara el estado final de la configuración",
+      "Es un lenguaje imperativo o procedimental, que describe los pasos que hay que ejecutar de configuración",
+      "Es un lenguaje imperativo o procedimental, que define el estado final de la configuración"
+    ],
+    "answer": "Es un lenguaje declarativo, que declara el estado final de la configuración",
+    "explanation": "Puppet utiliza un lenguaje declarativo para definir los elementos de configuración. Este lenguaje hace declaraciones sobre el estado final de la configuración. Otras herramientas de configuración son imperativas o procedimentales, y describen cómo hay que hacer las cosas en vez de declarar el estado final deseado.",
+    "tema": "Tema 1. Puppet. Introducción e instalación"
+  },
+  {
+    "question": "¿A qué se denomina proveedor en Puppet?",
+    "options": [
+      "Es el que proporciona los recursos en la nube, como AWS o Azure",
+      "Es el que proporciona el «cómo» de cada tipo, según la plataforma",
+      "Es el que proporciona el «qué» de cada tipo, según la plataforma",
+      "Es el que proporciona la conectividad entre el nodo y el maestro"
+    ],
+    "answer": "Es el que proporciona el «cómo» de cada tipo, según la plataforma",
+    "explanation": "Cada tipo tiene una serie de proveedores, que se encargan del «cómo» gestionar el recurso, al saber cómo diferentes plataformas y sistemas operativos lo manejan. Por ejemplo, el tipo «package» tiene distintos proveedores, según la herramienta de gestión de paquetes que corresponda, tales como yum, aptitude, pkgadd, etc.",
+    "tema": "Tema 1. Puppet. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo se gestiona la idempotencia en Puppet?",
+    "options": [
+      "Puppet no soporta idempotencia",
+      "Mediante los proveedores, que implementan los tipos de recursos",
+      "Mediante los tipos, que permiten gestionar los distintos elementos de configuración",
+      "Mediante la capa transaccional, que permite crear configuraciones y aplicarlas repetidamente en el host"
+    ],
+    "answer": "Mediante la capa transaccional, que permite crear configuraciones y aplicarlas repetidamente en el host",
+    "explanation": "La idempotencia en Puppet se gestiona en la capa transaccional, que permite crear configuraciones y aplicarlas repetidamente en el host. Así, múltiples aplicaciones de la misma operación darán lugar al mismo resultado, por lo que la configuración se puede ejecutar repetidamente de forma segura.",
+    "tema": "Tema 1. Puppet. Introducción e instalación"
+  },
+  {
+    "question": "¿Qué herramienta nos proporciona los facts en Puppet?",
+    "options": ["Facter", "Puppetfacts", "Factia", "Puppetfacter"],
+    "answer": "Facter",
+    "explanation": "Facter es una herramienta que incorpora Puppet de inventario del sistema, que devuelve facts (hechos) acerca de cada agente, como su nombre de host, dirección IP, sistema operativo y versión, y otros elementos de configuración.",
+    "tema": "Tema 1. Puppet. Introducción e instalación"
+  },
+  {
+    "question": "¿Qué prerrequisitos puede tener la instalación de Puppet?",
+    "options": [
+      "Instalar Python y alguna de sus bibliotecas",
+      "Instalar Git",
+      "Instalar Ruby y alguna de sus bibliotecas",
+      "Instalar Facter"
+    ],
+    "answer": "Instalar Ruby y alguna de sus bibliotecas",
+    "explanation": "En Red Hat Enterprise Linux (RHEL) y derivados basados en Red Hat, como CentOS, es necesario instalar algunos requisitos previos —el lenguaje de programación Ruby, bibliotecas de Ruby y la biblioteca Shadow de Ruby— para permitir a Puppet gestionar usuarios y grupos.",
+    "tema": "Tema 1. Puppet. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo le indicamos a Puppet la configuración que hay que cargar y dónde aplicarla?",
+    "options": [
+      "A través de variables de entorno",
+      "Mediante parámetros de configuración",
+      "A través del archivo site.pp",
+      "A través del archivo manifest.pp"
+    ],
+    "answer": "A través del archivo site.pp",
+    "explanation": "El archivo site.pp le dice a Puppet dónde y qué configuración debe cargar para nuestros clientes.",
+    "tema": "Tema 1. Puppet. Introducción e instalación"
+  },
+  {
+    "question": "¿Qué pasa cuando un agente se conecta por primera vez al Puppet Master?",
+    "options": [
+      "Espera la respuesta del servidor con la configuración a aplicar",
+      "Envía una solicitud de certificado. El Master deberá generarlo y devolverlo firmado",
+      "El Master lee el archivo site.pp para ver si el agente está ahí referenciado",
+      "El agente informa de su nombre para que el Master lo añada al archivo site.pp"
+    ],
+    "answer": "Envía una solicitud de certificado. El Master deberá generarlo y devolverlo firmado",
+    "explanation": "Cuando el agente se conecta al Master por primera vez, este solicitará un certificado del Master. Si no le otorga el certificado, la conexión entre el agente y el Master no se establecerá correctamente.",
+    "tema": "Tema 1. Puppet. Introducción e instalación"
+  },
+  {
+    "question": "¿Qué es un módulo en Puppet?",
+    "options": [
+      "Un elemento individual de configuración",
+      "Una colección de recursos y variables",
+      "Una colección de manifiestos que contienen recursos, clases, definiciones, archivos y plantillas",
+      "Una colección de clases y sus definiciones"
+    ],
+    "answer": "Una colección de manifiestos que contienen recursos, clases, definiciones, archivos y plantillas",
+    "explanation": "Un módulo es una colección portable y reutilizable de manifiestos que contienen recursos, clases, definiciones, archivos y plantillas.",
+    "tema": "Tema 2. Puppet. Utilización"
+  },
+  {
+    "question": "¿Cómo se define una variable en Puppet?",
+    "options": ["$nombre: valor", "$nombre = valor", "nombre: $valor", "nombre = $valor"],
+    "answer": "$nombre = valor",
+    "explanation": "En Puppet, las líneas que comienzan con el signo dólar son variables que se utilizan para especificar valores que se pueden utilizar en la configuración de Puppet.",
+    "tema": "Tema 2. Puppet. Utilización"
+  },
+  {
+    "question": "¿Cómo se pueden definir un grupo de nodos con un nombre de host parecido en un recurso node?",
+    "options": [
+      "A través de comodines en la definición del nombre",
+      "A través de una expresión regular en la definición del nombre",
+      "Especificando un nombre de variable",
+      "Las opciones A y B son correctas"
+    ],
+    "answer": "A través de una expresión regular en la definición del nombre",
+    "explanation": "El nombre del nodo puede ser el nombre de host o su nombre completo del dominio. No se pueden utilizar expresiones de nodos con comodines, como \"*.example.com\", pero sí se pueden utilizar expresiones regulares.",
+    "tema": "Tema 2. Puppet. Utilización"
+  },
+  {
+    "question": "¿Dónde estará definida la clase principal de un módulo?",
+    "options": [
+      "En el archivo manifests/init.pp",
+      "En el archivo manifests/main.pp",
+      "En el archivo main/init.pp",
+      "En el archivo main/main.pp"
+    ],
+    "answer": "En el archivo manifests/init.pp",
+    "explanation": "El directorio manifests contendrá el archivo init.pp y cualquier otro manifiesto de configuración. El archivo init.pp es el núcleo del módulo y define la clase principal, a la que nos referiremos al utilizar el nombre del módulo.",
+    "tema": "Tema 2. Puppet. Utilización"
+  },
+  {
+    "question": "¿Cómo podemos declarar que necesitamos que un paquete esté instalado?",
+    "options": [
+      "Mediante el recurso yum o apt con el atributo ensure => present",
+      "Mediante el recurso yum o apt con el atributo installed => true",
+      "Mediante el recurso package con el atributo installed => true",
+      "Mediante el recurso package con el atributo ensure => present"
+    ],
+    "answer": "Mediante el recurso package con el atributo ensure => present",
+    "explanation": "El recurso package con el atributo ensure => present garantiza que el paquete especificado esté instalado. Si no lo estuviera ya, Puppet usará el provider que corresponda (según el sistema operativo) para instalarlo.",
+    "tema": "Tema 2. Puppet. Utilización"
+  },
+  {
+    "question": "¿Qué significa el atributo require => Package[\"sudo\"] en un recurso?",
+    "options": [
+      "Que el paquete sudo debe instalarse después",
+      "Que si el paquete sudo no se ha instalado, no se hace nada",
+      "Que el recurso Package[\"sudo\"] deberá evaluarse primero",
+      "Que el recurso Package[\"sudo\"] deberá evaluarse a continuación"
+    ],
+    "answer": "Que el recurso Package[\"sudo\"] deberá evaluarse primero",
+    "explanation": "El metaparámetro require crea una relación de dependencia entre el recurso que lo incluye y el referenciado. Agregar require al recurso le dice a Puppet que Package[\"sudo\"] es prerrequisito, por lo que deberá ser instalado primero.",
+    "tema": "Tema 2. Puppet. Utilización"
+  },
+  {
+    "question": "¿Cómo podemos hacer que Puppet evalúe una plantilla?",
+    "options": [
+      "Mediante el uso del tipo de recurso template con el atributo content",
+      "Mediante la función template o epp en el atributo content de un recurso de tipo file",
+      "Mediante el atributo content en un recurso de tipo file",
+      "Mediante la función template o epp en el atributo content de un recurso de tipo template"
+    ],
+    "answer": "Mediante la función template o epp en el atributo content de un recurso de tipo file",
+    "explanation": "Las plantillas en Puppet se evalúan mediante la función template o epp en el atributo content de un recurso de tipo file, pasándole como parámetro el nombre del módulo y la ruta de la plantilla partiendo del directorio templates, separados por '/'.",
+    "tema": "Tema 2. Puppet. Utilización"
+  },
+  {
+    "question": "¿Cómo nos podemos asegurar de que no exista un fichero con Puppet?",
+    "options": [
+      "Mediante el uso del tipo de recurso delete",
+      "Mediante el atributo ensure => delete en un recurso de tipo file",
+      "Mediante el atributo ensure => absent en un recurso de tipo delete",
+      "Mediante el atributo ensure => absent en un recurso de tipo file"
+    ],
+    "answer": "Mediante el atributo ensure => absent en un recurso de tipo file",
+    "explanation": "La operación deseada sobre un recurso de tipo fichero en Puppet se realiza mediante el atributo ensure, que permite, entre otros, los valores present (crea el fichero si no existe), link (crea un enlace a otro fichero, si no existe), absent (lo borra si existe).",
+    "tema": "Tema 2. Puppet. Utilización"
+  },
+  {
+    "question": "¿Cómo se indica en Puppet que un recurso debe disparar el reinicio de un servicio nginx?",
+    "options": [
+      "Mediante el atributo en el recurso: requires => Service['nginx']",
+      "Mediante el atributo en el servicio: requires => Resource['nginx']",
+      "Mediante el atributo en el servicio: notify => Resource['nginx']",
+      "Mediante el atributo en el recurso: notify => Service['nginx']"
+    ],
+    "answer": "Mediante el atributo en el recurso: notify => Service['nginx']",
+    "explanation": "El atributo notify sirve para notificar a otro recurso que se han producido cambios, por lo que se utiliza generalmente para notificar a un servicio que se debe reiniciar cuando se han cambiado elementos de configuración que le afectan y los debe recargar.",
+    "tema": "Tema 2. Puppet. Utilización"
+  },
+  {
+    "question": "¿Para qué sirve el atributo unless en un recurso de Puppet?",
+    "options": [
+      "Para que el recurso se ejecute el último",
+      "Para que se evalúe el recurso si se cumple la condición dada",
+      "Para que no se evalúe el recurso si se cumple la condición dada",
+      "Para que se evalúe el recurso solo si se dan varias condiciones"
+    ],
+    "answer": "Para que no se evalúe el recurso si se cumple la condición dada",
+    "explanation": "El atributo unless es una de las maneras de condicionar la ejecución de Puppet, y hace que no se evalúe el recurso si se cumple la condición, esto es, el recurso se evalúa 'a no ser que' la condición proporcionada en el atributo unless sea cierta.",
+    "tema": "Tema 2. Puppet. Utilización"
+  },
+  {
+    "question": "¿Cuáles son los componentes básicos del framework Chef?",
+    "options": [
+      "Servidor Chef, cliente y nodos",
+      "Servidor Chef, nodos y workstation Chef",
+      "Cliente Chef, nodos y workstation Chef",
+      "Servidor Chef y nodos"
+    ],
+    "answer": "Servidor Chef, nodos y workstation Chef",
+    "explanation": "El framework Chef está compuesto por tres componentes básicos que interactúan entre sí: el servidor Chef, las máquinas gestionadas denominadas nodos y la estación de trabajo Chef (Chef Workstation).",
+    "tema": "Tema 3. Chef. Introducción e instalación"
+  },
+  {
+    "question": "¿Con qué otro nombre se denomina al Chef Workstation?",
+    "options": [
+      "Repositorio Chef o Chef-repo",
+      "Servidor Chef",
+      "Cliente Chef",
+      "Plataforma Chef o Chef-platform"
+    ],
+    "answer": "Repositorio Chef o Chef-repo",
+    "explanation": "El componente Chef Workstation, también denominado repositorio de Chef (Chef-repo), contiene la estructura del proyecto gestionado por Chef y lo maneja el desarrollador o administrador desde su workstation.",
+    "tema": "Tema 3. Chef. Introducción e instalación"
+  },
+  {
+    "question": "¿Cuál de las siguientes afirmaciones es más correcta con respecto al servidor Chef?",
+    "options": [
+      "Servidor centralizado que contiene y gestiona la configuración de todos los nodos",
+      "Repositorio de los cookbooks, roles, archivos de configuración y otros artefactos que maneja el usuario",
+      "Puede estar ubicado en un servidor independiente o alojado como servicio en la nube en Chef",
+      "A y C son correctas"
+    ],
+    "answer": "A y C son correctas",
+    "explanation": "El servidor Chef es un servidor centralizado que contiene y gestiona la configuración de todos los nodos. Puede estar ubicado en un servidor independiente o alojado como servicio en la nube en Chef.",
+    "tema": "Tema 3. Chef. Introducción e instalación"
+  },
+  {
+    "question": "¿Qué es un cookbook en Chef?",
+    "options": [
+      "Una abstracción multiplataforma de partes configurables de un nodo, como pueden ser usuarios, paquetes, archivos o directorios",
+      "Contiene conjuntos de datos que están disponibles globalmente, y puede ser utilizado por los nodos y roles",
+      "Colección reutilizable de recursos e instrucciones que se necesitan para configurar nodos. Se componen habitualmente de varias recetas",
+      "A y B son correctas"
+    ],
+    "answer": "Colección reutilizable de recursos e instrucciones que se necesitan para configurar nodos. Se componen habitualmente de varias recetas",
+    "explanation": "Los cookbooks contienen todos los recursos e instrucciones que se necesitan para configurar nodos, y pueden ser reutilizados en varias listas de ejecución. Los cookbooks se componen habitualmente de varias recetas.",
+    "tema": "Tema 3. Chef. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo podemos procesar un fichero de plantilla en Chef?",
+    "options": [
+      "Mediante un recurso de tipo template y el argumento source para especificar la plantilla a procesar",
+      "Mediante un recurso de tipo file y el argumento template para especificar la plantilla a procesar",
+      "Mediante un recurso de tipo template y el argumento file para especificar la plantilla a procesar",
+      "Mediante un recurso de tipo file y la función template para especificar la plantilla a procesar"
+    ],
+    "answer": "Mediante un recurso de tipo template y el argumento source para especificar la plantilla a procesar",
+    "explanation": "El recurso de tipo template nos permite procesar una plantilla del servidor y guardar el fichero generado en la ruta de recurso especificada. El argumento que se utiliza en este caso es source, que proporciona la ruta de la plantilla a utilizar.",
+    "tema": "Tema 3. Chef. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo podemos condicionar la ejecución de un recurso en Chef?",
+    "options": [
+      "Mediante una guarda not_if en el recurso",
+      "Mediante una guarda only_if en el recurso",
+      "Mediante una condición unless en el recurso",
+      "A y B son correctas"
+    ],
+    "answer": "A y B son correctas",
+    "explanation": "Las sentencias condicionales se llaman guardas (guards) en Chef, y contamos con only_if que ejecuta el recurso sólo si se cumple la condición, y la inversa not_if, que no ejecutará el recurso si se cumple la condición.",
+    "tema": "Tema 3. Chef. Introducción e instalación"
+  },
+  {
+    "question": "¿Dónde es más adecuado declarar una variable o atributo en un cookbook?",
+    "options": [
+      "En el fichero vars/default.rb",
+      "En el fichero default/vars.rb",
+      "En el fichero default/attributes.rb",
+      "En el fichero attributes/default.rb"
+    ],
+    "answer": "En el fichero attributes/default.rb",
+    "explanation": "Las variables en Chef se denominan atributos, y se pueden declarar en varios lugares como las propias recetas. En un cookbook es recomendable contar con un fichero donde declararlas, que se ubica en attributes/default.rb.",
+    "tema": "Tema 3. Chef. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo se notifica a un servicio para su reinicio desde un recurso en Chef?",
+    "options": [
+      "Mediante la propiedad service con la acción :restart",
+      "Mediante la propiedad notifies con la acción :restart",
+      "Mediante la propiedad service con la acción :reload",
+      "Mediante la propiedad restart con la acción :service"
+    ],
+    "answer": "Mediante la propiedad notifies con la acción :restart",
+    "explanation": "La propiedad notifies permite a un recurso notificar si ha habido cambios a otro recurso, generalmente un servicio. La acción le indicará al recurso notificado qué debe hacer, tal como reiniciar (:restart), recargar (:reload), etc.",
+    "tema": "Tema 3. Chef. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo podemos acceder a los facts de un nodo proporcionados por Ohai?",
+    "options": [
+      "Como a cualquier otro atributo, a través del objeto node",
+      "Mediante el objeto ohai",
+      "Mediante el objeto facts",
+      "Como a cualquier otro atributo, a través del objeto node, bajo la clave facts"
+    ],
+    "answer": "Como a cualquier otro atributo, a través del objeto node",
+    "explanation": "La utilidad Ohai que recopila facts de un nodo los hace disponibles a través de atributos del objeto node, accesibles como cualquier otro atributo del nodo definido por el usuario.",
+    "tema": "Tema 3. Chef. Introducción e instalación"
+  },
+  {
+    "question": "¿Cuál es el repositorio público de cookbooks compartidos de la comunidad de Chef?",
+    "options": ["Chef Knife", "Chef Kitchen", "Chef Supermarket", "ChefSpec"],
+    "answer": "Chef Supermarket",
+    "explanation": "Chef Supermarket es un repositorio compartido de cookbooks donde cualquier usuario de la comunidad puede publicar sus cookbooks o consultar los que hay disponibles, alrededor de 4000, para hacer uso de ellos.",
+    "tema": "Tema 3. Chef. Introducción e instalación"
+  },
+  {
+    "question": "¿Cuál es la herramienta más adecuada en Chef para definir pruebas unitarias?",
+    "options": ["RSpec", "ChefSpec", "Test Kitchen", "Serverspec"],
+    "answer": "ChefSpec",
+    "explanation": "ChefSpec es un framework de pruebas para Chef construido sobre RSpec, que es a su vez un framework de pruebas para Ruby.",
+    "tema": "Tema 4. Chef. Pruebas unitarias y de integración"
+  },
+  {
+    "question": "¿Cuál es la herramienta más adecuada en Chef para automatizar las pruebas de integración?",
+    "options": ["RSpec", "ChefSpec", "Test Kitchen", "Serverspec"],
+    "answer": "Test Kitchen",
+    "explanation": "Test Kitchen es una herramienta de automatización de pruebas distribuida con Chef WorkStation y ChefDK. Gestiona las máquinas virtuales internamente llamadas nodos, aplica la configuración Chef y realiza test.",
+    "tema": "Tema 4. Chef. Pruebas unitarias y de integración"
+  },
+  {
+    "question": "¿Cuál de las siguientes herramientas podemos utilizar en Chef para definir pruebas de integración?",
+    "options": ["RSpec", "Chef WorkStation", "Test Kitchen", "Serverspec"],
+    "answer": "Serverspec",
+    "explanation": "Serverspec es un framework de pruebas basado en RSpec, que permite escribir pruebas de estilo RSpec para comprobar la configuración de la infraestructura, sin importar cómo ha sido aprovisionada dicha infraestructura.",
+    "tema": "Tema 4. Chef. Pruebas unitarias y de integración"
+  },
+  {
+    "question": "¿Cómo definimos una prueba unitaria en ChefSpec para una receta?",
+    "options": [
+      "Creando en el mismo directorio que la receta un fichero <receta>_spec.rb",
+      "Creando bajo el directorio test un fichero <receta>_spec.rb",
+      "Creando en el mismo directorio que la receta un fichero con extensión .spec",
+      "Creando bajo el directorio spec un fichero <receta>_spec.rb"
+    ],
+    "answer": "Creando bajo el directorio spec un fichero <receta>_spec.rb",
+    "explanation": "La manera de comenzar a escribir pruebas unitarias para un cookbook con ChefSpec es crear en la carpeta spec un archivo de especificaciones correspondiente a cada receta.",
+    "tema": "Tema 4. Chef. Pruebas unitarias y de integración"
+  },
+  {
+    "question": "¿Cómo se inicializa ChefSpec en un fichero de especificaciones de pruebas unitarias?",
+    "options": [
+      "Incluyendo la gema de ChefSpec mediante require 'chefspec'",
+      "Incluyendo la gema de pruebas mediante require 'test'",
+      "Incluyendo la gema de pruebas unitarias mediante require 'unit_test'",
+      "Son necesarias A y C"
+    ],
+    "answer": "Incluyendo la gema de ChefSpec mediante require 'chefspec'",
+    "explanation": "Lo primero que debemos hacer en un fichero de especificaciones de pruebas unitarias es incluir la gema de ChefSpec.",
+    "tema": "Tema 4. Chef. Pruebas unitarias y de integración"
+  },
+  {
+    "question": "¿Cómo se comprueba en ChefSpec el resultado obtenido con el resultado esperado?",
+    "options": [
+      "Mediante la instrucción describe",
+      "Mediante la instrucción context",
+      "Mediante la instrucción expect",
+      "Mediante la instrucción verify"
+    ],
+    "answer": "Mediante la instrucción expect",
+    "explanation": "La instrucción expect define la expectación, lo que se espera obtener. Comprueba un atributo u objeto contra el resultado que se espera obtener.",
+    "tema": "Tema 4. Chef. Pruebas unitarias y de integración"
+  },
+  {
+    "question": "¿Cómo especifico en Test Kitchen los distintos sistemas operativos y versiones que deseo probar?",
+    "options": [
+      "Mediante el bloque systems en kitchen.yml",
+      "Mediante el bloque platforms en kitchen.yml",
+      "Mediante el bloque systems en test.yml",
+      "Mediante el bloque platforms en test.yml"
+    ],
+    "answer": "Mediante el bloque platforms en kitchen.yml",
+    "explanation": "El bloque platforms en el fichero de configuración kitchen.yml especifica la lista de sistemas operativos y versiones sobre los que queremos automatizar las pruebas.",
+    "tema": "Tema 4. Chef. Pruebas unitarias y de integración"
+  },
+  {
+    "question": "¿Cómo defino en Test Kitchen las recetas que quiero probar?",
+    "options": [
+      "Mediante el bloque suites en kitchen.yml",
+      "Mediante el bloque recipes en kitchen.yml",
+      "Mediante el bloque suites en test.yml",
+      "Mediante el bloque recipes en test.yml"
+    ],
+    "answer": "Mediante el bloque suites en kitchen.yml",
+    "explanation": "El bloque suites en el fichero de configuración kitchen.yml especifica la lista de casos de prueba, en donde cada suite especifica una lista de ejecución que puede incorporar los nombres de recetas a probar.",
+    "tema": "Tema 4. Chef. Pruebas unitarias y de integración"
+  },
+  {
+    "question": "¿Cómo especifico mediante Serverspec una prueba sobre un recurso?",
+    "options": [
+      "Mediante un bloque resource",
+      "Mediante un bloque describe",
+      "Mediante un bloque suite",
+      "Mediante un bloque test"
+    ],
+    "answer": "Mediante un bloque describe",
+    "explanation": "El bloque describe en Serverspec permite definir una prueba sobre un recurso, incorporando un conjunto de comprobaciones sobre este.",
+    "tema": "Tema 4. Chef. Pruebas unitarias y de integración"
+  },
+  {
+    "question": "¿Cómo compruebo mediante Serverspec que la salida de un comando contiene una determinada cadena?",
+    "options": [
+      "describe (:stdout) {includes /VIM - Vi IMproved/}",
+      "its (:stdout) { includes /VIM - Vi IMproved/}",
+      "describe (:stdout) {should match /VIM - Vi IMproved/}",
+      "its (:stdout) {should match /VIM - Vi IMproved/}"
+    ],
+    "answer": "its (:stdout) {should match /VIM - Vi IMproved/}",
+    "explanation": "Puedes obtener el resultado de un comando mediante stdout, y utilizar its(:stdout) con cualquiera de los matchers que soporta RSpec.",
+    "tema": "Tema 4. Chef. Pruebas unitarias y de integración"
+  },
+  {
+    "question": "¿En qué lenguaje está escrito Ansible?",
+    "options": ["YAML", "Ruby", "Python", "Ninguno de los anteriores"],
+    "answer": "Python",
+    "explanation": "Ansible está enteramente escrito en Python. Se eligió porque no requiere dependencias adicionales en las máquinas que se querían gestionar. La mayoría de los sistemas de gestión de la configuración de entonces requerían la instalación de Ruby.",
+    "tema": "Tema 5. Ansible. Introducción e instalación"
+  },
+  {
+    "question": "¿Qué lenguaje emplean los ficheros playbook?",
+    "options": ["XML", "YAML", "HTML", "Properties"],
+    "answer": "YAML",
+    "explanation": "Ansible utiliza ficheros YAML como su principal fuente de información en tiempo de ejecución. YAML es un lenguaje de representación de datos que se usa habitualmente para configuración.",
+    "tema": "Tema 5. Ansible. Introducción e instalación"
+  },
+  {
+    "question": "¿Qué diferencia principal existe entre Ansible y Puppet/Chef?",
+    "options": [
+      "Puppet y Chef usan un servidor centralizado cada uno, Ansible no tiene ningún servidor centralizado (funciona sin agente, agentless)",
+      "Las máquinas gestionadas por Ansible preguntan periódicamente para saber si hay cambios de configuración, mientras que Puppet y Chef, no",
+      "No existen diferencias a nivel funcional entre las tres herramientas",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Puppet y Chef usan un servidor centralizado cada uno, Ansible no tiene ningún servidor centralizado (funciona sin agente, agentless)",
+    "explanation": "Puppet y Chef usan un servidor centralizado cada uno para almacenar el estado deseado y metadatos de las máquinas. Ansible no tiene ningún servidor centralizado (funciona sin agente, agentless).",
+    "tema": "Tema 5. Ansible. Introducción e instalación"
+  },
+  {
+    "question": "¿Qué diferencia la distribución de cambios entre Ansible, Puppet y Chef?",
+    "options": [
+      "La distribución de cambios usa el mismo modelo en los tres",
+      "Puppet y Chef requieren que el usuario distribuya explícitamente los cambios cuando necesite a los nodos requeridos, mientras que Ansible los distribuye automáticamente",
+      "La diferencia es que el usuario es el responsable de distribuir las actualizaciones a las máquinas, mientras que con Puppet y Chef se pueden guardar (commit) los cambios a fin de ser distribuidos",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "La diferencia es que el usuario es el responsable de distribuir las actualizaciones a las máquinas, mientras que con Puppet y Chef se pueden guardar (commit) los cambios a fin de ser distribuidos",
+    "explanation": "En el caso de Puppet y Chef, cada servidor se conectará periódicamente con el servidor central para comprobar si hay alguna actualización. Ansible confía completamente en los usuarios finales la labor de enviar los cambios ellos mismos.",
+    "tema": "Tema 5. Ansible. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo puedes utilizar Vagrant para provisionar Ansible, si no lo tienes instalado en tu máquina?",
+    "options": [
+      "No es posible. Debes instalar Ansible en tu máquina",
+      "Vagrant se encarga de instalarlo en tu máquina automáticamente",
+      "Utilizando el aprovisionador \"ansible\"",
+      "Utilizando el aprovisionador \"ansible_local\""
+    ],
+    "answer": "Utilizando el aprovisionador \"ansible_local\"",
+    "explanation": "Al usar ansible ejecutaremos Ansible en tu máquina host, mientras que al usar ansible_local accederá a la máquina virtual y lo ejecutará desde ahí dentro. Vagrant se ocupará de la instalación y la configuración dentro de la máquina virtual.",
+    "tema": "Tema 5. Ansible. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo suelen empezar los playbooks de Ansible?",
+    "options": [
+      "Con una línea en blanco",
+      "Con tres guiones",
+      "Con tres espacios",
+      "Con #? /ansible"
+    ],
+    "answer": "Con tres guiones",
+    "explanation": "Los ficheros YAML comienzan por definir (asunto frontal – front matter). Dado que Ansible no requiere esto, se indica que no hay metadatos añadiendo tres guiones seguidos en una sola línea. En tu playbook, esto será la primera línea.",
+    "tema": "Tema 5. Ansible. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo se llaman las operaciones individuales de configuración con las que dices a Ansible «qué» ejecutar?",
+    "options": ["Acciones", "Comandos", "Funciones", "Tareas"],
+    "answer": "Tareas",
+    "explanation": "Para decirle a Ansible «qué» es lo que tiene que ejecutar se definen tareas. Esto se hace añadiendo una sección llamada tasks dentro del playbook.",
+    "tema": "Tema 5. Ansible. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo es posible identificar adecuadamente una tarea que ejecuta Ansible?",
+    "options": [
+      "Añadiendo el atributo name con una descripción adecuada a la tarea",
+      "Poniendo un comentario en el código",
+      "Añadiendo una descripción a la tarea",
+      "No es posible proporcionar una identificación personalizada a una tarea. Ansible muestra en la salida de la ejecución el tipo de tarea para que la identifiques"
+    ],
+    "answer": "Añadiendo el atributo name con una descripción adecuada a la tarea",
+    "explanation": "Ansible te permite añadir un nombre a cada tarea para explicar su propósito a través del atributo name.",
+    "tema": "Tema 5. Ansible. Introducción e instalación"
+  },
+  {
+    "question": "¿Cómo puedes ejecutar en Ansible una tarea con privilegios de administrador?",
+    "options": [
+      "Usando el módulo ping",
+      "Usando el atributo present",
+      "Usando el módulo apt",
+      "Usando la opción become"
+    ],
+    "answer": "Usando la opción become",
+    "explanation": "La opción become controla con qué usuario se ejecutan los comandos. become se puede añadir junto a la tarea que requiere más permisos o puede añadirse a nivel playbook, con lo que todo comando se ejecutará con permisos de administrador.",
+    "tema": "Tema 5. Ansible. Introducción e instalación"
+  },
+  {
+    "question": "¿Qué significa el término idempotencia en el contexto de Ansible?",
+    "options": [
+      "Que Ansible es igual de potente que Puppet o Chef",
+      "Que puedes hacer algo muchas veces y el resultado será siempre el mismo",
+      "Que lo que ejecutes con Ansible será igual de potente que si lo ejecutas manualmente",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Que puedes hacer algo muchas veces y el resultado será siempre el mismo",
+    "explanation": "Idempotente significa que puedes hacer algo muchas veces y el resultado será siempre el mismo. En términos de Ansible, un playbook es considerado idempotente si se puede ejecutar múltiples veces y, tras la primera ejecución, la máquina queda en un estado concreto, que no varía con sucesivas ejecuciones.",
+    "tema": "Tema 5. Ansible. Introducción e instalación"
+  }
+,
+  {
+    "question": "¿Es recomendable utilizar el fichero de inventario por defecto de Ansible?",
+    "options": [
+      "Sí, porque así no te tienes que preocupar de definir otro fichero",
+      "No, porque es recomendable mantener un fichero de inventario por cada proyecto",
+      "Sí, porque Ansible detectará así automáticamente los hosts a gestionar en la red",
+      "No, porque los hackers pueden así conocer fácilmente tu inventario"
+    ],
+    "answer": "No, porque es recomendable mantener un fichero de inventario por cada proyecto",
+    "explanation": "Ansible leerá etc/ansible/hosts como fichero de inventario por defecto. Sin embargo, el uso de este fichero no está recomendado. Deberías mantener un fichero de inventario diferente por cada proyecto y pasarlo al comando ansible o ansible-playbook usando la opción -i.",
+    "tema": "Tema 6. Ansible. Inventario"
+  },
+  {
+    "question": "¿Cuál es el formato habitual de un fichero de inventario?",
+    "options": [
+      "XML",
+      "JSON",
+      "INI para los estáticos, XML para los dinámicos",
+      "INI para los estáticos, JSON para los dinámicos"
+    ],
+    "answer": "INI para los estáticos, JSON para los dinámicos",
+    "explanation": "El fichero de inventario en Ansible puede ser o bien un fichero INI o uno JSON. La mayoría de los ejemplos que puedes encontrar usan un fichero INI, mientras que JSON se suelen utilizar únicamente cuando el inventario se genera dinámicamente.",
+    "tema": "Tema 6. Ansible. Inventario"
+  },
+  {
+    "question": "¿Se pueden usar rangos en los ficheros de inventario INI?",
+    "options": [
+      "Sí, para especificar una serie de servidores con un patrón de nombre común",
+      "No, solo nombres individuales, alias y grupos",
+      "Sí, para especificar un valor para un conjunto de propiedades con un patrón de nombre común",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Sí, para especificar una serie de servidores con un patrón de nombre común",
+    "explanation": "Si estás trabajando con un gran número de servidores que siguen un patrón de nombre común, puedes usar rangos para identificarlos en Ansible, dado que soporta definir rangos en los ficheros de inventario.",
+    "tema": "Tema 6. Ansible. Inventario"
+  },
+  {
+    "question": "¿Para qué se utiliza el parámetro de inventario ansible_user?",
+    "options": [
+      "Para especificar el usuario SSH con el que Ansible conecta al host",
+      "Para especificar el usuario con el que ejecuta Ansible en local",
+      "Para indicar el usuario con permisos de administrador",
+      "Para crear un usuario en el host"
+    ],
+    "answer": "Para especificar el usuario SSH con el que Ansible conecta al host",
+    "explanation": "El usuario SSH con el que acceder a la máquina remota: ansible_user=Pepe. Sería equivalente a: ssh Pepe@host1.example.com.",
+    "tema": "Tema 6. Ansible. Inventario"
+  },
+  {
+    "question": "¿Qué significa la siguiente línea en un fichero de inventario: host1 vhost=staging?",
+    "options": [
+      "El servidor host1 que tiene como alias staging",
+      "El alias host1 que se asocia al host staging",
+      "El servidor host1 y el servidor virtual staging",
+      "El servidor host1 al que se define la variable vhost=staging"
+    ],
+    "answer": "El servidor host1 al que se define la variable vhost=staging",
+    "explanation": "Además de establecer variables Ansible especiales en el inventario, como ansible_user, puedes establecer cualquier otra variable, simplemente añadiendo a la línea del host el nombre de la variable y su valor, separados por el signo '='.",
+    "tema": "Tema 6. Ansible. Inventario"
+  },
+  {
+    "question": "¿Para qué sirve un grupo de inventario?",
+    "options": [
+      "Para poder establecer variables a un conjunto de servidores a la vez",
+      "Para poder agrupar un conjunto homogéneo de servidores y manejarlos como una única entidad",
+      "Para agrupar grupos de servidores en una agrupación superior",
+      "Todas las anteriores"
+    ],
+    "answer": "Todas las anteriores",
+    "explanation": "Un grupo de inventario nos permite agrupar un conjunto de servidores por tipo y gestionarlos como a una única entidad. Al igual que puedes establecer variables para hosts específicos, también puedes establecer variables para grupos de hosts. Asimismo, puedes crear un grupo de grupos de hosts.",
+    "tema": "Tema 6. Ansible. Inventario"
+  },
+  {
+    "question": "¿Cómo se define un grupo de grupos de inventario?",
+    "options": [
+      "Simplemente definiendo un grupo, y añadiendo dentro nombres de otros grupos, en lugar de hosts",
+      "Utilizando el sufijo :children en tu nombre de grupo",
+      "Utilizando el sufijo :group en tu nombre de grupo",
+      "No se pueden anidar grupos de inventario"
+    ],
+    "answer": "Utilizando el sufijo :children en tu nombre de grupo",
+    "explanation": "Para definir un grupo de grupos en Ansible, se utiliza el sufijo :children en el nombre del grupo, lo que permite agrupar varios grupos bajo una jerarquía superior.",
+    "tema": "Tema 6. Ansible. Inventario"
+  },
+  {
+    "question": "¿Para cuándo es más adecuado utilizar un fichero de inventario dinámico?",
+    "options": [
+      "Para definir más de 10 hosts en el inventario",
+      "Cuando mantenemos nuestra lista de servidores en un fichero INI",
+      "Cuando existe un número elevado de servidores y necesitamos utilizar una fuente de datos externa que nos proporcione el inventario",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Cuando existe un número elevado de servidores y necesitamos utilizar una fuente de datos externa que nos proporcione el inventario",
+    "explanation": "Cuando tengas uno o dos servidores que administrar, mantener un fichero de inventario a mano no es una tarea muy exigente. Pero, una vez que se tiene un número elevado de servidores, suele ser necesario algo con un poco más de estructura, como por ejemplo una hoja de cálculo o una base de datos.",
+    "tema": "Tema 6. Ansible. Inventario"
+  },
+  {
+    "question": "¿Cómo podemos utilizar un fichero de inventario dinámico?",
+    "options": [
+      "Indicando un fichero XML en el parámetro -i al ejecutar Ansible",
+      "Indicando un fichero ejecutable en el parámetro -i al ejecutar Ansible",
+      "Indicando un fichero JSON en el parámetro -i al ejecutar Ansible",
+      "Indicando un fichero sin extensión INI en el parámetro -i al ejecutar Ansible"
+    ],
+    "answer": "Indicando un fichero ejecutable en el parámetro -i al ejecutar Ansible",
+    "explanation": "Cuando se invoca a Ansible, comprobará si el fichero pasado como el fichero de inventario es ejecutable. Si es así, lo ejecutará y Ansible pasará a utilizar su analizador JSON para leer los datos entrantes. Si no es ejecutable, Ansible lo leerá suponiendo que está en formato de fichero INI.",
+    "tema": "Tema 6. Ansible. Inventario"
+  },
+  {
+    "question": "¿Cómo especificar un inventario mixto, parte estático y parte dinámico?",
+    "options": [
+      "Especificando un directorio como fichero de inventario, donde reside un fichero INI para lo estático, y uno o varios ejecutables para la parte dinámica",
+      "Incluyendo 2 parámetros -i al ejecutar Ansible",
+      "No se puede, el inventario o es estático o es dinámico",
+      "Haciendo un script de inventario dinámico que lea el estático y lo transforme a dinámico"
+    ],
+    "answer": "Especificando un directorio como fichero de inventario, donde reside un fichero INI para lo estático, y uno o varios ejecutables para la parte dinámica",
+    "explanation": "Si la ruta de inventario que pasa a Ansible es un directorio, Ansible leerá cada archivo en ese directorio como un inventario y los fusionará juntos. Esto te permite tener un fichero de inventario que manejas manualmente, así como ejecutables que generan fragmentos de inventario dinámico.",
+    "tema": "Tema 6. Ansible. Inventario"
+  }
+,
+  {
+    "question": "¿Cómo podemos hacer que Ansible ejecute en modo privilegiado?",
+    "options": [
+      "Utilizando la opción become",
+      "Especificando el usuario root",
+      "Utilizando la opción privileged",
+      "Indicando en el comienzo del playbook la opción hosts: all"
+    ],
+    "answer": "Utilizando la opción become",
+    "explanation": "La opción become controla con qué usuario se ejecutan los comandos. Nos permite utilizar un usuario privilegiado para ejecutar las acciones que requieran permisos de administración.",
+    "tema": "Tema 7. Ansible. Instalación de WordPress"
+  },
+  {
+    "question": "¿Cómo podemos instalar varios paquetes en una misma tarea?",
+    "options": [
+      "No se puede, hay que copiar y pegar la tarea varias veces cambiando el nombre del paquete",
+      "Especificando el atributo multiple",
+      "Proporcionando una lista de nombres en el atributo name",
+      "Utilizando la tarea apt-loop"
+    ],
+    "answer": "Proporcionando una lista de nombres en el atributo name",
+    "explanation": "En algunos módulos puedes proporcionar una lista de valores a un parámetro. La mayoría de los módulos de gestión de paquetes, como apt y yum tienen esta funcionalidad. Si se tiene esta opción, es recomendable usarla en lugar de loop.",
+    "tema": "Tema 7. Ansible. Instalación de WordPress"
+  },
+  {
+    "question": "¿Cómo podemos ejecutar directamente un comando de sistema operativo en Ansible?",
+    "options": [
+      "No se puede, hay que utilizar los módulos que ya existen",
+      "Creando un módulo custom que ejecute el comando que necesitamos",
+      "Utilizando una función Python equivalente",
+      "Utilizando el módulo command o Shell"
+    ],
+    "answer": "Utilizando el módulo command o Shell",
+    "explanation": "Los módulos command y shell nos permiten ejecutar comandos de sistema operativo. La diferencia es que command no emplea el entorno, por lo que no se podrán usar variables de entorno, ni tampoco operaciones como <, |, etc. Cuidado con la idempotencia al utilizar estos módulos.",
+    "tema": "Tema 7. Ansible. Instalación de WordPress"
+  },
+  {
+    "question": "¿Para qué sirve el uso de register en una tarea de Ansible?",
+    "options": [
+      "Para activar el registro del sistema",
+      "Para registrar (mostrar) la operación por la salida estándar",
+      "Para guardar el valor de retorno en una variable",
+      "Ninguna de las anteriores"
+    ],
+    "answer": "Para guardar el valor de retorno en una variable",
+    "explanation": "La palabra clave register permite guardar el valor de retorno de los comandos como una variable para su uso posterior en un playbook. Se le proporciona el nombre de la variable que queremos definir.",
+    "tema": "Tema 7. Ansible. Instalación de WordPress"
+  },
+  {
+    "question": "¿Qué diferencia hay entre los módulos copy y template en Ansible?",
+    "options": [
+      "No existe diferencia, son equivalentes",
+      "template copia ficheros de plantilla al host destino, y copy, cualquier otro fichero",
+      "template simplemente procesa la plantilla, y copy copia el fichero al host destino",
+      "template procesa la plantilla y copia el fichero resultante al host destino, y copy simplemente copia el fichero"
+    ],
+    "answer": "template procesa la plantilla y copia el fichero resultante al host destino, y copy simplemente copia el fichero",
+    "explanation": "Hay diferentes opciones para escribir archivos, como los módulos copy y template. Cuando se trata de un archivo que contiene variables, necesitarás utilizar el módulo template de Ansible para rellenar su contenido y copiar el fichero resultante.",
+    "tema": "Tema 7. Ansible. Instalación de WordPress"
+  },
+  {
+    "question": "¿Para qué sirve la opción creates en una tarea command de Ansible?",
+    "options": [
+      "Para no ejecutar el comando si ya existe ese fichero",
+      "Para que se cree el fichero que se indica",
+      "Es meramente informativo, para indicar al usuario lo que se va a crear",
+      "Es meramente informativo, para indicar a Ansible lo que se va a crear"
+    ],
+    "answer": "Para no ejecutar el comando si ya existe ese fichero",
+    "explanation": "Ansible tiene una opción especial creates que determina si existe un archivo antes de ejecutar un módulo. Nos permite indicar a Ansible que no ejecute el comando si ya existe un archivo específico.",
+    "tema": "Tema 7. Ansible. Instalación de WordPress"
+  },
+  {
+    "question": "¿Cómo podemos condicionar la ejecución de una tarea al resultado de otra en Ansible?",
+    "options": [
+      "Utilizando when en la tarea que condiciona",
+      "Registrando el resultado de la tarea que condiciona con register, y utilizando when en la tarea condicionada",
+      "Utilizando when en la tarea condicionada",
+      "Utilizando when en la tarea que condiciona y register en la tarea condicionada"
+    ],
+    "answer": "Registrando el resultado de la tarea que condiciona con register, y utilizando when en la tarea condicionada",
+    "explanation": "Puedes almacenar el resultado de una tarea en una variable (ej: var1) mediante la opción register. Para saber si la tarea ha realizado cambios, se utilizará el valor de var1.changed. Este valor se puede usar en el resto del playbook para omitir cualquier tarea incluyendo 'when: not var1.changed'.",
+    "tema": "Tema 7. Ansible. Instalación de WordPress"
+  },
+  {
+    "question": "¿Cuándo se ejecuta un handler (manejador) en Ansible?",
+    "options": [
+      "En secuencia, por orden de definición en el playbook",
+      "Después de todas las tareas",
+      "Cada vez que se le invoca mediante notify",
+      "Al final del bloque de tareas que lo notifica, una sola vez"
+    ],
+    "answer": "Al final del bloque de tareas que lo notifica, una sola vez",
+    "explanation": "Si nada notifica a un handler no se ejecutará. Aunque varias tareas notifiquen a un mismo handler, solo se ejecutará una vez al finalizar todas las tareas del play correspondiente.",
+    "tema": "Tema 7. Ansible. Instalación de WordPress"
+  },
+  {
+    "question": "¿Para qué se utiliza ignore_errors en Ansible?",
+    "options": [
+      "Para que los errores no se muestren por la salida de ejecución",
+      "Para parar la ejecución cuando se produzca un error",
+      "Para continuar con la ejecución del playbook",
+      "Para que en la lista de errores al finalizar la ejecución no se contabilicen los ignorados"
+    ],
+    "answer": "Para continuar con la ejecución del playbook",
+    "explanation": "Generalmente, cuando un comando falla con un código de salida distinto de cero, Ansible devuelve el error e interrumpe la ejecución. El uso de ignore_errors en un comando le dice a Ansible que no importa si el comando falla, para que continúe la ejecución.",
+    "tema": "Tema 7. Ansible. Instalación de WordPress"
+  },
+  {
+    "question": "¿Cómo nos permite Ansible conservar la idempotencia al ejecutar comandos?",
+    "options": [
+      "Usando la opción changed_when para indicar cuándo un comando ha realizado cambios realmente",
+      "Utilizando el módulo shell, en vez de command",
+      "Al utilizar command, perdemos la idempotencia",
+      "Solo podemos mantener la idempotencia condicionando el comando con when y creates"
+    ],
+    "answer": "Usando la opción changed_when para indicar cuándo un comando ha realizado cambios realmente",
+    "explanation": "El módulo command siempre informa de que ha cambiado algo, ya que no sabe lo que realmente hace el comando. Se puede suprimir este comportamiento usando changed_when, para indicar cuándo una tarea realizó un cambio. Si la expresión proporcionada se evalúa como verdadera, se considera que se realizó un cambio.",
+    "tema": "Tema 7. Ansible. Instalación de WordPress"
+  }
+,
+  {
+    "question": "¿Cómo se llama el repositorio principal donde encontrar roles compartidos de Ansible?",
+    "options": [
+      "Ansible Community",
+      "Ansible Hub",
+      "Ansible Galaxy",
+      "Ansible Forge"
+    ],
+    "answer": "Ansible Galaxy",
+    "explanation": "Ansible Galaxy es un sitio web donde los usuarios pueden cargar roles que han desarrollado para que otras personas puedan usarlos. Hay más de 20 000 roles subidos a este sitio.",
+    "tema": "Tema 8. Roles de Ansible"
+  },
+  {
+    "question": "¿Para qué sirve el fichero tasks/main.yml en un rol de Ansible?",
+    "options": [
+      "Son las tareas que se procesarán al ejecutar el rol",
+      "Sirve para referenciar las tareas dependientes",
+      "Si no existe otro fichero, será el fichero por defecto que se procese al ejecutar el rol",
+      "Es el fichero principal de tareas, se ejecutará tras los ficheros secundarios de tareas"
+    ],
+    "answer": "Son las tareas que se procesarán al ejecutar el rol",
+    "explanation": "Este fichero en un rol es equivalente a la sección de tareas que hay en tu playbook. Las acciones definidas en este archivo las procesará Ansible cuando ejecute el rol.",
+    "tema": "Tema 8. Roles de Ansible"
+  },
+  {
+    "question": "¿Qué pasa cuando se incluye de manera estática un fichero en un playbook de Ansible?",
+    "options": [
+      "Todo el contenido del fichero incluido se verá fusionado en tiempo de desarrollo",
+      "El contenido del fichero incluido se fusionará justo antes de la ejecución",
+      "Nada, es simplemente una referencia informativa que indica que se va a usar ese fichero posteriormente",
+      "El fichero incluido se copia al host que se está gestionando"
+    ],
+    "answer": "El contenido del fichero incluido se fusionará justo antes de la ejecución",
+    "explanation": "La sintaxis include de YAML incorpora un archivo YAML dentro de otro. Cuando Ansible se ejecuta, los archivos incluidos se fusionarán, pero mientras esté desarrollando el playbook, tendrás una clara separación de las responsabilidades.",
+    "tema": "Tema 8. Roles de Ansible"
+  },
+  {
+    "question": "¿Cómo se puede referenciar un rol desde un playbook de Ansible?",
+    "options": [
+      "Incluyéndolo en la sección roles antes de hosts",
+      "Incluyéndolo en la sección roles antes de tasks",
+      "Incluyéndolo en la sección tasks como primera tarea",
+      "Incluyéndolo en la sección roles después de tasks"
+    ],
+    "answer": "Incluyéndolo en la sección roles antes de tasks",
+    "explanation": "Para incluir roles desde un playbook, añade la lista de roles antes de la sección de tareas (tasks), en la sección roles.",
+    "tema": "Tema 8. Roles de Ansible"
+  },
+  {
+    "question": "¿Qué diferencia la invocación de una plantilla (template) desde un rol a hacerlo desde un playbook independiente?",
+    "options": [
+      "No se diferencian en nada",
+      "En un playbook independiente se referencia la ruta relativa al directorio templates de la plantilla, y en el rol es la ruta relativa a la raíz del rol",
+      "En un playbook independiente se referencia la ruta absoluta o relativa de la plantilla, y en el rol es la ruta relativa al directorio templates del rol",
+      "En un playbook independiente se referencia la ruta absoluta de la plantilla, y en el rol es la ruta relativa al directorio templates del rol"
+    ],
+    "answer": "En un playbook independiente se referencia la ruta absoluta o relativa de la plantilla, y en el rol es la ruta relativa al directorio templates del rol",
+    "explanation": "El parámetro src para la tarea de plantilla requiere una ruta absoluta o relativa a la ubicación del playbook. Sin embargo, cuando se usa template en un rol, Ansible automáticamente mira en el directorio templates del rol, donde se deben ubicar las plantillas, y referenciar en src simplemente el nombre de esta.",
+    "tema": "Tema 8. Roles de Ansible"
+  },
+  {
+    "question": "¿Dónde se deben ubicar los manejadores en un rol de Ansible?",
+    "options": [
+      "En el fichero tasks/handlers.yml",
+      "En el fichero handlers/handlers.yml",
+      "En el fichero handlers/main.yml",
+      "En el fichero tasks/main.yml"
+    ],
+    "answer": "En el fichero handlers/main.yml",
+    "explanation": "Los manejadores en un rol se ubican el directorio handlers del rol, donde Ansible buscará por defecto el fichero main.yml. El fichero no necesita la cabecera handlers, solo la definición del manejador propiamente dicha.",
+    "tema": "Tema 8. Roles de Ansible"
+  },
+  {
+    "question": "¿Cómo se pueden declarar las dependencias en un rol de Ansible?",
+    "options": [
+      "En el fichero tasks/dependencies.yml",
+      "En el fichero dependencies/main.yml",
+      "En el fichero dependencies.yml",
+      "En el fichero meta/main.yml"
+    ],
+    "answer": "En el fichero meta/main.yml",
+    "explanation": "meta/main.yml es el archivo de metadatos del rol. Se utiliza para definir los metadatos que Ansible Galaxy utiliza si publicas el módulo. También se pueden definir cosas como versión mínima del Ansible, plataformas soportadas y cualquier dependencia que tiene el rol.",
+    "tema": "Tema 8. Roles de Ansible"
+  },
+  {
+    "question": "¿Para qué sirve un rol de envoltorio en Ansible?",
+    "options": [
+      "Para complicar el uso del rol que se envuelve",
+      "Para simplificar el uso del rol que se envuelve",
+      "Para proporcionar valores concretos a variables de configuración del rol que se envuelve",
+      "Las opciones B y C son correctas"
+    ],
+    "answer": "Las opciones B y C son correctas",
+    "explanation": "A veces, la capacidad de configurar un rol lo hace complejo de utilizar. Hay un patrón que se puede usar para abstraer parte de esta configuración en un «rol de envoltorio». Envolviendo roles dentro de otros roles, se puede observar la intención de cómo un rol debería ser usado desde otro rol separado.",
+    "tema": "Tema 8. Roles de Ansible"
+  },
+  {
+    "question": "¿Cuál es la mejor manera de configurar un rol para permitir distintas familias de sistemas operativos (SO) Linux?",
+    "options": [
+      "Crear distintos ficheros de variables para cada familia de SO, con los mismos nombres de variables y añadir tantos includes al fichero de tareas como ficheros de variables, condicionados a la variable ansible_os_family",
+      "Crear distintos ficheros de variables para cada familia de SO, con los mismos nombres de variables y añadir tantos includes al fichero de tareas como ficheros de variables, condicionados a la variable os_family",
+      "Crear un único fichero de variables, y añadir tantos ficheros de tareas como familias de SO, y Ansible ejecutará el que corresponda",
+      "Crear un único fichero de variables, y añadir tantos includes al fichero de tareas como familias de SO"
+    ],
+    "answer": "Crear distintos ficheros de variables para cada familia de SO, con los mismos nombres de variables y añadir tantos includes al fichero de tareas como ficheros de variables, condicionados a la variable ansible_os_family",
+    "explanation": "El fichero de variables, uno por cada familia de SO, tiene los mismos nombres de variable pero diferentes valores. En el fichero de tareas, es preferible usar when con varios includes en vez de incluir el fichero basado en la variable ansible_os_family para ver de un vistazo qué familias de SO están soportados por este rol.",
+    "tema": "Tema 8. Roles de Ansible"
+  },
+  {
+    "question": "¿Qué son los módulos en Ansible?",
+    "options": [
+      "Agrupación de tareas reutilizables",
+      "Fragmentos de código que se usan en una tarea",
+      "Una encapsulación de roles",
+      "Una biblioteca de funciones matemáticas"
+    ],
+    "answer": "Fragmentos de código que se usan en una tarea",
+    "explanation": "Los módulos, también denominados plugins de tareas (o plugins de biblioteca), son fragmentos de código que se pueden usar desde la línea de comandos o desde una tarea de un playbook. Ansible ejecuta cada módulo habitualmente en el nodo remoto destino de la ejecución y recolecta los valores de retorno.",
+    "tema": "Tema 8. Roles de Ansible"
+  }
+,
+  {
+    "question": "¿Para qué puedes utilizar las variables en Ansible?",
+    "options": [
+      "Como valores para contenido, para rellenar una plantilla, por ejemplo",
+      "Como valores condicionales, para decidir si se ejecuta una tarea o no",
+      "Como valores para contenido y valores condicionales",
+      "Como valores para contenido únicamente, pero las que se definan así se pueden utilizar para condicionar acciones"
+    ],
+    "answer": "Como valores para contenido y valores condicionales",
+    "explanation": "Puedes utilizar variables como contenido (por ejemplo, en una plantilla de fichero de configuración) o como una forma de decidir qué acciones realizará tu playbook (condicionando las tareas al valor de la variable).",
+    "tema": "Tema 9. Variables de Ansible"
+  },
+  {
+    "question": "¿Cómo referenciamos un rol desde un playbook pasándole parámetros?",
+    "options": [
+      "Incluyendo la opción vars en el include del rol",
+      "Incluyendo la opción variables en el include del rol",
+      "Incluyendo la opción param en el include del rol",
+      "Incluyendo la opción parameters en el include del rol"
+    ],
+    "answer": "Incluyendo la opción vars en el include del rol",
+    "explanation": "Utilizaremos una sintaxis diferente para incluir el rol, ya que necesitamos decirle a Ansible qué entrada es el rol que debe ejecutar (prefijándolo con role). A continuación, incluiremos una sección vars para declarar las variables que se podrán utilizar en las tareas o plantillas del rol.",
+    "tema": "Tema 9. Variables de Ansible"
+  },
+  {
+    "question": "¿Cómo referenciar a una variable en un playbook o plantilla para incluir su valor?",
+    "options": [
+      "Especificando el nombre de variable entre dobles corchetes: [[var]]",
+      "Especificando el nombre de variable entre dobles llaves: {{var}}",
+      "Especificando el nombre de variable entre dobles barras: //var//",
+      "Especificando el nombre de variable entre llaves y con un $ delante: ${var}"
+    ],
+    "answer": "Especificando el nombre de variable entre dobles llaves: {{var}}",
+    "explanation": "Ansible sabe buscar variables que estén entre dobles llaves, tal como {{variable_name}}, tanto en un playbook como en una plantilla. Esta sintaxis está definida por Jinja2, que es el motor de plantillas utilizado por Ansible.",
+    "tema": "Tema 9. Variables de Ansible"
+  },
+  {
+    "question": "¿Qué ubicación de declaración de variables tiene la precedencia más baja en Ansible?",
+    "options": [
+      "Variables adicionales (parámetros de ejecución)",
+      "Variables de grupo de playbook (group_vars)",
+      "Los valores por defecto de los roles",
+      "Variables de rol (parámetros del rol)"
+    ],
+    "answer": "Los valores por defecto de los roles",
+    "explanation": "Los valores por defecto de los roles tienen la precedencia más baja cuando se trata de establecer los valores de las variables y son sobrescritos por todo lo demás.",
+    "tema": "Tema 9. Variables de Ansible"
+  },
+  {
+    "question": "¿Qué ubicación de declaración de variables tiene la precedencia más alta en Ansible?",
+    "options": [
+      "Variables adicionales (parámetros de ejecución)",
+      "Variables de grupo de playbook (group_vars)",
+      "Los valores por defecto de los roles",
+      "Variables de rol (parámetros del rol)"
+    ],
+    "answer": "Variables adicionales (parámetros de ejecución)",
+    "explanation": "Las variables adicionales se especifican en tiempo de ejecución y tienen la prioridad más alta de todas las variables establecidas. No importa dónde se haya establecido un valor, puede sobrescribirse si se desea especificando el valor de la variable como parámetro al ejecutar el comando Ansible.",
+    "tema": "Tema 9. Variables de Ansible"
+  },
+  {
+    "question": "¿Cómo podemos saber en Ansible el sistema operativo que está ejecutando una máquina?",
+    "options": [
+      "Mediante una variable de inventario",
+      "Mediante una variable de host de inventario",
+      "Mediante un fact definido",
+      "Mediante un fact de host"
+    ],
+    "answer": "Mediante un fact de host",
+    "explanation": "El concepto de fact ('hecho') en Ansible es la información que está disponible sobre la máquina a tratar. Hay facts disponibles para gran cantidad de información diferente, incluyendo el sistema operativo que la máquina está ejecutando, cuál es su dirección IP e incluso cuánta memoria se está utilizando en la máquina.",
+    "tema": "Tema 9. Variables de Ansible"
+  },
+  {
+    "question": "¿Para qué sirve una variable de tipo vars_prompt en Ansible?",
+    "options": [
+      "Para solicitar al usuario su valor en tiempo de ejecución",
+      "Para solicitar al usuario su nombre y valor en tiempo de ejecución",
+      "Para obtener el estilo de prompt del sistema que se utiliza",
+      "Para que su valor esté disponible pronto, desde el inicio del playbook"
+    ],
+    "answer": "Para solicitar al usuario su valor en tiempo de ejecución",
+    "explanation": "Al ejecutar un playbook, puede haber información que necesitas recopilar en tiempo de ejecución. Puede tratarse de información sensible, como contraseñas, o información que solo puede ser proporcionada por el usuario final en tiempo de ejecución. vars_prompt permite preguntar al usuario por el valor de una variable.",
+    "tema": "Tema 9. Variables de Ansible"
+  },
+  {
+    "question": "¿Cómo puedes filtrar una lista de objetos contenidos en una variable Ansible?",
+    "options": [
+      "Utilizando la opción when en la tarea",
+      "Utilizando la opción filter en la tarea",
+      "Mediante filtro de Jinja aplicado a la variable",
+      "Mediante filtro de Jinja aplicado a la tarea"
+    ],
+    "answer": "Mediante filtro de Jinja aplicado a la variable",
+    "explanation": "Utilizando filtros de Jinja2 puedes reducir los elementos de una lista en función del resultado del filtro aplicado. Por ejemplo, si tienes una lista de empleados, y solo quieres ejecutar una tarea sobre los mayores de cierta edad, puedes usar el filtro 'selectattr' para filtrar por el valor del atributo edad de los empleados.",
+    "tema": "Tema 9. Variables de Ansible"
+  },
+  {
+    "question": "¿Dónde podemos encontrar en Ansible información sobre la máquina que vamos a manejar?",
+    "options": [
+      "En las variables de entorno",
+      "En variables prefijadas con 'facts_'",
+      "En variables prefijadas con 'ansible_'",
+      "En el diccionario 'ansible_facts' o en variables prefijadas con 'ansible_'"
+    ],
+    "answer": "En el diccionario 'ansible_facts' o en variables prefijadas con 'ansible_'",
+    "explanation": "Todo lo que está dentro de la clave 'ansible_facts' en el diccionario devuelto está disponible como variable en los playbooks y plantillas. Hay muchas de ellas que también se establecen como variables independientes, conservando el prefijo 'ansible_'.",
+    "tema": "Tema 9. Variables de Ansible"
+  },
+  {
+    "question": "¿Cómo puedes acelerar la ejecución de playbooks con respecto a los facts en Ansible?",
+    "options": [
+      "Desactivándolos si no los necesitas, o activando la caché de facts si los usas",
+      "Únicamente puedes desactivar la recopilación de facts",
+      "Únicamente puedes activar la caché de facts",
+      "Desactivándolos si no los necesitas, activando la caché de facts si los usas o usando facts locales"
+    ],
+    "answer": "Desactivándolos si no los necesitas, o activando la caché de facts si los usas",
+    "explanation": "Si no vas a utilizar los facts, puedes desactivarlos en el playbook estableciendo 'gather_facts: false'. Si haces uso de ellos, pero no quieres pagar el precio de la recopilación de facts con cada ejecución del playbook, puedes utilizar el almacenamiento en caché de los facts para acelerar el tiempo de proceso.",
+    "tema": "Tema 9. Variables de Ansible"
+  }
+]
+
