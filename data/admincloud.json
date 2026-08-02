@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "question": "¿Cuál es el nivel más amplio de límite administrativo en el Directorio Activo?",
     "options": [
@@ -249,7 +249,8 @@
     ],
     "answer": "Asegurar el funcionamiento de todos los sistemas, además de vigilar el coste del entorno",
     "explanation": "En un entorno de nube hay tareas de optimización de costes que no suelen estar presentes en un entorno tradicional, sumadas a la administración habitual de sistemas operativos y herramientas nativas.",
-    "tema": "Tema 1. Introducción"
+    "tema": "Tema 1. Introducción",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn la nube (modelo de pago por uso), la infraestructura ya no es un gasto de capital fijo, sino un gasto operativo. Administrar implica FinOps: asegurar el rendimiento técnico (uptime) mientras se optimiza el consumo de recursos para no disparar la factura.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz insiste en que entra una nueva variable en la fiesta: el coste de funcionamiento. Antes, el servidor físico tenía un coste fijo (electricidad, licencias de VMWare). En la nube los costes son dinámicos, y bromea con que «no hay mejor inventario en tiempo real que la factura de AWS o Azure». Su filosofía para esta asignatura es «trabajar menos y vivir mejor» automatizando.\n\n**Aplicación en DevOps:**\nProgramar un script para que los entornos de prueba (QA) se desplieguen automáticamente el lunes por la mañana y se destruyan el viernes por la tarde, ahorrando el coste del fin de semana."
   },
   {
     "question": "¿Cuál de los siguientes enunciados es correcto sobre seguridad en la nube?",
@@ -261,7 +262,8 @@
     ],
     "answer": "La organización debe proteger la red y sus recursos, y sus equipos deben estar familiarizados con el modelo de seguridad de su proveedor de nube",
     "explanation": "Los proveedores ofrecen herramientas de seguridad y son responsables de que funcionen, pero es responsabilidad de la compañía y sus DevOps configurarlas correctamente.",
-    "tema": "Tema 1. Introducción"
+    "tema": "Tema 1. Introducción",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSe refiere al «Modelo de Responsabilidad Compartida». El proveedor de nube asegura la infraestructura física (data centers), pero tú eres responsable de configurar correctamente los accesos, firewalls y cifrado de tus datos.\n\n**La perspectiva de la clase:**\nEl profesor destaca que la seguridad es transversal y ya no recae solo en el administrador tradicional, sino que hay equipos dedicados a ello. Enfatiza la regla de oro de la seguridad: aplicar siempre los «mínimos privilegios necesarios para realizar mi tarea».\n\n**Aplicación en DevOps:**\nEn lugar de usar credenciales «root» (administrador total) para desplegar código, un ingeniero DevOps crea un Rol IAM en AWS que solo tiene permisos específicos para actualizar un servidor en concreto, y nada más."
   },
   {
     "question": "¿Qué debe hacer un ingeniero DevOps al hablar de entornos y redes?",
@@ -273,7 +275,8 @@
     ],
     "answer": "Combinar sus conocimientos de desarrollo y administración con conocimientos de red, para establecer las conexiones adecuadas",
     "explanation": "El rol de un DevOps se extiende más allá del administrador de sistemas tradicional y es habitual que esté involucrado en la administración de redes.",
-    "tema": "Tema 1. Introducción"
+    "tema": "Tema 1. Introducción",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUn perfil DevOps es un puente. Ya no basta con saber programar (Dev) o gestionar sistemas operativos (Ops); hay que saber cómo se comunican las cosas (redes: subredes, VPCs, enrutamiento, puertos) para que las arquitecturas modernas funcionen.\n\n**La perspectiva de la clase:**\nIván explica que, por definición, a los entornos en la nube hay que acceder a través de internet. Esto obliga al administrador a añadir a su currículum conocimientos de red para poder conectar y hacer convivir infraestructuras mediante protocolos compatibles.\n\n**Aplicación en DevOps:**\nConfigurar un VPC Peering o una VPN Site-to-Site para que un microservicio alojado en AWS pueda consultar de forma segura una base de datos antigua que la empresa aún mantiene en su edificio físico."
   },
   {
     "question": "¿Cuál de los siguientes enunciados es correcto al hablar de disponibilidad en la nube?",
@@ -285,7 +288,8 @@
     ],
     "answer": "Hoy por hoy existen métricas para detectar eventos que pueden activar tareas de autoescalado y notificaciones",
     "explanation": "Los grupos de autoescalado se encargan automáticamente de incrementar o reducir el número de instancias en función de la demanda.",
-    "tema": "Tema 1. Introducción"
+    "tema": "Tema 1. Introducción",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa alta disponibilidad (High Availability) se logra mediante monitoreo continuo. El sistema lee métricas (como la carga de CPU) y lanza más servidores automáticamente si hay mucha demanda para evitar caídas.\n\n**La perspectiva de la clase:**\nEl profesor menciona el concepto de «flota», donde tenemos grupos dinámicos de autoescalado. Si se alcanza un porcentaje de uso, se autodespliega otra instancia. Sin embargo, advierte con ejemplos reales (como la venta de entradas de Oasis) que el autoescalado no es infalible ante picos masivos y repentinos.\n\n**Aplicación en DevOps:**\nConfigurar Amazon CloudWatch para que, si el consumo de CPU de la web supera el 80% durante 5 minutos, envíe una alarma que active automáticamente la creación de dos servidores adicionales."
   },
   {
     "question": "¿Cuál de las siguientes afirmaciones sobre la nube es correcta?",
@@ -297,7 +301,8 @@
     ],
     "answer": "Los DevOps necesitan aprender nuevas herramientas, exclusivas de la nube, que no estaban presentes en entornos tradicionales",
     "explanation": "Las funcionalidades nativas de la nube son posibles gracias a herramientas específicas que no existían en entornos tradicionales.",
-    "tema": "Tema 1. Introducción"
+    "tema": "Tema 1. Introducción",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl cambio de paradigma exige herramientas nativas de la nube (Infraestructura como Código, frameworks de automatización de los propios proveedores) en lugar de destornilladores o CDs de instalación.\n\n**La perspectiva de la clase:**\nEl profesor contrasta el modelo antiguo (pedir un servidor físico, rellenar formularios, esperar que te lo enracken) con el modelo actual, donde con «dos, tres clics puedes crear o desplegar una instancia». Menciona que hay que aprender a usar herramientas como Cloud-init o User Data para automatizar esos arranques.\n\n**Aplicación en DevOps:**\nUsar el campo «User Data» al lanzar una máquina virtual en Azure para inyectar un script en Bash que instale Apache y descargue el código de la web sin que nadie tenga que entrar remotamente a hacerlo."
   },
   {
     "question": "¿Qué sistema operativo es mejor: Linux o Windows?",
@@ -309,7 +314,8 @@
     ],
     "answer": "Depende de la tarea que vaya a cumplir",
     "explanation": "La clave está en saber escoger el sistema operativo que mejor se adapta a cada situación concreta.",
-    "tema": "Tema 1. Introducción"
+    "tema": "Tema 1. Introducción",
+    "detailedExplanation": "**¿Qué significa realmente?**\nNo hay un SO absoluto; la arquitectura empresarial se basa en usar la herramienta adecuada para el trabajo (Windows para control de usuarios con Active Directory, Linux para contenedores ligeros y rendimiento).\n\n**La perspectiva de la clase:**\nEl profesor es claro: «necesitamos los dos». Recuerda que los empleados no eligen el stack tecnológico de la empresa que les contrata. Destaca que Windows es imbatible por su Directorio Activo y directivas de seguridad, mientras que Linux destaca por su rendimiento y por ser la base de los contenedores.\n\n**Aplicación en DevOps:**\nDesplegar servidores Linux para correr las aplicaciones web de la empresa por su bajo consumo de recursos, pero mantener Windows Server para gestionar los permisos de los empleados que se conectan a la red corporativa."
   },
   {
     "question": "¿Cuál es la mejor manera de afrontar una migración de una aplicación onsite a la nube?",
@@ -321,7 +327,8 @@
     ],
     "answer": "Todas las opciones son válidas, la mejor depende del tipo de aplicación, la capacidad de tener caída de servicio y los recursos disponibles",
     "explanation": "Cada alternativa es viable según el contexto: la opción A requiere mayor inversión pero se adapta mejor a la nube; la B es más barata pero implica downtime; la C reduce downtime pero puede ser más cara.",
-    "tema": "Tema 1. Introducción"
+    "tema": "Tema 1. Introducción",
+    "detailedExplanation": "**¿Qué significa realmente?**\nExisten varias estrategias de migración (Lift and Shift, Refactoring, Replatforming). La decisión depende de si la empresa tiene tiempo/dinero para reescribir el código o si solo necesita apagar su centro de datos urgente.\n\n**La perspectiva de la clase:**\nIván explica que el approach más sencillo es simplemente «duplicarla como está» (copiarla a la nube y arrancarla). Si ya funciona, se deja así al principio para delegar la administración física, y luego se va «iterando» y mejorando hacia arquitecturas más modernas.\n\n**Aplicación en DevOps:**\nMigrar el servidor de contabilidad tal cual está a una máquina virtual en la nube hoy para cerrar el cuarto de servidores físico, y dejar para el año que viene el proyecto de reescribir esa aplicación."
   },
   {
     "question": "En el modelo mascotas vs. ganado (pets vs. cattle), ¿qué describe mejor cada concepto?",
@@ -333,7 +340,8 @@
     ],
     "answer": "Pet: servidor que nunca se apaga y se actualiza con parches; Cattle: servidores de usar y tirar, si falla se cambia por otro",
     "explanation": "Los servidores tradicionales eran mascotas: provisionarlos llevaba tiempo y se mantenían funcionando. Los modernos en la nube son ganado: son tantos que no merece la pena preocuparse por cada uno.",
-    "tema": "Tema 1. Introducción"
+    "tema": "Tema 1. Introducción",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEs la piedra angular del diseño Cloud Native. La infraestructura debe ser efímera e inmutable. Si un servidor falla, no inviertes tiempo en arreglarlo (mascota), simplemente lo destruyes y la automatización lanza uno nuevo idéntico (ganado).\n\n**La perspectiva de la clase:**\nEl profesor califica esta metáfora de «horrible» pero fundamental para el examen. Antes, los servidores se cuidaban, tenían nombres propios y la gente temía reiniciarlos (Mascota). En la nube, las instancias se nombran automáticamente; si fallan o si hay una nueva versión de software, se eliminan y se despliegan nuevas de cero (Ganado) para evitar el problema de la «deriva de configuración».\n\n**Aplicación en DevOps:**\nAl actualizar el software de la empresa, en lugar de conectarte por SSH a parchear la versión 1.0 a la 1.1 en vivo, destruyes las 10 instancias que corren la 1.0 y le pides a AWS que levante 10 instancias nuevas con la imagen (AMI) de la versión 1.1 ya instalada."
   },
   {
     "question": "¿Qué se entiende por entorno híbrido?",
@@ -345,7 +353,8 @@
     ],
     "answer": "Aquel en el que parte de los recursos están en las ubicaciones de la compañía y parte residen en la nube",
     "explanation": "El entorno híbrido integra entornos tradicionales con la nube, requiriendo aprovisionamiento de recursos tanto locales como en la nube con protocolos compatibles.",
-    "tema": "Tema 1. Introducción"
+    "tema": "Tema 1. Introducción",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUna arquitectura de nube híbrida. Es común en empresas en transición o entidades fuertemente reguladas (bancos, hospitales) que no pueden mover absolutamente todo a la nube pública.\n\n**La perspectiva de la clase:**\nLo define como el escenario donde conviven y coexisten infraestructuras diferentes: servidores que están en la nube y servidores que siguen en el CPD (Centro de Procesamiento de Datos) físico en el sótano del edificio.\n\n**Aplicación en DevOps:**\nUna empresa utiliza los potentes motores de Inteligencia Artificial de la nube pública para analizar datos, pero esos datos se leen desde una base de datos privada alojada en un búnker de la propia empresa por cumplimiento legal."
   },
   {
     "question": "¿Cuál de las siguientes definiciones es correcta para el concepto de Disponibilidad en la nube?",
@@ -357,7 +366,8 @@
     ],
     "answer": "Porcentaje del tiempo en el que una aplicación ofrece un servicio",
     "explanation": "Disponibilidad = porcentaje del tiempo en que la aplicación ofrece servicio. Migración = trasladar apps a la nube. Entorno híbrido = recursos locales + nube. Servidor = instancia de SO con un rol concreto.",
-    "tema": "Tema 1. Introducción"
+    "tema": "Tema 1. Introducción",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl Uptime, normalmente regido por un SLA (Acuerdo de Nivel de Servicio). Se mide en «nueves» (Ej: 99.9% garantiza que el sistema estará caído como máximo 8 horas al año).\n\n**La perspectiva de la clase:**\nEl profesor recalca que no existe una nube que asegure «por contrato el 100%». La disponibilidad se acerca al 100%, pero el proveedor siempre asume un margen de error. Explica que cuantos más «nueves» exijas por contrato (pasar de 99.9% a 99.99%), más dinero te costará.\n\n**Aplicación en DevOps:**\nDiseñar un despliegue «Multi-AZ» (Múltiples Zonas de Disponibilidad). Si el data center «A» se queda sin energía y se cae, el tráfico se redirige automáticamente al data center «B», logrando mantener ese porcentaje de disponibilidad al 99.99%."
   },
   {
     "question": "¿Cómo se logra la inmutabilidad de los servidores?",
@@ -1089,7 +1099,8 @@
     ],
     "answer": "El núcleo es la base del SO y todas las distribuciones lo incluyen, además de aplicaciones adicionales",
     "explanation": "Una distribución Linux es un paquete que incluye el núcleo y una colección de aplicaciones. Con la misma versión del núcleo, una app debería ejecutarse en cualquier distribución.",
-    "tema": "Tema 2. Administración de servidores Linux"
+    "tema": "Tema 2. Administración de servidores Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl kernel (núcleo) es la pieza central del sistema operativo que interactúa directamente con el hardware (gestión de memoria, CPU, dispositivos). Una distribución (distro) es el paquete completo que incluye este kernel base, sumándole un gestor de paquetes, utilidades del sistema (GNU), entornos de escritorio y aplicaciones de usuario listas para usarse.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz define una distribución estrictamente como un «paquete que fundamentalmente está compuesto por dos partes: el núcleo (kernel) y una colección de paquetes o aplicaciones». Enfatiza que existen cientos de distribuciones (Ubuntu, RedHat, Debian), pero todas comparten el mismo núcleo, lo que teóricamente hace que las aplicaciones sean compatibles entre ellas.\n\n**Aplicación en DevOps:**\nAl crear un contenedor Docker para un microservicio, un ingeniero DevOps evita distribuciones pesadas (como Ubuntu Desktop con interfaz gráfica) y elige distribuciones ultraligeras (como Alpine Linux) que contienen el kernel esencial y las herramientas mínimas, reduciendo así el tamaño de la imagen y la superficie de ataques de seguridad."
   },
   {
     "question": "¿Qué lenguaje de scripting es mejor para automatización en Linux?",
@@ -1101,7 +1112,8 @@
     ],
     "answer": "B y C son correctas",
     "explanation": "El script será más fácil de distribuir si el lenguaje está soportado sin dependencias adicionales. En general se usan lenguajes interpretados para facilitar su distribución y edición.",
-    "tema": "Tema 2. Administración de servidores Linux"
+    "tema": "Tema 2. Administración de servidores Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPara automatizar sistemas, los lenguajes interpretados (como Bash o Python) son preferidos porque no requieren compilación previa, lo que permite ediciones y pruebas rápidas en vivo. Además, de nada sirve escribir un script brillante en un lenguaje si el servidor destino no tiene el intérprete instalado para ejecutarlo.\n\n**La perspectiva de la clase:**\nIván Sanz explica que «me vale cualquier lenguaje... la salvedad es que el lenguaje tiene que estar instalado en la máquina de destino». Él se centra en enseñar Bash porque es el estándar de facto y viene instalado de forma nativa en todas las distribuciones Linux y en macOS, garantizando que tus scripts funcionarán sin tener que instalar dependencias previas.\n\n**Aplicación en DevOps:**\nEscribir un script de inicialización (User Data) en Bash puro en lugar de Python. Como las imágenes base de AWS (AMIs) vienen con Bash nativo, el script se ejecutará garantizadamente en el primer arranque de la instancia sin necesidad de que el ingeniero automatice primero la instalación de paquetes adicionales."
   },
   {
     "question": "¿Por qué es recomendable usar SSH en vez de Telnet?",
@@ -1113,7 +1125,8 @@
     ],
     "answer": "Porque SSH cifra el tráfico para asegurar la privacidad del contenido en caso de ser interceptado",
     "explanation": "Telnet envía el contenido en claro (sin cifrar), mientras que SSH cifra todo el contenido, protegiendo credenciales y datos ante posibles interceptaciones.",
-    "tema": "Tema 2. Administración de servidores Linux"
+    "tema": "Tema 2. Administración de servidores Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nTelnet transmite toda la información en texto plano, lo que permite que cualquiera que intercepte la red lea los datos enviados. SSH (Secure Shell) establece un túnel criptográfico entre el cliente y el servidor, asegurando que todos los comandos y credenciales viajen cifrados y protegidos contra ataques Man-in-the-Middle.\n\n**La perspectiva de la clase:**\nEl profesor menciona que, aunque Telnet era fácil de usar, hoy en día es «horrible» y está «totalmente desaconsejado» porque un sniffer en la red podría capturar contraseñas de administración enviadas en texto plano. Describe SSH como la evolución natural, definiéndolo literalmente como un «Telnet cifrado».\n\n**Aplicación en DevOps:**\nBloquear estrictamente el puerto 23 (Telnet) en todos los grupos de seguridad (Security Groups) de la nube y habilitar únicamente el puerto 22 (SSH). Así, cuando una herramienta de automatización como Ansible se conecta para configurar las bases de datos de producción, las credenciales viajan completamente cifradas."
   },
   {
     "question": "¿Qué comando se puede utilizar en Linux para generar un par de clave privada y pública?",
@@ -1125,7 +1138,8 @@
     ],
     "answer": "ssh-keygen",
     "explanation": "ssh-keygen genera el par de claves. Ejemplo: ssh-keygen -t rsa -b 4096 -f ./securitykey. ssh-copy-id copia la clave pública al servidor remoto.",
-    "tema": "Tema 2. Administración de servidores Linux"
+    "tema": "Tema 2. Administración de servidores Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nssh-keygen es la utilidad estándar de la línea de comandos en sistemas Unix/Linux utilizada para generar, gestionar y convertir pares de claves de autenticación (pública y privada) para SSH, utilizando algoritmos criptográficos robustos (como RSA, ECDSA o Ed25519).\n\n**La perspectiva de la clase:**\nIván bromea diciendo que «saber 20 palabras de inglés te facilita la vida porque key generator» da el nombre al comando. Explica la sintaxis enseñando que con el flag -t se le indica el algoritmo (ej. RSA) y con el flag -f el archivo destino, generando siempre un archivo para la clave privada y otro .pub para la clave pública.\n\n**Aplicación en DevOps:**\nUn ingeniero ejecuta ssh-keygen -t rsa -b 4096 en su terminal local. Sube la clave pública generada (.pub) a la configuración de su cuenta de GitHub, y utiliza la clave privada en un pipeline de Jenkins para permitir que los servidores clonen el código fuente de la empresa de forma segura y automatizada."
   },
   {
     "question": "¿Qué tipo de autenticación soporta AWS por defecto en sus imágenes Amazon Linux?",
@@ -1137,7 +1151,8 @@
     ],
     "answer": "Clave pública",
     "explanation": "En las imágenes públicas de AWS solo se soporta clave pública, bien generada automáticamente o proporcionada por el usuario. Imágenes de otros proveedores pueden soportar otros métodos.",
-    "tema": "Tema 2. Administración de servidores Linux"
+    "tema": "Tema 2. Administración de servidores Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPor motivos de seguridad y para prevenir ataques de fuerza bruta, AWS deshabilita por defecto la autenticación por usuario/contraseña en el archivo sshd_config de sus imágenes Linux (AMIs). Solo permite el acceso remoto mediante criptografía de clave asimétrica (pares de claves SSH).\n\n**La perspectiva de la clase:**\nEl profesor enfatiza que el uso de contraseñas para administrar servidores críticos es una práctica desaconsejada. Explica que en los proveedores de nube pública como AWS y Azure, el uso de certificados (par de claves) es prácticamente «obligatorio». Durante el despliegue de la instancia, la nube genera el par, almacena la pública en el servidor, y te obliga a descargar la privada a tu equipo.\n\n**Aplicación en DevOps:**\nAl crear una flota de servidores con Terraform en AWS, el ingeniero DevOps no configura ninguna contraseña «root». En su lugar, inyecta su clave pública en un recurso aws_key_pair asociado a las instancias, garantizando un acceso remoto seguro, inmutable y sin contraseñas que puedan ser hackeadas."
   },
   {
     "question": "¿Qué tipo de autenticación soporta PuTTY?",
@@ -1149,7 +1164,8 @@
     ],
     "answer": "Usuario y contraseña y clave pública",
     "explanation": "PuTTY soporta tanto usuario/contraseña como clave pública. Las claves se pueden generar con PuTTYgen, utilidad disponible en la misma web.",
-    "tema": "Tema 2. Administración de servidores Linux"
+    "tema": "Tema 2. Administración de servidores Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPuTTY es un cliente SSH y Telnet muy popular para entornos Windows. Es un software flexible que permite autenticación tradicional interactiva (solicitando username y password en pantalla) o autenticación segura mediante un archivo de clave privada (usando su propio formato propietario .ppk).\n\n**La perspectiva de la clase:**\nIván reconoce que PuTTY es una herramienta «muy extendida» para Windows. Explica que puedes conectarte simplemente introduciendo la IP y te pedirá usuario y contraseña de forma interactiva, o puedes usar autenticación por clave. Sin embargo, califica como «un rollo» y «horrible» usar su herramienta compañera PuTTYgen para adaptar las claves, recomendando no usarla por lo fácil que es equivocarse al copiar el texto.\n\n**Aplicación en DevOps:**\nUn administrador de sistemas que usa Windows en su portátil corporativo emplea PuTTY junto con Pageant (un agente de autenticación). Carga su archivo de clave privada .ppk una sola vez al inicio del día, lo que le permite abrir terminales SSH hacia docenas de servidores Linux sin tener que escribir su contraseña ni una sola vez."
   },
   {
     "question": "¿Cuál de las siguientes distribuciones Linux se puede descargar sin coste alguno?",
@@ -1161,7 +1177,8 @@
     ],
     "answer": "Todas las anteriores",
     "explanation": "RHEL requiere suscripción de soporte pero ofrece descargas gratuitas para desarrolladores. Ubuntu y CentOS son completamente gratuitas.",
-    "tema": "Tema 2. Administración de servidores Linux"
+    "tema": "Tema 2. Administración de servidores Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nGracias a las licencias de software libre (como la GPL), el código fuente del kernel de Linux y gran parte de sus paquetes es abierto y gratuito. Todas las distribuciones, incluso las orientadas a grandes corporaciones (Enterprise), pueden descargarse sin costo de adquisición de software. El modelo de negocio se basa en la monetización de servicios adicionales.\n\n**La perspectiva de la clase:**\nEl profesor es muy claro en que puedes instalar cualquier distribución en tu equipo a 0€. Sin embargo, explica que el modelo de negocio de Linux es «un poquito más disimulado» que el de Windows: empresas como Red Hat (RHEL) o SUSE ganan dinero cobrando costosas licencias de soporte técnico, las cuales son vitales para corporaciones que necesitan respaldo oficial ante caídas críticas.\n\n**Aplicación en DevOps:**\nUn equipo de desarrollo descarga CentOS (o AlmaLinux/Rocky Linux) de forma gratuita para construir y probar toda la arquitectura inicial de su startup. Cuando la empresa crece y firma contratos con entidades bancarias que exigen cumplimiento normativo y SLAs de soporte garantizado, migran los servidores a RHEL y pagan la suscripción anual de soporte oficial."
   },
   {
     "question": "¿Qué comando conecta por SSH al equipo host1.local con el usuario localuser y clave privada en secure.key?",
@@ -1173,7 +1190,8 @@
     ],
     "answer": "ssh -i secure.key localuser@host1.local",
     "explanation": "-i especifica el fichero de clave privada. Sin -i se usaría la clave por defecto o contraseña. ssh-copy-id se usa para copiar la clave pública al servidor remoto.",
-    "tema": "Tema 2. Administración de servidores Linux"
+    "tema": "Tema 2. Administración de servidores Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl cliente SSH por defecto intenta buscar claves privadas en rutas predefinidas (como ~/.ssh/id_rsa). Cuando la clave privada está guardada en un archivo con un nombre o ruta distinta, se utiliza el modificador o flag -i (identity file) para indicarle explícitamente al comando qué archivo de clave privada debe usar para negociar la autenticación.\n\n**La perspectiva de la clase:**\nIván Sanz explica exactamente esta sintaxis al enseñar cómo acceder cuando ya has descargado tu clave privada del proveedor de nube. Explica que la conexión se realiza indicándole al comando ssh «dónde está mi clave con el -i», seguido del archivo, el nombre de usuario y el host.\n\n**Aplicación en DevOps:**\nProgramar un script en Bash que automatiza copias de seguridad de una flota de servidores. El script ejecuta comandos remotos iterando un bucle con ssh -i /opt/secrets/backup_key.pem backupuser@$SERVER, permitiendo que el sistema se conecte desatendidamente sin que nadie deba introducir claves manualmente."
   },
   {
     "question": "¿Qué significa escribir un script pensando que todo puede ir mal?",
@@ -1185,7 +1203,8 @@
     ],
     "answer": "Todas las anteriores",
     "explanation": "El control de errores requiere detectarlos, informar al usuario/administrador y resolverlos, incluso si la resolución implica terminar el script antes de tiempo.",
-    "tema": "Tema 2. Administración de servidores Linux"
+    "tema": "Tema 2. Administración de servidores Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn ingeniería de software se conoce como «Programación Defensiva». El código no debe asumir el «camino feliz». El script debe estar diseñado para interceptar excepciones (ficheros que no existen, falta de permisos, parámetros vacíos), lanzar mensajes comprensibles y devolver un código de salida (exit code distinto de 0) para abortar la ejecución sin dejar procesos colgados o bases de datos corruptas.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz usa literalmente la frase «asumir que algo va a ir mal». Para él, la gestión de errores es vital para el troubleshooting. Enfatiza que no sirve de nada que un script simplemente «falle» y te deje pensando «¿Y qué es lo que ha fallado?». Exige que el script sea capaz de detectar el fallo, tratarlo, y lanzar una advertencia clara (como devolver un «error 4» documentando qué significa) para no quedarse colgado infinitamente.\n\n**Aplicación en DevOps:**\nCrear un pipeline de automatización en Bash que hace un backup de una base de datos antes de borrarla. Si el script no tiene espacio en disco, la programación defensiva detectará el error, enviará una alerta automática al Slack del equipo («Backup fallido por falta de espacio»), y abortará el borrado de la base de datos de forma controlada para evitar una pérdida catastrófica de información."
   },
   {
     "question": "¿Qué puerto hay que abrir en un grupo de seguridad para permitir conexiones SSH?",
@@ -1197,7 +1216,7 @@
     ],
     "answer": "22",
     "explanation": "SSH usa el puerto 22 por defecto. El puerto 23 es Telnet y el 443 es HTTPS. Es posible cambiar el puerto SSH en la configuración del servidor.",
-    "tema": "Tema 2. Administración de servidores Linux"
+    "tema": "Tema 2. Administración de servidores Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl protocolo SSH (Secure Shell) utiliza por defecto el puerto TCP 22 para establecer comunicaciones cifradas entre un cliente y un servidor. En entornos Cloud, los «Grupos de Seguridad» actúan como firewalls virtuales a nivel de instancia. Para que la petición de conexión remota alcance el servidor, debe existir una regla de entrada (Ingress Rule) que permita explícitamente el tráfico a través de este puerto 22.\n\n**La perspectiva de la clase:**\nAl repasar cómo desplegar una instancia en la nube, el profesor destaca que configurar el sistema operativo no es suficiente. Explica que en un entorno Cloud, el primer paso obligatorio al configurar el firewall (grupo de seguridad) es «habilitar el puerto 22». Advierte claramente que si omites abrir este puerto, «vamos a tener difícil administrarlo» remotamente.\n\n**Aplicación en DevOps:**\nCuando un ingeniero DevOps automatiza la creación de una flota de servidores Linux en AWS utilizando Terraform, programa un recurso aws_security_group con una regla de entrada (ingress) al puerto 22. Por seguridad (principio de mínimos privilegios), este puerto no se abre a todo internet (0.0.0.0/0), sino que se restringe para que solo acepte conexiones SSH provenientes de la IP de la VPN corporativa."
   }
 ]
-

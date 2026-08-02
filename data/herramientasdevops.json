@@ -9,7 +9,8 @@
       "A y B son correctas"
     ],
     "answer": "Monitorización",
-    "explanation": "Tema 1: Ciclo de vida DevOps - La monitorización es una de las partes y fases del ciclo DevOps."
+    "explanation": "Tema 1: Ciclo de vida DevOps - La monitorización es una de las partes y fases del ciclo DevOps.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa monitorización es una fase continua y fundamental del ciclo de vida DevOps en la que se recopila, analiza y visualiza información del sistema (métricas, trazas, logs y cuellos de botella) para garantizar la disponibilidad y el rendimiento. No es un fin en sí mismo, sino el puente que conecta las operaciones (Ops) de vuelta con el desarrollo (Dev) mediante la retroalimentación.\n\n**La perspectiva de la clase:**\nEl profesor Rafael Merlo describe el ciclo DevOps como un «flujo permanente de trabajo» con forma de infinito, compuesto por 8 fases: Plan, Code, Build, Test, Release, Deploy, Operate y Monitor. Enfatiza que la fase de monitorización es la que cierra este ciclo infinito, ya que toda la información que el equipo de operaciones obtiene aquí sirve para dar feedback y volver a la fase de planificación (Plan), definiendo qué se debe mejorar en el siguiente ciclo o sprint.\n\n**Aplicación en DevOps:**\nImplementar el stack ELK (Elasticsearch, Logstash, Kibana) junto con agentes APM para observar en tiempo real una aplicación web en producción. Si la monitorización detecta que la base de datos tarda mucho en responder (cuello de botella), el equipo DevOps utiliza este dato para planificar una tarea de optimización en el siguiente ciclo de desarrollo."
   },
   {
     "tema": "Tema 1: Ciclo de vida DevOps",
@@ -21,7 +22,8 @@
       "La distancia que es necesario dejar entre servidores"
     ],
     "answer": "El radio de influencia en caso de error de un componente",
-    "explanation": "Tema 1: Ciclo de vida DevOps - En DevOps, el blast radius se define como el impacto de un problema en un componente."
+    "explanation": "Tema 1: Ciclo de vida DevOps - En DevOps, el blast radius se define como el impacto de un problema en un componente.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl blast radius (radio de explosión o influencia) es la medida del impacto máximo que puede tener un fallo de un componente individual sobre el resto del sistema. En la ingeniería de fiabilidad, el objetivo principal del diseño arquitectónico es minimizar este radio aislando los servicios para evitar fallos en cascada.\n\n**La perspectiva de la clase:**\nEl profesor define explícitamente el blast radius como «el radio de influencia en caso de que uno de los componentes que tengas falle». Lo explica al contrastar arquitecturas: en una arquitectura monolítica, un error en una parte del código puede paralizar el sistema por completo (un blast radius total). Por el contrario, en una arquitectura de microservicios, la separación de componentes disminuye los errores al fallo, logrando aislar el problema y reduciendo el radio de influencia.\n\n**Aplicación en DevOps:**\nMigrar una plataforma de comercio electrónico de un monolito a microservicios en Kubernetes. Si el microservicio encargado de enviar correos electrónicos de confirmación falla, el radio de influencia se limita solo a esa función, permitiendo que los usuarios sigan navegando y comprando productos con normalidad."
   },
   {
     "tema": "Tema 1: Ciclo de vida DevOps",
@@ -33,7 +35,8 @@
       "Consiste en piezas de infraestructura que pueden cambiar y se modifican internamente, pero con ciertas facetas que se mantienen estables, como un servidor cuyo tipo no cambia, pero sus paquetes sí son actualizados y configurados"
     ],
     "answer": "Consiste en piezas de infraestructura que no pueden cambiar o bien por limitación de la tecnología o por política propia",
-    "explanation": "Tema 1: Ciclo de vida DevOps - La infraestructura inmutable consiste en la técnica de evitar modificar los componentes y optar por reemplazarlos en la medida de lo posible para evitar diferencias entre los distintos nodos debido a su historia."
+    "explanation": "Tema 1: Ciclo de vida DevOps - La infraestructura inmutable consiste en la técnica de evitar modificar los componentes y optar por reemplazarlos en la medida de lo posible para evitar diferencias entre los distintos nodos debido a su historia.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEs un paradigma de gestión de infraestructura donde los servidores o componentes nunca se modifican o actualizan una vez que han sido desplegados. Si se requiere un cambio (un parche o actualización de código), se construye una imagen nueva y se reemplaza el servidor antiguo por completo, garantizando que el entorno sea siempre predecible y consistente.\n\n**La perspectiva de la clase:**\nEl profesor insiste en que «no vamos a modificar lo que tengáis, sino que cuando hagamos un despliegue... vamos a generar una versión nueva». Subraya que los servidores tradicionales son mutables porque los administradores acceden a ellos para parchearlos manualmente, mientras que con herramientas como Packer buscamos un cambio de «un todo o un nada». La infraestructura inmutable aporta consistencia, automatización integral y evita la inconsistencia entre máquinas.\n\n**Aplicación en DevOps:**\nUsar Packer para generar una imagen (AMI) de Amazon con la versión exacta de Node.js y la aplicación ya empaquetada. Si hay que actualizar la versión de Node.js, en lugar de entrar por SSH al servidor de producción para actualizarlo, se genera una AMI nueva con Packer y Terraform se encarga de destruir la máquina vieja y levantar la nueva con la imagen actualizada."
   },
   {
     "tema": "Tema 1: Ciclo de vida DevOps",
@@ -45,7 +48,8 @@
       "Consiste en definir la infraestructura en forma de código exclusivamente imperativo"
     ],
     "answer": "Consiste en definir la infraestructura en forma de código frecuentemente declarativo",
-    "explanation": "Tema 1: Ciclo de vida DevOps - La infraestructura como código define la infraestructura usando códigos declarativos o principalmente declarativos."
+    "explanation": "Tema 1: Ciclo de vida DevOps - La infraestructura como código define la infraestructura usando códigos declarativos o principalmente declarativos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nInfrastructure as Code (IaC) es la práctica de gestionar y aprovisionar recursos informáticos (servidores, redes, bases de datos) a través de archivos de definición legibles por máquina, en lugar de utilizar configuraciones manuales interactivas. El enfoque declarativo significa que el usuario define cuál debe ser el estado final deseado, y la herramienta decide cómo llegar a ese estado.\n\n**La perspectiva de la clase:**\nEl profesor introduce IaC con herramientas como Terraform, destacando que permite tratar el centro de datos «como lo haría cualquier otro código», posibilitando el versionado, la automatización y la reducción de errores humanos. Hace hincapié en que Terraform utiliza un «código declarativo» y funciona como los planos de una casa: defines cómo quieres la máquina y qué programas la componen, sin indicar el paso a paso imperativo.\n\n**Aplicación en DevOps:**\nEscribir un archivo main.tf en Terraform declarando la necesidad de tener exactamente tres instancias EC2 y una base de datos RDS. Si alguien elimina manualmente una instancia por error, al volver a ejecutar Terraform, este detectará la diferencia con el estado declarado y creará automáticamente la instancia que falta."
   },
   {
     "tema": "Tema 1: Ciclo de vida DevOps",
@@ -57,7 +61,8 @@
       "Soportando múltiples nubes siendo generado por una compañía independiente"
     ],
     "answer": "De la nube pública de Amazon, AWS",
-    "explanation": "Tema 1: Ciclo de vida DevOps - CloudFormation ha sido generado por Amazon."
+    "explanation": "Tema 1: Ciclo de vida DevOps - CloudFormation ha sido generado por Amazon.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nAWS CloudFormation es el servicio nativo de Infraestructura como Código de Amazon Web Services. Permite modelar, aprovisionar y gestionar recursos de AWS de forma automatizada mediante plantillas escritas en formato JSON o YAML.\n\n**La perspectiva de la clase:**\nEl profesor lo menciona como la solución nativa implementada por la nube de AWS que cuenta con su propio lenguaje, en contraposición a herramientas agnósticas como Terraform. Alerta de un inconveniente crítico: al utilizar herramientas nativas como CloudFormation, se genera un «vendor locking» (dependencia del proveedor), ya que te limitas a poder desplegar únicamente en la infraestructura de AWS y te obliga a usar sus parámetros específicos.\n\n**Aplicación en DevOps:**\nUn equipo que trabaja en un entorno 100% AWS utiliza un archivo de plantilla YAML en CloudFormation para desplegar automáticamente toda su red (VPC, Subnets, Internet Gateway) y servidores sin intención de migrar a otras nubes."
   },
   {
     "tema": "Tema 1: Ciclo de vida DevOps",
@@ -69,7 +74,8 @@
       "Soportando múltiples nubes siendo generado por una compañía independiente"
     ],
     "answer": "De la nube pública de Microsoft, Azure",
-    "explanation": "Tema 1: Ciclo de vida DevOps - Resource Manager ha sido generado por Microsoft para Azure."
+    "explanation": "Tema 1: Ciclo de vida DevOps - Resource Manager ha sido generado por Microsoft para Azure.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nAzure Resource Manager (ARM) es el servicio de implementación y administración nativo de Microsoft Azure. Permite crear, actualizar y eliminar recursos en una suscripción de Azure utilizando plantillas declarativas en formato JSON.\n\n**La perspectiva de la clase:**\nSe presenta como la alternativa nativa de la nube pública de Microsoft. El profesor lo agrupa junto a CloudFormation y Google Cloud Deployment Manager como ejemplos de herramientas que requieren aprender la gobernanza y auditoría específica de cada proveedor, lo que hace más tedioso los despliegues multinube en comparación con Terraform.\n\n**Aplicación en DevOps:**\nUn arquitecto DevOps en un entorno corporativo Microsoft crea un «ARM Template» para estandarizar el despliegue automático de bases de datos SQL de Azure y aplicaciones de funciones (Azure Functions) para el departamento de desarrollo."
   },
   {
     "tema": "Tema 1: Ciclo de vida DevOps",
@@ -81,7 +87,8 @@
       "Soportando múltiples nubes siendo generado por una compañía independiente"
     ],
     "answer": "De la nube pública de Google, GCP",
-    "explanation": "Tema 1: Ciclo de vida DevOps - Deployment Manager ha sido generado por Google para GCP."
+    "explanation": "Tema 1: Ciclo de vida DevOps - Deployment Manager ha sido generado por Google para GCP.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nGoogle Cloud Deployment Manager es el servicio de automatización nativo de Google Cloud Platform (GCP). Permite a los desarrolladores especificar todos los recursos necesarios para sus aplicaciones en formato declarativo usando YAML, Python o Jinja2.\n\n**La perspectiva de la clase:**\nEs la tercera solución nativa mencionada en el temario, correspondiente a la nube de Google. El profesor enfatiza que, aunque estos sistemas nativos (CloudFormation, ARM, Deployment Manager) son potentes, Terraform los supera al permitir administrar entornos multinube de forma unificada, sin tener que aprender tres lenguajes nativos distintos.\n\n**Aplicación en DevOps:**\nEscribir un archivo YAML de Deployment Manager para orquestar la creación de balanceadores de carga regionales y clústeres de Google Kubernetes Engine (GKE) dentro de un proyecto específico de GCP."
   },
   {
     "tema": "Tema 1: Ciclo de vida DevOps",
@@ -93,7 +100,8 @@
       "Todas las respuestas son incorrectas"
     ],
     "answer": "Consiste en el nivel de servicio que es necesario proveer por motivos contractuales con al menos uno de los clientes",
-    "explanation": "Tema 1: Ciclo de vida DevOps - Service Level Objectives es el nivel de servicio que objetivamente se percibe del servicio."
+    "explanation": "Tema 1: Ciclo de vida DevOps - Service Level Objectives es el nivel de servicio que objetivamente se percibe del servicio.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos Service Level Objectives (Objetivos de Nivel de Servicio) son metas internas y medibles de rendimiento o fiabilidad que un equipo técnico se propone cumplir (por ejemplo, «el 99.9% de las peticiones HTTP deben responderse en menos de 200ms»). Son el medio técnico para garantizar que se cumple el acuerdo contractual (SLA).\n\n**La perspectiva de la clase:**\nEl profesor menciona los SLOs en el contexto del mantenimiento, indicando que el objetivo del equipo DevOps en la fase operativa es «mantener el sistema operando y funcionando con respecto a nuestro Service Level Objetivo». Se utilizan métricas y monitorización con ELK y APM para garantizar que los tiempos de respuesta y las tasas de error se mantienen dentro de los umbrales de esos objetivos fijados.\n\n**Aplicación en DevOps:**\nEl equipo configura una alerta en Kibana (Watcher) que se dispara si la tasa de disponibilidad de la pasarela de pagos cae por debajo del 99.9% (el SLO definido por el equipo técnico), para poder actuar antes de violar el contrato legal con el cliente."
   },
   {
     "tema": "Tema 1: Ciclo de vida DevOps",
@@ -105,7 +113,8 @@
       "Todas las respuestas son incorrectas"
     ],
     "answer": "Consiste en el nivel de servicio que es necesario proveer por motivos contractuales con al menos uno de los clientes",
-    "explanation": "Tema 1: Ciclo de vida DevOps - Service Level Agreement es el nivel de servicio que se contrata y que debe mantenerse para evitar las penalizaciones contempladas en el contrato."
+    "explanation": "Tema 1: Ciclo de vida DevOps - Service Level Agreement es el nivel de servicio que se contrata y que debe mantenerse para evitar las penalizaciones contempladas en el contrato.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUn Service Level Agreement (Acuerdo de Nivel de Servicio) es el contrato formal y legal entre el proveedor de un servicio y el cliente. Estipula exactamente qué nivel de fiabilidad y disponibilidad se garantiza, y suele incluir penalizaciones económicas si la plataforma no alcanza dicho porcentaje (por ejemplo, si el uptime es inferior al 99.9%).\n\n**La perspectiva de la clase:**\nAunque en clase el foco es netamente técnico y se orienta hacia la monitorización, el concepto subyace en la necesidad de tener alta disponibilidad, arquitecturas resilientes (como redundancia activo-activo o despliegues multi-zona) y tiempos de recuperación bajos para cumplir con los acuerdos pactados contractualmente.\n\n**Aplicación en DevOps:**\nDiseñar una arquitectura en AWS con Terraform que despliegue la aplicación en tres Zonas de Disponibilidad distintas y utilice bases de datos replicadas, asegurando así que incluso si un centro de datos se incendia, el sistema siga funcionando para no incumplir el SLA contractual del 99.99% de disponibilidad firmado con el cliente."
   },
   {
     "tema": "Tema 1: Ciclo de vida DevOps",
@@ -117,7 +126,8 @@
       "A y B son correctas"
     ],
     "answer": "Es una fase consistente en mantener el sistema operando y funcionando con respecto a nuestro Service Level Objetivo, obteniendo datos para informar las mejorar que podríamos realizar",
-    "explanation": "Tema 1: Ciclo de vida DevOps - El mantenimiento en DevOps es una fase continuada y parcialmente iterativa, ya que informa de datos para poder realizar la siguiente iteración de una forma correcta."
+    "explanation": "Tema 1: Ciclo de vida DevOps - El mantenimiento en DevOps es una fase continuada y parcialmente iterativa, ya que informa de datos para poder realizar la siguiente iteración de una forma correcta.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl mantenimiento en DevOps (correspondiente a las fases Operate y Monitor) no es el punto final donde el software «se abandona», sino un proceso continuo de vigilancia, recolección de métricas, análisis de logs y resolución de incidencias en producción. Es el motor de la mejora iterativa.\n\n**La perspectiva de la clase:**\nEl profesor aclara que «el mantenimiento es una fase continua y parcialmente operativa y nos informa de todos los datos para poder realizar [mejoras]». Explica que el equipo de operaciones se encarga de analizar los comportamientos inadecuados en producción, y utiliza herramientas (como Logstash, Beats y Kibana) para cerrar el ciclo obteniendo un feedback real que informará la siguiente fase de planificación y desarrollo.\n\n**Aplicación en DevOps:**\nTras un despliegue exitoso, el equipo utiliza Elastic APM para analizar el rendimiento de una base de datos MongoDB. Al descubrir un cuello de botella de rendimiento en una consulta específica durante la fase de mantenimiento, envían este feedback continuo al equipo de desarrollo para optimizar la consulta en la siguiente iteración de código."
   },
   {
     "tema": "Tema 2: Componentes de aplicaciones",
@@ -129,7 +139,8 @@
       "Un tipo de appliance que se despliega localmente"
     ],
     "answer": "Una tecnología para servir contenido estático o cacheado desde múltiples localizaciones en el mundo",
-    "explanation": "Tema 2: Componentes de aplicaciones - CDN significa Content Delivery Network, un tipo de solución que permite servir contenido, frecuentemente estático o cacheado, y que ofrece una red de servidores disponibles en todo el mundo para servir la información."
+    "explanation": "Tema 2: Componentes de aplicaciones - CDN significa Content Delivery Network, un tipo de solución que permite servir contenido, frecuentemente estático o cacheado, y que ofrece una red de servidores disponibles en todo el mundo para servir la información.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUna CDN (Content Delivery Network o Red de Entrega de Contenidos) es una red de servidores proxy distribuidos geográficamente. Su propósito es alojar copias temporales (caché) de archivos estáticos (imágenes, CSS, HTML, vídeos) en servidores cercanos a la ubicación física del usuario final, reduciendo drásticamente la latencia y acelerando los tiempos de carga.\n\n**La perspectiva de la clase:**\nAunque el profesor no profundiza en exceso en la arquitectura interna de las CDN, sí hace hincapié en la «gestión de caché» y el «Edge computing» como componentes reusables fundamentales de la arquitectura de aplicaciones para no sobrecargar los servidores principales. Enseña que servir la información de forma rápida y descentralizada es clave para evitar cuellos de botella geográficos.\n\n**Aplicación en DevOps:**\nTienes una aplicación web desplegada en AWS en la región de EE.UU. Para que los usuarios de España no sufran latencia al descargar las imágenes y el código del frontend, configuras Amazon CloudFront (CDN) para que cachee y sirva esos recursos estáticos desde nodos ubicados en Madrid."
   },
   {
     "tema": "Tema 2: Componentes de aplicaciones",
@@ -141,7 +152,8 @@
       "B y C son correctas"
     ],
     "answer": "Pueden convertirse es un punto de fallo único si no se gestionan cuidadosamente y requieren monitorización",
-    "explanation": "Tema 2: Componentes de aplicaciones - Al ser un sistema de configuración dinámico durante la ejecución es posible cambiar el valor en cualquier momento no necesariamente durante el despliegue, aunque si no estuvieran disponibles las aplicaciones podrían fallar al no obtener valores necesarios para su funcionamiento."
+    "explanation": "Tema 2: Componentes de aplicaciones - Al ser un sistema de configuración dinámico durante la ejecución es posible cambiar el valor en cualquier momento no necesariamente durante el despliegue, aunque si no estuvieran disponibles las aplicaciones podrían fallar al no obtener valores necesarios para su funcionamiento.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos sistemas de configuración dinámica (como Consul, etcd o ZooKeeper) almacenan y distribuyen la configuración a las aplicaciones en tiempo real mientras se ejecutan. La desventaja es que si este servicio central se cae (Single Point of Failure - SPOF), las aplicaciones no pueden iniciar o actualizarse, paralizando todo el sistema.\n\n**La perspectiva de la clase:**\nEl profesor destaca que cualquier componente centralizado que almacene el «estado» de nuestra configuración requiere «monitorización obligatoria» y una arquitectura redundante. Advierte que un fallo en la arquitectura monolítica o centralizada tiene un «blast radius» (radio de influencia) total, paralizando por completo el aplicativo si ese componente falla.\n\n**Aplicación en DevOps:**\nDespliegas 50 microservicios en Kubernetes que leen sus variables de entorno desde un clúster central de HashiCorp Consul. Si no configuras Consul con alta disponibilidad (3 o 5 nodos) y el único servidor se apaga, tus 50 microservicios fallarán al intentar leer su configuración dinámica."
   },
   {
     "tema": "Tema 2: Componentes de aplicaciones",
@@ -153,7 +165,8 @@
       "ACID y consistencia eventual"
     ],
     "answer": "Pub/Sub y colas de trabajo",
-    "explanation": "Tema 2: Componentes de aplicaciones - ACID es un tipo de garantía de las bases de datos y Consistencia eventual también. Pub/Sub y las colas de trabajo son patrones de consumo en las colas de mensajería."
+    "explanation": "Tema 2: Componentes de aplicaciones - ACID es un tipo de garantía de las bases de datos y Consistencia eventual también. Pub/Sub y las colas de trabajo son patrones de consumo en las colas de mensajería.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas colas de mensajería desacoplan los servicios para procesar operaciones de forma asíncrona. Los patrones principales son: Colas de trabajo (Work Queues), donde un mensaje es consumido por un único trabajador (reparto de tareas), y Pub/Sub (Publish/Subscribe), donde un mensaje es enviado simultáneamente a múltiples consumidores suscritos.\n\n**La perspectiva de la clase:**\nEl profesor lo explica apoyándose en la documentación oficial de RabbitMQ. Define textualmente: «las colas de trabajo distribuyen la carga para atender los mensajes rápidamente... [y en] las publicaciones y las suscripciones (Pub/Sub)... los mensajes se envían a un punto pudiéndose apuntar a uno o a varios consumidores».\n\n**Aplicación en DevOps:**\nUsas AWS SQS (Cola de trabajo) para que 3 servidores procesen la conversión de vídeos subidos por usuarios (cada vídeo lo procesa 1 solo servidor). En paralelo, usas AWS SNS (Pub/Sub) para que cuando un usuario se registre, el sistema envíe una notificación simultánea al microservicio de bienvenida (email) y al microservicio de facturación."
   },
   {
     "tema": "Tema 2: Componentes de aplicaciones",
@@ -165,7 +178,8 @@
       "Bases de datos que almacenan datos organizándolos en el paradigma OLAP"
     ],
     "answer": "Bases de datos que responden a peticiones en vivo sobre el estado actual",
-    "explanation": "Tema 2: Componentes de aplicaciones - OLAP significa Online Analytical Processing y es una categoría de las bases de datos por su finalidad, no una forma de almacenar los datos, y se basa en responder las peticiones rápidamente."
+    "explanation": "Tema 2: Componentes de aplicaciones - OLAP significa Online Analytical Processing y es una categoría de las bases de datos por su finalidad, no una forma de almacenar los datos, y se basa en responder las peticiones rápidamente.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nOLAP (Online Analytical Processing) se usa para el procesamiento analítico y masivo de datos históricos (Data Warehouse). La respuesta correcta en el examen describe realmente una base de datos OLTP (Online Transaction Processing), que son las bases de datos transaccionales que responden a peticiones en vivo sobre el estado actual. NotebookLM detectó que la respuesta marcada podría ser un error de plantilla, pero la respuesta válida según el enunciado del examen es la indicada.\n\n**La perspectiva de la clase:**\nEl profesor explica claramente las OLAP como «Data Warehouse», indicando que «nos sirven para ayudar y analizar los datos que hemos recopilado con el fin de poder manejar ese rendimiento de toma de decisiones... Es un repositorio central de datos que usamos para elaboración de informes». Las OLTP en cambio responden a transacciones en tiempo real.\n\n**Aplicación en DevOps:**\nUsas Amazon RDS (MySQL) como sistema OLTP para registrar las compras en vivo de tu e-commerce. Por la noche, migras esos datos a Amazon Redshift, un sistema OLAP, para que los analistas de negocio procesen reportes masivos del último año sin tirar la base de datos de producción."
   },
   {
     "tema": "Tema 2: Componentes de aplicaciones",
@@ -177,7 +191,8 @@
       "Todas las respuestas anteriores son correctas"
     ],
     "answer": "Todas las respuestas anteriores son correctas",
-    "explanation": "Tema 2: Componentes de aplicaciones - Estas bases de datos son dos tipos de bases de datos que almacenan los documentos complejos por columnas o bien como un documento frecuentemente compuesto."
+    "explanation": "Tema 2: Componentes de aplicaciones - Estas bases de datos son dos tipos de bases de datos que almacenan los documentos complejos por columnas o bien como un documento frecuentemente compuesto.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas bases de datos NoSQL tienen distintos propósitos. Las orientadas a documentos (JSON/BSON) son flexibles y permiten que cada registro tenga una estructura (esquema) distinta. Las columnares agrupan los datos por columnas en el disco, lo que acelera enormemente el procesamiento analítico sobre grandes volúmenes de datos.\n\n**La perspectiva de la clase:**\nEl profesor las clasifica dentro de los «Tipos de interfaz». Define las de documentos (ej. MongoDB) como modelos donde la información está estructurada en JSON y «cada uno de los registros es una unidad totalmente independiente». Las columnares (ej. Apache Cassandra o Redshift) las define indicando que «su uso principal es cuando se necesita analizar gran cantidad de datos diseñadas para obtener velocidad de consultas».\n\n**Aplicación en DevOps:**\nGuardas el catálogo de productos de una tienda en MongoDB (documentos), ya que un portátil tiene el campo «RAM» pero un libro tiene el campo «Autor» (campos distintos). Sin embargo, guardas el billón de clics que hacen los usuarios en la web en Cassandra (columnar) para hacer análisis estadísticos (MapReduce) extremadamente rápidos."
   },
   {
     "tema": "Tema 2: Componentes de aplicaciones",
@@ -189,7 +204,8 @@
       "No, porque todos los componentes deben ser sin estado sean reusables o no"
     ],
     "answer": "No, porque existen funcionalidades comunes frecuentes como pueden ser los proxies reversos o algoritmos de datos",
-    "explanation": "Tema 2: Componentes de aplicaciones - Los proxies reversos o algoritmos de datos complejos como algunos de aprendizaje automático son ejemplos de componentes reusable con estado."
+    "explanation": "Tema 2: Componentes de aplicaciones - Los proxies reversos o algoritmos de datos complejos como algunos de aprendizaje automático son ejemplos de componentes reusable con estado.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUn componente reusable es una pieza de software que soluciona un problema arquitectónico y se puede usar en múltiples proyectos. Estos componentes no necesitan mantener estado (información almacenada que altera la respuesta). Un proxy inverso solo enruta tráfico; es muy reusable pero 100% sin estado (Stateless).\n\n**La perspectiva de la clase:**\nEl profesor separa claramente ambos conceptos. Habla de «componentes reusables» como aquellos «diseñados de manera que sean totalmente independientes y puedan funcionar en diferentes contextos». Especifica explícitamente que herramientas muy reutilizables como los balanceadores de carga son «componentes casi sin estado» porque simplemente reciben y envían peticiones, proporcionando escalabilidad horizontal.\n\n**Aplicación en DevOps:**\nCreas un contenedor Docker con Nginx (Proxy Inverso) perfectamente configurado para añadir cabeceras de seguridad. Lo utilizas (reúsas) frente a los 20 microservicios distintos de tu empresa. El componente es extremadamente reusable, pero no guarda ningún estado en disco."
   },
   {
     "tema": "Tema 2: Componentes de aplicaciones",
@@ -201,7 +217,8 @@
       "Un tipo de despliegue que nunca puede escalar hasta cero"
     ],
     "answer": "Un tipo de despliegue de componentes de cómputo",
-    "explanation": "Tema 2: Componentes de aplicaciones - Function as a Service es una técnica de desplegar funciones como nuestro pase de componente de cómputo."
+    "explanation": "Tema 2: Componentes de aplicaciones - Function as a Service es una técnica de desplegar funciones como nuestro pase de componente de cómputo.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nFaaS (Functions as a Service) es un modelo de computación en la nube (Serverless) que permite ejecutar fragmentos de código en respuesta a eventos. Es una forma de desplegar «cómputo» sin aprovisionar ni administrar la infraestructura subyacente.\n\n**La perspectiva de la clase:**\nEl profesor lo define dentro del bloque de control computacional junto con IaaS, CaaS y PaaS. Indica que FaaS son «contenedores que son totalmente efímeros y que se crean en el momento de ser necesario». Da ejemplos explícitos del mercado como AWS Lambda, Azure Functions y Google Cloud Functions, resaltando que ejecutan código solo cuando salta un evento y luego se volatilizan.\n\n**Aplicación en DevOps:**\nEn lugar de mantener un servidor encendido 24/7 (IaaS) para redimensionar imágenes, el equipo DevOps despliega un código en AWS Lambda (FaaS). Cada vez que un usuario sube una foto a un bucket S3 (el evento), la función se despierta, redimensiona la foto, se apaga y AWS te cobra solo por los milisegundos de ejecución."
   },
   {
     "tema": "Tema 2: Componentes de aplicaciones",
@@ -213,7 +230,8 @@
       "El escalado horizontal, por ejemplo, como Replica Sets para componentes con estado"
     ],
     "answer": "La B y la D",
-    "explanation": "Tema 2: Componentes de aplicaciones - El escalado horizontal puede realizarse mediante técnicas como los Replica set y el escalado vertical consiste en dar más recursos a un componente."
+    "explanation": "Tema 2: Componentes de aplicaciones - El escalado horizontal puede realizarse mediante técnicas como los Replica set y el escalado vertical consiste en dar más recursos a un componente.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl escalado vertical (Scale Up) implica añadir más CPU/RAM a una única máquina. El escalado horizontal (Scale Out) implica añadir más máquinas al sistema. Aunque escalar horizontalmente es fácil para componentes sin estado (web servers), también es posible para bases de datos (con estado) utilizando técnicas complejas como la replicación (Replica Sets).\n\n**La perspectiva de la clase:**\nEl profesor compara ambos modelos. Define el escalado horizontal como «aumentar el número de servidores» y el vertical como «aumentar recursos o cambiar completamente el servidor». Advierte de la complejidad del escalamiento en componentes con estado, pero explica las técnicas para lograrlo: «activo-pasivo», «activo-activo», «maestro-esclavo» (replicación) o «sharding» de índices.\n\n**Aplicación en DevOps:**\nSi la base de datos MongoDB (con estado) de tu empresa se queda corta de rendimiento, en lugar de ponerle un procesador gigantesco (Escalado Vertical), configuras un Replica Set añadiendo 2 nodos extra de MongoDB (Escalado Horizontal con estado) para repartir las lecturas de los usuarios entre las distintas máquinas."
   },
   {
     "tema": "Tema 2: Componentes de aplicaciones",
@@ -225,7 +243,8 @@
       "A y C son correctas"
     ],
     "answer": "A y C son correctas",
-    "explanation": "Tema 2: Componentes de aplicaciones - Pub/Sub permite repartir la carga entre varios nodos pero no aumenta la capacidad del sistema, ya que todos ellos reciben el evento y este no se reparte."
+    "explanation": "Tema 2: Componentes de aplicaciones - Pub/Sub permite repartir la carga entre varios nodos pero no aumenta la capacidad del sistema, ya que todos ellos reciben el evento y este no se reparte.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nExisten dos paradigmas principales para distribuir el trabajo: un modelo «Push», donde un Balanceador de Carga recibe tráfico y lo empuja hacia los nodos disponibles; y un modelo «Pull», donde una Cola de Tareas almacena el trabajo y los nodos (workers) van consumiendo las tareas a su propio ritmo.\n\n**La perspectiva de la clase:**\nEn la clase de repaso del examen, el profesor discutió exactamente esta pregunta con un alumno que pensaba que solo servía el balanceador de carga. El profesor le corrigió indicando que «las colas de trabajo distribuyen la carga para atender los mensajes». Ambas herramientas aumentan la capacidad del sistema repartiendo el esfuerzo.\n\n**Aplicación en DevOps:**\nTu arquitectura recibe peticiones HTTP desde internet. Colocas un Application Load Balancer (ALB) para repartir ese tráfico web entre 3 servidores Nginx. Esos servidores generan reportes pesados, así que envían las tareas a una Cola de RabbitMQ. Al otro lado, tienes 10 servidores «worker» recogiendo tareas de la cola para procesar los reportes en paralelo."
   },
   {
     "tema": "Tema 2: Componentes de aplicaciones",
@@ -237,7 +256,8 @@
       "PostgreSQL, IaaS, Varnish"
     ],
     "answer": "MongoDB, PostgreSQL, MySQL",
-    "explanation": "Tema 2: Componentes de aplicaciones - Ni Spring Boot ni Varnish son bases de datos. Memcachéd puede almacenar datos, pero al no poder persistirlos en disco no se utiliza como base de datos persistentes."
+    "explanation": "Tema 2: Componentes de aplicaciones - Ni Spring Boot ni Varnish son bases de datos. Memcachéd puede almacenar datos, pero al no poder persistirlos en disco no se utiliza como base de datos persistentes.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas bases de datos persistentes son aquellas diseñadas para almacenar la información de forma duradera y permanente en discos de almacenamiento no volátiles. Se oponen a los sistemas de almacenamiento en memoria (Cachés temporales), que pierden los datos si el servidor se reinicia.\n\n**La perspectiva de la clase:**\nEl profesor categoriza las herramientas en clase. Menciona a MongoDB, PostgreSQL, MariaDB y MySQL como sistemas de almacenamiento base (bases de datos con estado de ejecución prolongada). En contraposición, cataloga a Memcached y Varnish explícitamente como «Cachés», explicando que son temporales y de almacenamiento volátil.\n\n**Aplicación en DevOps:**\nDespliegas PostgreSQL para guardar los saldos de las cuentas bancarias de los clientes, asegurando que los datos sobrevivan a un reinicio del servidor (Persistente). Despliegas Memcached únicamente para guardar las sesiones temporales de inicio de sesión de los usuarios de la web (Volátil)."
   },
   {
     "tema": "Tema 3: Arquitectura de aplicaciones",
