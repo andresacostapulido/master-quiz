@@ -9,7 +9,8 @@
     ],
     "answer": "Bosque",
     "explanation": "Los administradores organizan los árboles de directorios en bosques. Los bosques son el límite administrativo y de seguridad más amplio en una estructura AD.",
-    "tema": "Tema 6. Administración de servidores Windows"
+    "tema": "Tema 6. Administración de servidores Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUn Bosque (Forest) es el contenedor lógico de mayor nivel en la arquitectura de Directorio Activo (Active Directory) y define el límite de seguridad y administrativo más amplio de la infraestructura. Agrupa a uno o varios árboles de dominios que comparten un mismo esquema de base de datos, un catálogo global común y relaciones de confianza transitivas bidireccionales automáticas.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz explica que el Directorio Activo es una de las mayores ventajas competitivas de Windows Server. Al repasar la estructura lógica y jerárquica del sistema, enfatiza que los dominios individuales se agrupan a un nivel superior formando bosques. Es el límite supremo que define la confianza y la replicación global de la seguridad en la red corporativa.\n\n**Aplicación en DevOps:**\nDiseño de entornos multitenant. En corporaciones globales, los ingenieros DevOps diseñan un único Bosque para mantener la consistencia del esquema de identidad, pero delegan la administración mediante dominios independientes para diferentes filiales, limitando el acceso administrativo directo para evitar que un error en el despliegue de una filial afecte a todo el bosque."
   },
   {
     "question": "¿Qué diferencia hay entre una carpeta contenedora y una unidad organizativa (OU) en AD?",
@@ -21,7 +22,8 @@
     ],
     "answer": "B y C son correctas",
     "explanation": "Las OU permiten aplicar políticas de seguridad (GPO) y delegar la administración a otros usuarios. Las carpetas son similares a las del sistema de ficheros pero sin esas capacidades.",
-    "tema": "Tema 6. Administración de servidores Windows"
+    "tema": "Tema 6. Administración de servidores Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas carpetas contenedoras por defecto (como Users o Computers) son objetos estáticos del sistema que no admiten la vinculación directa de Directivas de Grupo (GPOs) ni la delegación granular de permisos administrativos. Por el contrario, las Unidades Organizativas (OUs) son contenedores lógicos diseñados específicamente para estructurar el dominio; permiten vincular GPOs directamente a ellas y delegar privilegios de administración de forma selectiva a usuarios o grupos específicos.\n\n**La perspectiva de la clase:**\nEn el repaso de Windows, el profesor destaca que las directivas de seguridad se aplican a nivel de unidades organizativas (OUs). Explica que las OUs son las herramientas clave de organización que nos permiten agrupar usuarios y equipos del dominio para aplicar reglas específicas de forma centralizada.\n\n**Aplicación en DevOps:**\nAutomatización de accesos mínimos. Un DevOps crea una OU dedicada a cuentas de servicio para procesos de CI/CD. A esta OU se le vincula una GPO restrictiva que impide el inicio de sesión interactivo y se delega la administración únicamente al rol de automatización, evitando tener que otorgar permisos de Administrador del Dominio a las herramientas de despliegue."
   },
   {
     "question": "¿Qué modo de instalación de Windows Server 2019 no se puede instalar en un servidor físico?",
@@ -33,7 +35,8 @@
     ],
     "answer": "Ninguno de los anteriores",
     "explanation": "Microsoft distribuye las ediciones en una misma imagen ISO soportando varios modos: Desktop Experience, Server Core y Nano Server. Todos pueden instalarse en hardware físico.",
-    "tema": "Tema 6. Administración de servidores Windows"
+    "tema": "Tema 6. Administración de servidores Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nTanto Windows Server with Desktop Experience como Server Core son sistemas operativos base diseñados para ser instalados tanto en servidores físicos (bare-metal) como en entornos virtuales. Aunque Nano Server evolucionó en las versiones más modernas para ejecutarse exclusivamente como imagen base de contenedores o máquinas virtuales invitadas ultraligeras, desde una perspectiva puramente arquitectónica, todos los sabores de instalación de Windows Server están diseñados para operar dentro de límites físicos o virtuales soportados por el hipervisor de Microsoft.\n\n**La perspectiva de la clase:**\nEl profesor Sanz detalla que es vital conocer los tres modos de ejecución fundamentales: Modo Escritorio, Modo Core y Modo Nano. Explica que cada uno tiene características y pesos específicos, y que se debe entender qué utilidades tiene cada uno dentro del ecosistema de servidores de Microsoft.\n\n**Aplicación en DevOps:**\nAprovisionamiento bare-metal. En la construcción de nubes privadas, los ingenieros DevOps automatizan la instalación inicial del sistema operativo físico en los nodos hipervisores usando Server Core para reducir al mínimo el consumo de CPU y memoria RAM local, destinando toda la capacidad física del servidor a las cargas de trabajo virtualizadas."
   },
   {
     "question": "¿Con qué modos de instalación de Windows Server se puede usar RDP?",
@@ -45,7 +48,8 @@
     ],
     "answer": "A y B son correctas",
     "explanation": "Nano Server es la única versión que no soporta RDP, ya que es una versión mínima de Windows Server. Server Core y Desktop Experience sí soportan RDP.",
-    "tema": "Tema 6. Administración de servidores Windows"
+    "tema": "Tema 6. Administración de servidores Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl protocolo RDP (Remote Desktop Protocol) está soportado tanto en la instalación con interfaz gráfica completa (Desktop Experience) como en Server Core. Al conectarse por RDP a un Server Core, en lugar de un escritorio tradicional, el subsistema de video de Windows inicia directamente una ventana de consola (cmd.exe o PowerShell) para interactuar con el sistema a través de comandos. Nano Server, al carecer de stack de video y RDP, se gestiona únicamente de forma remota mediante PowerShell Remoting o WMI.\n\n**La perspectiva de la clase:**\nEl profesor señala que, por definición, los entornos en la nube deben ser administrados de forma remota. Menciona al RDP (Remote Desktop) como una herramienta de uso muy extendido para acceder de forma remota e interactiva a la administración de Windows, apoyándose en utilidades gráficas o de comandos.\n\n**Aplicación en DevOps:**\nGestión de servidores de salto (Bastions). En infraestructuras híbridas, los ingenieros DevOps habilitan de forma segura el acceso RDP a instancias de Server Core que actúan como «Jump Boxes». Esto permite a los administradores de sistemas acceder a una consola segura dentro de la red privada para ejecutar comandos de diagnóstico rápidos sin necesidad de exponer la interfaz gráfica de toda la infraestructura."
   },
   {
     "question": "¿Cuál de las siguientes herramientas se puede usar para administrar una instalación de Server Core?",
@@ -57,7 +61,8 @@
     ],
     "answer": "Todas las anteriores",
     "explanation": "Las principales herramientas de administración remota son: RDP, PowerShell, Server Manager, consola remota MMC y RSAT (Remote Server Administration Tools).",
-    "tema": "Tema 6. Administración de servidores Windows"
+    "tema": "Tema 6. Administración de servidores Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nServer Core carece de interfaz gráfica de usuario (GUI) local, pero está diseñado bajo un paradigma de gestión remota completa. Los administradores de sistemas pueden interactuar con él abriendo una consola directa por RDP, gestionándolo de manera centralizada y declarativa desde otro servidor con la interfaz gráfica de Server Manager (a través de WinRM), o ejecutando comandos interactivos o scripts con PowerShell Remoting.\n\n**La perspectiva de la clase:**\nIván Sanz explica que para administrar Server Core contamos con múltiples opciones remotas. El uso de herramientas centralizadas como Server Manager o las consolas MMC con sus respectivos complementos (snappings), combinados con PowerShell, facilita enormemente la administración sin necesidad de estar físicamente frente a la máquina.\n\n**Aplicación en DevOps:**\nAdministración sin interfaz gráfica. En un flujo DevOps, se gestiona una flota de servidores Server Core sin usar interfaces locales. El pipeline de CI/CD automatiza los cambios mediante PowerShell, el equipo de operaciones utiliza Server Manager para auditorías manuales rápidas de rendimiento, y se recurre a RDP de forma exclusiva para tareas de recuperación o depuración profunda."
   },
   {
     "question": "¿Qué protocolo se integra con el Directorio Activo para la resolución de nombres de equipos, dominios y servicios?",
@@ -69,7 +74,8 @@
     ],
     "answer": "DNS",
     "explanation": "AD utiliza DNS para localizar servicios (gracias a entradas SRV) y para identificar tanto dominios como los equipos miembros del dominio.",
-    "tema": "Tema 6. Administración de servidores Windows"
+    "tema": "Tema 6. Administración de servidores Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl protocolo DNS (Domain Name System) es el pilar de resolución de nombres y localización de servicios de Directorio Activo. Active Directory utiliza registros SRV de DNS para que los clientes puedan localizar de forma dinámica los controladores de dominio (DCs), servidores de catálogo global y servicios de autenticación LDAP en la red. Sin un servidor DNS correctamente configurado e integrado con AD, la unión de equipos y el inicio de sesión fallan de inmediato.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz repite de forma insistente que el Directorio Activo es fundamental y que es obligatorio saber qué es y qué protocolos utiliza, señalando directamente al DNS y Kerberos como los protocolos clave para su funcionamiento y autenticación.\n\n**Aplicación en DevOps:**\nResolución de nombres en nubes híbridas. Cuando un DevOps despliega instancias en la nube pública (como AWS EC2) que deben unirse a un Directorio Activo corporativo físico, debe configurar las opciones de red (DHCP Options Sets o DNS de la VPC) para apuntar directamente a los controladores de dominio de Windows. Esto garantiza que las instancias resuelvan correctamente los registros SRV del dominio de AD y se unan al dominio sin errores."
   },
   {
     "question": "¿Qué mecanismo permite acceder a los recursos de un dominio desde un dominio de un bosque diferente?",
@@ -81,7 +87,8 @@
     ],
     "answer": "Relación de confianza",
     "explanation": "Las relaciones de confianza conectan bosques distintos y extienden la accesibilidad de los recursos entre dominios, centralizando la administración a nivel lógico.",
-    "tema": "Tema 6. Administración de servidores Windows"
+    "tema": "Tema 6. Administración de servidores Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUna Relación de Confianza (Trust Relationship) es un vínculo lógico que se establece entre dos dominios o dos bosques de Directorio Activo diferentes. Permite que el sistema de autenticación de un dominio confíe en las identidades provistas por el otro, permitiendo que un usuario del dominio «A» se autentique y acceda a recursos autorizados en el dominio «B» sin necesidad de duplicar su cuenta de usuario.\n\n**La perspectiva de la clase:**\nDurante los repasos del bloque de Windows, el profesor destaca que la arquitectura de Active Directory es altamente escalable y que la relación de confianza es el mecanismo que permite interactuar y dar conectividad segura entre dominios de bosques diferentes para poder consumir sus recursos de forma compartida.\n\n**Aplicación en DevOps:**\nIntegración de infraestructuras por adquisiciones. En procesos de fusiones de empresas, los equipos de DevOps configuran una relación de confianza federada o de bosque entre los Directorios Activos de ambas compañías. Esto permite que las herramientas de automatización y los desarrolladores de la Compañía A desplieguen y accedan de forma segura a servidores de staging ubicados en el dominio de la Compañía B utilizando sus credenciales nominales de origen."
   },
   {
     "question": "¿Cuál es el nivel funcional de dominio más moderno soportado por Windows Server 2019?",
@@ -93,7 +100,8 @@
     ],
     "answer": "Windows Server 2016",
     "explanation": "Windows Server 2019 no añade ningún nivel funcional nuevo, mantiene los niveles de Windows Server 2016. Todos los controladores del dominio deben ser WS2016 o WS2019.",
-    "tema": "Tema 6. Administración de servidores Windows"
+    "tema": "Tema 6. Administración de servidores Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos Niveles Funcionales de Dominio y Bosque determinan qué características avanzadas de Active Directory se pueden activar y qué sistemas operativos pueden actuar como controladores de dominio. Dado que Microsoft no introdujo un nuevo nivel funcional específico para las versiones de Windows Server 2019 o Windows Server 2022, el nivel funcional más moderno y con mayores capacidades disponible en Windows Server 2019 es el de Windows Server 2016.\n\n**La perspectiva de la clase:**\nEl profesor explica que la compatibilidad del Directorio Activo está supeditada a los niveles funcionales establecidos. Al desplegar controladores de dominio con sistemas operativos modernos como Windows Server 2019, la base de datos de AD sigue operando bajo el estándar y nivel funcional máximo de Windows Server 2016, lo que garantiza estabilidad y compatibilidad con versiones anteriores de servidores.\n\n**Aplicación en DevOps:**\nAprovisionamiento automatizado de Controladores de Dominio. Al automatizar la promoción de nuevos servidores Windows Server 2019 a controladores de dominio utilizando herramientas de IaC o PowerShell DSC, el ingeniero DevOps debe configurar los parámetros de promoción del bosque (-ForestMode) y dominio (-DomainMode) con el valor de Win2016 para evitar errores de sintaxis y compatibilidad en el despliegue."
   },
   {
     "question": "¿Qué es necesario instalar en un equipo Windows para unirlo a un dominio?",
@@ -105,7 +113,8 @@
     ],
     "answer": "Nada, solo es necesario configurar la conexión al dominio",
     "explanation": "Unir un equipo al dominio no requiere instalar ningún rol especial, solo conectividad y configurar la conexión al dominio desde la configuración del sistema.",
-    "tema": "Tema 6. Administración de servidores Windows"
+    "tema": "Tema 6. Administración de servidores Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos sistemas operativos de escritorio de Windows (versiones Pro, Enterprise o Education) y los sistemas operativos Windows Server traen incorporados de manera nativa todos los clientes de red y protocolos necesarios para unirse a un dominio de Active Directory. No se requiere instalar ningún rol de servidor (como AD DS) ni herramientas administrativas adicionales (RSAT); únicamente se requiere configurar la tarjeta de red para apuntar al servidor DNS del dominio, tener visibilidad IP con los controladores de dominio y proveer credenciales autorizadas.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz aclara explícitamente en clase que para unir una máquina o equipo cliente a un dominio del Directorio Activo no se necesita instalar absolutamente nada: «nada, solo es necesario configurar la conexión al dominio». Es una funcionalidad nativa que no requiere herramientas ni roles adicionales.\n\n**Aplicación en DevOps:**\nBootstrapping y autoescalado de instancias. En un grupo de autoescalado de Windows en la nube (AWS EC2), las nuevas instancias que se levantan se unen automáticamente al dominio mediante un script de PowerShell en el campo User Data que simplemente ejecuta Add-Computer -DomainName \"corp.internal\" -Credential $creds. El script no necesita perder tiempo en descargar paquetes o instalar roles previos, acelerando el tiempo de disponibilidad de la instancia en producción."
   },
   {
     "question": "¿Cuántos controladores de dominio debería tener un dominio?",
@@ -117,7 +126,8 @@
     ],
     "answer": "Al menos uno",
     "explanation": "Cada dominio tendrá al menos un DC que actúa como autoridad. Es habitual tener más de uno por redundancia, ya que la caída del único DC colapsaría todo el dominio.",
-    "tema": "Tema 6. Administración de servidores Windows"
+    "tema": "Tema 6. Administración de servidores Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPara que un dominio de Active Directory exista y funcione, requiere técnicamente un mínimo de un controlador de dominio (DC) activo que aloje la base de datos de identidades (NTDS.dit), atienda las consultas LDAP y procese la autenticación de Kerberos. Sin embargo, para evitar puntos de fallo únicos (SPOF) en entornos de producción reales, las mejores prácticas de arquitectura y diseño dictan desplegar siempre un mínimo de dos controladores de dominio para garantizar la alta disponibilidad.\n\n**La perspectiva de la clase:**\nEl profesor señala que si nos ceñimos a las condiciones de requerimiento técnico estricto, para que un dominio pueda existir y dar servicio basta con tener al menos uno (un único controlador de dominio) funcionando en la infraestructura.\n\n**Aplicación en DevOps:**\nEstrategia de recuperación ante desastres (DR). En entornos corporativos, los ingenieros DevOps diseñan la infraestructura de identidad desplegando al menos dos controladores de dominio virtuales ubicados en Zonas de Disponibilidad (AZ) diferentes de la nube pública. De este modo, si la AZ principal sufre una caída, el controlador de dominio secundario de la otra AZ continúa atendiendo todas las solicitudes de autenticación y resolución DNS de la empresa sin interrupciones."
   },
   {
     "question": "¿Qué contiene «$?» cuando el último proceso ha terminado con éxito?",
@@ -619,7 +629,8 @@
     ],
     "answer": "Todos los anteriores",
     "explanation": "Las tres opciones son equivalentes. Get-ChildItem y gci son alias. Export-Csv genera un formato diferente pero la llamada es equivalente.",
-    "tema": "Tema 7. Guía de estudio de PowerShell"
+    "tema": "Tema 7. Guía de estudio de PowerShell",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPowerShell proporciona múltiples caminos para realizar una misma tarea debido a su sistema de alias y su motor de redirección. El comando nativo Get-ChildItem recupera los elementos de un directorio. gci es un alias predefinido que apunta a este cmdlet. El operador de redirección clásico > convierte los objetos de salida en texto plano y los vuelca en un archivo, mientras que la canalización (|) hacia Export-Csv exporta las propiedades estructuradas de los objetos directamente a un formato delimitado por comas.\n\n**La perspectiva de la clase:**\nEl profesor explica que en PowerShell existen alias para abreviar la escritura de comandos largos. Destaca que se heredan tanto comandos tradicionales de MS-DOS como de Linux para facilitar la transición de los administradores. Enfatiza que se trata de acortar el camino al escribir en consola de forma recurrente, por lo que el uso de alias como gci y la redirección son prácticas comunes para optimizar el esfuerzo diario.\n\n**Aplicación en DevOps:**\nGeneración automatizada de inventarios de artefactos. En un pipeline de despliegue continuo, un ingeniero DevOps ejecuta gci | Export-Csv reporte.csv al final de una fase de compilación. Esto genera un archivo estructurado con todos los binarios y librerías generados, facilitando que el pipeline lo adjunte automáticamente como un artefacto descargable y legible para herramientas de auditoría."
   },
   {
     "question": "¿Qué expresión lógica indica igualdad entre objetos en PowerShell?",
@@ -631,7 +642,8 @@
     ],
     "answer": "-eq",
     "explanation": "En PowerShell los operadores de comparación llevan guión: -eq (igual), -ne (distinto), -lt (menor), -gt (mayor). Los operadores == y = no son comparadores válidos.",
-    "tema": "Tema 7. Guía de estudio de PowerShell"
+    "tema": "Tema 7. Guía de estudio de PowerShell",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn PowerShell, los operadores relacionales clásicos de programación (como == o =) no se utilizan para evaluar condiciones. Se emplea la nomenclatura de operadores lógicos heredada de Unix. El operador -eq (equal) compara la igualdad entre dos operandos, devolviendo un valor booleano (True o False). Al trabajar con objetos, evalúa si los valores de las propiedades de dichos objetos son equivalentes.\n\n**La perspectiva de la clase:**\nAl explicar las estructuras condicionales en clase, el profesor muestra que para realizar comparaciones dentro de un bloque if se debe utilizar el operador de igualdad -eq. Enfatiza que la sintaxis de PowerShell requiere acostumbrarse a estas letras específicas para evitar errores de sintaxis comunes en personas que vienen de otros lenguajes de programación.\n\n**Aplicación en DevOps:**\nValidación de estados en despliegues. Al automatizar tareas en la nube, un script de PowerShell verifica el estado de aprovisionamiento de una instancia virtual: if ($instance.State -eq \"Running\") { ... }. Esto asegura que el script solo continúe con la instalación del software si la máquina virtual ya está completamente encendida y lista para recibir comandos."
   },
   {
     "question": "¿Qué expresión lógica indica que un objeto es menor o igual a otro en PowerShell?",
@@ -643,7 +655,8 @@
     ],
     "answer": "-le",
     "explanation": "-le es menor o igual (less or equal). -lt es estrictamente menor, -ge es mayor o igual, -eq es igual.",
-    "tema": "Tema 7. Guía de estudio de PowerShell"
+    "tema": "Tema 7. Guía de estudio de PowerShell",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl operador -le (less or equal) es el operador relacional de comparación utilizado en PowerShell para determinar si el valor del operando de la izquierda es menor o igual al de la derecha. Su contraparte para evaluar estrictamente un valor menor es -lt (less than).\n\n**La perspectiva de la clase:**\nEl profesor repasa la tabla de expresiones y operadores relacionales de comparación en PowerShell, señalando que la nomenclatura sigue las abreviaturas de las palabras en inglés. Destaca que para evaluar si un valor es «menor o igual» se utiliza -le (lower equal).\n\n**Aplicación en DevOps:**\nControl de umbrales y alertas de recursos. Un script DevOps monitoriza el uso de espacio en disco de un clúster de servidores de base de datos. Si el porcentaje de almacenamiento libre es menor o igual al límite seguro de alerta, el script dispara de forma automática una notificación: if ($disk.FreeSpacePercentage -le 15) { Send-Alert -Message \"Almacenamiento crítico\" }."
   },
   {
     "question": "¿Qué política de ejecución de PowerShell permite ejecutar cualquier script?",
@@ -655,7 +668,8 @@
     ],
     "answer": "Unrestricted",
     "explanation": "Unrestricted permite ejecutar cualquier script, local o descargado, sin restricciones. Restricted bloquea todos los scripts.",
-    "tema": "Tema 7. Guía de estudio de PowerShell"
+    "tema": "Tema 7. Guía de estudio de PowerShell",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa directiva Execution Policy de PowerShell es una característica de seguridad integrada que determina las condiciones bajo las cuales el motor carga y ejecuta scripts en el sistema operativo. La política Unrestricted es el nivel de máxima permisividad: el sistema ejecuta cualquier script sin importar si está firmado digitalmente o no, y solo muestra una advertencia si el script fue descargado de internet.\n\n**La perspectiva de la clase:**\nEl profesor describe la política de ejecución como una regla del sistema operativo que acota la ejecución de scripts por seguridad. Clasifica los cuatro estados fundamentales y señala a Unrestricted como el modo de «riesgo máximo» donde se puede ejecutar todo de forma libre. Enseña que se puede consultar el estado con Get-ExecutionPolicy y alterarlo con Set-ExecutionPolicy.\n\n**Aplicación en DevOps:**\nAprovisionamiento de servidores en entornos de desarrollo (Staging). Al inicializar máquinas virtuales de prueba que requieren ejecutar scripts de configuración de forma automática durante su arranque (bootstrapping), un ingeniero DevOps inyecta como primer comando en el bloque de inicio: Set-ExecutionPolicy Unrestricted -Force. Esto asegura que todos los scripts posteriores de instalación corran desatendidos sin bloqueos de seguridad del sistema operativo."
   },
   {
     "question": "¿Qué comando de PowerShell equivale a man en Linux?",
@@ -667,7 +681,8 @@
     ],
     "answer": "Get-Help",
     "explanation": "Get-Help muestra la ayuda de cmdlets. Get-Member muestra los atributos de un objeto .NET. Get-Manual y Read-Help no son cmdlets válidos.",
-    "tema": "Tema 7. Guía de estudio de PowerShell"
+    "tema": "Tema 7. Guía de estudio de PowerShell",
+    "detailedExplanation": "**¿Qué significa realmente?**\nGet-Help es el cmdlet integrado de PowerShell que sirve como motor de ayuda y documentación del sistema. Permite buscar información sobre conceptos, sintaxis, parámetros de cmdlets y flujos de trabajo, asemejándose directamente al comando man (manual) de los sistemas Unix/Linux.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz describe a Get-Help como un «comando maravilloso que ayuda un montón». Explica que ante la imposibilidad de memorizar todos los parámetros de los comandos, este cmdlet devuelve los manuales de uso. Adicionalmente, aclara que es una práctica recomendada ejecutar Update-Help para descargar e importar los manuales más actualizados desde los repositorios de Microsoft.\n\n**Aplicación en DevOps:**\nExploración interactiva en terminales remotas. Al conectarse a un servidor Core de Windows Server en la nube sin interfaz gráfica, un ingeniero DevOps utiliza Get-Help Get-Service -Detailed para examinar rápidamente en frío los parámetros requeridos de un comando de gestión de servicios, sin necesidad de abandonar la terminal para buscar documentación en la web."
   },
   {
     "question": "¿En qué se diferencian las tuberías (pipes) de Bash de las de PowerShell?",
@@ -679,7 +694,8 @@
     ],
     "answer": "En Bash se transfiere texto mientras que en PowerShell se transfieren objetos",
     "explanation": "Los objetos de PowerShell tienen métodos y propiedades, por lo que no es necesario parsearlos como ocurre con el texto en Bash.",
-    "tema": "Tema 7. Guía de estudio de PowerShell"
+    "tema": "Tema 7. Guía de estudio de PowerShell",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn la shell de Bash, la salida de un comando se pasa al siguiente como un flujo plano de caracteres (texto sin estructura). El receptor debe filtrar, recortar y parsear el texto manualmente (usando comandos como grep, awk o cut). En cambio, las tuberías de PowerShell transfieren objetos .NET estructurados con sus respectivas propiedades y métodos intactos a través del canal. El cmdlet receptor recibe una estructura tipada que puede interrogar y manipular directamente por el nombre de sus atributos.\n\n**La perspectiva de la clase:**\nEl profesor explica que, mientras en Bash se transfiere un flujo plano de texto, en PowerShell se transmiten objetos gracias a que está basado en .NET. Ilustra que esto cambia el paradigma de administración: en lugar de peinar el texto e ir filtrando caracteres, el objeto pasa al siguiente eslabón de la tubería y el comando receptor puede explotar directamente sus propiedades.\n\n**Aplicación en DevOps:**\nFiltrado y manipulación de procesos en pipelines de monitoreo. En lugar de usar complejas expresiones regulares para peinar salidas de texto plano, un DevOps puede detener de forma directa servicios específicos encadenando objetos: Get-Service | Where-Object {$_.Status -eq \"Stopped\"} | Start-Service. La tubería transfiere los objetos de servicio que cumplen la condición directamente al cmdlet de inicio de manera segura y sin errores de parseo."
   },
   {
     "question": "¿Qué editor integrado incluye por defecto PowerShell?",
@@ -691,7 +707,8 @@
     ],
     "answer": "PowerShell ISE",
     "explanation": "PowerShell ISE (Integrated Scripting Environment) es el editor integrado por defecto. Notepad es un editor de texto sin formato y vim no se incluye por defecto.",
-    "tema": "Tema 7. Guía de estudio de PowerShell"
+    "tema": "Tema 7. Guía de estudio de PowerShell",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPowerShell ISE (Integrated Scripting Environment) es el entorno de desarrollo integrado nativo que Microsoft incluye en los sistemas operativos Windows Server y de escritorio. Permite escribir, probar, depurar y ejecutar scripts en un entorno gráfico, proporcionando funciones de autocompletado de comandos (IntelliSense), paneles multiventana y coloración de sintaxis.\n\n**La perspectiva de la clase:**\nEl profesor comenta que al operar en Windows, contar con un editor visual facilita enormemente el desarrollo. Señala que PowerShell ISE viene preinstalado por defecto en la gran mayoría de versiones de Windows y que es ideal para depurar código, comprobar que los parámetros estén bien escritos y visualizar la sintaxis de forma estructurada gracias a sus coloridos paneles de ayuda.\n\n**Aplicación en DevOps:**\nTroubleshooting y pruebas de scripts en caliente. Al realizar mantenimientos manuales de emergencia en servidores de staging o salto (Bastions), los ingenieros DevOps abren PowerShell ISE directamente en la sesión remota para modificar y probar de forma interactiva fragmentos de código de aprovisionamiento de manera ágil antes de empaquetar los cambios en el pipeline automático."
   },
   {
     "question": "¿Cuál de los siguientes comandos filtra objetos con base en sus propiedades en PowerShell?",
@@ -703,7 +720,8 @@
     ],
     "answer": "Select-Object",
     "explanation": "Select-Object filtra objetos con base en sus propiedades. Get-Member muestra los atributos de un objeto, Filter-Object no es un cmdlet válido y Sort-Object ordena los objetos a partir de una propiedad, pero devuelve todos los objetos que recibe.",
-    "tema": "Tema 7. Guía de estudio de PowerShell"
+    "tema": "Tema 7. Guía de estudio de PowerShell",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl cmdlet Select-Object permite seleccionar propiedades específicas de un objeto o grupo de objetos, así como limitar la cantidad de objetos devueltos en la tubería (por ejemplo, seleccionando solo los primeros N elementos usando el parámetro -First). Trabaja en estrecha relación con Where-Object (que filtra objetos basándose en condiciones de comparación) y Sort-Object (que ordena los objetos según una propiedad).\n\n**La perspectiva de la clase:**\nEl profesor destaca tres comandos esenciales que se deben recordar para trabajar con tuberías en PowerShell: Sort-Object (ordenar), Where-Object (filtrar por condición) y Select-Object (seleccionar o filtrar propiedades y objetos). Explica que el uso coordinado de estos cmdlets permite realizar selecciones sumamente granulares de la información de salida en un solo flujo continuo de comandos.\n\n**Aplicación en DevOps:**\nGeneración de reportes de consumo optimizados. Al auditar recursos pesados del sistema en caliente, un DevOps extrae y formatea únicamente los datos relevantes: Get-Process | Sort-Object CPU -Descending | Select-Object -First 5 -Property Name, CPU. Esto ordena todos los procesos de forma descendente y devuelve un objeto simplificado que contiene exclusivamente el nombre y uso de CPU de los 5 procesos más demandantes."
   },
   {
     "question": "¿Qué significa que Env: sea una unidad en PowerShell?",
@@ -715,7 +733,8 @@
     ],
     "answer": "Que las variables de entorno se pueden manipular con los mismos comandos que un sistema de ficheros, como Get-ChildItem y New-Item",
     "explanation": "En PowerShell el sistema de ficheros es solo uno de los tipos de unidades que se pueden manipular. Las unidades disponibles se obtienen con Get-PSDrive sin parámetros.",
-    "tema": "Tema 7. Guía de estudio de PowerShell"
+    "tema": "Tema 7. Guía de estudio de PowerShell",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPowerShell implementa el concepto de proveedores de datos (Providers) que mapean almacenes de datos no tradicionales en forma de unidades de disco virtuales accesibles mediante cmdlets comunes (PS Drives). Al montar el proveedor de variables de entorno como la unidad Env:, el administrador puede explorar, crear, modificar y borrar variables de entorno utilizando la misma sintaxis y comandos empleados para navegar por carpetas y archivos en el disco duro.\n\n**La perspectiva de la clase:**\nEl profesor repasa las capacidades de exploración de PowerShell y enseña que las unidades virtuales van mucho más allá de las letras físicas de disco tradicionales (como C: o D:). Explica que gracias a Get-PSDrive podemos ver almacenes de datos montados como unidades, facilitando que naveguemos e interactuemos con variables de entorno o registros del sistema como si fueran carpetas normales del disco.\n\n**Aplicación en DevOps:**\nConfiguración dinámica en scripts de bootstrapping. En tareas de inicialización de servidores, un DevOps puede listar de forma automática todas las variables de entorno inyectadas por la nube para comprobar su presencia usando la misma lógica del disco: Get-ChildItem Env:. También puede crear nuevas variables al vuelo de forma declarativa: New-Item -Path Env:\\DB_PORT -Value \"3306\"."
   },
   {
     "question": "¿Cuál es el equivalente en otros lenguajes del operador -ne de PowerShell?",
@@ -727,7 +746,8 @@
     ],
     "answer": "!=",
     "explanation": "-ne equivale a != (distinto). -lt equivale a <, -gt equivale a >, -ge equivale a >=, -le equivale a <=.",
-    "tema": "Tema 7. Guía de estudio de PowerShell"
+    "tema": "Tema 7. Guía de estudio de PowerShell",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl operador -ne (not equal) es el operador de comparación lógica de PowerShell que evalúa la desigualdad entre dos elementos. Equivale de forma exacta al operador de desigualdad tradicional != utilizado en lenguajes como C, Java, JavaScript, Python o Bash.\n\n**La perspectiva de la clase:**\nAl revisar las expresiones relacionales de PowerShell, el profesor indica que las condiciones lógicas se especifican mediante modificadores de letras abreviadas en inglés. Explica que para indicar que un objeto es «distinto» o «no igual» a otro, se debe usar -ne (not equal), actuando como el homólogo directo del operador != de otros entornos de desarrollo.\n\n**Aplicación en DevOps:**\nMonitoreo del estado de servicios críticos. Un script de control de salud (health check) corre en segundo plano para verificar si el servidor web de IIS está en ejecución: if ($service.Status -ne \"Running\") { Restart-Service -Name W3SVC }. Esto asegura que el servicio se reinicie de manera automática en el instante en que su estado sea diferente de activo."
   },
   {
     "question": "¿Qué comando sirve para solicitar una terminación programada de un proceso en Linux?",

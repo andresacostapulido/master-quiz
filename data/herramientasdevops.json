@@ -659,7 +659,8 @@
       "Por defecto usa ficheros en disco de la máquina"
     ],
     "answer": "C y D son correctas",
-    "explanation": "Tema 6: Terraform - El estado de Terraform es configurable y por defecto usa ficheros locales."
+    "explanation": "Tema 6: Terraform - El estado de Terraform es configurable y por defecto usa ficheros locales.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl «estado» es el mecanismo que utiliza Terraform para mantener un registro exacto de los recursos que ha desplegado en el mundo real, mapeándolos contra los archivos de configuración. Por defecto, Terraform genera de forma local un archivo binario/texto llamado terraform.tfstate en la misma máquina donde se ejecuta. No obstante, este estado es configurable y se puede delegar a ubicaciones externas («backends remotos») para evitar pérdidas de datos o sobrescrituras en entornos de trabajo colaborativo.\n\n**La perspectiva de la clase:**\nEl profesor Rafael Merlo explica que Terraform es intrínsecamente «una aplicación con estado». Destaca que, por defecto, se trabaja con un backend local que guarda los datos directamente en el disco duro de la máquina. Sin embargo, el profesor advierte del peligro de mantener este estado en local, recomendando migrarlo a backends remotos (como un bucket de Amazon S3 o Consul) para habilitar el bloqueo de estado (state locking) y proteger los archivos de la corrupción de datos.\n\n**Aplicación en DevOps:**\nEn un equipo de operaciones con 5 ingenieros que modifican simultáneamente la infraestructura de red en AWS, el estado de Terraform se configura con un backend remoto en S3 y una tabla de DynamoDB para el bloqueo del estado. Esto garantiza que si dos ingenieros ejecutan terraform apply al mismo tiempo, el sistema bloqueará la ejecución de uno de ellos, previniendo la corrupción o duplicidad de los recursos desplegados."
   },
   {
     "tema": "Tema 6: Terraform: casos de uso avanzado",
@@ -671,7 +672,8 @@
       "Ninguna de las respuestas es correcta"
     ],
     "answer": "Puede utilizarse con un provider del tipo aws asignado por defecto o asociarlo a otro provider por nombre",
-    "explanation": "Tema 6: Terraform - El recurso aws_instance está asociado a AWS y utiliza el provider por defecto si no se enlaza a una explícitamente."
+    "explanation": "Tema 6: Terraform - El recurso aws_instance está asociado a AWS y utiliza el provider por defecto si no se enlaza a una explícitamente.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nTerraform utiliza «providers» (proveedores) para comunicarse con las APIs de las diferentes nubes. Por defecto, si defines un recurso como aws_instance, se asocia implícitamente al proveedor aws declarado por defecto. No obstante, si se gestionan múltiples cuentas, regiones o configuraciones de la misma nube, se pueden declarar múltiples instancias del proveedor utilizando un alias. Esto permite forzar a que un recurso específico de tipo aws_instance se despliegue utilizando un proveedor no predeterminado mediante el atributo provider.\n\n**La perspectiva de la clase:**\nEl profesor enseña que podemos tener configuraciones de múltiples proveedores y heredar o redefinir sus credenciales. Durante las clases avanzadas y las simulaciones del ejemplo multinube, se expone que a nivel de módulos y directorios raíz podemos utilizar un «alias» dentro del bloque provider para diferenciar, por ejemplo, cuentas de AWS de distintas regiones o entornos.\n\n**Aplicación en DevOps:**\nUn ingeniero diseña un plano de Terraform que debe levantar un servidor web en la región de AWS de Irlanda (eu-west-1) y otro servidor de respaldo en la región de Virginia (us-east-1). En el archivo de configuración, define dos proveedores de AWS (uno de ellos con alias = \"virginia\") y asocia el segundo recurso aws_instance directamente a ese alias, permitiendo desplegar en ambas regiones con un solo comando."
   },
   {
     "tema": "Tema 6: Terraform: casos de uso avanzado",
@@ -683,7 +685,8 @@
       "Se asocian a un recurso"
     ],
     "answer": "Se asocian a un recurso",
-    "explanation": "Tema 6: Terraform - Los provisioners (no confundir con providers) se definen dentro de un recurso."
+    "explanation": "Tema 6: Terraform - Los provisioners (no confundir con providers) se definen dentro de un recurso.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos provisioners (aprovisionadores) son bloques de código declarados dentro de la definición de un recurso específico de Terraform. Su objetivo es ejecutar scripts de configuración, transferir archivos o invocar comandos de software (como scripts de Shell o playbooks de Ansible) inmediatamente después de que ese recurso en particular se haya creado en la nube.\n\n**La perspectiva de la clase:**\nEn las diapositivas y explicaciones prácticas se resalta que los aprovisionadores se configuran dentro del propio bloque del recurso (por ejemplo, dentro de resource \"aws_instance\" \"web\"). El profesor Merlo insiste en que «los aprovisionadores pensad que son servicios que nos van a permitir subir archivos, ejecutar scripts o instalar incluso software», sirviendo como un puente temporal entre la creación física del servidor y su configuración lógica interna.\n\n**Aplicación en DevOps:**\nTras declarar la creación de una instancia de base de datos MongoDB con resource \"aws_instance\", se inserta dentro de ese bloque un provisioner de tipo file para copiar el archivo de configuración de la base de datos, seguido de un provisioner remote-exec que ejecuta de forma segura los comandos de inicialización del servicio de MongoDB dentro del servidor recién creado."
   },
   {
     "tema": "Tema 6: Terraform: casos de uso avanzado",
@@ -695,7 +698,8 @@
       "La próxima vez que se ejecute un plan terraform planificará destruirlo"
     ],
     "answer": "B y D son correctas",
-    "explanation": "Tema 6: Terraform - Los fallos en los provisioner dejan el recurso como contaminado, pero no lo destruyen, ya que no estaba en el plan. La próxima ejecución planificará destruirlo."
+    "explanation": "Tema 6: Terraform - Los fallos en los provisioner dejan el recurso como contaminado, pero no lo destruyen, ya que no estaba en el plan. La próxima ejecución planificará destruirlo.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSi Terraform crea con éxito un recurso (como una máquina virtual), pero el aprovisionador declarado en él falla durante su ejecución (por ejemplo, porque un script de Shell da error), el recurso no puede garantizar su consistencia. Terraform marca el recurso internamente como «Tainted» (Contaminado). En la siguiente ejecución de terraform plan o terraform apply, Terraform planificará automáticamente destruir el recurso dañado y crear uno nuevo desde cero.\n\n**La perspectiva de la clase:**\nEl profesor pone especial atención en este punto y lo califica como un comportamiento crítico. Explica textualmente: «Si un recurso se crea correctamente, pero falla durante el aprovisionamiento, lo que va a hacer Terraform es generar un error, lo va a marcar como recurso contaminado... La segunda vez directamente va a hacer un destroy del mismo, no va a volverlo a ejecutar».\n\n**Aplicación en DevOps:**\nEn un pipeline automatizado, se despliega una instancia de Node.js mediante Terraform. El script del provisioner falla al intentar clonar un repositorio privado debido a un error de red. En lugar de dejar una máquina inservible a medio configurar en producción, Terraform marca la instancia como contaminada. Al corregir las credenciales y relanzar el pipeline, Terraform destruye la instancia fallida y crea una nueva limpia que se aprovisiona con éxito."
   },
   {
     "tema": "Tema 6: Terraform: casos de uso avanzado",
@@ -707,7 +711,8 @@
       "Definen los valores de variables"
     ],
     "answer": "C y D son correctas",
-    "explanation": "Tema 6: Terraform - Los ficheros con el nombre terraform.tfvars o el patrón *.auto.tfvars son cargados automáticamente y contienen asignaciones de valores de variables."
+    "explanation": "Tema 6: Terraform - Los ficheros con el nombre terraform.tfvars o el patrón *.auto.tfvars son cargados automáticamente y contienen asignaciones de valores de variables.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn Terraform, las variables de entrada se declaran típicamente en archivos .tf para definir su tipo y estructura. Para asignar los valores reales y concretos que tomarán esas variables, se utilizan archivos con la extensión exacta .tfvars. Cualquier archivo llamado exactamente terraform.tfvars o *.auto.tfvars es detectado y cargado automáticamente por Terraform al ejecutar comandos de despliegue, sin necesidad de pasarlo como parámetro en la CLI.\n\n**La perspectiva de la clase:**\nEl profesor explica que el uso de ficheros .tfvars es una buena práctica de descentralización y modularización. Enseña que en los ficheros .tf definimos qué variables existen (variables.tf), y en los ficheros .tfvars les asignamos los valores de producción o pruebas. De este modo, evitas tener valores «hardcodeados» en el código principal de infraestructura.\n\n**Aplicación en DevOps:**\nUn equipo DevOps mantiene una plantilla genérica para crear subredes. Crean un archivo variables.tf que define las variables rango_cidr y zona_disponibilidad. Al ejecutar el despliegue de desarrollo, crean un archivo terraform.tfvars con los rangos CIDR de desarrollo (ej. «10.0.1.0/24»). Al correr el pipeline, Terraform asocia automáticamente estos valores a las variables del sistema."
   },
   {
     "tema": "Tema 6: Terraform: casos de uso avanzado",
@@ -719,7 +724,8 @@
       "Las variables solo pueden asignarse en su definición"
     ],
     "answer": "Variables de entorno, variables desde un archivo, variables dadas interactivamente desde la entrada, valores por defecto en la definición de la variable",
-    "explanation": "Tema 6: Terraform - El orden está definido por Terraform y lo aplicará automáticamente."
+    "explanation": "Tema 6: Terraform - El orden está definido por Terraform y lo aplicará automáticamente.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nCuando una misma variable de entrada tiene definidos diferentes valores en múltiples orígenes, Terraform resuelve el conflicto aplicando un orden de precedencia estricto de mayor a menor prioridad: (1) Variables pasadas de forma directa por línea de comandos (CLI) con el flag -var o -var-file; (2) Ficheros cargados automáticamente (como terraform.tfvars o *.auto.tfvars); (3) Variables de entorno del sistema operativo (que deben llevar el prefijo TF_VAR_); (4) Valores por defecto (default) declarados dentro del bloque de la variable.\n\n**La perspectiva de la clase:**\nEn las clases, este orden de prioridad fue motivo de discusión y preguntas directas. El profesor Merlo aclara la escala de prioridad, indicando que las variables de entorno (TF_VAR_) y los ficheros de variables tienen una alta prioridad, pero que cualquier valor inyectado en tiempo de ejecución por CLI o cargado desde archivos manuales pisará las configuraciones por defecto del sistema.\n\n**Aplicación en DevOps:**\nEn una plantilla de Terraform se define la región por defecto como «us-east-1». Sin embargo, un desarrollador tiene configurada en su entorno de Jenkins una variable de entorno TF_VAR_region = «eu-west-1». Al ejecutar el pipeline, Terraform priorizará la variable de entorno sobre el valor por defecto del archivo .tf, desplegando la infraestructura en la región de Europa."
   },
   {
     "tema": "Tema 6: Terraform: casos de uso avanzado",
@@ -731,7 +737,8 @@
       "La cadena de texto y el número"
     ],
     "answer": "La lista (list) y el mapa (map)",
-    "explanation": "Tema 6: Terraform - Terraform permite, además de los tipos básicos, tipos compuestos como list y map."
+    "explanation": "Tema 6: Terraform - Terraform permite, además de los tipos básicos, tipos compuestos como list y map.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nTerraform clasifica sus variables en tipos simples (primitivos como string, number y bool) y tipos complejos o compuestos. Los tipos compuestos permiten agrupar valores: la Lista (list) representa una secuencia indexada numéricamente (comenzando por cero) de valores ordenados; el Mapa (map) representa una colección de pares clave-valor que actúa de manera similar a una tabla de búsqueda.\n\n**La perspectiva de la clase:**\nEl profesor diferencia detalladamente las variables compuestas en el Tema 6. Explica que las listas permiten referenciar elementos por índice, mientras que los mapas son ideales para realizar tablas estructuradas de búsqueda. El profesor destaca la potencia de los mapas al combinarlos con la función de búsqueda dinámica lookup, que permite asignar valores en tiempo de ejecución de manera inteligente.\n\n**Aplicación en DevOps:**\nPara gestionar las AMIs inmutables del servidor web según la región geográfica de AWS, declaras una variable de tipo map(string) donde la clave es la región (ej. «us-east-1») y el valor es el ID de la AMI (ej. «ami-image123»). Al desplegar, utilizas la función lookup(var.images, var.region) para que el servidor web use automáticamente la AMI correcta para esa región."
   },
   {
     "tema": "Tema 6: Terraform: casos de uso avanzado",
@@ -743,7 +750,8 @@
       "Ficheros en formato .md"
     ],
     "answer": "Ficheros en formato.tf y en formato .json",
-    "explanation": "Tema 6: Terraform - Terraform soporta tanto el lenguaje de Terraform como .json."
+    "explanation": "Tema 6: Terraform - Terraform soporta tanto el lenguaje de Terraform como .json.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nTerraform es capaz de leer y parsear la configuración de infraestructura de forma nativa desde dos tipos de sintaxis y extensiones de archivos: los archivos escritos en HCL (HashiCorp Configuration Language) con extensión .tf, y archivos estructurados estándar en formato JSON con extensión .json. Terraform trata ambos formatos exactamente por igual al compilar la infraestructura.\n\n**La perspectiva de la clase:**\nDurante el curso se explica que la sintaxis recomendada por legibilidad es HCL (ficheros .tf). Sin embargo, el profesor Merlo detalla que el formato JSON (ficheros .json) es 100% compatible y nativo en la suite de HashiCorp. Enseña que el soporte nativo de JSON es ideal para que sistemas externos o scripts automatizados generen plantillas de Terraform programáticamente sin pasar por HCL.\n\n**Aplicación en DevOps:**\nUna empresa cuenta con un portal interno de autoservicio para desarrolladores. Cuando un desarrollador solicita un entorno de pruebas, un script de Python en el backend genera un archivo estructurado infraestructura.tf.json con los parámetros de red solicitados. Terraform procesa nativamente este archivo JSON junto con el resto de archivos .tf para desplegar el entorno automáticamente."
   },
   {
     "tema": "Tema 6: Terraform: casos de uso avanzado",
@@ -755,7 +763,8 @@
       "Todas las respuestas son correctas"
     ],
     "answer": "Contienen el atributo source, que especifica de dónde recuperar el módulo",
-    "explanation": "Tema 6: Terraform - Las variables de entrada son opcionales, se pueden definir salidas y el atributo source es requerido."
+    "explanation": "Tema 6: Terraform - Las variables de entrada son opcionales, se pueden definir salidas y el atributo source es requerido.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUn módulo en Terraform es un conjunto de archivos .tf agrupados en un directorio que encapsula componentes de infraestructura reutilizables. Al llamar a un módulo desde la configuración raíz, el único atributo estrictamente obligatorio que se debe declarar es source. Este atributo indica a Terraform la ruta local o la dirección del repositorio remoto (GitHub, Terraform Registry, etc.) desde donde debe descargar el código fuente del módulo.\n\n**La perspectiva de la clase:**\nEl profesor define conceptualmente los módulos como un «wrapper» (envoltorio) o cápsula que registra código fuente y carga recursos dinámicamente. Recalca que para invocar cualquier módulo debemos declarar el atributo source. Muestra que las fuentes pueden ser locales (ej. source = \"./modules/network\") o apuntar de forma directa a repositorios en Git o el Terraform Registry público.\n\n**Aplicación en DevOps:**\nPara asegurar que todos los servidores de la empresa sigan las mismas directivas de red y seguridad, el equipo de plataforma DevOps centraliza la configuración de la VPC en un repositorio privado de GitHub. En los proyectos de cada aplicación, los ingenieros llaman al módulo utilizando source = \"git::https://github.com/empresa/tf-module-vpc.git\", garantizando la estandarización y actualización de la red."
   },
   {
     "tema": "Tema 6: Terraform: casos de uso avanzado",
@@ -767,7 +776,8 @@
       "No se pueden consultar desde la línea de comandos de Terraform"
     ],
     "answer": "Permiten almacenar que recursos se han desplegado por Terraform para poder aplicar actualizaciones",
-    "explanation": "Tema 6: Terraform - Los backend remotos almacenan la información que se ha recopilado sobre el estado de los despliegues incluyendo valores dinámicos y los recursos contaminados."
+    "explanation": "Tema 6: Terraform - Los backend remotos almacenan la información que se ha recopilado sobre el estado de los despliegues incluyendo valores dinámicos y los recursos contaminados.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUn backend remoto define la ubicación externa y centralizada donde se almacena el archivo de estado de Terraform (terraform.tfstate). Su función técnica principal es mantener este registro de los recursos mapeados del mundo real fuera del disco local del desarrollador, permitiendo que cualquier pipeline o miembro del equipo lea y actualice el estado del despliegue de forma consistente y colaborativa.\n\n**La perspectiva de la clase:**\nEl profesor Merlo resalta la importancia estratégica del backend remoto. Enseña que los principales beneficios de usar un backend remoto son: trabajo en equipo (centraliza el estado para que todos los desarrolladores operen sobre la misma verdad), seguridad (descentraliza y encripta información sensible fuera del código local), y ejecución remota (permite que los comandos se ejecuten de forma segura e independiente).\n\n**Aplicación en DevOps:**\nAl integrar Terraform en un servidor de CI/CD (como Jenkins o GitLab CI), no se puede guardar el archivo de estado en el contenedor temporal del agente porque se destruiría al finalizar la tarea. Configurar un backend remoto en AWS S3 asegura que el estado se conserve de forma persistente y segura, permitiendo que las ejecuciones del pipeline actualicen o destruyan la infraestructura de manera continua."
   },
   {
     "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
@@ -779,7 +789,8 @@
       "Un procesador de logs"
     ],
     "answer": "Un motor de búsqueda de propósito general frecuentemente usado para logs",
-    "explanation": "Tema 7: ElasticSearch - ElasticSearch es un motor de búsqueda que, aunque es muy utilizado para logs, también es usado como motor de búsqueda general."
+    "explanation": "Tema 7: ElasticSearch - ElasticSearch es un motor de búsqueda que, aunque es muy utilizado para logs, también es usado como motor de búsqueda general.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nElasticSearch es un motor de búsqueda analítico y base de datos NoSQL distribuido, de código abierto y basado en Apache Lucene. Está optimizado para búsquedas de texto completo, indexación en tiempo casi real y análisis de grandes volúmenes de datos semiestructurados. A diferencia de las bases de datos relacionales tradicionales, utiliza índices invertidos para permitir búsquedas complejas en milisegundos.\n\n**La perspectiva de la clase:**\nEl profesor Rafael Merlo describe a ElasticSearch como la «piedra angular» del stack ELK. Enfatiza que las bases de datos entidad-relación tradicionales no fueron diseñadas para realizar búsquedas de texto completo. Explica que ElasticSearch solventa esta carencia permitiendo búsquedas rápidas sobre grandes volúmenes de logs y telemetría, optimizando los tiempos de respuesta a milisegundos gracias a su capacidad de indexación horizontal y estructuración distribuida en clústeres.\n\n**Aplicación en DevOps:**\nCentralizar millones de registros de logs diarios provenientes de un clúster de Kubernetes en un clúster de ElasticSearch. Cuando ocurre un fallo en producción, un ingeniero DevOps realiza una consulta de texto completo sobre el campo message de los logs para localizar la traza del error exacta de forma instantánea."
   },
   {
     "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
@@ -791,7 +802,8 @@
       "Grafos"
     ],
     "answer": "Índices",
-    "explanation": "Tema 7: ElasticSearch - Los documentos en ElasticSearch se añaden a índices que permiten la búsqueda rápida de estos datos."
+    "explanation": "Tema 7: ElasticSearch - Los documentos en ElasticSearch se añaden a índices que permiten la búsqueda rápida de estos datos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUn índice (index) en ElasticSearch es un espacio de nombres lógico que se compone de uno o más fragmentos físicos llamados shards. Funciona como una colección de documentos JSON que comparten características similares y permite organizar, almacenar y realizar operaciones de búsqueda eficientes sobre ellos.\n\n**La perspectiva de la clase:**\nEl profesor explica que un índice es una colección de documentos con características similares. Hace un símil arquitectónico indicando que, de forma lógica, un índice equivale a una «tabla» en las bases de datos tradicionales. Además, recalca una limitación técnica importante: un índice en ElasticSearch puede contener un límite máximo de 2,000 millones de documentos.\n\n**Aplicación en DevOps:**\nDefinir un patrón de nomenclatura para almacenar métricas del sistema, como metrics-os-daily-2026-08-08, donde cada día se genera un nuevo índice de manera automática. Esto facilita la rotación de datos viejos y agiliza las búsquedas diarias al segmentar el volumen físico de información."
   },
   {
     "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
@@ -803,7 +815,8 @@
       "Almacenamiento de datos geográficos"
     ],
     "answer": "Todas las otras respuestas son correctas",
-    "explanation": "Tema 7: ElasticSearch - ElasticSearch tiene muchas capacidades y es utilizado en todos estos dominios."
+    "explanation": "Tema 7: ElasticSearch - ElasticSearch tiene muchas capacidades y es utilizado en todos estos dominios.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nGracias a la flexibilidad de su esquema NoSQL y la potencia de Apache Lucene, ElasticSearch cuenta con capacidades nativas que van más allá del texto plano. Esto incluye el soporte de estructuras de datos complejas, análisis numérico de métricas en tiempo real, agregaciones complejas y un motor geoespacial capaz de indexar y buscar coordenadas de geolocalización.\n\n**La perspectiva de la clase:**\nEn el temario se destacan cuatro grandes casos de uso. El profesor resalta que ElasticSearch se utiliza para: (1) Buscador de aplicaciones web, (2) Análisis de métricas e infraestructura, (3) Análisis de logs operativos, y (4) Análisis de seguridad. Adicionalmente, destaca como una característica muy potente su soporte nativo para la geolocalización y coordenadas espaciales.\n\n**Aplicación en DevOps:**\nImplementar un sistema de telemetría para una flota de reparto donde un único clúster de ElasticSearch almacena los logs de la aplicación de entregas, las métricas de rendimiento del servidor y la ubicación geográfica en tiempo real de los vehículos de transporte, permitiendo visualizarlos todos juntos en un mapa interactivo de Kibana."
   },
   {
     "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
@@ -815,7 +828,8 @@
       "Por defecto, ningún campo se indexa"
     ],
     "answer": "Está representado por un documento JSON soportando valores anidados",
-    "explanation": "Tema 7: ElasticSearch - ElasticSearch almacena documentos JSON en sus documentos y por defecto indexa cada uno de los campos, que pueden tener varios valores almacenando una lista."
+    "explanation": "Tema 7: ElasticSearch - ElasticSearch almacena documentos JSON en sus documentos y por defecto indexa cada uno de los campos, que pueden tener varios valores almacenando una lista.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl documento es la unidad básica de información que se indexa en ElasticSearch. Se representa bajo el formato JSON, un estándar flexible de pares clave-valor que admite datos desnormalizados. Admite tipos primitivos (cadenas, números, fechas) y tipos complejos (listas, objetos anidados y arrays), lo que elimina la necesidad de realizar costosas operaciones de relación (JOINs) en el disco.\n\n**La perspectiva de la clase:**\nEl profesor define ElasticSearch como una base de datos NoSQL orientada a documentos JSON. Explica que al estar basada en JSON, la información se almacena de una forma desnormalizada. Enfatiza que esto representa una ventaja de velocidad masiva, ya que permite realizar subconsultas y búsquedas de una forma mucho más ágil al tener la información autocontenida en una única estructura, en lugar de recurrir a los JOINs de las bases de datos relacionales.\n\n**Aplicación en DevOps:**\nGuardar un evento de despliegue de CI/CD como un único documento JSON que contiene un campo anidado commits (una lista con el autor, ID del commit y mensaje), un array test_results con el estado de cada prueba y un campo numérico con la duración total de la compilación."
   },
   {
     "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
@@ -827,7 +841,8 @@
       "Rollup no es una funcionalidad de ElasticSearch"
     ],
     "answer": "Para condensar valores históricos reduciendo su consumo",
-    "explanation": "Tema 7: ElasticSearch - Rollup permite agrupar valores históricos y proporcionar una forma de hacer queries sobre ellos transparente."
+    "explanation": "Tema 7: ElasticSearch - Rollup permite agrupar valores históricos y proporcionar una forma de hacer queries sobre ellos transparente.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nRollup es una API de ElasticSearch que permite resumir y compactar datos históricos de alta granularidad en documentos de resumen de grano más grueso (por ejemplo, resumir métricas de CPU de cada 10 segundos en promedios por hora). Esto reduce drásticamente el espacio en disco y el uso de memoria RAM, conservando la utilidad analítica para reportes a largo plazo.\n\n**La perspectiva de la clase:**\nEl profesor introduce la función de Rollup explicando que permite «enrolar» o resumir datos históricos en un único documento de resumen. Resalta que esto proporciona una gran compresión de la información y protege el clúster del consumo excesivo. Almacena estos datos condensados en memoria para que sigan estando accesibles en análisis futuros a través de Rollup search.\n\n**Aplicación en DevOps:**\nConfigurar una tarea automatizada de Rollup que tome las métricas detalladas de red de hace 6 meses (que ocupan cientos de gigabytes) y las condense en un índice de promedios mensuales. Esto permite liberar el 90% del espacio en disco manteniendo la capacidad de comparar el tráfico de red de este año con el del año pasado."
   },
   {
     "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
@@ -839,7 +854,8 @@
       "Los índices congelados no existen, solo los campos congelados"
     ],
     "answer": "Una forma de liberar los índices en memoria casi completamente sin perder la opción de poder recuperar los datos",
-    "explanation": "Tema 7: ElasticSearch - Los índices congelados permiten liberar recursos de memoria para índices que no se acceden frecuentemente a cambio de ralentizar las consultas y obligar a los datos a ser cargados cuando se consultan."
+    "explanation": "Tema 7: ElasticSearch - Los índices congelados permiten liberar recursos de memoria para índices que no se acceden frecuentemente a cambio de ralentizar las consultas y obligar a los datos a ser cargados cuando se consultan.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos índices congelados son índices de solo lectura en los que ElasticSearch elimina sus estructuras de datos transitorias de la memoria RAM activa. Permanecen almacenados de manera segura en el disco; cuando se realiza una consulta sobre ellos, ElasticSearch reconstruye temporalmente la memoria necesaria para procesar la búsqueda y luego la libera, haciendo que la búsqueda sea más lenta pero reduciendo su coste de RAM a casi cero.\n\n**La perspectiva de la clase:**\nRafael Merlo define los índices congelados como un sistema de «archivado o ZIP» para índices muy antiguos o de poco uso. El profesor explica que con el comando POST /index_name/_freeze los colocamos en un estado de «letargo». Destaca que su beneficio crítico es que limitan drásticamente el uso de memoria RAM activa del clúster, aunque advierte que las búsquedas sobre ellos serán notablemente más lentas porque requiere descomprimir y leer directamente desde el almacenamiento físico.\n\n**Aplicación en DevOps:**\nDiseñar una política de retención para logs de auditoría de seguridad que deben conservarse durante 5 años por regulaciones legales. Después de 90 días, los índices correspondientes se congelan, lo que permite mantenerlos accesibles para auditorías sorpresa sin que consuman la valiosa memoria RAM del clúster destinada a los logs de producción en tiempo real."
   },
   {
     "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
@@ -851,7 +867,8 @@
       "Solo se puede crear adjuntando el tipo de esquema para todos los campos"
     ],
     "answer": "Se puede crear simplemente añadiendo un documento al índice mediante PUT /index_name/_doc/ID",
-    "explanation": "Tema 7: ElasticSearch - Los índices en ElasticSearch se pueden crear dinámicamente simplemente insertando un documento."
+    "explanation": "Tema 7: ElasticSearch - Los índices en ElasticSearch se pueden crear dinámicamente simplemente insertando un documento.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nElasticSearch posee una característica llamada creación e indexación automática de índices. Cuando un cliente envía una solicitud HTTP PUT o POST para indexar un documento en un índice que no existe actualmente en el clúster, el nodo coordinador crea automáticamente el índice con valores por defecto e infiere los tipos de datos de los campos de manera dinámica (dynamic mapping) antes de almacenar el documento.\n\n**La perspectiva de la clase:**\nEl profesor demuestra que para crear un índice no es estrictamente necesario predefinir un esquema estricto. Explica que se puede crear un índice de forma totalmente dinámica ejecutando una solicitud HTTP PUT /nombre_indice/_doc/ID que contenga un documento JSON básico. Esto genera automáticamente la estructura en el clúster y el mapeo de los campos.\n\n**Aplicación en DevOps:**\nLanzar un nuevo script de automatización en un servidor de CI/CD que envía el resultado de su ejecución mediante un comando curl usando PUT hacia un índice dinámico como deployments-newapp/_doc/1. El clúster de ElasticSearch crea instantáneamente el índice sin necesidad de una intervención manual previa del administrador de base de datos."
   },
   {
     "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
@@ -863,7 +880,8 @@
       "Mediante Kibana exclusivamente"
     ],
     "answer": "Mediante GET /index_name/_doc/id",
-    "explanation": "Tema 7: ElasticSearch - Esta es la consulta correcta."
+    "explanation": "Tema 7: ElasticSearch - Esta es la consulta correcta.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa obtención de un documento por su ID mediante una petición GET es una de las operaciones más rápidas en ElasticSearch. Al apuntar directamente al identificador único, el nodo coordinador calcula la ruta exacta hacia la réplica o fragmento principal (shard) adecuado y extrae el documento directamente del disco o la memoria, saltándose la fase de búsqueda e indexación invertida del motor de consulta tradicional.\n\n**La perspectiva de la clase:**\nEl profesor detalla la diferencia entre buscar (fase de consulta compleja) y obtener un documento de forma directa. Explica que si conocemos el identificador único (id) asignado al documento, podemos recuperarlo de manera limpia e inmediata realizando una solicitud HTTP GET /index_name/_doc/id. El sistema devolverá la estructura JSON con sus campos de metadatos asociados.\n\n**Aplicación en DevOps:**\nConfigurar un microservicio de soporte técnico que, al recibir una alerta de error que contiene un ID de transacción de log (por ejemplo, tx-9988), realiza una petición rápida GET /application-logs/_doc/tx-9988 a ElasticSearch para recuperar y renderizar de forma instantánea toda la traza de la excepción para el operador."
   },
   {
     "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
@@ -875,7 +893,8 @@
       "Todas las otras respuestas son correctas"
     ],
     "answer": "Todas las otras respuestas son correctas",
-    "explanation": "Tema 7: ElasticSearch - Todas las respuestas documentan formas explicadas en la lección sobre cómo enviar documentos a ElasticSearch."
+    "explanation": "Tema 7: ElasticSearch - Todas las respuestas documentan formas explicadas en la lección sobre cómo enviar documentos a ElasticSearch.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl ecosistema de ElasticSearch es extremadamente versátil en sus métodos de ingesta. Admite llamadas HTTP individuales para insertar documentos de uno en uno, llamadas transaccionales masivas de alto rendimiento a través de la API _bulk para procesar miles de documentos reduciendo el coste de red, y conectores nativos ligeros (agentes Beats) que capturan la información en origen y la envían directamente.\n\n**La perspectiva de la clase:**\nEl profesor expone la flexibilidad del stack ELK para la ingesta de datos. En las sesiones detalla que los datos pueden indexarse de tres formas principales: (1) De forma individual mediante llamadas PUT con el ID del documento; (2) En lotes o batches apuntando al endpoint optimizado _bulk del índice para minimizar la sobrecarga de red; y (3) A través de la suite de Beats (como Filebeat o Metricbeat) que actúan como recolectores ligeros y automáticos.\n\n**Aplicación en DevOps:**\nDiseñar una arquitectura híbrida donde los servidores Nginx utilizan Filebeat para enviar logs web de forma continua en tiempo real, mientras que un proceso nocturno de conciliación de facturas ejecuta un script de Python que empaqueta y envía 500,000 registros mediante una única solicitud masiva a la API _bulk de ElasticSearch."
   },
   {
     "tema": "Tema 7: Tratamiento de logs y telemetría con ElasticSearch",
@@ -887,7 +906,8 @@
       "Todas las otras respuestas son correctas"
     ],
     "answer": "Todas las otras respuestas son correctas",
-    "explanation": "Tema 7: ElasticSearch - Estos son los tipos principales de agregaciones en ElasticSearch."
+    "explanation": "Tema 7: ElasticSearch - Estos son los tipos principales de agregaciones en ElasticSearch.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas agregaciones permiten realizar análisis complejos y extraer estadísticas de negocio sobre los datos indexados en tiempo real. Se dividen en cuatro categorías: Buckets (agrupan documentos en cubos según criterios), Métricas (calculan valores matemáticos como promedios o desviaciones estándar), Matrices (operan sobre múltiples campos) y Pipelines (toman como entrada el resultado de otras agregaciones en cadena).\n\n**La perspectiva de la clase:**\nEl profesor Rafael Merlo detalla que las agregaciones son el equivalente a las funciones GROUP BY, AVG o SUM de SQL. Introduce la etiqueta de agregaciones (AGGS en el cuerpo JSON de la consulta) y describe sus diferentes familias: Métricas (de valor único o múltiple para análisis estadísticos), de Matriz (operaciones en múltiples campos), y de Pipeline (aquellas que encadenan y procesan la salida de otras agregaciones previas).\n\n**Aplicación en DevOps:**\nCrear un panel en Kibana que realice una agregación de tipo Bucket por horas, calcule dentro de cada hora una agregación Métrica del promedio de latencia de peticiones HTTP, y finalmente aplique una agregación de tipo Pipeline para calcular el porcentaje de incremento de la latencia respecto a la hora anterior, alertando si hay picos anómalos."
   },
   {
     "tema": "Tema 8: Captura de logs y telemetría mediante Beats",
