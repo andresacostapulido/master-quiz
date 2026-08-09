@@ -269,7 +269,8 @@
       "No es tan fácil probar el valor de negocio de una actualización con los usuarios"
     ],
     "answer": "Todas las otras respuestas son correctas",
-    "explanation": "Tema 3: Arquitectura de aplicaciones - Un alto coste de actualización intrínseco afecta a todas las fases DevOps y debe traducirse en una arquitectura adaptada al problema."
+    "explanation": "Tema 3: Arquitectura de aplicaciones - Un alto coste de actualización intrínseco afecta a todas las fases DevOps y debe traducirse en una arquitectura adaptada al problema.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl coste de actualización no es solo un factor financiero, sino también de riesgo operativo y de tiempo. Si actualizar un sistema es complejo y costoso, los despliegues se retrasan, acumulando más cambios por entrega, lo que eleva el «blast radius» de cualquier posible fallo. Por lo tanto, mitigar este coste requiere que la arquitectura esté diseñada para ser predictible y que los entornos sean perfectamente reproducibles, asegurando que un fallo se detecte mucho antes de llegar a producción.\n\n**La perspectiva de la clase:**\nEl profesor Rafael Merlo explica que en el ciclo de vida DevOps, el objetivo es acelerar los despliegues y reducir el impacto de los errores. Enfatiza que descubrir un problema una vez liberado el software en producción es lo más costoso para el negocio. De ahí surge el valor de usar herramientas como Packer y Terraform en el ciclo de CI/CD para garantizar que los entornos de prueba sean copias exactas y reproducibles de producción.\n\n**Aplicación en DevOps:**\nDiseñar un flujo de trabajo donde cada cambio de código active un pipeline automático que compile una imagen de máquina virtual inmutable y despliegue temporalmente una infraestructura paralela idéntica a producción. Al automatizar y asegurar esta reproducibilidad, el coste y el riesgo de actualización caen drásticamente."
   },
   {
     "tema": "Tema 3: Arquitectura de aplicaciones",
@@ -281,7 +282,8 @@
       "Sí, los navegadores modernos son necesariamente pesados"
     ],
     "answer": "No, las aplicaciones que no implementan la lógica en el navegador (poca cantidad de JavaScript) se asemejan filosóficamente a los denominados clientes ligeros quedando en un lugar intermedio",
-    "explanation": "Tema 3: Arquitectura de aplicaciones - La clasificación de cliente ligero surge en un contexto distinto, pero, traduciéndola a la actualidad, un cliente en el cual cada página es solo de presentación y toda interacción resulta en una petición al servidor se asemeja a un cliente ligero."
+    "explanation": "Tema 3: Arquitectura de aplicaciones - La clasificación de cliente ligero surge en un contexto distinto, pero, traduciéndola a la actualidad, un cliente en el cual cada página es solo de presentación y toda interacción resulta en una petición al servidor se asemeja a un cliente ligero.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl término «cliente pesado» implica que el dispositivo del usuario realiza la mayor parte del procesamiento de datos y ejecuta la lógica de negocio. Aunque un navegador web moderno tiene capacidad de sobra para ejecutar código complejo (como SPAs), si la aplicación web está diseñada con HTML estático y escaso código JavaScript, el navegador actúa filosóficamente como un cliente ligero, procesando casi todo en el servidor.\n\n**La perspectiva de la clase:**\nEl profesor define la diferencia entre cómo y dónde se ejecuta el código. Explica que las aplicaciones web ofrecen una «mayor agilidad» y un alcance «universal», pero que su naturaleza de cliente pesado o ligero varía. Al analizar el nivel de presentación (HTML5, CSS3, JavaScript) frente al nivel lógico de aplicación, destaca que no todo desarrollo web carga la lógica de negocio en el cliente final.\n\n**Aplicación en DevOps:**\nSi el equipo de monitorización detecta a través de Kibana que los dispositivos de gama baja de los usuarios finales sufren retardos por el uso intensivo de CPU, los ingenieros de DevOps pueden recomendar a desarrollo rediseñar partes de la interfaz para procesar más lógica en el servidor (backend) en lugar de en el navegador, aligerando el cliente web."
   },
   {
     "tema": "Tema 3: Arquitectura de aplicaciones",
@@ -293,7 +295,8 @@
       "A y C son correctas"
     ],
     "answer": "A y C son correctas",
-    "explanation": "Tema 3: Arquitectura de aplicaciones - En las aplicaciones monolíticas es difícil no tener cortes de servicio en todas las actualizaciones, aunque se puede mitigar su impacto con buenas prácticas para muchas de las actualizaciones."
+    "explanation": "Tema 3: Arquitectura de aplicaciones - En las aplicaciones monolíticas es difícil no tener cortes de servicio en todas las actualizaciones, aunque se puede mitigar su impacto con buenas prácticas para muchas de las actualizaciones.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas aplicaciones monolíticas unifican toda la lógica y datos del sistema en un solo bloque. «Frecuentemente tienen el estado integrado» porque los datos se comparten localmente en memoria o en una sola base de datos compartida. Por esta razón, la mejor práctica en un monolito moderno (monolito modular) es segregar los datos y la lógica por módulos tanto como sea posible, facilitando una futura migración.\n\n**La perspectiva de la clase:**\nEl profesor describe que las arquitecturas monolíticas «disponen de un estado integrado dentro de lo que es la arquitectura y necesitan backups periódicos». Explica que la mejor manera de mantenerlas es mediante la «monolítica modular», lo que permite hacer modificaciones pequeñas y mitigar los cortes de servicio. Advierte que si no se segregan los datos desde el principio, migrar más tarde a microservicios será «mucho más complejo».\n\n**Aplicación en DevOps:**\nAl estructurar el código de un monolito, el equipo DevOps promueve que cada módulo de negocio guarde sus tablas en esquemas lógicos separados dentro de la base de datos, evitando consultas cruzadas directas (JOINs) entre módulos. Esto simplificará enormemente su futura extracción a microservicios."
   },
   {
     "tema": "Tema 3: Arquitectura de aplicaciones",
@@ -305,7 +308,8 @@
       "Se componen de capas donde cada capa solo puede llamar a su capa anterior y posterior"
     ],
     "answer": "Se componen de diferentes capas con un orden donde solo se puede llamar a capas posteriores",
-    "explanation": "Tema 3: Arquitectura de aplicaciones - Las capas son llamadas desde capas anteriores y pueden llamar a capas posteriores, es decir, no pueden llamar a la anterior o anteriores y pueden estar desplegadas en componentes distintos."
+    "explanation": "Tema 3: Arquitectura de aplicaciones - Las capas son llamadas desde capas anteriores y pueden llamar a capas posteriores, es decir, no pueden llamar a la anterior o anteriores y pueden estar desplegadas en componentes distintos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa arquitectura multicapa (N-Tier) distribuye las responsabilidades lógicas en niveles jerárquicos independientes (Presentación, Aplicación y Datos). Para asegurar el bajo acoplamiento y el control del tráfico, la arquitectura impone una regla estricta: una capa solo puede realizar llamadas y consumir servicios de la capa inmediatamente posterior, evitando saltos que rompan el orden y la seguridad del sistema.\n\n**La perspectiva de la clase:**\nEl profesor detalla la arquitectura de tres niveles, compuesta por una «capa de presentación, una capa de aplicación y una capa de base de datos». Resalta enfáticamente que el tráfico y las solicitudes siempre deben interactuar únicamente con el nivel jerárquico superior. Repite como regla inquebrantable de seguridad que «la capa de presentación (front) nunca se comunica de manera directa con la capa de base de datos».\n\n**Aplicación en DevOps:**\nEn un despliegue con Terraform, un ingeniero DevOps configura los Grupos de Seguridad para que el servidor de Base de Datos en la subnet privada acepte tráfico exclusivamente desde el Security Group del servidor de Aplicaciones, bloqueando cualquier intento de conexión directa desde el balanceador de carga público."
   },
   {
     "tema": "Tema 3: Arquitectura de aplicaciones",
@@ -317,7 +321,8 @@
       "Postula que las arquitecturas de microservicios no pueden funcionar salvo en empresas con un solo equipo"
     ],
     "answer": "Postula que la arquitectura de un sistema en una organización sigue los patrones de comunicación de la organización",
-    "explanation": "Tema 3: Arquitectura de aplicaciones - La ley de Conway postula que las conexiones entre componentes implican comunicación entre equipos, por tanto, las conexiones seguirán los patrones de comunicación de una organización."
+    "explanation": "Tema 3: Arquitectura de aplicaciones - La ley de Conway postula que las conexiones entre componentes implican comunicación entre equipos, por tanto, las conexiones seguirán los patrones de comunicación de una organización.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nFormulada por Melvin Conway en 1967, esta ley indica que el diseño de cualquier sistema de software reflejará inevitablemente las estructuras y canales de comunicación de la empresa que lo ha construido. Si un departamento de desarrollo está fragmentado en tres subequipos aislados que apenas hablan entre sí, el software resultante estará fragmentado en tres módulos rígidos con serios problemas de acoplamiento.\n\n**La perspectiva de la clase:**\nEl profesor Rafael Merlo asocia este concepto a la necesidad de fusionar los silos tradicionales en DevOps. Explica que antes los equipos de Desarrollo (Dev) y Operaciones (Ops) trabajaban completamente separados. Al implementar la cultura DevOps, se busca que «los equipos de desarrollo, diseño y operaciones trabajen en un mismo camino», unificando la comunicación de la empresa y permitiendo que la arquitectura evolucione hacia microservicios o arquitecturas desacopladas.\n\n**Aplicación en DevOps:**\nSi una compañía quiere migrar un monolito hacia microservicios en la nube, la estrategia DevOps correcta no es solo técnica; implica reorganizar la estructura de la empresa. En lugar de tener equipos separados por tecnología, se crean equipos multidisciplinares dedicados a un solo negocio (ej. «Equipo de Pagos»). Al cambiar la comunicación interna, los microservicios se despliegan y comunican con éxito siguiendo esta nueva estructura."
   },
   {
     "tema": "Tema 3: Arquitectura de aplicaciones",
@@ -329,7 +334,8 @@
       "Es una técnica para gestionar la comunicación de componentes"
     ],
     "answer": "Es una técnica para gestionar la comunicación de componentes",
-    "explanation": "Tema 3: Arquitectura de aplicaciones - La malla de servicios de una técnica de arquitectura que habilita un tipo de comunicación concreto para aumentar la comunicación, frecuentemente utilizado en sistemas de microservicios."
+    "explanation": "Tema 3: Arquitectura de aplicaciones - La malla de servicios de una técnica de arquitectura que habilita un tipo de comunicación concreto para aumentar la comunicación, frecuentemente utilizado en sistemas de microservicios.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUna malla de servicios (Service Mesh) es una capa de infraestructura dedicada, configurable y de bajo acoplamiento que administra la comunicación bidireccional entre los microservicios de una aplicación. Su función principal es controlar cómo se comunican las distintas partes del sistema entre sí, abstrayendo esta lógica del código de desarrollo mediante proxies (sidecars) que interceptan y gestionan el tráfico, proveyendo balanceo de carga, enrutamiento inteligente, seguridad y telemetría.\n\n**La perspectiva de la clase:**\nEl profesor Rafael Merlo explica que las mallas de servicios son «una capa dentro de la infraestructura de una aplicación de microservicios que hace que la comunicación entre los servicios sea totalmente flexible, confiable y muy rápida». Enfatiza que debe ser considerada como una «capa de control de todos nuestros microservicios», permitiendo a los equipos de operaciones un control absoluto y unificado sobre el tráfico, el cifrado mutuo de datos y la monitorización de las comunicaciones.\n\n**Aplicación en DevOps:**\nEn una arquitectura compleja de microservicios desplegada en la nube, se implementa una malla de servicios para automatizar las políticas de tolerancia a fallos, circuit breaking (disyuntores) y reintentos automáticos de llamadas de red fallidas. Esto evita que los desarrolladores tengan que programar manualmente la lógica de resiliencia de red dentro de cada microservicio."
   },
   {
     "tema": "Tema 3: Arquitectura de aplicaciones",
@@ -341,7 +347,8 @@
       "Aplicaciones de fácil actualización y entorno con alto control"
     ],
     "answer": "Aplicaciones de fácil actualización, pero con un entorno sin control",
-    "explanation": "Tema 3: Arquitectura de aplicaciones - En las aplicaciones web en general no controlamos la versión del navegador, pero al ejecutar desde nuestros servidores podemos controlar que versión servimos."
+    "explanation": "Tema 3: Arquitectura de aplicaciones - En las aplicaciones web en general no controlamos la versión del navegador, pero al ejecutar desde nuestros servidores podemos controlar que versión servimos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas aplicaciones web distribuidas como SaaS se ejecutan de manera centralizada en la infraestructura del proveedor. Esto permite realizar modificaciones y despliegues automáticos e inmediatos para todos los usuarios desde un único punto de origen (fácil actualización). Sin embargo, dado que los clientes consumen el servicio desde múltiples ubicaciones con diversos dispositivos y navegadores, la ejecución final se produce en un entorno donde el proveedor no tiene el control absoluto del hardware, la red ni el navegador local del cliente.\n\n**La perspectiva de la clase:**\nEl profesor explica que las aplicaciones web se «distribuyen mucho más fácilmente» porque «si solucionas tu core donde está publicado, se soluciona para todos los usuarios». Este modelo de actualizaciones ágiles no requiere instalar parches en cada máquina local, aunque introduce la variabilidad y el reto de dar soporte a un ecosistema de red y clientes heterogéneos fuera de nuestro control directo.\n\n**Aplicación en DevOps:**\nAl liberar una nueva actualización de un portal de banca digital (SaaS), el equipo de DevOps realiza un despliegue continuo (CD) inmediato. Para mitigar el riesgo del «entorno sin control» del cliente, configuran pruebas automáticas de compatibilidad (ej. con Selenium o Cypress) en múltiples sistemas operativos y navegadores web."
   },
   {
     "tema": "Tema 3: Arquitectura de aplicaciones",
@@ -353,7 +360,8 @@
       "Un tipo de aplicaciones compuestas por un único componente, frecuentemente desplegadas para realizar una función concreta en un datacenter físico o virtual"
     ],
     "answer": "Todas las respuestas son correctas",
-    "explanation": "Tema 3: Arquitectura de aplicaciones - Los appliances son frecuentemente utilizados por clientes en que tengamos acceso a su infraestructura, lo que influye en su facilidad para desplegar, pero en nuestro poco control sobre la actualización."
+    "explanation": "Tema 3: Arquitectura de aplicaciones - Los appliances son frecuentemente utilizados por clientes en que tengamos acceso a su infraestructura, lo que influye en su facilidad para desplegar, pero en nuestro poco control sobre la actualización.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUn appliance es una solución prepaquetizada de software (y a veces hardware) diseñada para cumplir una función específica y dedicada dentro de la infraestructura de un datacenter físico o virtual. Frecuentemente se empaquetan como monolitos para facilitar que el cliente los instale fácilmente «como un todo» sin preocuparse por dependencias. Sin embargo, son extremadamente difíciles de actualizar de forma remota o continua porque están alojados en la red privada del cliente.\n\n**La perspectiva de la clase:**\nEl profesor señala que los appliances son soluciones empaquetadas en las que es crítico el orden de los despliegues. Destaca como principal problemática que «los clientes suelen tener control sobre el ciclo de actualizaciones», lo que rompe el flujo DevOps tradicional de entrega continua. Explica que la creación de appliances es uno de los grandes casos de uso de herramientas como Packer, ya que permiten generar imágenes virtuales inmutables, preinstaladas y listas para usar.\n\n**Aplicación en DevOps:**\nUna compañía de seguridad informática empaqueta su software de análisis de tráfico de red en forma de máquina virtual inmutable (un appliance virtual o archivo OVA) utilizando Packer. El equipo de DevOps automatiza la compilación de este appliance con todas las librerías preinstaladas. El cliente final descarga el appliance en su datacenter privado y lo levanta con un solo comando."
   },
   {
     "tema": "Tema 3: Arquitectura de aplicaciones",
@@ -365,7 +373,8 @@
       "No pueden usarse en monolitos, ya que las bases de datos son siempre un componente desplegable separado"
     ],
     "answer": "Ninguna de las otras respuestas es correcta",
-    "explanation": "Tema 3: Arquitectura de aplicaciones - Las bases de datos son una pieza de software reusable que puede ser un componente o parte de uno y como componente puede estar dentro de un microservicio, pero no compartido entre ellos."
+    "explanation": "Tema 3: Arquitectura de aplicaciones - Las bases de datos son una pieza de software reusable que puede ser un componente o parte de uno y como componente puede estar dentro de un microservicio, pero no compartido entre ellos.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas bases de datos representan el almacenamiento persistente y el estado crítico de la arquitectura. En un monolito tradicional se utiliza una base de datos única y centralizada para todos los módulos, mientras que en la arquitectura de microservicios cada servicio autónomo debe tener su propia base de datos dedicada y desacoplada para mantener la independencia. Por tanto, las otras afirmaciones de la pregunta son incorrectas.\n\n**La perspectiva de la clase:**\nEl profesor describe que en las arquitecturas monolíticas modulares «todos los módulos van a utilizar la misma base de datos para todas sus operaciones». Por el contrario, al abordar los microservicios, destaca el principio de «un gobierno descentralizado donde cada módulo al final contará con su propia base de datos» para evitar colisiones y sobrecargas. Ni las bases de datos están excluidas de los microservicios, ni deben compartirse entre ellos, ni están prohibidas en los monolitos.\n\n**Aplicación en DevOps:**\nAl migrar un sistema de ventas monolítico hacia microservicios con Terraform, el ingeniero de DevOps rompe la base de datos MySQL única compartida. En su lugar, aprovisiona una base de datos dedicada (MongoDB) exclusivamente para el microservicio de «Pedidos» y otra independiente (PostgreSQL) para el microservicio de «Facturación», garantizando el aislamiento de datos."
   },
   {
     "tema": "Tema 3: Arquitectura de aplicaciones",
@@ -377,7 +386,8 @@
       "Una tecnología de Service Mesh"
     ],
     "answer": "Una tecnología de Service Mesh",
-    "explanation": "Tema 3: Arquitectura de aplicaciones - Istio es una de las implementaciones más populares de Service Mesh para Kubernetes."
+    "explanation": "Tema 3: Arquitectura de aplicaciones - Istio es una de las implementaciones más populares de Service Mesh para Kubernetes.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nIstio es una plataforma de malla de servicios (Service Mesh) de código abierto diseñada para integrarse de forma transparente en arquitecturas de microservicios, principalmente sobre entornos de contenedores como Kubernetes. Su arquitectura de plano de control y plano de datos (utilizando proxies Envoy como sidecars) le permite interceptar y coordinar la comunicación, el equilibrio de carga, la encriptación mutua TLS y la monitorización de todos los microservicios activos sin alterar su código fuente.\n\n**La perspectiva de la clase:**\nEl profesor define textualmente a Istio como «una malla de servicios de código abierto que se pone de una forma transparente para la gestión distribuida de las aplicaciones existentes». Menciona que junto con Linkerd y Consul, representa una capa de control fundamental que gestiona la telemetría, el balanceo de carga avanzado y la seguridad de las API en implementaciones bajo Kubernetes.\n\n**Aplicación en DevOps:**\nUn equipo de DevOps despliega Istio en un clúster de Kubernetes donde corren 30 microservicios. Configuran una política de Despliegue Canario (Canary Deployment) para el servicio de pagos, enviando solo el 10% del tráfico a la nueva versión canaria (v2) y el 90% a la versión estable (v1), monitorizando la telemetría en Kibana para asegurar la estabilidad antes de realizar el cambio de tráfico al 100%."
   },
   {
     "tema": "Tema 4: Packer: compilación de imágenes",
@@ -389,7 +399,8 @@
       "Una herramienta de creación de imágenes"
     ],
     "answer": "Una herramienta de creación de imágenes",
-    "explanation": "Tema 4: Packer - Packer es una herramienta para la creación de imágenes Open Source que soporta múltiples nubes y sistemas de virtualización."
+    "explanation": "Tema 4: Packer - Packer es una herramienta para la creación de imágenes Open Source que soporta múltiples nubes y sistemas de virtualización.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPacker es una herramienta de software de código abierto diseñada para automatizar la creación de imágenes de sistemas operativos idénticas (como AMIs de AWS, plantillas de Azure o GCP, imágenes Docker, etc.) para múltiples plataformas desde un único archivo de configuración fuente.\n\n**La perspectiva de la clase:**\nEl profesor Rafael Merlo describe a Packer como una herramienta liviana de línea de comandos que trabaja a partir de plantillas. Enfatiza continuamente el concepto de «Infraestructura Inmutable». Explica que en DevOps ya no entramos a los servidores en producción para parchearlos o configurarlos a mano (servidores mutables), sino que «comparamos un todo o un nada», empaquetando todo el software necesario en una imagen desde la fase de compilación.\n\n**Aplicación en DevOps:**\nCrear una plantilla de Packer para generar una AMI de Amazon EC2 que ya contenga la versión de Ubuntu que necesitamos, con el servidor web Nginx y el entorno de ejecución Node.js preinstalados y actualizados con los últimos parches de seguridad."
   },
   {
     "tema": "Tema 4: Packer: compilación de imágenes",
@@ -401,7 +412,8 @@
       "Sí, usando los builders"
     ],
     "answer": "Sí, usando los builders",
-    "explanation": "Tema 4: Packer - Los builders definen dónde se va a crear la imagen y es posible especificar más de uno."
+    "explanation": "Tema 4: Packer - Los builders definen dónde se va a crear la imagen y es posible especificar más de uno.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSí. Packer permite definir múltiples plataformas de destino en un único archivo de configuración (JSON o HCL). Esto se logra mediante la sección de builders (constructores), donde se configuran los parámetros específicos de cada proveedor de nube para que Packer compile las imágenes de forma simultánea.\n\n**La perspectiva de la clase:**\nEl profesor enfatiza que Packer es una herramienta multiplataforma y agnóstica. Al contrario de las soluciones nativas de cada nube (como AWS Image Builder), Packer evita el «vendor lock-in» (bloqueo de proveedor). En clase muestra cómo estructurar un único archivo de configuración con un bloque de constructor para AWS (amazon-ebs) y otro para Google Cloud (googlecompute), ejecutándolos a la vez.\n\n**Aplicación en DevOps:**\nEn una arquitectura multinube, un pipeline de CI/CD ejecuta Packer para compilar de forma paralela una AMI para AWS y una Google Compute Image. Ambas imágenes resultantes tendrán exactamente la misma versión del software de la aplicación, garantizando la paridad del entorno."
   },
   {
     "tema": "Tema 4: Packer: compilación de imágenes",
@@ -413,7 +425,8 @@
       "No, ya que Packer varía en cada ejecución"
     ],
     "answer": "Sí, existe una sección de variables en el fichero de template",
-    "explanation": "Tema 4: Packer - Las variables en Packer se declaran en la sección variables del fichero de template en formato json."
+    "explanation": "Tema 4: Packer - Las variables en Packer se declaran en la sección variables del fichero de template en formato json.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSí. Packer cuenta con una sección dedicada a variables que permite parametrizar las plantillas. Gracias a esto, se evitan valores estáticos en el código, facilitando la reutilización del mismo archivo de configuración en diferentes entornos.\n\n**La perspectiva de la clase:**\nEn las sesiones se insiste en que las variables son la clave para hacer plantillas dinámicas y seguras. El profesor recalca la importancia de no guardar credenciales o claves privadas en texto plano dentro de los archivos que se suben a repositorios como GitHub. En su lugar, enseña a usar variables que recuperan datos de variables de entorno o de gestores de secretos.\n\n**Aplicación en DevOps:**\nDefinir variables en un archivo independiente variables.json para el ID de la cuenta, la región de AWS y el tipo de instancia. Durante la ejecución del pipeline, estas variables se inyectan dinámicamente, permitiendo que la misma plantilla compile una imagen de pruebas en una instancia pequeña (t2.micro) y una de producción en una más robusta."
   },
   {
     "tema": "Tema 4: Packer: compilación de imágenes",
@@ -425,7 +438,8 @@
       "Se definen asociados a un builder"
     ],
     "answer": "C y D son correctas",
-    "explanation": "Tema 4: Packer - Los communicators son diferentes formas de que los provisioners se conecten durante la creación de imagen y se especifican en el builder."
+    "explanation": "Tema 4: Packer - Los communicators son diferentes formas de que los provisioners se conecten durante la creación de imagen y se especifican en el builder.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos communicators son los conectores o mecanismos que utiliza Packer para establecer una conexión de red con la máquina virtual temporal que se está construyendo. Su función es permitir que los provisionadores se conecten a la instancia para subir archivos y ejecutar scripts de instalación.\n\n**La perspectiva de la clase:**\nEl profesor explica que el communicator es el puente de comunicación indispensable que se define dentro del bloque de cada constructor (builder). Señala que los tipos de comunicadores más comunes son SSH (habitual para Linux), WinRM (para sistemas Windows) o «none» si no se requiere interacción.\n\n**Aplicación en DevOps:**\nAl crear una imagen base de Linux, se configura el bloque del constructor con el parámetro \"communicator\": \"ssh\" junto con el \"ssh_username\": \"ubuntu\". Packer levantará la instancia en AWS, esperará a que el puerto 22 esté abierto y utilizará esta conexión SSH para instalar los paquetes requeridos automáticamente."
   },
   {
     "tema": "Tema 4: Packer: compilación de imágenes",
@@ -437,7 +451,8 @@
       "Activa el flag parallel, ya que el valor por defecto es false"
     ],
     "answer": "Permite que cada builder se ejecute en paralelo, pero los provisioners se ejecutarán en orden",
-    "explanation": "Tema 4: Packer - Por defecto, los builders se ejecutan en paralelo y este flag hace que se ejecuten en serie. Los provisioners siempre ejecutan en serie."
+    "explanation": "Tema 4: Packer - Por defecto, los builders se ejecutan en paralelo y este flag hace que se ejecuten en serie. Los provisioners siempre ejecutan en serie.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEste parámetro (-parallel-builds) limita o permite la ejecución simultánea de los diferentes builders configurados en una plantilla. Mientras que los builders (infraestructura base) se ejecutan en paralelo, los provisioners (instalación de software dentro de cada máquina) siempre se ejecutan de manera secuencial y ordenada.\n\n**La perspectiva de la clase:**\nEl profesor explica detalladamente el funcionamiento de este flag: si se configura en 1, Packer ejecutará solo un proceso de construcción a la vez (secuencial). Si se configura en 0 (el valor por defecto), Packer lanzará todos los constructores de manera paralela e ilimitada. Enfatiza que la ejecución secuencial es muy útil en fases de aprendizaje y depuración para no perderse en los logs de múltiples nubes a la vez.\n\n**Aplicación en DevOps:**\nAl compilar simultáneamente imágenes para AWS, Azure y GCP, utilizar el flag por defecto (0) para reducir el tiempo total de compilación del pipeline de CI/CD al mínimo. A su vez, los provisioners internos instalarán primero el software base (como Node.js) y luego configurarán la aplicación, garantizando que el orden lógico de aprovisionamiento no se rompa."
   },
   {
     "tema": "Tema 4: Packer: compilación de imágenes",
@@ -449,7 +464,8 @@
       "Solo puede recibir un único valor"
     ],
     "answer": "Hace que solo se ejecute uno de los builders",
-    "explanation": "Tema 4: Packer - El flag only afecta a los builders y permite varios valores separados por comas."
+    "explanation": "Tema 4: Packer - El flag only afecta a los builders y permite varios valores separados por comas.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl flag -only se utiliza en la línea de comandos junto a packer build para forzar a la herramienta a ejecutar únicamente el constructor (builder) o post-procesador que coincida con el nombre especificado, ignorando el resto de las plataformas que estén declaradas en la plantilla.\n\n**La perspectiva de la clase:**\nSe describe este flag como el opuesto de -except. El profesor destaca que es sumamente útil cuando tenemos una plantilla de Packer compleja y multinube, pero estamos realizando pruebas y cambios constantes en la configuración de un proveedor específico. Así evitamos perder tiempo compilando en nubes que no necesitamos en ese momento.\n\n**Aplicación en DevOps:**\nTienes un archivo de Packer que genera imágenes para AWS (amazon-ebs) y Azure (azure-arm). Si estás modificando el script de inicio específico de Azure y quieres probarlo rápidamente, ejecutas packer build -only=azure-arm template.json, lo que acelera el ciclo de feedback y ahorra costos de computación en AWS."
   },
   {
     "tema": "Tema 4: Packer: compilación de imágenes",
@@ -461,7 +477,8 @@
       "Todas las otras respuestas son correctas"
     ],
     "answer": "Todas las otras respuestas son correctas",
-    "explanation": "Tema 4: Packer - La opción -on-error puede tomar los valores cleanup, abort y ask."
+    "explanation": "Tema 4: Packer - La opción -on-error puede tomar los valores cleanup, abort y ask.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEs una opción de ejecución del comando packer build que define el comportamiento que debe tomar Packer si ocurre un error durante el aprovisionamiento de la imagen. Permite elegir entre cleanup (limpia y destruye los recursos temporales), abort (detiene todo y mantiene la máquina virtual encendida) o ask (pregunta al usuario de forma interactiva qué desea hacer).\n\n**La perspectiva de la clase:**\nEl profesor destaca que esta opción es vital para la depuración y solución de problemas. En el flujo normal de Packer, si un script falla, la máquina temporal se destruye inmediatamente, impidiendo ver el error. Al usar -on-error=abort o -on-error=ask, la máquina permanece activa, lo que permite al ingeniero acceder por SSH para inspeccionar qué falló antes de borrarla.\n\n**Aplicación en DevOps:**\nAl automatizar la instalación de MongoDB con un script de Bash, la compilación de Packer falla. Ejecutar packer build -on-error=abort plantilla.json mantiene la instancia EC2 temporal de AWS encendida, permitiéndote conectar por SSH, revisar el estado de MongoDB y ajustar el script de instalación con precisión."
   },
   {
     "tema": "Tema 4: Packer: compilación de imágenes",
@@ -473,7 +490,8 @@
       "El parámetro -with"
     ],
     "answer": "La B y la C",
-    "explanation": "Tema 4: Packer - Tanto -var como -var-file están soportadas en Packer."
+    "explanation": "Tema 4: Packer - Tanto -var como -var-file están soportadas en Packer.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPacker permite alimentar variables en tiempo de ejecución de dos maneras principales desde la CLI: pasando variables individuales de una en una con la opción -var 'clave=valor' o utilizando un archivo estructurado con todas las variables consolidadas usando -var-file=archivo.json.\n\n**La perspectiva de la clase:**\nEl profesor demuestra ambos métodos prácticos en sus diapositivas y código. Recomienda el uso de -var-file como una buena práctica de desarrollo para mantener los secretos y las configuraciones de red centralizados en un único archivo de variables, manteniendo la plantilla lógica totalmente limpia y reutilizable.\n\n**Aplicación en DevOps:**\nIntegrar el comando packer build -var-file=entornos/prod.json template.json en un servidor de automatización (como Jenkins). El archivo prod.json contendrá las credenciales de la cuenta de producción y las subredes de la VPC productiva, separando la lógica de compilación de las credenciales de entorno."
   },
   {
     "tema": "Tema 4: Packer: compilación de imágenes",
@@ -485,7 +503,8 @@
       "Todas las otras respuestas son correctas"
     ],
     "answer": "Todas las otras respuestas son correctas",
-    "explanation": "Tema 4: Packer - Las anteriores opciones permiten modificar el fichero y que acabe en el sistema de destino."
+    "explanation": "Tema 4: Packer - Las anteriores opciones permiten modificar el fichero y que acabe en el sistema de destino.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPara transferir y modificar archivos en el sistema de destino durante la compilación de Packer, se pueden combinar diferentes provisionadores: (1) modificarlo localmente con shell-local y enviarlo con file, (2) enviarlo con file y modificar sus permisos o contenido remotamente con un script de shell, o (3) delegar la gestión del estado y configuración a una herramienta declarativa como Ansible, Chef o Puppet.\n\n**La perspectiva de la clase:**\nEl profesor aclara que el provisionador de tipo file sirve únicamente para copiar archivos, pero no para editarlos o iniciar servicios. Para ello, explica que en la práctica es común encadenar acciones (por ejemplo, subir un archivo de configuración y luego reiniciar el servidor mediante un provisionador de tipo shell) o utilizar directamente Ansible, que facilita la inyección de plantillas y la gestión de archivos dinámicos.\n\n**Aplicación en DevOps:**\nUsar el provisionador file para copiar un archivo personalizado de configuración de Nginx (nginx.conf) a la máquina virtual temporal, y seguidamente ejecutar un provisionador shell con comandos inline (sudo systemctl restart nginx) para verificar que el servidor web arranca correctamente antes de guardar la imagen final."
   },
   {
     "tema": "Tema 4: Packer: compilación de imágenes",
@@ -497,7 +516,8 @@
       "Ninguna de las otras respuestas es correcta"
     ],
     "answer": "Ninguna de las otras respuestas es correcta",
-    "explanation": "Tema 4: Packer - Existen muchos tipos de variables como las provistas por los providers, las de línea de comandos, las de entorno y además muchas incluidas por Packer por defecto."
+    "explanation": "Tema 4: Packer - Existen muchos tipos de variables como las provistas por los providers, las de línea de comandos, las de entorno y además muchas incluidas por Packer por defecto.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas variables en Packer ofrecen un ecosistema sumamente flexible y dinámico. No se limitan únicamente a la línea de comandos; Packer puede interpolar y recuperar valores en tiempo de ejecución desde variables de entorno del sistema, bóvedas de seguridad externas (como HashiCorp Vault) o almacenes de secretos en la nube (como AWS Secrets Manager).\n\n**La perspectiva de la clase:**\nEn clase se resalta que esta versatilidad permite automatizar despliegues de forma segura sin comprometer la confidencialidad. El profesor muestra ejemplos de sintaxis para mapear variables de entorno usando {{env 'variable'}} o integraciones nativas para jalar contraseñas en vivo de bases de datos o APIs sin que queden registradas en los logs.\n\n**Aplicación en DevOps:**\nConfigurar la plantilla de Packer para que la contraseña de MongoDB se inyecte en tiempo de compilación llamando directamente a un secreto guardado en AWS Secrets Manager usando {{aws_secretsmanager ...}}. Esto garantiza que la credencial nunca se exponga en el código fuente del repositorio Git ni en la consola del pipeline de CI/CD."
   },
   {
     "tema": "Tema 5: Terraform: Infraestructura como código",
@@ -509,7 +529,8 @@
       "Monitorización de sistemas"
     ],
     "answer": "Infraestructura como código",
-    "explanation": "Tema 5: Terraform - Terraform es una herramienta de despliegue y configuración de infraestructura donde definimos la infraestructura de forma principalmente declarativa."
+    "explanation": "Tema 5: Terraform - Terraform es una herramienta de despliegue y configuración de infraestructura donde definimos la infraestructura de forma principalmente declarativa.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa Infraestructura como Código (IaC) es una metodología clave en DevOps que consiste en gestionar, aprovisionar y automatizar recursos tecnológicos (servidores, redes, balanceadores, bases de datos) mediante archivos de configuración descriptivos y legibles por máquina, en lugar de configuraciones manuales o interactivas. Esto permite que la definición del entorno de ejecución reciba el mismo tratamiento que el código fuente de una aplicación (control de versiones, pruebas de integración y reproducibilidad).\n\n**La perspectiva de la clase:**\nEl profesor Rafael Merlo describe a Terraform como la herramienta principal de IaC. Explica que permite expresar arquitecturas y despliegues complejos como código, ofreciendo la gran ventaja de ser una solución portable, robusta y agnóstica a la plataforma, evitando la dependencia y el bloqueo de un proveedor único o vendor locking que se genera con herramientas nativas de nube como CloudFormation o Azure Resource Manager.\n\n**Aplicación en DevOps:**\nEn lugar de ingresar manualmente a la consola web de AWS para crear subredes e instancias EC2 haciendo clics propensos a errores humanos, un ingeniero DevOps declara la infraestructura deseada en un archivo main.tf. Este archivo se sube a un repositorio Git, donde es auditado y versionado, para ser desplegado automáticamente por un pipeline de CI/CD que aprovisiona el entorno idéntico en cuestión de minutos."
   },
   {
     "tema": "Tema 5: Terraform: Infraestructura como código",
@@ -521,7 +542,8 @@
       "Solo se usan como documentación"
     ],
     "answer": "Pueden ser definidas explícita o implícitamente",
-    "explanation": "Tema 5: Terraform - Terraform utiliza tanto dependencias explícitas como implícitas al decidir el orden de los despliegues."
+    "explanation": "Tema 5: Terraform - Terraform utiliza tanto dependencias explícitas como implícitas al decidir el orden de los despliegues.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nTerraform genera de manera interna un grafo de recursos para determinar el orden lógico en el que debe crear, modificar o eliminar componentes en la nube. Las dependencias implícitas se configuran automáticamente cuando un recurso hace referencia a un atributo de otro. Las dependencias explícitas se declaran manualmente usando el parámetro depends_on cuando un recurso necesita que otro se inicialice primero, pero el código no los conecta de forma directa.\n\n**La perspectiva de la clase:**\nEl profesor advierte que «no os confiéis en que el código se ejecuta en el orden en el que aparece». Explica que Terraform analiza de forma inteligente las dependencias de los recursos para paralelizar la creación de todo aquello que no sea dependiente entre sí. Como ejemplo de flujo lógico, enfatiza que «nunca se creará la capa de presentación o la capa de negocio sin haber creado antes la capa de base de datos».\n\n**Aplicación en DevOps:**\nAl aprovisionar un clúster de Kubernetes en la nube, es indispensable que la VPC, las tablas de enrutamiento y las subredes estén totalmente funcionales antes de que los servidores worker intenten arrancar. Al estructurar subredes mediante referencias implícitas y usar dependencias explícitas con depends_on para el inicio de servicios en cola de mensajería, el programador garantiza que las llamadas a las APIs de AWS se realicen en la secuencia exacta requerida."
   },
   {
     "tema": "Tema 5: Terraform: Infraestructura como código",
@@ -533,7 +555,8 @@
       "El despliegue de infraestructura virtual pero siempre en una nube"
     ],
     "answer": "El despliegue de infraestructura virtual en una o varias nubes",
-    "explanation": "Tema 5: Terraform - Terraform permite desplegar muchos tipos de recursos, principalmente infraestructura virtual en diferentes nubes."
+    "explanation": "Tema 5: Terraform - Terraform permite desplegar muchos tipos de recursos, principalmente infraestructura virtual en diferentes nubes.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nTerraform se destaca por ser multi-provider. Su arquitectura extensible permite interactuar de forma simultánea con cientos de APIs de diferentes nubes públicas (AWS, Azure, GCP), nubes privadas (OpenStack, VMware) o plataformas de orquestación (Kubernetes). Esto permite definir y aprovisionar topologías híbridas o multinube complejas bajo un único lenguaje declarativo (HCL) y un flujo de trabajo de ejecución consistente.\n\n**La perspectiva de la clase:**\nEl profesor señala que Terraform se usa para «aprovisionar lo que son infraestructuras enteras que existen a través de múltiples proveedores de nubes públicas y nubes privadas». Resalta que es una herramienta altamente eficaz para la portabilidad y la automatización, pudiendo «unificarlo y hacer esos despliegues en paralelo de nuestras infraestructuras de una forma mucho más rápida y más ágil», utilizando de manera complementaria plantillas de Packer para pre-compilar las imágenes inmutables de las aplicaciones.\n\n**Aplicación en DevOps:**\nUna organización bancaria requiere tolerancia a fallos extrema y diseña una estrategia multinube activa. Con un único repositorio de Terraform que llama a diferentes submódulos de GCP y AWS, el equipo de operaciones despliega servidores web en instancias de AWS y un almacén de análisis de datos en Google Cloud Platform, integrándolos de manera transparente en un proceso unificado y ágil."
   },
   {
     "tema": "Tema 5: Terraform: Infraestructura como código",
@@ -545,7 +568,8 @@
       "A y B son correctas"
     ],
     "answer": "Ya que puede configurar redes virtuales de varios proveedores de nubes",
-    "explanation": "Tema 5: Terraform - Terraform permite configurar redes virtuales en muchos proveedores como por ejemplo AWS VPC, pero no permite enrutar tráfico ya que Terraform solo aplica durante el despliegue y configuración."
+    "explanation": "Tema 5: Terraform - Terraform permite configurar redes virtuales en muchos proveedores como por ejemplo AWS VPC, pero no permite enrutar tráfico ya que Terraform solo aplica durante el despliegue y configuración.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nTerraform no actúa como un conmutador físico o enrutador de datos en tiempo real, sino que interactúa con las APIs lógicas de redes definidas por software (SDN). De esta manera, permite declarar, versionar y orquestar elementos complejos de red como Virtual Private Clouds (VPC), rangos CIDR, subredes públicas y privadas, firewalls, grupos de seguridad, NAT Gateways y tablas de enrutamiento en cualquier proveedor de nube.\n\n**La perspectiva de la clase:**\nEl profesor pone el ejemplo concreto de crear «una VPC y dentro de su VPC al final lo que creamos son dos Subnet... una pasarela de internet para todo lo que es ese tráfico público junto con una tabla de rutas», explicando que todo esto, que suele ser muy tedioso y lento si se hace manualmente en la consola gráfica, con Terraform se ejecuta y actualiza de manera automatizada y rápida.\n\n**Aplicación en DevOps:**\nAl diseñar una arquitectura de microservicios con un Stack MEAN, un ingeniero DevOps utiliza Terraform para crear una red VPC dividida. Declara subredes públicas para recibir el tráfico del balanceador de carga (ALB) y subredes privadas aisladas de internet donde despliega los servidores de MongoDB, configurando un recurso de NAT Gateway para permitir únicamente que las bases de datos descarguen actualizaciones seguras de forma saliente."
   },
   {
     "tema": "Tema 5: Terraform: Infraestructura como código",
@@ -557,7 +581,8 @@
       "Usar scripts nativos de la nube como Cloud Init configurados desde Terraform"
     ],
     "answer": "Todas las otras respuestas son correctas",
-    "explanation": "Tema 5: Terraform - Existen diferentes técnicas para configurar máquinas virtuales con Terraform y todas las expresadas aquí son válidas."
+    "explanation": "Tema 5: Terraform - Existen diferentes técnicas para configurar máquinas virtuales con Terraform y todas las expresadas aquí son válidas.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl aprovisionamiento de configuración dentro de recursos virtuales creados con IaC se puede estructurar bajo tres filosofías complementarias: (1) Pre-instalación o «Baking», usando Packer para construir una imagen de sistema operativo inmutable ya «horneada» con todo el software listo para arrancar; (2) Aprovisionamiento dinámico en ejecución, integrando herramientas de gestión de configuración como Ansible, Chef o Puppet; o (3) Scripting de arranque, inyectando comandos nativos directamente mediante Cloud-Init y campos user_data al inicializar la máquina.\n\n**La perspectiva de la clase:**\nEl profesor enfatiza que Terraform, Packer y Ansible son tres herramientas 100% complementarias dentro del ciclo. Explica el flujo de trabajo ideal: «Con Terraform creo mi infraestructura. Con Packer creo mi máquina virtual con todas las necesidades que tenga y con Ansible hago las configuraciones globales». Asimismo, muestra que es totalmente viable inyectar código en vivo usando archivos user_data o aprovisionadores de Terraform (remote-exec o local-exec).\n\n**Aplicación en DevOps:**\nPara automatizar el lanzamiento de un servidor de Node.js, el equipo de DevOps ejecuta un pipeline que primero usa Packer para generar una AMI de Ubuntu con Nginx ya instalado. Luego, Terraform despliega esta AMI en AWS y usa la variable de metadatos user_data para pasar un script que clona la última rama del código de Git y arranca la aplicación de manera 100% automatizada."
   },
   {
     "tema": "Tema 5: Terraform: Infraestructura como código",
@@ -569,7 +594,8 @@
       "Crea un pool de IP que auto escalan elásticamente"
     ],
     "answer": "Reserva una IP elástica",
-    "explanation": "Tema 5: Terraform - El recurso aws_eip reserva una IP elástica, que es una IP que puede asignarse a una máquina y moverse posteriormente."
+    "explanation": "Tema 5: Terraform - El recurso aws_eip reserva una IP elástica, que es una IP que puede asignarse a una máquina y moverse posteriormente.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn Amazon Web Services, una IP Elástica (Elastic IP - EIP) es una dirección IPv4 pública estática asignada específicamente a la cuenta del usuario. A diferencia de las IPs dinámicas por defecto, una IP elástica no cambia si la instancia EC2 asociada se detiene, reinicia o destruye, actuando como un punto de acceso constante. El recurso aws_eip de Terraform permite reservar esta IP lógica en AWS y asociarla a recursos persistentes como instancias web públicas o pasarelas NAT Gateway.\n\n**La perspectiva de la clase:**\nEn el contexto de las prácticas y arquitectura de red de la asignatura, el profesor destaca el uso de IPs públicas y elásticas asociadas a componentes estáticos de infraestructura. Específicamente, en la rúbrica de la Actividad 2, el profesor exige incluir y mostrar en el archivo outputs.tf de Terraform la IP pública correspondiente al objeto NAT Gateway, cuya función es dar salida externa a la base de datos de MongoDB en subnet privada. Esto requiere declarar y reservar obligatoriamente un recurso de tipo aws_eip asociado al NAT Gateway.\n\n**Aplicación en DevOps:**\nPara que un sistema de base de datos alojado en una subred privada se conecte a internet para parches o sincronizaciones sin exponerse, se despliega un NAT Gateway en la subred pública. En Terraform, el ingeniero DevOps define un recurso aws_eip y lo enlaza directamente con el recurso aws_nat_gateway para que todo el tráfico de la base de datos salga hacia el exterior con una IP fija autorizada en los firewalls de destino."
   },
   {
     "tema": "Tema 5: Terraform: Infraestructura como código",
@@ -581,7 +607,8 @@
       "Muestra los valores del estado"
     ],
     "answer": "Muestra los valores del estado",
-    "explanation": "Tema 5: Terraform - El comando terraform show muestra los valores del estado que tenemos ahí pero no los refresca con el estado actual en la nube."
+    "explanation": "Tema 5: Terraform - El comando terraform show muestra los valores del estado que tenemos ahí pero no los refresca con el estado actual en la nube.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando terraform show lee, procesa y formatea de forma legible para el usuario el contenido estructurado del archivo de estado actual de Terraform (terraform.tfstate) o de un plan de ejecución binario guardado. Permite inspeccionar con precisión milimétrica las propiedades, IDs dinámicos de la nube, direcciones IP y configuraciones reales de cada recurso gestionado que se encuentran guardados en el «state».\n\n**La perspectiva de la clase:**\nEl profesor incluye a terraform show dentro de la lista de comandos y buenas prácticas de Terraform. Explica que el fichero de estado es una pieza crítica que «mapea los recursos del mundo real con la configuración» y que Terraform, al ser una aplicación con estado, necesita registrar constantemente este mapeo. El comando terraform show se presenta como la herramienta interactiva esencial para consultar los detalles de este estado consolidado en un momento dado.\n\n**Aplicación en DevOps:**\nTras un despliegue automático de infraestructura en el pipeline de CI/CD, un ingeniero de soporte de operaciones ejecuta terraform show en su terminal local para extraer las DNS asignadas dinámicamente al Application Load Balancer o verificar las subredes creadas, validando que el entorno real coincide con el plano arquitectónico deseado."
   },
   {
     "tema": "Tema 5: Terraform: Infraestructura como código",
@@ -593,7 +620,8 @@
       "Permite crear y eliminar componentes pero no aplicar cambios de configuración"
     ],
     "answer": "Permite aplicar cambios de configuración, crear y eliminar componentes",
-    "explanation": "Tema 5: Terraform - Terraform apply puede crear y eliminar componentes y en algunos casos cambiar la configuración de algunos ya existentes."
+    "explanation": "Tema 5: Terraform - Terraform apply puede crear y eliminar componentes y en algunos casos cambiar la configuración de algunos ya existentes.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEs el comando operativo central del flujo de trabajo de Terraform. Analiza el código de los archivos .tf, lo compara con el archivo de estado real actual y, tras generar el mapa de diferencias, ejecuta de manera secuencial y segura todas las operaciones necesarias (llamadas a APIs de los proveedores) para crear nuevos recursos, actualizar los existentes o destruir los componentes que hayan sido eliminados o modificados en la configuración.\n\n**La perspectiva de la clase:**\nEl profesor describe a terraform apply dentro de los cuatro comandos críticos del ciclo de vida (init, plan, apply, destroy). Explica que es la fase donde se realiza la «ejecución» real de las acciones deseadas sobre la nube seleccionada para alcanzar el estado de infraestructura que hemos planificado previamente.\n\n**Aplicación en DevOps:**\nUn desarrollador modifica el código del proyecto de Terraform para añadir dos servidores Node.js más al grupo de autoescalado y eliminar un entorno de pruebas obsoleto. Al hacer push a la rama principal, el pipeline ejecuta terraform apply, lo que resulta en el aprovisionamiento inmediato de los nuevos servidores y en la terminación controlada y destrucción de la máquina de pruebas antigua."
   },
   {
     "tema": "Tema 5: Terraform: Infraestructura como código",
@@ -605,7 +633,8 @@
       "Inicializa el proyecto actual y se asegura que tengamos las versiones apropiadas de los plugins"
     ],
     "answer": "Inicializa el proyecto actual y se asegura que tengamos las versiones apropiadas de los plugins",
-    "explanation": "Tema 5: Terraform - Terraform init descarga las versiones seleccionadas, o las últimas si no hemos elegido versión, pero no realiza acciones sobre la infraestructura."
+    "explanation": "Tema 5: Terraform - Terraform init descarga las versiones seleccionadas, o las últimas si no hemos elegido versión, pero no realiza acciones sobre la infraestructura.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando terraform init es el paso de configuración inicial y obligatorio antes de poder planificar o aplicar cualquier recurso. Su objetivo es escanear los archivos .tf para identificar los proveedores de nube declarados (AWS, Azure, GCP, etc.), descargar sus plugins binarios específicos a un directorio local oculto (.terraform), configurar el backend para almacenar el estado del proyecto y descargar los módulos de infraestructura declarados.\n\n**La perspectiva de la clase:**\nEn las clases de IaC se enfatiza que terraform init es «el primer comando que tenemos que ejecutar para cualquier configuración de Terraform». El profesor explica que este comando inicializa el directorio de trabajo, descarga los binarios de los providers (los cuales define como pequeños plugins necesarios según el proveedor que usemos) y prepara el entorno para poder ejecutar el posterior análisis sintáctico.\n\n**Aplicación en DevOps:**\nAl diseñar un pipeline automatizado en Jenkins, el primer bloque de instrucciones para desplegar la infraestructura de red debe iniciar con terraform init. Esto asegura que el agente temporal que ejecuta la tarea descargue el proveedor oficial de AWS en la versión exacta declarada en el código antes de que intente interactuar con la nube."
   },
   {
     "tema": "Tema 5: Terraform: Infraestructura como código",
@@ -617,7 +646,8 @@
       "Bash"
     ],
     "answer": "Go",
-    "explanation": "Tema 5: Terraform - Terraform está escrito en el lenguaje de programación Go."
+    "explanation": "Tema 5: Terraform - Terraform está escrito en el lenguaje de programación Go.",
+    "detailedExplanation": "**¿Qué significa realmente?**\nGo (o Golang) es un lenguaje compilado, concurrente y desarrollado por Google. Al estar programado en Go, Terraform se compila en un único archivo binario estático y autocontenido para cada plataforma (Windows, macOS, Linux). Esto elimina la necesidad de contar con dependencias de librerías externas o de instalar intérpretes pesados de ejecución (como Python, Ruby o Java), facilitando enormemente su portabilidad y despliegue rápido.\n\n**La perspectiva de la clase:**\nDurante las sesiones se destaca que Terraform es una aplicación ágil, liviana de línea de comandos y con un rendimiento sumamente alto. Al repasar la estructura técnica y de comandos, se resalta que su binario compilado (gracias a estar desarrollado en Go) puede descargarse e instalarse de forma directa y simple en cualquier sistema Linux o Windows simplemente moviéndolo al PATH del sistema, sin requerir herramientas de configuración previas.\n\n**Aplicación en DevOps:**\nAl preparar un clúster de agentes de CI/CD (por ejemplo, runners de GitLab o agentes de Jenkins), el ingeniero DevOps no necesita configurar entornos virtuales o dependencias complejas. Solo agrega un paso en el script de arranque para que descargue el binario estático de Terraform desde la web de HashiCorp y lo mueva a /usr/local/bin, garantizando que la herramienta de IaC se inicialice de forma instantánea."
   },
   {
     "tema": "Tema 6: Terraform: casos de uso avanzado",

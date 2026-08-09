@@ -739,7 +739,8 @@
     ],
     "answer": "kill -15 <pid>",
     "explanation": "La señal SIGTERM (-15) solicita al proceso que termine ordenadamente. Es menos severa que SIGKILL (-9) que fuerza la terminación inmediata.",
-    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl envío de señales es el mecanismo estándar en sistemas basados en Unix para comunicarse con los procesos en ejecución y gestionar su ciclo de vida. La señal 15 (SIGTERM) es una solicitud ordenada y limpia de terminación de un proceso. Permite que el proceso libere de manera segura los descriptores de archivos, guarde su estado actual, cierre las conexiones activas y termine de forma controlada sin dejar procesos zombis o datos huérfanos.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz explica que para comunicarse con un proceso se le envían señales mediante el comando kill seguido de su identificador PID. Detalla que la señal 9 es la más brusca e intrusiva («SIGKILL» que detiene el proceso de inmediato «sí o sí»), mientras que la señal 15 (SIGTERM) es mucho más educada y actúa como una solicitud que le dice al proceso: «¿Qué tal te viene terminarte ahora?» para que finalice de forma controlada. Asimismo, menciona la señal 1 para recargar la configuración de un servicio sin llegar a detener el proceso.\n\n**Aplicación en DevOps:**\nEn tareas de automatización y administración de sistemas en la nube, es una práctica estándar intentar detener de forma segura (graceful shutdown) un servicio enviándole la señal 15 (kill -15 <pid>). Esto asegura que el proceso termine de procesar las transacciones y solicitudes activas sin corromper bases de datos o dejar archivos temporales abiertos en el disco, recurriendo al forzado kill -9 <pid> únicamente si el servicio no responde tras un tiempo límite establecido."
   },
   {
     "question": "¿Qué tipos de permisos tendrá un archivo normal tras configurarlo con chmod 777?",
@@ -751,7 +752,8 @@
     ],
     "answer": "Lectura, escritura y ejecución para cualquier usuario del sistema",
     "explanation": "chmod 777 da rwx a usuario, grupo y otros. chmod 600 da solo lectura/escritura al propietario. chmod 744 da rwx al propietario y solo lectura a los demás.",
-    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando chmod altera los permisos de acceso físico en los metadatos de un archivo en el sistema de ficheros de Linux. El valor octal 777 se traduce en binario como 111 111 111. Cada terna de bits representa los tres niveles de usuarios: el propietario (User), el grupo asignado (Group) y los demás usuarios del sistema (Others). Al estar todos los bits activos en 1, se habilitan de forma absoluta los permisos de lectura (r=4), escritura (w=2) y ejecución (x=1) para cualquier usuario del sistema.\n\n**La perspectiva de la clase:**\nEl profesor Sanz enfatiza que el sistema de permisos es un aspecto de conocimiento fundamental en Linux. Explica que los permisos se dividen en tres terciles (usuario, grupo y otros) tras ejecutar un ls -l. Destaca que aplicar un 777 representa la máxima permisividad («barra libre para todos»), en claro contraste con configuraciones restrictivas de seguridad como la 600, donde el propietario solo puede leer y escribir, y el resto no tiene acceso.\n\n**Aplicación en DevOps:**\nLa asignación de permisos 777 es considerada un grave problema de seguridad en la administración de servidores y pipelines de integración continua. Siguiendo la máxima de aplicar siempre los «mínimos privilegios necesarios para realizar mi tarea», los ingenieros DevOps restringen los accesos aplicando permisos específicos (como 755 para scripts o directorios que requieran ejecución, y 600 o 640 para archivos que contengan credenciales o variables de entorno sensibles) para evitar que procesos no autorizados alteren la infraestructura."
   },
   {
     "question": "¿Qué comando permite averiguar el PID de un proceso en Linux?",
@@ -763,7 +765,8 @@
     ],
     "answer": "Todos los anteriores",
     "explanation": "pidof muestra el PID del comando especificado. ps y top muestran los PID en una de sus columnas.",
-    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl PID (Process ID) es el número identificador único que el sistema operativo asigna de manera secuencial a cada proceso al crearse. El comando pidof busca directamente el PID utilizando el nombre exacto de la aplicación; ps muestra un estado estático de las propiedades y PIDs de los procesos activos; y el comando interactivo top lista de forma dinámica y ordenada en tiempo real los procesos según su consumo de recursos del sistema, exponiendo sus respectivos PIDs en su primera columna.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz detalla que cada proceso en Linux tiene asignado un identificador único (PID), y menciona que el primer proceso que inicia el sistema operativo es el init con el PID 1. Entre las herramientas del sistema recomendadas, menciona que el comando ps (usando modificadores como ps aux) nos ayuda a listar estos procesos con sus PIDs, mientras que top permite monitorizar en vivo la carga dinámica de la CPU y memoria junto con el identificador de cada proceso.\n\n**Aplicación en DevOps:**\nEn scripts automatizados de monitoreo y autorecuperación (self-healing), es necesario averiguar dinámicamente el PID de un servicio que ha dejado de responder para poder reiniciarlo de forma automática. Un script en Bash puede extraer el PID usando pidof nginx o parseando la salida de ps aux para tomar decisiones de forma condicional en caliente, asegurando la alta disponibilidad del entorno."
   },
   {
     "question": "¿Qué relación hay entre usuarios y grupos en Linux?",
@@ -775,7 +778,8 @@
     ],
     "answer": "Los usuarios pertenecen al menos a un grupo principal y a cero o más grupos suplementarios",
     "explanation": "Los usuarios deben pertenecer al menos a un grupo principal. Pueden pertenecer a más grupos suplementarios. Los grupos de Linux no pueden contener otros grupos.",
-    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLinux cuenta con un diseño de control de acceso multiusuario y multinivel que requiere que toda cuenta de usuario pertenezca de forma obligatoria a un grupo principal (Primary Group) para gestionar sus permisos por defecto sobre los recursos. Adicionalmente, el administrador del sistema puede asociar a un usuario a múltiples grupos secundarios o suplementarios (Supplementary Groups) de forma opcional para dotarle de accesos específicos sin alterar su pertenencia al grupo principal.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz explica que en la administración de usuarios, la relación con los grupos es obligatoria en Linux. Señala que por la propia estructura del sistema operativo, al crearse un usuario (con el comando useradd), el sistema de forma nativa le asigna al menos un grupo primario que lleva el mismo nombre del usuario. Posteriormente, se pueden utilizar comandos como usermod para cambiar la membresía y añadir al usuario a otros grupos secundarios del sistema según las necesidades del entorno.\n\n**Aplicación en DevOps:**\nDurante la automatización de la configuración de entornos de desarrollo (por ejemplo, al aprovisionar servidores con scripts o herramientas de configuración como Ansible), se añaden de forma suplementaria las cuentas de los ingenieros al grupo de sistema docker o sudo utilizando usermod -aG docker <usuario>. Esto les permite interactuar con el socket de Docker y levantar contenedores sin necesidad de iniciar sesión como root, manteniendo la trazabilidad e higiene de seguridad en la estación de trabajo."
   },
   {
     "question": "¿Qué opción del comando systemctl reinicia un servicio?",
@@ -787,7 +791,8 @@
     ],
     "answer": "restart",
     "explanation": "restart reinicia el servicio. stop lo detiene, start lo arranca, status muestra su estado actual.",
-    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl gestor de sistema y de servicios de Linux, systemd, emplea la utilidad de línea de comandos systemctl para administrar el estado de los demonios y procesos en background. La opción restart detiene por completo el proceso activo de un servicio (ejecutando un apagado ordenado o stop) y lo inicia inmediatamente después de nuevo (ejecutando un start), forzando al sistema operativo a asignar un nuevo PID, liberar y recargar la memoria RAM y leer las nuevas configuraciones.\n\n**La perspectiva de la clase:**\nEn las clases se explica que las aplicaciones del sistema corren en background como servicios o procesos. El profesor Sanz detalla que para monitorizar y gestionar este estado se utiliza la utilidad de sistema systemctl. Enseña que podemos ejecutar start para iniciar, stop para detener y status para ver la información detallada de la ejecución del servicio. Menciona que el reinicio de servicios es un proceso clave que realiza una parada y arranque completos del proceso.\n\n**Aplicación en DevOps:**\nEn pipelines de despliegue continuo (CI/CD), tras compilar e instalar una nueva actualización de una aplicación web, se ejecuta de forma automatizada el comando sudo systemctl restart mi-servicio. Esto garantiza que el proceso viejo libere el puerto de red asignado, se cierre de forma controlada y el sistema cargue de inmediato el nuevo código binario en la memoria para procesar las nuevas peticiones de los usuarios."
   },
   {
     "question": "¿Qué fichero aloja las contraseñas de los usuarios en Linux?",
@@ -799,7 +804,8 @@
     ],
     "answer": "Ninguno de los anteriores",
     "explanation": "La contraseña se guarda como hash unidireccional en /etc/shadow, nunca como texto plano. /etc/passwd contiene información del usuario pero no la contraseña en texto plano.",
-    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPor diseño estricto de seguridad, los sistemas operativos Linux no almacenan las contraseñas de los usuarios en texto plano en ningún archivo del sistema. En su lugar, el archivo /etc/shadow (con permisos restrictivos y solo accesible por root) almacena únicamente los hashes criptográficos resultantes de pasar la contraseña original por algoritmos de un solo sentido (como SHA-512). El archivo /etc/passwd contiene la estructura básica del usuario, pero hoy en día solo muestra una «x» indicando que las contraseñas reales se han movido a /etc/shadow en forma de hashes seguros.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz destaca que por definición es imposible concebir usuarios sin contraseña en Linux. Recuerda que el comando passwd es el encargado de cambiar la contraseña en el sistema de manera segura. Desde la perspectiva de la seguridad, el profesor enfatiza que almacenar contraseñas o secretos de infraestructura en plano es un «riesgo horrible» y que toda contraseña debe ser securizada mediante el uso de objetos seguros o encriptación. Al no guardarse las contraseñas de forma literal, sino representaciones hash criptográficas, la respuesta técnicamente correcta es «Ninguno de los anteriores».\n\n**Aplicación en DevOps:**\nEn el desarrollo moderno, se implementa el principio de inmutabilidad y la política de cero secretos en texto plano en los servidores. Los ingenieros DevOps configuran herramientas automáticas de escaneo (como GitGuardian o Trivy) para evitar que credenciales en texto plano sean subidas por error a los repositorios de código de la empresa, y usan bóvedas de secretos (como AWS Secrets Manager o Vault) para inyectar contraseñas cifradas en tiempo de ejecución."
   },
   {
     "question": "¿Cuál es el resultado de ejecutar ln -s /usr/bin/python3.6 ~/python?",
@@ -811,7 +817,8 @@
     ],
     "answer": "Aparece un enlace simbólico al binario de Python en la home del usuario con el nombre python",
     "explanation": "ln crea enlaces, -s indica enlace simbólico, ~/python es la ruta de destino en la home del usuario con nombre python.",
-    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando ln -s (link symbolic) genera un enlace simbólico o blando en el sistema de archivos de Linux. El argumento /usr/bin/python3.6 es la ruta absoluta al binario o archivo original de origen, y ~/python define el nombre y ubicación del enlace que se creará dentro del directorio home del usuario actual (~). Al ejecutarse, se crea un puntero liviano de texto cuyo contenido es simplemente la ruta al archivo original; si el enlace se elimina, el archivo original en /usr/bin permanece intacto.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz detalla minuciosamente la diferencia técnica entre los tipos de enlaces en Linux. Explica que el enlace simbólico (creado con ln -s) actúa como un «acceso directo» tradicional de Windows. Enfatiza que si eliminas un enlace simbólico, el archivo original al que apunta no se ve afectado y se mantiene intacto; a diferencia de lo que ocurriría con un enlace fuerte, donde al borrarse el enlace también desaparecería el contenido físico del archivo de origen.\n\n**Aplicación en DevOps:**\nLa gestión de entornos mediante enlaces simbólicos es un estándar en DevOps para manejar de forma portable múltiples versiones de una herramienta (como Python o Node.js). En lugar de alterar la configuración global del sistema o cambiar la ruta física en docenas de scripts de automatización, se crea un enlace simbólico como ~/python que apunta a la versión específica deseada (ej. python3.6). Si en el futuro se requiere actualizar a python3.9, solo se redefine el enlace simbólico, manteniendo intactos todos los scripts que consumen el comando genérico."
   },
   {
     "question": "¿Qué comandos permiten crear, modificar y borrar usuarios en Linux?",
@@ -823,7 +830,8 @@
     ],
     "answer": "useradd, usermod y userdel",
     "explanation": "Los comandos estándar son useradd, usermod y userdel. El resto de opciones contienen comandos que no existen en Linux.",
-    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSon las utilidades básicas de administración de cuentas de usuario integradas nativamente en la línea de comandos de sistemas operativos tipo Unix. El binario useradd se encarga de crear el registro de usuario asignándole un directorio de inicio e identificadores UID/GID; usermod permite alterar o modificar cualquier propiedad de una cuenta existente de forma no interactiva; y userdel se encarga de eliminar la cuenta del usuario de los archivos del sistema, con la opción de limpiar también sus archivos de datos personales y home.\n\n**La perspectiva de la clase:**\nEl profesor repasa los comandos fundamentales para la administración básica de usuarios de sistema. Explica que useradd crea la cuenta (y permite banderas recomendadas como -m para forzar la creación de la carpeta home), se complementa con usermod para cambiar propiedades o añadir membresías a grupos, y con userdel para purgar cuentas inactivas o antiguas del sistema.\n\n**Aplicación en DevOps:**\nEn tareas de bootstrapping de infraestructura en la nube (como al inyectar código en el campo User Data o en plantillas de Cloud-init), se usan estos comandos para automatizar la creación de cuentas no interactivas para que ejecuten servicios de forma aislada y segura, por ejemplo, corriendo un script desatendido con sudo useradd -r -s /bin/false app_runner para evitar accesos de login tradicionales y reducir la superficie de ataque del servidor."
   },
   {
     "question": "¿Por qué visudo ha de ejecutarse con sudo?",
@@ -835,7 +843,8 @@
     ],
     "answer": "Porque es un comando privilegiado",
     "explanation": "Si no fuera necesario sudo, cualquier usuario podría editar el fichero sudoers para asignarse permisos de administrador a sí mismo.",
-    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl archivo /etc/sudoers es el fichero de configuración que define las reglas de elevación de privilegios para todas las cuentas del sistema, por lo que cuenta con permisos de escritura estrictamente limitados a la cuenta de superusuario (root). El comando especializado visudo se encarga de editar de forma segura este archivo, bloqueando el fichero temporalmente para evitar escrituras concurrentes y validando la sintaxis del texto antes de guardar. Como un usuario estándar no tiene privilegios de escritura en /etc/sudoers, el sistema bloquea directamente la llamada de visudo, haciendo obligatorio el uso de sudo para elevar temporalmente los privilegios.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz destaca la gran importancia de editar de manera segura el fichero de configuración de privilegios /etc/sudoers. Explica que para ello se debe emplear siempre de forma obligatoria el comando de sistema visudo. Al ser una herramienta que edita el núcleo de la elevación de permisos del sistema, constituye un «comando privilegiado», por lo que para ejecutarlo de manera correcta y con los derechos necesarios, se debe invocar usando el comando de elevación de privilegios sudo, resultando en la sintaxis sudo visudo.\n\n**Aplicación en DevOps:**\nEn infraestructuras automatizadas, es crítico controlar qué procesos automáticos tienen capacidad de elevación de privilegios. Usando sudo visudo, los ingenieros DevOps editan las reglas para autorizar de forma selectiva a una cuenta de automatización (como el agente de Jenkins o el usuario de Ansible) a ejecutar exclusivamente comandos muy específicos sin solicitar contraseña interactiva (usando la directiva NOPASSWD:), permitiendo despliegues automáticos seguros y auditados de acuerdo al principio de mínimos privilegios."
   },
   {
     "question": "¿Qué flag denota un archivo oculto en Linux?",
@@ -847,7 +856,8 @@
     ],
     "answer": "Ninguno",
     "explanation": "Los archivos ocultos en Linux son archivos normales o directorios cuyo nombre empieza por un punto (.), no tienen un flag especial. d=directorio, l=enlace simbólico, s=setuid.",
-    "tema": "Tema 5. Administración básica de sistema operativo en Linux"
+    "tema": "Tema 5. Administración básica de sistema operativo en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nA diferencia de sistemas como Windows que emplean bits de atributos o banderas específicas para denotar que un archivo está oculto, en sistemas operativos basados en Unix y Linux no existe ningún flag de metadato que controle la visibilidad. La única regla para que un archivo sea ocultado en Linux es que su nombre comience de manera explícita con un punto (.), como .gitignore o .bashrc. Por lo tanto, no existe ninguna bandera de tipo o flag de sistema para ello; las letras de las opciones (como d para directorios o l para enlaces simbólicos) solo denotan tipos de objetos del sistema de archivos, no de visibilidad.\n\n**La perspectiva de la clase:**\nEl profesor explica que al realizar un listado con ls, el primer carácter de la salida describe de forma precisa el tipo de archivo (una d si es un directorio, una l si es un enlace simbólico o un guion - si es un archivo regular). Sin embargo, aclara que un archivo oculto se distingue puramente por comenzar con un carácter de punto en su nombre, no por marcas o flags en sus atributos. De ahí que no exista ningún flag para denotarlo, marcándose «Ninguno» como la única respuesta válida.\n\n**Aplicación en DevOps:**\nEn el desarrollo de software y administración de repositorios, los archivos que comienzan con punto (archivos ocultos) a menudo guardan información de control local o datos sensibles (como la carpeta de versión .git, o secretos locales de desarrollo en .env). Se configuran reglas estrictas para ocultar y excluir de manera automatizada estos archivos de los pipelines de despliegue para evitar fugas de información confidencial de la infraestructura hacia entornos públicos."
   },
   {
     "question": "¿Qué código de salida significa que el proceso ha terminado sin error?",
@@ -859,7 +869,8 @@
     ],
     "answer": "0",
     "explanation": "Los procesos que terminan en error pueden usar cualquier entero de un byte como código de salida. Solo el 0 indica éxito; cualquier otro valor indica error.",
-    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn sistemas tipo Unix, cada proceso que finaliza envía un número entero de 8 bits (de 0 a 255) a su proceso padre para reportar cómo terminó su ejecución. Por convención universal, el código 0 representa un éxito absoluto. Cualquier número distinto de cero (generalmente del 1 al 255) indica un error o estado anormal específico que debe ser gestionado.\n\n**La perspectiva de la clase:**\nEl profesor explica que los códigos de salida (exit codes) son fundamentales para el diagnóstico de fallas. En las sesiones, recalca que si un script tiene un problema en un parámetro de entrada o una verificación, no debe quedarse colgado, sino terminar de forma controlada indicando un error específico (como un «exit 3» o «exit 4») y documentar qué significa para facilitar la resolución de problemas.\n\n**Aplicación en DevOps:**\nEn pipelines de CI/CD (como GitHub Actions, GitLab CI o Jenkins), los agentes ejecutores evalúan estrictamente el código de salida de cada comando. Si un paso devuelve 0, el pipeline continúa; si devuelve un valor distinto, la construcción se detiene inmediatamente, marcando el despliegue como fallido y disparando notificaciones automáticas de alerta."
   },
   {
     "question": "¿Qué cadena de texto delimita un heredoc en Bash?",
@@ -871,7 +882,8 @@
     ],
     "answer": "Cualquiera, siempre que la de inicio sea igual que la de final",
     "explanation": "El identificador del heredoc puede ser cualquier cadena (por convención en mayúsculas) siempre que el delimitador de cierre sea exactamente igual al de apertura.",
-    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUn Here Document (Heredoc) es una forma de redirección de entrada en Bash que permite pasar bloques de texto multilínea a un comando o archivo de forma directa. Se inicia con el operador << seguido de una etiqueta de inicio elegida por el programador (por ejemplo, EOF, NGINXCONF o cualquier palabra) y finaliza exactamente con la misma etiqueta en una línea dedicada sin espacios ni caracteres adicionales.\n\n**La perspectiva de la clase:**\nEl profesor califica a Heredocs como una herramienta «súper importante» en administración para meter bloques de configuración completos en ficheros respetando rigurosamente los saltos de línea y sangrados. En el script de MongoDB que se analiza en clase, ejemplifica cómo se inyecta la configuración usando la etiqueta mongo_config, cerrando el bloque con esa misma palabra para poblar directamente /etc/mongod.conf.\n\n**Aplicación en DevOps:**\nAl provisionar infraestructura en la nube o inyectar scripts de inicio en máquinas virtuales, se usan Heredocs para generar dinámicamente archivos de configuración de servicios (como Nginx, Docker daemons o Systemd) en caliente, permitiendo incrustar variables de entorno de manera limpia y legible dentro de la automatización."
   },
   {
     "question": "¿Qué significa el flag -p en el comando mkdir?",
@@ -883,7 +895,8 @@
     ],
     "answer": "Crear la ruta de carpetas si no existe",
     "explanation": "Por defecto mkdir crea una única carpeta. Con -p se crean todas las carpetas intermedias de la ruta si no existen.",
-    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPor defecto, el comando mkdir (make directory) falla si intentas crear una carpeta dentro de una ruta cuyas carpetas padres no existen en el disco. Al usar el flag -p (parents), el comando crea de forma recursiva toda la ruta de directorios padre especificada si no existían previamente y, si la carpeta final ya existe, no arroja ningún mensaje de error, garantizando el éxito de la operación.\n\n**La perspectiva de la clase:**\nDurante las lecciones sobre la automatización del script de instalación de MongoDB, el profesor repasa las buenas prácticas para estructurar directorios. Explica que en automatización debemos verificar previamente si las rutas existen con flags como -d (para comprobar directorios) y luego proceder a su creación asegurando que los permisos queden asignados correctamente. El uso de -p complementa esto al evitar que las tareas de creación de carpetas se rompan a mitad de la ejecución.\n\n**Aplicación en DevOps:**\nEs una práctica esencial para lograr idempotencia. En scripts de despliegue automatizado, se utiliza siempre mkdir -p /var/log/myapp/archive para garantizar que la ruta de logs se cree limpiamente sin importar si el servidor es nuevo o si el directorio ya existía de un despliegue anterior."
   },
   {
     "question": "¿Qué diferencia hay entre apt-get y yum?",
@@ -895,7 +908,8 @@
     ],
     "answer": "apt-get es un gestor de paquetes en distribuciones Debian, mientras que yum es el gestor en distribuciones RedHat y Fedora",
     "explanation": "yum es el gestor de paquetes de CentOS/RedHat/Fedora. apt-get es la herramienta de Debian y sus derivadas (Ubuntu incluida).",
-    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nSon gestores de paquetes a nivel de sistema operativo para diferentes familias de Linux. apt-get (Advanced Package Tool) gestiona paquetes con formato .deb en la familia Debian/Ubuntu. Por otro lado, yum (Yellowdog Updater, Modified) gestiona paquetes con formato .rpm en la familia RedHat (como CentOS, RHEL, Fedora y Rocky Linux). Ambos resuelven e instalan dependencias desde repositorios remotos.\n\n**La perspectiva de la clase:**\nEl profesor explica que el gestor de paquetes es una de las principales diferencias que cambian entre distribuciones al automatizar. Enfatiza esto al analizar scripts multiplataforma (como los de PHP o Node.js), donde el código debe detectar la distribución del servidor usando archivos de release para decidir si realiza la instalación usando apt-get o yum.\n\n**Aplicación en DevOps:**\nEn entornos heterogéneos de nube donde conviven imágenes de Ubuntu y RedHat, los ingenieros DevOps escriben scripts híbridos que leen /etc/os-release y ramifican la instalación del agente de monitoreo: ejecutan apt-get install o yum install condicionalmente según el sabor del sistema operativo destino."
   },
   {
     "question": "¿Qué modificador del comando test comprueba si existe un fichero en Linux?",
@@ -907,7 +921,8 @@
     ],
     "answer": "-e",
     "explanation": "-e comprueba si existe el fichero. -z comprueba si una cadena tiene longitud cero. -E no es válido. -h comprueba si existe y es enlace simbólico.",
-    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando test (que también se representa con corchetes [ ] en Bash) evalúa condiciones lógicas. El flag -e (exists) verifica si un archivo existe en el sistema de archivos, sin importar si es un archivo regular, un directorio, un enlace simbólico, un socket o un archivo de bloque.\n\n**La perspectiva de la clase:**\nEl profesor recalca que un buen script de automatización debe «programar defensivamente», asumiendo que las cosas pueden salir mal. Explica que antes de escribir configuraciones o dependencias es obligatorio comprobar el entorno. En las diapositivas detalla varios flags de validación: -d para comprobar si existe un directorio, -x para verificar si un archivo es ejecutable, y -e como la forma universal de comprobar la existencia física de un fichero.\n\n**Aplicación en DevOps:**\nAl diseñar scripts de inicio de contenedores (Docker Entrypoints) o pipelines de despliegue, es crucial verificar si los archivos de configuración o secretos (como certificados SSL o contraseñas de base de datos) se han inyectado en el volumen antes de arrancar el servicio mediante sentencias como if [ -e /etc/secrets/db_pass.txt ]; then ...."
   },
   {
     "question": "¿Qué comando de gestión de parámetros usan los scripts de Bash expuestos en el tema?",
@@ -919,7 +934,8 @@
     ],
     "answer": "getopts",
     "explanation": "getopts procesa los parámetros del script. Para cada elemento de la cadena de opciones guarda el valor en una variable, combinado con case para ejecutar el código correspondiente.",
-    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\ngetopts es una utilidad interna de la Shell de Bash que sirve para parsear de forma estructurada los parámetros de entrada que se le pasan a un script a través de banderas cortas (como -u usuario, -p password, etc.). Automatiza el recorrido de los argumentos, gestiona los índices de lectura y facilita la validación de qué parámetros son obligatorios y cuáles opcionales.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz destaca que en scripts profesionales no se suelen usar argumentos planos por posición (como $1 o $2), sino que se utiliza la herramienta getopts. En el script de instalación de MongoDB de clase, muestra cómo se lee el array dinámico de parámetros $@ a través de un bucle while getopts \"u:p:n:\" combinado con una estructura case para asignar limpiamente los valores a variables internas.\n\n**Aplicación en DevOps:**\nAl empaquetar scripts de automatización complejos que consumen otros equipos o pipelines, getopts permite dar una interfaz de línea de comandos (CLI) limpia y predecible (por ejemplo, ./backup.sh -d produccion -t incremental -r us-east-1), haciendo que las herramientas de automatización internas sean autodocumentadas y fáciles de usar."
   },
   {
     "question": "¿Qué hace el comando mv /etc/mongod.conf /etc/mongod.conf.orig?",
@@ -931,7 +947,8 @@
     ],
     "answer": "A y B son correctas",
     "explanation": "mv renombra el fichero, guardando el contenido original como copia de seguridad (.orig) y liberando el nombre original para poder crear el nuevo fichero de configuración.",
-    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando mv (move) altera la tabla de inodos del sistema de archivos para cambiar el nombre o la ruta de un archivo, sin duplicar los bloques de datos en el disco físico. Al renombrar /etc/mongod.conf a /etc/mongod.conf.orig, el archivo original deja de existir bajo su nombre original (se «borra» de esa ruta) y se consolida un respaldo idéntico con la extensión .orig.\n\n**La perspectiva de la clase:**\nEn el script de MongoDB, el profesor explica que antes de escribir nuestra configuración personalizada (utilizando el bloque de Heredocs), es de vital importancia conservar la configuración por defecto que trajo el paquete del sistema. Utilizar mv sirve para despejar la ruta donde colocaremos el nuevo fichero y, al mismo tiempo, actúa como una copia de seguridad original para poder hacer un rollback si algo sale mal.\n\n**Aplicación en DevOps:**\nEn ingeniería de confiabilidad de sitios (SRE), antes de que un agente de configuración automática altere un archivo crítico (como /etc/ssh/sshd_config), se automatiza una copia de seguridad con extensión .bak u .orig para garantizar que el servidor pueda volver a su estado base si el nuevo despliegue genera fallos de conectividad."
   },
   {
     "question": "¿Cómo debe empezar el contenido del user data de AWS para que sea considerado como sentencia de Cloud-init?",
@@ -943,7 +960,8 @@
     ],
     "answer": "#cloud-config",
     "explanation": "AWS identifica que el tipo de contenido del user data es Cloud-init cuando la primera línea es #cloud-config. #!/bin/bash indicaría un script de shell normal.",
-    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nAWS utiliza el software cloud-init para la inicialización de instancias EC2. Para que el motor de cloud-init interprete el texto que se le pasa en el campo User Data como un archivo de configuración declarativo YAML y no como un script ejecutable de Bash, el archivo debe comenzar obligatoria y estrictamente con la cabecera mágica de metadatos #cloud-config en la primera línea.\n\n**La perspectiva de la clase:**\nEl profesor introduce el «User Data» como el campo de oro para inyectar configuraciones durante el primer arranque de un servidor en la nube. Explica que podemos usar dos caminos: pasar un script puro en Bash (iniciado con #!/bin/bash) o usar directivas de cloud-init (un estándar declarativo de la nube basado en YAML) que debe iniciarse con #cloud-config para que el sistema reconozca el formato estructurado.\n\n**Aplicación en DevOps:**\nEn plantillas de Terraform o CloudFormation, los ingenieros DevOps especifican bloques #cloud-config para inicializar de forma declarativa aspectos base del servidor, tales como actualizar parches de seguridad, agregar usuarios administradores, configurar submontajes de almacenamiento y registrar llaves SSH autorizadas."
   },
   {
     "question": "¿Qué limitaciones tienen los scripts del user data en AWS?",
@@ -955,7 +973,8 @@
     ],
     "answer": "No pueden esperar entrada de datos del usuario",
     "explanation": "Si el script espera entrada del usuario (por ejemplo con read) acabará siendo cancelado tras un timeout, ya que se ejecuta de forma desatendida.",
-    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos scripts de User Data se ejecutan en segundo plano durante las fases tempranas del arranque del sistema operativo (boot time), en un entorno completamente desatendido. Dado que no hay un terminal interactivo conectado (stdin no está vinculado a ningún usuario), cualquier comando del script que solicite confirmación o datos (como un read o un prompt interactivo) colgará el proceso indefinidamente o provocará el fallo del despliegue.\n\n**La perspectiva de la clase:**\nIván Sanz explica que los scripts del User Data son estrictamente no interactivos. Enfatiza que, dado que el proceso de aprovisionamiento corre en el arranque de fondo, no hay posibilidad alguna de interactuar con él. Por ello, recalca que debemos forzar las instalaciones en modo silencioso (por ejemplo, con el flag apt-get install -y) y preconfigurar todos los parámetros de manera automatizada para evitar bloqueos del sistema.\n\n**Aplicación en DevOps:**\nAl empaquetar imágenes de servidor (AMIs) con Packer o bootstrapping de EC2, los comandos de instalación de bases de datos o servicios deben correrse de forma desatendida. Al desplegar MySQL, se deben pasar las variables de contraseña y configuraciones iniciales por banderas de CLI o archivos de respuesta silenciosos para evitar que el script de inicio intente abrir un prompt de terminal."
   },
   {
     "question": "¿Cuál es el gestor de paquetes de Node.js?",
@@ -967,7 +986,8 @@
     ],
     "answer": "npm",
     "explanation": "npm es el gestor de paquetes de Node.js. apt-get es de Debian/Ubuntu, yum es de RedHat/Fedora/CentOS, pip es de Python.",
-    "tema": "Tema 4. Automatización de instalación y configuración en Linux"
+    "tema": "Tema 4. Automatización de instalación y configuración en Linux",
+    "detailedExplanation": "**¿Qué significa realmente?**\nnpm (Node Package Manager) es el gestor de paquetes oficial e integrado de Node.js. Consiste en una herramienta de CLI que interactúa con un registro público en línea para descargar, instalar y gestionar las dependencias declaradas en el archivo de manifiesto package.json de un proyecto de JavaScript/TypeScript.\n\n**La perspectiva de la clase:**\nAl analizar el script de instalación de Node.js, el profesor describe cómo se despliega el entorno de ejecución en el servidor junto con su ecosistema de herramientas de soporte. Detalla que una vez instalado el motor, se utiliza npm para descargar de forma automática todas las dependencias y librerías necesarias del backend para levantar la aplicación.\n\n**Aplicación en DevOps:**\nEn pipelines de CI/CD para aplicaciones Web, el paso de compilación ejecuta comandos como npm install (o npm ci para instalaciones limpias y deterministas en entornos de integración) para resolver las dependencias exactas del proyecto antes de ejecutar las pruebas unitarias y empaquetar la aplicación en un contenedor de Docker para producción."
   },
   {
     "question": "¿Cuál de los siguientes ejemplos hace uso de una tubería en Linux?",
@@ -979,7 +999,8 @@
     ],
     "answer": "grep POST /var/log/nginx/access.log | head -100 | less",
     "explanation": "Este comando usa dos tuberías (|). El operador > redirige la salida a un fichero, no es una tubería.",
-    "tema": "Tema 3. Guía de estudio de Bash"
+    "tema": "Tema 3. Guía de estudio de Bash",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUna tubería (pipe), representada por el carácter |, es un mecanismo de comunicación unidireccional en memoria que conecta la salida estándar (stdout) de un proceso directamente con la entrada estándar (stdin) de otro. Permite encadenar comandos en un único flujo de datos continuo, procesando la información de manera secuencial sin necesidad de escribir archivos temporales intermedios en el disco físico.\n\n**La perspectiva de la clase:**\nEl profesor explica las tuberías bajo el concepto de canalización. Explica que, dado que casi todos los comandos ejecutados en Linux generan un objeto de salida, el uso del pipe permite que el resultado del comando de la izquierda alimente directamente al de la derecha. Destaca que esto es fundamental para realizar filtrados u ordenamientos en archivos de configuración complejos de forma rápida y limpia.\n\n**Aplicación en DevOps:**\nAnálisis de registros en caliente. Ante una degradación de servicio en producción, un ingeniero DevOps utiliza tuberías para filtrar peticiones HTTP de tipo POST en los logs de Nginx, limitar la visualización a las primeras 100 ocurrencias y cargarlas en un paginador interactivo (less) para diagnosticar ataques de inyección o sobrecarga de endpoints específicos sin saturar la terminal."
   },
   {
     "question": "¿Cuál de los siguientes comandos lista los detalles de los archivos de un directorio, incluidos los ocultos?",
@@ -991,7 +1012,8 @@
     ],
     "answer": "ls -la",
     "explanation": "El modificador -l muestra los detalles y -a muestra los archivos ocultos (los que empiezan por punto).",
-    "tema": "Tema 3. Guía de estudio de Bash"
+    "tema": "Tema 3. Guía de estudio de Bash",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando ls (list) interactúa con el sistema de archivos para mostrar el contenido de un directorio. El argumento -l indica que se aplique el formato largo (mostrando permisos, propietario, grupo, tamaño y fecha de modificación). El parámetro -a (all) obliga al kernel a incluir archivos ocultos, que en sistemas Unix son todos aquellos cuyo nombre comienza con un punto (como .bashrc o .git).\n\n**La perspectiva de la clase:**\nDentro de las utilidades esenciales de GNU, el profesor destaca el comando ls como la herramienta base de exploración de directorios. Enfatiza que al usar la opción -la o -al, el sistema devuelve propiedades muy importantes. El primer bit de cada línea de la salida representa el tipo de archivo (un guion - para un archivo regular, una d para un directorio o una l para un enlace simbólico).\n\n**Aplicación en DevOps:**\nAuditoría y configuración de microservicios. Durante la inicialización de contenedores o despliegues, es crucial inspeccionar la existencia de archivos ocultos críticos como el directorio .git o los ficheros de variables de entorno .env. Ejecutar ls -la permite validar de inmediato si estos archivos clave se encuentran presentes y si cuentan con los permisos de lectura adecuados."
   },
   {
     "question": "¿Cómo crearía el usuario user1 una carpeta nueva app en /home/user1?",
@@ -1003,7 +1025,8 @@
     ],
     "answer": "Todas las anteriores",
     "explanation": "~ referencia la home del usuario, /home/user1 es la ruta absoluta y cd ~ seguido de mkdir app también funciona. Las tres son equivalentes.",
-    "tema": "Tema 3. Guía de estudio de Bash"
+    "tema": "Tema 3. Guía de estudio de Bash",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn Linux, el carácter tilde (~) es una expansión de la Shell que apunta automáticamente al directorio home del usuario actual (/home/user1). Las dos primeras opciones resuelven exactamente la misma ruta absoluta. La tercera opción utiliza el operador && (AND lógico), el cual asegura que mkdir app se ejecute únicamente si cd ~ finaliza con éxito (código de salida 0).\n\n**La perspectiva de la clase:**\nEl profesor describe mkdir como la utilidad nativa de GNU para crear carpetas. Explica que para referirse al directorio home del usuario de la sesión se utiliza el «guion torcido» ~. Asimismo, presenta el doble ampersand && como un operador de control secuencial condicional idéntico al de otros lenguajes de programación.\n\n**Aplicación en DevOps:**\nEscritura de scripts de aprovisionamiento portables. Al automatizar la configuración de entornos de desarrollo (por ejemplo, con Ansible o scripts de inicio User Data), se suele preferir el uso de rutas que implementen ~/ para garantizar que la estructura de carpetas se despliegue correctamente en el espacio de trabajo del usuario asignado, sin importar qué usuario esté ejecutando el script global."
   },
   {
     "question": "¿Es necesaria la línea #!/bin/bash en cualquier script de Bash?",
@@ -1015,7 +1038,8 @@
     ],
     "answer": "Es útil, pero no imprescindible",
     "explanation": "Si no se incluye el shebang, siempre es posible ejecutar el script pasándolo como parámetro directamente a Bash.",
-    "tema": "Tema 3. Guía de estudio de Bash"
+    "tema": "Tema 3. Guía de estudio de Bash",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa secuencia #! (conocida como Shebang) al principio de un archivo indica al cargador de programas del sistema operativo qué intérprete de comandos debe invocar para ejecutar el script. Si se omite esta línea, el script no se podrá ejecutar de forma directa con ./script.sh de manera fiable, pero se puede ejecutar perfectamente si se pasa el archivo como argumento del intérprete en la consola (ej. bash script.sh).\n\n**La perspectiva de la clase:**\nEl profesor introduce el concepto del «shibang» como la primera línea obligatoria por buena práctica en todo script estructurado, definiendo la ruta exacta del binario del intérprete, habitualmente /bin/bash. Enfatiza que, aunque el script funciona si se ejecuta llamando manualmente a Bash, es indispensable incluirlo para que el sistema operativo sepa cómo interpretar el script cuando es invocado de forma automática por planificadores de tareas o servicios del sistema.\n\n**Aplicación en DevOps:**\nEstandarización de pipelines de CI/CD. En plataformas como GitLab CI o GitHub Actions, los runners levantan shells para ejecutar tareas automatizadas. Declarar explícitamente #!/bin/bash o #!/usr/bin/env bash evita errores sintácticos de compatibilidad que ocurren cuando el runner intenta interpretar el script con intérpretes más limitados como sh o dash."
   },
   {
     "question": "¿Cuál de los siguientes comandos muestra el valor de la variable de entorno CONFIG_FILE?",
@@ -1027,7 +1051,8 @@
     ],
     "answer": "echo ",
     "explanation": "echo  muestra el valor de la variable. La shell sustituye  por su valor antes de ejecutar el comando.",
-    "tema": "Tema 3. Guía de estudio de Bash"
+    "tema": "Tema 3. Guía de estudio de Bash",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLas variables de entorno son contenedores de datos que residen en el espacio de memoria de la shell y definen el comportamiento de la sesión o del sistema. El carácter $ actúa como un operador de evaluación que indica a la Shell que debe expandir e inyectar el valor asociado al nombre de la variable antes de ejecutar el comando principal. El comando echo simplemente recibe ese valor expandido y lo imprime en la consola.\n\n**La perspectiva de la clase:**\nEl profesor detalla que las variables de entorno almacenan parámetros esenciales para el funcionamiento de los sistemas operativos y aplicaciones, y se pueden visualizar de forma global usando el comando env. Para rescatar y mostrar el valor de una variable de forma interactiva en la consola, se utiliza echo seguido del nombre de la variable antecedido por el símbolo del dólar $.\n\n**Aplicación en DevOps:**\nConfiguración de contenedores Docker. En arquitecturas modernas basadas en microservicios, los contenedores reciben parámetros de configuración (como credenciales de bases de datos o rutas de logs) mediante variables de entorno. Al arrancar un contenedor, un script de entrada (Entrypoint) inspecciona el valor de $CONFIG_FILE para inyectar configuraciones dinámicas específicas de producción o desarrollo."
   },
   {
     "question": "¿Cuál de los siguientes comandos mostrará un error si lo ejecuta un usuario normal con permisos sudo?",
@@ -1039,7 +1064,8 @@
     ],
     "answer": "apt-get install vim",
     "explanation": "apt-get install requiere privilegios de administrador. Sin sudo, un usuario normal recibirá un error de permisos. Con sudo funciona correctamente.",
-    "tema": "Tema 3. Guía de estudio de Bash"
+    "tema": "Tema 3. Guía de estudio de Bash",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl gestor de paquetes apt-get requiere privilegios de superusuario (root) de forma mandatoria porque realiza modificaciones estructurales en directorios del sistema protegidos (como /usr, /var/lib/dpkg y /etc). Aunque un usuario normal pertenezca al grupo de administradores con permisos en /etc/sudoers, si ejecuta el comando directamente sin anteponer sudo, el sistema operativo denegará la acción lanzando un error de falta de privilegios.\n\n**La perspectiva de la clase:**\nIván Sanz hace mucho hincapié en que en administración de sistemas debe primar siempre la regla de «mínimos privilegios necesarios para realizar mi tarea». Explica que trabajar continuamente logueado como la cuenta root es sumamente peligroso. El sistema exige que para instalar paquetes (apt-get install) se utilice explícitamente sudo para elevar los privilegios de manera controlada y trazable.\n\n**Aplicación en DevOps:**\nGestión de identidades y accesos (RBAC). En servidores de producción, los ingenieros nunca operan con cuentas root directamente. Acceden con sus usuarios nominales y emplean reglas en /etc/sudoers que les permiten ejecutar únicamente ciertos comandos críticos usando sudo (como reiniciar servicios o instalar dependencias específicas), dejando una bitácora de auditoría detallada en los logs del sistema."
   },
   {
     "question": "¿Cómo se extraen las primeras 50 líneas de file.log a out.log ordenadas alfabéticamente?",
@@ -1051,7 +1077,8 @@
     ],
     "answer": "head -50 file.log | sort > out.log",
     "explanation": "head -50 extrae las primeras 50 líneas, sort las ordena alfabéticamente y > out.log redirige el resultado al fichero de salida.",
-    "tema": "Tema 3. Guía de estudio de Bash"
+    "tema": "Tema 3. Guía de estudio de Bash",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando head -50 file.log extrae las primeras 50 líneas de un archivo. El flujo de datos se envía mediante una tubería (|) al comando sort, el cual ordena las líneas alfabéticamente en memoria. Por último, el operador de redirección simple > crea o sobrescribe el archivo out.log con el flujo de datos ordenado, vaciando previamente cualquier contenido que existiera en él.\n\n**La perspectiva de la clase:**\nEl profesor define head como el comando idóneo para extraer las líneas iniciales de un archivo de texto (que por defecto extrae 10, pero se puede modificar con el flag -N, como head -50). Señala que sort es la utilidad estándar de ordenación de texto en Linux y que la redirección simple con > sobrescribe el fichero de destino con el nuevo resultado.\n\n**Aplicación en DevOps:**\nAnálisis forense de fallos. Tras la caída de una aplicación, los ingenieros DevOps a menudo necesitan extraer los primeros eventos registrados en los archivos de traza al inicio del día. Encadenar head y sort redirigiendo el resultado a un archivo permite aislar las líneas críticas iniciales y agrupar alfabéticamente los errores recurrentes para su rápida clasificación."
   },
   {
     "question": "¿En qué fichero se pueden definir opciones de personalización para las nuevas sesiones de un usuario en Linux?",
@@ -1063,7 +1090,8 @@
     ],
     "answer": "Todos los anteriores",
     "explanation": "Los ficheros de configuración de sesión incluyen: /etc/profile, ~/.bashprofile, ~/.bashlogin, ~/.profile y ~/.bashrc.",
-    "tema": "Tema 3. Guía de estudio de Bash"
+    "tema": "Tema 3. Guía de estudio de Bash",
+    "detailedExplanation": "**¿Qué significa realmente?**\nAl arrancar una nueva terminal interactiva, el sistema lee archivos de inicialización en orden de prioridad. /etc/profile es global y define la configuración base para todos los usuarios. En el espacio de usuario (home), la shell de Bash busca ~/.bash_profile para configurar la sesión de login de manera exclusiva. Si este no existe, lee ~/.profile, que es un archivo genérico compatible con cualquier intérprete de comandos.\n\n**La perspectiva de la clase:**\nEl profesor Sanz explica que el sistema operativo ejecuta de forma automatizada scripts de inicialización especiales durante la carga de las sesiones de usuario. Destaca que, mientras /etc/profile actúa sobre la configuración general de todas las cuentas al arrancar, el usuario puede personalizar de forma granular su propia experiencia de shell editando sus scripts locales del home.\n\n**Aplicación en DevOps:**\nEstandarización de servidores de salto (Bastions). Al configurar servidores de administración centralizada, un ingeniero DevOps suele inyectar variables de entorno clave (como la zona horaria o el proxy de red) y alias personalizados en estos archivos de perfil para garantizar que cada operador disponga de un entorno configurado de forma homogénea al conectarse por SSH."
   },
   {
     "question": "¿Cómo puede un usuario duplicar fileA.conf y editar la copia?",
@@ -1075,7 +1103,8 @@
     ],
     "answer": "cp fileA.conf fileB.conf && vim fileB.conf",
     "explanation": "&& ejecuta el segundo comando solo si el primero tuvo éxito. cp duplica el fichero y vim edita la copia. mv solo renombra (no duplica) y & no encadena comandos secuencialmente.",
-    "tema": "Tema 3. Guía de estudio de Bash"
+    "tema": "Tema 3. Guía de estudio de Bash",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando cp genera un duplicado exacto del archivo de origen en el destino indicado. El operador && actúa como un evaluador condicional de ejecución: el segundo comando (vim fileB.conf) solo se ejecutará si el comando de copia devuelve un código de salida exitoso (0). Si la copia fallase (por falta de espacio o permisos), el editor vim no se abrirá, evitando que el usuario trabaje sobre un archivo fantasma inexistente.\n\n**La perspectiva de la clase:**\nEl profesor explica el comando cp como la herramienta para copiar archivos o directorios. Presenta el operador lógico && (doble ampersand) como una de las mejores prácticas para estructurar scripts condicionales seguros. Por último, menciona a vim como uno de los editores interactivos esenciales dentro del ecosistema de Linux para alterar archivos de configuración.\n\n**Aplicación en DevOps:**\nAutomatización de parches seguros. Al modificar archivos de configuración críticos del sistema (como los de Nginx o la base de datos MySQL en caliente), es mandatorio hacer un respaldo de seguridad previo. Usar el operador && garantiza que el ingeniero solo empiece a editar el archivo si la copia de respaldo se generó de forma segura, reduciendo drásticamente el riesgo de pérdida de datos."
   },
   {
     "question": "¿Por qué es necesario el comando sudo?",
@@ -1087,7 +1116,8 @@
     ],
     "answer": "Todas las anteriores",
     "explanation": "sudo permite ejecutar comandos con privilegios de root de forma controlada, sin compartir la contraseña de root ni trabajar siempre como superusuario.",
-    "tema": "Tema 3. Guía de estudio de Bash"
+    "tema": "Tema 3. Guía de estudio de Bash",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando sudo (superuser do) permite a las cuentas de usuario con privilegios permitidos ejecutar procesos con permisos de root u otras cuentas. Evita la mala práctica de compartir contraseñas maestras, restringe los accesos de los operadores a un alcance de comandos granular, genera trazas de auditoría centralizadas en los logs de seguridad y mitiga el riesgo de que un administrador cometa un error catastrófico al operar continuamente con una terminal root activa.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz enfatiza constantemente la regla de los mínimos privilegios. Destaca que sudo no solo eleva de forma temporal y controlada los privilegios sobre comandos administrativos específicos, sino que actúa como una herramienta clave de auditoría para monitorizar qué comando fue ejecutado por qué usuario específico, aislando las cuentas de administración del riesgo directo de comprometer la cuenta de root.\n\n**Aplicación en DevOps:**\nSeguridad y conformidad en entornos productivos. En infraestructuras DevOps que operan bajo normas de cumplimiento (como PCI-DSS o SOC2), el acceso directo a la cuenta root está prohibido. Se configuran perfiles de acceso en el archivo /etc/sudoers que autorizan de manera selectiva a los ingenieros a ejecutar únicamente comandos específicos (como recargar la configuración del balanceador de carga o vaciar caché), asegurando que todas las acciones administrativas queden estrictamente auditadas."
   },
   {
     "question": "¿Qué diferencia hay entre una distribución Linux y el kernel?",
