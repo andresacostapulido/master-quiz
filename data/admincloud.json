@@ -139,7 +139,8 @@
     ],
     "answer": "$true",
     "explanation": "Al contrario que en Bash, la variable «$?» contiene un booleano, por lo que los errores de salida no se pueden diferenciar fácilmente.",
-    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn PowerShell, la variable automática $? almacena el estado de ejecución del último comando o proceso ejecutado en la sesión. A diferencia de los sistemas Unix o de la shell Bash (que devuelven un código numérico 0 para éxito), PowerShell utiliza un enfoque basado en booleanos: si la última operación se completó sin errores, la variable contiene el valor lógico $true, de lo contrario, almacena $false.\n\n**La perspectiva de la clase:**\nAl repasar el uso de bloques de código en segundo plano (background jobs), el profesor explica que es fundamental controlar si las tareas terminan con o sin errores. Enfatiza que la variable $? (a la que se refiere conceptualmente como «dólar interrogación») sirve para esta validación, indicando que si el proceso ha devuelto un error o ha fallado se evaluará como un false.\n\n**Aplicación en DevOps:**\nAutomatización con control de flujo (error handling). Tras invocar un cmdlet crítico en un pipeline, como una conexión remota o la modificación de un servicio, un script de DevOps puede evaluar if ($?) { ... } para proceder con el siguiente paso de despliegue únicamente si la operación previa fue exitosa."
   },
   {
     "question": "¿Cómo se activan los cmdlets de un módulo en una sesión de PowerShell?",
@@ -151,7 +152,8 @@
     ],
     "answer": "Import-Module",
     "explanation": "Import-Package no existe, Get-Module lista módulos disponibles e Install-Module instala un módulo. Import-Module es el cmdlet correcto para activar los cmdlets de un módulo en la sesión.",
-    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPara utilizar los cmdlets, funciones y variables que pertenecen a un paquete empaquetado en PowerShell, se debe cargar dicho recurso en el espacio de nombres de la sesión actual. El comando Import-Module localiza el módulo especificado en las rutas de búsqueda predefinidas (definidas en $env:PSModulePath) y registra sus componentes para que puedan ser invocados en la consola.\n\n**La perspectiva de la clase:**\nEl profesor explica que el ecosistema de administración en Windows Server gira en torno a bloques y módulos especializados (como las herramientas de administración del Directorio Activo). Para poder utilizar e integrar cmdlets específicos de administración, se debe asegurar la presencia y activación de los módulos requeridos en la sesión de trabajo.\n\n**Aplicación en DevOps:**\nPreparación del entorno de ejecución (bootstrapping). En runners de CI/CD limpios o servidores serverless que configuran infraestructura, los scripts de PowerShell inician importando explícitamente los módulos de red o de nube (ej. Import-Module Az o Import-Module ActiveDirectory) para garantizar que la automatización disponga de los comandos necesarios antes de operar."
   },
   {
     "question": "¿Cómo se indica que un parámetro es obligatorio en un script de PowerShell?",
@@ -163,7 +165,8 @@
     ],
     "answer": "[Parameter(Mandatory=$true)]",
     "explanation": "Este bloque precede la definición de un parámetro, tanto en scripts como en funciones, para indicar que es obligatorio.",
-    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nDentro del bloque de declaración de parámetros Param(), se puede asociar metadatos a cada variable para alterar su comportamiento en el motor de PowerShell. Utilizar el atributo de metadato [Parameter(Mandatory=$true)] justo antes de la definición de la variable fuerza al sistema a exigir la presencia de este parámetro en tiempo de ejecución; si el usuario o la automatización lo omiten, PowerShell detendrá la ejecución y abrirá un prompt interactivo para solicitar el dato.\n\n**La perspectiva de la clase:**\nEl profesor destaca que PowerShell tiene una ventaja notable sobre Bash en cuanto a la limpieza y facilidad con la que gestiona parámetros de entrada. Muestra cómo, dentro del bloque Param(), se puede forzar la obligatoriedad de variables críticas mediante la sintaxis [Parameter(Mandatory=$true)] (como el dominio, DNS o contraseñas en su script de Directorio Activo), previniendo que el script continúe si faltan datos esenciales.\n\n**Aplicación en DevOps:**\nRobustez y validación sintáctica de scripts de Infraestructura como Código (IaC). Al diseñar scripts de aprovisionamiento de máquinas virtuales, se marcan parámetros como la subred o la suscripción de destino como obligatorios para evitar que el script falle a mitad de camino por falta de argumentos vitales."
   },
   {
     "question": "¿Por qué un bloque de script de un trabajo (job) no puede acceder a las variables de la sesión actual?",
@@ -175,7 +178,8 @@
     ],
     "answer": "Porque se ejecuta en un proceso diferente",
     "explanation": "Los ámbitos de las funciones no se comparten entre procesos. Un job se ejecuta en un proceso separado, por lo que no tiene acceso a las variables de la sesión principal.",
-    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos trabajos en segundo plano (background jobs) en PowerShell se diseñaron para no bloquear el flujo de la terminal principal. Para lograr esto, el motor de PowerShell arranca un proceso del sistema operativo completamente independiente y separado (powershell.exe o pwsh.exe) con su propio espacio de memoria y ámbito, lo que impide de forma física que el código dentro del trabajo «vea» o acceda a las variables locales del script que lo invocó.\n\n**La perspectiva de la clase:**\nEl profesor explica que un job es un proceso en segundo plano que se ejecuta de forma aislada. Señala que debido a esta separación, el bloque de script no puede acceder a las variables de la sesión principal por defecto. Para solucionar esta limitación, detalla que es obligatorio pasar explícitamente estas variables locales mediante el parámetro -ArgumentList para alimentar al subproceso.\n\n**Aplicación en DevOps:**\nTareas asíncronas concurrentes. Cuando un ingeniero DevOps automatiza un proceso de auditoría que consulta el estado de 50 servidores web en paralelo, lanza 50 jobs individuales y les pasa mediante -ArgumentList las variables con las direcciones IP y credenciales seguras de cada servidor que fueron definidas en el hilo principal."
   },
   {
     "question": "¿Qué comando de PowerShell equivale a /dev/null en Linux?",
@@ -187,7 +191,8 @@
     ],
     "answer": "Out-Null",
     "explanation": "Out-Null redirige la salida a ningún sitio, equivalente a /dev/null en Linux. Las otras opciones no son cmdlets válidos de PowerShell.",
-    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando Out-Null actúa como un sumidero o «agujero negro» de datos en las tuberías de PowerShell. Recibe los objetos transmitidos por el flujo anterior de la canalización y los descarta por completo, evitando que se escriban en el canal de salida estándar (stdout), lo que replica exactamente la redirección a /dev/null típica de los entornos Unix/Linux.\n\n**La perspectiva de la clase:**\nEl profesor introduce el concepto de desviar las salidas estándar que no queremos procesar hacia una «papelera virtual». Explica que en PowerShell el comportamiento nativo por defecto es sacar y mostrar la salida de los comandos por pantalla. Para evitar que se sature la pantalla de información innecesaria en ejecuciones automatizadas, se redirige el flujo usando Out-Null para «silenciar» el comando.\n\n**Aplicación en DevOps:**\nLimpieza de logs en pipelines de automatización. Cuando un script de aprovisionamiento crea un directorio temporal o valida la conectividad interna, se suele canalizar la salida del comando hacia Out-Null (ej. New-Item -Path \"C:\\Temp\" -ItemType Directory | Out-Null) para mantener los registros de consola limpios y enfocados únicamente en errores o métricas clave."
   },
   {
     "question": "¿Cómo se divide una cadena $s de texto en subcadenas separadas por punto y coma?",
@@ -199,7 +204,8 @@
     ],
     "answer": "$s.Split(\";\")",
     "explanation": "$s.Divide() no es un método válido, Get-Split no existe como cmdlet, y $s.Split() sin argumentos divide por espacios en blanco. $s.Split(\";\") divide correctamente por punto y coma.",
-    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nDado que PowerShell está construido sobre el framework .NET, todas las cadenas de texto son en realidad instancias de la clase System.String. Esto significa que heredan todos los métodos de .NET, incluyendo el método .Split(), que divide la cadena original basándose en un carácter delimitador (como un punto y coma \";\") y devuelve un array estructurado de subcadenas.\n\n**La perspectiva de la clase:**\nEl profesor recalca que trabajar sobre .NET nos da la ventaja de interactuar con objetos reales, no con texto plano. Para explicar el método de división, muestra cómo se puede aplicar .Split() (por ejemplo, dividiendo un dominio por su punto separador) para aislar componentes de un string y realizar validaciones complejas en la automatización.\n\n**Aplicación en DevOps:**\nParseo de listas de configuración dinámicas. Si un pipeline de CI/CD pasa una variable de entorno con múltiples direcciones de correo separadas por punto y coma ($correos = \"dev1@corp.com;dev2@corp.com\"), el script DevOps puede ejecutar $correos.Split(\";\") para transformarla instantáneamente en un array que pueda recorrer con un bucle foreach."
   },
   {
     "question": "¿Cómo se accede a la ayuda personalizada de un script de PowerShell?",
@@ -211,7 +217,8 @@
     ],
     "answer": "Get-Help ./nombre-script.ps1",
     "explanation": "Get-Help sin ./ busca un cmdlet, no un fichero de script. Los modificadores /h y --help no son válidos en PowerShell. La ruta relativa ./ indica que es un fichero local.",
-    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPowerShell cuenta con un sistema de ayuda basado en comentarios (Comment-Based Help). Si el autor de un script escribe comentarios estructurados con palabras clave específicas (como .SYNOPSIS o .EXAMPLE), el motor de ayuda de PowerShell los procesará. Cualquier usuario podrá leer esta documentación en formato estándar pasando la ruta del script como parámetro al cmdlet Get-Help.\n\n**La perspectiva de la clase:**\nEl profesor describe a Get-Help como una herramienta excelente para consultar ayuda. Explica que, para los scripts personalizados creados por nosotros, si hemos completado previamente las etiquetas de ayuda en los comentarios del código (como la sinopsis o la descripción), podemos recuperar esa guía de usuario llamando a Get-Help seguido de la ruta del script.\n\n**Aplicación en DevOps:**\nDocumentación e higiene de herramientas compartidas. En plataformas DevOps donde se comparten docenas de scripts utilitarios, implementar ayuda basada en comentarios permite que cualquier nuevo desarrollador en el equipo entienda cómo usar una herramienta local simplemente ejecutando Get-Help ./backup-database.ps1 -Detailed."
   },
   {
     "question": "¿Cómo se puede leer una cadena de texto como una contraseña segura en PowerShell?",
@@ -223,7 +230,8 @@
     ],
     "answer": "Read-Host -AsSecureString",
     "explanation": "Get-Password y Read-Password -Secure no son cmdlets válidos. Read-Host sin parámetros lee texto plano. Read-Host -AsSecureString lee la entrada como SecureString.",
-    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nAlmacenar o capturar secretos en texto plano representa un enorme riesgo de seguridad en la memoria del sistema. El cmdlet Read-Host acepta el parámetro -AsSecureString, el cual enmascara los caracteres en la consola a medida que el usuario los escribe (mostrando asteriscos) y cifra automáticamente la entrada en la memoria RAM en forma de un objeto seguro del tipo System.Security.SecureString, impidiendo su lectura directa.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz es muy enfático con la seguridad en los scripts, advirtiendo que almacenar o pasar contraseñas en texto plano es una «práctica horrible» y una vulnerabilidad crítica. Explica que para capturar credenciales de forma interactiva se debe usar Read-Host con el parámetro -AsSecureString, encriptándolo directamente en un objeto seguro.\n\n**Aplicación en DevOps:**\nEjecución interactiva de scripts con privilegios elevados. Al lanzar un script de mantenimiento manual desde un Bastión que requiere conectarse a una base de datos productiva, el ingeniero DevOps captura la clave usando Read-Host -Prompt \"Introduce la clave de Admin\" -AsSecureString, garantizando que la credencial nunca se exponga en la pantalla ni quede registrada en el historial de comandos de la consola."
   },
   {
     "question": "¿Qué uso se le da a la sintaxis [string]$PasswordAdmin en PowerShell?",
@@ -235,7 +243,8 @@
     ],
     "answer": "Indica el tipo del parámetro $PasswordAdmin como de tipo string",
     "explanation": "Es la sintaxis estándar para indicar el tipo de parámetros en métodos y funciones de PowerShell.",
-    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPowerShell es un lenguaje con tipado dinámico pero que admite tipado fuerte de forma explícita. Anteponer un acelerador de tipo entre corchetes, como [string], antes del nombre de una variable, obliga a que dicho parámetro sea interpretado estrictamente como una cadena de texto. Si el valor ingresado es de otro tipo, el motor intentará convertirlo (casting) a string, y de no ser posible, arrojará un error de validación de tipo.\n\n**La perspectiva de la clase:**\nAl repasar cómo estructurar un bloque de parámetros profesionales usando Param(), el profesor muestra que es una excelente práctica de desarrollo declarar los tipos de datos. Señala que usar la sintaxis [string]$Variable o [int]$Variable sirve para definir el tipo específico de parámetro aceptado en las variables del script.\n\n**Aplicación en DevOps:**\nValidación robusta de variables en pipelines automatizados. Definir tipos fuertes como [string]$PasswordAdmin o [int]$Puerto en los scripts de despliegue evita que variables mal formateadas provenientes de un trigger externo o webhook rompan la ejecución de forma descontrolada."
   },
   {
     "question": "¿Qué uso se le da al comando New-ADUser en PowerShell?",
@@ -247,7 +256,8 @@
     ],
     "answer": "Permite añadir nuevos usuarios",
     "explanation": "New-ADUser crea nuevos usuarios en Active Directory. Ejemplo: New-ADUser -name test. No crea un AD completo, solo un usuario dentro de él.",
-    "tema": "Tema 8. Automatización de instalación y configuración en Windows"
+    "tema": "Tema 8. Automatización de instalación y configuración en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEs un cmdlet nativo proporcionado por el módulo de servicios de Active Directory para Windows Server. Se utiliza para automatizar la creación e inicialización de nuevas cuentas de usuario de forma masiva o individual dentro del directorio activo, permitiendo definir atributos clave (como nombre, apellidos, ruta de la unidad organizativa y estado de habilitación) mediante parámetros de consola.\n\n**La perspectiva de la clase:**\nEl profesor explica que el Directorio Activo es el motor central de accesos y seguridad de Windows y que automatizarlo es crucial. Para ilustrarlo en los casos prácticos de la clase, muestra un script automatizado que procesa un bucle para crear usuarios en el dominio de forma masiva e interactiva utilizando el cmdlet New-ADUser de forma desatendida.\n\n**Aplicación en DevOps:**\nAprovisionamiento de identidades e integración con RRHH. Cuando el sistema de gestión de personal (HCM) registra la contratación de un nuevo empleado, puede disparar un webhook hacia un pipeline de Jenkins que ejecuta un script de PowerShell. Este script lee los metadatos de la persona y corre New-ADUser para aprovisionar automáticamente su cuenta corporativa en la Unidad Organizativa correspondiente de la red interna."
   },
   {
     "question": "¿Qué significa administrar un entorno en la nube?",
@@ -389,7 +399,8 @@
     ],
     "answer": "Desplegando desde imágenes que ya incluyen la versión concreta de la aplicación",
     "explanation": "La técnica de desplegar imágenes que contienen una versión concreta del SO y de la aplicación es ampliamente utilizada por proveedores como Google o Amazon.",
-    "tema": "Tema 10. Instalación y administración en Cloud"
+    "tema": "Tema 10. Instalación y administración en Cloud",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa inmutabilidad de la infraestructura es un enfoque donde los servidores, una vez desplegados, nunca se modifican. Si se requiere actualizar el software, se genera una nueva imagen que contiene la version exacta, se destruyen las instancias antiguas y se despliegan nuevas desde la nueva imagen, eliminando el riesgo de inconsistencias operativas.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz explica que para lograr la inmutabilidad debemos evitar modificar los servidores en produccion una vez que estan corriendo. Detalla que en el modelo tradicional los administradores aplicaban parches sobre el mismo servidor, generando el problema de «deriva de la configuracion» (configuration drift). Bajo la filosofia de la nube, si hay un cambio simplemente «despliegas un nuevo servidor con la nueva configuracion y el nuevo software, sabiendo que va a funcionar si o si».\n\n**Aplicación en DevOps:**\nUn equipo de DevOps utiliza HashiCorp Packer para automatizar la creacion de una AMI en AWS que ya viene con la version 1.2 de su aplicacion web instalada. Al ejecutar el pipeline de CI/CD, Terraform destruye el grupo de servidores viejos que corrian la version 1.1 y despliega un nuevo grupo utilizando la nueva AMI inmutable, garantizando que el 100% de los servidores esten en un estado identico y predecible."
   },
   {
     "question": "¿Qué parámetro de Sysprep aplica la generalización del sistema operativo?",
@@ -401,7 +412,8 @@
     ],
     "answer": "/generalize",
     "explanation": "Este parámetro es fundamental porque reemplaza toda la información de identificación única (SID) en las nuevas copias de Windows de los servidores clonados.",
-    "tema": "Tema 10. Instalación y administración en Cloud"
+    "tema": "Tema 10. Instalación y administración en Cloud",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando Sysprep (System Preparation) es una herramienta nativa de Microsoft Windows utilizada para preparar una instalacion del SO para su clonacion. El parametro /generalize remueve toda la informacion especifica y unica del hardware y del estado actual de la maquina virtual (como el SID, el nombre del host, las configuraciones de red locales y los controladores de dispositivos), permitiendo que la imagen resultante sea completamente generica y portable.\n\n**La perspectiva de la clase:**\nEl profesor señala que este parametro es fundamental y es un «concepto importante» para el examen. Explica que si simplemente clonáramos un disco duro virtual y lo conectáramos a otra maquina en la misma red, tendriamos problemas graves porque el nombre y el identificador de seguridad (SID) estarian duplicados. Al ejecutar Sysprep con /generalize, el sistema «generaliza esos IDs que tienen que ser diferentes para que no haya colisiones o conflictos en la red».\n\n**Aplicación en DevOps:**\nAl automatizar la creacion de una plantilla maestra de Windows Server para una infraestructura de escritorios virtuales (VDI) o servidores web IIS en Azure, un ingeniero de DevOps ejecuta un script que invoca sysprep.exe /generalize /oobe /shutdown. Esto limpia los identificadores unicos y apaga la maquina de manera que, cuando se creen 50 nuevos servidores a partir de ella, cada uno autogenere su propio SID y nombre unico de red al arrancar."
   },
   {
     "question": "¿Cuál de estas opciones NO está incluida en la definición de la AMI?",
@@ -413,7 +425,8 @@
     ],
     "answer": "Todas las anteriores",
     "explanation": "La AMI solo incluye el disco duro y algunos parámetros de hardware virtual (plataforma x64 o ARM). El tamaño, las opciones de red y las etiquetas son configurables en las VM desplegadas a partir de la AMI.",
-    "tema": "Tema 10. Instalación y administración en Cloud"
+    "tema": "Tema 10. Instalación y administración en Cloud",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUna AMI (Amazon Machine Image) es estrictamente una plantilla de almacenamiento empaquetada que contiene la configuración del sistema operativo, un servidor de aplicaciones y el software necesario para lanzar una instancia. Al ser un archivo de plantilla de disco duro virtual (snapshot), no contiene definición sobre los recursos de hardware (tamaño de la instancia), la infraestructura de red (VPCs, subredes, IPs) ni metadatos organizacionales (etiquetas o tags). Todos estos parámetros se configuran externamente en el momento del lanzamiento.\n\n**La perspectiva de la clase:**\nEn la clase se describe a la AMI como una «especie de imagen que ya tiene algún software instalado, ya está configurado», actuando como una plantilla del sistema de archivos. El profesor Iván Sanz detalla el proceso secuencial de despliegue en AWS: el paso 1 es elegir la AMI (el SO y software base), y solo en pasos posteriores y totalmente separados se define el tamaño de hardware, la configuración de red y las reglas de firewalls. Por tanto, ninguno de esos elementos forma parte de la definición intrínseca de la AMI.\n\n**Aplicación en DevOps:**\nAl escribir código de IaC con Terraform, el ingeniero DevOps define un recurso aws_instance. En la configuración, el atributo ami solo recibe el identificador del disco (ej: ami-0c55b159cbfafe1f0), mientras que el tamaño (instance_type), las opciones de red (subnet_id) y las etiquetas (tags) se configuran como atributos externos e independientes de la definición de la AMI."
   },
   {
     "question": "¿Qué ocurre con la instancia original en AWS cuando se crea una AMI a partir de ella?",
@@ -425,7 +438,8 @@
     ],
     "answer": "Nada, la instancia sigue en ejecución",
     "explanation": "En AWS es posible mantener la instancia en ejecución mientras se crea la AMI. En Azure, sin embargo, la VM original desaparece.",
-    "tema": "Tema 10. Instalación y administración en Cloud"
+    "tema": "Tema 10. Instalación y administración en Cloud",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn Amazon Web Services (AWS), cuando se solicita la creacion de una AMI a partir de una instancia EC2 activa, el hipervisor de AWS realiza una captura instantanea (snapshot) de los volumenes de almacenamiento EBS asociados. Aunque el proceso puede requerir un reinicio breve de la instancia de origen para garantizar la consistencia del sistema de archivos, una vez completada la captura, la instancia original sigue existiendo, operando y en ejecucion en el panel de control de manera habitual.\n\n**La perspectiva de la clase:**\nEl profesor Sanz describe detalladamente el proceso de creacion de imagenes en AWS. Explica que tras configurar nuestro servidor con los parches y el software a nuestro gusto, simplemente vamos a la consola de AWS, seleccionamos la maquina y hacemos clic en Actions -> Image -> Create Image. Destaca que este proceso genera dos recursos independientes (la AMI y la captura del disco o snapshot), pero la maquina original que sirvio como origen no se altera ni se borra del entorno.\n\n**Aplicación en DevOps:**\nDurante una ventana de mantenimiento, un administrador de sistemas DevOps necesita crear un respaldo de seguridad de un servidor de base de datos antes de una actualizacion critica. Ejecuta la creacion de una AMI en AWS a partir de la instancia en caliente; la AMI se genera exitosamente en segundo plano mientras el servidor original sigue atendiendo transacciones activas de los usuarios sin interrumpir el negocio."
   },
   {
     "question": "¿Qué ocurre con la instancia original en Azure cuando se crea una imagen a partir de ella?",
@@ -437,7 +451,8 @@
     ],
     "answer": "La instancia desaparece",
     "explanation": "Al contrario que en AWS, en Azure la VM original desaparece al crear una imagen a partir de ella.",
-    "tema": "Tema 10. Instalación y administración en Cloud"
+    "tema": "Tema 10. Instalación y administración en Cloud",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn Microsoft Azure, el proceso de captura de una maquina virtual (VM) para convertirla en una imagen administrada generalizada es intrinsecamente destructivo para la VM de origen. Para crear una imagen generalizada, se debe desaprovisionar y ejecutar Sysprep dentro del sistema operativo. Al realizar la accion de «Capturar» (Capture) desde la consola de Azure o CLI, el tejido de la nube marca de forma permanente e irreversible la maquina virtual de origen como «generalizada» en su base de datos, lo que impide que vuelva a iniciarse jamas, procediendo la plataforma a destruirla.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz enfatiza esta gran diferencia operativa entre los dos proveedores de nube. Explica que el flujo de Azure exige desplegar la maquina virtual, actualizarla, ejecutar Sysprep (lo que la apaga de inmediato) y luego darle al boton de Capture. Enfatiza claramente que, en el modelo de Azure, la maquina virtual original «desaparece, ya no la necesitamos», quedando unicamente la imagen disponible para crear nuevos servidores a partir de ella.\n\n**Aplicación en DevOps:**\nAl automatizar flujos de generacion de imagenes con Azure Image Builder, la herramienta despliega automaticamente una maquina virtual temporal de origen, le inyecta las configuraciones necesarias, ejecuta Sysprep, captura la imagen administrada para guardarla en la Shared Image Gallery y, finalmente, elimina por completo la VM de origen de forma automatizada para evitar gastos innecesarios de almacenamiento y computo."
   },
   {
     "question": "¿Soportan los proveedores de nube el uso de Sysprep?",
@@ -449,7 +464,8 @@
     ],
     "answer": "Todas las anteriores",
     "explanation": "Algunos proveedores integran Sysprep en sus herramientas (EC2Launch, EC2 Image Builder en AWS). VMware Horizon soporta Sysprep y además QuickPrep, una variante propia.",
-    "tema": "Tema 10. Instalación y administración en Cloud"
+    "tema": "Tema 10. Instalación y administración en Cloud",
+    "detailedExplanation": "**¿Qué significa realmente?**\nDado que Sysprep es una herramienta integrada directamente en el nucleo del sistema operativo Microsoft Windows, esta soportada en cualquier maquina virtual que corra Windows, independientemente del proveedor de nube. Los principales proveedores de nube no solo la soportan a nivel de sistema operativo, sino que integran su ejecucion dentro de sus servicios administrados de creacion de imagenes o proporcionan herramientas de inicializacion alternativas.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz aclara esta compatibilidad multiplataforma en su clase de repaso. Explica de forma muy directa que «independientemente de en que proveedor de nube estemos, vamos a poder utilizar Sysprep», confirmando que esta soportado tanto en AWS (EC2 Launch) como en Azure. Ademas, destaca que los ingenieros DevOps pueden elegir usar la utilidad nativa de Microsoft o apoyarse en «otras alternativas que hay» provistas de forma nativa por las propias plataformas de nube.\n\n**Aplicación en DevOps:**\nUn ingeniero DevOps diseña un flujo de trabajo hibrido de imagenes maestras. Utiliza Ansible para aprovisionar y configurar el middleware tanto en servidores virtuales Windows locales de VMware vSphere como en instancias EC2 de AWS. El ultimo paso de su playbook comun invoca la herramienta Sysprep en ambos entornos de manera homogenea, aprovechando que el soporte de Sysprep esta garantizado en cualquier hipervisor."
   },
   {
     "question": "¿Por qué en un despliegue basado en imágenes las instancias están disponibles más rápido?",
@@ -461,7 +477,8 @@
     ],
     "answer": "Porque las aplicaciones están instaladas en la imagen y al arrancar solo es necesario configurar algunos aspectos",
     "explanation": "Los pasos de configuración tienden a ser más rápidos que la instalación de paquetes de aplicación, por eso las instancias basadas en imágenes están disponibles antes.",
-    "tema": "Tema 10. Instalación y administración en Cloud"
+    "tema": "Tema 10. Instalación y administración en Cloud",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn el despliegue basado en imagenes (golden images), todo el software, dependencias, parches del sistema operativo y binarios de la aplicacion ya estan instalados fisicamente en los bloques de almacenamiento del disco virtual de la plantilla. Cuando la maquina virtual arranca en la nube, no pierde tiempo en descargar paquetes de internet, compilar codigo o instalar servicios; simplemente monta el disco y arranca los procesos de manera inmediata, necesitando unicamente configurar aspectos dinamicos menores de red o metadatos de inicio.\n\n**La perspectiva de la clase:**\nEl profesor contrasta el rendimiento entre los dos enfoques de despliegue. Explica que en el enfoque basado en instancias, el arranque es mas lento porque dependemos de scripts (como el User Data) que deben descargar e instalar los paquetes uno a uno. Por el contrario, en el enfoque basado en imagenes, la plantilla se crea «desde cero con el software ya instalado», lo que acelera exponencialmente el tiempo de aprovisionamiento en produccion porque la maquina arranca ya lista para dar servicio.\n\n**Aplicación en DevOps:**\nDurante un pico masivo de trafico web (por ejemplo, en un Black Friday), las reglas de autoescalado de la empresa detectan sobrecarga y ordenan levantar 10 nuevos servidores. Al estar configurados con una imagen pre-horneada (baked AMI), los nuevos servidores arrancan, se auto-configuran con la red de produccion y empiezan a recibir peticiones HTTP en menos de 45 segundos, evitando caidas de servicio."
   },
   {
     "question": "¿Por qué no se puede seleccionar el sistema operativo al desplegar una instancia a partir de una imagen privada?",
@@ -473,7 +490,8 @@
     ],
     "answer": "Porque el sistema operativo forma parte del disco de la instancia, al contrario que el hardware virtual",
     "explanation": "La instancia arrancará con el SO instalado en el disco a partir del que se tomó el snapshot de la imagen. El hardware virtual sí se puede seleccionar al desplegar.",
-    "tema": "Tema 10. Instalación y administración en Cloud"
+    "tema": "Tema 10. Instalación y administración en Cloud",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUna imagen de maquina virtual (sea publica o privada) es, a nivel tecnico, una copia exacta bloque por bloque de un disco duro virtual. El sistema operativo es el software base que esta instalado de forma permanente en los sectores de arranque de ese disco virtual. Cuando se despliega una instancia, el proveedor de nube te permite seleccionar el hardware virtual de forma dinamica (vCPUs, memoria RAM, interfaces de red), pero no puedes alterar el sistema operativo porque este forma parte de los datos grabados fisicamente en el volumen de almacenamiento que se va a clonar.\n\n**La perspectiva de la clase:**\nAl repasar los componentes de una maquina en la nube, el profesor explica que el hardware es un recurso elastico que se alquila bajo demanda. Sin embargo, enfatiza que el sistema operativo y el software ya estan previamente instalados y «congelados» dentro del disco de la plantilla maestra. Por ende, al arrancar una instancia a partir de una imagen privada, el sistema de almacenamiento se clona tal cual esta en el origen, haciendo que el sistema operativo sea una propiedad inalterable del disco adjunto.\n\n**Aplicación en DevOps:**\nAl definir un recurso de computo en AWS con Terraform, un DevOps puede cambiar libremente el tipo de instancia de un t3.nano a un m5.large modificando una sola linea de codigo (hardware elastico). Sin embargo, sabe que si necesita cambiar el sistema operativo de Windows Server a Ubuntu Linux, debe destruir la instancia actual y lanzar una nueva especificando una AMI ID de Linux completamente distinta."
   },
   {
     "question": "¿Qué es el clonado en el contexto de virtualización?",
@@ -485,7 +503,8 @@
     ],
     "answer": "Es un proceso por el cual se crea una imagen exacta del disco duro de una máquina virtual",
     "explanation": "El clonado permite crear una nueva máquina virtual y es una buena forma de aumentar la seguridad y replicar entornos.",
-    "tema": "Tema 10. Instalación y administración en Cloud"
+    "tema": "Tema 10. Instalación y administración en Cloud",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl clonado es una tecnica de virtualizacion que consiste en duplicar de forma exacta el estado de almacenamiento fisico de un disco virtual (incluyendo el sector de arranque, archivos de sistema, configuraciones del OS y datos de aplicaciones) para generar un nuevo volumen de almacenamiento independiente. Este clon actua como una replica identica de la maquina de origen y permite crear copias exactas o plantillas de servidores de forma instantanea.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz explica el concepto de clonado ligandolo directamente a la creacion de imagenes maestras en la nube. Detalla que en lugar de instalar un sistema operativo manualmente de forma repetitiva en cada servidor, se realiza un proceso de captura que extrae «una imagen exacta del disco duro de una maquina virtual». Enfatiza que esta imagen maestra o plantilla es la que «se va a ir clonando para desplegar nuevos servidores» de forma totalmente automatizada.\n\n**Aplicación en DevOps:**\nUn administrador de sistemas que gestiona un hipervisor de Proxmox o VMware vSphere en local configura un servidor Debian a la perfeccion con parches de seguridad de la empresa. Posteriormente, convierte esa maquina virtual en una plantilla (template) y utiliza el proceso de clonado rapido (cloning) para desplegar 10 entornos de desarrollo identicos en cuestion de segundos, garantizando consistencia absoluta sin reinstalar el sistema operativo."
   },
   {
     "question": "¿Qué es una imagen maestra?",
@@ -497,7 +516,8 @@
     ],
     "answer": "Es una imagen creada para poder desplegar máquinas virtuales a partir de ella",
     "explanation": "En entornos virtuales se crea una plantilla o imagen maestra a partir de una VM, de la que luego se despliegan nuevas instancias. Es más sencillo que el clonado físico tradicional.",
-    "tema": "Tema 10. Instalación y administración en Cloud"
+    "tema": "Tema 10. Instalación y administración en Cloud",
+    "detailedExplanation": "**¿Qué significa realmente?**\nUna imagen maestra (tambien conocida como Golden Image, plantilla o imagen base) es una maquina virtual configurada de manera optima por el equipo de administracion de sistemas que ha sido generalizada y «congelada» para servir como el molde o estandar de oro de la organizacion. A partir de esta imagen maestra, se clonan y despliegan de forma masiva y homogenea todas las nuevas instancias en la nube, garantizando que todos los servidores de la empresa arranquen exactamente con las mismas politicas de seguridad, versiones de software y parches corporativos.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz describe la imagen maestra como el pilar fundamental para automatizar despliegues limpios y estables en la nube. Explica que el proceso consiste en tomar un servidor base, instalarle el sistema operativo, configurarlo y actualizarlo a tu gusto con el middleware necesario. Una vez que el servidor esta perfecto, se ejecuta Sysprep y se captura, transformandolo en una «imagen maestra que se va a ir clonando para desplegar nuevos servidores» sin que el administrador deba intervenir manualmente.\n\n**Aplicación en DevOps:**\nUn ingeniero de DevSecOps utiliza un pipeline automatizado mensual para construir la imagen maestra de Windows Server de la empresa. El pipeline descarga la ultima ISO oficial de Microsoft, le aplica los ultimos parches de seguridad acumulativos del mes, instala los agentes de monitoreo corporativos y guarda la imagen final en el registro privado de la empresa en la nube. A partir de ese momento, todas las herramientas de IaC (Terraform) de la organizacion se configuran para desplegar los servidores de produccion utilizando unicamente ese identificador de imagen maestra aprobado."
   },
   {
     "question": "¿Cuál de las siguientes herramientas es de Sysinternals?",
@@ -509,7 +529,8 @@
     ],
     "answer": "Todas las anteriores",
     "explanation": "PsExec ejecuta comandos en máquinas remotas, BgInfo configura el fondo del escritorio con detalles del SO, y Process Explorer es una herramienta de análisis de procesos. Las tres son de Sysinternals.",
-    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nWindows Sysinternals es una suite de utilidades avanzadas y gratuitas de Microsoft diseñada para diagnosticar, solucionar problemas y analizar el comportamiento interno de los sistemas operativos Windows. Herramientas como Process Explorer (un administrador de tareas avanzado con árboles jerárquicos), BgInfo (que genera texto con metadatos de hardware sobre el fondo del escritorio) y PsExec (un ejecutor de comandos remotos sumamente ligero) forman parte de esta suite indispensable para los administradores de sistemas.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz presenta la suite de Sysinternals como un conjunto de herramientas de sistema que amplía exponencialmente la capacidad de monitorización nativa de Windows. En sus clases de repaso, destaca que Process Explorer ofrece una visualización de procesos sumamente detallada, resalta a BgInfo como la utilidad ideal para plasmar datos críticos de red (como IP, host y DNS) directamente en el fondo de pantalla para facilitar el trabajo por RDP, y aclara que, aunque PsExec servía para correr scripts remotos, hoy en día se ha visto desplazado por PowerShell remoto.\n\n**Aplicación en DevOps:**\nAl aprovisionar servidores Windows Server Core en la nube, un ingeniero DevOps programa la ejecución automática de BgInfo durante el arranque (bootstrapping) para que, en caso de que un administrador deba conectarse de emergencia a través de Bastión por RDP, visualice de inmediato el estado del sistema, la memoria libre y las direcciones IP asignadas directamente sobre el tapiz del escritorio sin necesidad de teclear comandos en la consola."
   },
   {
     "question": "¿Cuál de las siguientes herramientas se arranca como un snapin de MMC?",
@@ -521,7 +542,8 @@
     ],
     "answer": "Visor de eventos",
     "explanation": "El Visor de eventos es un snapin de MMC. El Administrador de tareas, Process Explorer y TCPview son herramientas independientes.",
-    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLa Microsoft Management Console (MMC) es un marco gráfico del sistema que no realiza funciones de administración por sí mismo, sino que aloja herramientas denominadas «snap-ins» (complementos). El Visor de Eventos de Windows (eventvwr.msc) es un snap-in estándar de la MMC que puede ser cargado dentro de consolas personalizadas, permitiendo a los administradores centralizar múltiples consolas de gestión en una sola ventana unificada.\n\n**La perspectiva de la clase:**\nDurante las lecciones sobre administración remota, el profesor Sanz explica que la consola MMC y sus correspondientes complementos (snap-ins) facilitan enormemente el control sin necesidad de interactuar localmente con la interfaz física del servidor. Enfatiza de forma directa que el Visor de Eventos es una herramienta diseñada para ser cargada de manera perfecta y remota como un complemento de la MMC.\n\n**Aplicación en DevOps:**\nEn un entorno corporativo, los ingenieros de sistemas no entran de forma interactiva a cada máquina para diagnosticar fallas. El DevOps configura una consola MMC personalizada (.msc) en su estación de trabajo y agrega múltiples snap-ins de «Visor de Eventos» apuntando a diferentes servidores de staging. Esto le permite centralizar la lectura de advertencias y errores críticos de toda la infraestructura desde una única interfaz gráfica."
   },
   {
     "question": "¿Cuál es el nivel que tiene preferencia a la hora de aplicar una GPO?",
@@ -533,7 +555,8 @@
     ],
     "answer": "OU",
     "explanation": "Las GPO se aplican en orden: local, sitio, dominio y OU. La última en aplicarse es la que tiene preferencia, y la OU es la más específica y la última.",
-    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl procesamiento de las Directivas de Grupo (GPOs) sigue un orden jerárquico estricto denominado LSDU (Local, Sitio, Dominio y Unidad Organizativa). Cuando existen directivas contradictorias aplicadas a un mismo objeto en diferentes niveles, prevalece la política procesada en última instancia. Como las GPOs a nivel de Unidad Organizativa (OU) se aplican al final del ciclo, este nivel tiene la máxima prioridad y sobrescribe cualquier configuración contradictoria heredada de niveles superiores.\n\n**La perspectiva de la clase:**\nEl profesor Sanz destaca la gran importancia de recordar el orden de aplicación LSDU para resolver dudas jerárquicas. Enfatiza que las configuraciones se acumulan y se heredan por defecto, pero en caso de contradicciones directas, la última que se aplica (la de la Unidad Organizativa / OU) es la que tiene la máxima prioridad y prevalece sobre las demás.\n\n**Aplicación en DevOps:**\nSupongamos que a nivel de Dominio existe una GPO global que restringe el uso de PowerShell por motivos de seguridad. Sin embargo, los servidores de los desarrolladores (dentro de la OU «Dev-Servers») necesitan ejecutar automatizaciones. El DevOps vincula una GPO que habilita la ejecución de scripts directamente sobre la OU «Dev-Servers»; gracias a la precedencia del orden LSDU, esta política local de OU sobrescribirá la restricción del Dominio únicamente para los servidores de desarrollo."
   },
   {
     "question": "¿A qué dos tipos de objetos se aplican las directivas de una GPO?",
@@ -545,7 +568,8 @@
     ],
     "answer": "Equipos y usuarios",
     "explanation": "Las GPO se aplican a objetos de usuario y de equipo, no a grupos.",
-    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn la estructura de Active Directory, los únicos objetos capaces de procesar de forma nativa e independiente las directivas de configuración de grupo (GPOs) son las cuentas de Usuario (User objects) y las cuentas de Equipo (Computer objects). Las GPOs se estructuran bajo esta distinción: la sección Configuración del Equipo (que se aplica al sistema operativo durante el arranque) y la Configuración del Usuario (que se asocia al perfil del usuario durante el inicio de sesión).\n\n**La perspectiva de la clase:**\nEl profesor explica que los objetos que se conectan al dominio van más allá de cuentas personales, abarcando laptops, servidores y estaciones de trabajo como objetos activos. Enfatiza repetidamente que las directivas de GPO se aplican estrictamente a estos dos tipos de objetos: equipos y usuarios.\n\n**Aplicación en DevOps:**\nAl automatizar el despliegue de parches de seguridad, un DevOps asocia una GPO de «Configuración de Equipo» para forzar la instalación desatendida del agente de monitoreo al arrancar la máquina, garantizando que todos los servidores de producción estén protegidos por igual. Al mismo tiempo, asocia una GPO de «Configuración de Usuario» a la OU de administradores para mapear unidades de almacenamiento compartidas seguras en sus perfiles de login."
   },
   {
     "question": "¿Qué hace la opción de bloquear herencia en las directivas de grupo?",
@@ -557,7 +581,8 @@
     ],
     "answer": "Evita que las directivas de GPO aplicadas en un nivel superior de la jerarquía se apliquen en una OU concreta",
     "explanation": "Esta opción permite personalizar las directivas de una OU concreta para que no se apliquen las definidas a un nivel superior.",
-    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nPor defecto, las Directivas de Grupo heredan automáticamente las configuraciones aplicadas en los niveles jerárquicos superiores (como Sitio o Dominio) hacia las Unidades Organizativas (OUs) hijas. Activar la directiva Bloquear Herencia (Block Inheritance) en una OU específica actúa como un escudo que impide que las GPOs de los niveles superiores se sigan propagando hacia abajo en esa subrama, a menos que una GPO superior esté configurada explícitamente con la opción de «Forzar» (Enforced).\n\n**La perspectiva de la clase:**\nEn las clases, el profesor enseña que, por naturaleza jerárquica de Active Directory, las configuraciones se acumulan y se heredan en cascada. Sin embargo, destaca que esta herencia no es inflexible: el administrador tiene la capacidad de aplicar un bloqueo de herencia (block inheritance) de forma manual sobre una Unidad Organizativa concreta para blindarla de las reglas superiores, o utilizar la opción de forzado si es necesario.\n\n**Aplicación en DevOps:**\nEl departamento de seguridad aplica una GPO a nivel de Dominio para forzar el bloqueo de puertos USB en todas las estaciones de trabajo de la empresa. Para el equipo de Ingeniería DevOps, estas restricciones impedirían realizar pruebas locales de infraestructura. El DevOps aplica «Bloquear Herencia» en la OU «DevOps-Users» para aislar sus máquinas de las restricciones heredadas del dominio principal y mantener su agilidad de desarrollo."
   },
   {
     "question": "¿Qué opción hay que seleccionar en una directiva de grupo para usar su valor por defecto?",
@@ -569,7 +594,8 @@
     ],
     "answer": "Not Configured",
     "explanation": "Not Configured especifica que esta configuración no se ha habilitado ni deshabilitado. Establece que esta GPO no configura este valor, aunque otras GPO pueden haberlo configurado.",
-    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nCada directiva o elemento dentro de una GPO de Windows opera bajo un modelo de «triestado»: Habilitada (Enabled), Deshabilitada (Disabled) o No Configurada (Not Configured). Cuando se selecciona «Not Configured» (No Configurada), la GPO no escribe ninguna directiva ni modifica el registro para esa regla específica durante el procesamiento. Como resultado, el sistema operativo de destino ignora esa GPO y mantiene el valor o comportamiento predeterminado que el SO tiene de fábrica.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz describe que cada línea o ítem de configuración dentro de las plantillas administrativas de las GPOs tiene un comportamiento triestado. Explica que si pasamos de largo y dejamos el elemento como «No Configurado», el sistema operativo de destino simplemente no se verá afectado por esa regla y funcionará aplicando el valor que trae por defecto de fábrica.\n\n**Aplicación en DevOps:**\nAl diseñar una GPO para los servidores Web de producción, el DevOps configura de forma explícita las directivas críticas de red y seguridad (como habilitar TLS 1.3). Para otras de carácter no crítico o estéticas de la terminal, el DevOps mantiene el estado «Not Configured», evitando la sobreingeniería y permitiendo que el sistema mantenga su configuración base."
   },
   {
     "question": "¿Cómo se inicia una sesión remota de PowerShell en server1?",
@@ -581,7 +607,8 @@
     ],
     "answer": "Enter-PSSession -ComputerName server1",
     "explanation": "Get-PowerShell e Invoke-PSSession no existen como cmdlets. ssh abre una sesión SSH, no una sesión remota de PowerShell. Enter-PSSession es el cmdlet correcto.",
-    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl protocolo de administración remota de Microsoft (WS-Management) a través del servicio WinRM permite establecer túneles de comunicación interactiva con PowerShell Remoting. El cmdlet Enter-PSSession abre una sesión de shell remota, uno a uno, cifrada y persistente. Al usar el parámetro -ComputerName, el prompt local cambia para reflejar que los comandos que se tecleen de ahí en adelante se procesarán directamente dentro de la memoria RAM del equipo de destino, simulando de manera muy similar una sesión SSH de Unix.\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz contrasta las dos opciones que ofrece PowerShell para la administración remota. Explica que si solo necesitas mandar una única línea de comando utilizas -ComputerName de forma directa, pero si lo que buscas es abrir una sesión remota interactiva de trabajo similar a SSH donde el prompt se traslade por completo, se debe emplear el cmdlet Enter-PSSession especificando el nombre del equipo con -ComputerName y las credenciales si fuesen necesarias.\n\n**Aplicación en DevOps:**\nAnte una alerta de saturación de disco en un clúster de producción Windows Server Core (sin interfaz gráfica), un ingeniero DevOps abre su terminal local y ejecuta Enter-PSSession -ComputerName Server1 -Credential (Get-Credential). Una vez dentro, utiliza cmdlets como Get-ChildItem y Remove-Item para identificar y purgar archivos temporales huérfanos directamente en la consola del servidor remoto en tiempo real."
   },
   {
     "question": "¿Qué herramienta permite ver logs nativos de Windows?",
@@ -593,7 +620,8 @@
     ],
     "answer": "Visor de eventos",
     "explanation": "El Visor de eventos (Event Viewer) es el visor de logs nativo de Windows. Las aplicaciones pueden escribir logs en ficheros de texto, pero Windows ofrece un motor nativo para ello.",
-    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nLos sistemas operativos de Microsoft implementan un registro centralizado y estandarizado para documentar eventos del sistema, seguridad y aplicaciones. El Visor de Eventos de Windows (Event Viewer) es la consola administrativa que proporciona una interfaz gráfica para consultar, filtrar y diagnosticar estos registros (logs) que se graban nativamente en formato binario estructurado .evtx (a diferencia del formato de texto plano que usa Linux con /var/log).\n\n**La perspectiva de la clase:**\nEl profesor Sanz describe al Visor de Eventos como la «bitácora de Windows», el lugar donde se apuntan automáticamente de forma nativa todos los eventos, dividiéndolos por importancia mediante el uso de colores: azul para informativos (Info), amarillo para advertencias (Warning) y rojo para fallos graves (Errors). Destaca que es una de las herramientas de monitorización básicas indispensables que los administradores de sistemas deben saber identificar y explicar en los entornos de Microsoft.\n\n**Aplicación en DevOps:**\nTras automatizar el reinicio programado de un servicio crítico (como IIS), el DevOps programa un script que monitoriza el Visor de Eventos a través de PowerShell con el cmdlet Get-WinEvent. Si el script detecta un error de ID 5011 (falla en el pool de conexiones) en el log de aplicación en los últimos 5 minutos, dispara una alerta automática por Slack para que el equipo de soporte intervenga de inmediato."
   },
   {
     "question": "¿Qué herramienta nativa de Windows es el equivalente a cron en Linux?",
@@ -605,7 +633,8 @@
     ],
     "answer": "Programador de tareas",
     "explanation": "El Programador de tareas ofrece una funcionalidad similar a cron en Windows, con una gestión de disparadores y acciones más avanzada.",
-    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEn los sistemas tipo Unix, el demonio cron lee tablas de configuración (crontab) para ejecutar de forma periódica y automatizada scripts de sistema en segundo plano. En el ecosistema de Microsoft Windows, este rol lo cumple de forma nativa el Programador de Tareas (Task Scheduler), un servicio del sistema capaz de ejecutar programas o scripts de forma recurrente basándose en planificaciones de tiempo fijas o desencadenantes dinámicos (eventos/triggers).\n\n**La perspectiva de la clase:**\nEl profesor Iván Sanz traza un paralelismo directo entre la administración en Linux y en Windows. Enfatiza que el Programador de Tareas es el equivalente nativo en Windows al cron de Linux. Explica que permite configurar de manera sumamente visual los «triggers» (desencadenantes de tiempo o eventos) y las «acciones» (los scripts a ejecutar), facilitando enormemente la automatización desatendida.\n\n**Aplicación en DevOps:**\nPara automatizar la recolección y rotación de copias de seguridad de una base de datos SQL Server local, el DevOps crea una tarea programada mediante un script de PowerShell. Configura un trigger en el Programador de Tareas para que ejecute el script todos los días de forma recurrente a las 2:00 AM de manera silenciosa y desatendida, garantizando la consistencia de los backups sin intervención humana."
   },
   {
     "question": "¿Qué herramienta de Windows es el equivalente gráfico a netstat?",
@@ -617,7 +646,8 @@
     ],
     "answer": "TCPview",
     "explanation": "TCPview es una alternativa gráfica a netstat. Muestra información detallada de los puertos abiertos y las conexiones establecidas.",
-    "tema": "Tema 9. Administración básica de sistema operativo en Windows"
+    "tema": "Tema 9. Administración básica de sistema operativo en Windows",
+    "detailedExplanation": "**¿Qué significa realmente?**\nEl comando de consola netstat muestra las conexiones de red TCP activas, los puertos en escucha y las estadísticas de los protocolos en modo texto. La herramienta de la suite Sysinternals denominada TCPview actúa como el homólogo gráfico interactivo de netstat en Windows; muestra en tiempo real todas las conexiones TCP y UDP activas del sistema, mapeándolas directamente con los nombres de los procesos (ejecutables) que las originan.\n\n**La perspectiva de la clase:**\nAl analizar las utilidades de monitorización avanzadas de Sysinternals, el profesor destaca el valor de TCPview. Lo define explícitamente como el equivalente gráfico interactivo al comando netstat tradicional, indicando que sirve para conocer de manera inmediata qué puertos tenemos abiertos y qué conexiones de red están establecidas en nuestro servidor.\n\n**Aplicación en DevOps:**\nAl diagnosticar por qué un servidor web en Windows Server está saturado de peticiones de red sospechosas, un DevOps abre TCPview. La herramienta le permite filtrar de inmediato de forma gráfica las conexiones activas por proceso; al detectar que un proceso huérfano está abriendo conexiones hacia una IP externa desconocida, el DevOps puede terminar el proceso de red de forma directa desde la propia interfaz con un simple clic."
   },
   {
     "question": "¿Cuál de los siguientes comandos vuelca el listado de ficheros del directorio actual en un fichero de texto?",
