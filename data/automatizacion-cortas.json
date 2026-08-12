@@ -1,0 +1,77 @@
+[
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es Puppet Forge?",
+    "a": "<p><strong>Puppet Forge</strong> es el repositorio público oficial de módulos de Puppet. Es una plataforma online donde la comunidad y la propia empresa Puppet publican módulos reutilizables (colecciones de manifiestos, recursos y plantillas) para configurar prácticamente cualquier software o servicio.</p><p>Permite a los equipos DevOps descargar e integrar módulos ya probados en sus proyectos sin tener que escribirlos desde cero, acelerando el desarrollo de la infraestructura como código.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es NOOP en Puppet?",
+    "a": "<p><strong>NOOP</strong> (No Operation) es un modo de ejecución de Puppet en el que el agente simula la aplicación de la configuración <em>sin realizar cambios reales</em> en el sistema.</p><p>Al ejecutar <code>puppet agent --noop</code>, Puppet calcula qué cambios haría (crearía, modificaría o eliminaría) y los reporta al maestro o por pantalla, pero no los aplica. Es fundamental para auditar el impacto de una nueva configuración antes de desplegarla en producción.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué es la idempotencia en el contexto de herramientas de automatización como Puppet, Chef o Ansible?",
+    "a": "<p>La <strong>idempotencia</strong> es la propiedad por la cual aplicar una misma operación o configuración múltiples veces produce siempre el mismo resultado final, sin efectos secundarios ni cambios adicionales después de la primera aplicación.</p><p>En herramientas de automatización: si declaras que un paquete debe estar instalado y ya lo está, la herramienta no lo reinstala. Si un fichero ya tiene el contenido correcto, no lo sobreescribe. Esto permite ejecutar los manifiestos, recetas o playbooks de forma segura y repetida, como parte de ciclos automáticos periódicos, sin riesgo de romper el sistema.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es el archivo site.pp en Puppet y para qué sirve?",
+    "a": "<p><code>site.pp</code> es el <strong>manifiesto principal o punto de entrada global</strong> del Puppet Master, ubicado habitualmente en <code>/etc/puppet/manifests/site.pp</code>.</p><p>Define qué configuración debe aplicarse a qué nodos. En él se declaran bloques <code>node 'nombre'</code> que asocian un nodo (identificado por su hostname) con las clases o módulos que debe recibir. Responde a las preguntas: <em>¿qué máquinas gestiono?</em> y <em>¿qué configuración debe tener cada una?</em></p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué son los facts en Puppet? ¿Qué es Facter?",
+    "a": "<p>Los <strong>facts</strong> son variables del sistema que contienen información recopilada automáticamente sobre cada nodo gestionado: nombre de host, dirección IP, sistema operativo, versión del kernel, cantidad de memoria, arquitectura, etc.</p><p><strong>Facter</strong> es la herramienta interna de Puppet (un agente de inventario) que recopila estos facts antes de que el Puppet Master compile el catálogo de configuración del nodo. Los facts están disponibles como variables en los manifiestos y permiten adaptar dinámicamente la configuración según las características reales de cada máquina (por ejemplo, aplicar una configuración diferente según si el SO es Debian o RedHat).</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué son los facts de host en Ansible? ¿Cómo se desactivan?",
+    "a": "<p>Los <strong>facts de host</strong> en Ansible son variables recopiladas automáticamente al inicio de cada ejecución de un playbook mediante el módulo <code>setup</code> (equivalente a Facter en Puppet). Contienen información del sistema gestionado: OS, IP, memoria, arquitectura, interfaces de red, etc.</p><p>Se acceden mediante el diccionario <code>ansible_facts</code> o con prefijo <code>ansible_</code> (ej: <code>ansible_os_family</code>, <code>ansible_memtotal_mb</code>).</p><p>Para <strong>desactivarlos</strong> y acelerar la ejecución se añade al playbook:</p><pre><code>gather_facts: false</code></pre><p>También se puede usar <code>gather_facts: smart</code> para activar la caché y solo recopilarlos si han cambiado.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Cómo se obtienen los facts de todos los hosts definidos en un inventario de Ansible?",
+    "a": "<p>Se usa el módulo <code>setup</code> directamente desde la línea de comandos con el módulo ad-hoc:</p><pre><code>ansible all -m setup -i inventario.ini</code></pre><p>Esto ejecuta el módulo <code>setup</code> en todos los hosts del inventario y devuelve el diccionario completo de facts de cada uno. Para filtrar un fact específico se usa el parámetro <code>filter</code>:</p><pre><code>ansible all -m setup -a 'filter=ansible_os_family' -i inventario.ini</code></pre>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué son las pruebas unitarias en Chef? ¿Cuál es el comando para lanzarlas?",
+    "a": "<p>Las <strong>pruebas unitarias en Chef</strong> se realizan con <strong>ChefSpec</strong>, un framework construido sobre RSpec. Son pruebas que verifican el comportamiento de las recetas de forma aislada, <em>simulando</em> una ejecución de Chef sin modificar el sistema real. Comprueban que los recursos se declaran correctamente (paquetes a instalar, ficheros a crear, servicios a activar) sin necesitar una VM ni infraestructura real.</p><p>Se ubican en la carpeta <code>spec/</code> del cookbook y los archivos deben terminar en <code>_spec.rb</code>.</p><p>El comando para lanzarlas es:</p><pre><code>chef exec rspec</code></pre><p>O de forma equivalente: <code>rspec spec/</code></p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "Describe las carpetas que forman un rol en Ansible y para qué sirve cada una.",
+    "a": "<ul><li><code>tasks/</code> — tareas principales del rol (fichero <code>main.yml</code>)</li><li><code>handlers/</code> — manejadores (handlers) que se ejecutan al ser notificados</li><li><code>templates/</code> — plantillas Jinja2 (.j2) procesadas dinámicamente</li><li><code>files/</code> — archivos estáticos que se copian tal cual a los nodos</li><li><code>vars/</code> — variables con alta precedencia propias del rol</li><li><code>defaults/</code> — variables con la precedencia más baja (valores por defecto)</li><li><code>meta/</code> — metadatos del rol: dependencias, plataformas soportadas, versión mínima de Ansible</li></ul>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué diferencia hay entre los módulos <code>command</code> y <code>shell</code> en Ansible?",
+    "a": "<p>Ambos ejecutan comandos en el sistema operativo del nodo gestionado, pero con una diferencia clave:</p><p><strong><code>command</code></strong>: ejecuta el comando directamente, sin pasar por la shell del sistema. No soporta operadores de shell como <code>|</code>, <code>&gt;</code>, <code>&amp;&amp;</code>, variables de entorno expansión, etc. Es más seguro.</p><p><strong><code>shell</code></strong>: pasa el comando a través de <code>/bin/sh</code>, por lo que sí permite tuberías, redirecciones y variables de entorno. Más flexible pero menos seguro. En ambos casos hay que tener cuidado con la idempotencia, ya que estos módulos siempre reportan <em>changed</em>.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es la propiedad <code>notify</code> en Puppet y para qué se usa?",
+    "a": "<p>El metaparámetro <code>notify</code> en Puppet establece una relación de <strong>notificación entre recursos</strong>. Si el recurso que contiene <code>notify</code> cambia de estado, envía una notificación al recurso destino (generalmente un servicio) para que ejecute una acción específica, típicamente un reinicio.</p><p>Ejemplo: cuando se actualiza un fichero de configuración de Apache, se notifica al servicio para que se reinicie y aplique los cambios:</p><pre><code>file { '/etc/apache2/apache2.conf':\n  content => template('apache/apache2.conf.erb'),\n  notify  => Service['apache2'],\n}</code></pre>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es un rol de envoltorio (wrapper role) en Ansible y cuándo se usa?",
+    "a": "<p>Un <strong>rol de envoltorio</strong> (wrapper role) es un rol que simplifica el uso de otro rol proporcionando valores concretos para sus variables de configuración. Actúa como una capa de abstracción que envuelve un rol complejo o genérico.</p><p>Se usa cuando un rol de la comunidad (Galaxy) tiene muchas variables configurables y se quiere ofrecer una versión preconfigurada con los valores estándar de la organización, ocultando la complejidad al usuario final. Por ejemplo, un rol <code>empresa-nginx</code> que envuelve el rol público de nginx ya con los parámetros de seguridad y logging de la empresa.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué ficheros y directorios se crean tras ejecutar <code>chef generate cookbook mi_cookbook</code>?",
+    "a": "<p>El comando genera la siguiente estructura:</p><pre><code>mi_cookbook/\n├── .chef/\n├── Berksfile\n├── chefignore\n├── metadata.rb\n├── README.md\n├── recipes/\n│   └── default.rb\n├── spec/\n│   ├── spec_helper.rb\n│   └── unit/\n│       └── recipes/\n│           └── default_spec.rb\n├── test/\n│   └── integration/\n│       └── default/\n│           └── default_test.rb\n├── attributes/\n│   └── default.rb\n├── files/\n├── templates/\n└── kitchen.yml</code></pre>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es la propiedad <code>require</code> en Puppet y en qué se diferencia de <code>notify</code>?",
+    "a": "<p><strong><code>require</code></strong> establece una dependencia de <em>orden</em>: el recurso que lo declara no se aplicará hasta que el recurso referenciado se haya aplicado primero. No hay notificación ni reinicio; solo garantiza el orden de ejecución.</p><p><strong><code>notify</code></strong> también garantiza el orden (el recurso notificado se aplica después), pero además envía una notificación al recurso destino si el estado cambia, típicamente causando un reinicio de servicio.</p><p>Ejemplo: <code>require => Package['nginx']</code> asegura que el paquete esté instalado antes de copiar su fichero de configuración.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es Test Kitchen en Chef y para qué sirve?",
+    "a": "<p><strong>Test Kitchen</strong> es una herramienta de automatización de pruebas de integración distribuida con Chef Workstation. Gestiona el ciclo completo de prueba: crea automáticamente un entorno aislado (usando Vagrant, Docker o cloud), aplica las recetas del cookbook sobre él, ejecuta los tests de verificación (Serverspec/InSpec) y destruye el entorno al terminar.</p><p>Se configura mediante el fichero <code>kitchen.yml</code> donde se definen las plataformas (SOs) y las suites (escenarios) a probar. El comando <code>kitchen test</code> ejecuta todo el ciclo automáticamente.</p>"
+  }
+]

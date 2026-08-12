@@ -1,0 +1,112 @@
+[
+  {
+    "id": "backup-bash",
+    "title": "Script Bash: backup automático con cron",
+    "category": "Bash",
+    "enunciado": "Escribe un script en Bash que automatice el backup de al menos 2 directorios. El script debe: crear un directorio específico para los backups, generar el backup con fecha en el nombre del archivo, eliminar backups con más de 7 días de antigüedad y programarse para ejecutarse a las 4 AM.",
+    "pistas": [
+      "mkdir -p para crear la carpeta de backups sin error si ya existe",
+      "tar -czf para comprimir. Incluye la fecha con $(date +%Y%m%d)",
+      "find con -mtime +7 -delete para limpiar backups antiguos",
+      "La entrada de cron sigue el formato: minuto hora * * * /ruta/script.sh",
+      "0 4 * * * = todos los días a las 4:00 AM"
+    ],
+    "solucion": "#!/bin/bash\n# Crear directorio de backups si no existe\nmkdir -p /backups\n\n# Crear backup con fecha en el nombre\ntar -czf /backups/backup_$(date +%Y%m%d).tar.gz \\\n    /home/usuario/documentos \\\n    /etc/nginx\n\n# Eliminar backups con más de 7 días\nfind /backups -name '*.tar.gz' -mtime +7 -delete\n\n# --- Añadir al cron: crontab -e ---\n# Ejecutar todos los días a las 4 AM:\n# 0 4 * * * /home/usuario/scripts/backup.sh >> /var/log/backup.log 2>&1",
+    "explicacion": "mkdir -p crea la ruta completa sin error si ya existe (idempotente). tar -czf comprime en .tar.gz; $(date +%Y%m%d) inserta la fecha en el nombre del archivo. find con -mtime +7 encuentra archivos modificados hace más de 7 días y -delete los elimina. La entrada de cron 0 4 * * * programa la ejecución a las 04:00 cada día; 2>&1 redirige stderr a stdout para capturar todos los mensajes en el log."
+  },
+  {
+    "id": "usuarios-ssh-bash",
+    "title": "Script Bash: gestión masiva de usuarios vía SSH",
+    "category": "Bash",
+    "enunciado": "Escribe un script en Bash para automatizar la creación de un usuario en múltiples servidores. El script recibe como parámetro un fichero con la lista de servidores, pide interactivamente el nombre de usuario y su UID, y se conecta por SSH a cada servidor para añadir el usuario con ese UID.",
+    "pistas": [
+      "Validar que se ha pasado exactamente 1 parámetro con $# -ne 1",
+      "Comprobar si el fichero existe con -f antes de usarlo",
+      "read -p para pedir datos interactivos al usuario",
+      "while IFS= read -r SERVER: leer el fichero línea por línea",
+      "ssh -n evita que SSH consuma stdin del bucle while",
+      "useradd -u $UID $USERNAME crea el usuario con el UID indicado",
+      "$? guarda el código de salida del último comando"
+    ],
+    "solucion": "#!/bin/bash\n# Validar argumentos\nif [ \"$#\" -ne 1 ]; then\n    echo \"Uso: $0 <fichero_servidores.txt>\"\n    exit 1\nfi\n\nSERVER_FILE=$1\n\n# Comprobar que el fichero existe\nif [ ! -f \"$SERVER_FILE\" ]; then\n    echo \"Error: El fichero '$SERVER_FILE' no existe.\"\n    exit 1\nfi\n\n# Solicitar datos del usuario\nread -p \"Nombre del nuevo usuario: \" USERNAME\nread -p \"UID del usuario: \" USERID\n\necho \"Creando usuario $USERNAME (UID: $USERID) en los servidores...\"\n\n# Bucle sobre cada servidor del fichero\nwhile IFS= read -r SERVER || [ -n \"$SERVER\" ]; do\n    # Ignorar líneas vacías\n    [ -z \"$SERVER\" ] && continue\n\n    echo \"Conectando a $SERVER...\"\n    ssh -n -o BatchMode=yes root@\"$SERVER\" \\\n        \"useradd -u $USERID $USERNAME\"\n\n    if [ $? -eq 0 ]; then\n        echo \"✅ Usuario $USERNAME creado en $SERVER\"\n    else\n        echo \"❌ Error al crear usuario en $SERVER\"\n    fi\ndone < \"$SERVER_FILE\"\n\necho \"Proceso finalizado.\"",
+    "explicacion": "$# -ne 1 valida que se ha pasado exactamente un argumento. -f comprueba que el fichero existe. read -p solicita datos interactivos. while IFS= read -r SERVER lee el fichero servidor por servidor. [ -z ] salta líneas vacías. ssh -n evita que SSH consuma stdin del bucle, ya que el propio bucle while está leyendo stdin. BatchMode=yes evita prompts interactivos de SSH. $? -eq 0 comprueba si el último comando fue exitoso."
+  },
+  {
+    "id": "menu-bash",
+    "title": "Script Bash: menú interactivo de gestión de archivos",
+    "category": "Bash",
+    "enunciado": "Escribe un script en Bash con un menú interactivo de 4 opciones: (1) buscar un archivo por nombre, (2) buscar una cadena de texto en archivos, (3) cambiar permisos de un archivo, (4) salir. El menú debe repetirse hasta que el usuario elija salir.",
+    "pistas": [
+      "while true: bucle infinito que se rompe con exit o break",
+      "read -p para leer la opción del usuario",
+      "case $opcion in ... esac para el menú",
+      "find . -name para buscar archivos",
+      "grep -rnw para buscar texto en ficheros",
+      "chmod para cambiar permisos",
+      "[ -f ] para comprobar si el archivo existe antes de chmod"
+    ],
+    "solucion": "#!/bin/bash\nwhile true; do\n    echo \"\\n=== MENÚ DE GESTIÓN ===\"\n    echo \"1. Buscar un archivo\"\n    echo \"2. Buscar una cadena en archivos\"\n    echo \"3. Cambiar permisos de un archivo\"\n    echo \"4. Salir\"\n    read -p \"Seleccione una opción [1-4]: \" opcion\n\n    case $opcion in\n        1)\n            read -p \"Nombre del archivo a buscar: \" archivo\n            find . -name \"$archivo\" 2>/dev/null || echo \"No encontrado.\"\n            ;;\n        2)\n            read -p \"Cadena de texto a buscar: \" cadena\n            read -p \"Patrón de archivos (ej: *.txt): \" patron\n            grep -rnw . --include=\"$patron\" -e \"$cadena\" 2>/dev/null \\\n                || echo \"Cadena no encontrada.\"\n            ;;\n        3)\n            read -p \"Ruta del archivo: \" ruta\n            read -p \"Nuevos permisos (ej: 755): \" permisos\n            if [ -f \"$ruta\" ]; then\n                chmod \"$permisos\" \"$ruta\" && echo \"Permisos $permisos aplicados.\"\n            else\n                echo \"Error: el archivo no existe.\"\n            fi\n            ;;\n        4)\n            echo \"Saliendo...\"\n            exit 0\n            ;;\n        *)\n            echo \"Opción no válida, intente de nuevo.\"\n            ;;\n    esac\ndone",
+    "explicacion": "while true crea un bucle infinito que solo termina con exit 0. case $opcion in maneja cada opción del menú con ;; como separador entre casos y *) como caso por defecto. find . -name busca archivos en el directorio actual y subdirectorios. grep -rnw busca recursivamente (-r), mostrando número de línea (-n) y palabras completas (-w). [ -f ] comprueba que la ruta es un fichero regular antes de aplicar chmod, evitando errores. exit 0 termina el script con código de éxito."
+  },
+  {
+    "id": "carpetas-vacias-ps",
+    "title": "Script PowerShell: listar carpetas vacías",
+    "category": "PowerShell",
+    "enunciado": "Escribe un script en PowerShell que reciba una ruta como parámetro obligatorio, valide que existe, y liste todas las carpetas vacías dentro de ella de forma recursiva. Mostrar el total al final.",
+    "pistas": [
+      "[Parameter(Mandatory=$true)] hace el parámetro obligatorio",
+      "Test-Path para validar que la ruta existe",
+      "Get-ChildItem -Directory -Recurse para obtener todos los subdirectorios",
+      "Get-ChildItem -Force incluye archivos ocultos al comprobar si está vacío",
+      ".Count -eq 0 indica carpeta vacía",
+      "$carpetasVacias.Count para el total"
+    ],
+    "solucion": "param(\n    [Parameter(Mandatory=$true, HelpMessage='Ruta de búsqueda')]\n    [string]$Ruta\n)\n\n# Validar que la ruta existe\nif (-Not (Test-Path -Path $Ruta)) {\n    Write-Host \"Error: La ruta '$Ruta' no existe.\" -ForegroundColor Red\n    exit 1\n}\n\nWrite-Host \"Buscando carpetas vacías en: $Ruta\" -ForegroundColor Cyan\n\n# Obtener todos los directorios recursivamente\n$directorios = Get-ChildItem -Path $Ruta -Directory -Recurse\n\n# Filtrar los que están vacíos\n$carpetasVacias = $directorios | Where-Object {\n    (Get-ChildItem -Path $_.FullName -Force).Count -eq 0\n}\n\n# Mostrar resultados\nif ($carpetasVacias.Count -gt 0) {\n    Write-Host \"`nCarpetas vacías encontradas:\" -ForegroundColor Green\n    $carpetasVacias | ForEach-Object { Write-Output $_.FullName }\n} else {\n    Write-Host \"No se encontraron carpetas vacías.\" -ForegroundColor Yellow\n}\n\nWrite-Host \"`nTotal: $($carpetasVacias.Count) carpeta(s) vacía(s)\"",
+    "explicacion": "[Parameter(Mandatory=$true)] obliga al usuario o pipeline a proporcionar el valor; si no se pasa, PowerShell lo solicita interactivamente. Test-Path verifica la existencia de la ruta. Get-ChildItem -Directory -Recurse obtiene todos los subdirectorios de forma recursiva. -Force incluye archivos y carpetas ocultos al contar el contenido. Where-Object filtra objetos según la condición de estar vacíos (.Count -eq 0). $($carpetasVacias.Count) es la sintaxis de interpolación de expresiones en strings de PowerShell."
+  },
+  {
+    "id": "archivos-grandes-ps",
+    "title": "Script PowerShell: obtener los 2 archivos más grandes saltando el primero",
+    "category": "PowerShell",
+    "enunciado": "Escribe el comando de PowerShell para obtener los 2 archivos más grandes de una carpeta (por ejemplo C:\\Users), saltándose el primero (el más grande de todos), y mostrando su nombre y tamaño.",
+    "pistas": [
+      "Get-ChildItem -File para solo archivos",
+      "Sort-Object -Property Length -Descending para ordenar de mayor a menor",
+      "Select-Object -Skip 1 para saltar el primero",
+      "Select-Object -First 2 para quedarte con los siguientes 2",
+      "Encadena Skip y First o usa -First 2 -Skip 1 en un solo Select-Object"
+    ],
+    "solucion": "# Obtener los 2 archivos más grandes saltando el mayor\nGet-ChildItem -Path 'C:\\Users' -File -Recurse | \n    Sort-Object -Property Length -Descending | \n    Select-Object -Skip 1 -First 2 | \n    Select-Object Name, @{Name='TamañoMB'; Expression={[math]::Round($_.Length/1MB, 2)}}\n\n# Versión simplificada sin cálculo de tamaño:\n# Get-ChildItem -Path 'C:\\Users' -File |\n#     Sort-Object Length -Descending |\n#     Select-Object -First 2 -Skip 1",
+    "explicacion": "Get-ChildItem -File limita la búsqueda a ficheros (no carpetas). Sort-Object Length -Descending ordena de mayor a menor tamaño. Select-Object -Skip 1 descarta el primer resultado (el archivo más grande). Select-Object -First 2 toma los 2 siguientes. El campo calculado @{Name=...; Expression=...} es una 'computed property' de PowerShell que permite crear columnas personalizadas, en este caso convirtiendo bytes a MB con [math]::Round."
+  },
+  {
+    "id": "variables-entorno-ps",
+    "title": "Script PowerShell: manipular variables de entorno como unidad de disco",
+    "category": "PowerShell",
+    "enunciado": "Demuestra cómo PowerShell permite trabajar con las variables de entorno del sistema como si fueran una unidad de disco. Muestra cómo listarlas, leer una específica y crear una nueva variable de entorno.",
+    "pistas": [
+      "Env: es una PSDrive (unidad virtual de PowerShell)",
+      "Get-ChildItem Env: lista todas las variables de entorno",
+      "Get-Item Env:PATH lee una variable específica",
+      "$env:NOMBRE_VARIABLE es la forma rápida de acceder a su valor",
+      "New-Item -Path Env:\\ crea una nueva variable de entorno"
+    ],
+    "solucion": "# Listar todas las variables de entorno (como si fuera un directorio)\nGet-ChildItem Env:\n\n# Leer una variable específica\nGet-Item Env:PATH\n$env:PATH  # Forma abreviada para obtener solo el valor\n\n# Leer el valor de COMPUTERNAME\nWrite-Host \"Nombre del equipo: $env:COMPUTERNAME\"\n\n# Crear una nueva variable de entorno para la sesión actual\nNew-Item -Path Env:\\ -Name 'MI_APP_PORT' -Value '8080'\n\n# Verificar que se creó\n$env:MI_APP_PORT\n\n# Modificar una variable existente\nSet-Item -Path Env:MI_APP_PORT -Value '9090'\n\n# Eliminar una variable de entorno\nRemove-Item -Path Env:MI_APP_PORT",
+    "explicacion": "Env: es una PSDrive (unidad virtual de PowerShell) que expone el almacén de variables de entorno del sistema operativo con la misma API que el sistema de ficheros. Get-ChildItem Env: funciona igual que dir en una carpeta. $env:NOMBRE es la sintaxis de acceso rápido al valor. New-Item, Set-Item y Remove-Item sobre Env:\\ crean, modifican y eliminan variables. Los cambios hechos así solo afectan a la sesión actual; para hacer cambios permanentes se usa [System.Environment]::SetEnvironmentVariable()."
+  },
+  {
+    "id": "buscar-archivo-ps",
+    "title": "Script PowerShell: buscar archivo, validar texto y cambiar permisos",
+    "category": "PowerShell",
+    "enunciado": "Escribe un script en PowerShell que busque un archivo dado su nombre, valide si contiene un texto determinado, y cambie sus permisos (ACL) o atributos. El script recibe por parámetro el nombre del archivo a buscar.",
+    "pistas": [
+      "Get-ChildItem -Recurse -Filter para buscar el archivo",
+      "Select-Object -First 1 para quedarte con el primero encontrado",
+      "Test-Path para verificar si se encontró",
+      "Get-Content para leer el contenido y Select-String para buscar texto",
+      "Set-ItemProperty -Name Attributes para cambiar atributos del fichero"
+    ],
+    "solucion": "param(\n    [Parameter(Mandatory=$true)]\n    [string]$NombreArchivo,\n    [string]$TextoBuscar = '',\n    [string]$NuevosAtributos = ''\n)\n\n# Buscar el archivo de forma recursiva\n$archivo = Get-ChildItem -Path '.' -Recurse -Filter $NombreArchivo `\n           -ErrorAction SilentlyContinue | Select-Object -First 1\n\nif (-not $archivo) {\n    Write-Host \"Archivo '$NombreArchivo' no encontrado.\" -ForegroundColor Red\n    exit 1\n}\n\nWrite-Host \"Archivo encontrado: $($archivo.FullName)\" -ForegroundColor Green\n\n# Buscar texto si se especificó\nif ($TextoBuscar -ne '') {\n    $resultado = Get-Content $archivo.FullName | Select-String -Pattern $TextoBuscar\n    if ($resultado) {\n        Write-Host \"Texto '$TextoBuscar' encontrado.\" -ForegroundColor Green\n    } else {\n        Write-Host \"Texto '$TextoBuscar' NO encontrado.\" -ForegroundColor Yellow\n    }\n}\n\n# Cambiar atributos si se especificaron\nif ($NuevosAtributos -ne '') {\n    Set-ItemProperty -Path $archivo.FullName -Name Attributes -Value $NuevosAtributos\n    Write-Host \"Atributos cambiados a: $NuevosAtributos\"\n}",
+    "explicacion": "Get-ChildItem -Recurse busca recursivamente; -Filter es más eficiente que -Include para un único patrón. Select-Object -First 1 evita ambigüedades si hay múltiples coincidencias. -ErrorAction SilentlyContinue suprime errores de acceso denegado. Get-Content lee el fichero línea a línea; Select-String busca el patrón como haría grep en Linux. Set-ItemProperty -Name Attributes permite cambiar atributos del fichero (ReadOnly, Hidden, Archive, Normal)."
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "ext": "8 líneas",
+    "q": "¿Qué son los Beats en el stack de Elastic? Nombra los más utilizados y describe brevemente cada uno.",
+    "a": "<p><strong>Beats</strong> son agentes ligeros escritos en Go que se instalan en los servidores de origen para recolectar datos y enviarlos a Elasticsearch o Logstash. Su principal ventaja es el bajo consumo de recursos frente a Logstash.</p><p>Los más utilizados:</p><ul><li><strong>Filebeat:</strong> captura logs de ficheros de texto. El más usado; procesa una línea por evento (con soporte multiline para trazas de excepciones).</li><li><strong>Metricbeat:</strong> recopila métricas del sistema (CPU, RAM, disco, red) y de servicios (MySQL, Nginx, Docker).</li><li><strong>Packetbeat:</strong> analiza el tráfico de red en tiempo real a nivel de paquetes.</li><li><strong>Heartbeat:</strong> monitoriza la disponibilidad y latencia de endpoints (HTTP, TCP, ICMP).</li><li><strong>Auditbeat:</strong> audita la actividad de usuarios y la integridad de ficheros del sistema (FIM).</li><li><strong>Winlogbeat:</strong> captura los eventos del Visor de Eventos de Windows.</li></ul>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Cuáles son las ventajas de DevOps? Desarróllalas.",
+    "a": "<p><strong>1. Entregas más rápidas:</strong> ciclos cortos de desarrollo y despliegue continuo (CI/CD) reducen el time-to-market.</p><p><strong>2. Mayor calidad:</strong> la automatización de pruebas detecta errores temprano en el ciclo, reduciendo el coste de los fallos.</p><p><strong>3. Reducción del blast radius:</strong> despliegues frecuentes y pequeños limitan el impacto de cada cambio frente a grandes actualizaciones monolíticas.</p><p><strong>4. Mayor disponibilidad:</strong> la monitorización continua y la infraestructura como código permiten respuestas rápidas ante incidencias.</p><p><strong>5. Colaboración:</strong> elimina los silos entre Desarrollo y Operaciones, fomentando responsabilidad compartida.</p><p><strong>6. Reproducibilidad:</strong> la infraestructura como código garantiza entornos idénticos en desarrollo, staging y producción.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es el blast radius en un contexto DevOps?",
+    "a": "<p>El <strong>blast radius</strong> (radio de influencia o de explosión) es la medida del impacto máximo que puede tener el fallo de un componente sobre el resto del sistema.</p><p>En arquitecturas monolíticas el blast radius es total: un error puede paralizar toda la aplicación. En arquitecturas de microservicios el blast radius se reduce al microservicio afectado, permitiendo que el resto del sistema siga funcionando. Minimizar el blast radius es un objetivo clave del diseño en DevOps.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Describe el ciclo de vida DevOps (fases del ciclo). ¿Cuál es la función de la fase de monitorización?",
+    "a": "<p>El ciclo DevOps tiene forma de infinito (∞) con 8 fases:</p><ol><li><strong>Plan:</strong> definición de requisitos y planificación de sprints.</li><li><strong>Code:</strong> desarrollo del software.</li><li><strong>Build:</strong> compilación y construcción del artefacto.</li><li><strong>Test:</strong> pruebas automáticas (unitarias, integración).</li><li><strong>Release:</strong> empaquetado de la versión.</li><li><strong>Deploy:</strong> despliegue en el entorno de producción.</li><li><strong>Operate:</strong> operación del sistema en producción.</li><li><strong>Monitor:</strong> monitorización y recopilación de métricas y logs.</li></ol><p>La <strong>monitorización</strong> es la fase que cierra el ciclo: transforma los datos operativos en feedback para el equipo de desarrollo, informando las mejoras del siguiente sprint y garantizando el cumplimiento del SLO.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es la infraestructura como código (IaC)? ¿Cuáles son sus ventajas principales?",
+    "a": "<p>La <strong>Infraestructura como Código (IaC)</strong> consiste en definir y gestionar la infraestructura mediante archivos de configuración declarativos o imperativos (código), en lugar de configuraciones manuales interactivas.</p><p><strong>Ventajas principales:</strong></p><ul><li><strong>Reproducibilidad:</strong> los entornos se crean de forma idéntica en cualquier momento.</li><li><strong>Versionado:</strong> los cambios de infraestructura pasan por control de versiones (Git).</li><li><strong>Automatización:</strong> se integra con pipelines de CI/CD.</li><li><strong>Auditoría:</strong> registro completo de quién cambió qué y cuándo.</li></ul>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es la infraestructura inmutable y por qué es importante en DevOps?",
+    "a": "<p>La <strong>infraestructura inmutable</strong> es un paradigma en el que los servidores o componentes nunca se modifican tras su despliegue. Si se necesita un cambio (actualización, parche), se construye una nueva imagen con la versión actualizada, se despliegan instancias nuevas y se destruyen las antiguas.</p><p>Es importante porque elimina el <em>configuration drift</em> (deriva de configuración), garantiza que todos los servidores tienen exactamente el mismo estado, hace los despliegues reproducibles y predecibles, y simplifica el rollback (basta con volver a la imagen anterior).</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es un pipeline de CI/CD? Describe las etapas típicas.",
+    "a": "<p>Un <strong>pipeline de CI/CD</strong> es una cadena automatizada de pasos que lleva el código desde el repositorio hasta producción, garantizando calidad en cada fase.</p><p><strong>Etapas típicas:</strong></p><ol><li><strong>Build:</strong> compilación del código y generación del artefacto.</li><li><strong>Test:</strong> pruebas unitarias, de integración y de seguridad (SAST).</li><li><strong>Package:</strong> empaquetado en imagen Docker o artefacto deployable.</li><li><strong>Deploy (staging):</strong> despliegue en entorno de pruebas.</li><li><strong>Acceptance tests:</strong> pruebas funcionales y de rendimiento.</li><li><strong>Deploy (producción):</strong> despliegue final con estrategia (canary, blue/green).</li></ol>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Explica cómo se crea una plantilla de Packer para desplegar simultáneamente en dos nubes (AWS y Azure). ¿Qué sección define las plataformas destino?",
+    "a": "<p>En Packer, la sección <strong><code>builders</code></strong> (o <code>build</code> en HCL2) define las plataformas destino. Se declara un bloque por cada nube:</p><pre><code>{\n  'builders': [\n    { 'type': 'amazon-ebs', 'region': '{{user `aws_region`}}', ... },\n    { 'type': 'azure-arm',  'location': '{{user `azure_location`}}', ... }\n  ],\n  'provisioners': [\n    { 'type': 'ansible', 'playbook_file': 'playbook.yml' }\n  ]\n}</code></pre><p>Los builders se ejecutan en paralelo por defecto. Los <code>provisioners</code> (que instalan el software) se ejecutan secuencialmente en cada builder. Las variables sensibles (credenciales, región) se definen en un fichero <code>variables.json</code> separado que no se sube al repositorio.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es un proveedor (provider) en Terraform y para qué sirve?",
+    "a": "<p>Un <strong>provider</strong> en Terraform es un plugin que implementa la comunicación con una API específica (AWS, Azure, GCP, Kubernetes, etc.). Actúa como el traductor entre el código HCL de Terraform y las llamadas reales a las APIs de cada plataforma.</p><p>Se declara en el bloque <code>terraform { required_providers { ... } }</code> especificando el namespace y la versión. Terraform descarga automáticamente el binario del provider al ejecutar <code>terraform init</code>. El mismo código puede usar múltiples providers simultáneamente para despliegues multinube.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es el state (estado) de Terraform y por qué es importante almacenarlo en un backend remoto?",
+    "a": "<p>El <strong>state</strong> de Terraform es un fichero (<code>terraform.tfstate</code>) que mapea los recursos declarados en el código con los recursos reales desplegados en la nube. Terraform lo necesita para calcular las diferencias (plan) antes de aplicar cambios.</p><p>Almacenarlo en un <strong>backend remoto</strong> (S3, Consul, Terraform Cloud) es importante porque: permite trabajo en equipo sin conflictos, habilita el <em>state locking</em> (bloquea el estado mientras alguien aplica cambios), evita pérdidas si se borra la máquina local, y permite que los pipelines de CI/CD accedan al estado actualizado.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Describe el stack ELK/Elastic. ¿Qué rol cumple cada componente?",
+    "a": "<p>El <strong>stack Elastic</strong> (antes ELK) es una plataforma de observabilidad compuesta por:</p><ul><li><strong>Elasticsearch:</strong> motor de búsqueda y base de datos NoSQL distribuida. Almacena e indexa los datos en índices para búsquedas en tiempo real.</li><li><strong>Logstash:</strong> pipeline de ingesta de datos. Recibe logs de múltiples fuentes, los filtra/transforma con filtros Grok y los envía a Elasticsearch.</li><li><strong>Kibana:</strong> interfaz gráfica de visualización. Permite explorar datos (Discovery), crear dashboards (Visualize), monitorizar infraestructura (Metrics) y gestionar el stack.</li><li><strong>Beats:</strong> familia de agentes ligeros que recopilan datos en los servidores de origen y los envían a Logstash o directamente a Elasticsearch.</li></ul><p>El flujo habitual es: <code>Beats → (Logstash) → Elasticsearch → Kibana</code>.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es APM (Application Performance Monitoring) en Elastic? ¿Cómo se integra en una aplicación?",
+    "a": "<p><strong>APM</strong> (Application Performance Monitoring) es el conjunto de herramientas de Elastic para monitorizar el rendimiento interno de las aplicaciones: trazas distribuidas, tiempos de respuesta, consultas a base de datos y excepciones.</p><p>Se integra añadiendo la <strong>librería del agente APM</strong> del lenguaje correspondiente (Node.js, Java, Python, .NET, etc.) directamente en el código de la aplicación. El agente recopila datos en tiempo de ejecución y los envía al <strong>APM Server</strong>, que los procesa y los ingesta en Elasticsearch para su visualización en Kibana.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué diferencia hay entre SLA, SLO y SLI?",
+    "a": "<ul><li><strong>SLI</strong> (Service Level Indicator): métrica concreta y cuantitativa que se mide para evaluar el nivel de servicio (ej: latencia en ms, tasa de disponibilidad en %).</li><li><strong>SLO</strong> (Service Level Objective): objetivo interno técnico que el equipo se compromete a cumplir sobre un SLI (ej: el 99.9% de las peticiones deben responder en menos de 200ms).</li><li><strong>SLA</strong> (Service Level Agreement): contrato legal formal con el cliente que estipula los niveles de servicio garantizados y las penalizaciones si no se cumplen.</li></ul><p>El SLO es el objetivo técnico interno que garantiza el cumplimiento del SLA contractual.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Describe el proceso de despliegue de una aplicación MEAN usando Packer y Terraform en dos nubes. Indica las herramientas, el orden y un ejemplo de ficheros.",
+    "a": "<p><strong>Herramientas:</strong> Packer (imágenes), Terraform (infraestructura), Ansible (aprovisionamiento), GitLab CI/CD (pipeline).</p><p><strong>Orden de despliegue:</strong></p><ol><li>Commit + Merge Request en GitLab → dispara el pipeline.</li><li>Pipeline ejecuta pruebas unitarias y validaciones.</li><li><code>packer validate</code> + <code>packer build</code> → genera AMI (AWS) e imagen Azure con Node.js y MongoDB preinstalados.</li><li><code>terraform init</code> + <code>terraform plan</code> + <code>terraform apply</code> → despliega VPCs, subredes, grupos de seguridad e instancias en AWS y Azure usando las imágenes generadas.</li><li>Smoke tests y health checks.</li><li>Kibana y Elastic APM para monitorización y observabilidad.</li></ol><p><strong>Ficheros clave:</strong> <code>template.pkr.hcl</code> (Packer), <code>main.tf</code> + <code>variables.tf</code> (Terraform), <code>playbook.yml</code> (Ansible).</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es RUM (Real User Monitoring) en Elastic APM?",
+    "a": "<p><strong>RUM</strong> (Real User Monitoring) es un tipo de monitorización de APM orientada al <strong>lado del cliente (navegador)</strong>, a diferencia del APM tradicional que mide el rendimiento del servidor.</p><p>Funciona inyectando un agente JavaScript ligero en las páginas web. Este agente captura métricas reales de los usuarios finales: tiempo de carga de página, latencia de recursos estáticos, errores JavaScript en el cliente y distribución geográfica de los tiempos de carga. Permite detectar problemas de rendimiento frontend que no son visibles desde el backend.</p>"
+  }
+]

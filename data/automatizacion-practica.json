@@ -1,0 +1,111 @@
+[
+  {
+    "id": "puppet-modulo-basico",
+    "title": "Módulo Puppet: variable, fichero, servicio y directorio",
+    "category": "Puppet",
+    "enunciado": "Escribe el código fuente del fichero principal de un módulo Puppet llamado 'examen' que: (1) declare una variable 'namefile' con valor 'examen.pdf', (2) asegure que el fichero 'preguntas.pdf' de la carpeta files del módulo se copia a /home/vagrant/ con el nombre de la variable notificando al servicio 'empezar', (3) cree el directorio '/home/vagrant/respuestas', (4) descargue un fichero de 'https://unir.devops.es/respuestas.pdf' en ese directorio.",
+    "pistas": [
+      "La clase principal se llama igual que el módulo: class examen { }",
+      "Las variables en Puppet empiezan con $",
+      "Para copiar un fichero del módulo: source => 'puppet:///modules/examen/preguntas.pdf'",
+      "notify => Service['nombre'] dispara el reinicio del servicio",
+      "ensure => directory para crear un directorio",
+      "ensure => file y source => 'https://...' para descargar un fichero remoto",
+      "El nombre del fichero destino va en el título del recurso file"
+    ],
+    "solucion": "class examen {\n  $namefile = 'examen.pdf'\n\n  file { \"/home/vagrant/${namefile}\":\n    ensure => file,\n    source => 'puppet:///modules/examen/preguntas.pdf',\n    notify => Service['empezar'],\n  }\n\n  file { '/home/vagrant/respuestas':\n    ensure => directory,\n    mode   => '0755',\n  }\n\n  file { '/home/vagrant/respuestas/respuestas.pdf':\n    ensure  => file,\n    source  => 'https://unir.devops.es/respuestas.pdf',\n    require => File['/home/vagrant/respuestas'],\n  }\n\n  service { 'empezar':\n    ensure => running,\n    enable => true,\n  }\n}",
+    "explicacion": "La clase se declara con el mismo nombre que el módulo (class examen). La variable $namefile se usa en la interpolación \"${namefile}\" para el título del recurso file. source => 'puppet:///modules/examen/preguntas.pdf' referencia el fichero estático desde la carpeta files/ del módulo. notify => Service['empezar'] establece una relación de notificación: si el fichero cambia, el servicio se reinicia. ensure => directory crea el directorio. require => File['/home/vagrant/respuestas'] garantiza que el directorio existe antes de intentar crear el fichero dentro. service { 'empezar' } gestiona el servicio."
+  },
+  {
+    "id": "puppet-variable-directorio",
+    "title": "Puppet: recurso file para asegurar que un directorio existe",
+    "category": "Puppet",
+    "enunciado": "Escribe el código fuente de Puppet que asegure que el directorio '/home/algo/que/hacer' existe, es propiedad de root y tiene permisos 0755.",
+    "pistas": [
+      "Recurso file con ensure => 'directory'",
+      "owner y group para propietario",
+      "mode con el valor octal entre comillas: '0755'"
+    ],
+    "solucion": "file { '/home/algo/que/hacer':\n  ensure => 'directory',\n  owner  => 'root',\n  group  => 'root',\n  mode   => '0755',\n}",
+    "explicacion": "El recurso file con ensure => 'directory' garantiza que la ruta existe como directorio. Puppet crea todos los directorios intermedios si no existen. owner y group asignan el propietario y grupo del directorio. mode acepta valores octales entre comillas ('0755'): el 0 inicial indica notación octal, 7 (rwx) para el propietario, 5 (r-x) para grupo y otros. Este código es idempotente: si el directorio ya existe con los atributos correctos, Puppet no hace nada."
+  },
+  {
+    "id": "chef-attributes-unit-test",
+    "title": "Chef: attributes/default.rb y prueba unitaria con ChefSpec",
+    "category": "Chef",
+    "enunciado": "Escribe: (1) el código del fichero 'attributes/default.rb' del cookbook 'examen' que defina una variable 'namefile' con valor 'examen.pdf'. (2) Completa el test unitario ChefSpec que compruebe que se incluye la receta 'default' y que se ejecuta el comando 'mysql restore'.",
+    "pistas": [
+      "En attributes/default.rb la sintaxis es: default['cookbook']['atributo'] = 'valor'",
+      "En ChefSpec el bloque de test es: it 'descripción' do ... end",
+      "expect(chef_run).to include_recipe('cookbook::receta')",
+      "expect(chef_run).to run_execute('comando')",
+      "Recuerda el require 'chefspec' al inicio del fichero de spec"
+    ],
+    "solucion": "# attributes/default.rb\ndefault['examen']['namefile'] = 'examen.pdf'\n\n# spec/unit/recipes/default_spec.rb\nrequire 'chefspec'\n\ndescribe 'examen::default' do\n  let(:chef_run) { ChefSpec::SoloRunner.new.converge(described_recipe) }\n\n  it 'incluye la receta default y ejecuta mysql restore' do\n    expect(chef_run).to include_recipe('examen::default')\n    expect(chef_run).to run_execute('mysql restore')\n  end\nend",
+    "explicacion": "En attributes/default.rb la sintaxis default['cookbook']['atributo'] define el valor con la precedencia más baja. En ChefSpec: require 'chefspec' carga el framework. describe 'cookbook::recipe' define el contexto. let(:chef_run) usa SoloRunner para simular la convergencia en memoria sin tocar el sistema real. converge(described_recipe) ejecuta la simulación. it '...' do es cada caso de test. include_recipe verifica que la receta se incluye. run_execute verifica que el recurso execute con ese nombre se declara."
+  },
+  {
+    "id": "ansible-rol-dorsal",
+    "title": "Ansible: rol + playbook completo (caso del dorsal)",
+    "category": "Ansible",
+    "enunciado": "Implementa en Ansible un sistema para generar un fichero de dorsal para un campeonato. El playbook define 3 variables (nombre, apellidos, ciudad) y lee otras 2 (dorsal_min, dorsal_max) de un fichero externo natacion_vars.yml. El rol debe: crear el directorio /natacion/, obtener un número aleatorio de una API entre dorsal_min y dorsal_max, y generar el fichero /natacion/dorsal.txt con la plantilla indicada.",
+    "pistas": [
+      "vars_files en el playbook para leer el fichero externo",
+      "roles: lista los roles a ejecutar en el playbook",
+      "file: con state: directory para crear el directorio",
+      "uri: module para llamar a una API REST (method: GET)",
+      "register para guardar la respuesta de la API",
+      "set_fact para extraer el número: (response.content | from_json)[0]",
+      "template: module para procesar la plantilla Jinja2",
+      "La plantilla usa {{ variable }} para insertar valores"
+    ],
+    "solucion": "# Estructura de carpetas:\n# natacion/\n# ├── playbook.yml\n# ├── natacion_vars.yml\n# └── roles/dorsal/\n#     ├── tasks/main.yml\n#     └── templates/dorsal.txt.j2\n\n# natacion_vars.yml\n---\ndorsal_min: 1\ndorsal_max: 10000\n\n# playbook.yml\n---\n- name: Generar dorsal para campeonato de natación\n  hosts: localhost\n  connection: local\n  gather_facts: false\n  vars:\n    nombre: 'Melchor'\n    apellidos: 'Gaspar'\n    ciudad: 'Barcelona'\n  vars_files:\n    - natacion_vars.yml\n  roles:\n    - dorsal\n  post_tasks:\n    - name: Mostrar contenido del dorsal\n      command: cat /natacion/dorsal.txt\n      register: dorsal_content\n      changed_when: false\n    - name: Visualizar dorsal\n      debug:\n        msg: '{{ dorsal_content.stdout }}'\n\n# roles/dorsal/tasks/main.yml\n---\n- name: Crear directorio /natacion\n  file:\n    path: /natacion\n    state: directory\n    mode: '0755'\n  become: true\n\n- name: Obtener número aleatorio de la API\n  uri:\n    url: 'http://www.randomnumberapi.com/api/v1.0/random?min={{ dorsal_min }}&max={{ dorsal_max }}&count=1'\n    method: GET\n    return_content: true\n  register: random_response\n\n- name: Extraer número aleatorio\n  set_fact:\n    dorsal_numero: '{{ (random_response.content | from_json)[0] }}'\n\n- name: Generar fichero dorsal desde plantilla\n  template:\n    src: dorsal.txt.j2\n    dest: /natacion/dorsal.txt\n    mode: '0644'\n  become: true\n\n# roles/dorsal/templates/dorsal.txt.j2\n* DORSAL MARATON UNIR *\nNombre: {{ nombre }}\nApellidos: {{ apellidos }}\nCiudad: {{ ciudad }}\nPosicion: [{{ dorsal_numero }}]\nFecha {{ ansible_date_time.iso8601 | default(lookup('pipe', 'date')) }}\n\n# Comando para ejecutar:\n# ansible-playbook -i localhost, playbook.yml",
+    "explicacion": "vars define variables directamente en el playbook. vars_files carga variables desde un fichero externo YAML. roles lista los roles a ejecutar. gather_facts: false desactiva la recopilación de facts para acelerar. uri: llama a una API REST y register guarda la respuesta. from_json convierte el contenido de la respuesta a un objeto Python. set_fact crea una variable dinámica con el resultado. template: procesa la plantilla Jinja2 sustituyendo las variables con los valores reales. become: true eleva privilegios para crear el fichero en /natacion."
+  },
+  {
+    "id": "ansible-playbook-facts",
+    "title": "Ansible: playbook con facts, condicionales y handler",
+    "category": "Ansible",
+    "enunciado": "Escribe un playbook de Ansible que: instale el paquete correcto según la familia de SO (apt en Debian, yum en RedHat), cree un fichero de configuración desde una plantilla, y reinicie el servicio solo si el fichero cambió (usando un handler).",
+    "pistas": [
+      "ansible_os_family es el fact que distingue 'Debian' de 'RedHat'",
+      "when: ansible_os_family == 'Debian' para condiciones",
+      "handlers: al mismo nivel que tasks",
+      "notify: 'nombre del handler' en la tarea que puede disparar el reinicio",
+      "El handler solo se ejecuta una vez al final si fue notificado",
+      "template: module para generar el fichero desde plantilla"
+    ],
+    "solucion": "---\n- name: Instalar y configurar nginx según el SO\n  hosts: all\n  become: true\n  handlers:\n    - name: Reiniciar nginx\n      service:\n        name: nginx\n        state: restarted\n\n  tasks:\n    - name: Instalar nginx en Debian/Ubuntu\n      apt:\n        name: nginx\n        state: present\n        update_cache: true\n      when: ansible_os_family == 'Debian'\n\n    - name: Instalar nginx en RedHat/CentOS\n      yum:\n        name: nginx\n        state: present\n      when: ansible_os_family == 'RedHat'\n\n    - name: Desplegar fichero de configuración\n      template:\n        src: nginx.conf.j2\n        dest: /etc/nginx/nginx.conf\n        mode: '0644'\n      notify: 'Reiniciar nginx'\n\n    - name: Asegurar que nginx está iniciado y habilitado\n      service:\n        name: nginx\n        state: started\n        enabled: true",
+    "explicacion": "handlers es una sección especial al mismo nivel que tasks; los handlers se ejecutan una sola vez al final del play, incluso si son notificados varias veces. notify: 'Reiniciar nginx' envía una notificación al handler solo si la tarea template produce un cambio real en el fichero (idempotencia). when: ansible_os_family == 'Debian' usa el fact automático para condicionar la ejecución; Ansible aplica la tarea solo en hosts con esa familia de SO. Esto hace que el mismo playbook funcione en Ubuntu y CentOS sin modificaciones."
+  },
+  {
+    "id": "chef-serverspec-errores",
+    "title": "Chef: identificar errores en pruebas Serverspec",
+    "category": "Chef",
+    "enunciado": "Identifica los 5 errores en el siguiente fragmento de pruebas de integración en Chef con Serverspec:\n\nrequire 'spec_helper'\nif os[:family] = 'ubuntu'\n  describe packagel'apache2') do\n    it should be_installed\n  end\nend\ndescribe comand('ls -al /') do\n  its(:stdout) should match /bin/\nend\ndescribe servicel'mysql\") does\n  it should be_enabled\nend\ndescribe servicel'apache2') do\n  it should be_enabled\nend\ndescribe file('/etc/apache2/sites-available/wordpress.conf') do\n  it should exists\ndescribe file('/srv/www/wordpress/wp-config.php') do\n  it should contain 'wordpressdb'\nend",
+    "pistas": [
+      "Los operadores de comparación en Ruby: = asigna, == compara",
+      "describe acepta métodos, no texto arbitrario: package(...), service(...), command(...)",
+      "La sintaxis de it en RSpec: it { should matcher }",
+      "El bloque do...end siempre necesita su end de cierre",
+      "does no es una palabra clave Ruby, el bloque debe abrir con do"
+    ],
+    "solucion": "# ERRORES IDENTIFICADOS Y CORREGIDOS:\n\nrequire 'spec_helper'\n\n# ERROR 1: = debe ser == (comparación, no asignación)\nif os[:family] == 'ubuntu'\n\n  # ERROR 2: packagel'apache2' -> package('apache2') (falta paréntesis de apertura)\n  describe package('apache2') do\n    # ERROR 3: it should be_installed -> it { should be_installed } (falta bloque {})\n    it { should be_installed }\n  end\nend\n\n# ERROR 4: comand -> command (falta la 'd')\ndescribe command('ls -al /') do\n  its(:stdout) { should match /bin/ }\nend\n\n# ERROR 5: servicel'mysql\") does -> service('mysql') do (tipo mal escrito + does)\ndescribe service('mysql') do\n  it { should be_enabled }\nend\n\ndescribe service('apache2') do\n  it { should be_enabled }\nend\n\n# ERROR 6 (bonus): Falta end del primer describe file\ndescribe file('/etc/apache2/sites-available/wordpress.conf') do\n  it { should exist }  # exists -> exist\nend\n\ndescribe file('/srv/www/wordpress/wp-config.php') do\n  it { should contain 'wordpressdb' }\nend",
+    "explicacion": "Error 1: = en Ruby es asignación; la comparación es ==. Error 2: packagel'apache2' es sintaxis inválida; debe ser package('apache2') con paréntesis de apertura. Error 3: it should be_installed no es válido en RSpec moderno; debe ser it { should be_installed } con bloque. Error 4: comand es un typo; el método correcto es command. Error 5: servicel'mysql\") does tiene el método mal escrito (servicel) y does no es una palabra clave Ruby; debe ser service('mysql') do. Error 6 (bonus): falta el end de cierre del primer describe file y exists debe ser exist."
+  },
+  {
+    "id": "puppet-manifest-clase",
+    "title": "Puppet: variable y recurso file en un módulo",
+    "category": "Puppet",
+    "enunciado": "Escribe el fichero init.pp de la clase principal de un módulo Puppet llamado 'mi_app' que: (1) declare una variable 'puerto' con valor 8080, (2) asegure que el paquete 'nginx' está instalado, (3) gestione el fichero '/etc/nginx/nginx.conf' desde una plantilla, notificando al servicio 'nginx', y (4) gestione el servicio 'nginx' asegurando que está arrancado y habilitado.",
+    "pistas": [
+      "class mi_app { ... } es la clase principal",
+      "package { 'nombre': ensure => present }",
+      "El recurso file con content => template('modulo/fichero.erb')",
+      "notify => Service['nginx'] para notificar al servicio cuando cambia el fichero",
+      "service { 'nginx': ensure => running, enable => true }"
+    ],
+    "solucion": "class mi_app {\n  $puerto = 8080\n\n  package { 'nginx':\n    ensure => present,\n  }\n\n  file { '/etc/nginx/nginx.conf':\n    ensure  => file,\n    content => template('mi_app/nginx.conf.erb'),\n    require => Package['nginx'],\n    notify  => Service['nginx'],\n  }\n\n  service { 'nginx':\n    ensure  => running,\n    enable  => true,\n    require => Package['nginx'],\n  }\n}",
+    "explicacion": "La variable $puerto puede usarse en la plantilla nginx.conf.erb con <%= @puerto %>. package { 'nginx': ensure => present } garantiza que el paquete esté instalado. El recurso file usa content => template(...) para generar el contenido dinámicamente desde la plantilla. require => Package['nginx'] establece que el paquete debe instalarse primero. notify => Service['nginx'] provoca el reinicio del servicio si el fichero cambia. service { 'nginx': ensure => running } mantiene el servicio activo; enable => true lo habilita para arrancar con el sistema."
+  }
+]

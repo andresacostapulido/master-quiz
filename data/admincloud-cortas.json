@@ -1,0 +1,77 @@
+[
+  {
+    "ext": "8 líneas",
+    "q": "Nombra al menos 3 herramientas de Linux para monitorizar el rendimiento del sistema y descríbelas brevemente.",
+    "a": "<p><strong>top / htop:</strong> monitorizan procesos en tiempo real. <code>htop</code> es una versión mejorada y más amigable con interfaz de colores.</p><p><strong>free:</strong> monitor de memoria simple, muestra el uso de RAM y swap de forma clara con <code>free -h</code>.</p><p><strong>netstat / ss:</strong> monitorizan la red. <code>ss</code> es el reemplazo moderno de netstat, más rápido y eficiente.</p><p><strong>ps -aux:</strong> el visor de procesos por excelencia, muestra información sobre los procesos en ejecución con PID, CPU y memoria.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Nombra y describe al menos 3 herramientas de administración de sistema en un entorno Windows.",
+    "a": "<p><strong>Administrador de tareas (Task Manager):</strong> herramienta gráfica que muestra información detallada sobre los procesos, rendimiento del sistema, servicios y aplicaciones en ejecución.</p><p><strong>Visor de eventos (Event Viewer):</strong> permite visualizar y gestionar los logs del sistema, aplicaciones y seguridad. Fundamental para troubleshooting y auditoría.</p><p><strong>Monitor de recursos (Resource Monitor):</strong> proporciona información detallada en tiempo real sobre el uso de recursos del sistema, permitiendo identificar cuellos de botella.</p><p><strong>TCPView (Sysinternals):</strong> equivalente gráfico a netstat que muestra en tiempo real todas las conexiones TCP y UDP activas del sistema mapeándolas por proceso.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué diferencia hay entre capturar una imagen en AWS y en Azure?",
+    "a": "<p>En <strong>AWS</strong>, al crear una AMI a partir de una instancia EC2, la instancia original sigue funcionando y en ejecución; el proceso genera un snapshot de los volúmenes EBS en segundo plano sin interrumpir el servicio.</p><p>En <strong>Azure</strong>, el proceso de captura suele <em>destruir o desasignar</em> la VM original, ya que es necesario ejecutar Sysprep previamente para generalizarla, lo que apaga e invalida la máquina original de forma permanente.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué herramienta se usa en Windows para preparar una imagen antes de capturarla? ¿Con qué parámetro se generaliza?",
+    "a": "<p>La herramienta es <strong>Sysprep</strong> (System Preparation Tool), ubicada en <code>C:\\Windows\\System32\\Sysprep\\sysprep.exe</code>.</p><p>El parámetro clave es <code>/generalize</code>, que elimina toda la información única del hardware (SID, nombre de host, controladores de dispositivos específicos) para que la imagen sea portable y pueda desplegarse en cualquier máquina sin conflictos de identidad en la red.</p><p>Habitualmente se combina con <code>/oobe /shutdown</code>: <code>sysprep.exe /generalize /oobe /shutdown</code>.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Cuál es el orden de aplicación de las Directivas de Grupo (GPO) en Active Directory?",
+    "a": "<p>El orden de aplicación de GPOs sigue el acrónimo <strong>LSDU</strong>:</p><ol><li><strong>L</strong>ocal: directivas locales de la propia máquina</li><li><strong>S</strong>itio: directivas aplicadas al sitio de AD</li><li><strong>D</strong>ominio: directivas aplicadas a nivel de dominio</li><li><strong>OU</strong> (Unidad Organizativa): directivas aplicadas a la OU contenedora del objeto</li></ol><p>En caso de conflicto, la última en aplicarse tiene precedencia. Por tanto, la OU tiene la mayor prioridad al ser la última capa aplicada.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "Si hay un conflicto entre una GPO de Dominio y una de Unidad Organizativa (OU), ¿cuál prevalece y por qué?",
+    "a": "<p>Prevalece la GPO de la <strong>OU</strong>, porque es la última configuración aplicada en el orden LSDU (Local → Sitio → Dominio → OU).</p><p>La configuración de las directivas de grupo es <em>acumulativa</em> por defecto: se aplican todas las capas a menos que haya una contradicción explícita entre ellas. Cuando existe conflicto directo, la última en aplicarse (la de la OU) sobrescribe la anterior (la del Dominio).</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Cómo se configura la herencia de directivas por defecto en las GPO? ¿Cómo se puede bloquear?",
+    "a": "<p>Por defecto, la herencia es <strong>acumulativa</strong>: las directivas de los niveles superiores (Dominio, Sitio) se propagan hacia abajo y se acumulan en los niveles inferiores (OUs hijas).</p><p>Para bloquear la herencia en una OU concreta se usa la opción <strong>Block Inheritance</strong>, que impide que las GPOs de niveles superiores se apliquen en esa OU. Si una GPO superior está marcada como <strong>Enforced</strong>, no puede ser bloqueada por el bloqueo de herencia de una OU inferior.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿A qué tipos de objetos se aplican las directivas de una GPO en Active Directory?",
+    "a": "<p>Las GPOs se aplican exclusivamente a dos tipos de objetos:</p><ul><li><strong>Equipos (Computer objects)</strong>: las directivas de la sección <em>Configuración del Equipo</em> se aplican al sistema operativo durante el arranque de la máquina.</li><li><strong>Usuarios (User objects)</strong>: las directivas de la sección <em>Configuración del Usuario</em> se aplican al perfil del usuario durante el inicio de sesión.</li></ul><p>Grupos, contactos y OUs no procesan directamente las directivas de grupo.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "Define los modos de ejecución de Windows Server (modos de instalación). Describe brevemente cada uno.",
+    "a": "<p><strong>Windows Server with Desktop Experience:</strong> instalación completa con interfaz gráfica de usuario (GUI) tradicional. Mayor consumo de recursos, indicado cuando se requiere administración gráfica local.</p><p><strong>Server Core:</strong> instalación mínima sin interfaz gráfica de escritorio. Se administra de forma remota mediante PowerShell, Server Manager y consolas MMC. Menor consumo de recursos y menor superficie de ataque.</p><p><strong>Nano Server:</strong> instalación ultraligera diseñada para ejecutarse como imagen base de contenedores o máquinas virtuales invitadas. No soporta RDP ni inicio de sesión interactivo local. Administración exclusivamente mediante PowerShell Remoting o WMI.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "Explica el modelo de responsabilidad compartida en seguridad en la nube (Shared Responsibility Model).",
+    "a": "<p>En el modelo de responsabilidad compartida, la seguridad en la nube se divide entre el proveedor y el cliente:</p><ul><li><strong>El proveedor</strong> (AWS, Azure, GCP) es responsable de la seguridad <em>de</em> la nube: hardware físico, instalaciones, red física, hipervisores e infraestructura base.</li><li><strong>El cliente</strong> es responsable de la seguridad <em>en</em> la nube: sistema operativo, configuración de red, grupos de seguridad, identidades (IAM), datos y aplicaciones desplegadas.</li></ul><p>El límite de responsabilidad varía según el modelo de servicio: cuanto más gestionado es el servicio (SaaS &gt; PaaS &gt; IaaS), más responsabilidad asume el proveedor.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es el modelo Pets vs. Cattle (mascotas vs. ganado) en infraestructura cloud? ¿Por qué es relevante en DevOps?",
+    "a": "<p><strong>Mascotas (Pets):</strong> servidores tratados como únicos e irremplazables. Se parchean y actualizan manualmente en caliente. Si fallan, se reparan. Son propios del modelo tradicional on-premise.</p><p><strong>Ganado (Cattle):</strong> servidores intercambiables y efímeros. Si fallan o necesitan actualización, se destruyen y se reemplazan automáticamente por nuevos con la configuración correcta. Son la base del diseño cloud-native.</p><p>En DevOps es clave porque el modelo Cattle permite infraestructura inmutable, autoescalado y despliegues reproducibles sin configuration drift.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es una AMI (Amazon Machine Image)? ¿Qué contiene y qué NO contiene?",
+    "a": "<p>Una AMI es una plantilla de disco virtual que contiene: sistema operativo instalado, software preconfigurado, parches y aplicaciones. Es el «molde» a partir del cual se lanzan instancias EC2.</p><p><strong>No contiene:</strong> el tipo de instancia (tamaño de CPU/RAM), las opciones de red (VPC, subred, IP), las etiquetas (tags) ni las reglas de seguridad. Estos parámetros se configuran de forma independiente en el momento del lanzamiento.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es la disponibilidad en la nube? ¿Cómo se mide?",
+    "a": "<p>La disponibilidad es el porcentaje del tiempo en que una aplicación o servicio está operativo y accesible para los usuarios. Se expresa mediante el concepto de <strong>«nueves»</strong>:</p><ul><li>99% ≈ 3.65 días de caída al año</li><li>99.9% ≈ 8.76 horas de caída al año</li><li>99.99% ≈ 52.6 minutos de caída al año</li></ul><p>Ningún proveedor garantiza el 100%. Para lograr alta disponibilidad se usan estrategias como despliegues Multi-AZ (múltiples Zonas de Disponibilidad), balanceo de carga y autoescalado.</p>"
+  },
+  {
+    "ext": "4 líneas",
+    "q": "¿Qué es un entorno híbrido en cloud? ¿Cuándo se suele utilizar?",
+    "a": "<p>Un entorno híbrido es aquel en el que <strong>parte de los recursos residen en la infraestructura física de la empresa</strong> (on-premise o datacenter propio) y <strong>parte residen en la nube pública</strong>.</p><p>Se utiliza típicamente cuando: hay datos o aplicaciones que no pueden migrarse a la nube por regulaciones legales o de cumplimiento (bancos, sanidad), cuando se está en proceso de migración gradual a la nube, o cuando se quiere usar la nube para cargas de trabajo elásticas manteniendo sistemas críticos en local.</p>"
+  },
+  {
+    "ext": "8 líneas",
+    "q": "¿Cuáles son los 3 modos de inicio (startup types) de los servicios en Windows Server y qué significa cada uno?",
+    "a": "<p><strong>Automático (Automatic):</strong> el servicio se inicia automáticamente cuando arranca el sistema operativo, sin intervención del usuario. Variante <em>Automatic (Delayed Start)</em>: se inicia automáticamente pero con un retraso para mejorar el rendimiento del arranque.</p><p><strong>Manual:</strong> el servicio no se inicia con el sistema; solo arranca cuando una aplicación o el administrador lo solicita explícitamente.</p><p><strong>Deshabilitado (Disabled):</strong> el servicio está completamente desactivado y no puede iniciarse ni automática ni manualmente hasta que se cambie su estado.</p>"
+  }
+]

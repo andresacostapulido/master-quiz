@@ -83,6 +83,11 @@ async function selectSubject(subject) {
         return;
     }
     
+    if (mode === 'practica') {
+        startPracticaMode(subject);
+        return;
+    }
+    
     if (mode === 'esqueletos') {
         startSkeletonsMode(subject);
         return;
@@ -708,6 +713,22 @@ async function startCasesMode(subject) {
         casesData = await response.json();
     } catch (error) {
         alert('No hay casos prácticos disponibles para esta asignatura.');
+        return;
+    }
+    
+    casesIndex = 0;
+    document.getElementById('subject-selector').classList.add('hidden');
+    document.getElementById('cases-content').classList.remove('hidden');
+    renderCase();
+}
+
+async function startPracticaMode(subject) {
+    try {
+        const response = await fetch(`data/${subject}-practica.json`);
+        if (!response.ok) throw new Error('No hay prácticas disponibles');
+        casesData = await response.json();
+    } catch (error) {
+        alert('No hay ejercicios prácticos disponibles para esta asignatura.');
         return;
     }
     
