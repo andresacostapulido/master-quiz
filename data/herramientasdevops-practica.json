@@ -1,0 +1,70 @@
+[
+  {
+    "id": "logstash-pipeline",
+    "title": "Logstash: leer y explicar un pipeline",
+    "category": "ELK",
+    "enunciado": "Lee el siguiente pipeline de Logstash y explica qué hace cada sección (input, filter, output):\n\ninput {\n  file {\n    path => \"/var/log/app.log\"\n    start_position => \"beginning\"\n  }\n}\nfilter {\n  grok {\n    match => { \"message\" => \"%{TIMESTAMP_ISO8601:timestamp} %{LOGLEVEL:level} %{GREEDYDATA:msg}\" }\n  }\n}\noutput {\n  elasticsearch {\n    hosts => [\"localhost:9200\"]\n    index => \"app-logs\"\n  }\n  stdout { codec => rubydebug }\n}",
+    "pistas": [
+      "input define de dónde vienen los datos",
+      "file { path } lee un fichero de log en disco",
+      "start_position 'beginning' lee desde el inicio del fichero",
+      "filter transforma o parsea los datos antes de enviarlos",
+      "grok analiza el texto con patrones predefinidos",
+      "output define a dónde van los datos procesados",
+      "stdout con rubydebug muestra los eventos en consola para depuración"
+    ],
+    "solucion": "# INPUT:\n# Lee el fichero /var/log/app.log desde el principio.\n# Cada línea nueva del fichero se convierte en un evento.\n\n# FILTER:\n# grok parsea el campo 'message' usando patrones predefinidos:\n# - %{TIMESTAMP_ISO8601:timestamp} extrae la fecha/hora al campo 'timestamp'\n# - %{LOGLEVEL:level} extrae el nivel de log (INFO, ERROR...) al campo 'level'\n# - %{GREEDYDATA:msg} captura el resto del mensaje al campo 'msg'\n# Resultado: un evento JSON estructurado en lugar de texto plano\n\n# OUTPUT:\n# 1. elasticsearch: envía los eventos al índice 'app-logs' en localhost:9200\n# 2. stdout: muestra los eventos en consola en formato rubydebug\n#    (útil para depuración, se quitaría en producción)",
+    "explicacion": "Logstash tiene siempre 3 secciones: input (origen), filter (transformación) y output (destino). El input file lee logs de disco. grok es el filtro más potente: usa expresiones regulares predefinidas (TIMESTAMP_ISO8601, LOGLEVEL, GREEDYDATA) para convertir texto plano en campos JSON estructurados. El output envía a Elasticsearch y además a stdout para debug."
+  },
+  {
+    "id": "ventajas-devops",
+    "title": "Desarrollo: ventajas de DevOps",
+    "category": "Teoría",
+    "enunciado": "Explica las ventajas de utilizar DevOps en el desarrollo y operación de software.",
+    "pistas": [
+      "Entregas más rápidas: CI/CD reduce el time-to-market",
+      "Mayor calidad: automatización de pruebas detecta errores antes",
+      "Menos riesgo: despliegues pequeños = menor blast radius",
+      "Mayor disponibilidad: monitorización continua + respuesta rápida",
+      "Colaboración: elimina los silos entre Dev y Ops",
+      "Reproducibilidad: IaC garantiza entornos idénticos"
+    ],
+    "solucion": "1. Entregas más rápidas\n   CI/CD automatiza build, test y deploy. Ciclos cortos\n   reducen el time-to-market.\n\n2. Mayor calidad\n   Las pruebas automáticas detectan errores antes de llegar\n   a producción, reduciendo el coste de los fallos.\n\n3. Menor riesgo (blast radius reducido)\n   Despliegues frecuentes y pequeños limitan el impacto\n   de cada cambio frente a grandes actualizaciones.\n\n4. Mayor disponibilidad\n   Monitorización continua (ELK, APM) permite responder\n   rápido ante incidencias y mantener el SLO.\n\n5. Colaboración\n   Elimina los silos entre Desarrollo y Operaciones.\n   Responsabilidad compartida sobre el producto.\n\n6. Reproducibilidad\n   La infraestructura como código (Terraform, Packer)\n   garantiza entornos idénticos en dev, staging y producción.",
+    "explicacion": "Las ventajas de DevOps se agrupan en 6 áreas clave. En el examen se esperan al menos 3-4 bien desarrolladas. Lo importante es conectar cada ventaja con una práctica concreta: CI/CD para velocidad, IaC para reproducibilidad, monitorización para disponibilidad, pruebas automáticas para calidad."
+  },
+  {
+    "id": "packer-mean-multinube",
+    "title": "Práctica: despliegue MEAN con Packer en dos nubes",
+    "category": "Packer + Terraform + Ansible",
+    "enunciado": "Desarrolla el despliegue de una aplicación con stack MEAN usando Packer para desplegar simultáneamente en AWS y Azure. Incluye: (1) fases del ciclo DevOps, (2) herramientas a usar, (3) orden de despliegue, (4) ejemplo de ficheros, (5) configuración por nube, (6) mejoras.",
+    "pistas": [
+      "Ciclo DevOps: Plan > Code > Build > Test > Release > Deploy > Operate > Monitor",
+      "Herramientas: GitLab CI/CD, Packer, Terraform, Ansible, ELK",
+      "Packer genera las imágenes (AMI en AWS, imagen en Azure) en paralelo",
+      "Terraform despliega la infraestructura usando esas imágenes",
+      "Ansible aprovisiona el software dentro de las imágenes durante el build de Packer",
+      "packer build + terraform apply son los comandos clave",
+      "AWS necesita: IAM, VPC, subredes, Security Groups, key pair",
+      "Azure necesita: grupo de recursos, suscripción, red virtual, NSG"
+    ],
+    "solucion": "# 1. FASES DEL CICLO DEVOPS\nPlan     -> requisitos, planificación de sprints\nCode     -> desarrollo, ramas en GitLab\nBuild    -> pruebas unitarias, packer validate, terraform validate\nRelease  -> empaquetar versión, subir al registry\nDeploy   -> packer build + terraform apply en AWS y Azure\nOperate  -> producto operativo\nMonitor  -> observabilidad con ELK (logs, trazas, métricas)\n\n# 2. HERRAMIENTAS\nGitLab CI/CD -> pipeline automático con cada MR\nPacker       -> genera AMI (AWS) e imagen (Azure) en paralelo\nTerraform    -> infraestructura inmutable en AWS y Azure\nAnsible      -> aprovisiona Node.js, MongoDB, PHP dentro de Packer\nElasticSearch-> observabilidad, logs y métricas con Kibana\n\n# 3. ORDEN DE DESPLIEGUE\n1. commit + Merge Request en GitLab\n2. pipeline: pruebas unitarias y validaciones\n3. packer validate && packer build  (genera AMI + imagen Azure)\n4. terraform init && terraform plan && terraform apply\n5. deploy en AWS y Azure con las imágenes generadas\n6. smoke tests y health checks\n7. monitorización con Kibana\n\n# 4. FICHEROS CLAVE\n\n# template.pkr.hcl (Packer)\nbuild {\n  sources = [\"source.amazon-ebs.web\", \"source.azure-arm.web\"]\n  provisioner \"ansible\" {\n    playbook_file = \"./ansible/playbook.yml\"\n  }\n}\n\n# variables.json (Packer)\n{\n  \"aws_region\": \"us-east-1\",\n  \"azure_location\": \"eastus\",\n  \"azure_client_id\": \"xxx\",\n  \"azure_client_secret\": \"xxx\"\n}\n\n# ansible/playbook.yml\n- hosts: all\n  become: true\n  tasks:\n    - apt: name={{ item }} state=present\n      loop: [nodejs, mongodb, php, nginx]\n\n# terraform/main.tf\nmodule \"aws\"   { source = \"./modules/aws\" }\nmodule \"azure\" { source = \"./modules/azure\" }\n\n# 5. CONFIGURACIÓN POR NUBE\n\n# AWS:\n# - IAM con permisos de creación de instancias\n# - VPC, subredes públicas/privadas, Security Groups\n# - Key pair para SSH\n# - AWS CLI instalado\n\n# Azure:\n# - Grupo de recursos creado\n# - ID de suscripción\n# - Red virtual y NSG\n# - Service Principal con permisos\n# - Azure CLI instalado\n\n# 6. MEJORAS\n# - Pruebas de seguridad en el pipeline (SAST)\n# - Autoescalado en ambas nubes\n# - Almacenamiento de secretos en Vault / Key Vault\n# - Segmentación de redes por capas\n# - Documentación y feedback al equipo",
+    "explicacion": "Esta es la pregunta práctica de 5 puntos. Los criterios de evaluación son: ciclo DevOps completo, justificación de herramientas, orden correcto del despliegue, ejemplos de ficheros coherentes entre sí, configuración específica por nube y mejoras propuestas. No se exige código perfecto sino que demuestres que entiendes cómo encajan las piezas: Packer genera la imagen, Terraform la despliega, Ansible la configura por dentro, ELK la monitoriza."
+  },
+  {
+    "id": "beats-descripcion",
+    "title": "Teoría: qué son los Beats y los más utilizados",
+    "category": "ELK",
+    "enunciado": "¿Qué son los Beats? Nombra los más utilizados con una descripción breve y un ejemplo de uso.",
+    "pistas": [
+      "Beats son agentes ligeros escritos en Go",
+      "Se instalan en el servidor origen y envían datos a Elasticsearch o Logstash",
+      "Filebeat: logs de ficheros",
+      "Metricbeat: métricas del sistema",
+      "Packetbeat: tráfico de red",
+      "Heartbeat: disponibilidad de endpoints",
+      "Winlogbeat: eventos de Windows"
+    ],
+    "solucion": "Los Beats son agentes ligeros (escritos en Go) que se instalan\nen los servidores origen para recolectar datos y enviarlos a\nElasticsearch o Logstash. Bajo consumo de recursos frente a Logstash.\n\nMás utilizados:\n\nFilebeat\n  Captura logs de ficheros de texto línea a línea.\n  Ejemplo: recoger logs de /var/log/nginx/access.log\n\nMetricbeat\n  Recopila métricas del sistema: CPU, RAM, disco, red.\n  Ejemplo: monitorizar el uso de CPU de un servidor EC2\n\nPacketbeat\n  Analiza el tráfico de red en tiempo real a nivel de paquetes.\n  Ejemplo: detectar latencia entre microservicios\n\nHeartbeat\n  Monitoriza la disponibilidad de endpoints (HTTP, TCP, ICMP).\n  Ejemplo: comprobar cada 30s que la API devuelve HTTP 200\n\nWinlogbeat\n  Captura eventos del Visor de Eventos de Windows.\n  Ejemplo: recoger eventos de seguridad del Active Directory\n\nAuditbeat\n  Audita actividad de usuarios e integridad de ficheros (FIM).\n  Ejemplo: detectar cambios en /etc/passwd",
+    "explicacion": "En el examen se piden los Beats más utilizados con descripción breve y ejemplo. Con Filebeat, Metricbeat, Heartbeat y Winlogbeat es suficiente. Lo clave es saber que son ligeros (Go, bajo consumo), que se diferencian de Logstash (que es pesado y transforma datos), y que se configuran con un único fichero YAML."
+  }
+]
